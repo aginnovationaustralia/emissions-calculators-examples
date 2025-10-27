@@ -1,0 +1,8 @@
+templateDir: templates
+files:
+  Configuration.mustache:
+    templateType: SupportingFiles
+    destinationFilename: lib/Configuration.php
+  api.mustache:
+    templateType: API
+    destinationFilename: .php
