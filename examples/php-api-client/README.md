@@ -14,19 +14,6 @@ php example.php
 
 ## Code generation
 
-The PHP API client has been generated using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) tool. The generation can be reproduced with a script like:
+The PHP API client has been generated using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) tool. The generation can be reproduced by running [generate.sh](./generate.sh). If you supply your mTLS certificate files correctly (you can place them in the resources folder and they will be copied in) the generation script should be able to execute the sample test successfully.
 
-```
-API_CLIENT_DIR=api-client
-API_VERSION=3.0.0
-rm -rf $API_CLIENT_DIR
-
-npm -g install @openapitools/openapi-generator-cli
-openapi-generator-cli generate \
-  -i https://d2awla29kxgk7i.cloudfront.net/api/$API_VERSION/openapi.json \
-  -g php \
-  -o $API_CLIENT_DIR \
-  --global-property apiTests=false,apiDocs=false,modelTests=false,modelDocs=false
-```
-
-For now, the PHP generator does not support all the configuration needed for an mTLS connection out of the box. Several fixes have been applied to the generated code in the `api-client` folder to let this work end to end. Once this [PR](https://github.com/OpenAPITools/openapi-generator/pull/22229) has been merged and released, it will be possible to make requests via mTLS without any code changes to the generated PHP client code needed.
+For now, the PHP generator does not support all the configuration needed for an mTLS connection out of the box. Several fixes have been applied to the generated code in the `api-client` folder to let this work end to end, using [user defined templates](https://openapi-generator.tech/docs/customization#user-defined-templates). Once this [PR](https://github.com/OpenAPITools/openapi-generator/pull/22229) has been merged and released, it will be possible to make requests via mTLS without any code changes to the generated PHP client code needed.
