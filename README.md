@@ -4,9 +4,11 @@ This repo contains examples and sample code that make it easy to start working w
 
 # Examples
 
-The repo currently includes fully documented and automatically generated API clients for C#, Javascript, PHP and Python. See each example folder for detailed documentation. The goal is to supply scripts that allow you to either:
-- use the example clients available here directly
+The repo currently includes fully documented and automatically generated API clients for C#, JavaScript, PHP and Python. See each example folder for detailed documentation. The goal is to supply scripts that allow you to either:
+- use the source code in the example clients straight away
 - code generate your own client for working with the API
+
+Each example has a script that can run and execute a succesful calculation, they typically jsut require configuring your client certificate files. They also include a script that is generating the client directly from the OpenAPI file for the API.
 
 # Contributing and support
 
