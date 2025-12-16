@@ -27,13 +27,6 @@ import {
     PostGrains200ResponseIntermediateInnerIntensitiesWithSequestrationToJSON,
     PostGrains200ResponseIntermediateInnerIntensitiesWithSequestrationToJSONTyped,
 } from './PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration';
-import type { PostAquaculture200ResponseIntermediateInnerCarbonSequestration } from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
-import {
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSONTyped,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSONTyped,
-} from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
 import type { PostAquaculture200ResponseNet } from './PostAquaculture200ResponseNet';
 import {
     PostAquaculture200ResponseNetFromJSON,
@@ -41,6 +34,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostCotton200ResponseScope3 } from './PostCotton200ResponseScope3';
 import {
     PostCotton200ResponseScope3FromJSON,
@@ -100,10 +100,10 @@ export interface PostGrains200ResponseIntermediateInner {
     net: PostAquaculture200ResponseNet;
     /**
      * 
-     * @type {PostAquaculture200ResponseIntermediateInnerCarbonSequestration}
+     * @type {PostAquaculture200ResponseCarbonSequestration}
      * @memberof PostGrains200ResponseIntermediateInner
      */
-    carbonSequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration;
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -136,7 +136,7 @@ export function PostGrains200ResponseIntermediateInnerFromJSONTyped(json: any, i
         'scope3': PostCotton200ResponseScope3FromJSON(json['scope3']),
         'intensitiesWithSequestration': PostGrains200ResponseIntermediateInnerIntensitiesWithSequestrationFromJSON(json['intensitiesWithSequestration']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON(json['carbonSequestration']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -157,7 +157,7 @@ export function PostGrains200ResponseIntermediateInnerToJSONTyped(value?: PostGr
         'scope3': PostCotton200ResponseScope3ToJSON(value['scope3']),
         'intensitiesWithSequestration': PostGrains200ResponseIntermediateInnerIntensitiesWithSequestrationToJSON(value['intensitiesWithSequestration']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON(value['carbonSequestration']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

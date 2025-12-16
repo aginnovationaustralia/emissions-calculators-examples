@@ -25,12 +25,6 @@ export interface PostAquaculture200ResponseCarbonSequestration {
      * @memberof PostAquaculture200ResponseCarbonSequestration
      */
     total: number;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof PostAquaculture200ResponseCarbonSequestration
-     */
-    intermediate: Array<number>;
 }
 
 /**
@@ -38,7 +32,6 @@ export interface PostAquaculture200ResponseCarbonSequestration {
  */
 export function instanceOfPostAquaculture200ResponseCarbonSequestration(value: object): value is PostAquaculture200ResponseCarbonSequestration {
     if (!('total' in value) || value['total'] === undefined) return false;
-    if (!('intermediate' in value) || value['intermediate'] === undefined) return false;
     return true;
 }
 
@@ -53,7 +46,6 @@ export function PostAquaculture200ResponseCarbonSequestrationFromJSONTyped(json:
     return {
         
         'total': json['total'],
-        'intermediate': json['intermediate'],
     };
 }
 
@@ -69,7 +61,6 @@ export function PostAquaculture200ResponseCarbonSequestrationToJSONTyped(value?:
     return {
         
         'total': value['total'],
-        'intermediate': value['intermediate'],
     };
 }
 

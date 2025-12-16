@@ -37,14 +37,12 @@ namespace Org.OpenAPITools.Model
         /// <param name="riceProducedTonnes">Rice produced in tonnes</param>
         /// <param name="riceExcludingSequestration">Rice emissions intensity excluding sequestration, in t-CO2e/t rice</param>
         /// <param name="riceIncludingSequestration">Rice emissions intensity including sequestration, in t-CO2e/t rice</param>
-        /// <param name="intensity">Emissions intensity of rice production. Deprecation note: Use &#x60;riceIncludingSequestration&#x60; instead</param>
         [JsonConstructor]
-        public PostRice200ResponseIntermediateInnerIntensities(decimal riceProducedTonnes, decimal riceExcludingSequestration, decimal riceIncludingSequestration, decimal intensity)
+        public PostRice200ResponseIntermediateInnerIntensities(decimal riceProducedTonnes, decimal riceExcludingSequestration, decimal riceIncludingSequestration)
         {
             RiceProducedTonnes = riceProducedTonnes;
             RiceExcludingSequestration = riceExcludingSequestration;
             RiceIncludingSequestration = riceIncludingSequestration;
-            Intensity = intensity;
             OnCreated();
         }
 
@@ -72,14 +70,6 @@ namespace Org.OpenAPITools.Model
         public decimal RiceIncludingSequestration { get; set; }
 
         /// <summary>
-        /// Emissions intensity of rice production. Deprecation note: Use &#x60;riceIncludingSequestration&#x60; instead
-        /// </summary>
-        /// <value>Emissions intensity of rice production. Deprecation note: Use &#x60;riceIncludingSequestration&#x60; instead</value>
-        [JsonPropertyName("intensity")]
-        [Obsolete]
-        public decimal Intensity { get; set; }
-
-        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -96,7 +86,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  RiceProducedTonnes: ").Append(RiceProducedTonnes).Append("\n");
             sb.Append("  RiceExcludingSequestration: ").Append(RiceExcludingSequestration).Append("\n");
             sb.Append("  RiceIncludingSequestration: ").Append(RiceIncludingSequestration).Append("\n");
-            sb.Append("  Intensity: ").Append(Intensity).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -138,7 +127,6 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> riceProducedTonnes = default;
             Option<decimal?> riceExcludingSequestration = default;
             Option<decimal?> riceIncludingSequestration = default;
-            Option<decimal?> intensity = default;
 
             while (utf8JsonReader.Read())
             {
@@ -164,9 +152,6 @@ namespace Org.OpenAPITools.Model
                         case "riceIncludingSequestration":
                             riceIncludingSequestration = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
-                        case "intensity":
-                            intensity = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
                         default:
                             break;
                     }
@@ -182,9 +167,6 @@ namespace Org.OpenAPITools.Model
             if (!riceIncludingSequestration.IsSet)
                 throw new ArgumentException("Property is required for class PostRice200ResponseIntermediateInnerIntensities.", nameof(riceIncludingSequestration));
 
-            if (!intensity.IsSet)
-                throw new ArgumentException("Property is required for class PostRice200ResponseIntermediateInnerIntensities.", nameof(intensity));
-
             if (riceProducedTonnes.IsSet && riceProducedTonnes.Value == null)
                 throw new ArgumentNullException(nameof(riceProducedTonnes), "Property is not nullable for class PostRice200ResponseIntermediateInnerIntensities.");
 
@@ -194,10 +176,7 @@ namespace Org.OpenAPITools.Model
             if (riceIncludingSequestration.IsSet && riceIncludingSequestration.Value == null)
                 throw new ArgumentNullException(nameof(riceIncludingSequestration), "Property is not nullable for class PostRice200ResponseIntermediateInnerIntensities.");
 
-            if (intensity.IsSet && intensity.Value == null)
-                throw new ArgumentNullException(nameof(intensity), "Property is not nullable for class PostRice200ResponseIntermediateInnerIntensities.");
-
-            return new PostRice200ResponseIntermediateInnerIntensities(riceProducedTonnes.Value!.Value!, riceExcludingSequestration.Value!.Value!, riceIncludingSequestration.Value!.Value!, intensity.Value!.Value!);
+            return new PostRice200ResponseIntermediateInnerIntensities(riceProducedTonnes.Value!.Value!, riceExcludingSequestration.Value!.Value!, riceIncludingSequestration.Value!.Value!);
         }
 
         /// <summary>
@@ -229,8 +208,6 @@ namespace Org.OpenAPITools.Model
             writer.WriteNumber("riceExcludingSequestration", postRice200ResponseIntermediateInnerIntensities.RiceExcludingSequestration);
 
             writer.WriteNumber("riceIncludingSequestration", postRice200ResponseIntermediateInnerIntensities.RiceIncludingSequestration);
-
-            writer.WriteNumber("intensity", postRice200ResponseIntermediateInnerIntensities.Intensity);
         }
     }
 }

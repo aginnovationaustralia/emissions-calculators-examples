@@ -27,38 +27,39 @@ using Org.OpenAPITools.Client;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// PostPoultry200ResponseIntermediateBroilersInner
+    /// Intermediate emissions calculation output for the Poultry (broilers) calculator
     /// </summary>
     public partial class PostPoultry200ResponseIntermediateBroilersInner : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostPoultry200ResponseIntermediateBroilersInner" /> class.
         /// </summary>
-        /// <param name="id">id</param>
+        /// <param name="id">Unique identifier for this Poultry (broilers) activity</param>
         /// <param name="scope1">scope1</param>
         /// <param name="scope2">scope2</param>
         /// <param name="scope3">scope3</param>
-        /// <param name="carbonSequestration">carbonSequestration</param>
         /// <param name="intensities">intensities</param>
         /// <param name="net">net</param>
+        /// <param name="carbonSequestration">carbonSequestration</param>
         [JsonConstructor]
-        public PostPoultry200ResponseIntermediateBroilersInner(string id, PostPoultry200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostPoultry200ResponseScope3 scope3, PostAquaculture200ResponseIntermediateInnerCarbonSequestration carbonSequestration, PostPoultry200ResponseIntermediateBroilersInnerIntensities intensities, PostAquaculture200ResponseNet net)
+        public PostPoultry200ResponseIntermediateBroilersInner(string id, PostPoultry200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostPoultry200ResponseScope3 scope3, PostPoultry200ResponseIntermediateBroilersInnerIntensities intensities, PostAquaculture200ResponseNet net, PostAquaculture200ResponseCarbonSequestration carbonSequestration)
         {
             Id = id;
             Scope1 = scope1;
             Scope2 = scope2;
             Scope3 = scope3;
-            CarbonSequestration = carbonSequestration;
             Intensities = intensities;
             Net = net;
+            CarbonSequestration = carbonSequestration;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier for this Poultry (broilers) activity
         /// </summary>
+        /// <value>Unique identifier for this Poultry (broilers) activity</value>
         [JsonPropertyName("id")]
         public string Id { get; set; }
 
@@ -81,12 +82,6 @@ namespace Org.OpenAPITools.Model
         public PostPoultry200ResponseScope3 Scope3 { get; set; }
 
         /// <summary>
-        /// Gets or Sets CarbonSequestration
-        /// </summary>
-        [JsonPropertyName("carbonSequestration")]
-        public PostAquaculture200ResponseIntermediateInnerCarbonSequestration CarbonSequestration { get; set; }
-
-        /// <summary>
         /// Gets or Sets Intensities
         /// </summary>
         [JsonPropertyName("intensities")]
@@ -97,6 +92,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonPropertyName("net")]
         public PostAquaculture200ResponseNet Net { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CarbonSequestration
+        /// </summary>
+        [JsonPropertyName("carbonSequestration")]
+        public PostAquaculture200ResponseCarbonSequestration CarbonSequestration { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -116,9 +117,9 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Scope1: ").Append(Scope1).Append("\n");
             sb.Append("  Scope2: ").Append(Scope2).Append("\n");
             sb.Append("  Scope3: ").Append(Scope3).Append("\n");
-            sb.Append("  CarbonSequestration: ").Append(CarbonSequestration).Append("\n");
             sb.Append("  Intensities: ").Append(Intensities).Append("\n");
             sb.Append("  Net: ").Append(Net).Append("\n");
+            sb.Append("  CarbonSequestration: ").Append(CarbonSequestration).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -161,9 +162,9 @@ namespace Org.OpenAPITools.Model
             Option<PostPoultry200ResponseScope1?> scope1 = default;
             Option<PostAquaculture200ResponseScope2?> scope2 = default;
             Option<PostPoultry200ResponseScope3?> scope3 = default;
-            Option<PostAquaculture200ResponseIntermediateInnerCarbonSequestration?> carbonSequestration = default;
             Option<PostPoultry200ResponseIntermediateBroilersInnerIntensities?> intensities = default;
             Option<PostAquaculture200ResponseNet?> net = default;
+            Option<PostAquaculture200ResponseCarbonSequestration?> carbonSequestration = default;
 
             while (utf8JsonReader.Read())
             {
@@ -192,14 +193,14 @@ namespace Org.OpenAPITools.Model
                         case "scope3":
                             scope3 = new Option<PostPoultry200ResponseScope3?>(JsonSerializer.Deserialize<PostPoultry200ResponseScope3>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "carbonSequestration":
-                            carbonSequestration = new Option<PostAquaculture200ResponseIntermediateInnerCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseIntermediateInnerCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
                         case "intensities":
                             intensities = new Option<PostPoultry200ResponseIntermediateBroilersInnerIntensities?>(JsonSerializer.Deserialize<PostPoultry200ResponseIntermediateBroilersInnerIntensities>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "net":
                             net = new Option<PostAquaculture200ResponseNet?>(JsonSerializer.Deserialize<PostAquaculture200ResponseNet>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "carbonSequestration":
+                            carbonSequestration = new Option<PostAquaculture200ResponseCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -219,14 +220,14 @@ namespace Org.OpenAPITools.Model
             if (!scope3.IsSet)
                 throw new ArgumentException("Property is required for class PostPoultry200ResponseIntermediateBroilersInner.", nameof(scope3));
 
-            if (!carbonSequestration.IsSet)
-                throw new ArgumentException("Property is required for class PostPoultry200ResponseIntermediateBroilersInner.", nameof(carbonSequestration));
-
             if (!intensities.IsSet)
                 throw new ArgumentException("Property is required for class PostPoultry200ResponseIntermediateBroilersInner.", nameof(intensities));
 
             if (!net.IsSet)
                 throw new ArgumentException("Property is required for class PostPoultry200ResponseIntermediateBroilersInner.", nameof(net));
+
+            if (!carbonSequestration.IsSet)
+                throw new ArgumentException("Property is required for class PostPoultry200ResponseIntermediateBroilersInner.", nameof(carbonSequestration));
 
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class PostPoultry200ResponseIntermediateBroilersInner.");
@@ -240,16 +241,16 @@ namespace Org.OpenAPITools.Model
             if (scope3.IsSet && scope3.Value == null)
                 throw new ArgumentNullException(nameof(scope3), "Property is not nullable for class PostPoultry200ResponseIntermediateBroilersInner.");
 
-            if (carbonSequestration.IsSet && carbonSequestration.Value == null)
-                throw new ArgumentNullException(nameof(carbonSequestration), "Property is not nullable for class PostPoultry200ResponseIntermediateBroilersInner.");
-
             if (intensities.IsSet && intensities.Value == null)
                 throw new ArgumentNullException(nameof(intensities), "Property is not nullable for class PostPoultry200ResponseIntermediateBroilersInner.");
 
             if (net.IsSet && net.Value == null)
                 throw new ArgumentNullException(nameof(net), "Property is not nullable for class PostPoultry200ResponseIntermediateBroilersInner.");
 
-            return new PostPoultry200ResponseIntermediateBroilersInner(id.Value!, scope1.Value!, scope2.Value!, scope3.Value!, carbonSequestration.Value!, intensities.Value!, net.Value!);
+            if (carbonSequestration.IsSet && carbonSequestration.Value == null)
+                throw new ArgumentNullException(nameof(carbonSequestration), "Property is not nullable for class PostPoultry200ResponseIntermediateBroilersInner.");
+
+            return new PostPoultry200ResponseIntermediateBroilersInner(id.Value!, scope1.Value!, scope2.Value!, scope3.Value!, intensities.Value!, net.Value!, carbonSequestration.Value!);
         }
 
         /// <summary>
@@ -288,14 +289,14 @@ namespace Org.OpenAPITools.Model
             if (postPoultry200ResponseIntermediateBroilersInner.Scope3 == null)
                 throw new ArgumentNullException(nameof(postPoultry200ResponseIntermediateBroilersInner.Scope3), "Property is required for class PostPoultry200ResponseIntermediateBroilersInner.");
 
-            if (postPoultry200ResponseIntermediateBroilersInner.CarbonSequestration == null)
-                throw new ArgumentNullException(nameof(postPoultry200ResponseIntermediateBroilersInner.CarbonSequestration), "Property is required for class PostPoultry200ResponseIntermediateBroilersInner.");
-
             if (postPoultry200ResponseIntermediateBroilersInner.Intensities == null)
                 throw new ArgumentNullException(nameof(postPoultry200ResponseIntermediateBroilersInner.Intensities), "Property is required for class PostPoultry200ResponseIntermediateBroilersInner.");
 
             if (postPoultry200ResponseIntermediateBroilersInner.Net == null)
                 throw new ArgumentNullException(nameof(postPoultry200ResponseIntermediateBroilersInner.Net), "Property is required for class PostPoultry200ResponseIntermediateBroilersInner.");
+
+            if (postPoultry200ResponseIntermediateBroilersInner.CarbonSequestration == null)
+                throw new ArgumentNullException(nameof(postPoultry200ResponseIntermediateBroilersInner.CarbonSequestration), "Property is required for class PostPoultry200ResponseIntermediateBroilersInner.");
 
             writer.WriteString("id", postPoultry200ResponseIntermediateBroilersInner.Id);
 
@@ -305,12 +306,12 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, postPoultry200ResponseIntermediateBroilersInner.Scope2, jsonSerializerOptions);
             writer.WritePropertyName("scope3");
             JsonSerializer.Serialize(writer, postPoultry200ResponseIntermediateBroilersInner.Scope3, jsonSerializerOptions);
-            writer.WritePropertyName("carbonSequestration");
-            JsonSerializer.Serialize(writer, postPoultry200ResponseIntermediateBroilersInner.CarbonSequestration, jsonSerializerOptions);
             writer.WritePropertyName("intensities");
             JsonSerializer.Serialize(writer, postPoultry200ResponseIntermediateBroilersInner.Intensities, jsonSerializerOptions);
             writer.WritePropertyName("net");
             JsonSerializer.Serialize(writer, postPoultry200ResponseIntermediateBroilersInner.Net, jsonSerializerOptions);
+            writer.WritePropertyName("carbonSequestration");
+            JsonSerializer.Serialize(writer, postPoultry200ResponseIntermediateBroilersInner.CarbonSequestration, jsonSerializerOptions);
         }
     }
 }

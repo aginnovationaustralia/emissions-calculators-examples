@@ -35,12 +35,10 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="PostAquaculture200ResponseCarbonSequestration" /> class.
         /// </summary>
         /// <param name="total">Annual amount of carbon sequestered, in tonnes-CO2e</param>
-        /// <param name="intermediate">intermediate</param>
         [JsonConstructor]
-        public PostAquaculture200ResponseCarbonSequestration(decimal total, List<decimal> intermediate)
+        public PostAquaculture200ResponseCarbonSequestration(decimal total)
         {
             Total = total;
-            Intermediate = intermediate;
             OnCreated();
         }
 
@@ -52,12 +50,6 @@ namespace Org.OpenAPITools.Model
         /// <value>Annual amount of carbon sequestered, in tonnes-CO2e</value>
         [JsonPropertyName("total")]
         public decimal Total { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Intermediate
-        /// </summary>
-        [JsonPropertyName("intermediate")]
-        public List<decimal> Intermediate { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -74,7 +66,6 @@ namespace Org.OpenAPITools.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostAquaculture200ResponseCarbonSequestration {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
-            sb.Append("  Intermediate: ").Append(Intermediate).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -114,7 +105,6 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<decimal?> total = default;
-            Option<List<decimal>?> intermediate = default;
 
             while (utf8JsonReader.Read())
             {
@@ -134,9 +124,6 @@ namespace Org.OpenAPITools.Model
                         case "total":
                             total = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
-                        case "intermediate":
-                            intermediate = new Option<List<decimal>?>(JsonSerializer.Deserialize<List<decimal>>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
                         default:
                             break;
                     }
@@ -146,16 +133,10 @@ namespace Org.OpenAPITools.Model
             if (!total.IsSet)
                 throw new ArgumentException("Property is required for class PostAquaculture200ResponseCarbonSequestration.", nameof(total));
 
-            if (!intermediate.IsSet)
-                throw new ArgumentException("Property is required for class PostAquaculture200ResponseCarbonSequestration.", nameof(intermediate));
-
             if (total.IsSet && total.Value == null)
                 throw new ArgumentNullException(nameof(total), "Property is not nullable for class PostAquaculture200ResponseCarbonSequestration.");
 
-            if (intermediate.IsSet && intermediate.Value == null)
-                throw new ArgumentNullException(nameof(intermediate), "Property is not nullable for class PostAquaculture200ResponseCarbonSequestration.");
-
-            return new PostAquaculture200ResponseCarbonSequestration(total.Value!.Value!, intermediate.Value!);
+            return new PostAquaculture200ResponseCarbonSequestration(total.Value!.Value!);
         }
 
         /// <summary>
@@ -182,13 +163,7 @@ namespace Org.OpenAPITools.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PostAquaculture200ResponseCarbonSequestration postAquaculture200ResponseCarbonSequestration, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (postAquaculture200ResponseCarbonSequestration.Intermediate == null)
-                throw new ArgumentNullException(nameof(postAquaculture200ResponseCarbonSequestration.Intermediate), "Property is required for class PostAquaculture200ResponseCarbonSequestration.");
-
             writer.WriteNumber("total", postAquaculture200ResponseCarbonSequestration.Total);
-
-            writer.WritePropertyName("intermediate");
-            JsonSerializer.Serialize(writer, postAquaculture200ResponseCarbonSequestration.Intermediate, jsonSerializerOptions);
         }
     }
 }

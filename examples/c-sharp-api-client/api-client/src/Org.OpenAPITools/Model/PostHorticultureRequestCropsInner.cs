@@ -55,10 +55,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="lpg">LPG Fuel usage in L (litres)</param>
         /// <param name="refrigerants">refrigerants</param>
         /// <param name="id">Unique identifier for this Horticulture activity</param>
-        /// <param name="ureaseInhibitorUsed">Urease inhibitor used. Deprecation note: No longer used (since v1.1.0)</param>
-        /// <param name="nitrificationInhibitorUsed">Nitrification inhibitor used. Deprecation note: No longer used (since v1.1.0)</param>
         [JsonConstructor]
-        public PostHorticultureRequestCropsInner(TypeEnum type, decimal averageYield, decimal areaSown, decimal ureaApplication, decimal nonUreaNitrogen, decimal ureaAmmoniumNitrate, decimal phosphorusApplication, decimal potassiumApplication, decimal sulfurApplication, bool rainfallAbove600, decimal fractionOfAnnualCropBurnt, decimal herbicideUse, decimal glyphosateOtherHerbicideUse, decimal electricityAllocation, decimal limestone, decimal limestoneFraction, decimal dieselUse, decimal petrolUse, decimal lpg, List<PostHorticultureRequestCropsInnerRefrigerantsInner> refrigerants, Option<string?> id = default, Option<bool?> ureaseInhibitorUsed = default, Option<bool?> nitrificationInhibitorUsed = default)
+        public PostHorticultureRequestCropsInner(TypeEnum type, decimal averageYield, decimal areaSown, decimal ureaApplication, decimal nonUreaNitrogen, decimal ureaAmmoniumNitrate, decimal phosphorusApplication, decimal potassiumApplication, decimal sulfurApplication, bool rainfallAbove600, decimal fractionOfAnnualCropBurnt, decimal herbicideUse, decimal glyphosateOtherHerbicideUse, decimal electricityAllocation, decimal limestone, decimal limestoneFraction, decimal dieselUse, decimal petrolUse, decimal lpg, List<PostHorticultureRequestCropsInnerRefrigerantsInner> refrigerants, Option<string?> id = default)
         {
             Type = type;
             AverageYield = averageYield;
@@ -81,8 +79,6 @@ namespace Org.OpenAPITools.Model
             Lpg = lpg;
             Refrigerants = refrigerants;
             IdOption = id;
-            UreaseInhibitorUsedOption = ureaseInhibitorUsed;
-            NitrificationInhibitorUsedOption = nitrificationInhibitorUsed;
             OnCreated();
         }
 
@@ -365,36 +361,6 @@ namespace Org.OpenAPITools.Model
         public string? Id { get { return this.IdOption; } set { this.IdOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of UreaseInhibitorUsed
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<bool?> UreaseInhibitorUsedOption { get; private set; }
-
-        /// <summary>
-        /// Urease inhibitor used. Deprecation note: No longer used (since v1.1.0)
-        /// </summary>
-        /// <value>Urease inhibitor used. Deprecation note: No longer used (since v1.1.0)</value>
-        [JsonPropertyName("ureaseInhibitorUsed")]
-        [Obsolete]
-        public bool? UreaseInhibitorUsed { get { return this.UreaseInhibitorUsedOption; } set { this.UreaseInhibitorUsedOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of NitrificationInhibitorUsed
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<bool?> NitrificationInhibitorUsedOption { get; private set; }
-
-        /// <summary>
-        /// Nitrification inhibitor used. Deprecation note: No longer used (since v1.1.0)
-        /// </summary>
-        /// <value>Nitrification inhibitor used. Deprecation note: No longer used (since v1.1.0)</value>
-        [JsonPropertyName("nitrificationInhibitorUsed")]
-        [Obsolete]
-        public bool? NitrificationInhibitorUsed { get { return this.NitrificationInhibitorUsedOption; } set { this.NitrificationInhibitorUsedOption = new(value); } }
-
-        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -429,8 +395,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Lpg: ").Append(Lpg).Append("\n");
             sb.Append("  Refrigerants: ").Append(Refrigerants).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  UreaseInhibitorUsed: ").Append(UreaseInhibitorUsed).Append("\n");
-            sb.Append("  NitrificationInhibitorUsed: ").Append(NitrificationInhibitorUsed).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -443,6 +407,96 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AverageYield (decimal) minimum
+            if (this.AverageYield < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageYield, must be a value greater than or equal to 0.", new [] { "AverageYield" });
+            }
+
+            // AreaSown (decimal) minimum
+            if (this.AreaSown < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AreaSown, must be a value greater than or equal to 0.", new [] { "AreaSown" });
+            }
+
+            // UreaApplication (decimal) minimum
+            if (this.UreaApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UreaApplication, must be a value greater than or equal to 0.", new [] { "UreaApplication" });
+            }
+
+            // NonUreaNitrogen (decimal) minimum
+            if (this.NonUreaNitrogen < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for NonUreaNitrogen, must be a value greater than or equal to 0.", new [] { "NonUreaNitrogen" });
+            }
+
+            // UreaAmmoniumNitrate (decimal) minimum
+            if (this.UreaAmmoniumNitrate < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UreaAmmoniumNitrate, must be a value greater than or equal to 0.", new [] { "UreaAmmoniumNitrate" });
+            }
+
+            // PhosphorusApplication (decimal) minimum
+            if (this.PhosphorusApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PhosphorusApplication, must be a value greater than or equal to 0.", new [] { "PhosphorusApplication" });
+            }
+
+            // PotassiumApplication (decimal) minimum
+            if (this.PotassiumApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PotassiumApplication, must be a value greater than or equal to 0.", new [] { "PotassiumApplication" });
+            }
+
+            // SulfurApplication (decimal) minimum
+            if (this.SulfurApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SulfurApplication, must be a value greater than or equal to 0.", new [] { "SulfurApplication" });
+            }
+
+            // FractionOfAnnualCropBurnt (decimal) maximum
+            if (this.FractionOfAnnualCropBurnt > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for FractionOfAnnualCropBurnt, must be a value less than or equal to 1.", new [] { "FractionOfAnnualCropBurnt" });
+            }
+
+            // FractionOfAnnualCropBurnt (decimal) minimum
+            if (this.FractionOfAnnualCropBurnt < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for FractionOfAnnualCropBurnt, must be a value greater than or equal to 0.", new [] { "FractionOfAnnualCropBurnt" });
+            }
+
+            // HerbicideUse (decimal) minimum
+            if (this.HerbicideUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HerbicideUse, must be a value greater than or equal to 0.", new [] { "HerbicideUse" });
+            }
+
+            // GlyphosateOtherHerbicideUse (decimal) minimum
+            if (this.GlyphosateOtherHerbicideUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for GlyphosateOtherHerbicideUse, must be a value greater than or equal to 0.", new [] { "GlyphosateOtherHerbicideUse" });
+            }
+
+            // ElectricityAllocation (decimal) maximum
+            if (this.ElectricityAllocation > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityAllocation, must be a value less than or equal to 1.", new [] { "ElectricityAllocation" });
+            }
+
+            // ElectricityAllocation (decimal) minimum
+            if (this.ElectricityAllocation < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityAllocation, must be a value greater than or equal to 0.", new [] { "ElectricityAllocation" });
+            }
+
+            // Limestone (decimal) minimum
+            if (this.Limestone < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Limestone, must be a value greater than or equal to 0.", new [] { "Limestone" });
+            }
+
             // LimestoneFraction (decimal) maximum
             if (this.LimestoneFraction > (decimal)1)
             {
@@ -453,6 +507,24 @@ namespace Org.OpenAPITools.Model
             if (this.LimestoneFraction < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for LimestoneFraction, must be a value greater than or equal to 0.", new [] { "LimestoneFraction" });
+            }
+
+            // DieselUse (decimal) minimum
+            if (this.DieselUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DieselUse, must be a value greater than or equal to 0.", new [] { "DieselUse" });
+            }
+
+            // PetrolUse (decimal) minimum
+            if (this.PetrolUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PetrolUse, must be a value greater than or equal to 0.", new [] { "PetrolUse" });
+            }
+
+            // Lpg (decimal) minimum
+            if (this.Lpg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Lpg, must be a value greater than or equal to 0.", new [] { "Lpg" });
             }
 
             yield break;
@@ -502,8 +574,6 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> lpg = default;
             Option<List<PostHorticultureRequestCropsInnerRefrigerantsInner>?> refrigerants = default;
             Option<string?> id = default;
-            Option<bool?> ureaseInhibitorUsed = default;
-            Option<bool?> nitrificationInhibitorUsed = default;
 
             while (utf8JsonReader.Read())
             {
@@ -584,12 +654,6 @@ namespace Org.OpenAPITools.Model
                             break;
                         case "id":
                             id = new Option<string?>(utf8JsonReader.GetString()!);
-                            break;
-                        case "ureaseInhibitorUsed":
-                            ureaseInhibitorUsed = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
-                            break;
-                        case "nitrificationInhibitorUsed":
-                            nitrificationInhibitorUsed = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         default:
                             break;
@@ -720,13 +784,7 @@ namespace Org.OpenAPITools.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class PostHorticultureRequestCropsInner.");
 
-            if (ureaseInhibitorUsed.IsSet && ureaseInhibitorUsed.Value == null)
-                throw new ArgumentNullException(nameof(ureaseInhibitorUsed), "Property is not nullable for class PostHorticultureRequestCropsInner.");
-
-            if (nitrificationInhibitorUsed.IsSet && nitrificationInhibitorUsed.Value == null)
-                throw new ArgumentNullException(nameof(nitrificationInhibitorUsed), "Property is not nullable for class PostHorticultureRequestCropsInner.");
-
-            return new PostHorticultureRequestCropsInner(type.Value!.Value!, averageYield.Value!.Value!, areaSown.Value!.Value!, ureaApplication.Value!.Value!, nonUreaNitrogen.Value!.Value!, ureaAmmoniumNitrate.Value!.Value!, phosphorusApplication.Value!.Value!, potassiumApplication.Value!.Value!, sulfurApplication.Value!.Value!, rainfallAbove600.Value!.Value!, fractionOfAnnualCropBurnt.Value!.Value!, herbicideUse.Value!.Value!, glyphosateOtherHerbicideUse.Value!.Value!, electricityAllocation.Value!.Value!, limestone.Value!.Value!, limestoneFraction.Value!.Value!, dieselUse.Value!.Value!, petrolUse.Value!.Value!, lpg.Value!.Value!, refrigerants.Value!, id, ureaseInhibitorUsed, nitrificationInhibitorUsed);
+            return new PostHorticultureRequestCropsInner(type.Value!.Value!, averageYield.Value!.Value!, areaSown.Value!.Value!, ureaApplication.Value!.Value!, nonUreaNitrogen.Value!.Value!, ureaAmmoniumNitrate.Value!.Value!, phosphorusApplication.Value!.Value!, potassiumApplication.Value!.Value!, sulfurApplication.Value!.Value!, rainfallAbove600.Value!.Value!, fractionOfAnnualCropBurnt.Value!.Value!, herbicideUse.Value!.Value!, glyphosateOtherHerbicideUse.Value!.Value!, electricityAllocation.Value!.Value!, limestone.Value!.Value!, limestoneFraction.Value!.Value!, dieselUse.Value!.Value!, petrolUse.Value!.Value!, lpg.Value!.Value!, refrigerants.Value!, id);
         }
 
         /// <summary>
@@ -801,12 +859,6 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, postHorticultureRequestCropsInner.Refrigerants, jsonSerializerOptions);
             if (postHorticultureRequestCropsInner.IdOption.IsSet)
                 writer.WriteString("id", postHorticultureRequestCropsInner.Id);
-
-            if (postHorticultureRequestCropsInner.UreaseInhibitorUsedOption.IsSet)
-                writer.WriteBoolean("ureaseInhibitorUsed", postHorticultureRequestCropsInner.UreaseInhibitorUsedOption.Value!.Value);
-
-            if (postHorticultureRequestCropsInner.NitrificationInhibitorUsedOption.IsSet)
-                writer.WriteBoolean("nitrificationInhibitorUsed", postHorticultureRequestCropsInner.NitrificationInhibitorUsedOption.Value!.Value);
         }
     }
 }

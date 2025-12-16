@@ -194,6 +194,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AmountMadePerYear (decimal) minimum
+            if (this.AmountMadePerYear < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AmountMadePerYear, must be a value greater than or equal to 0.", new [] { "AmountMadePerYear" });
+            }
+
             yield break;
         }
     }

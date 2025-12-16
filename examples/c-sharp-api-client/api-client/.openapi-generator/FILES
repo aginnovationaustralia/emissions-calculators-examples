@@ -34,7 +34,6 @@ src/Org.OpenAPITools/Model/PostAquaculture200Response.cs
 src/Org.OpenAPITools/Model/PostAquaculture200ResponseCarbonSequestration.cs
 src/Org.OpenAPITools/Model/PostAquaculture200ResponseIntensities.cs
 src/Org.OpenAPITools/Model/PostAquaculture200ResponseIntermediateInner.cs
-src/Org.OpenAPITools/Model/PostAquaculture200ResponseIntermediateInnerCarbonSequestration.cs
 src/Org.OpenAPITools/Model/PostAquaculture200ResponseNet.cs
 src/Org.OpenAPITools/Model/PostAquaculture200ResponsePurchasedOffsets.cs
 src/Org.OpenAPITools/Model/PostAquaculture200ResponseScope1.cs
@@ -184,7 +183,6 @@ src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNan
 src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales.cs
 src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies.cs
 src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesTradeBucks.cs
-src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesTradeDoes.cs
 src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesTradeKids.cs
 src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies.cs
 src/Org.OpenAPITools/Model/PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales.cs
@@ -278,8 +276,6 @@ src/Org.OpenAPITools/Model/PostSheepRequestSheepInner.cs
 src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerClasses.cs
 src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerClassesRams.cs
 src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerClassesRamsAutumn.cs
-src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerClassesTradeEwes.cs
-src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerClassesTradeLambsAndHoggets.cs
 src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerEwesLambing.cs
 src/Org.OpenAPITools/Model/PostSheepRequestSheepInnerSeasonalLambing.cs
 src/Org.OpenAPITools/Model/PostSheepRequestVegetationInner.cs

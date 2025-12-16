@@ -28,8 +28,8 @@ class PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration(BaseMod
     PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration
     """ # noqa: E501
     grain_produced_tonnes: Union[StrictFloat, StrictInt] = Field(description="Grain produced in tonnes", alias="grainProducedTonnes")
-    grains_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Grains excluding sequestration, in t-CO2e/t grain", alias="grainsExcludingSequestration")
-    grains_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Grains including sequestration, in t-CO2e/t grain", alias="grainsIncludingSequestration")
+    grains_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Grains emissions intensity excluding sequestration, in t-CO2e/t grain", alias="grainsExcludingSequestration")
+    grains_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Grains emissions intensity including sequestration, in t-CO2e/t grain", alias="grainsIncludingSequestration")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["grainProducedTonnes", "grainsExcludingSequestration", "grainsIncludingSequestration"]
 

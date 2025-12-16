@@ -65,7 +65,7 @@ class PostDairy200ResponseIntermediateInner implements ModelInterface, ArrayAcce
         'scope3' => '\OpenAPI\Client\Model\PostDairy200ResponseScope3',
         'net' => '\OpenAPI\Client\Model\PostDairy200ResponseNet',
         'intensities' => '\OpenAPI\Client\Model\PostDairy200ResponseIntensities',
-        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration'
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PostDairy200ResponseIntermediateInner implements ModelInterface, ArrayAcce
     /**
      * Sets id
      *
-     * @param string $id Unique identifier for this activity
+     * @param string $id Unique identifier for this Dairy activity
      *
      * @return self
      */
@@ -519,7 +519,7 @@ class PostDairy200ResponseIntermediateInner implements ModelInterface, ArrayAcce
     /**
      * Gets carbon_sequestration
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -529,7 +529,7 @@ class PostDairy200ResponseIntermediateInner implements ModelInterface, ArrayAcce
     /**
      * Sets carbon_sequestration
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration $carbon_sequestration carbon_sequestration
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

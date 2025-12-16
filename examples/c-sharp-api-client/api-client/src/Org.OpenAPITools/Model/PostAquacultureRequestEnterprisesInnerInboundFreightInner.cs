@@ -211,6 +211,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // TotalKmTonnes (decimal) minimum
+            if (this.TotalKmTonnes < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalKmTonnes, must be a value greater than or equal to 0.", new [] { "TotalKmTonnes" });
+            }
+
             yield break;
         }
     }

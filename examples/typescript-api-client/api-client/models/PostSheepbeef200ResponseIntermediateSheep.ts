@@ -34,13 +34,6 @@ import {
     PostBeef200ResponseScope3ToJSON,
     PostBeef200ResponseScope3ToJSONTyped,
 } from './PostBeef200ResponseScope3';
-import type { PostBeef200ResponseScope1 } from './PostBeef200ResponseScope1';
-import {
-    PostBeef200ResponseScope1FromJSON,
-    PostBeef200ResponseScope1FromJSONTyped,
-    PostBeef200ResponseScope1ToJSON,
-    PostBeef200ResponseScope1ToJSONTyped,
-} from './PostBeef200ResponseScope1';
 import type { PostAquaculture200ResponseNet } from './PostAquaculture200ResponseNet';
 import {
     PostAquaculture200ResponseNetFromJSON,
@@ -48,6 +41,20 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
+import type { PostBuffalo200ResponseScope1 } from './PostBuffalo200ResponseScope1';
+import {
+    PostBuffalo200ResponseScope1FromJSON,
+    PostBuffalo200ResponseScope1FromJSONTyped,
+    PostBuffalo200ResponseScope1ToJSON,
+    PostBuffalo200ResponseScope1ToJSONTyped,
+} from './PostBuffalo200ResponseScope1';
 
 /**
  * Emission output breakdown just for sheep livestock
@@ -57,10 +64,10 @@ import {
 export interface PostSheepbeef200ResponseIntermediateSheep {
     /**
      * 
-     * @type {PostBeef200ResponseScope1}
+     * @type {PostBuffalo200ResponseScope1}
      * @memberof PostSheepbeef200ResponseIntermediateSheep
      */
-    scope1: PostBeef200ResponseScope1;
+    scope1: PostBuffalo200ResponseScope1;
     /**
      * 
      * @type {PostAquaculture200ResponseScope2}
@@ -74,11 +81,11 @@ export interface PostSheepbeef200ResponseIntermediateSheep {
      */
     scope3: PostBeef200ResponseScope3;
     /**
-     * Carbon sequestration, in tonnes-CO2e
-     * @type {number}
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
      * @memberof PostSheepbeef200ResponseIntermediateSheep
      */
-    carbonSequestration: number;
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
     /**
      * 
      * @type {PostAquaculture200ResponseNet}
@@ -116,10 +123,10 @@ export function PostSheepbeef200ResponseIntermediateSheepFromJSONTyped(json: any
     }
     return {
         
-        'scope1': PostBeef200ResponseScope1FromJSON(json['scope1']),
+        'scope1': PostBuffalo200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostBeef200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': json['carbonSequestration'],
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
         'intensities': PostSheep200ResponseIntermediateInnerIntensitiesFromJSON(json['intensities']),
     };
@@ -136,10 +143,10 @@ export function PostSheepbeef200ResponseIntermediateSheepToJSONTyped(value?: Pos
 
     return {
         
-        'scope1': PostBeef200ResponseScope1ToJSON(value['scope1']),
+        'scope1': PostBuffalo200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostBeef200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': value['carbonSequestration'],
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
         'intensities': PostSheep200ResponseIntermediateInnerIntensitiesToJSON(value['intensities']),
     };

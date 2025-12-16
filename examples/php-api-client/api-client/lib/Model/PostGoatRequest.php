@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostGoatRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;goat&#x60; calculator
+ * @description Input data required for a single Goat enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,6 +59,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'state' => 'string',
         'rainfall_above600' => 'bool',
         'goats' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInner[]',
@@ -73,6 +74,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'state' => null,
         'rainfall_above600' => null,
         'goats' => null,
@@ -85,6 +87,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
         'state' => false,
         'rainfall_above600' => false,
         'goats' => false,
@@ -177,6 +180,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'state' => 'state',
         'rainfall_above600' => 'rainfallAbove600',
         'goats' => 'goats',
@@ -189,6 +193,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'state' => 'setState',
         'rainfall_above600' => 'setRainfallAbove600',
         'goats' => 'setGoats',
@@ -201,6 +206,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'state' => 'getState',
         'rainfall_above600' => 'getRainfallAbove600',
         'goats' => 'getGoats',
@@ -293,6 +299,7 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('rainfall_above600', $data ?? [], null);
         $this->setIfExists('goats', $data ?? [], null);
@@ -361,6 +368,33 @@ class PostGoatRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier for this Goat activity
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets state

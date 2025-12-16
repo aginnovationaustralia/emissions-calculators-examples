@@ -65,7 +65,7 @@ class PostCotton200ResponseIntermediateInner implements ModelInterface, ArrayAcc
         'scope3' => '\OpenAPI\Client\Model\PostCotton200ResponseScope3',
         'intensities' => '\OpenAPI\Client\Model\PostCotton200ResponseIntermediateInnerIntensities',
         'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseNet',
-        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration'
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PostCotton200ResponseIntermediateInner implements ModelInterface, ArrayAcc
     /**
      * Sets id
      *
-     * @param string $id Unique identifier for this activity
+     * @param string $id Unique identifier for this Cotton activity
      *
      * @return self
      */
@@ -519,7 +519,7 @@ class PostCotton200ResponseIntermediateInner implements ModelInterface, ArrayAcc
     /**
      * Gets carbon_sequestration
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -529,7 +529,7 @@ class PostCotton200ResponseIntermediateInner implements ModelInterface, ArrayAcc
     /**
      * Sets carbon_sequestration
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration $carbon_sequestration carbon_sequestration
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

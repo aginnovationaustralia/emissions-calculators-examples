@@ -48,10 +48,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="tradeOtherEwes">tradeOtherEwes</param>
         /// <param name="tradeEweLambs">tradeEweLambs</param>
         /// <param name="tradeWetherLambs">tradeWetherLambs</param>
-        /// <param name="tradeEwes">tradeEwes</param>
-        /// <param name="tradeLambsAndHoggets">tradeLambsAndHoggets</param>
         [JsonConstructor]
-        public PostSheepRequestSheepInnerClasses(PostSheepRequestSheepInnerClassesRams breedingEwes, PostSheepRequestSheepInnerClassesRams eweLambs, PostSheepRequestSheepInnerClassesRams wetherLambs, Option<PostSheepRequestSheepInnerClassesRams?> rams = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeRams = default, Option<PostSheepRequestSheepInnerClassesRams?> wethers = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeWethers = default, Option<PostSheepRequestSheepInnerClassesRams?> maidenBreedingEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeMaidenBreedingEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeBreedingEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> otherEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeOtherEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeEweLambs = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeWetherLambs = default, Option<PostSheepRequestSheepInnerClassesTradeEwes?> tradeEwes = default, Option<PostSheepRequestSheepInnerClassesTradeLambsAndHoggets?> tradeLambsAndHoggets = default)
+        public PostSheepRequestSheepInnerClasses(PostSheepRequestSheepInnerClassesRams breedingEwes, PostSheepRequestSheepInnerClassesRams eweLambs, PostSheepRequestSheepInnerClassesRams wetherLambs, Option<PostSheepRequestSheepInnerClassesRams?> rams = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeRams = default, Option<PostSheepRequestSheepInnerClassesRams?> wethers = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeWethers = default, Option<PostSheepRequestSheepInnerClassesRams?> maidenBreedingEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeMaidenBreedingEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeBreedingEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> otherEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeOtherEwes = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeEweLambs = default, Option<PostSheepRequestSheepInnerClassesRams?> tradeWetherLambs = default)
         {
             BreedingEwes = breedingEwes;
             EweLambs = eweLambs;
@@ -67,8 +65,6 @@ namespace Org.OpenAPITools.Model
             TradeOtherEwesOption = tradeOtherEwes;
             TradeEweLambsOption = tradeEweLambs;
             TradeWetherLambsOption = tradeWetherLambs;
-            TradeEwesOption = tradeEwes;
-            TradeLambsAndHoggetsOption = tradeLambsAndHoggets;
             OnCreated();
         }
 
@@ -236,34 +232,6 @@ namespace Org.OpenAPITools.Model
         public PostSheepRequestSheepInnerClassesRams? TradeWetherLambs { get { return this.TradeWetherLambsOption; } set { this.TradeWetherLambsOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of TradeEwes
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<PostSheepRequestSheepInnerClassesTradeEwes?> TradeEwesOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets TradeEwes
-        /// </summary>
-        [JsonPropertyName("tradeEwes")]
-        [Obsolete]
-        public PostSheepRequestSheepInnerClassesTradeEwes? TradeEwes { get { return this.TradeEwesOption; } set { this.TradeEwesOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of TradeLambsAndHoggets
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<PostSheepRequestSheepInnerClassesTradeLambsAndHoggets?> TradeLambsAndHoggetsOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets TradeLambsAndHoggets
-        /// </summary>
-        [JsonPropertyName("tradeLambsAndHoggets")]
-        [Obsolete]
-        public PostSheepRequestSheepInnerClassesTradeLambsAndHoggets? TradeLambsAndHoggets { get { return this.TradeLambsAndHoggetsOption; } set { this.TradeLambsAndHoggetsOption = new(value); } }
-
-        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -291,8 +259,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  TradeOtherEwes: ").Append(TradeOtherEwes).Append("\n");
             sb.Append("  TradeEweLambs: ").Append(TradeEweLambs).Append("\n");
             sb.Append("  TradeWetherLambs: ").Append(TradeWetherLambs).Append("\n");
-            sb.Append("  TradeEwes: ").Append(TradeEwes).Append("\n");
-            sb.Append("  TradeLambsAndHoggets: ").Append(TradeLambsAndHoggets).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -345,8 +311,6 @@ namespace Org.OpenAPITools.Model
             Option<PostSheepRequestSheepInnerClassesRams?> tradeOtherEwes = default;
             Option<PostSheepRequestSheepInnerClassesRams?> tradeEweLambs = default;
             Option<PostSheepRequestSheepInnerClassesRams?> tradeWetherLambs = default;
-            Option<PostSheepRequestSheepInnerClassesTradeEwes?> tradeEwes = default;
-            Option<PostSheepRequestSheepInnerClassesTradeLambsAndHoggets?> tradeLambsAndHoggets = default;
 
             while (utf8JsonReader.Read())
             {
@@ -405,12 +369,6 @@ namespace Org.OpenAPITools.Model
                         case "tradeWetherLambs":
                             tradeWetherLambs = new Option<PostSheepRequestSheepInnerClassesRams?>(JsonSerializer.Deserialize<PostSheepRequestSheepInnerClassesRams>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "tradeEwes":
-                            tradeEwes = new Option<PostSheepRequestSheepInnerClassesTradeEwes?>(JsonSerializer.Deserialize<PostSheepRequestSheepInnerClassesTradeEwes>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
-                        case "tradeLambsAndHoggets":
-                            tradeLambsAndHoggets = new Option<PostSheepRequestSheepInnerClassesTradeLambsAndHoggets?>(JsonSerializer.Deserialize<PostSheepRequestSheepInnerClassesTradeLambsAndHoggets>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
                         default:
                             break;
                     }
@@ -468,13 +426,7 @@ namespace Org.OpenAPITools.Model
             if (tradeWetherLambs.IsSet && tradeWetherLambs.Value == null)
                 throw new ArgumentNullException(nameof(tradeWetherLambs), "Property is not nullable for class PostSheepRequestSheepInnerClasses.");
 
-            if (tradeEwes.IsSet && tradeEwes.Value == null)
-                throw new ArgumentNullException(nameof(tradeEwes), "Property is not nullable for class PostSheepRequestSheepInnerClasses.");
-
-            if (tradeLambsAndHoggets.IsSet && tradeLambsAndHoggets.Value == null)
-                throw new ArgumentNullException(nameof(tradeLambsAndHoggets), "Property is not nullable for class PostSheepRequestSheepInnerClasses.");
-
-            return new PostSheepRequestSheepInnerClasses(breedingEwes.Value!, eweLambs.Value!, wetherLambs.Value!, rams, tradeRams, wethers, tradeWethers, maidenBreedingEwes, tradeMaidenBreedingEwes, tradeBreedingEwes, otherEwes, tradeOtherEwes, tradeEweLambs, tradeWetherLambs, tradeEwes, tradeLambsAndHoggets);
+            return new PostSheepRequestSheepInnerClasses(breedingEwes.Value!, eweLambs.Value!, wetherLambs.Value!, rams, tradeRams, wethers, tradeWethers, maidenBreedingEwes, tradeMaidenBreedingEwes, tradeBreedingEwes, otherEwes, tradeOtherEwes, tradeEweLambs, tradeWetherLambs);
         }
 
         /// <summary>
@@ -543,12 +495,6 @@ namespace Org.OpenAPITools.Model
             if (postSheepRequestSheepInnerClasses.TradeWetherLambsOption.IsSet && postSheepRequestSheepInnerClasses.TradeWetherLambs == null)
                 throw new ArgumentNullException(nameof(postSheepRequestSheepInnerClasses.TradeWetherLambs), "Property is required for class PostSheepRequestSheepInnerClasses.");
 
-            if (postSheepRequestSheepInnerClasses.TradeEwesOption.IsSet && postSheepRequestSheepInnerClasses.TradeEwes == null)
-                throw new ArgumentNullException(nameof(postSheepRequestSheepInnerClasses.TradeEwes), "Property is required for class PostSheepRequestSheepInnerClasses.");
-
-            if (postSheepRequestSheepInnerClasses.TradeLambsAndHoggetsOption.IsSet && postSheepRequestSheepInnerClasses.TradeLambsAndHoggets == null)
-                throw new ArgumentNullException(nameof(postSheepRequestSheepInnerClasses.TradeLambsAndHoggets), "Property is required for class PostSheepRequestSheepInnerClasses.");
-
             writer.WritePropertyName("breedingEwes");
             JsonSerializer.Serialize(writer, postSheepRequestSheepInnerClasses.BreedingEwes, jsonSerializerOptions);
             writer.WritePropertyName("eweLambs");
@@ -609,16 +555,6 @@ namespace Org.OpenAPITools.Model
             {
                 writer.WritePropertyName("tradeWetherLambs");
                 JsonSerializer.Serialize(writer, postSheepRequestSheepInnerClasses.TradeWetherLambs, jsonSerializerOptions);
-            }
-            if (postSheepRequestSheepInnerClasses.TradeEwesOption.IsSet)
-            {
-                writer.WritePropertyName("tradeEwes");
-                JsonSerializer.Serialize(writer, postSheepRequestSheepInnerClasses.TradeEwes, jsonSerializerOptions);
-            }
-            if (postSheepRequestSheepInnerClasses.TradeLambsAndHoggetsOption.IsSet)
-            {
-                writer.WritePropertyName("tradeLambsAndHoggets");
-                JsonSerializer.Serialize(writer, postSheepRequestSheepInnerClasses.TradeLambsAndHoggets, jsonSerializerOptions);
             }
         }
     }

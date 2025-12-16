@@ -300,15 +300,31 @@ class PostDairyRequestDairyInnerAreas implements ModelInterface, ArrayAccess, \J
         if ($this->container['cropped_dryland'] === null) {
             $invalidProperties[] = "'cropped_dryland' can't be null";
         }
+        if (($this->container['cropped_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'cropped_dryland', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['cropped_irrigated'] === null) {
             $invalidProperties[] = "'cropped_irrigated' can't be null";
         }
+        if (($this->container['cropped_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'cropped_irrigated', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['improved_pasture_dryland'] === null) {
             $invalidProperties[] = "'improved_pasture_dryland' can't be null";
         }
+        if (($this->container['improved_pasture_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'improved_pasture_dryland', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['improved_pasture_irrigated'] === null) {
             $invalidProperties[] = "'improved_pasture_irrigated' can't be null";
         }
+        if (($this->container['improved_pasture_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'improved_pasture_irrigated', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -346,6 +362,11 @@ class PostDairyRequestDairyInnerAreas implements ModelInterface, ArrayAccess, \J
         if (is_null($cropped_dryland)) {
             throw new \InvalidArgumentException('non-nullable cropped_dryland cannot be null');
         }
+
+        if (($cropped_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $cropped_dryland when calling PostDairyRequestDairyInnerAreas., must be bigger than or equal to 0.');
+        }
+
         $this->container['cropped_dryland'] = $cropped_dryland;
 
         return $this;
@@ -373,6 +394,11 @@ class PostDairyRequestDairyInnerAreas implements ModelInterface, ArrayAccess, \J
         if (is_null($cropped_irrigated)) {
             throw new \InvalidArgumentException('non-nullable cropped_irrigated cannot be null');
         }
+
+        if (($cropped_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $cropped_irrigated when calling PostDairyRequestDairyInnerAreas., must be bigger than or equal to 0.');
+        }
+
         $this->container['cropped_irrigated'] = $cropped_irrigated;
 
         return $this;
@@ -400,6 +426,11 @@ class PostDairyRequestDairyInnerAreas implements ModelInterface, ArrayAccess, \J
         if (is_null($improved_pasture_dryland)) {
             throw new \InvalidArgumentException('non-nullable improved_pasture_dryland cannot be null');
         }
+
+        if (($improved_pasture_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $improved_pasture_dryland when calling PostDairyRequestDairyInnerAreas., must be bigger than or equal to 0.');
+        }
+
         $this->container['improved_pasture_dryland'] = $improved_pasture_dryland;
 
         return $this;
@@ -427,6 +458,11 @@ class PostDairyRequestDairyInnerAreas implements ModelInterface, ArrayAccess, \J
         if (is_null($improved_pasture_irrigated)) {
             throw new \InvalidArgumentException('non-nullable improved_pasture_irrigated cannot be null');
         }
+
+        if (($improved_pasture_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $improved_pasture_irrigated when calling PostDairyRequestDairyInnerAreas., must be bigger than or equal to 0.');
+        }
+
         $this->container['improved_pasture_irrigated'] = $improved_pasture_irrigated;
 
         return $this;

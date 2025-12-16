@@ -36,13 +36,11 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="vegetation">vegetation</param>
         /// <param name="allocationToBeef">The proportion of the sequestration that is allocated to each beef activity</param>
-        /// <param name="beefProportion">The proportion of the sequestration that is allocated to beef. Deprecation note: Please use &#x60;allocationToBeef&#x60; instead</param>
         [JsonConstructor]
-        public PostBeefRequestVegetationInner(PostBeefRequestVegetationInnerVegetation vegetation, List<decimal> allocationToBeef, Option<decimal?> beefProportion = default)
+        public PostBeefRequestVegetationInner(PostBeefRequestVegetationInnerVegetation vegetation, List<decimal> allocationToBeef)
         {
             Vegetation = vegetation;
             AllocationToBeef = allocationToBeef;
-            BeefProportionOption = beefProportion;
             OnCreated();
         }
 
@@ -62,21 +60,6 @@ namespace Org.OpenAPITools.Model
         public List<decimal> AllocationToBeef { get; set; }
 
         /// <summary>
-        /// Used to track the state of BeefProportion
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> BeefProportionOption { get; private set; }
-
-        /// <summary>
-        /// The proportion of the sequestration that is allocated to beef. Deprecation note: Please use &#x60;allocationToBeef&#x60; instead
-        /// </summary>
-        /// <value>The proportion of the sequestration that is allocated to beef. Deprecation note: Please use &#x60;allocationToBeef&#x60; instead</value>
-        [JsonPropertyName("beefProportion")]
-        [Obsolete]
-        public decimal? BeefProportion { get { return this.BeefProportionOption; } set { this.BeefProportionOption = new(value); } }
-
-        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -92,7 +75,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("class PostBeefRequestVegetationInner {\n");
             sb.Append("  Vegetation: ").Append(Vegetation).Append("\n");
             sb.Append("  AllocationToBeef: ").Append(AllocationToBeef).Append("\n");
-            sb.Append("  BeefProportion: ").Append(BeefProportion).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -133,7 +115,6 @@ namespace Org.OpenAPITools.Model
 
             Option<PostBeefRequestVegetationInnerVegetation?> vegetation = default;
             Option<List<decimal>?> allocationToBeef = default;
-            Option<decimal?> beefProportion = default;
 
             while (utf8JsonReader.Read())
             {
@@ -156,9 +137,6 @@ namespace Org.OpenAPITools.Model
                         case "allocationToBeef":
                             allocationToBeef = new Option<List<decimal>?>(JsonSerializer.Deserialize<List<decimal>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "beefProportion":
-                            beefProportion = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
                         default:
                             break;
                     }
@@ -177,10 +155,7 @@ namespace Org.OpenAPITools.Model
             if (allocationToBeef.IsSet && allocationToBeef.Value == null)
                 throw new ArgumentNullException(nameof(allocationToBeef), "Property is not nullable for class PostBeefRequestVegetationInner.");
 
-            if (beefProportion.IsSet && beefProportion.Value == null)
-                throw new ArgumentNullException(nameof(beefProportion), "Property is not nullable for class PostBeefRequestVegetationInner.");
-
-            return new PostBeefRequestVegetationInner(vegetation.Value!, allocationToBeef.Value!, beefProportion);
+            return new PostBeefRequestVegetationInner(vegetation.Value!, allocationToBeef.Value!);
         }
 
         /// <summary>
@@ -217,8 +192,6 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, postBeefRequestVegetationInner.Vegetation, jsonSerializerOptions);
             writer.WritePropertyName("allocationToBeef");
             JsonSerializer.Serialize(writer, postBeefRequestVegetationInner.AllocationToBeef, jsonSerializerOptions);
-            if (postBeefRequestVegetationInner.BeefProportionOption.IsSet)
-                writer.WriteNumber("beefProportion", postBeefRequestVegetationInner.BeefProportionOption.Value!.Value);
         }
     }
 }

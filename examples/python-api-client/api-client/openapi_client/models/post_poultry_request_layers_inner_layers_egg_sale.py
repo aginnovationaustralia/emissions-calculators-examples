@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +28,8 @@ class PostPoultryRequestLayersInnerLayersEggSale(BaseModel):
     """
     Layers egg sales
     """ # noqa: E501
-    eggs_produced: Union[StrictFloat, StrictInt] = Field(description="Number of eggs produced in a year per bird", alias="eggsProduced")
-    average_weight: Union[StrictFloat, StrictInt] = Field(description="Average egg weight in grams", alias="averageWeight")
+    eggs_produced: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of eggs produced in a year per bird", alias="eggsProduced")
+    average_weight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average egg weight in grams", alias="averageWeight")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["eggsProduced", "averageWeight"]
 

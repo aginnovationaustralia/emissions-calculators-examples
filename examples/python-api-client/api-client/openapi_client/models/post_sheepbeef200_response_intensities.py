@@ -27,13 +27,13 @@ class PostSheepbeef200ResponseIntensities(BaseModel):
     """
     PostSheepbeef200ResponseIntensities
     """ # noqa: E501
-    beef_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef including carbon sequestration, in kg-CO2e/kg liveweight", alias="beefIncludingSequestration")
-    beef_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="beefExcludingSequestration")
+    beef_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight", alias="beefIncludingSequestration")
+    beef_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="beefExcludingSequestration")
     liveweight_beef_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Liveweight produced in kg", alias="liveweightBeefProducedKg")
-    wool_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production including carbon sequestration, in kg-CO2e/kg greasy", alias="woolIncludingSequestration")
-    wool_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production excluding carbon sequestration, in kg-CO2e/kg greasy", alias="woolExcludingSequestration")
-    sheep_meat_breeding_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Sheep meat (breeding herd) including carbon sequestration, in kg-CO2e/kg liveweight", alias="sheepMeatBreedingIncludingSequestration")
-    sheep_meat_breeding_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Sheep meat (breeding herd) excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="sheepMeatBreedingExcludingSequestration")
+    wool_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production emissions intensity including carbon sequestration, in kg-CO2e/kg greasy wool", alias="woolIncludingSequestration")
+    wool_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production emissions intensity excluding carbon sequestration, in kg-CO2e/kg greasy wool", alias="woolExcludingSequestration")
+    sheep_meat_breeding_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Sheep meat (breeding herd) emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight", alias="sheepMeatBreedingIncludingSequestration")
+    sheep_meat_breeding_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Sheep meat (breeding herd) emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="sheepMeatBreedingExcludingSequestration")
     wool_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Greasy wool produced in kg", alias="woolProducedKg")
     sheep_meat_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Sheep meat produced in kg liveweight", alias="sheepMeatProducedKg")
     additional_properties: Dict[str, Any] = {}

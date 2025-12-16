@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostGoatRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to goat
+ * @description Non-productive vegetation inputs along with allocations to each Goat activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

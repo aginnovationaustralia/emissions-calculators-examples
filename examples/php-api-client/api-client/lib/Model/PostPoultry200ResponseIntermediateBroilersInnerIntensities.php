@@ -326,7 +326,7 @@ class PostPoultry200ResponseIntermediateBroilersInnerIntensities implements Mode
     /**
      * Sets poultry_meat_including_sequestration
      *
-     * @param float $poultry_meat_including_sequestration Poultry meat including carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $poultry_meat_including_sequestration Poultry meat emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -353,7 +353,7 @@ class PostPoultry200ResponseIntermediateBroilersInnerIntensities implements Mode
     /**
      * Sets poultry_meat_excluding_sequestration
      *
-     * @param float $poultry_meat_excluding_sequestration Poultry meat excluding carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $poultry_meat_excluding_sequestration Poultry meat emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */

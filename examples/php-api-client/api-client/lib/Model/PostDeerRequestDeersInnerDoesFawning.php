@@ -300,15 +300,47 @@ class PostDeerRequestDeersInnerDoesFawning implements ModelInterface, ArrayAcces
         if ($this->container['spring'] === null) {
             $invalidProperties[] = "'spring' can't be null";
         }
+        if (($this->container['spring'] > 1)) {
+            $invalidProperties[] = "invalid value for 'spring', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['spring'] < 0)) {
+            $invalidProperties[] = "invalid value for 'spring', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['summer'] === null) {
             $invalidProperties[] = "'summer' can't be null";
         }
+        if (($this->container['summer'] > 1)) {
+            $invalidProperties[] = "invalid value for 'summer', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['summer'] < 0)) {
+            $invalidProperties[] = "invalid value for 'summer', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['autumn'] === null) {
             $invalidProperties[] = "'autumn' can't be null";
         }
+        if (($this->container['autumn'] > 1)) {
+            $invalidProperties[] = "invalid value for 'autumn', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['autumn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'autumn', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['winter'] === null) {
             $invalidProperties[] = "'winter' can't be null";
         }
+        if (($this->container['winter'] > 1)) {
+            $invalidProperties[] = "invalid value for 'winter', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['winter'] < 0)) {
+            $invalidProperties[] = "invalid value for 'winter', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -346,6 +378,14 @@ class PostDeerRequestDeersInnerDoesFawning implements ModelInterface, ArrayAcces
         if (is_null($spring)) {
             throw new \InvalidArgumentException('non-nullable spring cannot be null');
         }
+
+        if (($spring > 1)) {
+            throw new \InvalidArgumentException('invalid value for $spring when calling PostDeerRequestDeersInnerDoesFawning., must be smaller than or equal to 1.');
+        }
+        if (($spring < 0)) {
+            throw new \InvalidArgumentException('invalid value for $spring when calling PostDeerRequestDeersInnerDoesFawning., must be bigger than or equal to 0.');
+        }
+
         $this->container['spring'] = $spring;
 
         return $this;
@@ -373,6 +413,14 @@ class PostDeerRequestDeersInnerDoesFawning implements ModelInterface, ArrayAcces
         if (is_null($summer)) {
             throw new \InvalidArgumentException('non-nullable summer cannot be null');
         }
+
+        if (($summer > 1)) {
+            throw new \InvalidArgumentException('invalid value for $summer when calling PostDeerRequestDeersInnerDoesFawning., must be smaller than or equal to 1.');
+        }
+        if (($summer < 0)) {
+            throw new \InvalidArgumentException('invalid value for $summer when calling PostDeerRequestDeersInnerDoesFawning., must be bigger than or equal to 0.');
+        }
+
         $this->container['summer'] = $summer;
 
         return $this;
@@ -400,6 +448,14 @@ class PostDeerRequestDeersInnerDoesFawning implements ModelInterface, ArrayAcces
         if (is_null($autumn)) {
             throw new \InvalidArgumentException('non-nullable autumn cannot be null');
         }
+
+        if (($autumn > 1)) {
+            throw new \InvalidArgumentException('invalid value for $autumn when calling PostDeerRequestDeersInnerDoesFawning., must be smaller than or equal to 1.');
+        }
+        if (($autumn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $autumn when calling PostDeerRequestDeersInnerDoesFawning., must be bigger than or equal to 0.');
+        }
+
         $this->container['autumn'] = $autumn;
 
         return $this;
@@ -427,6 +483,14 @@ class PostDeerRequestDeersInnerDoesFawning implements ModelInterface, ArrayAcces
         if (is_null($winter)) {
             throw new \InvalidArgumentException('non-nullable winter cannot be null');
         }
+
+        if (($winter > 1)) {
+            throw new \InvalidArgumentException('invalid value for $winter when calling PostDeerRequestDeersInnerDoesFawning., must be smaller than or equal to 1.');
+        }
+        if (($winter < 0)) {
+            throw new \InvalidArgumentException('invalid value for $winter when calling PostDeerRequestDeersInnerDoesFawning., must be bigger than or equal to 0.');
+        }
+
         $this->container['winter'] = $winter;
 
         return $this;

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_aquaculture_request_enterprises_inner_custom_bait_inner import PostAquacultureRequestEnterprisesInnerCustomBaitInner
@@ -33,25 +33,25 @@ from typing_extensions import Self
 
 class PostWildcatchfisheryRequestEnterprisesInner(BaseModel):
     """
-    Input data required for a single wild catch fishery enterprise
+    Input data required for a single WildCatchFishery enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this WildCatchFishery activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     production_system: StrictStr = Field(description="Production system of the wild catch fishery enterprise", alias="productionSystem")
-    total_harvest_kg: Union[StrictFloat, StrictInt] = Field(description="Total harvest in kg", alias="totalHarvestKg")
+    total_harvest_kg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total harvest in kg", alias="totalHarvestKg")
     refrigerants: List[PostHorticultureRequestCropsInnerRefrigerantsInner] = Field(description="Refrigerant type")
     bait: List[PostWildcatchfisheryRequestEnterprisesInnerBaitInner] = Field(description="Bait purchases")
     custom_bait: List[PostAquacultureRequestEnterprisesInnerCustomBaitInner] = Field(description="Custom bait purchases", alias="customBait")
     inbound_freight: List[PostAquacultureRequestEnterprisesInnerInboundFreightInner] = Field(description="Services used to transport goods to the enterprise", alias="inboundFreight")
     outbound_freight: List[PostAquacultureRequestEnterprisesInnerInboundFreightInner] = Field(description="Services used to transport goods from the enterprise", alias="outboundFreight")
-    total_commercial_flights_km: Union[StrictFloat, StrictInt] = Field(description="Total distance of commercial flights, in km (kilometers)", alias="totalCommercialFlightsKm")
+    total_commercial_flights_km: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total distance of commercial flights, in km (kilometers)", alias="totalCommercialFlightsKm")
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
-    electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
+    electricity_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
     electricity_source: StrictStr = Field(description="Source of electricity", alias="electricitySource")
     fuel: PostAquacultureRequestEnterprisesInnerFuel
     fluid_waste: List[PostAquacultureRequestEnterprisesInnerFluidWasteInner] = Field(description="Amount of fluid waste, in kL (kilolitres)", alias="fluidWaste")
     solid_waste: PostAquacultureRequestEnterprisesInnerSolidWaste = Field(alias="solidWaste")
-    carbon_offsets: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Carbon offsets purchased, in t CO2. Offsetting 2 t CO2 would be 2.0 (not -2.0)", alias="carbonOffsets")
+    carbon_offsets: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Carbon offsets purchased, in t CO2. Offsetting 2 t CO2 would be 2.0 (not -2.0)", alias="carbonOffsets")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "state", "productionSystem", "totalHarvestKg", "refrigerants", "bait", "customBait", "inboundFreight", "outboundFreight", "totalCommercialFlightsKm", "electricityRenewable", "electricityUse", "electricitySource", "fuel", "fluidWaste", "solidWaste", "carbonOffsets"]
 

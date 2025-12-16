@@ -70,8 +70,7 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         'other_does_culled_females' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales',
         'trade_other_does_culled_females' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales',
         'kids' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesKids',
-        'trade_kids' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesTradeKids',
-        'trade_does' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesTradeDoes'
+        'trade_kids' => '\OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesTradeKids'
     ];
 
     /**
@@ -93,8 +92,7 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         'other_does_culled_females' => null,
         'trade_other_does_culled_females' => null,
         'kids' => null,
-        'trade_kids' => null,
-        'trade_does' => null
+        'trade_kids' => null
     ];
 
     /**
@@ -114,8 +112,7 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         'other_does_culled_females' => false,
         'trade_other_does_culled_females' => false,
         'kids' => false,
-        'trade_kids' => false,
-        'trade_does' => false
+        'trade_kids' => false
     ];
 
     /**
@@ -215,8 +212,7 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         'other_does_culled_females' => 'otherDoesCulledFemales',
         'trade_other_does_culled_females' => 'tradeOtherDoesCulledFemales',
         'kids' => 'kids',
-        'trade_kids' => 'tradeKids',
-        'trade_does' => 'tradeDoes'
+        'trade_kids' => 'tradeKids'
     ];
 
     /**
@@ -236,8 +232,7 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         'other_does_culled_females' => 'setOtherDoesCulledFemales',
         'trade_other_does_culled_females' => 'setTradeOtherDoesCulledFemales',
         'kids' => 'setKids',
-        'trade_kids' => 'setTradeKids',
-        'trade_does' => 'setTradeDoes'
+        'trade_kids' => 'setTradeKids'
     ];
 
     /**
@@ -257,8 +252,7 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         'other_does_culled_females' => 'getOtherDoesCulledFemales',
         'trade_other_does_culled_females' => 'getTradeOtherDoesCulledFemales',
         'kids' => 'getKids',
-        'trade_kids' => 'getTradeKids',
-        'trade_does' => 'getTradeDoes'
+        'trade_kids' => 'getTradeKids'
     ];
 
     /**
@@ -330,7 +324,6 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
         $this->setIfExists('trade_other_does_culled_females', $data ?? [], null);
         $this->setIfExists('kids', $data ?? [], null);
         $this->setIfExists('trade_kids', $data ?? [], null);
-        $this->setIfExists('trade_does', $data ?? [], null);
     }
 
     /**
@@ -695,35 +688,6 @@ class PostGoatRequestGoatsInnerClasses implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable trade_kids cannot be null');
         }
         $this->container['trade_kids'] = $trade_kids;
-
-        return $this;
-    }
-
-    /**
-     * Gets trade_does
-     *
-     * @return \OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesTradeDoes|null
-     * @deprecated
-     */
-    public function getTradeDoes()
-    {
-        return $this->container['trade_does'];
-    }
-
-    /**
-     * Sets trade_does
-     *
-     * @param \OpenAPI\Client\Model\PostGoatRequestGoatsInnerClassesTradeDoes|null $trade_does trade_does
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setTradeDoes($trade_does)
-    {
-        if (is_null($trade_does)) {
-            throw new \InvalidArgumentException('non-nullable trade_does cannot be null');
-        }
-        $this->container['trade_does'] = $trade_does;
 
         return $this;
     }

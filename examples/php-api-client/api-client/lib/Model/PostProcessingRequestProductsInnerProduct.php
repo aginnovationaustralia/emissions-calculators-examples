@@ -319,6 +319,10 @@ class PostProcessingRequestProductsInnerProduct implements ModelInterface, Array
         if ($this->container['amount_made_per_year'] === null) {
             $invalidProperties[] = "'amount_made_per_year' can't be null";
         }
+        if (($this->container['amount_made_per_year'] < 0)) {
+            $invalidProperties[] = "invalid value for 'amount_made_per_year', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -393,6 +397,11 @@ class PostProcessingRequestProductsInnerProduct implements ModelInterface, Array
         if (is_null($amount_made_per_year)) {
             throw new \InvalidArgumentException('non-nullable amount_made_per_year cannot be null');
         }
+
+        if (($amount_made_per_year < 0)) {
+            throw new \InvalidArgumentException('invalid value for $amount_made_per_year when calling PostProcessingRequestProductsInnerProduct., must be bigger than or equal to 0.');
+        }
+
         $this->container['amount_made_per_year'] = $amount_made_per_year;
 
         return $this;

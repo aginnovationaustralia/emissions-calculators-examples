@@ -313,12 +313,40 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn implements ModelInterfa
         if ($this->container['head'] === null) {
             $invalidProperties[] = "'head' can't be null";
         }
+        if (($this->container['head'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['liveweight'] === null) {
             $invalidProperties[] = "'liveweight' can't be null";
         }
+        if (($this->container['liveweight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'liveweight', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['liveweight_gain'] === null) {
             $invalidProperties[] = "'liveweight_gain' can't be null";
         }
+        if (!is_null($this->container['crude_protein']) && ($this->container['crude_protein'] > 100)) {
+            $invalidProperties[] = "invalid value for 'crude_protein', must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['crude_protein']) && ($this->container['crude_protein'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crude_protein', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['dry_matter_digestibility']) && ($this->container['dry_matter_digestibility'] > 100)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_digestibility', must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['dry_matter_digestibility']) && ($this->container['dry_matter_digestibility'] < 0)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_digestibility', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['milk_production']) && ($this->container['milk_production'] < 0)) {
+            $invalidProperties[] = "invalid value for 'milk_production', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -356,6 +384,11 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn implements ModelInterfa
         if (is_null($head)) {
             throw new \InvalidArgumentException('non-nullable head cannot be null');
         }
+
+        if (($head < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['head'] = $head;
 
         return $this;
@@ -383,6 +416,11 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn implements ModelInterfa
         if (is_null($liveweight)) {
             throw new \InvalidArgumentException('non-nullable liveweight cannot be null');
         }
+
+        if (($liveweight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $liveweight when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['liveweight'] = $liveweight;
 
         return $this;
@@ -437,6 +475,14 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn implements ModelInterfa
         if (is_null($crude_protein)) {
             throw new \InvalidArgumentException('non-nullable crude_protein cannot be null');
         }
+
+        if (($crude_protein > 100)) {
+            throw new \InvalidArgumentException('invalid value for $crude_protein when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be smaller than or equal to 100.');
+        }
+        if (($crude_protein < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crude_protein when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['crude_protein'] = $crude_protein;
 
         return $this;
@@ -464,6 +510,14 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn implements ModelInterfa
         if (is_null($dry_matter_digestibility)) {
             throw new \InvalidArgumentException('non-nullable dry_matter_digestibility cannot be null');
         }
+
+        if (($dry_matter_digestibility > 100)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_digestibility when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be smaller than or equal to 100.');
+        }
+        if (($dry_matter_digestibility < 0)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_digestibility when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['dry_matter_digestibility'] = $dry_matter_digestibility;
 
         return $this;
@@ -491,6 +545,11 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn implements ModelInterfa
         if (is_null($milk_production)) {
             throw new \InvalidArgumentException('non-nullable milk_production cannot be null');
         }
+
+        if (($milk_production < 0)) {
+            throw new \InvalidArgumentException('invalid value for $milk_production when calling PostDairyRequestDairyInnerClassesMilkingCowsAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['milk_production'] = $milk_production;
 
         return $this;

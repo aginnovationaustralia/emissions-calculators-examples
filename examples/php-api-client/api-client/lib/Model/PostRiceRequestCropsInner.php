@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostRiceRequestCropsInner Class Doc Comment
  *
  * @category Class
+ * @description Input data required for a single Rice enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -536,12 +537,24 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['average_rice_yield'] === null) {
             $invalidProperties[] = "'average_rice_yield' can't be null";
         }
+        if (($this->container['average_rice_yield'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_rice_yield', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['area_sown'] === null) {
             $invalidProperties[] = "'area_sown' can't be null";
         }
+        if (($this->container['area_sown'] < 0)) {
+            $invalidProperties[] = "invalid value for 'area_sown', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['growing_season_days'] === null) {
             $invalidProperties[] = "'growing_season_days' can't be null";
         }
+        if (($this->container['growing_season_days'] < 0)) {
+            $invalidProperties[] = "invalid value for 'growing_season_days', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['water_regime_type'] === null) {
             $invalidProperties[] = "'water_regime_type' can't be null";
         }
@@ -581,21 +594,45 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['urea_application'] === null) {
             $invalidProperties[] = "'urea_application' can't be null";
         }
+        if (($this->container['urea_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['non_urea_nitrogen'] === null) {
             $invalidProperties[] = "'non_urea_nitrogen' can't be null";
         }
+        if (($this->container['non_urea_nitrogen'] < 0)) {
+            $invalidProperties[] = "invalid value for 'non_urea_nitrogen', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_ammonium_nitrate'] === null) {
             $invalidProperties[] = "'urea_ammonium_nitrate' can't be null";
         }
+        if (($this->container['urea_ammonium_nitrate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_ammonium_nitrate', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['phosphorus_application'] === null) {
             $invalidProperties[] = "'phosphorus_application' can't be null";
         }
+        if (($this->container['phosphorus_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'phosphorus_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['potassium_application'] === null) {
             $invalidProperties[] = "'potassium_application' can't be null";
         }
+        if (($this->container['potassium_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'potassium_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sulfur_application'] === null) {
             $invalidProperties[] = "'sulfur_application' can't be null";
         }
+        if (($this->container['sulfur_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sulfur_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['fraction_of_annual_crop_burnt'] === null) {
             $invalidProperties[] = "'fraction_of_annual_crop_burnt' can't be null";
         }
@@ -610,9 +647,17 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['herbicide_use'] === null) {
             $invalidProperties[] = "'herbicide_use' can't be null";
         }
+        if (($this->container['herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['glyphosate_other_herbicide_use'] === null) {
             $invalidProperties[] = "'glyphosate_other_herbicide_use' can't be null";
         }
+        if (($this->container['glyphosate_other_herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'glyphosate_other_herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_allocation'] === null) {
             $invalidProperties[] = "'electricity_allocation' can't be null";
         }
@@ -627,18 +672,42 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['limestone'] === null) {
             $invalidProperties[] = "'limestone' can't be null";
         }
+        if (($this->container['limestone'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone_fraction'] === null) {
             $invalidProperties[] = "'limestone_fraction' can't be null";
         }
+        if (($this->container['limestone_fraction'] > 1)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['limestone_fraction'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['diesel_use'] === null) {
             $invalidProperties[] = "'diesel_use' can't be null";
         }
+        if (($this->container['diesel_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'diesel_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['petrol_use'] === null) {
             $invalidProperties[] = "'petrol_use' can't be null";
         }
+        if (($this->container['petrol_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'petrol_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['lpg'] === null) {
             $invalidProperties[] = "'lpg' can't be null";
         }
+        if (($this->container['lpg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'lpg', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -667,7 +736,7 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this Rice activity
      *
      * @return self
      */
@@ -740,6 +809,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($average_rice_yield)) {
             throw new \InvalidArgumentException('non-nullable average_rice_yield cannot be null');
         }
+
+        if (($average_rice_yield < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_rice_yield when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_rice_yield'] = $average_rice_yield;
 
         return $this;
@@ -767,6 +841,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($area_sown)) {
             throw new \InvalidArgumentException('non-nullable area_sown cannot be null');
         }
+
+        if (($area_sown < 0)) {
+            throw new \InvalidArgumentException('invalid value for $area_sown when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['area_sown'] = $area_sown;
 
         return $this;
@@ -794,6 +873,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($growing_season_days)) {
             throw new \InvalidArgumentException('non-nullable growing_season_days cannot be null');
         }
+
+        if (($growing_season_days < 0)) {
+            throw new \InvalidArgumentException('invalid value for $growing_season_days when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['growing_season_days'] = $growing_season_days;
 
         return $this;
@@ -932,6 +1016,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($urea_application)) {
             throw new \InvalidArgumentException('non-nullable urea_application cannot be null');
         }
+
+        if (($urea_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_application when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_application'] = $urea_application;
 
         return $this;
@@ -959,6 +1048,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($non_urea_nitrogen)) {
             throw new \InvalidArgumentException('non-nullable non_urea_nitrogen cannot be null');
         }
+
+        if (($non_urea_nitrogen < 0)) {
+            throw new \InvalidArgumentException('invalid value for $non_urea_nitrogen when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['non_urea_nitrogen'] = $non_urea_nitrogen;
 
         return $this;
@@ -986,6 +1080,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($urea_ammonium_nitrate)) {
             throw new \InvalidArgumentException('non-nullable urea_ammonium_nitrate cannot be null');
         }
+
+        if (($urea_ammonium_nitrate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_ammonium_nitrate when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_ammonium_nitrate'] = $urea_ammonium_nitrate;
 
         return $this;
@@ -1013,6 +1112,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($phosphorus_application)) {
             throw new \InvalidArgumentException('non-nullable phosphorus_application cannot be null');
         }
+
+        if (($phosphorus_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $phosphorus_application when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['phosphorus_application'] = $phosphorus_application;
 
         return $this;
@@ -1040,6 +1144,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($potassium_application)) {
             throw new \InvalidArgumentException('non-nullable potassium_application cannot be null');
         }
+
+        if (($potassium_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $potassium_application when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['potassium_application'] = $potassium_application;
 
         return $this;
@@ -1067,6 +1176,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($sulfur_application)) {
             throw new \InvalidArgumentException('non-nullable sulfur_application cannot be null');
         }
+
+        if (($sulfur_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sulfur_application when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['sulfur_application'] = $sulfur_application;
 
         return $this;
@@ -1129,6 +1243,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable herbicide_use cannot be null');
         }
+
+        if (($herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide_use when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide_use'] = $herbicide_use;
 
         return $this;
@@ -1156,6 +1275,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($glyphosate_other_herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable glyphosate_other_herbicide_use cannot be null');
         }
+
+        if (($glyphosate_other_herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $glyphosate_other_herbicide_use when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['glyphosate_other_herbicide_use'] = $glyphosate_other_herbicide_use;
 
         return $this;
@@ -1218,6 +1342,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($limestone)) {
             throw new \InvalidArgumentException('non-nullable limestone cannot be null');
         }
+
+        if (($limestone < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone'] = $limestone;
 
         return $this;
@@ -1245,6 +1374,14 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($limestone_fraction)) {
             throw new \InvalidArgumentException('non-nullable limestone_fraction cannot be null');
         }
+
+        if (($limestone_fraction > 1)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostRiceRequestCropsInner., must be smaller than or equal to 1.');
+        }
+        if (($limestone_fraction < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone_fraction'] = $limestone_fraction;
 
         return $this;
@@ -1272,6 +1409,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($diesel_use)) {
             throw new \InvalidArgumentException('non-nullable diesel_use cannot be null');
         }
+
+        if (($diesel_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $diesel_use when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['diesel_use'] = $diesel_use;
 
         return $this;
@@ -1299,6 +1441,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($petrol_use)) {
             throw new \InvalidArgumentException('non-nullable petrol_use cannot be null');
         }
+
+        if (($petrol_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $petrol_use when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['petrol_use'] = $petrol_use;
 
         return $this;
@@ -1326,6 +1473,11 @@ class PostRiceRequestCropsInner implements ModelInterface, ArrayAccess, \JsonSer
         if (is_null($lpg)) {
             throw new \InvalidArgumentException('non-nullable lpg cannot be null');
         }
+
+        if (($lpg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $lpg when calling PostRiceRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['lpg'] = $lpg;
 
         return $this;

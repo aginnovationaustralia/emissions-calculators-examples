@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostPork200ResponseIntermediateInner Class Doc Comment
  *
  * @category Class
+ * @description Intermediate emissions calculation output for the Pork calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -62,9 +63,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope1' => '\OpenAPI\Client\Model\PostPork200ResponseScope1',
         'scope2' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope2',
         'scope3' => '\OpenAPI\Client\Model\PostPork200ResponseScope3',
-        'carbon_sequestration' => 'float',
         'net' => '\OpenAPI\Client\Model\PostPork200ResponseNet',
-        'intensities' => '\OpenAPI\Client\Model\PostPork200ResponseIntensities'
+        'intensities' => '\OpenAPI\Client\Model\PostPork200ResponseIntensities',
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -79,9 +80,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope1' => null,
         'scope2' => null,
         'scope3' => null,
-        'carbon_sequestration' => null,
         'net' => null,
-        'intensities' => null
+        'intensities' => null,
+        'carbon_sequestration' => null
     ];
 
     /**
@@ -94,9 +95,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope1' => false,
         'scope2' => false,
         'scope3' => false,
-        'carbon_sequestration' => false,
         'net' => false,
-        'intensities' => false
+        'intensities' => false,
+        'carbon_sequestration' => false
     ];
 
     /**
@@ -189,9 +190,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope1' => 'scope1',
         'scope2' => 'scope2',
         'scope3' => 'scope3',
-        'carbon_sequestration' => 'carbonSequestration',
         'net' => 'net',
-        'intensities' => 'intensities'
+        'intensities' => 'intensities',
+        'carbon_sequestration' => 'carbonSequestration'
     ];
 
     /**
@@ -204,9 +205,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope1' => 'setScope1',
         'scope2' => 'setScope2',
         'scope3' => 'setScope3',
-        'carbon_sequestration' => 'setCarbonSequestration',
         'net' => 'setNet',
-        'intensities' => 'setIntensities'
+        'intensities' => 'setIntensities',
+        'carbon_sequestration' => 'setCarbonSequestration'
     ];
 
     /**
@@ -219,9 +220,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope1' => 'getScope1',
         'scope2' => 'getScope2',
         'scope3' => 'getScope3',
-        'carbon_sequestration' => 'getCarbonSequestration',
         'net' => 'getNet',
-        'intensities' => 'getIntensities'
+        'intensities' => 'getIntensities',
+        'carbon_sequestration' => 'getCarbonSequestration'
     ];
 
     /**
@@ -285,9 +286,9 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         $this->setIfExists('scope1', $data ?? [], null);
         $this->setIfExists('scope2', $data ?? [], null);
         $this->setIfExists('scope3', $data ?? [], null);
-        $this->setIfExists('carbon_sequestration', $data ?? [], null);
         $this->setIfExists('net', $data ?? [], null);
         $this->setIfExists('intensities', $data ?? [], null);
+        $this->setIfExists('carbon_sequestration', $data ?? [], null);
     }
 
     /**
@@ -329,14 +330,14 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         if ($this->container['scope3'] === null) {
             $invalidProperties[] = "'scope3' can't be null";
         }
-        if ($this->container['carbon_sequestration'] === null) {
-            $invalidProperties[] = "'carbon_sequestration' can't be null";
-        }
         if ($this->container['net'] === null) {
             $invalidProperties[] = "'net' can't be null";
         }
         if ($this->container['intensities'] === null) {
             $invalidProperties[] = "'intensities' can't be null";
+        }
+        if ($this->container['carbon_sequestration'] === null) {
+            $invalidProperties[] = "'carbon_sequestration' can't be null";
         }
         return $invalidProperties;
     }
@@ -366,7 +367,7 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-     * @param string $id id
+     * @param string $id Unique identifier for this Pork activity
      *
      * @return self
      */
@@ -462,33 +463,6 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets carbon_sequestration
-     *
-     * @return float
-     */
-    public function getCarbonSequestration()
-    {
-        return $this->container['carbon_sequestration'];
-    }
-
-    /**
-     * Sets carbon_sequestration
-     *
-     * @param float $carbon_sequestration Carbon sequestration, in tonnes-CO2e
-     *
-     * @return self
-     */
-    public function setCarbonSequestration($carbon_sequestration)
-    {
-        if (is_null($carbon_sequestration)) {
-            throw new \InvalidArgumentException('non-nullable carbon_sequestration cannot be null');
-        }
-        $this->container['carbon_sequestration'] = $carbon_sequestration;
-
-        return $this;
-    }
-
-    /**
      * Gets net
      *
      * @return \OpenAPI\Client\Model\PostPork200ResponseNet
@@ -538,6 +512,33 @@ class PostPork200ResponseIntermediateInner implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable intensities cannot be null');
         }
         $this->container['intensities'] = $intensities;
+
+        return $this;
+    }
+
+    /**
+     * Gets carbon_sequestration
+     *
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
+     */
+    public function getCarbonSequestration()
+    {
+        return $this->container['carbon_sequestration'];
+    }
+
+    /**
+     * Sets carbon_sequestration
+     *
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
+     *
+     * @return self
+     */
+    public function setCarbonSequestration($carbon_sequestration)
+    {
+        if (is_null($carbon_sequestration)) {
+            throw new \InvalidArgumentException('non-nullable carbon_sequestration cannot be null');
+        }
+        $this->container['carbon_sequestration'] = $carbon_sequestration;
 
         return $this;
     }

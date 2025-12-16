@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_aquaculture_request_enterprises_inner_fuel_stationary_fuel_inner import PostAquacultureRequestEnterprisesInnerFuelStationaryFuelInner
 from openapi_client.models.post_aquaculture_request_enterprises_inner_fuel_transport_fuel_inner import PostAquacultureRequestEnterprisesInnerFuelTransportFuelInner
 from typing import Optional, Set
@@ -31,7 +32,7 @@ class PostAquacultureRequestEnterprisesInnerFuel(BaseModel):
     """ # noqa: E501
     transport_fuel: List[PostAquacultureRequestEnterprisesInnerFuelTransportFuelInner] = Field(description="A list of fuels used in transportation and vehicles", alias="transportFuel")
     stationary_fuel: List[PostAquacultureRequestEnterprisesInnerFuelStationaryFuelInner] = Field(description="A list of fuels used in stationary applications", alias="stationaryFuel")
-    natural_gas: Union[StrictFloat, StrictInt] = Field(description="Amount of natural gas consumed in Mj (megajoules)", alias="naturalGas")
+    natural_gas: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Amount of natural gas consumed in Mj (megajoules)", alias="naturalGas")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["transportFuel", "stationaryFuel", "naturalGas"]
 

@@ -59,20 +59,6 @@ export interface PostGoatRequestGoatsInnerClassesBucksBilly {
      */
     summer: PostBuffaloRequestBuffalosInnerClassesBullsAutumn;
     /**
-     * Number of animals purchased (head). Deprecation note: Please use `purchases` instead
-     * @type {number}
-     * @memberof PostGoatRequestGoatsInnerClassesBucksBilly
-     * @deprecated
-     */
-    headPurchased?: number;
-    /**
-     * Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead
-     * @type {number}
-     * @memberof PostGoatRequestGoatsInnerClassesBucksBilly
-     * @deprecated
-     */
-    purchasedWeight?: number;
-    /**
      * Number of animals sold (head)
      * @type {number}
      * @memberof PostGoatRequestGoatsInnerClassesBucksBilly
@@ -140,8 +126,6 @@ export function PostGoatRequestGoatsInnerClassesBucksBillyFromJSONTyped(json: an
         'winter': PostBuffaloRequestBuffalosInnerClassesBullsAutumnFromJSON(json['winter']),
         'spring': PostBuffaloRequestBuffalosInnerClassesBullsAutumnFromJSON(json['spring']),
         'summer': PostBuffaloRequestBuffalosInnerClassesBullsAutumnFromJSON(json['summer']),
-        'headPurchased': json['headPurchased'] == null ? undefined : json['headPurchased'],
-        'purchasedWeight': json['purchasedWeight'] == null ? undefined : json['purchasedWeight'],
         'headSold': json['headSold'],
         'saleWeight': json['saleWeight'],
         'headShorn': json['headShorn'],
@@ -166,8 +150,6 @@ export function PostGoatRequestGoatsInnerClassesBucksBillyToJSONTyped(value?: Po
         'winter': PostBuffaloRequestBuffalosInnerClassesBullsAutumnToJSON(value['winter']),
         'spring': PostBuffaloRequestBuffalosInnerClassesBullsAutumnToJSON(value['spring']),
         'summer': PostBuffaloRequestBuffalosInnerClassesBullsAutumnToJSON(value['summer']),
-        'headPurchased': value['headPurchased'],
-        'purchasedWeight': value['purchasedWeight'],
         'headSold': value['headSold'],
         'saleWeight': value['saleWeight'],
         'headShorn': value['headShorn'],

@@ -21,8 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.post_sheep_request_sheep_inner_classes_rams import PostSheepRequestSheepInnerClassesRams
-from openapi_client.models.post_sheep_request_sheep_inner_classes_trade_ewes import PostSheepRequestSheepInnerClassesTradeEwes
-from openapi_client.models.post_sheep_request_sheep_inner_classes_trade_lambs_and_hoggets import PostSheepRequestSheepInnerClassesTradeLambsAndHoggets
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -44,10 +42,8 @@ class PostSheepRequestSheepInnerClasses(BaseModel):
     trade_ewe_lambs: Optional[PostSheepRequestSheepInnerClassesRams] = Field(default=None, alias="tradeEweLambs")
     wether_lambs: PostSheepRequestSheepInnerClassesRams = Field(alias="wetherLambs")
     trade_wether_lambs: Optional[PostSheepRequestSheepInnerClassesRams] = Field(default=None, alias="tradeWetherLambs")
-    trade_ewes: Optional[PostSheepRequestSheepInnerClassesTradeEwes] = Field(default=None, alias="tradeEwes")
-    trade_lambs_and_hoggets: Optional[PostSheepRequestSheepInnerClassesTradeLambsAndHoggets] = Field(default=None, alias="tradeLambsAndHoggets")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["rams", "tradeRams", "wethers", "tradeWethers", "maidenBreedingEwes", "tradeMaidenBreedingEwes", "breedingEwes", "tradeBreedingEwes", "otherEwes", "tradeOtherEwes", "eweLambs", "tradeEweLambs", "wetherLambs", "tradeWetherLambs", "tradeEwes", "tradeLambsAndHoggets"]
+    __properties: ClassVar[List[str]] = ["rams", "tradeRams", "wethers", "tradeWethers", "maidenBreedingEwes", "tradeMaidenBreedingEwes", "breedingEwes", "tradeBreedingEwes", "otherEwes", "tradeOtherEwes", "eweLambs", "tradeEweLambs", "wetherLambs", "tradeWetherLambs"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -132,12 +128,6 @@ class PostSheepRequestSheepInnerClasses(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of trade_wether_lambs
         if self.trade_wether_lambs:
             _dict['tradeWetherLambs'] = self.trade_wether_lambs.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of trade_ewes
-        if self.trade_ewes:
-            _dict['tradeEwes'] = self.trade_ewes.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of trade_lambs_and_hoggets
-        if self.trade_lambs_and_hoggets:
-            _dict['tradeLambsAndHoggets'] = self.trade_lambs_and_hoggets.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -168,9 +158,7 @@ class PostSheepRequestSheepInnerClasses(BaseModel):
             "eweLambs": PostSheepRequestSheepInnerClassesRams.from_dict(obj["eweLambs"]) if obj.get("eweLambs") is not None else None,
             "tradeEweLambs": PostSheepRequestSheepInnerClassesRams.from_dict(obj["tradeEweLambs"]) if obj.get("tradeEweLambs") is not None else None,
             "wetherLambs": PostSheepRequestSheepInnerClassesRams.from_dict(obj["wetherLambs"]) if obj.get("wetherLambs") is not None else None,
-            "tradeWetherLambs": PostSheepRequestSheepInnerClassesRams.from_dict(obj["tradeWetherLambs"]) if obj.get("tradeWetherLambs") is not None else None,
-            "tradeEwes": PostSheepRequestSheepInnerClassesTradeEwes.from_dict(obj["tradeEwes"]) if obj.get("tradeEwes") is not None else None,
-            "tradeLambsAndHoggets": PostSheepRequestSheepInnerClassesTradeLambsAndHoggets.from_dict(obj["tradeLambsAndHoggets"]) if obj.get("tradeLambsAndHoggets") is not None else None
+            "tradeWetherLambs": PostSheepRequestSheepInnerClassesRams.from_dict(obj["tradeWetherLambs"]) if obj.get("tradeWetherLambs") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

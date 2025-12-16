@@ -304,6 +304,46 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients implements 
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['wheat']) && ($this->container['wheat'] > 1)) {
+            $invalidProperties[] = "invalid value for 'wheat', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['wheat']) && ($this->container['wheat'] < 0)) {
+            $invalidProperties[] = "invalid value for 'wheat', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['barley']) && ($this->container['barley'] > 1)) {
+            $invalidProperties[] = "invalid value for 'barley', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['barley']) && ($this->container['barley'] < 0)) {
+            $invalidProperties[] = "invalid value for 'barley', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['sorghum']) && ($this->container['sorghum'] > 1)) {
+            $invalidProperties[] = "invalid value for 'sorghum', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['sorghum']) && ($this->container['sorghum'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sorghum', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['soybean']) && ($this->container['soybean'] > 1)) {
+            $invalidProperties[] = "invalid value for 'soybean', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['soybean']) && ($this->container['soybean'] < 0)) {
+            $invalidProperties[] = "invalid value for 'soybean', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['millrun']) && ($this->container['millrun'] > 1)) {
+            $invalidProperties[] = "invalid value for 'millrun', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['millrun']) && ($this->container['millrun'] < 0)) {
+            $invalidProperties[] = "invalid value for 'millrun', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -341,6 +381,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients implements 
         if (is_null($wheat)) {
             throw new \InvalidArgumentException('non-nullable wheat cannot be null');
         }
+
+        if (($wheat > 1)) {
+            throw new \InvalidArgumentException('invalid value for $wheat when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be smaller than or equal to 1.');
+        }
+        if (($wheat < 0)) {
+            throw new \InvalidArgumentException('invalid value for $wheat when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be bigger than or equal to 0.');
+        }
+
         $this->container['wheat'] = $wheat;
 
         return $this;
@@ -368,6 +416,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients implements 
         if (is_null($barley)) {
             throw new \InvalidArgumentException('non-nullable barley cannot be null');
         }
+
+        if (($barley > 1)) {
+            throw new \InvalidArgumentException('invalid value for $barley when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be smaller than or equal to 1.');
+        }
+        if (($barley < 0)) {
+            throw new \InvalidArgumentException('invalid value for $barley when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be bigger than or equal to 0.');
+        }
+
         $this->container['barley'] = $barley;
 
         return $this;
@@ -395,6 +451,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients implements 
         if (is_null($sorghum)) {
             throw new \InvalidArgumentException('non-nullable sorghum cannot be null');
         }
+
+        if (($sorghum > 1)) {
+            throw new \InvalidArgumentException('invalid value for $sorghum when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be smaller than or equal to 1.');
+        }
+        if (($sorghum < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sorghum when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be bigger than or equal to 0.');
+        }
+
         $this->container['sorghum'] = $sorghum;
 
         return $this;
@@ -422,6 +486,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients implements 
         if (is_null($soybean)) {
             throw new \InvalidArgumentException('non-nullable soybean cannot be null');
         }
+
+        if (($soybean > 1)) {
+            throw new \InvalidArgumentException('invalid value for $soybean when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be smaller than or equal to 1.');
+        }
+        if (($soybean < 0)) {
+            throw new \InvalidArgumentException('invalid value for $soybean when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be bigger than or equal to 0.');
+        }
+
         $this->container['soybean'] = $soybean;
 
         return $this;
@@ -449,6 +521,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients implements 
         if (is_null($millrun)) {
             throw new \InvalidArgumentException('non-nullable millrun cannot be null');
         }
+
+        if (($millrun > 1)) {
+            throw new \InvalidArgumentException('invalid value for $millrun when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be smaller than or equal to 1.');
+        }
+        if (($millrun < 0)) {
+            throw new \InvalidArgumentException('invalid value for $millrun when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients., must be bigger than or equal to 0.');
+        }
+
         $this->container['millrun'] = $millrun;
 
         return $this;

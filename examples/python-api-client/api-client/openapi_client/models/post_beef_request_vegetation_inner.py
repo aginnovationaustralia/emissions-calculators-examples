@@ -18,21 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_beef_request_vegetation_inner_vegetation import PostBeefRequestVegetationInnerVegetation
 from typing import Optional, Set
 from typing_extensions import Self
 
 class PostBeefRequestVegetationInner(BaseModel):
     """
-    Non-productive vegetation inputs along with allocations to beef
+    Non-productive vegetation inputs along with allocations to each Beef activity
     """ # noqa: E501
     vegetation: PostBeefRequestVegetationInnerVegetation
-    beef_proportion: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The proportion of the sequestration that is allocated to beef. Deprecation note: Please use `allocationToBeef` instead", alias="beefProportion")
-    allocation_to_beef: List[Union[StrictFloat, StrictInt]] = Field(description="The proportion of the sequestration that is allocated to each beef", alias="allocationToBeef")
+    allocation_to_beef: List[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(description="The proportion of the sequestration that is allocated to each beef activity", alias="allocationToBeef")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["vegetation", "beefProportion", "allocationToBeef"]
+    __properties: ClassVar[List[str]] = ["vegetation", "allocationToBeef"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,7 +96,6 @@ class PostBeefRequestVegetationInner(BaseModel):
 
         _obj = cls.model_validate({
             "vegetation": PostBeefRequestVegetationInnerVegetation.from_dict(obj["vegetation"]) if obj.get("vegetation") is not None else None,
-            "beefProportion": obj.get("beefProportion"),
             "allocationToBeef": obj.get("allocationToBeef")
         })
         # store additional fields in additional_properties

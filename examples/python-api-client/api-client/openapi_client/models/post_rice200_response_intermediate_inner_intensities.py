@@ -28,11 +28,10 @@ class PostRice200ResponseIntermediateInnerIntensities(BaseModel):
     PostRice200ResponseIntermediateInnerIntensities
     """ # noqa: E501
     rice_produced_tonnes: Union[StrictFloat, StrictInt] = Field(description="Rice produced in tonnes", alias="riceProducedTonnes")
-    rice_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Rice excluding sequestration, in t-CO2e/t rice", alias="riceExcludingSequestration")
-    rice_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Rice including sequestration, in t-CO2e/t rice", alias="riceIncludingSequestration")
-    intensity: Union[StrictFloat, StrictInt] = Field(description="Emissions intensity of rice production. Deprecation note: Use `riceIncludingSequestration` instead")
+    rice_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Rice emissions intensity excluding sequestration, in t-CO2e/t rice", alias="riceExcludingSequestration")
+    rice_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Rice emissions intensity including sequestration, in t-CO2e/t rice", alias="riceIncludingSequestration")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["riceProducedTonnes", "riceExcludingSequestration", "riceIncludingSequestration", "intensity"]
+    __properties: ClassVar[List[str]] = ["riceProducedTonnes", "riceExcludingSequestration", "riceIncludingSequestration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,8 +93,7 @@ class PostRice200ResponseIntermediateInnerIntensities(BaseModel):
         _obj = cls.model_validate({
             "riceProducedTonnes": obj.get("riceProducedTonnes"),
             "riceExcludingSequestration": obj.get("riceExcludingSequestration"),
-            "riceIncludingSequestration": obj.get("riceIncludingSequestration"),
-            "intensity": obj.get("intensity")
+            "riceIncludingSequestration": obj.get("riceIncludingSequestration")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.post_dairy_request_dairy_inner import PostDairyRequestDairyInner
 from openapi_client.models.post_dairy_request_vegetation_inner import PostDairyRequestVegetationInner
 from typing import Optional, Set
@@ -27,15 +27,16 @@ from typing_extensions import Self
 
 class PostDairyRequest(BaseModel):
     """
-    Input data required for the `dairy` calculator
+    Input data required for a single Dairy enterprise
     """ # noqa: E501
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Dairy activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     rainfall_above600: StrictBool = Field(description="Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm", alias="rainfallAbove600")
     production_system: StrictStr = Field(description="Production system", alias="productionSystem")
     dairy: List[PostDairyRequestDairyInner]
     vegetation: List[PostDairyRequestVegetationInner]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["state", "rainfallAbove600", "productionSystem", "dairy", "vegetation"]
+    __properties: ClassVar[List[str]] = ["id", "state", "rainfallAbove600", "productionSystem", "dairy", "vegetation"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
@@ -123,6 +124,7 @@ class PostDairyRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "state": obj.get("state"),
             "rainfallAbove600": obj.get("rainfallAbove600"),
             "productionSystem": obj.get("productionSystem"),

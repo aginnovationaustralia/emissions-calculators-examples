@@ -71,9 +71,7 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         'ewe_lambs' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesRams',
         'trade_ewe_lambs' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesRams',
         'wether_lambs' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesRams',
-        'trade_wether_lambs' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesRams',
-        'trade_ewes' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesTradeEwes',
-        'trade_lambs_and_hoggets' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesTradeLambsAndHoggets'
+        'trade_wether_lambs' => '\OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesRams'
     ];
 
     /**
@@ -97,9 +95,7 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         'ewe_lambs' => null,
         'trade_ewe_lambs' => null,
         'wether_lambs' => null,
-        'trade_wether_lambs' => null,
-        'trade_ewes' => null,
-        'trade_lambs_and_hoggets' => null
+        'trade_wether_lambs' => null
     ];
 
     /**
@@ -121,9 +117,7 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         'ewe_lambs' => false,
         'trade_ewe_lambs' => false,
         'wether_lambs' => false,
-        'trade_wether_lambs' => false,
-        'trade_ewes' => false,
-        'trade_lambs_and_hoggets' => false
+        'trade_wether_lambs' => false
     ];
 
     /**
@@ -225,9 +219,7 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         'ewe_lambs' => 'eweLambs',
         'trade_ewe_lambs' => 'tradeEweLambs',
         'wether_lambs' => 'wetherLambs',
-        'trade_wether_lambs' => 'tradeWetherLambs',
-        'trade_ewes' => 'tradeEwes',
-        'trade_lambs_and_hoggets' => 'tradeLambsAndHoggets'
+        'trade_wether_lambs' => 'tradeWetherLambs'
     ];
 
     /**
@@ -249,9 +241,7 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         'ewe_lambs' => 'setEweLambs',
         'trade_ewe_lambs' => 'setTradeEweLambs',
         'wether_lambs' => 'setWetherLambs',
-        'trade_wether_lambs' => 'setTradeWetherLambs',
-        'trade_ewes' => 'setTradeEwes',
-        'trade_lambs_and_hoggets' => 'setTradeLambsAndHoggets'
+        'trade_wether_lambs' => 'setTradeWetherLambs'
     ];
 
     /**
@@ -273,9 +263,7 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         'ewe_lambs' => 'getEweLambs',
         'trade_ewe_lambs' => 'getTradeEweLambs',
         'wether_lambs' => 'getWetherLambs',
-        'trade_wether_lambs' => 'getTradeWetherLambs',
-        'trade_ewes' => 'getTradeEwes',
-        'trade_lambs_and_hoggets' => 'getTradeLambsAndHoggets'
+        'trade_wether_lambs' => 'getTradeWetherLambs'
     ];
 
     /**
@@ -349,8 +337,6 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
         $this->setIfExists('trade_ewe_lambs', $data ?? [], null);
         $this->setIfExists('wether_lambs', $data ?? [], null);
         $this->setIfExists('trade_wether_lambs', $data ?? [], null);
-        $this->setIfExists('trade_ewes', $data ?? [], null);
-        $this->setIfExists('trade_lambs_and_hoggets', $data ?? [], null);
     }
 
     /**
@@ -778,64 +764,6 @@ class PostSheepRequestSheepInnerClasses implements ModelInterface, ArrayAccess, 
             throw new \InvalidArgumentException('non-nullable trade_wether_lambs cannot be null');
         }
         $this->container['trade_wether_lambs'] = $trade_wether_lambs;
-
-        return $this;
-    }
-
-    /**
-     * Gets trade_ewes
-     *
-     * @return \OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesTradeEwes|null
-     * @deprecated
-     */
-    public function getTradeEwes()
-    {
-        return $this->container['trade_ewes'];
-    }
-
-    /**
-     * Sets trade_ewes
-     *
-     * @param \OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesTradeEwes|null $trade_ewes trade_ewes
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setTradeEwes($trade_ewes)
-    {
-        if (is_null($trade_ewes)) {
-            throw new \InvalidArgumentException('non-nullable trade_ewes cannot be null');
-        }
-        $this->container['trade_ewes'] = $trade_ewes;
-
-        return $this;
-    }
-
-    /**
-     * Gets trade_lambs_and_hoggets
-     *
-     * @return \OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesTradeLambsAndHoggets|null
-     * @deprecated
-     */
-    public function getTradeLambsAndHoggets()
-    {
-        return $this->container['trade_lambs_and_hoggets'];
-    }
-
-    /**
-     * Sets trade_lambs_and_hoggets
-     *
-     * @param \OpenAPI\Client\Model\PostSheepRequestSheepInnerClassesTradeLambsAndHoggets|null $trade_lambs_and_hoggets trade_lambs_and_hoggets
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setTradeLambsAndHoggets($trade_lambs_and_hoggets)
-    {
-        if (is_null($trade_lambs_and_hoggets)) {
-            throw new \InvalidArgumentException('non-nullable trade_lambs_and_hoggets cannot be null');
-        }
-        $this->container['trade_lambs_and_hoggets'] = $trade_lambs_and_hoggets;
 
         return $this;
     }

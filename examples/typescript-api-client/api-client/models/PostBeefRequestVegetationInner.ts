@@ -34,13 +34,6 @@ export interface PostBeefRequestVegetationInner {
      */
     vegetation: PostBeefRequestVegetationInnerVegetation;
     /**
-     * The proportion of the sequestration that is allocated to beef. Deprecation note: Please use `allocationToBeef` instead
-     * @type {number}
-     * @memberof PostBeefRequestVegetationInner
-     * @deprecated
-     */
-    beefProportion?: number;
-    /**
      * The proportion of the sequestration that is allocated to each beef activity
      * @type {Array<number>}
      * @memberof PostBeefRequestVegetationInner
@@ -68,7 +61,6 @@ export function PostBeefRequestVegetationInnerFromJSONTyped(json: any, ignoreDis
     return {
         
         'vegetation': PostBeefRequestVegetationInnerVegetationFromJSON(json['vegetation']),
-        'beefProportion': json['beefProportion'] == null ? undefined : json['beefProportion'],
         'allocationToBeef': json['allocationToBeef'],
     };
 }
@@ -85,7 +77,6 @@ export function PostBeefRequestVegetationInnerToJSONTyped(value?: PostBeefReques
     return {
         
         'vegetation': PostBeefRequestVegetationInnerVegetationToJSON(value['vegetation']),
-        'beefProportion': value['beefProportion'],
         'allocationToBeef': value['allocationToBeef'],
     };
 }

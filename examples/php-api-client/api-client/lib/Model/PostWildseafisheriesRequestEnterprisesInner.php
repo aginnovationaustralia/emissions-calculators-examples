@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostWildseafisheriesRequestEnterprisesInner Class Doc Comment
  *
  * @category Class
+ * @description Input data required for a single WildSeaFisheries enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -455,18 +456,38 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['total_whole_weight_caught'] === null) {
             $invalidProperties[] = "'total_whole_weight_caught' can't be null";
         }
+        if (($this->container['total_whole_weight_caught'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_whole_weight_caught', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['diesel'] === null) {
             $invalidProperties[] = "'diesel' can't be null";
         }
+        if (($this->container['diesel'] < 0)) {
+            $invalidProperties[] = "invalid value for 'diesel', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['petrol'] === null) {
             $invalidProperties[] = "'petrol' can't be null";
         }
+        if (($this->container['petrol'] < 0)) {
+            $invalidProperties[] = "invalid value for 'petrol', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['lpg'] === null) {
             $invalidProperties[] = "'lpg' can't be null";
         }
+        if (($this->container['lpg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'lpg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['refrigerants'] === null) {
             $invalidProperties[] = "'refrigerants' can't be null";
         }
@@ -485,6 +506,10 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if ($this->container['carbon_offset'] === null) {
             $invalidProperties[] = "'carbon_offset' can't be null";
         }
+        if (($this->container['carbon_offset'] < 0)) {
+            $invalidProperties[] = "invalid value for 'carbon_offset', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -513,7 +538,7 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this WildSeaFisheries activity
      *
      * @return self
      */
@@ -658,6 +683,11 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostWildseafisheriesRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -685,6 +715,11 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if (is_null($total_whole_weight_caught)) {
             throw new \InvalidArgumentException('non-nullable total_whole_weight_caught cannot be null');
         }
+
+        if (($total_whole_weight_caught < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_whole_weight_caught when calling PostWildseafisheriesRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['total_whole_weight_caught'] = $total_whole_weight_caught;
 
         return $this;
@@ -712,6 +747,11 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if (is_null($diesel)) {
             throw new \InvalidArgumentException('non-nullable diesel cannot be null');
         }
+
+        if (($diesel < 0)) {
+            throw new \InvalidArgumentException('invalid value for $diesel when calling PostWildseafisheriesRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['diesel'] = $diesel;
 
         return $this;
@@ -739,6 +779,11 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if (is_null($petrol)) {
             throw new \InvalidArgumentException('non-nullable petrol cannot be null');
         }
+
+        if (($petrol < 0)) {
+            throw new \InvalidArgumentException('invalid value for $petrol when calling PostWildseafisheriesRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['petrol'] = $petrol;
 
         return $this;
@@ -766,6 +811,11 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if (is_null($lpg)) {
             throw new \InvalidArgumentException('non-nullable lpg cannot be null');
         }
+
+        if (($lpg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $lpg when calling PostWildseafisheriesRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['lpg'] = $lpg;
 
         return $this;
@@ -928,6 +978,11 @@ class PostWildseafisheriesRequestEnterprisesInner implements ModelInterface, Arr
         if (is_null($carbon_offset)) {
             throw new \InvalidArgumentException('non-nullable carbon_offset cannot be null');
         }
+
+        if (($carbon_offset < 0)) {
+            throw new \InvalidArgumentException('invalid value for $carbon_offset when calling PostWildseafisheriesRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['carbon_offset'] = $carbon_offset;
 
         return $this;

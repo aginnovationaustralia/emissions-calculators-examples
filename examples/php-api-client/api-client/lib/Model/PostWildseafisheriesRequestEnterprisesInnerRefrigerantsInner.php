@@ -494,6 +494,10 @@ class PostWildseafisheriesRequestEnterprisesInnerRefrigerantsInner implements Mo
         if ($this->container['annual_recharge'] === null) {
             $invalidProperties[] = "'annual_recharge' can't be null";
         }
+        if (($this->container['annual_recharge'] < 0)) {
+            $invalidProperties[] = "invalid value for 'annual_recharge', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -568,6 +572,11 @@ class PostWildseafisheriesRequestEnterprisesInnerRefrigerantsInner implements Mo
         if (is_null($annual_recharge)) {
             throw new \InvalidArgumentException('non-nullable annual_recharge cannot be null');
         }
+
+        if (($annual_recharge < 0)) {
+            throw new \InvalidArgumentException('invalid value for $annual_recharge when calling PostWildseafisheriesRequestEnterprisesInnerRefrigerantsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['annual_recharge'] = $annual_recharge;
 
         return $this;

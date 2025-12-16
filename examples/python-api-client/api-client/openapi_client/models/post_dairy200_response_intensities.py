@@ -28,7 +28,7 @@ class PostDairy200ResponseIntensities(BaseModel):
     PostDairy200ResponseIntensities
     """ # noqa: E501
     milk_solids_produced_tonnes: Union[StrictFloat, StrictInt] = Field(description="Milk solids produced in tonnes", alias="milkSolidsProducedTonnes")
-    intensity: Union[StrictFloat, StrictInt] = Field(description="Dairy intensities including carbon sequestration, in tonnes-CO2e")
+    intensity: Union[StrictFloat, StrictInt] = Field(description="Dairy emissions intensity including sequestration, in tonnes-CO2e/tonne milk solids")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["milkSolidsProducedTonnes", "intensity"]
 

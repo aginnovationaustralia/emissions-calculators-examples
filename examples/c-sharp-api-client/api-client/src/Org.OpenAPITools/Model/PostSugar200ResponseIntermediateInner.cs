@@ -38,19 +38,19 @@ namespace Org.OpenAPITools.Model
         /// <param name="scope1">scope1</param>
         /// <param name="scope2">scope2</param>
         /// <param name="scope3">scope3</param>
-        /// <param name="carbonSequestration">Carbon sequestration, in tonnes-CO2e</param>
         /// <param name="intensities">intensities</param>
         /// <param name="net">net</param>
+        /// <param name="carbonSequestration">carbonSequestration</param>
         [JsonConstructor]
-        public PostSugar200ResponseIntermediateInner(string id, PostCotton200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostCotton200ResponseScope3 scope3, decimal carbonSequestration, PostSugar200ResponseIntermediateInnerIntensities intensities, PostAquaculture200ResponseNet net)
+        public PostSugar200ResponseIntermediateInner(string id, PostCotton200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostCotton200ResponseScope3 scope3, PostSugar200ResponseIntermediateInnerIntensities intensities, PostAquaculture200ResponseNet net, PostAquaculture200ResponseCarbonSequestration carbonSequestration)
         {
             Id = id;
             Scope1 = scope1;
             Scope2 = scope2;
             Scope3 = scope3;
-            CarbonSequestration = carbonSequestration;
             Intensities = intensities;
             Net = net;
+            CarbonSequestration = carbonSequestration;
             OnCreated();
         }
 
@@ -82,13 +82,6 @@ namespace Org.OpenAPITools.Model
         public PostCotton200ResponseScope3 Scope3 { get; set; }
 
         /// <summary>
-        /// Carbon sequestration, in tonnes-CO2e
-        /// </summary>
-        /// <value>Carbon sequestration, in tonnes-CO2e</value>
-        [JsonPropertyName("carbonSequestration")]
-        public decimal CarbonSequestration { get; set; }
-
-        /// <summary>
         /// Gets or Sets Intensities
         /// </summary>
         [JsonPropertyName("intensities")]
@@ -99,6 +92,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonPropertyName("net")]
         public PostAquaculture200ResponseNet Net { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CarbonSequestration
+        /// </summary>
+        [JsonPropertyName("carbonSequestration")]
+        public PostAquaculture200ResponseCarbonSequestration CarbonSequestration { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -118,9 +117,9 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Scope1: ").Append(Scope1).Append("\n");
             sb.Append("  Scope2: ").Append(Scope2).Append("\n");
             sb.Append("  Scope3: ").Append(Scope3).Append("\n");
-            sb.Append("  CarbonSequestration: ").Append(CarbonSequestration).Append("\n");
             sb.Append("  Intensities: ").Append(Intensities).Append("\n");
             sb.Append("  Net: ").Append(Net).Append("\n");
+            sb.Append("  CarbonSequestration: ").Append(CarbonSequestration).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -163,9 +162,9 @@ namespace Org.OpenAPITools.Model
             Option<PostCotton200ResponseScope1?> scope1 = default;
             Option<PostAquaculture200ResponseScope2?> scope2 = default;
             Option<PostCotton200ResponseScope3?> scope3 = default;
-            Option<decimal?> carbonSequestration = default;
             Option<PostSugar200ResponseIntermediateInnerIntensities?> intensities = default;
             Option<PostAquaculture200ResponseNet?> net = default;
+            Option<PostAquaculture200ResponseCarbonSequestration?> carbonSequestration = default;
 
             while (utf8JsonReader.Read())
             {
@@ -194,14 +193,14 @@ namespace Org.OpenAPITools.Model
                         case "scope3":
                             scope3 = new Option<PostCotton200ResponseScope3?>(JsonSerializer.Deserialize<PostCotton200ResponseScope3>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "carbonSequestration":
-                            carbonSequestration = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
                         case "intensities":
                             intensities = new Option<PostSugar200ResponseIntermediateInnerIntensities?>(JsonSerializer.Deserialize<PostSugar200ResponseIntermediateInnerIntensities>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "net":
                             net = new Option<PostAquaculture200ResponseNet?>(JsonSerializer.Deserialize<PostAquaculture200ResponseNet>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "carbonSequestration":
+                            carbonSequestration = new Option<PostAquaculture200ResponseCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -221,14 +220,14 @@ namespace Org.OpenAPITools.Model
             if (!scope3.IsSet)
                 throw new ArgumentException("Property is required for class PostSugar200ResponseIntermediateInner.", nameof(scope3));
 
-            if (!carbonSequestration.IsSet)
-                throw new ArgumentException("Property is required for class PostSugar200ResponseIntermediateInner.", nameof(carbonSequestration));
-
             if (!intensities.IsSet)
                 throw new ArgumentException("Property is required for class PostSugar200ResponseIntermediateInner.", nameof(intensities));
 
             if (!net.IsSet)
                 throw new ArgumentException("Property is required for class PostSugar200ResponseIntermediateInner.", nameof(net));
+
+            if (!carbonSequestration.IsSet)
+                throw new ArgumentException("Property is required for class PostSugar200ResponseIntermediateInner.", nameof(carbonSequestration));
 
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class PostSugar200ResponseIntermediateInner.");
@@ -242,16 +241,16 @@ namespace Org.OpenAPITools.Model
             if (scope3.IsSet && scope3.Value == null)
                 throw new ArgumentNullException(nameof(scope3), "Property is not nullable for class PostSugar200ResponseIntermediateInner.");
 
-            if (carbonSequestration.IsSet && carbonSequestration.Value == null)
-                throw new ArgumentNullException(nameof(carbonSequestration), "Property is not nullable for class PostSugar200ResponseIntermediateInner.");
-
             if (intensities.IsSet && intensities.Value == null)
                 throw new ArgumentNullException(nameof(intensities), "Property is not nullable for class PostSugar200ResponseIntermediateInner.");
 
             if (net.IsSet && net.Value == null)
                 throw new ArgumentNullException(nameof(net), "Property is not nullable for class PostSugar200ResponseIntermediateInner.");
 
-            return new PostSugar200ResponseIntermediateInner(id.Value!, scope1.Value!, scope2.Value!, scope3.Value!, carbonSequestration.Value!.Value!, intensities.Value!, net.Value!);
+            if (carbonSequestration.IsSet && carbonSequestration.Value == null)
+                throw new ArgumentNullException(nameof(carbonSequestration), "Property is not nullable for class PostSugar200ResponseIntermediateInner.");
+
+            return new PostSugar200ResponseIntermediateInner(id.Value!, scope1.Value!, scope2.Value!, scope3.Value!, intensities.Value!, net.Value!, carbonSequestration.Value!);
         }
 
         /// <summary>
@@ -296,6 +295,9 @@ namespace Org.OpenAPITools.Model
             if (postSugar200ResponseIntermediateInner.Net == null)
                 throw new ArgumentNullException(nameof(postSugar200ResponseIntermediateInner.Net), "Property is required for class PostSugar200ResponseIntermediateInner.");
 
+            if (postSugar200ResponseIntermediateInner.CarbonSequestration == null)
+                throw new ArgumentNullException(nameof(postSugar200ResponseIntermediateInner.CarbonSequestration), "Property is required for class PostSugar200ResponseIntermediateInner.");
+
             writer.WriteString("id", postSugar200ResponseIntermediateInner.Id);
 
             writer.WritePropertyName("scope1");
@@ -304,12 +306,12 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, postSugar200ResponseIntermediateInner.Scope2, jsonSerializerOptions);
             writer.WritePropertyName("scope3");
             JsonSerializer.Serialize(writer, postSugar200ResponseIntermediateInner.Scope3, jsonSerializerOptions);
-            writer.WriteNumber("carbonSequestration", postSugar200ResponseIntermediateInner.CarbonSequestration);
-
             writer.WritePropertyName("intensities");
             JsonSerializer.Serialize(writer, postSugar200ResponseIntermediateInner.Intensities, jsonSerializerOptions);
             writer.WritePropertyName("net");
             JsonSerializer.Serialize(writer, postSugar200ResponseIntermediateInner.Net, jsonSerializerOptions);
+            writer.WritePropertyName("carbonSequestration");
+            JsonSerializer.Serialize(writer, postSugar200ResponseIntermediateInner.CarbonSequestration, jsonSerializerOptions);
         }
     }
 }

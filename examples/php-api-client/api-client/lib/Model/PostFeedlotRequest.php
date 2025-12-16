@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostFeedlotRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;feedlot&#x60; calculator
+ * @description Input data required for a single Feedlot enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,6 +59,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'state' => 'string',
         'feedlots' => '\OpenAPI\Client\Model\PostFeedlotRequestFeedlotsInner[]',
         'vegetation' => '\OpenAPI\Client\Model\PostFeedlotRequestVegetationInner[]'
@@ -72,6 +73,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'state' => null,
         'feedlots' => null,
         'vegetation' => null
@@ -83,6 +85,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
         'state' => false,
         'feedlots' => false,
         'vegetation' => false
@@ -174,6 +177,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'state' => 'state',
         'feedlots' => 'feedlots',
         'vegetation' => 'vegetation'
@@ -185,6 +189,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'state' => 'setState',
         'feedlots' => 'setFeedlots',
         'vegetation' => 'setVegetation'
@@ -196,6 +201,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'state' => 'getState',
         'feedlots' => 'getFeedlots',
         'vegetation' => 'getVegetation'
@@ -287,6 +293,7 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('feedlots', $data ?? [], null);
         $this->setIfExists('vegetation', $data ?? [], null);
@@ -351,6 +358,33 @@ class PostFeedlotRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier for this Feedlot activity
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets state

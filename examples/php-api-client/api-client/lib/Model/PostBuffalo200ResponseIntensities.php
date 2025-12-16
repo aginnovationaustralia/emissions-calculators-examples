@@ -353,7 +353,7 @@ class PostBuffalo200ResponseIntensities implements ModelInterface, ArrayAccess, 
     /**
      * Sets buffalo_meat_excluding_sequestration
      *
-     * @param float $buffalo_meat_excluding_sequestration Buffalo meat (breeding herd) excluding sequestration, in kg-CO2e/kg liveweight
+     * @param float $buffalo_meat_excluding_sequestration Buffalo meat (breeding herd) emissions intensity excluding sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class PostBuffalo200ResponseIntensities implements ModelInterface, ArrayAccess, 
     /**
      * Sets buffalo_meat_including_sequestration
      *
-     * @param float $buffalo_meat_including_sequestration Buffalo meat (breeding herd) including sequestration, in kg-CO2e/kg liveweight
+     * @param float $buffalo_meat_including_sequestration Buffalo meat (breeding herd) emissions intensity including sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */

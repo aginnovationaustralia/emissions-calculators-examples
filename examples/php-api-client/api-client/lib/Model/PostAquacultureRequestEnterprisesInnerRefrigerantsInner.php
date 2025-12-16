@@ -494,6 +494,10 @@ class PostAquacultureRequestEnterprisesInnerRefrigerantsInner implements ModelIn
         if ($this->container['charge_size'] === null) {
             $invalidProperties[] = "'charge_size' can't be null";
         }
+        if (($this->container['charge_size'] < 0)) {
+            $invalidProperties[] = "invalid value for 'charge_size', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -568,6 +572,11 @@ class PostAquacultureRequestEnterprisesInnerRefrigerantsInner implements ModelIn
         if (is_null($charge_size)) {
             throw new \InvalidArgumentException('non-nullable charge_size cannot be null');
         }
+
+        if (($charge_size < 0)) {
+            throw new \InvalidArgumentException('invalid value for $charge_size when calling PostAquacultureRequestEnterprisesInnerRefrigerantsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['charge_size'] = $charge_size;
 
         return $this;

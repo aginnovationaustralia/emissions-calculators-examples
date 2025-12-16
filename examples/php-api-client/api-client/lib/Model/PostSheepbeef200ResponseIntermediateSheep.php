@@ -59,10 +59,10 @@ class PostSheepbeef200ResponseIntermediateSheep implements ModelInterface, Array
       * @var string[]
       */
     protected static $openAPITypes = [
-        'scope1' => '\OpenAPI\Client\Model\PostBeef200ResponseScope1',
+        'scope1' => '\OpenAPI\Client\Model\PostBuffalo200ResponseScope1',
         'scope2' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope2',
         'scope3' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3',
-        'carbon_sequestration' => 'float',
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration',
         'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseNet',
         'intensities' => '\OpenAPI\Client\Model\PostSheep200ResponseIntermediateInnerIntensities'
     ];
@@ -347,7 +347,7 @@ class PostSheepbeef200ResponseIntermediateSheep implements ModelInterface, Array
     /**
      * Gets scope1
      *
-     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope1
+     * @return \OpenAPI\Client\Model\PostBuffalo200ResponseScope1
      */
     public function getScope1()
     {
@@ -357,7 +357,7 @@ class PostSheepbeef200ResponseIntermediateSheep implements ModelInterface, Array
     /**
      * Sets scope1
      *
-     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope1 $scope1 scope1
+     * @param \OpenAPI\Client\Model\PostBuffalo200ResponseScope1 $scope1 scope1
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class PostSheepbeef200ResponseIntermediateSheep implements ModelInterface, Array
     /**
      * Gets carbon_sequestration
      *
-     * @return float
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -438,7 +438,7 @@ class PostSheepbeef200ResponseIntermediateSheep implements ModelInterface, Array
     /**
      * Sets carbon_sequestration
      *
-     * @param float $carbon_sequestration Carbon sequestration, in tonnes-CO2e
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

@@ -41,6 +41,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostBuffalo200ResponseScope1 } from './PostBuffalo200ResponseScope1';
 import {
     PostBuffalo200ResponseScope1FromJSON,
@@ -80,12 +87,6 @@ export interface PostSheep200ResponseIntermediateInner {
      */
     scope3: PostBeef200ResponseScope3;
     /**
-     * Carbon sequestration, in tonnes-CO2e
-     * @type {number}
-     * @memberof PostSheep200ResponseIntermediateInner
-     */
-    carbonSequestration: number;
-    /**
      * 
      * @type {PostSheep200ResponseIntermediateInnerIntensities}
      * @memberof PostSheep200ResponseIntermediateInner
@@ -97,6 +98,12 @@ export interface PostSheep200ResponseIntermediateInner {
      * @memberof PostSheep200ResponseIntermediateInner
      */
     net: PostAquaculture200ResponseNet;
+    /**
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
+     * @memberof PostSheep200ResponseIntermediateInner
+     */
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -107,9 +114,9 @@ export function instanceOfPostSheep200ResponseIntermediateInner(value: object): 
     if (!('scope1' in value) || value['scope1'] === undefined) return false;
     if (!('scope2' in value) || value['scope2'] === undefined) return false;
     if (!('scope3' in value) || value['scope3'] === undefined) return false;
-    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     if (!('intensities' in value) || value['intensities'] === undefined) return false;
     if (!('net' in value) || value['net'] === undefined) return false;
+    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     return true;
 }
 
@@ -127,9 +134,9 @@ export function PostSheep200ResponseIntermediateInnerFromJSONTyped(json: any, ig
         'scope1': PostBuffalo200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostBeef200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': json['carbonSequestration'],
         'intensities': PostSheep200ResponseIntermediateInnerIntensitiesFromJSON(json['intensities']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -148,9 +155,9 @@ export function PostSheep200ResponseIntermediateInnerToJSONTyped(value?: PostShe
         'scope1': PostBuffalo200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostBeef200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': value['carbonSequestration'],
         'intensities': PostSheep200ResponseIntermediateInnerIntensitiesToJSON(value['intensities']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

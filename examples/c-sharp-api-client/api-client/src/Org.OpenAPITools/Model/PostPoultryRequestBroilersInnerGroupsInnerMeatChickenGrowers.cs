@@ -203,6 +203,90 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Birds (decimal) minimum
+            if (this.Birds < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Birds, must be a value greater than or equal to 0.", new [] { "Birds" });
+            }
+
+            // AverageStayLength50 (decimal) minimum
+            if (this.AverageStayLength50 < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageStayLength50, must be a value greater than or equal to 0.", new [] { "AverageStayLength50" });
+            }
+
+            // Liveweight50 (decimal) minimum
+            if (this.Liveweight50 < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Liveweight50, must be a value greater than or equal to 0.", new [] { "Liveweight50" });
+            }
+
+            // AverageStayLength100 (decimal) minimum
+            if (this.AverageStayLength100 < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageStayLength100, must be a value greater than or equal to 0.", new [] { "AverageStayLength100" });
+            }
+
+            // Liveweight100 (decimal) minimum
+            if (this.Liveweight100 < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Liveweight100, must be a value greater than or equal to 0.", new [] { "Liveweight100" });
+            }
+
+            // DryMatterIntake (decimal) minimum
+            if (this.DryMatterIntakeOption.IsSet && this.DryMatterIntakeOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DryMatterIntake, must be a value greater than or equal to 0.", new [] { "DryMatterIntake" });
+            }
+
+            // DryMatterDigestibility (decimal) maximum
+            if (this.DryMatterDigestibilityOption.IsSet && this.DryMatterDigestibilityOption.Value > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for DryMatterDigestibility, must be a value less than or equal to 1.", new [] { "DryMatterDigestibility" });
+            }
+
+            // DryMatterDigestibility (decimal) minimum
+            if (this.DryMatterDigestibilityOption.IsSet && this.DryMatterDigestibilityOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DryMatterDigestibility, must be a value greater than or equal to 0.", new [] { "DryMatterDigestibility" });
+            }
+
+            // CrudeProtein (decimal) maximum
+            if (this.CrudeProteinOption.IsSet && this.CrudeProteinOption.Value > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for CrudeProtein, must be a value less than or equal to 1.", new [] { "CrudeProtein" });
+            }
+
+            // CrudeProtein (decimal) minimum
+            if (this.CrudeProteinOption.IsSet && this.CrudeProteinOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CrudeProtein, must be a value greater than or equal to 0.", new [] { "CrudeProtein" });
+            }
+
+            // ManureAsh (decimal) maximum
+            if (this.ManureAshOption.IsSet && this.ManureAshOption.Value > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for ManureAsh, must be a value less than or equal to 1.", new [] { "ManureAsh" });
+            }
+
+            // ManureAsh (decimal) minimum
+            if (this.ManureAshOption.IsSet && this.ManureAshOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ManureAsh, must be a value greater than or equal to 0.", new [] { "ManureAsh" });
+            }
+
+            // NitrogenRetentionRate (decimal) maximum
+            if (this.NitrogenRetentionRateOption.IsSet && this.NitrogenRetentionRateOption.Value > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for NitrogenRetentionRate, must be a value less than or equal to 1.", new [] { "NitrogenRetentionRate" });
+            }
+
+            // NitrogenRetentionRate (decimal) minimum
+            if (this.NitrogenRetentionRateOption.IsSet && this.NitrogenRetentionRateOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for NitrogenRetentionRate, must be a value greater than or equal to 0.", new [] { "NitrogenRetentionRate" });
+            }
+
             yield break;
         }
     }

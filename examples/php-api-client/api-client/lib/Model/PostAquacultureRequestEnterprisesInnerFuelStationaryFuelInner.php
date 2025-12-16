@@ -324,6 +324,10 @@ class PostAquacultureRequestEnterprisesInnerFuelStationaryFuelInner implements M
         if ($this->container['amount_litres'] === null) {
             $invalidProperties[] = "'amount_litres' can't be null";
         }
+        if (($this->container['amount_litres'] < 0)) {
+            $invalidProperties[] = "invalid value for 'amount_litres', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -398,6 +402,11 @@ class PostAquacultureRequestEnterprisesInnerFuelStationaryFuelInner implements M
         if (is_null($amount_litres)) {
             throw new \InvalidArgumentException('non-nullable amount_litres cannot be null');
         }
+
+        if (($amount_litres < 0)) {
+            throw new \InvalidArgumentException('invalid value for $amount_litres when calling PostAquacultureRequestEnterprisesInnerFuelStationaryFuelInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['amount_litres'] = $amount_litres;
 
         return $this;

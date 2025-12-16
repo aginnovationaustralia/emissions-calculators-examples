@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.post_aquaculture200_response_carbon_sequestration import PostAquaculture200ResponseCarbonSequestration
 from openapi_client.models.post_aquaculture200_response_net import PostAquaculture200ResponseNet
 from openapi_client.models.post_aquaculture200_response_purchased_offsets import PostAquaculture200ResponsePurchasedOffsets
 from openapi_client.models.post_aquaculture200_response_scope2 import PostAquaculture200ResponseScope2
@@ -31,18 +32,18 @@ from typing_extensions import Self
 
 class PostWildseafisheries200ResponseIntermediateInner(BaseModel):
     """
-    Intermediate emissions calculation output for the Wild Sea Fisheries calculator
+    Intermediate emissions calculation output for the WildSeaFisheries calculator
     """ # noqa: E501
-    id: StrictStr = Field(description="Unique identifier for this activity")
+    id: StrictStr = Field(description="Unique identifier for this WildSeaFisheries activity")
     scope1: PostWildseafisheries200ResponseScope1
     scope2: PostAquaculture200ResponseScope2
     scope3: PostWildseafisheries200ResponseScope3
     purchased_offsets: PostAquaculture200ResponsePurchasedOffsets = Field(alias="purchasedOffsets")
-    carbon_sequestration: Union[StrictFloat, StrictInt] = Field(description="Carbon sequestration, in tonnes-CO2e", alias="carbonSequestration")
     intensities: PostWildseafisheries200ResponseIntermediateInnerIntensities
     net: PostAquaculture200ResponseNet
+    carbon_sequestration: PostAquaculture200ResponseCarbonSequestration = Field(alias="carbonSequestration")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "scope1", "scope2", "scope3", "purchasedOffsets", "carbonSequestration", "intensities", "net"]
+    __properties: ClassVar[List[str]] = ["id", "scope1", "scope2", "scope3", "purchasedOffsets", "intensities", "net", "carbonSequestration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,6 +104,9 @@ class PostWildseafisheries200ResponseIntermediateInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of net
         if self.net:
             _dict['net'] = self.net.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of carbon_sequestration
+        if self.carbon_sequestration:
+            _dict['carbonSequestration'] = self.carbon_sequestration.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -125,9 +129,9 @@ class PostWildseafisheries200ResponseIntermediateInner(BaseModel):
             "scope2": PostAquaculture200ResponseScope2.from_dict(obj["scope2"]) if obj.get("scope2") is not None else None,
             "scope3": PostWildseafisheries200ResponseScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
             "purchasedOffsets": PostAquaculture200ResponsePurchasedOffsets.from_dict(obj["purchasedOffsets"]) if obj.get("purchasedOffsets") is not None else None,
-            "carbonSequestration": obj.get("carbonSequestration"),
             "intensities": PostWildseafisheries200ResponseIntermediateInnerIntensities.from_dict(obj["intensities"]) if obj.get("intensities") is not None else None,
-            "net": PostAquaculture200ResponseNet.from_dict(obj["net"]) if obj.get("net") is not None else None
+            "net": PostAquaculture200ResponseNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
+            "carbonSequestration": PostAquaculture200ResponseCarbonSequestration.from_dict(obj["carbonSequestration"]) if obj.get("carbonSequestration") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

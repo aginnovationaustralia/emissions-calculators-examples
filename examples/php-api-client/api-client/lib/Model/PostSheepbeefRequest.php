@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostSheepbeefRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;sheepbeef&#x60; calculator
+ * @description Input data required for the SheepBeef calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

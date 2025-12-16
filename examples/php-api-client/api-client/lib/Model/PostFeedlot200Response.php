@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostFeedlot200Response Class Doc Comment
  *
  * @category Class
- * @description Emissions calculation output for the &#x60;feedlot&#x60; calculator
+ * @description Emissions calculation output for the Feedlot calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

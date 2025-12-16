@@ -468,6 +468,42 @@ namespace Org.OpenAPITools.Model
                 yield return new ValidationResult("Invalid value for ElectricityRenewable, must be a value greater than or equal to 0.", new [] { "ElectricityRenewable" });
             }
 
+            // ElectricityUse (decimal) minimum
+            if (this.ElectricityUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityUse, must be a value greater than or equal to 0.", new [] { "ElectricityUse" });
+            }
+
+            // TotalWholeWeightCaught (decimal) minimum
+            if (this.TotalWholeWeightCaught < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalWholeWeightCaught, must be a value greater than or equal to 0.", new [] { "TotalWholeWeightCaught" });
+            }
+
+            // Diesel (decimal) minimum
+            if (this.Diesel < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Diesel, must be a value greater than or equal to 0.", new [] { "Diesel" });
+            }
+
+            // Petrol (decimal) minimum
+            if (this.Petrol < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Petrol, must be a value greater than or equal to 0.", new [] { "Petrol" });
+            }
+
+            // Lpg (decimal) minimum
+            if (this.Lpg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Lpg, must be a value greater than or equal to 0.", new [] { "Lpg" });
+            }
+
+            // CarbonOffset (decimal) minimum
+            if (this.CarbonOffset < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CarbonOffset, must be a value greater than or equal to 0.", new [] { "CarbonOffset" });
+            }
+
             yield break;
         }
     }

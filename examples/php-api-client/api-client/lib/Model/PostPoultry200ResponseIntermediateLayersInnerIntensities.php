@@ -326,7 +326,7 @@ class PostPoultry200ResponseIntermediateLayersInnerIntensities implements ModelI
     /**
      * Sets poultry_eggs_including_sequestration
      *
-     * @param float $poultry_eggs_including_sequestration Poultry eggs including carbon sequestration, in kg-CO2e/kg eggs
+     * @param float $poultry_eggs_including_sequestration Poultry eggs emissions intensity including carbon sequestration, in kg-CO2e/kg eggs
      *
      * @return self
      */
@@ -353,7 +353,7 @@ class PostPoultry200ResponseIntermediateLayersInnerIntensities implements ModelI
     /**
      * Sets poultry_eggs_excluding_sequestration
      *
-     * @param float $poultry_eggs_excluding_sequestration Poultry eggs excluding carbon sequestration, in kg-CO2e/kg eggs
+     * @param float $poultry_eggs_excluding_sequestration Poultry eggs emissions intensity excluding carbon sequestration, in kg-CO2e/kg eggs
      *
      * @return self
      */

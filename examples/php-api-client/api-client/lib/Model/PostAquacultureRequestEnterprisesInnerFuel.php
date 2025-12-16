@@ -299,6 +299,10 @@ class PostAquacultureRequestEnterprisesInnerFuel implements ModelInterface, Arra
         if ($this->container['natural_gas'] === null) {
             $invalidProperties[] = "'natural_gas' can't be null";
         }
+        if (($this->container['natural_gas'] < 0)) {
+            $invalidProperties[] = "invalid value for 'natural_gas', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -390,6 +394,11 @@ class PostAquacultureRequestEnterprisesInnerFuel implements ModelInterface, Arra
         if (is_null($natural_gas)) {
             throw new \InvalidArgumentException('non-nullable natural_gas cannot be null');
         }
+
+        if (($natural_gas < 0)) {
+            throw new \InvalidArgumentException('invalid value for $natural_gas when calling PostAquacultureRequestEnterprisesInnerFuel., must be bigger than or equal to 0.');
+        }
+
         $this->container['natural_gas'] = $natural_gas;
 
         return $this;

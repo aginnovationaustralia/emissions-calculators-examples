@@ -27,10 +27,10 @@ class PostPoultry200ResponseIntensities(BaseModel):
     """
     PostPoultry200ResponseIntensities
     """ # noqa: E501
-    poultry_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry meat including carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryMeatIncludingSequestration")
-    poultry_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry meat excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryMeatExcludingSequestration")
-    poultry_eggs_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs including carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryEggsIncludingSequestration")
-    poultry_eggs_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryEggsExcludingSequestration")
+    poultry_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry meat emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryMeatIncludingSequestration")
+    poultry_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry meat emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryMeatExcludingSequestration")
+    poultry_eggs_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryEggsIncludingSequestration")
+    poultry_eggs_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="poultryEggsExcludingSequestration")
     meat_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Poultry meat produced in kg", alias="meatProducedKg")
     eggs_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Amount of eggs produced, in kg", alias="eggsProducedKg")
     additional_properties: Dict[str, Any] = {}

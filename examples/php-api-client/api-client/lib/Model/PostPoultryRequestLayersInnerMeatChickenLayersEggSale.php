@@ -286,9 +286,17 @@ class PostPoultryRequestLayersInnerMeatChickenLayersEggSale implements ModelInte
         if ($this->container['eggs_produced'] === null) {
             $invalidProperties[] = "'eggs_produced' can't be null";
         }
+        if (($this->container['eggs_produced'] < 0)) {
+            $invalidProperties[] = "invalid value for 'eggs_produced', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['average_weight'] === null) {
             $invalidProperties[] = "'average_weight' can't be null";
         }
+        if (($this->container['average_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_weight', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -326,6 +334,11 @@ class PostPoultryRequestLayersInnerMeatChickenLayersEggSale implements ModelInte
         if (is_null($eggs_produced)) {
             throw new \InvalidArgumentException('non-nullable eggs_produced cannot be null');
         }
+
+        if (($eggs_produced < 0)) {
+            throw new \InvalidArgumentException('invalid value for $eggs_produced when calling PostPoultryRequestLayersInnerMeatChickenLayersEggSale., must be bigger than or equal to 0.');
+        }
+
         $this->container['eggs_produced'] = $eggs_produced;
 
         return $this;
@@ -353,6 +366,11 @@ class PostPoultryRequestLayersInnerMeatChickenLayersEggSale implements ModelInte
         if (is_null($average_weight)) {
             throw new \InvalidArgumentException('non-nullable average_weight cannot be null');
         }
+
+        if (($average_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_weight when calling PostPoultryRequestLayersInnerMeatChickenLayersEggSale., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_weight'] = $average_weight;
 
         return $this;

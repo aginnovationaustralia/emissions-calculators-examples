@@ -344,9 +344,17 @@ class PostBeefRequestBeefInnerFertiliserOtherFertilisersInner implements ModelIn
         if ($this->container['other_dryland'] === null) {
             $invalidProperties[] = "'other_dryland' can't be null";
         }
+        if (($this->container['other_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'other_dryland', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['other_irrigated'] === null) {
             $invalidProperties[] = "'other_irrigated' can't be null";
         }
+        if (($this->container['other_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'other_irrigated', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -421,6 +429,11 @@ class PostBeefRequestBeefInnerFertiliserOtherFertilisersInner implements ModelIn
         if (is_null($other_dryland)) {
             throw new \InvalidArgumentException('non-nullable other_dryland cannot be null');
         }
+
+        if (($other_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $other_dryland when calling PostBeefRequestBeefInnerFertiliserOtherFertilisersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['other_dryland'] = $other_dryland;
 
         return $this;
@@ -448,6 +461,11 @@ class PostBeefRequestBeefInnerFertiliserOtherFertilisersInner implements ModelIn
         if (is_null($other_irrigated)) {
             throw new \InvalidArgumentException('non-nullable other_irrigated cannot be null');
         }
+
+        if (($other_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $other_irrigated when calling PostBeefRequestBeefInnerFertiliserOtherFertilisersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['other_irrigated'] = $other_irrigated;
 
         return $this;

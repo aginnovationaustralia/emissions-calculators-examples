@@ -32,7 +32,7 @@ from typing_extensions import Self
 
 class PostVineyard200Response(BaseModel):
     """
-    Emissions calculation output for the `vineyard` calculator
+    Emissions calculation output for the Vineyard calculator
     """ # noqa: E501
     scope1: PostVineyard200ResponseScope1
     scope2: PostAquaculture200ResponseScope2

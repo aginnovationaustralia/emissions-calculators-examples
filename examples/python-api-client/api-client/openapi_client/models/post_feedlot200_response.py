@@ -32,7 +32,7 @@ from typing_extensions import Self
 
 class PostFeedlot200Response(BaseModel):
     """
-    Emissions calculation output for the `feedlot` calculator
+    Emissions calculation output for the Feedlot calculator
     """ # noqa: E501
     scope1: PostFeedlot200ResponseScope1
     scope2: PostAquaculture200ResponseScope2

@@ -108,6 +108,30 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Autumn (decimal) minimum
+            if (this.Autumn < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Autumn, must be a value greater than or equal to 0.", new [] { "Autumn" });
+            }
+
+            // Winter (decimal) minimum
+            if (this.Winter < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Winter, must be a value greater than or equal to 0.", new [] { "Winter" });
+            }
+
+            // Spring (decimal) minimum
+            if (this.Spring < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Spring, must be a value greater than or equal to 0.", new [] { "Spring" });
+            }
+
+            // Summer (decimal) minimum
+            if (this.Summer < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Summer, must be a value greater than or equal to 0.", new [] { "Summer" });
+            }
+
             yield break;
         }
     }

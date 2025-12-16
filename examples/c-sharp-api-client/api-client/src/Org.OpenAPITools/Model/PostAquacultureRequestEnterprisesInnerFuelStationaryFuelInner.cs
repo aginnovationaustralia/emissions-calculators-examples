@@ -239,6 +239,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AmountLitres (decimal) minimum
+            if (this.AmountLitres < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AmountLitres, must be a value greater than or equal to 0.", new [] { "AmountLitres" });
+            }
+
             yield break;
         }
     }

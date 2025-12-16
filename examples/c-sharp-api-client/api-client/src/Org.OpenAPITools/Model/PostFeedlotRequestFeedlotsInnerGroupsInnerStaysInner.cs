@@ -158,6 +158,90 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Livestock (decimal) minimum
+            if (this.Livestock < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Livestock, must be a value greater than or equal to 0.", new [] { "Livestock" });
+            }
+
+            // StayAverageDuration (decimal) minimum
+            if (this.StayAverageDuration < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for StayAverageDuration, must be a value greater than or equal to 0.", new [] { "StayAverageDuration" });
+            }
+
+            // Liveweight (decimal) minimum
+            if (this.Liveweight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Liveweight, must be a value greater than or equal to 0.", new [] { "Liveweight" });
+            }
+
+            // DryMatterDigestibility (decimal) maximum
+            if (this.DryMatterDigestibility > (decimal)100)
+            {
+                yield return new ValidationResult("Invalid value for DryMatterDigestibility, must be a value less than or equal to 100.", new [] { "DryMatterDigestibility" });
+            }
+
+            // DryMatterDigestibility (decimal) minimum
+            if (this.DryMatterDigestibility < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DryMatterDigestibility, must be a value greater than or equal to 0.", new [] { "DryMatterDigestibility" });
+            }
+
+            // CrudeProtein (decimal) maximum
+            if (this.CrudeProtein > (decimal)100)
+            {
+                yield return new ValidationResult("Invalid value for CrudeProtein, must be a value less than or equal to 100.", new [] { "CrudeProtein" });
+            }
+
+            // CrudeProtein (decimal) minimum
+            if (this.CrudeProtein < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CrudeProtein, must be a value greater than or equal to 0.", new [] { "CrudeProtein" });
+            }
+
+            // NitrogenRetention (decimal) maximum
+            if (this.NitrogenRetention > (decimal)100)
+            {
+                yield return new ValidationResult("Invalid value for NitrogenRetention, must be a value less than or equal to 100.", new [] { "NitrogenRetention" });
+            }
+
+            // NitrogenRetention (decimal) minimum
+            if (this.NitrogenRetention < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for NitrogenRetention, must be a value greater than or equal to 0.", new [] { "NitrogenRetention" });
+            }
+
+            // DailyIntake (decimal) minimum
+            if (this.DailyIntake < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DailyIntake, must be a value greater than or equal to 0.", new [] { "DailyIntake" });
+            }
+
+            // Ndf (decimal) maximum
+            if (this.Ndf > (decimal)100)
+            {
+                yield return new ValidationResult("Invalid value for Ndf, must be a value less than or equal to 100.", new [] { "Ndf" });
+            }
+
+            // Ndf (decimal) minimum
+            if (this.Ndf < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Ndf, must be a value greater than or equal to 0.", new [] { "Ndf" });
+            }
+
+            // EtherExtract (decimal) maximum
+            if (this.EtherExtract > (decimal)100)
+            {
+                yield return new ValidationResult("Invalid value for EtherExtract, must be a value less than or equal to 100.", new [] { "EtherExtract" });
+            }
+
+            // EtherExtract (decimal) minimum
+            if (this.EtherExtract < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for EtherExtract, must be a value greater than or equal to 0.", new [] { "EtherExtract" });
+            }
+
             yield break;
         }
     }

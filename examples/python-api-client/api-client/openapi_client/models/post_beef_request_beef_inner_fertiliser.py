@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_beef_request_beef_inner_fertiliser_other_fertilisers_inner import PostBeefRequestBeefInnerFertiliserOtherFertilisersInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,27 +29,14 @@ class PostBeefRequestBeefInnerFertiliser(BaseModel):
     """
     Fertiliser used for different applications (such as dryland pasture)
     """ # noqa: E501
-    single_superphosphate: Union[StrictFloat, StrictInt] = Field(description="Single superphosphate usage in tonnes", alias="singleSuperphosphate")
-    other_type: Optional[StrictStr] = Field(default=None, description="Other N fertiliser type. Deprecation note: Use `otherFertilisers` instead", alias="otherType")
-    pasture_dryland: Union[StrictFloat, StrictInt] = Field(description="Urea fertiliser used for dryland pasture, in tonnes Urea", alias="pastureDryland")
-    pasture_irrigated: Union[StrictFloat, StrictInt] = Field(description="Urea fertiliser used for irrigated pasture, in tonnes Urea", alias="pastureIrrigated")
-    crops_dryland: Union[StrictFloat, StrictInt] = Field(description="Urea fertiliser used for dryland crops, in tonnes Urea", alias="cropsDryland")
-    crops_irrigated: Union[StrictFloat, StrictInt] = Field(description="Urea fertiliser used for irrigated crops, in tonnes Urea", alias="cropsIrrigated")
-    other_dryland: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Other N fertiliser used for dryland. Deprecation note: Use `otherFertilisers` instead", alias="otherDryland")
-    other_irrigated: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Other N fertiliser used for irrigated. Deprecation note: Use `otherFertilisers` instead", alias="otherIrrigated")
+    single_superphosphate: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Single superphosphate usage in tonnes", alias="singleSuperphosphate")
+    pasture_dryland: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea fertiliser used for dryland pasture, in tonnes Urea", alias="pastureDryland")
+    pasture_irrigated: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea fertiliser used for irrigated pasture, in tonnes Urea", alias="pastureIrrigated")
+    crops_dryland: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea fertiliser used for dryland crops, in tonnes Urea", alias="cropsDryland")
+    crops_irrigated: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea fertiliser used for irrigated crops, in tonnes Urea", alias="cropsIrrigated")
     other_fertilisers: Optional[List[PostBeefRequestBeefInnerFertiliserOtherFertilisersInner]] = Field(default=None, description="Array of Other N fertiliser. Version note: If this field is set and has a length > 0, the `other` fields within this object are ignored, and this array is used instead", alias="otherFertilisers")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["singleSuperphosphate", "otherType", "pastureDryland", "pastureIrrigated", "cropsDryland", "cropsIrrigated", "otherDryland", "otherIrrigated", "otherFertilisers"]
-
-    @field_validator('other_type')
-    def other_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Monoammonium phosphate (MAP)', 'Diammonium Phosphate (DAP)', 'Urea-Ammonium Nitrate (UAN)', 'Ammonium Nitrate (AN)', 'Calcium Ammonium Nitrate (CAN)', 'Triple Superphosphate (TSP)', 'Super Potash 1:1', 'Super Potash 2:1', 'Super Potash 3:1', 'Super Potash 4:1', 'Super Potash 5:1', 'Muriate of Potash', 'Sulphate of Potash', 'Sulphate of Ammonia']):
-            raise ValueError("must be one of enum values ('Monoammonium phosphate (MAP)', 'Diammonium Phosphate (DAP)', 'Urea-Ammonium Nitrate (UAN)', 'Ammonium Nitrate (AN)', 'Calcium Ammonium Nitrate (CAN)', 'Triple Superphosphate (TSP)', 'Super Potash 1:1', 'Super Potash 2:1', 'Super Potash 3:1', 'Super Potash 4:1', 'Super Potash 5:1', 'Muriate of Potash', 'Sulphate of Potash', 'Sulphate of Ammonia')")
-        return value
+    __properties: ClassVar[List[str]] = ["singleSuperphosphate", "pastureDryland", "pastureIrrigated", "cropsDryland", "cropsIrrigated", "otherFertilisers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,13 +104,10 @@ class PostBeefRequestBeefInnerFertiliser(BaseModel):
 
         _obj = cls.model_validate({
             "singleSuperphosphate": obj.get("singleSuperphosphate"),
-            "otherType": obj.get("otherType"),
             "pastureDryland": obj.get("pastureDryland"),
             "pastureIrrigated": obj.get("pastureIrrigated"),
             "cropsDryland": obj.get("cropsDryland"),
             "cropsIrrigated": obj.get("cropsIrrigated"),
-            "otherDryland": obj.get("otherDryland"),
-            "otherIrrigated": obj.get("otherIrrigated"),
             "otherFertilisers": [PostBeefRequestBeefInnerFertiliserOtherFertilisersInner.from_dict(_item) for _item in obj["otherFertilisers"]] if obj.get("otherFertilisers") is not None else None
         })
         # store additional fields in additional_properties

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,11 +28,11 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner(BaseModel):
     """
     PostAquacultureRequestEnterprisesInnerFluidWasteInner
     """ # noqa: E501
-    fluid_waste_kl: Union[StrictFloat, StrictInt] = Field(description="Amount of fluid waste, in kL (kilolitres)", alias="fluidWasteKl")
+    fluid_waste_kl: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Amount of fluid waste, in kL (kilolitres)", alias="fluidWasteKl")
     fluid_waste_treatment_type: StrictStr = Field(description="Type of fluid waste treatment", alias="fluidWasteTreatmentType")
-    average_inlet_cod: Union[StrictFloat, StrictInt] = Field(description="Average inlet COD (mg per litre)", alias="averageInletCOD")
-    average_outlet_cod: Union[StrictFloat, StrictInt] = Field(description="Average outlet COD (mg per litre)", alias="averageOutletCOD")
-    flared_combusted_fraction: Union[StrictFloat, StrictInt] = Field(description="Fraction of waste flared or combusted, between 0 and 1", alias="flaredCombustedFraction")
+    average_inlet_cod: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average inlet COD (mg per litre)", alias="averageInletCOD")
+    average_outlet_cod: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average outlet COD (mg per litre)", alias="averageOutletCOD")
+    flared_combusted_fraction: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of waste flared or combusted, between 0 and 1", alias="flaredCombustedFraction")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["fluidWasteKl", "fluidWasteTreatmentType", "averageInletCOD", "averageOutletCOD", "flaredCombustedFraction"]
 

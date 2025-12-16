@@ -327,6 +327,10 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner implements ModelInte
         if ($this->container['fluid_waste_kl'] === null) {
             $invalidProperties[] = "'fluid_waste_kl' can't be null";
         }
+        if (($this->container['fluid_waste_kl'] < 0)) {
+            $invalidProperties[] = "invalid value for 'fluid_waste_kl', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['fluid_waste_treatment_type'] === null) {
             $invalidProperties[] = "'fluid_waste_treatment_type' can't be null";
         }
@@ -342,12 +346,28 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner implements ModelInte
         if ($this->container['average_inlet_cod'] === null) {
             $invalidProperties[] = "'average_inlet_cod' can't be null";
         }
+        if (($this->container['average_inlet_cod'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_inlet_cod', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['average_outlet_cod'] === null) {
             $invalidProperties[] = "'average_outlet_cod' can't be null";
         }
+        if (($this->container['average_outlet_cod'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_outlet_cod', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['flared_combusted_fraction'] === null) {
             $invalidProperties[] = "'flared_combusted_fraction' can't be null";
         }
+        if (($this->container['flared_combusted_fraction'] > 1)) {
+            $invalidProperties[] = "invalid value for 'flared_combusted_fraction', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['flared_combusted_fraction'] < 0)) {
+            $invalidProperties[] = "invalid value for 'flared_combusted_fraction', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -385,6 +405,11 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner implements ModelInte
         if (is_null($fluid_waste_kl)) {
             throw new \InvalidArgumentException('non-nullable fluid_waste_kl cannot be null');
         }
+
+        if (($fluid_waste_kl < 0)) {
+            throw new \InvalidArgumentException('invalid value for $fluid_waste_kl when calling PostAquacultureRequestEnterprisesInnerFluidWasteInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['fluid_waste_kl'] = $fluid_waste_kl;
 
         return $this;
@@ -449,6 +474,11 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner implements ModelInte
         if (is_null($average_inlet_cod)) {
             throw new \InvalidArgumentException('non-nullable average_inlet_cod cannot be null');
         }
+
+        if (($average_inlet_cod < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_inlet_cod when calling PostAquacultureRequestEnterprisesInnerFluidWasteInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_inlet_cod'] = $average_inlet_cod;
 
         return $this;
@@ -476,6 +506,11 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner implements ModelInte
         if (is_null($average_outlet_cod)) {
             throw new \InvalidArgumentException('non-nullable average_outlet_cod cannot be null');
         }
+
+        if (($average_outlet_cod < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_outlet_cod when calling PostAquacultureRequestEnterprisesInnerFluidWasteInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_outlet_cod'] = $average_outlet_cod;
 
         return $this;
@@ -503,6 +538,14 @@ class PostAquacultureRequestEnterprisesInnerFluidWasteInner implements ModelInte
         if (is_null($flared_combusted_fraction)) {
             throw new \InvalidArgumentException('non-nullable flared_combusted_fraction cannot be null');
         }
+
+        if (($flared_combusted_fraction > 1)) {
+            throw new \InvalidArgumentException('invalid value for $flared_combusted_fraction when calling PostAquacultureRequestEnterprisesInnerFluidWasteInner., must be smaller than or equal to 1.');
+        }
+        if (($flared_combusted_fraction < 0)) {
+            throw new \InvalidArgumentException('invalid value for $flared_combusted_fraction when calling PostAquacultureRequestEnterprisesInnerFluidWasteInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['flared_combusted_fraction'] = $flared_combusted_fraction;
 
         return $this;

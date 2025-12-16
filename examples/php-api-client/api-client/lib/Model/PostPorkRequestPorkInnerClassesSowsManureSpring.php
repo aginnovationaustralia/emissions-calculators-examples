@@ -303,6 +303,26 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring implements ModelInterface,
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['outdoor_systems']) && ($this->container['outdoor_systems'] < 0)) {
+            $invalidProperties[] = "invalid value for 'outdoor_systems', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['covered_anaerobic_pond']) && ($this->container['covered_anaerobic_pond'] < 0)) {
+            $invalidProperties[] = "invalid value for 'covered_anaerobic_pond', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['uncovered_anaerobic_pond']) && ($this->container['uncovered_anaerobic_pond'] < 0)) {
+            $invalidProperties[] = "invalid value for 'uncovered_anaerobic_pond', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['deep_litter']) && ($this->container['deep_litter'] < 0)) {
+            $invalidProperties[] = "invalid value for 'deep_litter', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['undefined_system']) && ($this->container['undefined_system'] < 0)) {
+            $invalidProperties[] = "invalid value for 'undefined_system', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -340,6 +360,11 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring implements ModelInterface,
         if (is_null($outdoor_systems)) {
             throw new \InvalidArgumentException('non-nullable outdoor_systems cannot be null');
         }
+
+        if (($outdoor_systems < 0)) {
+            throw new \InvalidArgumentException('invalid value for $outdoor_systems when calling PostPorkRequestPorkInnerClassesSowsManureSpring., must be bigger than or equal to 0.');
+        }
+
         $this->container['outdoor_systems'] = $outdoor_systems;
 
         return $this;
@@ -367,6 +392,11 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring implements ModelInterface,
         if (is_null($covered_anaerobic_pond)) {
             throw new \InvalidArgumentException('non-nullable covered_anaerobic_pond cannot be null');
         }
+
+        if (($covered_anaerobic_pond < 0)) {
+            throw new \InvalidArgumentException('invalid value for $covered_anaerobic_pond when calling PostPorkRequestPorkInnerClassesSowsManureSpring., must be bigger than or equal to 0.');
+        }
+
         $this->container['covered_anaerobic_pond'] = $covered_anaerobic_pond;
 
         return $this;
@@ -394,6 +424,11 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring implements ModelInterface,
         if (is_null($uncovered_anaerobic_pond)) {
             throw new \InvalidArgumentException('non-nullable uncovered_anaerobic_pond cannot be null');
         }
+
+        if (($uncovered_anaerobic_pond < 0)) {
+            throw new \InvalidArgumentException('invalid value for $uncovered_anaerobic_pond when calling PostPorkRequestPorkInnerClassesSowsManureSpring., must be bigger than or equal to 0.');
+        }
+
         $this->container['uncovered_anaerobic_pond'] = $uncovered_anaerobic_pond;
 
         return $this;
@@ -421,6 +456,11 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring implements ModelInterface,
         if (is_null($deep_litter)) {
             throw new \InvalidArgumentException('non-nullable deep_litter cannot be null');
         }
+
+        if (($deep_litter < 0)) {
+            throw new \InvalidArgumentException('invalid value for $deep_litter when calling PostPorkRequestPorkInnerClassesSowsManureSpring., must be bigger than or equal to 0.');
+        }
+
         $this->container['deep_litter'] = $deep_litter;
 
         return $this;
@@ -448,6 +488,11 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring implements ModelInterface,
         if (is_null($undefined_system)) {
             throw new \InvalidArgumentException('non-nullable undefined_system cannot be null');
         }
+
+        if (($undefined_system < 0)) {
+            throw new \InvalidArgumentException('invalid value for $undefined_system when calling PostPorkRequestPorkInnerClassesSowsManureSpring., must be bigger than or equal to 0.');
+        }
+
         $this->container['undefined_system'] = $undefined_system;
 
         return $this;

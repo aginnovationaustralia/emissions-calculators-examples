@@ -37,13 +37,6 @@ export interface PostRice200ResponseIntensities {
      * @memberof PostRice200ResponseIntensities
      */
     riceIncludingSequestration: number;
-    /**
-     * Emissions intensity of rice production. Deprecation note: Use `riceIncludingSequestration` instead
-     * @type {number}
-     * @memberof PostRice200ResponseIntensities
-     * @deprecated
-     */
-    intensity: number;
 }
 
 /**
@@ -53,7 +46,6 @@ export function instanceOfPostRice200ResponseIntensities(value: object): value i
     if (!('riceProducedTonnes' in value) || value['riceProducedTonnes'] === undefined) return false;
     if (!('riceExcludingSequestration' in value) || value['riceExcludingSequestration'] === undefined) return false;
     if (!('riceIncludingSequestration' in value) || value['riceIncludingSequestration'] === undefined) return false;
-    if (!('intensity' in value) || value['intensity'] === undefined) return false;
     return true;
 }
 
@@ -70,7 +62,6 @@ export function PostRice200ResponseIntensitiesFromJSONTyped(json: any, ignoreDis
         'riceProducedTonnes': json['riceProducedTonnes'],
         'riceExcludingSequestration': json['riceExcludingSequestration'],
         'riceIncludingSequestration': json['riceIncludingSequestration'],
-        'intensity': json['intensity'],
     };
 }
 
@@ -88,7 +79,6 @@ export function PostRice200ResponseIntensitiesToJSONTyped(value?: PostRice200Res
         'riceProducedTonnes': value['riceProducedTonnes'],
         'riceExcludingSequestration': value['riceExcludingSequestration'],
         'riceIncludingSequestration': value['riceIncludingSequestration'],
-        'intensity': value['intensity'],
     };
 }
 

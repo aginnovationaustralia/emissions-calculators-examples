@@ -661,6 +661,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // TotalHarvestKg (decimal) minimum
+            if (this.TotalHarvestKg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalHarvestKg, must be a value greater than or equal to 0.", new [] { "TotalHarvestKg" });
+            }
+
+            // TotalCommercialFlightsKm (decimal) minimum
+            if (this.TotalCommercialFlightsKm < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalCommercialFlightsKm, must be a value greater than or equal to 0.", new [] { "TotalCommercialFlightsKm" });
+            }
+
             // ElectricityRenewable (decimal) maximum
             if (this.ElectricityRenewable > (decimal)1)
             {
@@ -671,6 +683,18 @@ namespace Org.OpenAPITools.Model
             if (this.ElectricityRenewable < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for ElectricityRenewable, must be a value greater than or equal to 0.", new [] { "ElectricityRenewable" });
+            }
+
+            // ElectricityUse (decimal) minimum
+            if (this.ElectricityUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityUse, must be a value greater than or equal to 0.", new [] { "ElectricityUse" });
+            }
+
+            // CarbonOffsets (decimal) minimum
+            if (this.CarbonOffsetsOption.IsSet && this.CarbonOffsetsOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CarbonOffsets, must be a value greater than or equal to 0.", new [] { "CarbonOffsets" });
             }
 
             yield break;

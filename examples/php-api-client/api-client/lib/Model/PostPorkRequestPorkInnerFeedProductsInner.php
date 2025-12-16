@@ -300,6 +300,10 @@ class PostPorkRequestPorkInnerFeedProductsInner implements ModelInterface, Array
         if ($this->container['feed_purchased'] === null) {
             $invalidProperties[] = "'feed_purchased' can't be null";
         }
+        if (($this->container['feed_purchased'] < 0)) {
+            $invalidProperties[] = "invalid value for 'feed_purchased', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['additional_ingredients'] === null) {
             $invalidProperties[] = "'additional_ingredients' can't be null";
         }
@@ -314,6 +318,10 @@ class PostPorkRequestPorkInnerFeedProductsInner implements ModelInterface, Array
         if ($this->container['emissions_intensity'] === null) {
             $invalidProperties[] = "'emissions_intensity' can't be null";
         }
+        if (($this->container['emissions_intensity'] < 0)) {
+            $invalidProperties[] = "invalid value for 'emissions_intensity', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['ingredients'] === null) {
             $invalidProperties[] = "'ingredients' can't be null";
         }
@@ -354,6 +362,11 @@ class PostPorkRequestPorkInnerFeedProductsInner implements ModelInterface, Array
         if (is_null($feed_purchased)) {
             throw new \InvalidArgumentException('non-nullable feed_purchased cannot be null');
         }
+
+        if (($feed_purchased < 0)) {
+            throw new \InvalidArgumentException('invalid value for $feed_purchased when calling PostPorkRequestPorkInnerFeedProductsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['feed_purchased'] = $feed_purchased;
 
         return $this;
@@ -416,6 +429,11 @@ class PostPorkRequestPorkInnerFeedProductsInner implements ModelInterface, Array
         if (is_null($emissions_intensity)) {
             throw new \InvalidArgumentException('non-nullable emissions_intensity cannot be null');
         }
+
+        if (($emissions_intensity < 0)) {
+            throw new \InvalidArgumentException('invalid value for $emissions_intensity when calling PostPorkRequestPorkInnerFeedProductsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['emissions_intensity'] = $emissions_intensity;
 
         return $this;

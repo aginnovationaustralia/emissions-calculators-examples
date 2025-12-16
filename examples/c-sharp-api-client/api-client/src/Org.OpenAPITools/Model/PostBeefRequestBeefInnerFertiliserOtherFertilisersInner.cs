@@ -333,6 +333,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // OtherDryland (decimal) minimum
+            if (this.OtherDryland < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for OtherDryland, must be a value greater than or equal to 0.", new [] { "OtherDryland" });
+            }
+
+            // OtherIrrigated (decimal) minimum
+            if (this.OtherIrrigated < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for OtherIrrigated, must be a value greater than or equal to 0.", new [] { "OtherIrrigated" });
+            }
+
             yield break;
         }
     }

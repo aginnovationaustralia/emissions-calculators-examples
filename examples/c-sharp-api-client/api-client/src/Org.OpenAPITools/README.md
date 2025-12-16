@@ -6,12 +6,12 @@ Create a config.yaml file similar to what is below, then run the following power
 
 ```yaml
 generatorName: csharp
-inputSpec: https://d2awla29kxgk7i.cloudfront.net/api/3.0.0/openapi.json
+inputSpec: https://d3eb6lsaaazlpd.cloudfront.net/api/3.0.0/openapi.json
 outputDir: out
 
 # https://openapi-generator.tech/docs/generators/csharp
 additionalProperties:
-  packageGuid: '{17E37FB8-3C22-43ED-8CB5-13BF3E57BE6D}'
+  packageGuid: '{FE1F65E0-7C9A-4D2A-B4B3-81C891BCB0D7}'
 
 # https://openapi-generator.tech/docs/integrations/#github-integration
 # gitHost:

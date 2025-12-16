@@ -353,7 +353,7 @@ class PostDeer200ResponseIntensities implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets deer_meat_excluding_sequestration
      *
-     * @param float $deer_meat_excluding_sequestration Deer meat (breeding herd) excluding sequestration, in kg-CO2e/kg liveweight
+     * @param float $deer_meat_excluding_sequestration Deer meat (breeding herd) emissions intensity excluding sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class PostDeer200ResponseIntensities implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets deer_meat_including_sequestration
      *
-     * @param float $deer_meat_including_sequestration Deer meat (breeding herd) including sequestration, in kg-CO2e/kg liveweight
+     * @param float $deer_meat_including_sequestration Deer meat (breeding herd) emissions intensity including sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_poultry_request_broilers_inner_groups_inner_feed_inner import PostPoultryRequestBroilersInnerGroupsInnerFeedInner
 from openapi_client.models.post_poultry_request_broilers_inner_groups_inner_meat_chicken_growers import PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers
 from typing import Optional, Set
@@ -33,8 +34,8 @@ class PostPoultryRequestBroilersInnerGroupsInner(BaseModel):
     meat_chicken_layers: PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers = Field(alias="meatChickenLayers")
     meat_other: PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers = Field(alias="meatOther")
     feed: List[PostPoultryRequestBroilersInnerGroupsInnerFeedInner]
-    custom_feed_purchased: Union[StrictFloat, StrictInt] = Field(description="Custom feed purchased, in tonnes", alias="customFeedPurchased")
-    custom_feed_emission_intensity: Union[StrictFloat, StrictInt] = Field(description="Emissions intensity of custom feed in GHG (kg CO2-e/kg input)", alias="customFeedEmissionIntensity")
+    custom_feed_purchased: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Custom feed purchased, in tonnes", alias="customFeedPurchased")
+    custom_feed_emission_intensity: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Emissions intensity of custom feed in GHG (kg CO2-e/kg input)", alias="customFeedEmissionIntensity")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["meatChickenGrowers", "meatChickenLayers", "meatOther", "feed", "customFeedPurchased", "customFeedEmissionIntensity"]
 

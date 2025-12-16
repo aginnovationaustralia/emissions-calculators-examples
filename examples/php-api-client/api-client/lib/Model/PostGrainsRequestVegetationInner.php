@@ -1,6 +1,6 @@
 <?php
 /**
- * PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+ * PostGrainsRequestVegetationInner
  *
  * PHP version 8.1
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * PostAquaculture200ResponseIntermediateInnerCarbonSequestration Class Doc Comment
+ * PostGrainsRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Carbon sequestration, in tonnes-CO2e
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements ModelInterface, ArrayAccess, \JsonSerializable
+class PostGrainsRequestVegetationInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'post_aquaculture_200_response_intermediate_inner_carbonSequestration';
+    protected static $openAPIModelName = 'post_grains_request_vegetation_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float'
+        'vegetation' => '\OpenAPI\Client\Model\PostBeefRequestVegetationInnerVegetation',
+        'allocation_to_crops' => 'float[]'
     ];
 
     /**
@@ -70,7 +70,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null
+        'vegetation' => null,
+        'allocation_to_crops' => null
     ];
 
     /**
@@ -79,7 +80,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false
+        'vegetation' => false,
+        'allocation_to_crops' => false
     ];
 
     /**
@@ -168,7 +170,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total'
+        'vegetation' => 'vegetation',
+        'allocation_to_crops' => 'allocationToCrops'
     ];
 
     /**
@@ -177,7 +180,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal'
+        'vegetation' => 'setVegetation',
+        'allocation_to_crops' => 'setAllocationToCrops'
     ];
 
     /**
@@ -186,7 +190,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal'
+        'vegetation' => 'getVegetation',
+        'allocation_to_crops' => 'getAllocationToCrops'
     ];
 
     /**
@@ -246,7 +251,8 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('vegetation', $data ?? [], null);
+        $this->setIfExists('allocation_to_crops', $data ?? [], null);
     }
 
     /**
@@ -276,8 +282,11 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
     {
         $invalidProperties = [];
 
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
+        if ($this->container['vegetation'] === null) {
+            $invalidProperties[] = "'vegetation' can't be null";
+        }
+        if ($this->container['allocation_to_crops'] === null) {
+            $invalidProperties[] = "'allocation_to_crops' can't be null";
         }
         return $invalidProperties;
     }
@@ -295,28 +304,55 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration implements 
 
 
     /**
-     * Gets total
+     * Gets vegetation
      *
-     * @return float
+     * @return \OpenAPI\Client\Model\PostBeefRequestVegetationInnerVegetation
      */
-    public function getTotal()
+    public function getVegetation()
     {
-        return $this->container['total'];
+        return $this->container['vegetation'];
     }
 
     /**
-     * Sets total
+     * Sets vegetation
      *
-     * @param float $total Annual amount of carbon sequestered, in tonnes-CO2e
+     * @param \OpenAPI\Client\Model\PostBeefRequestVegetationInnerVegetation $vegetation vegetation
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setVegetation($vegetation)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($vegetation)) {
+            throw new \InvalidArgumentException('non-nullable vegetation cannot be null');
         }
-        $this->container['total'] = $total;
+        $this->container['vegetation'] = $vegetation;
+
+        return $this;
+    }
+
+    /**
+     * Gets allocation_to_crops
+     *
+     * @return float[]
+     */
+    public function getAllocationToCrops()
+    {
+        return $this->container['allocation_to_crops'];
+    }
+
+    /**
+     * Sets allocation_to_crops
+     *
+     * @param float[] $allocation_to_crops The proportion of the sequestration that is allocated to each crop activity
+     *
+     * @return self
+     */
+    public function setAllocationToCrops($allocation_to_crops)
+    {
+        if (is_null($allocation_to_crops)) {
+            throw new \InvalidArgumentException('non-nullable allocation_to_crops cannot be null');
+        }
+        $this->container['allocation_to_crops'] = $allocation_to_crops;
 
         return $this;
     }

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_pork_request_pork_inner_feed_products_inner_ingredients import PostPorkRequestPorkInnerFeedProductsInnerIngredients
@@ -29,9 +29,9 @@ class PostPorkRequestPorkInnerFeedProductsInner(BaseModel):
     """
     Pig feed product
     """ # noqa: E501
-    feed_purchased: Union[StrictFloat, StrictInt] = Field(description="Pig feed purchased, in tonnes", alias="feedPurchased")
+    feed_purchased: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Pig feed purchased, in tonnes", alias="feedPurchased")
     additional_ingredients: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of additional ingredient in feed mix, from 0 to 1", alias="additionalIngredients")
-    emissions_intensity: Union[StrictFloat, StrictInt] = Field(description="Emissions intensity of feed product in GHG (kg CO2-e/kg input)", alias="emissionsIntensity")
+    emissions_intensity: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Emissions intensity of feed product in GHG (kg CO2-e/kg input)", alias="emissionsIntensity")
     ingredients: PostPorkRequestPorkInnerFeedProductsInnerIngredients
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["feedPurchased", "additionalIngredients", "emissionsIntensity", "ingredients"]

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostSheepbeefRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to sheep and beef
+ * @description Non-productive vegetation inputs along with allocations to each sheep and beef activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -354,7 +354,7 @@ class PostSheepbeefRequestVegetationInner implements ModelInterface, ArrayAccess
     /**
      * Sets beef_proportion
      *
-     * @param float[] $beef_proportion The proportion of the sequestration that is allocated to beef
+     * @param float[] $beef_proportion The proportion of the sequestration that is allocated to each beef activity
      *
      * @return self
      */
@@ -381,7 +381,7 @@ class PostSheepbeefRequestVegetationInner implements ModelInterface, ArrayAccess
     /**
      * Sets sheep_proportion
      *
-     * @param float[] $sheep_proportion The proportion of the sequestration that is allocated to sheep
+     * @param float[] $sheep_proportion The proportion of the sequestration that is allocated to each sheep activity
      *
      * @return self
      */

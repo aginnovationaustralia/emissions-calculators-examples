@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostDeerRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to deer
+ * @description Non-productive vegetation inputs along with allocations to each Deer activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class PostDeerRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets deer_proportion
      *
-     * @param float[] $deer_proportion The proportion of the sequestration that is allocated to deer
+     * @param float[] $deer_proportion The proportion of the sequestration that is allocated to each deer activity
      *
      * @return self
      */

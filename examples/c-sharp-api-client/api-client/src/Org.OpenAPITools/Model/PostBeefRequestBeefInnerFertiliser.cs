@@ -39,276 +39,20 @@ namespace Org.OpenAPITools.Model
         /// <param name="pastureIrrigated">Urea fertiliser used for irrigated pasture, in tonnes Urea</param>
         /// <param name="cropsDryland">Urea fertiliser used for dryland crops, in tonnes Urea</param>
         /// <param name="cropsIrrigated">Urea fertiliser used for irrigated crops, in tonnes Urea</param>
-        /// <param name="otherType">Other N fertiliser type. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</param>
-        /// <param name="otherDryland">Other N fertiliser used for dryland. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</param>
-        /// <param name="otherIrrigated">Other N fertiliser used for irrigated. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</param>
         /// <param name="otherFertilisers">Array of Other N fertiliser. Version note: If this field is set and has a length &gt; 0, the &#x60;other&#x60; fields within this object are ignored, and this array is used instead</param>
         [JsonConstructor]
-        public PostBeefRequestBeefInnerFertiliser(decimal singleSuperphosphate, decimal pastureDryland, decimal pastureIrrigated, decimal cropsDryland, decimal cropsIrrigated, Option<OtherTypeEnum?> otherType = default, Option<decimal?> otherDryland = default, Option<decimal?> otherIrrigated = default, Option<List<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>?> otherFertilisers = default)
+        public PostBeefRequestBeefInnerFertiliser(decimal singleSuperphosphate, decimal pastureDryland, decimal pastureIrrigated, decimal cropsDryland, decimal cropsIrrigated, Option<List<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>?> otherFertilisers = default)
         {
             SingleSuperphosphate = singleSuperphosphate;
             PastureDryland = pastureDryland;
             PastureIrrigated = pastureIrrigated;
             CropsDryland = cropsDryland;
             CropsIrrigated = cropsIrrigated;
-            OtherTypeOption = otherType;
-            OtherDrylandOption = otherDryland;
-            OtherIrrigatedOption = otherIrrigated;
             OtherFertilisersOption = otherFertilisers;
             OnCreated();
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Other N fertiliser type. Deprecation note: Use &#x60;otherFertilisers&#x60; instead
-        /// </summary>
-        /// <value>Other N fertiliser type. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</value>
-        public enum OtherTypeEnum
-        {
-            /// <summary>
-            /// Enum MonoammoniumPhosphateMAP for value: Monoammonium phosphate (MAP)
-            /// </summary>
-            MonoammoniumPhosphateMAP = 1,
-
-            /// <summary>
-            /// Enum DiammoniumPhosphateDAP for value: Diammonium Phosphate (DAP)
-            /// </summary>
-            DiammoniumPhosphateDAP = 2,
-
-            /// <summary>
-            /// Enum UreaAmmoniumNitrateUAN for value: Urea-Ammonium Nitrate (UAN)
-            /// </summary>
-            UreaAmmoniumNitrateUAN = 3,
-
-            /// <summary>
-            /// Enum AmmoniumNitrateAN for value: Ammonium Nitrate (AN)
-            /// </summary>
-            AmmoniumNitrateAN = 4,
-
-            /// <summary>
-            /// Enum CalciumAmmoniumNitrateCAN for value: Calcium Ammonium Nitrate (CAN)
-            /// </summary>
-            CalciumAmmoniumNitrateCAN = 5,
-
-            /// <summary>
-            /// Enum TripleSuperphosphateTSP for value: Triple Superphosphate (TSP)
-            /// </summary>
-            TripleSuperphosphateTSP = 6,
-
-            /// <summary>
-            /// Enum SuperPotash11 for value: Super Potash 1:1
-            /// </summary>
-            SuperPotash11 = 7,
-
-            /// <summary>
-            /// Enum SuperPotash21 for value: Super Potash 2:1
-            /// </summary>
-            SuperPotash21 = 8,
-
-            /// <summary>
-            /// Enum SuperPotash31 for value: Super Potash 3:1
-            /// </summary>
-            SuperPotash31 = 9,
-
-            /// <summary>
-            /// Enum SuperPotash41 for value: Super Potash 4:1
-            /// </summary>
-            SuperPotash41 = 10,
-
-            /// <summary>
-            /// Enum SuperPotash51 for value: Super Potash 5:1
-            /// </summary>
-            SuperPotash51 = 11,
-
-            /// <summary>
-            /// Enum MuriateOfPotash for value: Muriate of Potash
-            /// </summary>
-            MuriateOfPotash = 12,
-
-            /// <summary>
-            /// Enum SulphateOfPotash for value: Sulphate of Potash
-            /// </summary>
-            SulphateOfPotash = 13,
-
-            /// <summary>
-            /// Enum SulphateOfAmmonia for value: Sulphate of Ammonia
-            /// </summary>
-            SulphateOfAmmonia = 14
-        }
-
-        /// <summary>
-        /// Returns a <see cref="OtherTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static OtherTypeEnum OtherTypeEnumFromString(string value)
-        {
-            if (value.Equals("Monoammonium phosphate (MAP)"))
-                return OtherTypeEnum.MonoammoniumPhosphateMAP;
-
-            if (value.Equals("Diammonium Phosphate (DAP)"))
-                return OtherTypeEnum.DiammoniumPhosphateDAP;
-
-            if (value.Equals("Urea-Ammonium Nitrate (UAN)"))
-                return OtherTypeEnum.UreaAmmoniumNitrateUAN;
-
-            if (value.Equals("Ammonium Nitrate (AN)"))
-                return OtherTypeEnum.AmmoniumNitrateAN;
-
-            if (value.Equals("Calcium Ammonium Nitrate (CAN)"))
-                return OtherTypeEnum.CalciumAmmoniumNitrateCAN;
-
-            if (value.Equals("Triple Superphosphate (TSP)"))
-                return OtherTypeEnum.TripleSuperphosphateTSP;
-
-            if (value.Equals("Super Potash 1:1"))
-                return OtherTypeEnum.SuperPotash11;
-
-            if (value.Equals("Super Potash 2:1"))
-                return OtherTypeEnum.SuperPotash21;
-
-            if (value.Equals("Super Potash 3:1"))
-                return OtherTypeEnum.SuperPotash31;
-
-            if (value.Equals("Super Potash 4:1"))
-                return OtherTypeEnum.SuperPotash41;
-
-            if (value.Equals("Super Potash 5:1"))
-                return OtherTypeEnum.SuperPotash51;
-
-            if (value.Equals("Muriate of Potash"))
-                return OtherTypeEnum.MuriateOfPotash;
-
-            if (value.Equals("Sulphate of Potash"))
-                return OtherTypeEnum.SulphateOfPotash;
-
-            if (value.Equals("Sulphate of Ammonia"))
-                return OtherTypeEnum.SulphateOfAmmonia;
-
-            throw new NotImplementedException($"Could not convert value to type OtherTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="OtherTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static OtherTypeEnum? OtherTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Monoammonium phosphate (MAP)"))
-                return OtherTypeEnum.MonoammoniumPhosphateMAP;
-
-            if (value.Equals("Diammonium Phosphate (DAP)"))
-                return OtherTypeEnum.DiammoniumPhosphateDAP;
-
-            if (value.Equals("Urea-Ammonium Nitrate (UAN)"))
-                return OtherTypeEnum.UreaAmmoniumNitrateUAN;
-
-            if (value.Equals("Ammonium Nitrate (AN)"))
-                return OtherTypeEnum.AmmoniumNitrateAN;
-
-            if (value.Equals("Calcium Ammonium Nitrate (CAN)"))
-                return OtherTypeEnum.CalciumAmmoniumNitrateCAN;
-
-            if (value.Equals("Triple Superphosphate (TSP)"))
-                return OtherTypeEnum.TripleSuperphosphateTSP;
-
-            if (value.Equals("Super Potash 1:1"))
-                return OtherTypeEnum.SuperPotash11;
-
-            if (value.Equals("Super Potash 2:1"))
-                return OtherTypeEnum.SuperPotash21;
-
-            if (value.Equals("Super Potash 3:1"))
-                return OtherTypeEnum.SuperPotash31;
-
-            if (value.Equals("Super Potash 4:1"))
-                return OtherTypeEnum.SuperPotash41;
-
-            if (value.Equals("Super Potash 5:1"))
-                return OtherTypeEnum.SuperPotash51;
-
-            if (value.Equals("Muriate of Potash"))
-                return OtherTypeEnum.MuriateOfPotash;
-
-            if (value.Equals("Sulphate of Potash"))
-                return OtherTypeEnum.SulphateOfPotash;
-
-            if (value.Equals("Sulphate of Ammonia"))
-                return OtherTypeEnum.SulphateOfAmmonia;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="OtherTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string OtherTypeEnumToJsonValue(OtherTypeEnum? value)
-        {
-            if (value == OtherTypeEnum.MonoammoniumPhosphateMAP)
-                return "Monoammonium phosphate (MAP)";
-
-            if (value == OtherTypeEnum.DiammoniumPhosphateDAP)
-                return "Diammonium Phosphate (DAP)";
-
-            if (value == OtherTypeEnum.UreaAmmoniumNitrateUAN)
-                return "Urea-Ammonium Nitrate (UAN)";
-
-            if (value == OtherTypeEnum.AmmoniumNitrateAN)
-                return "Ammonium Nitrate (AN)";
-
-            if (value == OtherTypeEnum.CalciumAmmoniumNitrateCAN)
-                return "Calcium Ammonium Nitrate (CAN)";
-
-            if (value == OtherTypeEnum.TripleSuperphosphateTSP)
-                return "Triple Superphosphate (TSP)";
-
-            if (value == OtherTypeEnum.SuperPotash11)
-                return "Super Potash 1:1";
-
-            if (value == OtherTypeEnum.SuperPotash21)
-                return "Super Potash 2:1";
-
-            if (value == OtherTypeEnum.SuperPotash31)
-                return "Super Potash 3:1";
-
-            if (value == OtherTypeEnum.SuperPotash41)
-                return "Super Potash 4:1";
-
-            if (value == OtherTypeEnum.SuperPotash51)
-                return "Super Potash 5:1";
-
-            if (value == OtherTypeEnum.MuriateOfPotash)
-                return "Muriate of Potash";
-
-            if (value == OtherTypeEnum.SulphateOfPotash)
-                return "Sulphate of Potash";
-
-            if (value == OtherTypeEnum.SulphateOfAmmonia)
-                return "Sulphate of Ammonia";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Used to track the state of OtherType
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<OtherTypeEnum?> OtherTypeOption { get; private set; }
-
-        /// <summary>
-        /// Other N fertiliser type. Deprecation note: Use &#x60;otherFertilisers&#x60; instead
-        /// </summary>
-        /// <value>Other N fertiliser type. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</value>
-        [JsonPropertyName("otherType")]
-        [Obsolete]
-        public OtherTypeEnum? OtherType { get { return this.OtherTypeOption; } set { this.OtherTypeOption = new(value); } }
 
         /// <summary>
         /// Single superphosphate usage in tonnes
@@ -346,36 +90,6 @@ namespace Org.OpenAPITools.Model
         public decimal CropsIrrigated { get; set; }
 
         /// <summary>
-        /// Used to track the state of OtherDryland
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> OtherDrylandOption { get; private set; }
-
-        /// <summary>
-        /// Other N fertiliser used for dryland. Deprecation note: Use &#x60;otherFertilisers&#x60; instead
-        /// </summary>
-        /// <value>Other N fertiliser used for dryland. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</value>
-        [JsonPropertyName("otherDryland")]
-        [Obsolete]
-        public decimal? OtherDryland { get { return this.OtherDrylandOption; } set { this.OtherDrylandOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of OtherIrrigated
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> OtherIrrigatedOption { get; private set; }
-
-        /// <summary>
-        /// Other N fertiliser used for irrigated. Deprecation note: Use &#x60;otherFertilisers&#x60; instead
-        /// </summary>
-        /// <value>Other N fertiliser used for irrigated. Deprecation note: Use &#x60;otherFertilisers&#x60; instead</value>
-        [JsonPropertyName("otherIrrigated")]
-        [Obsolete]
-        public decimal? OtherIrrigated { get { return this.OtherIrrigatedOption; } set { this.OtherIrrigatedOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of OtherFertilisers
         /// </summary>
         [JsonIgnore]
@@ -408,9 +122,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  PastureIrrigated: ").Append(PastureIrrigated).Append("\n");
             sb.Append("  CropsDryland: ").Append(CropsDryland).Append("\n");
             sb.Append("  CropsIrrigated: ").Append(CropsIrrigated).Append("\n");
-            sb.Append("  OtherType: ").Append(OtherType).Append("\n");
-            sb.Append("  OtherDryland: ").Append(OtherDryland).Append("\n");
-            sb.Append("  OtherIrrigated: ").Append(OtherIrrigated).Append("\n");
             sb.Append("  OtherFertilisers: ").Append(OtherFertilisers).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -424,6 +135,36 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // SingleSuperphosphate (decimal) minimum
+            if (this.SingleSuperphosphate < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SingleSuperphosphate, must be a value greater than or equal to 0.", new [] { "SingleSuperphosphate" });
+            }
+
+            // PastureDryland (decimal) minimum
+            if (this.PastureDryland < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PastureDryland, must be a value greater than or equal to 0.", new [] { "PastureDryland" });
+            }
+
+            // PastureIrrigated (decimal) minimum
+            if (this.PastureIrrigated < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PastureIrrigated, must be a value greater than or equal to 0.", new [] { "PastureIrrigated" });
+            }
+
+            // CropsDryland (decimal) minimum
+            if (this.CropsDryland < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CropsDryland, must be a value greater than or equal to 0.", new [] { "CropsDryland" });
+            }
+
+            // CropsIrrigated (decimal) minimum
+            if (this.CropsIrrigated < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CropsIrrigated, must be a value greater than or equal to 0.", new [] { "CropsIrrigated" });
+            }
+
             yield break;
         }
     }
@@ -455,9 +196,6 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> pastureIrrigated = default;
             Option<decimal?> cropsDryland = default;
             Option<decimal?> cropsIrrigated = default;
-            Option<PostBeefRequestBeefInnerFertiliser.OtherTypeEnum?> otherType = default;
-            Option<decimal?> otherDryland = default;
-            Option<decimal?> otherIrrigated = default;
             Option<List<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>?> otherFertilisers = default;
 
             while (utf8JsonReader.Read())
@@ -489,17 +227,6 @@ namespace Org.OpenAPITools.Model
                             break;
                         case "cropsIrrigated":
                             cropsIrrigated = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "otherType":
-                            string? otherTypeRawValue = utf8JsonReader.GetString();
-                            if (otherTypeRawValue != null)
-                                otherType = new Option<PostBeefRequestBeefInnerFertiliser.OtherTypeEnum?>(PostBeefRequestBeefInnerFertiliser.OtherTypeEnumFromStringOrDefault(otherTypeRawValue));
-                            break;
-                        case "otherDryland":
-                            otherDryland = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "otherIrrigated":
-                            otherIrrigated = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "otherFertilisers":
                             otherFertilisers = new Option<List<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>?>(JsonSerializer.Deserialize<List<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -540,19 +267,10 @@ namespace Org.OpenAPITools.Model
             if (cropsIrrigated.IsSet && cropsIrrigated.Value == null)
                 throw new ArgumentNullException(nameof(cropsIrrigated), "Property is not nullable for class PostBeefRequestBeefInnerFertiliser.");
 
-            if (otherType.IsSet && otherType.Value == null)
-                throw new ArgumentNullException(nameof(otherType), "Property is not nullable for class PostBeefRequestBeefInnerFertiliser.");
-
-            if (otherDryland.IsSet && otherDryland.Value == null)
-                throw new ArgumentNullException(nameof(otherDryland), "Property is not nullable for class PostBeefRequestBeefInnerFertiliser.");
-
-            if (otherIrrigated.IsSet && otherIrrigated.Value == null)
-                throw new ArgumentNullException(nameof(otherIrrigated), "Property is not nullable for class PostBeefRequestBeefInnerFertiliser.");
-
             if (otherFertilisers.IsSet && otherFertilisers.Value == null)
                 throw new ArgumentNullException(nameof(otherFertilisers), "Property is not nullable for class PostBeefRequestBeefInnerFertiliser.");
 
-            return new PostBeefRequestBeefInnerFertiliser(singleSuperphosphate.Value!.Value!, pastureDryland.Value!.Value!, pastureIrrigated.Value!.Value!, cropsDryland.Value!.Value!, cropsIrrigated.Value!.Value!, otherType, otherDryland, otherIrrigated, otherFertilisers);
+            return new PostBeefRequestBeefInnerFertiliser(singleSuperphosphate.Value!.Value!, pastureDryland.Value!.Value!, pastureIrrigated.Value!.Value!, cropsDryland.Value!.Value!, cropsIrrigated.Value!.Value!, otherFertilisers);
         }
 
         /// <summary>
@@ -591,14 +309,6 @@ namespace Org.OpenAPITools.Model
             writer.WriteNumber("cropsDryland", postBeefRequestBeefInnerFertiliser.CropsDryland);
 
             writer.WriteNumber("cropsIrrigated", postBeefRequestBeefInnerFertiliser.CropsIrrigated);
-
-            var otherTypeRawValue = PostBeefRequestBeefInnerFertiliser.OtherTypeEnumToJsonValue(postBeefRequestBeefInnerFertiliser.OtherTypeOption.Value!.Value);
-            writer.WriteString("otherType", otherTypeRawValue);
-            if (postBeefRequestBeefInnerFertiliser.OtherDrylandOption.IsSet)
-                writer.WriteNumber("otherDryland", postBeefRequestBeefInnerFertiliser.OtherDrylandOption.Value!.Value);
-
-            if (postBeefRequestBeefInnerFertiliser.OtherIrrigatedOption.IsSet)
-                writer.WriteNumber("otherIrrigated", postBeefRequestBeefInnerFertiliser.OtherIrrigatedOption.Value!.Value);
 
             if (postBeefRequestBeefInnerFertiliser.OtherFertilisersOption.IsSet)
             {

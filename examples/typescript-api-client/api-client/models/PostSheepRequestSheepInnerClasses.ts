@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PostSheepRequestSheepInnerClassesTradeLambsAndHoggets } from './PostSheepRequestSheepInnerClassesTradeLambsAndHoggets';
-import {
-    PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsFromJSON,
-    PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsFromJSONTyped,
-    PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsToJSON,
-    PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsToJSONTyped,
-} from './PostSheepRequestSheepInnerClassesTradeLambsAndHoggets';
 import type { PostSheepRequestSheepInnerClassesRams } from './PostSheepRequestSheepInnerClassesRams';
 import {
     PostSheepRequestSheepInnerClassesRamsFromJSON,
@@ -27,13 +20,6 @@ import {
     PostSheepRequestSheepInnerClassesRamsToJSON,
     PostSheepRequestSheepInnerClassesRamsToJSONTyped,
 } from './PostSheepRequestSheepInnerClassesRams';
-import type { PostSheepRequestSheepInnerClassesTradeEwes } from './PostSheepRequestSheepInnerClassesTradeEwes';
-import {
-    PostSheepRequestSheepInnerClassesTradeEwesFromJSON,
-    PostSheepRequestSheepInnerClassesTradeEwesFromJSONTyped,
-    PostSheepRequestSheepInnerClassesTradeEwesToJSON,
-    PostSheepRequestSheepInnerClassesTradeEwesToJSONTyped,
-} from './PostSheepRequestSheepInnerClassesTradeEwes';
 
 /**
  * 
@@ -125,20 +111,6 @@ export interface PostSheepRequestSheepInnerClasses {
      * @memberof PostSheepRequestSheepInnerClasses
      */
     tradeWetherLambs?: PostSheepRequestSheepInnerClassesRams;
-    /**
-     * 
-     * @type {PostSheepRequestSheepInnerClassesTradeEwes}
-     * @memberof PostSheepRequestSheepInnerClasses
-     * @deprecated
-     */
-    tradeEwes?: PostSheepRequestSheepInnerClassesTradeEwes;
-    /**
-     * 
-     * @type {PostSheepRequestSheepInnerClassesTradeLambsAndHoggets}
-     * @memberof PostSheepRequestSheepInnerClasses
-     * @deprecated
-     */
-    tradeLambsAndHoggets?: PostSheepRequestSheepInnerClassesTradeLambsAndHoggets;
 }
 
 /**
@@ -175,8 +147,6 @@ export function PostSheepRequestSheepInnerClassesFromJSONTyped(json: any, ignore
         'tradeEweLambs': json['tradeEweLambs'] == null ? undefined : PostSheepRequestSheepInnerClassesRamsFromJSON(json['tradeEweLambs']),
         'wetherLambs': PostSheepRequestSheepInnerClassesRamsFromJSON(json['wetherLambs']),
         'tradeWetherLambs': json['tradeWetherLambs'] == null ? undefined : PostSheepRequestSheepInnerClassesRamsFromJSON(json['tradeWetherLambs']),
-        'tradeEwes': json['tradeEwes'] == null ? undefined : PostSheepRequestSheepInnerClassesTradeEwesFromJSON(json['tradeEwes']),
-        'tradeLambsAndHoggets': json['tradeLambsAndHoggets'] == null ? undefined : PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsFromJSON(json['tradeLambsAndHoggets']),
     };
 }
 
@@ -205,8 +175,6 @@ export function PostSheepRequestSheepInnerClassesToJSONTyped(value?: PostSheepRe
         'tradeEweLambs': PostSheepRequestSheepInnerClassesRamsToJSON(value['tradeEweLambs']),
         'wetherLambs': PostSheepRequestSheepInnerClassesRamsToJSON(value['wetherLambs']),
         'tradeWetherLambs': PostSheepRequestSheepInnerClassesRamsToJSON(value['tradeWetherLambs']),
-        'tradeEwes': PostSheepRequestSheepInnerClassesTradeEwesToJSON(value['tradeEwes']),
-        'tradeLambsAndHoggets': PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsToJSON(value['tradeLambsAndHoggets']),
     };
 }
 

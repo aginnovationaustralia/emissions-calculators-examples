@@ -42,7 +42,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="net">net</param>
         /// <param name="carbonSequestration">carbonSequestration</param>
         [JsonConstructor]
-        public PostGrains200ResponseIntermediateInner(string id, PostCotton200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostCotton200ResponseScope3 scope3, PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration intensitiesWithSequestration, PostAquaculture200ResponseNet net, PostAquaculture200ResponseIntermediateInnerCarbonSequestration carbonSequestration)
+        public PostGrains200ResponseIntermediateInner(string id, PostCotton200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostCotton200ResponseScope3 scope3, PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration intensitiesWithSequestration, PostAquaculture200ResponseNet net, PostAquaculture200ResponseCarbonSequestration carbonSequestration)
         {
             Id = id;
             Scope1 = scope1;
@@ -97,7 +97,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets CarbonSequestration
         /// </summary>
         [JsonPropertyName("carbonSequestration")]
-        public PostAquaculture200ResponseIntermediateInnerCarbonSequestration CarbonSequestration { get; set; }
+        public PostAquaculture200ResponseCarbonSequestration CarbonSequestration { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -164,7 +164,7 @@ namespace Org.OpenAPITools.Model
             Option<PostCotton200ResponseScope3?> scope3 = default;
             Option<PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration?> intensitiesWithSequestration = default;
             Option<PostAquaculture200ResponseNet?> net = default;
-            Option<PostAquaculture200ResponseIntermediateInnerCarbonSequestration?> carbonSequestration = default;
+            Option<PostAquaculture200ResponseCarbonSequestration?> carbonSequestration = default;
 
             while (utf8JsonReader.Read())
             {
@@ -200,7 +200,7 @@ namespace Org.OpenAPITools.Model
                             net = new Option<PostAquaculture200ResponseNet?>(JsonSerializer.Deserialize<PostAquaculture200ResponseNet>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "carbonSequestration":
-                            carbonSequestration = new Option<PostAquaculture200ResponseIntermediateInnerCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseIntermediateInnerCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            carbonSequestration = new Option<PostAquaculture200ResponseCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

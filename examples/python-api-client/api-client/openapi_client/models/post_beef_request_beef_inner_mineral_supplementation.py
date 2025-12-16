@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +28,12 @@ class PostBeefRequestBeefInnerMineralSupplementation(BaseModel):
     """
     Supplementation for livestock
     """ # noqa: E501
-    mineral_block: Union[StrictFloat, StrictInt] = Field(description="Mineral block product used, in tonnes", alias="mineralBlock")
-    mineral_block_urea: Union[StrictFloat, StrictInt] = Field(description="Fraction of urea content, between 0 and 1", alias="mineralBlockUrea")
-    weaner_block: Union[StrictFloat, StrictInt] = Field(description="Weaner block product used, in tonnes", alias="weanerBlock")
-    weaner_block_urea: Union[StrictFloat, StrictInt] = Field(description="Fraction of urea content, between 0 and 1", alias="weanerBlockUrea")
-    dry_season_mix: Union[StrictFloat, StrictInt] = Field(description="Dry season mix product used, in tonnes", alias="drySeasonMix")
-    dry_season_mix_urea: Union[StrictFloat, StrictInt] = Field(description="Fraction of urea content, between 0 and 1", alias="drySeasonMixUrea")
+    mineral_block: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Mineral block product used, in tonnes", alias="mineralBlock")
+    mineral_block_urea: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of urea content, between 0 and 1", alias="mineralBlockUrea")
+    weaner_block: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Weaner block product used, in tonnes", alias="weanerBlock")
+    weaner_block_urea: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of urea content, between 0 and 1", alias="weanerBlockUrea")
+    dry_season_mix: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Dry season mix product used, in tonnes", alias="drySeasonMix")
+    dry_season_mix_urea: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of urea content, between 0 and 1", alias="drySeasonMixUrea")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["mineralBlock", "mineralBlockUrea", "weanerBlock", "weanerBlockUrea", "drySeasonMix", "drySeasonMixUrea"]
 
@@ -95,11 +96,11 @@ class PostBeefRequestBeefInnerMineralSupplementation(BaseModel):
 
         _obj = cls.model_validate({
             "mineralBlock": obj.get("mineralBlock") if obj.get("mineralBlock") is not None else 0,
-            "mineralBlockUrea": obj.get("mineralBlockUrea") if obj.get("mineralBlockUrea") is not None else 0,
+            "mineralBlockUrea": obj.get("mineralBlockUrea"),
             "weanerBlock": obj.get("weanerBlock") if obj.get("weanerBlock") is not None else 0,
-            "weanerBlockUrea": obj.get("weanerBlockUrea") if obj.get("weanerBlockUrea") is not None else 0,
+            "weanerBlockUrea": obj.get("weanerBlockUrea"),
             "drySeasonMix": obj.get("drySeasonMix") if obj.get("drySeasonMix") is not None else 0,
-            "drySeasonMixUrea": obj.get("drySeasonMixUrea") if obj.get("drySeasonMixUrea") is not None else 0
+            "drySeasonMixUrea": obj.get("drySeasonMixUrea")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

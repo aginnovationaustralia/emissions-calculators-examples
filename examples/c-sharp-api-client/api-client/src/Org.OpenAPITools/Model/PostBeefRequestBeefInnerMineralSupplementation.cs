@@ -164,6 +164,24 @@ namespace Org.OpenAPITools.Model
                 yield return new ValidationResult("Invalid value for DrySeasonMixUrea, must be a value greater than or equal to 0.", new [] { "DrySeasonMixUrea" });
             }
 
+            // MineralBlock (decimal) minimum
+            if (this.MineralBlock < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for MineralBlock, must be a value greater than or equal to 0.", new [] { "MineralBlock" });
+            }
+
+            // WeanerBlock (decimal) minimum
+            if (this.WeanerBlock < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for WeanerBlock, must be a value greater than or equal to 0.", new [] { "WeanerBlock" });
+            }
+
+            // DrySeasonMix (decimal) minimum
+            if (this.DrySeasonMix < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DrySeasonMix, must be a value greater than or equal to 0.", new [] { "DrySeasonMix" });
+            }
+
             yield break;
         }
     }

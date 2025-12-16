@@ -63,7 +63,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         'anaerobic_lagoon' => 'float',
         'sump_and_dispersal' => 'float',
         'drain_to_paddocks' => 'float',
-        'soild_storage' => 'float'
+        'solid_storage' => 'float'
     ];
 
     /**
@@ -78,7 +78,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         'anaerobic_lagoon' => null,
         'sump_and_dispersal' => null,
         'drain_to_paddocks' => null,
-        'soild_storage' => null
+        'solid_storage' => null
     ];
 
     /**
@@ -91,7 +91,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         'anaerobic_lagoon' => false,
         'sump_and_dispersal' => false,
         'drain_to_paddocks' => false,
-        'soild_storage' => false
+        'solid_storage' => false
     ];
 
     /**
@@ -184,7 +184,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         'anaerobic_lagoon' => 'anaerobicLagoon',
         'sump_and_dispersal' => 'sumpAndDispersal',
         'drain_to_paddocks' => 'drainToPaddocks',
-        'soild_storage' => 'soildStorage'
+        'solid_storage' => 'solidStorage'
     ];
 
     /**
@@ -197,7 +197,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         'anaerobic_lagoon' => 'setAnaerobicLagoon',
         'sump_and_dispersal' => 'setSumpAndDispersal',
         'drain_to_paddocks' => 'setDrainToPaddocks',
-        'soild_storage' => 'setSoildStorage'
+        'solid_storage' => 'setSolidStorage'
     ];
 
     /**
@@ -210,7 +210,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         'anaerobic_lagoon' => 'getAnaerobicLagoon',
         'sump_and_dispersal' => 'getSumpAndDispersal',
         'drain_to_paddocks' => 'getDrainToPaddocks',
-        'soild_storage' => 'getSoildStorage'
+        'solid_storage' => 'getSolidStorage'
     ];
 
     /**
@@ -274,7 +274,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
         $this->setIfExists('anaerobic_lagoon', $data ?? [], null);
         $this->setIfExists('sump_and_dispersal', $data ?? [], null);
         $this->setIfExists('drain_to_paddocks', $data ?? [], null);
-        $this->setIfExists('soild_storage', $data ?? [], null);
+        $this->setIfExists('solid_storage', $data ?? [], null);
     }
 
     /**
@@ -348,15 +348,15 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
             $invalidProperties[] = "invalid value for 'drain_to_paddocks', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['soild_storage'] === null) {
-            $invalidProperties[] = "'soild_storage' can't be null";
+        if ($this->container['solid_storage'] === null) {
+            $invalidProperties[] = "'solid_storage' can't be null";
         }
-        if (($this->container['soild_storage'] > 100)) {
-            $invalidProperties[] = "invalid value for 'soild_storage', must be smaller than or equal to 100.";
+        if (($this->container['solid_storage'] > 100)) {
+            $invalidProperties[] = "invalid value for 'solid_storage', must be smaller than or equal to 100.";
         }
 
-        if (($this->container['soild_storage'] < 0)) {
-            $invalidProperties[] = "invalid value for 'soild_storage', must be bigger than or equal to 0.";
+        if (($this->container['solid_storage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'solid_storage', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -515,36 +515,36 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows implements ModelInte
     }
 
     /**
-     * Gets soild_storage
+     * Gets solid_storage
      *
      * @return float
      */
-    public function getSoildStorage()
+    public function getSolidStorage()
     {
-        return $this->container['soild_storage'];
+        return $this->container['solid_storage'];
     }
 
     /**
-     * Sets soild_storage
+     * Sets solid_storage
      *
-     * @param float $soild_storage soild_storage
+     * @param float $solid_storage solid_storage
      *
      * @return self
      */
-    public function setSoildStorage($soild_storage)
+    public function setSolidStorage($solid_storage)
     {
-        if (is_null($soild_storage)) {
-            throw new \InvalidArgumentException('non-nullable soild_storage cannot be null');
+        if (is_null($solid_storage)) {
+            throw new \InvalidArgumentException('non-nullable solid_storage cannot be null');
         }
 
-        if (($soild_storage > 100)) {
-            throw new \InvalidArgumentException('invalid value for $soild_storage when calling PostDairyRequestDairyInnerManureManagementMilkingCows., must be smaller than or equal to 100.');
+        if (($solid_storage > 100)) {
+            throw new \InvalidArgumentException('invalid value for $solid_storage when calling PostDairyRequestDairyInnerManureManagementMilkingCows., must be smaller than or equal to 100.');
         }
-        if (($soild_storage < 0)) {
-            throw new \InvalidArgumentException('invalid value for $soild_storage when calling PostDairyRequestDairyInnerManureManagementMilkingCows., must be bigger than or equal to 0.');
+        if (($solid_storage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $solid_storage when calling PostDairyRequestDairyInnerManureManagementMilkingCows., must be bigger than or equal to 0.');
         }
 
-        $this->container['soild_storage'] = $soild_storage;
+        $this->container['solid_storage'] = $solid_storage;
 
         return $this;
     }

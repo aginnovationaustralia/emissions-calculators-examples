@@ -88,6 +88,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // EggsProduced (decimal) minimum
+            if (this.EggsProduced < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for EggsProduced, must be a value greater than or equal to 0.", new [] { "EggsProduced" });
+            }
+
+            // AverageWeight (decimal) minimum
+            if (this.AverageWeight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageWeight, must be a value greater than or equal to 0.", new [] { "AverageWeight" });
+            }
+
             yield break;
         }
     }

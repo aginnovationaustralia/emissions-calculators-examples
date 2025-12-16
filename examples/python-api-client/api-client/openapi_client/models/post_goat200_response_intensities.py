@@ -29,10 +29,10 @@ class PostGoat200ResponseIntensities(BaseModel):
     """ # noqa: E501
     amount_meat_produced: Union[StrictFloat, StrictInt] = Field(description="Amount of goat meat produced in kg liveweight", alias="amountMeatProduced")
     amount_wool_produced: Union[StrictFloat, StrictInt] = Field(description="Amount of wool produced in kg greasy", alias="amountWoolProduced")
-    goat_meat_breeding_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Goat meat (breeding herd) including carbon sequestration, in kg-CO2e/kg liveweight", alias="goatMeatBreedingIncludingSequestration")
-    goat_meat_breeding_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Goat meat (breeding herd) excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="goatMeatBreedingExcludingSequestration")
-    wool_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production including carbon sequestration, in kg-CO2e/kg greasy", alias="woolIncludingSequestration")
-    wool_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production excluding carbon sequestration, in kg-CO2e/kg greasy", alias="woolExcludingSequestration")
+    goat_meat_breeding_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Goat meat (breeding herd) emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight", alias="goatMeatBreedingIncludingSequestration")
+    goat_meat_breeding_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Goat meat (breeding herd) emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="goatMeatBreedingExcludingSequestration")
+    wool_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production emissions intensity including carbon sequestration, in kg-CO2e/kg greasy", alias="woolIncludingSequestration")
+    wool_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Wool production emissions intensity excluding carbon sequestration, in kg-CO2e/kg greasy", alias="woolExcludingSequestration")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["amountMeatProduced", "amountWoolProduced", "goatMeatBreedingIncludingSequestration", "goatMeatBreedingExcludingSequestration", "woolIncludingSequestration", "woolExcludingSequestration"]
 

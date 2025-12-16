@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,10 +28,10 @@ class PostDairyRequestDairyInnerSeasonalFertiliserAutumn(BaseModel):
     """
     Nitrogen fertiliser application, each value is in kg N/ha
     """ # noqa: E501
-    crops_irrigated: Union[StrictFloat, StrictInt] = Field(alias="cropsIrrigated")
-    crops_dryland: Union[StrictFloat, StrictInt] = Field(alias="cropsDryland")
-    pasture_irrigated: Union[StrictFloat, StrictInt] = Field(alias="pastureIrrigated")
-    pasture_dryland: Union[StrictFloat, StrictInt] = Field(alias="pastureDryland")
+    crops_irrigated: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(alias="cropsIrrigated")
+    crops_dryland: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(alias="cropsDryland")
+    pasture_irrigated: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(alias="pastureIrrigated")
+    pasture_dryland: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(alias="pastureDryland")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["cropsIrrigated", "cropsDryland", "pastureIrrigated", "pastureDryland"]
 

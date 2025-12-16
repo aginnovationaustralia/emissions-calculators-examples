@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class PostVineyardRequest(BaseModel):
     """
-    Input data required for the `vineyard` calculator
+    Input data required for the Vineyard calculator
     """ # noqa: E501
     vineyards: List[PostVineyardRequestVineyardsInner]
     vegetation: List[PostVineyardRequestVegetationInner]

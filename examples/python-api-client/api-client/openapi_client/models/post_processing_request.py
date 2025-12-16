@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class PostProcessingRequest(BaseModel):
     """
-    Input data required for the `processing` calculator
+    Input data required for the Processing calculator
     """ # noqa: E501
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     products: List[PostProcessingRequestProductsInner]

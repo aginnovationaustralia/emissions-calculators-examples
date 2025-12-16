@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_cotton_request_crops_inner import PostCottonRequestCropsInner
 from openapi_client.models.post_cotton_request_vegetation_inner import PostCottonRequestVegetationInner
@@ -28,15 +28,16 @@ from typing_extensions import Self
 
 class PostCottonRequest(BaseModel):
     """
-    Input data required for the `cotton` calculator
+    Input data required for a single Cotton enterprise
     """ # noqa: E501
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Cotton activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     crops: List[PostCottonRequestCropsInner]
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
-    electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
+    electricity_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
     vegetation: List[PostCottonRequestVegetationInner]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["state", "crops", "electricityRenewable", "electricityUse", "vegetation"]
+    __properties: ClassVar[List[str]] = ["id", "state", "crops", "electricityRenewable", "electricityUse", "vegetation"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
@@ -117,6 +118,7 @@ class PostCottonRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "state": obj.get("state"),
             "crops": [PostCottonRequestCropsInner.from_dict(_item) for _item in obj["crops"]] if obj.get("crops") is not None else None,
             "electricityRenewable": obj.get("electricityRenewable"),

@@ -34,13 +34,6 @@ export interface PostBeefRequestBeefInnerFertiliser {
      */
     singleSuperphosphate: number;
     /**
-     * Other N fertiliser type. Deprecation note: Use `otherFertilisers` instead
-     * @type {string}
-     * @memberof PostBeefRequestBeefInnerFertiliser
-     * @deprecated
-     */
-    otherType?: PostBeefRequestBeefInnerFertiliserOtherTypeEnum;
-    /**
      * Urea fertiliser used for dryland pasture, in tonnes Urea
      * @type {number}
      * @memberof PostBeefRequestBeefInnerFertiliser
@@ -65,49 +58,12 @@ export interface PostBeefRequestBeefInnerFertiliser {
      */
     cropsIrrigated: number;
     /**
-     * Other N fertiliser used for dryland. Deprecation note: Use `otherFertilisers` instead
-     * @type {number}
-     * @memberof PostBeefRequestBeefInnerFertiliser
-     * @deprecated
-     */
-    otherDryland?: number;
-    /**
-     * Other N fertiliser used for irrigated. Deprecation note: Use `otherFertilisers` instead
-     * @type {number}
-     * @memberof PostBeefRequestBeefInnerFertiliser
-     * @deprecated
-     */
-    otherIrrigated?: number;
-    /**
      * Array of Other N fertiliser. Version note: If this field is set and has a length > 0, the `other` fields within this object are ignored, and this array is used instead
      * @type {Array<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>}
      * @memberof PostBeefRequestBeefInnerFertiliser
      */
     otherFertilisers?: Array<PostBeefRequestBeefInnerFertiliserOtherFertilisersInner>;
 }
-
-
-/**
- * @export
- */
-export const PostBeefRequestBeefInnerFertiliserOtherTypeEnum = {
-    MonoammoniumPhosphateMap: 'Monoammonium phosphate (MAP)',
-    DiammoniumPhosphateDap: 'Diammonium Phosphate (DAP)',
-    UreaAmmoniumNitrateUan: 'Urea-Ammonium Nitrate (UAN)',
-    AmmoniumNitrateAn: 'Ammonium Nitrate (AN)',
-    CalciumAmmoniumNitrateCan: 'Calcium Ammonium Nitrate (CAN)',
-    TripleSuperphosphateTsp: 'Triple Superphosphate (TSP)',
-    SuperPotash11: 'Super Potash 1:1',
-    SuperPotash21: 'Super Potash 2:1',
-    SuperPotash31: 'Super Potash 3:1',
-    SuperPotash41: 'Super Potash 4:1',
-    SuperPotash51: 'Super Potash 5:1',
-    MuriateOfPotash: 'Muriate of Potash',
-    SulphateOfPotash: 'Sulphate of Potash',
-    SulphateOfAmmonia: 'Sulphate of Ammonia'
-} as const;
-export type PostBeefRequestBeefInnerFertiliserOtherTypeEnum = typeof PostBeefRequestBeefInnerFertiliserOtherTypeEnum[keyof typeof PostBeefRequestBeefInnerFertiliserOtherTypeEnum];
-
 
 /**
  * Check if a given object implements the PostBeefRequestBeefInnerFertiliser interface.
@@ -132,13 +88,10 @@ export function PostBeefRequestBeefInnerFertiliserFromJSONTyped(json: any, ignor
     return {
         
         'singleSuperphosphate': json['singleSuperphosphate'],
-        'otherType': json['otherType'] == null ? undefined : json['otherType'],
         'pastureDryland': json['pastureDryland'],
         'pastureIrrigated': json['pastureIrrigated'],
         'cropsDryland': json['cropsDryland'],
         'cropsIrrigated': json['cropsIrrigated'],
-        'otherDryland': json['otherDryland'] == null ? undefined : json['otherDryland'],
-        'otherIrrigated': json['otherIrrigated'] == null ? undefined : json['otherIrrigated'],
         'otherFertilisers': json['otherFertilisers'] == null ? undefined : ((json['otherFertilisers'] as Array<any>).map(PostBeefRequestBeefInnerFertiliserOtherFertilisersInnerFromJSON)),
     };
 }
@@ -155,13 +108,10 @@ export function PostBeefRequestBeefInnerFertiliserToJSONTyped(value?: PostBeefRe
     return {
         
         'singleSuperphosphate': value['singleSuperphosphate'],
-        'otherType': value['otherType'],
         'pastureDryland': value['pastureDryland'],
         'pastureIrrigated': value['pastureIrrigated'],
         'cropsDryland': value['cropsDryland'],
         'cropsIrrigated': value['cropsIrrigated'],
-        'otherDryland': value['otherDryland'],
-        'otherIrrigated': value['otherIrrigated'],
         'otherFertilisers': value['otherFertilisers'] == null ? undefined : ((value['otherFertilisers'] as Array<any>).map(PostBeefRequestBeefInnerFertiliserOtherFertilisersInnerToJSON)),
     };
 }

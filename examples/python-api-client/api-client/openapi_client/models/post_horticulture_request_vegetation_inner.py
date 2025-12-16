@@ -18,18 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
+from openapi_client.models.post_beef_request_vegetation_inner_vegetation import PostBeefRequestVegetationInnerVegetation
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostAquaculture200ResponseIntermediateInnerCarbonSequestration(BaseModel):
+class PostHorticultureRequestVegetationInner(BaseModel):
     """
-    Carbon sequestration, in tonnes-CO2e
+    Input data required for a single Horticulture enterprise
     """ # noqa: E501
-    total: Union[StrictFloat, StrictInt] = Field(description="Annual amount of carbon sequestered, in tonnes-CO2e")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Horticulture activity")
+    vegetation: PostBeefRequestVegetationInnerVegetation
+    allocation_to_crops: List[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(alias="allocationToCrops")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["total"]
+    __properties: ClassVar[List[str]] = ["id", "vegetation", "allocationToCrops"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +53,7 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostAquaculture200ResponseIntermediateInnerCarbonSequestration from a JSON string"""
+        """Create an instance of PostHorticultureRequestVegetationInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,6 +76,9 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of vegetation
+        if self.vegetation:
+            _dict['vegetation'] = self.vegetation.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -81,7 +88,7 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostAquaculture200ResponseIntermediateInnerCarbonSequestration from a dict"""
+        """Create an instance of PostHorticultureRequestVegetationInner from a dict"""
         if obj is None:
             return None
 
@@ -89,7 +96,9 @@ class PostAquaculture200ResponseIntermediateInnerCarbonSequestration(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total": obj.get("total")
+            "id": obj.get("id"),
+            "vegetation": PostBeefRequestVegetationInnerVegetation.from_dict(obj["vegetation"]) if obj.get("vegetation") is not None else None,
+            "allocationToCrops": obj.get("allocationToCrops")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

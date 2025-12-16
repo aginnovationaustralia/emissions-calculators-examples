@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class PostBuffaloRequest(BaseModel):
     """
-    Input data required for the `Buffalo` calculator
+    Input data required for the Buffalo calculator
     """ # noqa: E501
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     rainfall_above600: StrictBool = Field(description="Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm", alias="rainfallAbove600")

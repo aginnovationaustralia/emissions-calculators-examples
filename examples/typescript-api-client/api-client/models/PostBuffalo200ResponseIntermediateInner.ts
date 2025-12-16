@@ -20,13 +20,6 @@ import {
     PostAquaculture200ResponseScope2ToJSON,
     PostAquaculture200ResponseScope2ToJSONTyped,
 } from './PostAquaculture200ResponseScope2';
-import type { PostAquaculture200ResponseIntermediateInnerCarbonSequestration } from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
-import {
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSONTyped,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSONTyped,
-} from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
 import type { PostBuffalo200ResponseScope3 } from './PostBuffalo200ResponseScope3';
 import {
     PostBuffalo200ResponseScope3FromJSON,
@@ -41,6 +34,13 @@ import {
     PostBuffalo200ResponseNetToJSON,
     PostBuffalo200ResponseNetToJSONTyped,
 } from './PostBuffalo200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostBuffalo200ResponseScope1 } from './PostBuffalo200ResponseScope1';
 import {
     PostBuffalo200ResponseScope1FromJSON,
@@ -100,10 +100,10 @@ export interface PostBuffalo200ResponseIntermediateInner {
     intensities: PostBuffalo200ResponseIntensities;
     /**
      * 
-     * @type {PostAquaculture200ResponseIntermediateInnerCarbonSequestration}
+     * @type {PostAquaculture200ResponseCarbonSequestration}
      * @memberof PostBuffalo200ResponseIntermediateInner
      */
-    carbonSequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration;
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -136,7 +136,7 @@ export function PostBuffalo200ResponseIntermediateInnerFromJSONTyped(json: any, 
         'scope3': PostBuffalo200ResponseScope3FromJSON(json['scope3']),
         'net': PostBuffalo200ResponseNetFromJSON(json['net']),
         'intensities': PostBuffalo200ResponseIntensitiesFromJSON(json['intensities']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON(json['carbonSequestration']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -157,7 +157,7 @@ export function PostBuffalo200ResponseIntermediateInnerToJSONTyped(value?: PostB
         'scope3': PostBuffalo200ResponseScope3ToJSON(value['scope3']),
         'net': PostBuffalo200ResponseNetToJSON(value['net']),
         'intensities': PostBuffalo200ResponseIntensitiesToJSON(value['intensities']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON(value['carbonSequestration']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

@@ -54,15 +54,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="petrolUse">Petrol usage in L (litres)</param>
         /// <param name="lpg">LPG Fuel usage in L (litres)</param>
         /// <param name="id">Unique identifier for this Cotton activity</param>
-        /// <param name="otherFertiliserType">Other N fertiliser type</param>
         /// <param name="nonUreaNitrogen">Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare) (default to 0M)</param>
         /// <param name="ureaAmmoniumNitrate">Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare) (default to 0M)</param>
         /// <param name="phosphorusApplication">Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare) (default to 0M)</param>
         /// <param name="potassiumApplication">Potassium application, in kg K/ha (kilograms of potassium per hectare) (default to 0M)</param>
         /// <param name="sulfurApplication">Sulfur application, in kg S/ha (kilograms of sulfur per hectare) (default to 0M)</param>
-        /// <param name="fractionOfAnnualCropBurnt">Fraction of annual production of crop that is burnt. If included, this should only ever be 0 for cotton (default to 0M)</param>
         [JsonConstructor]
-        public PostCottonRequestCropsInner(StateEnum state, decimal averageCottonYield, decimal areaSown, decimal averageWeightPerBaleKg, decimal cottonLintPerBaleKg, decimal cottonSeedPerBaleKg, decimal wastePerBaleKg, decimal ureaApplication, decimal otherFertiliserApplication, decimal singleSuperPhosphate, bool rainfallAbove600, decimal herbicideUse, decimal glyphosateOtherHerbicideUse, decimal electricityAllocation, decimal limestone, decimal limestoneFraction, decimal dieselUse, decimal petrolUse, decimal lpg, Option<string?> id = default, Option<OtherFertiliserTypeEnum?> otherFertiliserType = default, decimal nonUreaNitrogen = 0M, decimal ureaAmmoniumNitrate = 0M, decimal phosphorusApplication = 0M, decimal potassiumApplication = 0M, decimal sulfurApplication = 0M, decimal fractionOfAnnualCropBurnt = 0M)
+        public PostCottonRequestCropsInner(StateEnum state, decimal averageCottonYield, decimal areaSown, decimal averageWeightPerBaleKg, decimal cottonLintPerBaleKg, decimal cottonSeedPerBaleKg, decimal wastePerBaleKg, decimal ureaApplication, decimal otherFertiliserApplication, decimal singleSuperPhosphate, bool rainfallAbove600, decimal herbicideUse, decimal glyphosateOtherHerbicideUse, decimal electricityAllocation, decimal limestone, decimal limestoneFraction, decimal dieselUse, decimal petrolUse, decimal lpg, Option<string?> id = default, decimal nonUreaNitrogen = 0M, decimal ureaAmmoniumNitrate = 0M, decimal phosphorusApplication = 0M, decimal potassiumApplication = 0M, decimal sulfurApplication = 0M)
         {
             State = state;
             AverageCottonYield = averageCottonYield;
@@ -84,13 +82,11 @@ namespace Org.OpenAPITools.Model
             PetrolUse = petrolUse;
             Lpg = lpg;
             IdOption = id;
-            OtherFertiliserTypeOption = otherFertiliserType;
             NonUreaNitrogen = nonUreaNitrogen;
             UreaAmmoniumNitrate = ureaAmmoniumNitrate;
             PhosphorusApplication = phosphorusApplication;
             PotassiumApplication = potassiumApplication;
             SulfurApplication = sulfurApplication;
-            FractionOfAnnualCropBurnt = fractionOfAnnualCropBurnt;
             OnCreated();
         }
 
@@ -269,256 +265,6 @@ namespace Org.OpenAPITools.Model
         public StateEnum State { get; set; }
 
         /// <summary>
-        /// Other N fertiliser type
-        /// </summary>
-        /// <value>Other N fertiliser type</value>
-        public enum OtherFertiliserTypeEnum
-        {
-            /// <summary>
-            /// Enum MonoammoniumPhosphateMAP for value: Monoammonium phosphate (MAP)
-            /// </summary>
-            MonoammoniumPhosphateMAP = 1,
-
-            /// <summary>
-            /// Enum DiammoniumPhosphateDAP for value: Diammonium Phosphate (DAP)
-            /// </summary>
-            DiammoniumPhosphateDAP = 2,
-
-            /// <summary>
-            /// Enum UreaAmmoniumNitrateUAN for value: Urea-Ammonium Nitrate (UAN)
-            /// </summary>
-            UreaAmmoniumNitrateUAN = 3,
-
-            /// <summary>
-            /// Enum AmmoniumNitrateAN for value: Ammonium Nitrate (AN)
-            /// </summary>
-            AmmoniumNitrateAN = 4,
-
-            /// <summary>
-            /// Enum CalciumAmmoniumNitrateCAN for value: Calcium Ammonium Nitrate (CAN)
-            /// </summary>
-            CalciumAmmoniumNitrateCAN = 5,
-
-            /// <summary>
-            /// Enum TripleSuperphosphateTSP for value: Triple Superphosphate (TSP)
-            /// </summary>
-            TripleSuperphosphateTSP = 6,
-
-            /// <summary>
-            /// Enum SuperPotash11 for value: Super Potash 1:1
-            /// </summary>
-            SuperPotash11 = 7,
-
-            /// <summary>
-            /// Enum SuperPotash21 for value: Super Potash 2:1
-            /// </summary>
-            SuperPotash21 = 8,
-
-            /// <summary>
-            /// Enum SuperPotash31 for value: Super Potash 3:1
-            /// </summary>
-            SuperPotash31 = 9,
-
-            /// <summary>
-            /// Enum SuperPotash41 for value: Super Potash 4:1
-            /// </summary>
-            SuperPotash41 = 10,
-
-            /// <summary>
-            /// Enum SuperPotash51 for value: Super Potash 5:1
-            /// </summary>
-            SuperPotash51 = 11,
-
-            /// <summary>
-            /// Enum MuriateOfPotash for value: Muriate of Potash
-            /// </summary>
-            MuriateOfPotash = 12,
-
-            /// <summary>
-            /// Enum SulphateOfPotash for value: Sulphate of Potash
-            /// </summary>
-            SulphateOfPotash = 13,
-
-            /// <summary>
-            /// Enum SulphateOfAmmonia for value: Sulphate of Ammonia
-            /// </summary>
-            SulphateOfAmmonia = 14
-        }
-
-        /// <summary>
-        /// Returns a <see cref="OtherFertiliserTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static OtherFertiliserTypeEnum OtherFertiliserTypeEnumFromString(string value)
-        {
-            if (value.Equals("Monoammonium phosphate (MAP)"))
-                return OtherFertiliserTypeEnum.MonoammoniumPhosphateMAP;
-
-            if (value.Equals("Diammonium Phosphate (DAP)"))
-                return OtherFertiliserTypeEnum.DiammoniumPhosphateDAP;
-
-            if (value.Equals("Urea-Ammonium Nitrate (UAN)"))
-                return OtherFertiliserTypeEnum.UreaAmmoniumNitrateUAN;
-
-            if (value.Equals("Ammonium Nitrate (AN)"))
-                return OtherFertiliserTypeEnum.AmmoniumNitrateAN;
-
-            if (value.Equals("Calcium Ammonium Nitrate (CAN)"))
-                return OtherFertiliserTypeEnum.CalciumAmmoniumNitrateCAN;
-
-            if (value.Equals("Triple Superphosphate (TSP)"))
-                return OtherFertiliserTypeEnum.TripleSuperphosphateTSP;
-
-            if (value.Equals("Super Potash 1:1"))
-                return OtherFertiliserTypeEnum.SuperPotash11;
-
-            if (value.Equals("Super Potash 2:1"))
-                return OtherFertiliserTypeEnum.SuperPotash21;
-
-            if (value.Equals("Super Potash 3:1"))
-                return OtherFertiliserTypeEnum.SuperPotash31;
-
-            if (value.Equals("Super Potash 4:1"))
-                return OtherFertiliserTypeEnum.SuperPotash41;
-
-            if (value.Equals("Super Potash 5:1"))
-                return OtherFertiliserTypeEnum.SuperPotash51;
-
-            if (value.Equals("Muriate of Potash"))
-                return OtherFertiliserTypeEnum.MuriateOfPotash;
-
-            if (value.Equals("Sulphate of Potash"))
-                return OtherFertiliserTypeEnum.SulphateOfPotash;
-
-            if (value.Equals("Sulphate of Ammonia"))
-                return OtherFertiliserTypeEnum.SulphateOfAmmonia;
-
-            throw new NotImplementedException($"Could not convert value to type OtherFertiliserTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="OtherFertiliserTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static OtherFertiliserTypeEnum? OtherFertiliserTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Monoammonium phosphate (MAP)"))
-                return OtherFertiliserTypeEnum.MonoammoniumPhosphateMAP;
-
-            if (value.Equals("Diammonium Phosphate (DAP)"))
-                return OtherFertiliserTypeEnum.DiammoniumPhosphateDAP;
-
-            if (value.Equals("Urea-Ammonium Nitrate (UAN)"))
-                return OtherFertiliserTypeEnum.UreaAmmoniumNitrateUAN;
-
-            if (value.Equals("Ammonium Nitrate (AN)"))
-                return OtherFertiliserTypeEnum.AmmoniumNitrateAN;
-
-            if (value.Equals("Calcium Ammonium Nitrate (CAN)"))
-                return OtherFertiliserTypeEnum.CalciumAmmoniumNitrateCAN;
-
-            if (value.Equals("Triple Superphosphate (TSP)"))
-                return OtherFertiliserTypeEnum.TripleSuperphosphateTSP;
-
-            if (value.Equals("Super Potash 1:1"))
-                return OtherFertiliserTypeEnum.SuperPotash11;
-
-            if (value.Equals("Super Potash 2:1"))
-                return OtherFertiliserTypeEnum.SuperPotash21;
-
-            if (value.Equals("Super Potash 3:1"))
-                return OtherFertiliserTypeEnum.SuperPotash31;
-
-            if (value.Equals("Super Potash 4:1"))
-                return OtherFertiliserTypeEnum.SuperPotash41;
-
-            if (value.Equals("Super Potash 5:1"))
-                return OtherFertiliserTypeEnum.SuperPotash51;
-
-            if (value.Equals("Muriate of Potash"))
-                return OtherFertiliserTypeEnum.MuriateOfPotash;
-
-            if (value.Equals("Sulphate of Potash"))
-                return OtherFertiliserTypeEnum.SulphateOfPotash;
-
-            if (value.Equals("Sulphate of Ammonia"))
-                return OtherFertiliserTypeEnum.SulphateOfAmmonia;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="OtherFertiliserTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string OtherFertiliserTypeEnumToJsonValue(OtherFertiliserTypeEnum? value)
-        {
-            if (value == OtherFertiliserTypeEnum.MonoammoniumPhosphateMAP)
-                return "Monoammonium phosphate (MAP)";
-
-            if (value == OtherFertiliserTypeEnum.DiammoniumPhosphateDAP)
-                return "Diammonium Phosphate (DAP)";
-
-            if (value == OtherFertiliserTypeEnum.UreaAmmoniumNitrateUAN)
-                return "Urea-Ammonium Nitrate (UAN)";
-
-            if (value == OtherFertiliserTypeEnum.AmmoniumNitrateAN)
-                return "Ammonium Nitrate (AN)";
-
-            if (value == OtherFertiliserTypeEnum.CalciumAmmoniumNitrateCAN)
-                return "Calcium Ammonium Nitrate (CAN)";
-
-            if (value == OtherFertiliserTypeEnum.TripleSuperphosphateTSP)
-                return "Triple Superphosphate (TSP)";
-
-            if (value == OtherFertiliserTypeEnum.SuperPotash11)
-                return "Super Potash 1:1";
-
-            if (value == OtherFertiliserTypeEnum.SuperPotash21)
-                return "Super Potash 2:1";
-
-            if (value == OtherFertiliserTypeEnum.SuperPotash31)
-                return "Super Potash 3:1";
-
-            if (value == OtherFertiliserTypeEnum.SuperPotash41)
-                return "Super Potash 4:1";
-
-            if (value == OtherFertiliserTypeEnum.SuperPotash51)
-                return "Super Potash 5:1";
-
-            if (value == OtherFertiliserTypeEnum.MuriateOfPotash)
-                return "Muriate of Potash";
-
-            if (value == OtherFertiliserTypeEnum.SulphateOfPotash)
-                return "Sulphate of Potash";
-
-            if (value == OtherFertiliserTypeEnum.SulphateOfAmmonia)
-                return "Sulphate of Ammonia";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Used to track the state of OtherFertiliserType
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<OtherFertiliserTypeEnum?> OtherFertiliserTypeOption { get; private set; }
-
-        /// <summary>
-        /// Other N fertiliser type
-        /// </summary>
-        /// <value>Other N fertiliser type</value>
-        [JsonPropertyName("otherFertiliserType")]
-        [Obsolete]
-        public OtherFertiliserTypeEnum? OtherFertiliserType { get { return this.OtherFertiliserTypeOption; } set { this.OtherFertiliserTypeOption = new(value); } }
-
-        /// <summary>
         /// Average cotton yield, in t/ha (tonnes per hectare)
         /// </summary>
         /// <value>Average cotton yield, in t/ha (tonnes per hectare)</value>
@@ -694,14 +440,6 @@ namespace Org.OpenAPITools.Model
         public decimal SulfurApplication { get; set; }
 
         /// <summary>
-        /// Fraction of annual production of crop that is burnt. If included, this should only ever be 0 for cotton
-        /// </summary>
-        /// <value>Fraction of annual production of crop that is burnt. If included, this should only ever be 0 for cotton</value>
-        [JsonPropertyName("fractionOfAnnualCropBurnt")]
-        [Obsolete]
-        public decimal FractionOfAnnualCropBurnt { get; set; }
-
-        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -735,13 +473,11 @@ namespace Org.OpenAPITools.Model
             sb.Append("  PetrolUse: ").Append(PetrolUse).Append("\n");
             sb.Append("  Lpg: ").Append(Lpg).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  OtherFertiliserType: ").Append(OtherFertiliserType).Append("\n");
             sb.Append("  NonUreaNitrogen: ").Append(NonUreaNitrogen).Append("\n");
             sb.Append("  UreaAmmoniumNitrate: ").Append(UreaAmmoniumNitrate).Append("\n");
             sb.Append("  PhosphorusApplication: ").Append(PhosphorusApplication).Append("\n");
             sb.Append("  PotassiumApplication: ").Append(PotassiumApplication).Append("\n");
             sb.Append("  SulfurApplication: ").Append(SulfurApplication).Append("\n");
-            sb.Append("  FractionOfAnnualCropBurnt: ").Append(FractionOfAnnualCropBurnt).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -754,6 +490,72 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AverageCottonYield (decimal) minimum
+            if (this.AverageCottonYield < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageCottonYield, must be a value greater than or equal to 0.", new [] { "AverageCottonYield" });
+            }
+
+            // AreaSown (decimal) minimum
+            if (this.AreaSown < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AreaSown, must be a value greater than or equal to 0.", new [] { "AreaSown" });
+            }
+
+            // AverageWeightPerBaleKg (decimal) minimum
+            if (this.AverageWeightPerBaleKg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageWeightPerBaleKg, must be a value greater than or equal to 0.", new [] { "AverageWeightPerBaleKg" });
+            }
+
+            // CottonLintPerBaleKg (decimal) minimum
+            if (this.CottonLintPerBaleKg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CottonLintPerBaleKg, must be a value greater than or equal to 0.", new [] { "CottonLintPerBaleKg" });
+            }
+
+            // CottonSeedPerBaleKg (decimal) minimum
+            if (this.CottonSeedPerBaleKg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CottonSeedPerBaleKg, must be a value greater than or equal to 0.", new [] { "CottonSeedPerBaleKg" });
+            }
+
+            // WastePerBaleKg (decimal) minimum
+            if (this.WastePerBaleKg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for WastePerBaleKg, must be a value greater than or equal to 0.", new [] { "WastePerBaleKg" });
+            }
+
+            // UreaApplication (decimal) minimum
+            if (this.UreaApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UreaApplication, must be a value greater than or equal to 0.", new [] { "UreaApplication" });
+            }
+
+            // OtherFertiliserApplication (decimal) minimum
+            if (this.OtherFertiliserApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for OtherFertiliserApplication, must be a value greater than or equal to 0.", new [] { "OtherFertiliserApplication" });
+            }
+
+            // SingleSuperPhosphate (decimal) minimum
+            if (this.SingleSuperPhosphate < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SingleSuperPhosphate, must be a value greater than or equal to 0.", new [] { "SingleSuperPhosphate" });
+            }
+
+            // HerbicideUse (decimal) minimum
+            if (this.HerbicideUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HerbicideUse, must be a value greater than or equal to 0.", new [] { "HerbicideUse" });
+            }
+
+            // GlyphosateOtherHerbicideUse (decimal) minimum
+            if (this.GlyphosateOtherHerbicideUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for GlyphosateOtherHerbicideUse, must be a value greater than or equal to 0.", new [] { "GlyphosateOtherHerbicideUse" });
+            }
+
             // ElectricityAllocation (decimal) maximum
             if (this.ElectricityAllocation > (decimal)1)
             {
@@ -766,6 +568,12 @@ namespace Org.OpenAPITools.Model
                 yield return new ValidationResult("Invalid value for ElectricityAllocation, must be a value greater than or equal to 0.", new [] { "ElectricityAllocation" });
             }
 
+            // Limestone (decimal) minimum
+            if (this.Limestone < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Limestone, must be a value greater than or equal to 0.", new [] { "Limestone" });
+            }
+
             // LimestoneFraction (decimal) maximum
             if (this.LimestoneFraction > (decimal)1)
             {
@@ -776,6 +584,54 @@ namespace Org.OpenAPITools.Model
             if (this.LimestoneFraction < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for LimestoneFraction, must be a value greater than or equal to 0.", new [] { "LimestoneFraction" });
+            }
+
+            // DieselUse (decimal) minimum
+            if (this.DieselUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DieselUse, must be a value greater than or equal to 0.", new [] { "DieselUse" });
+            }
+
+            // PetrolUse (decimal) minimum
+            if (this.PetrolUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PetrolUse, must be a value greater than or equal to 0.", new [] { "PetrolUse" });
+            }
+
+            // Lpg (decimal) minimum
+            if (this.Lpg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Lpg, must be a value greater than or equal to 0.", new [] { "Lpg" });
+            }
+
+            // NonUreaNitrogen (decimal) minimum
+            if (this.NonUreaNitrogen < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for NonUreaNitrogen, must be a value greater than or equal to 0.", new [] { "NonUreaNitrogen" });
+            }
+
+            // UreaAmmoniumNitrate (decimal) minimum
+            if (this.UreaAmmoniumNitrate < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UreaAmmoniumNitrate, must be a value greater than or equal to 0.", new [] { "UreaAmmoniumNitrate" });
+            }
+
+            // PhosphorusApplication (decimal) minimum
+            if (this.PhosphorusApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PhosphorusApplication, must be a value greater than or equal to 0.", new [] { "PhosphorusApplication" });
+            }
+
+            // PotassiumApplication (decimal) minimum
+            if (this.PotassiumApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PotassiumApplication, must be a value greater than or equal to 0.", new [] { "PotassiumApplication" });
+            }
+
+            // SulfurApplication (decimal) minimum
+            if (this.SulfurApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SulfurApplication, must be a value greater than or equal to 0.", new [] { "SulfurApplication" });
             }
 
             yield break;
@@ -824,13 +680,11 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> petrolUse = default;
             Option<decimal?> lpg = default;
             Option<string?> id = default;
-            Option<PostCottonRequestCropsInner.OtherFertiliserTypeEnum?> otherFertiliserType = default;
             Option<decimal?> nonUreaNitrogen = default;
             Option<decimal?> ureaAmmoniumNitrate = default;
             Option<decimal?> phosphorusApplication = default;
             Option<decimal?> potassiumApplication = default;
             Option<decimal?> sulfurApplication = default;
-            Option<decimal?> fractionOfAnnualCropBurnt = default;
 
             while (utf8JsonReader.Read())
             {
@@ -909,11 +763,6 @@ namespace Org.OpenAPITools.Model
                         case "id":
                             id = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
-                        case "otherFertiliserType":
-                            string? otherFertiliserTypeRawValue = utf8JsonReader.GetString();
-                            if (otherFertiliserTypeRawValue != null)
-                                otherFertiliserType = new Option<PostCottonRequestCropsInner.OtherFertiliserTypeEnum?>(PostCottonRequestCropsInner.OtherFertiliserTypeEnumFromStringOrDefault(otherFertiliserTypeRawValue));
-                            break;
                         case "nonUreaNitrogen":
                             nonUreaNitrogen = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
@@ -928,9 +777,6 @@ namespace Org.OpenAPITools.Model
                             break;
                         case "sulfurApplication":
                             sulfurApplication = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "fractionOfAnnualCropBurnt":
-                            fractionOfAnnualCropBurnt = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         default:
                             break;
@@ -1010,9 +856,6 @@ namespace Org.OpenAPITools.Model
             if (!sulfurApplication.IsSet)
                 throw new ArgumentException("Property is required for class PostCottonRequestCropsInner.", nameof(sulfurApplication));
 
-            if (!fractionOfAnnualCropBurnt.IsSet)
-                throw new ArgumentException("Property is required for class PostCottonRequestCropsInner.", nameof(fractionOfAnnualCropBurnt));
-
             if (state.IsSet && state.Value == null)
                 throw new ArgumentNullException(nameof(state), "Property is not nullable for class PostCottonRequestCropsInner.");
 
@@ -1073,9 +916,6 @@ namespace Org.OpenAPITools.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class PostCottonRequestCropsInner.");
 
-            if (otherFertiliserType.IsSet && otherFertiliserType.Value == null)
-                throw new ArgumentNullException(nameof(otherFertiliserType), "Property is not nullable for class PostCottonRequestCropsInner.");
-
             if (nonUreaNitrogen.IsSet && nonUreaNitrogen.Value == null)
                 throw new ArgumentNullException(nameof(nonUreaNitrogen), "Property is not nullable for class PostCottonRequestCropsInner.");
 
@@ -1091,10 +931,7 @@ namespace Org.OpenAPITools.Model
             if (sulfurApplication.IsSet && sulfurApplication.Value == null)
                 throw new ArgumentNullException(nameof(sulfurApplication), "Property is not nullable for class PostCottonRequestCropsInner.");
 
-            if (fractionOfAnnualCropBurnt.IsSet && fractionOfAnnualCropBurnt.Value == null)
-                throw new ArgumentNullException(nameof(fractionOfAnnualCropBurnt), "Property is not nullable for class PostCottonRequestCropsInner.");
-
-            return new PostCottonRequestCropsInner(state.Value!.Value!, averageCottonYield.Value!.Value!, areaSown.Value!.Value!, averageWeightPerBaleKg.Value!.Value!, cottonLintPerBaleKg.Value!.Value!, cottonSeedPerBaleKg.Value!.Value!, wastePerBaleKg.Value!.Value!, ureaApplication.Value!.Value!, otherFertiliserApplication.Value!.Value!, singleSuperPhosphate.Value!.Value!, rainfallAbove600.Value!.Value!, herbicideUse.Value!.Value!, glyphosateOtherHerbicideUse.Value!.Value!, electricityAllocation.Value!.Value!, limestone.Value!.Value!, limestoneFraction.Value!.Value!, dieselUse.Value!.Value!, petrolUse.Value!.Value!, lpg.Value!.Value!, id, otherFertiliserType, nonUreaNitrogen.Value!.Value!, ureaAmmoniumNitrate.Value!.Value!, phosphorusApplication.Value!.Value!, potassiumApplication.Value!.Value!, sulfurApplication.Value!.Value!, fractionOfAnnualCropBurnt.Value!.Value!);
+            return new PostCottonRequestCropsInner(state.Value!.Value!, averageCottonYield.Value!.Value!, areaSown.Value!.Value!, averageWeightPerBaleKg.Value!.Value!, cottonLintPerBaleKg.Value!.Value!, cottonSeedPerBaleKg.Value!.Value!, wastePerBaleKg.Value!.Value!, ureaApplication.Value!.Value!, otherFertiliserApplication.Value!.Value!, singleSuperPhosphate.Value!.Value!, rainfallAbove600.Value!.Value!, herbicideUse.Value!.Value!, glyphosateOtherHerbicideUse.Value!.Value!, electricityAllocation.Value!.Value!, limestone.Value!.Value!, limestoneFraction.Value!.Value!, dieselUse.Value!.Value!, petrolUse.Value!.Value!, lpg.Value!.Value!, id, nonUreaNitrogen.Value!.Value!, ureaAmmoniumNitrate.Value!.Value!, phosphorusApplication.Value!.Value!, potassiumApplication.Value!.Value!, sulfurApplication.Value!.Value!);
         }
 
         /// <summary>
@@ -1165,8 +1002,6 @@ namespace Org.OpenAPITools.Model
             if (postCottonRequestCropsInner.IdOption.IsSet)
                 writer.WriteString("id", postCottonRequestCropsInner.Id);
 
-            var otherFertiliserTypeRawValue = PostCottonRequestCropsInner.OtherFertiliserTypeEnumToJsonValue(postCottonRequestCropsInner.OtherFertiliserTypeOption.Value!.Value);
-            writer.WriteString("otherFertiliserType", otherFertiliserTypeRawValue);
             writer.WriteNumber("nonUreaNitrogen", postCottonRequestCropsInner.NonUreaNitrogen);
 
             writer.WriteNumber("ureaAmmoniumNitrate", postCottonRequestCropsInner.UreaAmmoniumNitrate);
@@ -1176,8 +1011,6 @@ namespace Org.OpenAPITools.Model
             writer.WriteNumber("potassiumApplication", postCottonRequestCropsInner.PotassiumApplication);
 
             writer.WriteNumber("sulfurApplication", postCottonRequestCropsInner.SulfurApplication);
-
-            writer.WriteNumber("fractionOfAnnualCropBurnt", postCottonRequestCropsInner.FractionOfAnnualCropBurnt);
         }
     }
 }

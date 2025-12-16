@@ -27,7 +27,6 @@ from openapi_client.models.post_goat_request_goats_inner_classes_maiden_breeding
 from openapi_client.models.post_goat_request_goats_inner_classes_other_does_culled_females import PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_breeding_does_nannies import PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_bucks import PostGoatRequestGoatsInnerClassesTradeBucks
-from openapi_client.models.post_goat_request_goats_inner_classes_trade_does import PostGoatRequestGoatsInnerClassesTradeDoes
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_kids import PostGoatRequestGoatsInnerClassesTradeKids
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_maiden_breeding_does_nannies import PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_other_does_culled_females import PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales
@@ -52,9 +51,8 @@ class PostGoatRequestGoatsInnerClasses(BaseModel):
     trade_other_does_culled_females: Optional[PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales] = Field(default=None, alias="tradeOtherDoesCulledFemales")
     kids: Optional[PostGoatRequestGoatsInnerClassesKids] = None
     trade_kids: Optional[PostGoatRequestGoatsInnerClassesTradeKids] = Field(default=None, alias="tradeKids")
-    trade_does: Optional[PostGoatRequestGoatsInnerClassesTradeDoes] = Field(default=None, alias="tradeDoes")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["bucksBilly", "tradeBucks", "wethers", "tradeWethers", "maidenBreedingDoesNannies", "tradeMaidenBreedingDoesNannies", "breedingDoesNannies", "tradeBreedingDoesNannies", "otherDoesCulledFemales", "tradeOtherDoesCulledFemales", "kids", "tradeKids", "tradeDoes"]
+    __properties: ClassVar[List[str]] = ["bucksBilly", "tradeBucks", "wethers", "tradeWethers", "maidenBreedingDoesNannies", "tradeMaidenBreedingDoesNannies", "breedingDoesNannies", "tradeBreedingDoesNannies", "otherDoesCulledFemales", "tradeOtherDoesCulledFemales", "kids", "tradeKids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -133,9 +131,6 @@ class PostGoatRequestGoatsInnerClasses(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of trade_kids
         if self.trade_kids:
             _dict['tradeKids'] = self.trade_kids.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of trade_does
-        if self.trade_does:
-            _dict['tradeDoes'] = self.trade_does.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -164,8 +159,7 @@ class PostGoatRequestGoatsInnerClasses(BaseModel):
             "otherDoesCulledFemales": PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales.from_dict(obj["otherDoesCulledFemales"]) if obj.get("otherDoesCulledFemales") is not None else None,
             "tradeOtherDoesCulledFemales": PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales.from_dict(obj["tradeOtherDoesCulledFemales"]) if obj.get("tradeOtherDoesCulledFemales") is not None else None,
             "kids": PostGoatRequestGoatsInnerClassesKids.from_dict(obj["kids"]) if obj.get("kids") is not None else None,
-            "tradeKids": PostGoatRequestGoatsInnerClassesTradeKids.from_dict(obj["tradeKids"]) if obj.get("tradeKids") is not None else None,
-            "tradeDoes": PostGoatRequestGoatsInnerClassesTradeDoes.from_dict(obj["tradeDoes"]) if obj.get("tradeDoes") is not None else None
+            "tradeKids": PostGoatRequestGoatsInnerClassesTradeKids.from_dict(obj["tradeKids"]) if obj.get("tradeKids") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

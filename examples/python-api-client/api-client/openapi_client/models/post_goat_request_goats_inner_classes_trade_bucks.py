@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_buffalo_request_buffalos_inner_classes_bulls_autumn import PostBuffaloRequestBuffalosInnerClassesBullsAutumn
 from openapi_client.models.post_buffalo_request_buffalos_inner_classes_bulls_purchases_inner import PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner
 from typing import Optional, Set
@@ -33,16 +34,14 @@ class PostGoatRequestGoatsInnerClassesTradeBucks(BaseModel):
     winter: PostBuffaloRequestBuffalosInnerClassesBullsAutumn
     spring: PostBuffaloRequestBuffalosInnerClassesBullsAutumn
     summer: PostBuffaloRequestBuffalosInnerClassesBullsAutumn
-    head_purchased: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of animals purchased (head). Deprecation note: Please use `purchases` instead", alias="headPurchased")
-    purchased_weight: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead", alias="purchasedWeight")
-    head_sold: Union[StrictFloat, StrictInt] = Field(description="Number of animals sold (head)", alias="headSold")
-    sale_weight: Union[StrictFloat, StrictInt] = Field(description="Weight at sale, in liveweight kg/head (kilogram per head)", alias="saleWeight")
-    head_shorn: Union[StrictFloat, StrictInt] = Field(description="Number of goat shorn, in head", alias="headShorn")
-    wool_shorn: Union[StrictFloat, StrictInt] = Field(description="Weight of wool shorn, in kg/head (kilogram per head)", alias="woolShorn")
-    clean_wool_yield: Union[StrictFloat, StrictInt] = Field(description="Percentage of clean wool from weight of yield, from 0 to 100", alias="cleanWoolYield")
+    head_sold: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals sold (head)", alias="headSold")
+    sale_weight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Weight at sale, in liveweight kg/head (kilogram per head)", alias="saleWeight")
+    head_shorn: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of goat shorn, in head", alias="headShorn")
+    wool_shorn: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Weight of wool shorn, in kg/head (kilogram per head)", alias="woolShorn")
+    clean_wool_yield: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(description="Percentage of clean wool from weight of yield, from 0 to 100", alias="cleanWoolYield")
     purchases: Optional[List[PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner]] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer", "headPurchased", "purchasedWeight", "headSold", "saleWeight", "headShorn", "woolShorn", "cleanWoolYield", "purchases"]
+    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer", "headSold", "saleWeight", "headShorn", "woolShorn", "cleanWoolYield", "purchases"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -125,8 +124,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks(BaseModel):
             "winter": PostBuffaloRequestBuffalosInnerClassesBullsAutumn.from_dict(obj["winter"]) if obj.get("winter") is not None else None,
             "spring": PostBuffaloRequestBuffalosInnerClassesBullsAutumn.from_dict(obj["spring"]) if obj.get("spring") is not None else None,
             "summer": PostBuffaloRequestBuffalosInnerClassesBullsAutumn.from_dict(obj["summer"]) if obj.get("summer") is not None else None,
-            "headPurchased": obj.get("headPurchased"),
-            "purchasedWeight": obj.get("purchasedWeight"),
             "headSold": obj.get("headSold"),
             "saleWeight": obj.get("saleWeight"),
             "headShorn": obj.get("headShorn"),

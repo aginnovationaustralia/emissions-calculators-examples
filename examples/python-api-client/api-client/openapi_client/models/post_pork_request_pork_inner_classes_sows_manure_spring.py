@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,11 +28,11 @@ class PostPorkRequestPorkInnerClassesSowsManureSpring(BaseModel):
     """
     PostPorkRequestPorkInnerClassesSowsManureSpring
     """ # noqa: E501
-    outdoor_systems: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of volatile solids sent to outoor systems in t (tonnes)", alias="outdoorSystems")
-    covered_anaerobic_pond: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of volatile solids sent to covered anaerobic pond in t (tonnes)", alias="coveredAnaerobicPond")
-    uncovered_anaerobic_pond: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of volatile solids sent to uncovered anaerobic pond in t (tonnes)", alias="uncoveredAnaerobicPond")
-    deep_litter: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of volatile solids sent to deep litter in t (tonnes)", alias="deepLitter")
-    undefined_system: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of volatile solids where manure management system is not known or defined, in t (tonnes)", alias="undefinedSystem")
+    outdoor_systems: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Amount of volatile solids sent to outoor systems in t (tonnes)", alias="outdoorSystems")
+    covered_anaerobic_pond: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Amount of volatile solids sent to covered anaerobic pond in t (tonnes)", alias="coveredAnaerobicPond")
+    uncovered_anaerobic_pond: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Amount of volatile solids sent to uncovered anaerobic pond in t (tonnes)", alias="uncoveredAnaerobicPond")
+    deep_litter: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Amount of volatile solids sent to deep litter in t (tonnes)", alias="deepLitter")
+    undefined_system: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Amount of volatile solids where manure management system is not known or defined, in t (tonnes)", alias="undefinedSystem")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["outdoorSystems", "coveredAnaerobicPond", "uncoveredAnaerobicPond", "deepLitter", "undefinedSystem"]
 

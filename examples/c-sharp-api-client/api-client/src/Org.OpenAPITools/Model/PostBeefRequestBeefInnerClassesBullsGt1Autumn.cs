@@ -132,6 +132,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Head (decimal) minimum
+            if (this.Head < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Head, must be a value greater than or equal to 0.", new [] { "Head" });
+            }
+
+            // Liveweight (decimal) minimum
+            if (this.Liveweight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Liveweight, must be a value greater than or equal to 0.", new [] { "Liveweight" });
+            }
+
             // CrudeProtein (decimal) maximum
             if (this.CrudeProteinOption.IsSet && this.CrudeProteinOption.Value > (decimal)100)
             {

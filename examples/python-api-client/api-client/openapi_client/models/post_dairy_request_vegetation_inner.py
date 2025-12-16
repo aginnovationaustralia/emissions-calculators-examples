@@ -18,18 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_beef_request_vegetation_inner_vegetation import PostBeefRequestVegetationInnerVegetation
 from typing import Optional, Set
 from typing_extensions import Self
 
 class PostDairyRequestVegetationInner(BaseModel):
     """
-    Non-productive vegetation inputs along with allocations to dairy
+    Non-productive vegetation inputs along with allocations to each Dairy activity
     """ # noqa: E501
     vegetation: PostBeefRequestVegetationInnerVegetation
-    dairy_proportion: List[Union[StrictFloat, StrictInt]] = Field(description="The proportion of the sequestration that is allocated to dairy", alias="dairyProportion")
+    dairy_proportion: List[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(description="The proportion of the sequestration that is allocated to each dairy activity", alias="dairyProportion")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["vegetation", "dairyProportion"]
 

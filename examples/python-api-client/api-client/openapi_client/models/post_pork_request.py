@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.post_pork_request_pork_inner import PostPorkRequestPorkInner
 from openapi_client.models.post_pork_request_vegetation_inner import PostPorkRequestVegetationInner
 from typing import Optional, Set
@@ -27,15 +27,15 @@ from typing_extensions import Self
 
 class PostPorkRequest(BaseModel):
     """
-    Input data required for the `pork` calculator
+    Input data required for a single Pork enterprise
     """ # noqa: E501
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Pork activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
-    north_of_tropic_of_capricorn: StrictBool = Field(description="Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude. Deprecation note: This field is deprecated", alias="northOfTropicOfCapricorn")
     rainfall_above600: StrictBool = Field(description="Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm", alias="rainfallAbove600")
     pork: List[PostPorkRequestPorkInner]
     vegetation: List[PostPorkRequestVegetationInner]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["state", "northOfTropicOfCapricorn", "rainfallAbove600", "pork", "vegetation"]
+    __properties: ClassVar[List[str]] = ["id", "state", "rainfallAbove600", "pork", "vegetation"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
@@ -116,8 +116,8 @@ class PostPorkRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "state": obj.get("state"),
-            "northOfTropicOfCapricorn": obj.get("northOfTropicOfCapricorn"),
             "rainfallAbove600": obj.get("rainfallAbove600"),
             "pork": [PostPorkRequestPorkInner.from_dict(_item) for _item in obj["pork"]] if obj.get("pork") is not None else None,
             "vegetation": [PostPorkRequestVegetationInner.from_dict(_item) for _item in obj["vegetation"]] if obj.get("vegetation") is not None else None

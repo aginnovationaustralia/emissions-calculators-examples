@@ -344,7 +344,7 @@ class PostBeefRequestBurningInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets allocation_to_beef
      *
-     * @param float[] $allocation_to_beef The proportion of the burning that is allocated to each beef
+     * @param float[] $allocation_to_beef The proportion of the burning that is allocated to each beef activity
      *
      * @return self
      */

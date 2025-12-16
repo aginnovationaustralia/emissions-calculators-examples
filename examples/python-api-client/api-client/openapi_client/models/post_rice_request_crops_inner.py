@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -26,31 +26,31 @@ from typing_extensions import Self
 
 class PostRiceRequestCropsInner(BaseModel):
     """
-    PostRiceRequestCropsInner
+    Input data required for a single Rice enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Rice activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
-    average_rice_yield: Union[StrictFloat, StrictInt] = Field(description="Average rice yield, in t/ha (tonnes per hectare)", alias="averageRiceYield")
-    area_sown: Union[StrictFloat, StrictInt] = Field(description="Area sown, in ha (hectares)", alias="areaSown")
-    growing_season_days: Union[StrictFloat, StrictInt] = Field(description="The length of the growing season for this crop, in days", alias="growingSeasonDays")
+    average_rice_yield: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average rice yield, in t/ha (tonnes per hectare)", alias="averageRiceYield")
+    area_sown: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Area sown, in ha (hectares)", alias="areaSown")
+    growing_season_days: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="The length of the growing season for this crop, in days", alias="growingSeasonDays")
     water_regime_type: StrictStr = Field(alias="waterRegimeType")
     water_regime_sub_type: StrictStr = Field(alias="waterRegimeSubType")
     rice_preseason_flooding_period: StrictStr = Field(alias="ricePreseasonFloodingPeriod")
-    urea_application: Union[StrictFloat, StrictInt] = Field(description="Urea application, in kg Urea/ha (kilograms of urea per hectare)", alias="ureaApplication")
-    non_urea_nitrogen: Union[StrictFloat, StrictInt] = Field(description="Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare)", alias="nonUreaNitrogen")
-    urea_ammonium_nitrate: Union[StrictFloat, StrictInt] = Field(description="Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare)", alias="ureaAmmoniumNitrate")
-    phosphorus_application: Union[StrictFloat, StrictInt] = Field(description="Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare)", alias="phosphorusApplication")
-    potassium_application: Union[StrictFloat, StrictInt] = Field(description="Potassium application, in kg K/ha (kilograms of potassium per hectare)", alias="potassiumApplication")
-    sulfur_application: Union[StrictFloat, StrictInt] = Field(description="Sulfur application, in kg S/ha (kilograms of sulfur per hectare)", alias="sulfurApplication")
+    urea_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea application, in kg Urea/ha (kilograms of urea per hectare)", alias="ureaApplication")
+    non_urea_nitrogen: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare)", alias="nonUreaNitrogen")
+    urea_ammonium_nitrate: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare)", alias="ureaAmmoniumNitrate")
+    phosphorus_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare)", alias="phosphorusApplication")
+    potassium_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Potassium application, in kg K/ha (kilograms of potassium per hectare)", alias="potassiumApplication")
+    sulfur_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Sulfur application, in kg S/ha (kilograms of sulfur per hectare)", alias="sulfurApplication")
     fraction_of_annual_crop_burnt: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of annual production of crop that is burnt, from 0 to 1", alias="fractionOfAnnualCropBurnt")
-    herbicide_use: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)", alias="herbicideUse")
-    glyphosate_other_herbicide_use: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients from other herbicide use (Paraquat, Diquat, Glyphosate), in kg (kilogram)", alias="glyphosateOtherHerbicideUse")
+    herbicide_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)", alias="herbicideUse")
+    glyphosate_other_herbicide_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients from other herbicide use (Paraquat, Diquat, Glyphosate), in kg (kilogram)", alias="glyphosateOtherHerbicideUse")
     electricity_allocation: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percentage of electricity use to allocate to this crop, from 0 to 1", alias="electricityAllocation")
-    limestone: Union[StrictFloat, StrictInt] = Field(description="Lime applied in tonnes")
-    limestone_fraction: Union[StrictFloat, StrictInt] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
-    diesel_use: Union[StrictFloat, StrictInt] = Field(description="Diesel usage in L (litres)", alias="dieselUse")
-    petrol_use: Union[StrictFloat, StrictInt] = Field(description="Petrol usage in L (litres)", alias="petrolUse")
-    lpg: Union[StrictFloat, StrictInt] = Field(description="LPG Fuel usage in L (litres)")
+    limestone: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Lime applied in tonnes")
+    limestone_fraction: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
+    diesel_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Diesel usage in L (litres)", alias="dieselUse")
+    petrol_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Petrol usage in L (litres)", alias="petrolUse")
+    lpg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="LPG Fuel usage in L (litres)")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "state", "averageRiceYield", "areaSown", "growingSeasonDays", "waterRegimeType", "waterRegimeSubType", "ricePreseasonFloodingPeriod", "ureaApplication", "nonUreaNitrogen", "ureaAmmoniumNitrate", "phosphorusApplication", "potassiumApplication", "sulfurApplication", "fractionOfAnnualCropBurnt", "herbicideUse", "glyphosateOtherHerbicideUse", "electricityAllocation", "limestone", "limestoneFraction", "dieselUse", "petrolUse", "lpg"]
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.post_feedlot_request_feedlots_inner import PostFeedlotRequestFeedlotsInner
 from openapi_client.models.post_feedlot_request_vegetation_inner import PostFeedlotRequestVegetationInner
 from typing import Optional, Set
@@ -27,13 +27,14 @@ from typing_extensions import Self
 
 class PostFeedlotRequest(BaseModel):
     """
-    Input data required for the `feedlot` calculator
+    Input data required for a single Feedlot enterprise
     """ # noqa: E501
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Feedlot activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     feedlots: List[PostFeedlotRequestFeedlotsInner]
     vegetation: List[PostFeedlotRequestVegetationInner]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["state", "feedlots", "vegetation"]
+    __properties: ClassVar[List[str]] = ["id", "state", "feedlots", "vegetation"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
@@ -114,6 +115,7 @@ class PostFeedlotRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "state": obj.get("state"),
             "feedlots": [PostFeedlotRequestFeedlotsInner.from_dict(_item) for _item in obj["feedlots"]] if obj.get("feedlots") is not None else None,
             "vegetation": [PostFeedlotRequestVegetationInner.from_dict(_item) for _item in obj["vegetation"]] if obj.get("vegetation") is not None else None

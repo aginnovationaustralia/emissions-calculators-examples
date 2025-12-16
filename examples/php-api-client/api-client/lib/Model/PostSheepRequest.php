@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostSheepRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;sheep&#x60; calculator
+ * @description Input data required for the Sheep calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

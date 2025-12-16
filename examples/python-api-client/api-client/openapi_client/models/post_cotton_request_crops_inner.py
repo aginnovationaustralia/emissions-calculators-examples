@@ -18,60 +18,49 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
 class PostCottonRequestCropsInner(BaseModel):
     """
-    PostCottonRequestCropsInner
+    Input data required for a single Cotton enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Cotton activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
-    average_cotton_yield: Union[StrictFloat, StrictInt] = Field(description="Average cotton yield, in t/ha (tonnes per hectare)", alias="averageCottonYield")
-    area_sown: Union[StrictFloat, StrictInt] = Field(description="Area sown, in ha (hectares)", alias="areaSown")
-    average_weight_per_bale_kg: Union[StrictFloat, StrictInt] = Field(description="Average weight of unprocessed cotton per bale, in kg", alias="averageWeightPerBaleKg")
-    cotton_lint_per_bale_kg: Union[StrictFloat, StrictInt] = Field(description="Average weight of cotton lint per bale, in kg", alias="cottonLintPerBaleKg")
-    cotton_seed_per_bale_kg: Union[StrictFloat, StrictInt] = Field(description="Average weight of cotton seed produced per bale, in kg", alias="cottonSeedPerBaleKg")
-    waste_per_bale_kg: Union[StrictFloat, StrictInt] = Field(description="Average weight of cotton waste produced per bale, in kg", alias="wastePerBaleKg")
-    urea_application: Union[StrictFloat, StrictInt] = Field(description="Urea application, in kg Urea/ha (kilograms of urea per hectare)", alias="ureaApplication")
-    other_fertiliser_type: Optional[StrictStr] = Field(default=None, description="Other N fertiliser type", alias="otherFertiliserType")
-    other_fertiliser_application: Union[StrictFloat, StrictInt] = Field(description="Other N fertiliser application, in kg/ha (kilograms per hectare)", alias="otherFertiliserApplication")
-    non_urea_nitrogen: Union[StrictFloat, StrictInt] = Field(description="Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare)", alias="nonUreaNitrogen")
-    urea_ammonium_nitrate: Union[StrictFloat, StrictInt] = Field(description="Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare)", alias="ureaAmmoniumNitrate")
-    phosphorus_application: Union[StrictFloat, StrictInt] = Field(description="Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare)", alias="phosphorusApplication")
-    potassium_application: Union[StrictFloat, StrictInt] = Field(description="Potassium application, in kg K/ha (kilograms of potassium per hectare)", alias="potassiumApplication")
-    sulfur_application: Union[StrictFloat, StrictInt] = Field(description="Sulfur application, in kg S/ha (kilograms of sulfur per hectare)", alias="sulfurApplication")
-    single_super_phosphate: Union[StrictFloat, StrictInt] = Field(description="Single superphosphate use, in kg/ha (kilograms per hectare)", alias="singleSuperPhosphate")
+    average_cotton_yield: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average cotton yield, in t/ha (tonnes per hectare)", alias="averageCottonYield")
+    area_sown: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Area sown, in ha (hectares)", alias="areaSown")
+    average_weight_per_bale_kg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average weight of unprocessed cotton per bale, in kg", alias="averageWeightPerBaleKg")
+    cotton_lint_per_bale_kg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average weight of cotton lint per bale, in kg", alias="cottonLintPerBaleKg")
+    cotton_seed_per_bale_kg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average weight of cotton seed produced per bale, in kg", alias="cottonSeedPerBaleKg")
+    waste_per_bale_kg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average weight of cotton waste produced per bale, in kg", alias="wastePerBaleKg")
+    urea_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea application, in kg Urea/ha (kilograms of urea per hectare)", alias="ureaApplication")
+    other_fertiliser_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Other N fertiliser application, in kg/ha (kilograms per hectare)", alias="otherFertiliserApplication")
+    non_urea_nitrogen: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare)", alias="nonUreaNitrogen")
+    urea_ammonium_nitrate: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare)", alias="ureaAmmoniumNitrate")
+    phosphorus_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare)", alias="phosphorusApplication")
+    potassium_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Potassium application, in kg K/ha (kilograms of potassium per hectare)", alias="potassiumApplication")
+    sulfur_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Sulfur application, in kg S/ha (kilograms of sulfur per hectare)", alias="sulfurApplication")
+    single_super_phosphate: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Single superphosphate use, in kg/ha (kilograms per hectare)", alias="singleSuperPhosphate")
     rainfall_above600: StrictBool = Field(description="Is there enough rainfall or irrigation to drain through the soil profile, typically above 600mm", alias="rainfallAbove600")
-    fraction_of_annual_crop_burnt: Union[StrictFloat, StrictInt] = Field(description="Fraction of annual production of crop that is burnt. If included, this should only ever be 0 for cotton", alias="fractionOfAnnualCropBurnt")
-    herbicide_use: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)", alias="herbicideUse")
-    glyphosate_other_herbicide_use: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients from other herbicide use (Paraquat, Diquat, Glyphosate), in kg (kilogram)", alias="glyphosateOtherHerbicideUse")
-    electricity_allocation: Union[StrictFloat, StrictInt] = Field(description="Percentage of electricity use to allocate to this crop, from 0 to 1", alias="electricityAllocation")
-    limestone: Union[StrictFloat, StrictInt] = Field(description="Lime applied in tonnes")
-    limestone_fraction: Union[StrictFloat, StrictInt] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
-    diesel_use: Union[StrictFloat, StrictInt] = Field(description="Diesel usage in L (litres)", alias="dieselUse")
-    petrol_use: Union[StrictFloat, StrictInt] = Field(description="Petrol usage in L (litres)", alias="petrolUse")
-    lpg: Union[StrictFloat, StrictInt] = Field(description="LPG Fuel usage in L (litres)")
+    herbicide_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)", alias="herbicideUse")
+    glyphosate_other_herbicide_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients from other herbicide use (Paraquat, Diquat, Glyphosate), in kg (kilogram)", alias="glyphosateOtherHerbicideUse")
+    electricity_allocation: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percentage of electricity use to allocate to this crop, from 0 to 1", alias="electricityAllocation")
+    limestone: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Lime applied in tonnes")
+    limestone_fraction: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
+    diesel_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Diesel usage in L (litres)", alias="dieselUse")
+    petrol_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Petrol usage in L (litres)", alias="petrolUse")
+    lpg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="LPG Fuel usage in L (litres)")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "state", "averageCottonYield", "areaSown", "averageWeightPerBaleKg", "cottonLintPerBaleKg", "cottonSeedPerBaleKg", "wastePerBaleKg", "ureaApplication", "otherFertiliserType", "otherFertiliserApplication", "nonUreaNitrogen", "ureaAmmoniumNitrate", "phosphorusApplication", "potassiumApplication", "sulfurApplication", "singleSuperPhosphate", "rainfallAbove600", "fractionOfAnnualCropBurnt", "herbicideUse", "glyphosateOtherHerbicideUse", "electricityAllocation", "limestone", "limestoneFraction", "dieselUse", "petrolUse", "lpg"]
+    __properties: ClassVar[List[str]] = ["id", "state", "averageCottonYield", "areaSown", "averageWeightPerBaleKg", "cottonLintPerBaleKg", "cottonSeedPerBaleKg", "wastePerBaleKg", "ureaApplication", "otherFertiliserApplication", "nonUreaNitrogen", "ureaAmmoniumNitrate", "phosphorusApplication", "potassiumApplication", "sulfurApplication", "singleSuperPhosphate", "rainfallAbove600", "herbicideUse", "glyphosateOtherHerbicideUse", "electricityAllocation", "limestone", "limestoneFraction", "dieselUse", "petrolUse", "lpg"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set(['nsw', 'vic', 'qld', 'sa', 'wa_nw', 'wa_sw', 'tas', 'nt', 'act']):
             raise ValueError("must be one of enum values ('nsw', 'vic', 'qld', 'sa', 'wa_nw', 'wa_sw', 'tas', 'nt', 'act')")
-        return value
-
-    @field_validator('other_fertiliser_type')
-    def other_fertiliser_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Monoammonium phosphate (MAP)', 'Diammonium Phosphate (DAP)', 'Urea-Ammonium Nitrate (UAN)', 'Ammonium Nitrate (AN)', 'Calcium Ammonium Nitrate (CAN)', 'Triple Superphosphate (TSP)', 'Super Potash 1:1', 'Super Potash 2:1', 'Super Potash 3:1', 'Super Potash 4:1', 'Super Potash 5:1', 'Muriate of Potash', 'Sulphate of Potash', 'Sulphate of Ammonia']):
-            raise ValueError("must be one of enum values ('Monoammonium phosphate (MAP)', 'Diammonium Phosphate (DAP)', 'Urea-Ammonium Nitrate (UAN)', 'Ammonium Nitrate (AN)', 'Calcium Ammonium Nitrate (CAN)', 'Triple Superphosphate (TSP)', 'Super Potash 1:1', 'Super Potash 2:1', 'Super Potash 3:1', 'Super Potash 4:1', 'Super Potash 5:1', 'Muriate of Potash', 'Sulphate of Potash', 'Sulphate of Ammonia')")
         return value
 
     model_config = ConfigDict(
@@ -141,7 +130,6 @@ class PostCottonRequestCropsInner(BaseModel):
             "cottonSeedPerBaleKg": obj.get("cottonSeedPerBaleKg"),
             "wastePerBaleKg": obj.get("wastePerBaleKg"),
             "ureaApplication": obj.get("ureaApplication"),
-            "otherFertiliserType": obj.get("otherFertiliserType"),
             "otherFertiliserApplication": obj.get("otherFertiliserApplication"),
             "nonUreaNitrogen": obj.get("nonUreaNitrogen") if obj.get("nonUreaNitrogen") is not None else 0,
             "ureaAmmoniumNitrate": obj.get("ureaAmmoniumNitrate") if obj.get("ureaAmmoniumNitrate") is not None else 0,
@@ -150,7 +138,6 @@ class PostCottonRequestCropsInner(BaseModel):
             "sulfurApplication": obj.get("sulfurApplication") if obj.get("sulfurApplication") is not None else 0,
             "singleSuperPhosphate": obj.get("singleSuperPhosphate"),
             "rainfallAbove600": obj.get("rainfallAbove600"),
-            "fractionOfAnnualCropBurnt": obj.get("fractionOfAnnualCropBurnt") if obj.get("fractionOfAnnualCropBurnt") is not None else 0,
             "herbicideUse": obj.get("herbicideUse"),
             "glyphosateOtherHerbicideUse": obj.get("glyphosateOtherHerbicideUse"),
             "electricityAllocation": obj.get("electricityAllocation"),

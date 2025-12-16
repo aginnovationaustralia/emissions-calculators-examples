@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostPorkRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;pork&#x60; calculator
+ * @description Input data required for a single Pork enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,8 +59,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'state' => 'string',
-        'north_of_tropic_of_capricorn' => 'bool',
         'rainfall_above600' => 'bool',
         'pork' => '\OpenAPI\Client\Model\PostPorkRequestPorkInner[]',
         'vegetation' => '\OpenAPI\Client\Model\PostPorkRequestVegetationInner[]'
@@ -74,8 +74,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'state' => null,
-        'north_of_tropic_of_capricorn' => null,
         'rainfall_above600' => null,
         'pork' => null,
         'vegetation' => null
@@ -87,8 +87,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
         'state' => false,
-        'north_of_tropic_of_capricorn' => false,
         'rainfall_above600' => false,
         'pork' => false,
         'vegetation' => false
@@ -180,8 +180,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'state' => 'state',
-        'north_of_tropic_of_capricorn' => 'northOfTropicOfCapricorn',
         'rainfall_above600' => 'rainfallAbove600',
         'pork' => 'pork',
         'vegetation' => 'vegetation'
@@ -193,8 +193,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'state' => 'setState',
-        'north_of_tropic_of_capricorn' => 'setNorthOfTropicOfCapricorn',
         'rainfall_above600' => 'setRainfallAbove600',
         'pork' => 'setPork',
         'vegetation' => 'setVegetation'
@@ -206,8 +206,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'state' => 'getState',
-        'north_of_tropic_of_capricorn' => 'getNorthOfTropicOfCapricorn',
         'rainfall_above600' => 'getRainfallAbove600',
         'pork' => 'getPork',
         'vegetation' => 'getVegetation'
@@ -299,8 +299,8 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
-        $this->setIfExists('north_of_tropic_of_capricorn', $data ?? [], null);
         $this->setIfExists('rainfall_above600', $data ?? [], null);
         $this->setIfExists('pork', $data ?? [], null);
         $this->setIfExists('vegetation', $data ?? [], null);
@@ -345,9 +345,6 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['north_of_tropic_of_capricorn'] === null) {
-            $invalidProperties[] = "'north_of_tropic_of_capricorn' can't be null";
-        }
         if ($this->container['rainfall_above600'] === null) {
             $invalidProperties[] = "'rainfall_above600' can't be null";
         }
@@ -371,6 +368,33 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier for this Pork activity
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets state
@@ -405,35 +429,6 @@ class PostPorkRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets north_of_tropic_of_capricorn
-     *
-     * @return bool
-     * @deprecated
-     */
-    public function getNorthOfTropicOfCapricorn()
-    {
-        return $this->container['north_of_tropic_of_capricorn'];
-    }
-
-    /**
-     * Sets north_of_tropic_of_capricorn
-     *
-     * @param bool $north_of_tropic_of_capricorn Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude. Deprecation note: This field is deprecated
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setNorthOfTropicOfCapricorn($north_of_tropic_of_capricorn)
-    {
-        if (is_null($north_of_tropic_of_capricorn)) {
-            throw new \InvalidArgumentException('non-nullable north_of_tropic_of_capricorn cannot be null');
-        }
-        $this->container['north_of_tropic_of_capricorn'] = $north_of_tropic_of_capricorn;
 
         return $this;
     }

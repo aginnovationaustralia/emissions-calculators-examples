@@ -28,8 +28,8 @@ class PostDeer200ResponseIntensities(BaseModel):
     PostDeer200ResponseIntensities
     """ # noqa: E501
     liveweight_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Deer meat produced in kg liveweight", alias="liveweightProducedKg")
-    deer_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Deer meat (breeding herd) excluding sequestration, in kg-CO2e/kg liveweight", alias="deerMeatExcludingSequestration")
-    deer_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Deer meat (breeding herd) including sequestration, in kg-CO2e/kg liveweight", alias="deerMeatIncludingSequestration")
+    deer_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Deer meat (breeding herd) emissions intensity excluding sequestration, in kg-CO2e/kg liveweight", alias="deerMeatExcludingSequestration")
+    deer_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Deer meat (breeding herd) emissions intensity including sequestration, in kg-CO2e/kg liveweight", alias="deerMeatIncludingSequestration")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["liveweightProducedKg", "deerMeatExcludingSequestration", "deerMeatIncludingSequestration"]
 

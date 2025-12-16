@@ -308,6 +308,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Limestone (decimal) minimum
+            if (this.Limestone < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Limestone, must be a value greater than or equal to 0.", new [] { "Limestone" });
+            }
+
             // LimestoneFraction (decimal) maximum
             if (this.LimestoneFraction > (decimal)1)
             {
@@ -320,6 +326,24 @@ namespace Org.OpenAPITools.Model
                 yield return new ValidationResult("Invalid value for LimestoneFraction, must be a value greater than or equal to 0.", new [] { "LimestoneFraction" });
             }
 
+            // Diesel (decimal) minimum
+            if (this.Diesel < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Diesel, must be a value greater than or equal to 0.", new [] { "Diesel" });
+            }
+
+            // Petrol (decimal) minimum
+            if (this.Petrol < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Petrol, must be a value greater than or equal to 0.", new [] { "Petrol" });
+            }
+
+            // Lpg (decimal) minimum
+            if (this.Lpg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Lpg, must be a value greater than or equal to 0.", new [] { "Lpg" });
+            }
+
             // ElectricityRenewable (decimal) maximum
             if (this.ElectricityRenewable > (decimal)1)
             {
@@ -330,6 +354,36 @@ namespace Org.OpenAPITools.Model
             if (this.ElectricityRenewable < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for ElectricityRenewable, must be a value greater than or equal to 0.", new [] { "ElectricityRenewable" });
+            }
+
+            // ElectricityUse (decimal) minimum
+            if (this.ElectricityUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityUse, must be a value greater than or equal to 0.", new [] { "ElectricityUse" });
+            }
+
+            // GrainFeed (decimal) minimum
+            if (this.GrainFeed < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for GrainFeed, must be a value greater than or equal to 0.", new [] { "GrainFeed" });
+            }
+
+            // HayFeed (decimal) minimum
+            if (this.HayFeed < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HayFeed, must be a value greater than or equal to 0.", new [] { "HayFeed" });
+            }
+
+            // Herbicide (decimal) minimum
+            if (this.Herbicide < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Herbicide, must be a value greater than or equal to 0.", new [] { "Herbicide" });
+            }
+
+            // HerbicideOther (decimal) minimum
+            if (this.HerbicideOther < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HerbicideOther, must be a value greater than or equal to 0.", new [] { "HerbicideOther" });
             }
 
             yield break;

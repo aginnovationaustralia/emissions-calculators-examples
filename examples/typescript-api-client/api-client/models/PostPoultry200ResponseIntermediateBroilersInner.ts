@@ -20,13 +20,6 @@ import {
     PostAquaculture200ResponseScope2ToJSON,
     PostAquaculture200ResponseScope2ToJSONTyped,
 } from './PostAquaculture200ResponseScope2';
-import type { PostAquaculture200ResponseIntermediateInnerCarbonSequestration } from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
-import {
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSONTyped,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSONTyped,
-} from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
 import type { PostPoultry200ResponseIntermediateBroilersInnerIntensities } from './PostPoultry200ResponseIntermediateBroilersInnerIntensities';
 import {
     PostPoultry200ResponseIntermediateBroilersInnerIntensitiesFromJSON,
@@ -41,6 +34,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostPoultry200ResponseScope1 } from './PostPoultry200ResponseScope1';
 import {
     PostPoultry200ResponseScope1FromJSON,
@@ -57,13 +57,13 @@ import {
 } from './PostPoultry200ResponseScope3';
 
 /**
- * 
+ * Intermediate emissions calculation output for the Poultry (broilers) calculator
  * @export
  * @interface PostPoultry200ResponseIntermediateBroilersInner
  */
 export interface PostPoultry200ResponseIntermediateBroilersInner {
     /**
-     * 
+     * Unique identifier for this Poultry (broilers) activity
      * @type {string}
      * @memberof PostPoultry200ResponseIntermediateBroilersInner
      */
@@ -88,12 +88,6 @@ export interface PostPoultry200ResponseIntermediateBroilersInner {
     scope3: PostPoultry200ResponseScope3;
     /**
      * 
-     * @type {PostAquaculture200ResponseIntermediateInnerCarbonSequestration}
-     * @memberof PostPoultry200ResponseIntermediateBroilersInner
-     */
-    carbonSequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration;
-    /**
-     * 
      * @type {PostPoultry200ResponseIntermediateBroilersInnerIntensities}
      * @memberof PostPoultry200ResponseIntermediateBroilersInner
      */
@@ -104,6 +98,12 @@ export interface PostPoultry200ResponseIntermediateBroilersInner {
      * @memberof PostPoultry200ResponseIntermediateBroilersInner
      */
     net: PostAquaculture200ResponseNet;
+    /**
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
+     * @memberof PostPoultry200ResponseIntermediateBroilersInner
+     */
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -114,9 +114,9 @@ export function instanceOfPostPoultry200ResponseIntermediateBroilersInner(value:
     if (!('scope1' in value) || value['scope1'] === undefined) return false;
     if (!('scope2' in value) || value['scope2'] === undefined) return false;
     if (!('scope3' in value) || value['scope3'] === undefined) return false;
-    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     if (!('intensities' in value) || value['intensities'] === undefined) return false;
     if (!('net' in value) || value['net'] === undefined) return false;
+    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     return true;
 }
 
@@ -134,9 +134,9 @@ export function PostPoultry200ResponseIntermediateBroilersInnerFromJSONTyped(jso
         'scope1': PostPoultry200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostPoultry200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON(json['carbonSequestration']),
         'intensities': PostPoultry200ResponseIntermediateBroilersInnerIntensitiesFromJSON(json['intensities']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -155,9 +155,9 @@ export function PostPoultry200ResponseIntermediateBroilersInnerToJSONTyped(value
         'scope1': PostPoultry200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostPoultry200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON(value['carbonSequestration']),
         'intensities': PostPoultry200ResponseIntermediateBroilersInnerIntensitiesToJSON(value['intensities']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

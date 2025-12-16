@@ -27,8 +27,8 @@ class PostPoultry200ResponseIntermediateLayersInnerIntensities(BaseModel):
     """
     PostPoultry200ResponseIntermediateLayersInnerIntensities
     """ # noqa: E501
-    poultry_eggs_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs including carbon sequestration, in kg-CO2e/kg eggs", alias="poultryEggsIncludingSequestration")
-    poultry_eggs_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs excluding carbon sequestration, in kg-CO2e/kg eggs", alias="poultryEggsExcludingSequestration")
+    poultry_eggs_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs emissions intensity including carbon sequestration, in kg-CO2e/kg eggs", alias="poultryEggsIncludingSequestration")
+    poultry_eggs_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs emissions intensity excluding carbon sequestration, in kg-CO2e/kg eggs", alias="poultryEggsExcludingSequestration")
     eggs_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Poultry eggs produced in kg", alias="eggsProducedKg")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["poultryEggsIncludingSequestration", "poultryEggsExcludingSequestration", "eggsProducedKg"]

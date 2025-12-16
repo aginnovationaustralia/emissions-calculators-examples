@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostVineyardRequestVegetationInner Class Doc Comment
  *
  * @category Class
+ * @description Non-productive vegetation inputs along with allocations to each Vineyard activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -343,7 +344,7 @@ class PostVineyardRequestVegetationInner implements ModelInterface, ArrayAccess,
     /**
      * Sets allocation_to_vineyards
      *
-     * @param float[] $allocation_to_vineyards allocation_to_vineyards
+     * @param float[] $allocation_to_vineyards The proportion of the sequestration that is allocated to each vineyard activity
      *
      * @return self
      */

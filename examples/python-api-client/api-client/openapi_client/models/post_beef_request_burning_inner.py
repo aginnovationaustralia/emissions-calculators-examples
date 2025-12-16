@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_beef_request_burning_inner_burning import PostBeefRequestBurningInnerBurning
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +30,7 @@ class PostBeefRequestBurningInner(BaseModel):
     Savannah burning along with allocations to beef
     """ # noqa: E501
     burning: PostBeefRequestBurningInnerBurning
-    allocation_to_beef: List[Union[StrictFloat, StrictInt]] = Field(description="The proportion of the burning that is allocated to each beef", alias="allocationToBeef")
+    allocation_to_beef: List[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(description="The proportion of the burning that is allocated to each beef activity", alias="allocationToBeef")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["burning", "allocationToBeef"]
 

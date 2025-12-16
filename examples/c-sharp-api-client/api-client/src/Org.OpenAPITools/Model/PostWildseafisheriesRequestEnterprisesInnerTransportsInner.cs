@@ -442,6 +442,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Distance (decimal) minimum
+            if (this.Distance < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Distance, must be a value greater than or equal to 0.", new [] { "Distance" });
+            }
+
             yield break;
         }
     }

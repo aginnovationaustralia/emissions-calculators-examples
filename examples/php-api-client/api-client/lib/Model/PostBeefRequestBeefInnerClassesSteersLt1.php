@@ -63,9 +63,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         'winter' => '\OpenAPI\Client\Model\PostBeefRequestBeefInnerClassesBullsGt1Autumn',
         'spring' => '\OpenAPI\Client\Model\PostBeefRequestBeefInnerClassesBullsGt1Autumn',
         'summer' => '\OpenAPI\Client\Model\PostBeefRequestBeefInnerClassesBullsGt1Autumn',
-        'head_purchased' => 'float',
-        'purchased_weight' => 'float',
-        'source' => 'string',
         'head_sold' => 'float',
         'sale_weight' => 'float',
         'purchases' => '\OpenAPI\Client\Model\PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner[]'
@@ -83,9 +80,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         'winter' => null,
         'spring' => null,
         'summer' => null,
-        'head_purchased' => null,
-        'purchased_weight' => null,
-        'source' => null,
         'head_sold' => null,
         'sale_weight' => null,
         'purchases' => null
@@ -101,9 +95,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         'winter' => false,
         'spring' => false,
         'summer' => false,
-        'head_purchased' => false,
-        'purchased_weight' => false,
-        'source' => false,
         'head_sold' => false,
         'sale_weight' => false,
         'purchases' => false
@@ -199,9 +190,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         'winter' => 'winter',
         'spring' => 'spring',
         'summer' => 'summer',
-        'head_purchased' => 'headPurchased',
-        'purchased_weight' => 'purchasedWeight',
-        'source' => 'source',
         'head_sold' => 'headSold',
         'sale_weight' => 'saleWeight',
         'purchases' => 'purchases'
@@ -217,9 +205,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         'winter' => 'setWinter',
         'spring' => 'setSpring',
         'summer' => 'setSummer',
-        'head_purchased' => 'setHeadPurchased',
-        'purchased_weight' => 'setPurchasedWeight',
-        'source' => 'setSource',
         'head_sold' => 'setHeadSold',
         'sale_weight' => 'setSaleWeight',
         'purchases' => 'setPurchases'
@@ -235,9 +220,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         'winter' => 'getWinter',
         'spring' => 'getSpring',
         'summer' => 'getSummer',
-        'head_purchased' => 'getHeadPurchased',
-        'purchased_weight' => 'getPurchasedWeight',
-        'source' => 'getSource',
         'head_sold' => 'getHeadSold',
         'sale_weight' => 'getSaleWeight',
         'purchases' => 'getPurchases'
@@ -284,33 +266,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         return self::$openAPIModelName;
     }
 
-    public const SOURCE_DAIRY_ORIGIN = 'Dairy origin';
-    public const SOURCE_NTH_STH_CENTRAL_QLD = 'nth/sth/central QLD';
-    public const SOURCE_NTH_STH_NSW_VIC_STH_SA = 'nth/sth NSW/VIC/sth SA';
-    public const SOURCE_NSW_SA_PASTORAL_ZONE = 'NSW/SA pastoral zone';
-    public const SOURCE_SW_WA = 'sw WA';
-    public const SOURCE_WA_PASTORAL = 'WA pastoral';
-    public const SOURCE_TAS = 'TAS';
-    public const SOURCE_NT = 'NT';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSourceAllowableValues()
-    {
-        return [
-            self::SOURCE_DAIRY_ORIGIN,
-            self::SOURCE_NTH_STH_CENTRAL_QLD,
-            self::SOURCE_NTH_STH_NSW_VIC_STH_SA,
-            self::SOURCE_NSW_SA_PASTORAL_ZONE,
-            self::SOURCE_SW_WA,
-            self::SOURCE_WA_PASTORAL,
-            self::SOURCE_TAS,
-            self::SOURCE_NT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -331,9 +286,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         $this->setIfExists('winter', $data ?? [], null);
         $this->setIfExists('spring', $data ?? [], null);
         $this->setIfExists('summer', $data ?? [], null);
-        $this->setIfExists('head_purchased', $data ?? [], null);
-        $this->setIfExists('purchased_weight', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('head_sold', $data ?? [], null);
         $this->setIfExists('sale_weight', $data ?? [], null);
         $this->setIfExists('purchases', $data ?? [], null);
@@ -378,21 +330,20 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         if ($this->container['summer'] === null) {
             $invalidProperties[] = "'summer' can't be null";
         }
-        $allowedValues = $this->getSourceAllowableValues();
-        if (!is_null($this->container['source']) && !in_array($this->container['source'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'source', must be one of '%s'",
-                $this->container['source'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['head_sold'] === null) {
             $invalidProperties[] = "'head_sold' can't be null";
         }
+        if (($this->container['head_sold'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_sold', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sale_weight'] === null) {
             $invalidProperties[] = "'sale_weight' can't be null";
         }
+        if (($this->container['sale_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sale_weight', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -517,103 +468,6 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets head_purchased
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getHeadPurchased()
-    {
-        return $this->container['head_purchased'];
-    }
-
-    /**
-     * Sets head_purchased
-     *
-     * @param float|null $head_purchased Number of animals purchased (head). Deprecation note: Use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setHeadPurchased($head_purchased)
-    {
-        if (is_null($head_purchased)) {
-            throw new \InvalidArgumentException('non-nullable head_purchased cannot be null');
-        }
-        $this->container['head_purchased'] = $head_purchased;
-
-        return $this;
-    }
-
-    /**
-     * Gets purchased_weight
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getPurchasedWeight()
-    {
-        return $this->container['purchased_weight'];
-    }
-
-    /**
-     * Sets purchased_weight
-     *
-     * @param float|null $purchased_weight Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setPurchasedWeight($purchased_weight)
-    {
-        if (is_null($purchased_weight)) {
-            throw new \InvalidArgumentException('non-nullable purchased_weight cannot be null');
-        }
-        $this->container['purchased_weight'] = $purchased_weight;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source Source location of livestock purchase. Deprecation note: Use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
-        }
-        $allowedValues = $this->getSourceAllowableValues();
-        if (!in_array($source, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'source', must be one of '%s'",
-                    $source,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
      * Gets head_sold
      *
      * @return float
@@ -635,6 +489,11 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         if (is_null($head_sold)) {
             throw new \InvalidArgumentException('non-nullable head_sold cannot be null');
         }
+
+        if (($head_sold < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_sold when calling PostBeefRequestBeefInnerClassesSteersLt1., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_sold'] = $head_sold;
 
         return $this;
@@ -662,6 +521,11 @@ class PostBeefRequestBeefInnerClassesSteersLt1 implements ModelInterface, ArrayA
         if (is_null($sale_weight)) {
             throw new \InvalidArgumentException('non-nullable sale_weight cannot be null');
         }
+
+        if (($sale_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sale_weight when calling PostBeefRequestBeefInnerClassesSteersLt1., must be bigger than or equal to 0.');
+        }
+
         $this->container['sale_weight'] = $sale_weight;
 
         return $this;

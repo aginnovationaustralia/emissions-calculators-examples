@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class PostBeefRequest(BaseModel):
     """
-    Input data required for the `beef` calculator
+    Input data required for the Beef calculator
     """ # noqa: E501
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     north_of_tropic_of_capricorn: StrictBool = Field(description="Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude", alias="northOfTropicOfCapricorn")

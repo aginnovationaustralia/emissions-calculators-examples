@@ -326,9 +326,17 @@ class PostPoultryRequestBroilersInnerGroupsInner implements ModelInterface, Arra
         if ($this->container['custom_feed_purchased'] === null) {
             $invalidProperties[] = "'custom_feed_purchased' can't be null";
         }
+        if (($this->container['custom_feed_purchased'] < 0)) {
+            $invalidProperties[] = "invalid value for 'custom_feed_purchased', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['custom_feed_emission_intensity'] === null) {
             $invalidProperties[] = "'custom_feed_emission_intensity' can't be null";
         }
+        if (($this->container['custom_feed_emission_intensity'] < 0)) {
+            $invalidProperties[] = "invalid value for 'custom_feed_emission_intensity', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -474,6 +482,11 @@ class PostPoultryRequestBroilersInnerGroupsInner implements ModelInterface, Arra
         if (is_null($custom_feed_purchased)) {
             throw new \InvalidArgumentException('non-nullable custom_feed_purchased cannot be null');
         }
+
+        if (($custom_feed_purchased < 0)) {
+            throw new \InvalidArgumentException('invalid value for $custom_feed_purchased when calling PostPoultryRequestBroilersInnerGroupsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['custom_feed_purchased'] = $custom_feed_purchased;
 
         return $this;
@@ -501,6 +514,11 @@ class PostPoultryRequestBroilersInnerGroupsInner implements ModelInterface, Arra
         if (is_null($custom_feed_emission_intensity)) {
             throw new \InvalidArgumentException('non-nullable custom_feed_emission_intensity cannot be null');
         }
+
+        if (($custom_feed_emission_intensity < 0)) {
+            throw new \InvalidArgumentException('invalid value for $custom_feed_emission_intensity when calling PostPoultryRequestBroilersInnerGroupsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['custom_feed_emission_intensity'] = $custom_feed_emission_intensity;
 
         return $this;

@@ -285,9 +285,17 @@ class PostWildseafisheriesRequestEnterprisesInnerFlightsInner implements ModelIn
         if ($this->container['commercial_flight_passengers'] === null) {
             $invalidProperties[] = "'commercial_flight_passengers' can't be null";
         }
+        if (($this->container['commercial_flight_passengers'] < 0)) {
+            $invalidProperties[] = "invalid value for 'commercial_flight_passengers', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['total_flight_distance'] === null) {
             $invalidProperties[] = "'total_flight_distance' can't be null";
         }
+        if (($this->container['total_flight_distance'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_flight_distance', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -325,6 +333,11 @@ class PostWildseafisheriesRequestEnterprisesInnerFlightsInner implements ModelIn
         if (is_null($commercial_flight_passengers)) {
             throw new \InvalidArgumentException('non-nullable commercial_flight_passengers cannot be null');
         }
+
+        if (($commercial_flight_passengers < 0)) {
+            throw new \InvalidArgumentException('invalid value for $commercial_flight_passengers when calling PostWildseafisheriesRequestEnterprisesInnerFlightsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['commercial_flight_passengers'] = $commercial_flight_passengers;
 
         return $this;
@@ -352,6 +365,11 @@ class PostWildseafisheriesRequestEnterprisesInnerFlightsInner implements ModelIn
         if (is_null($total_flight_distance)) {
             throw new \InvalidArgumentException('non-nullable total_flight_distance cannot be null');
         }
+
+        if (($total_flight_distance < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_flight_distance when calling PostWildseafisheriesRequestEnterprisesInnerFlightsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['total_flight_distance'] = $total_flight_distance;
 
         return $this;

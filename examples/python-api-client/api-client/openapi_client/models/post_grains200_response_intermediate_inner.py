@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_carbon_sequestration import PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+from openapi_client.models.post_aquaculture200_response_carbon_sequestration import PostAquaculture200ResponseCarbonSequestration
 from openapi_client.models.post_aquaculture200_response_net import PostAquaculture200ResponseNet
 from openapi_client.models.post_aquaculture200_response_scope2 import PostAquaculture200ResponseScope2
 from openapi_client.models.post_cotton200_response_scope1 import PostCotton200ResponseScope1
@@ -33,13 +33,13 @@ class PostGrains200ResponseIntermediateInner(BaseModel):
     """
     Intermediate emissions calculation output for the Grains calculator
     """ # noqa: E501
-    id: StrictStr = Field(description="Unique identifier for this activity")
+    id: StrictStr = Field(description="Unique identifier for this Grains activity")
     scope1: PostCotton200ResponseScope1
     scope2: PostAquaculture200ResponseScope2
     scope3: PostCotton200ResponseScope3
     intensities_with_sequestration: PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration = Field(alias="intensitiesWithSequestration")
     net: PostAquaculture200ResponseNet
-    carbon_sequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration = Field(alias="carbonSequestration")
+    carbon_sequestration: PostAquaculture200ResponseCarbonSequestration = Field(alias="carbonSequestration")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "scope1", "scope2", "scope3", "intensitiesWithSequestration", "net", "carbonSequestration"]
 
@@ -125,7 +125,7 @@ class PostGrains200ResponseIntermediateInner(BaseModel):
             "scope3": PostCotton200ResponseScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
             "intensitiesWithSequestration": PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration.from_dict(obj["intensitiesWithSequestration"]) if obj.get("intensitiesWithSequestration") is not None else None,
             "net": PostAquaculture200ResponseNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
-            "carbonSequestration": PostAquaculture200ResponseIntermediateInnerCarbonSequestration.from_dict(obj["carbonSequestration"]) if obj.get("carbonSequestration") is not None else None
+            "carbonSequestration": PostAquaculture200ResponseCarbonSequestration.from_dict(obj["carbonSequestration"]) if obj.get("carbonSequestration") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

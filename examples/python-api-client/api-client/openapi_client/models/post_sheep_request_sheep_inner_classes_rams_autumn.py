@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +28,12 @@ class PostSheepRequestSheepInnerClassesRamsAutumn(BaseModel):
     """
     PostSheepRequestSheepInnerClassesRamsAutumn
     """ # noqa: E501
-    head: Union[StrictFloat, StrictInt] = Field(description="Number of animals (head)")
-    liveweight: Union[StrictFloat, StrictInt] = Field(description="Average liveweight of animals in kg/head (kilogram per head)")
+    head: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals (head)")
+    liveweight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average liveweight of animals in kg/head (kilogram per head)")
     liveweight_gain: Union[StrictFloat, StrictInt] = Field(description="Average liveweight gain in kg/day (kilogram per day)", alias="liveweightGain")
-    crude_protein: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Crude protein percent, between 0 and 100", alias="crudeProtein")
-    dry_matter_digestibility: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Dry matter digestibility percent, between 0 and 100", alias="dryMatterDigestibility")
-    feed_availability: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Feed availability, in t/ha (tonnes per hectare)", alias="feedAvailability")
+    crude_protein: Optional[Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]]] = Field(default=None, description="Crude protein percent, between 0 and 100", alias="crudeProtein")
+    dry_matter_digestibility: Optional[Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]]] = Field(default=None, description="Dry matter digestibility percent, between 0 and 100", alias="dryMatterDigestibility")
+    feed_availability: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Feed availability, in t/ha (tonnes per hectare)", alias="feedAvailability")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["head", "liveweight", "liveweightGain", "crudeProtein", "dryMatterDigestibility", "feedAvailability"]
 

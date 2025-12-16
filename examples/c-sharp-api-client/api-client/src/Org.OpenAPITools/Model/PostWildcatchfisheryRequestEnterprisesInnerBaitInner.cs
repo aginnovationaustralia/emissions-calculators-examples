@@ -217,6 +217,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // PurchasedTonnes (decimal) minimum
+            if (this.PurchasedTonnes < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PurchasedTonnes, must be a value greater than or equal to 0.", new [] { "PurchasedTonnes" });
+            }
+
             // AdditionalIngredients (decimal) maximum
             if (this.AdditionalIngredients > (decimal)1)
             {
@@ -227,6 +233,12 @@ namespace Org.OpenAPITools.Model
             if (this.AdditionalIngredients < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for AdditionalIngredients, must be a value greater than or equal to 0.", new [] { "AdditionalIngredients" });
+            }
+
+            // EmissionsIntensity (decimal) minimum
+            if (this.EmissionsIntensity < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for EmissionsIntensity, must be a value greater than or equal to 0.", new [] { "EmissionsIntensity" });
             }
 
             yield break;

@@ -60,13 +60,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
       */
     protected static $openAPITypes = [
         'single_superphosphate' => 'float',
-        'other_type' => 'string',
         'pasture_dryland' => 'float',
         'pasture_irrigated' => 'float',
         'crops_dryland' => 'float',
         'crops_irrigated' => 'float',
-        'other_dryland' => 'float',
-        'other_irrigated' => 'float',
         'other_fertilisers' => '\OpenAPI\Client\Model\PostBeefRequestBeefInnerFertiliserOtherFertilisersInner[]'
     ];
 
@@ -79,13 +76,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
       */
     protected static $openAPIFormats = [
         'single_superphosphate' => null,
-        'other_type' => null,
         'pasture_dryland' => null,
         'pasture_irrigated' => null,
         'crops_dryland' => null,
         'crops_irrigated' => null,
-        'other_dryland' => null,
-        'other_irrigated' => null,
         'other_fertilisers' => null
     ];
 
@@ -96,13 +90,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
       */
     protected static array $openAPINullables = [
         'single_superphosphate' => false,
-        'other_type' => false,
         'pasture_dryland' => false,
         'pasture_irrigated' => false,
         'crops_dryland' => false,
         'crops_irrigated' => false,
-        'other_dryland' => false,
-        'other_irrigated' => false,
         'other_fertilisers' => false
     ];
 
@@ -193,13 +184,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'single_superphosphate' => 'singleSuperphosphate',
-        'other_type' => 'otherType',
         'pasture_dryland' => 'pastureDryland',
         'pasture_irrigated' => 'pastureIrrigated',
         'crops_dryland' => 'cropsDryland',
         'crops_irrigated' => 'cropsIrrigated',
-        'other_dryland' => 'otherDryland',
-        'other_irrigated' => 'otherIrrigated',
         'other_fertilisers' => 'otherFertilisers'
     ];
 
@@ -210,13 +198,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'single_superphosphate' => 'setSingleSuperphosphate',
-        'other_type' => 'setOtherType',
         'pasture_dryland' => 'setPastureDryland',
         'pasture_irrigated' => 'setPastureIrrigated',
         'crops_dryland' => 'setCropsDryland',
         'crops_irrigated' => 'setCropsIrrigated',
-        'other_dryland' => 'setOtherDryland',
-        'other_irrigated' => 'setOtherIrrigated',
         'other_fertilisers' => 'setOtherFertilisers'
     ];
 
@@ -227,13 +212,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'single_superphosphate' => 'getSingleSuperphosphate',
-        'other_type' => 'getOtherType',
         'pasture_dryland' => 'getPastureDryland',
         'pasture_irrigated' => 'getPastureIrrigated',
         'crops_dryland' => 'getCropsDryland',
         'crops_irrigated' => 'getCropsIrrigated',
-        'other_dryland' => 'getOtherDryland',
-        'other_irrigated' => 'getOtherIrrigated',
         'other_fertilisers' => 'getOtherFertilisers'
     ];
 
@@ -278,45 +260,6 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
-    public const OTHER_TYPE_MONOAMMONIUM_PHOSPHATE__MAP = 'Monoammonium phosphate (MAP)';
-    public const OTHER_TYPE_DIAMMONIUM_PHOSPHATE__DAP = 'Diammonium Phosphate (DAP)';
-    public const OTHER_TYPE_UREA_AMMONIUM_NITRATE__UAN = 'Urea-Ammonium Nitrate (UAN)';
-    public const OTHER_TYPE_AMMONIUM_NITRATE__AN = 'Ammonium Nitrate (AN)';
-    public const OTHER_TYPE_CALCIUM_AMMONIUM_NITRATE__CAN = 'Calcium Ammonium Nitrate (CAN)';
-    public const OTHER_TYPE_TRIPLE_SUPERPHOSPHATE__TSP = 'Triple Superphosphate (TSP)';
-    public const OTHER_TYPE_SUPER_POTASH_1_1 = 'Super Potash 1:1';
-    public const OTHER_TYPE_SUPER_POTASH_2_1 = 'Super Potash 2:1';
-    public const OTHER_TYPE_SUPER_POTASH_3_1 = 'Super Potash 3:1';
-    public const OTHER_TYPE_SUPER_POTASH_4_1 = 'Super Potash 4:1';
-    public const OTHER_TYPE_SUPER_POTASH_5_1 = 'Super Potash 5:1';
-    public const OTHER_TYPE_MURIATE_OF_POTASH = 'Muriate of Potash';
-    public const OTHER_TYPE_SULPHATE_OF_POTASH = 'Sulphate of Potash';
-    public const OTHER_TYPE_SULPHATE_OF_AMMONIA = 'Sulphate of Ammonia';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOtherTypeAllowableValues()
-    {
-        return [
-            self::OTHER_TYPE_MONOAMMONIUM_PHOSPHATE__MAP,
-            self::OTHER_TYPE_DIAMMONIUM_PHOSPHATE__DAP,
-            self::OTHER_TYPE_UREA_AMMONIUM_NITRATE__UAN,
-            self::OTHER_TYPE_AMMONIUM_NITRATE__AN,
-            self::OTHER_TYPE_CALCIUM_AMMONIUM_NITRATE__CAN,
-            self::OTHER_TYPE_TRIPLE_SUPERPHOSPHATE__TSP,
-            self::OTHER_TYPE_SUPER_POTASH_1_1,
-            self::OTHER_TYPE_SUPER_POTASH_2_1,
-            self::OTHER_TYPE_SUPER_POTASH_3_1,
-            self::OTHER_TYPE_SUPER_POTASH_4_1,
-            self::OTHER_TYPE_SUPER_POTASH_5_1,
-            self::OTHER_TYPE_MURIATE_OF_POTASH,
-            self::OTHER_TYPE_SULPHATE_OF_POTASH,
-            self::OTHER_TYPE_SULPHATE_OF_AMMONIA,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -334,13 +277,10 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
     public function __construct(?array $data = null)
     {
         $this->setIfExists('single_superphosphate', $data ?? [], null);
-        $this->setIfExists('other_type', $data ?? [], null);
         $this->setIfExists('pasture_dryland', $data ?? [], null);
         $this->setIfExists('pasture_irrigated', $data ?? [], null);
         $this->setIfExists('crops_dryland', $data ?? [], null);
         $this->setIfExists('crops_irrigated', $data ?? [], null);
-        $this->setIfExists('other_dryland', $data ?? [], null);
-        $this->setIfExists('other_irrigated', $data ?? [], null);
         $this->setIfExists('other_fertilisers', $data ?? [], null);
     }
 
@@ -374,27 +314,38 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         if ($this->container['single_superphosphate'] === null) {
             $invalidProperties[] = "'single_superphosphate' can't be null";
         }
-        $allowedValues = $this->getOtherTypeAllowableValues();
-        if (!is_null($this->container['other_type']) && !in_array($this->container['other_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'other_type', must be one of '%s'",
-                $this->container['other_type'],
-                implode("', '", $allowedValues)
-            );
+        if (($this->container['single_superphosphate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'single_superphosphate', must be bigger than or equal to 0.";
         }
 
         if ($this->container['pasture_dryland'] === null) {
             $invalidProperties[] = "'pasture_dryland' can't be null";
         }
+        if (($this->container['pasture_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'pasture_dryland', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['pasture_irrigated'] === null) {
             $invalidProperties[] = "'pasture_irrigated' can't be null";
         }
+        if (($this->container['pasture_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'pasture_irrigated', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['crops_dryland'] === null) {
             $invalidProperties[] = "'crops_dryland' can't be null";
         }
+        if (($this->container['crops_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crops_dryland', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['crops_irrigated'] === null) {
             $invalidProperties[] = "'crops_irrigated' can't be null";
         }
+        if (($this->container['crops_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crops_irrigated', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -432,46 +383,12 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         if (is_null($single_superphosphate)) {
             throw new \InvalidArgumentException('non-nullable single_superphosphate cannot be null');
         }
+
+        if (($single_superphosphate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $single_superphosphate when calling PostBeefRequestBeefInnerFertiliser., must be bigger than or equal to 0.');
+        }
+
         $this->container['single_superphosphate'] = $single_superphosphate;
-
-        return $this;
-    }
-
-    /**
-     * Gets other_type
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getOtherType()
-    {
-        return $this->container['other_type'];
-    }
-
-    /**
-     * Sets other_type
-     *
-     * @param string|null $other_type Other N fertiliser type. Deprecation note: Use `otherFertilisers` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setOtherType($other_type)
-    {
-        if (is_null($other_type)) {
-            throw new \InvalidArgumentException('non-nullable other_type cannot be null');
-        }
-        $allowedValues = $this->getOtherTypeAllowableValues();
-        if (!in_array($other_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'other_type', must be one of '%s'",
-                    $other_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['other_type'] = $other_type;
 
         return $this;
     }
@@ -498,6 +415,11 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         if (is_null($pasture_dryland)) {
             throw new \InvalidArgumentException('non-nullable pasture_dryland cannot be null');
         }
+
+        if (($pasture_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $pasture_dryland when calling PostBeefRequestBeefInnerFertiliser., must be bigger than or equal to 0.');
+        }
+
         $this->container['pasture_dryland'] = $pasture_dryland;
 
         return $this;
@@ -525,6 +447,11 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         if (is_null($pasture_irrigated)) {
             throw new \InvalidArgumentException('non-nullable pasture_irrigated cannot be null');
         }
+
+        if (($pasture_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $pasture_irrigated when calling PostBeefRequestBeefInnerFertiliser., must be bigger than or equal to 0.');
+        }
+
         $this->container['pasture_irrigated'] = $pasture_irrigated;
 
         return $this;
@@ -552,6 +479,11 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         if (is_null($crops_dryland)) {
             throw new \InvalidArgumentException('non-nullable crops_dryland cannot be null');
         }
+
+        if (($crops_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crops_dryland when calling PostBeefRequestBeefInnerFertiliser., must be bigger than or equal to 0.');
+        }
+
         $this->container['crops_dryland'] = $crops_dryland;
 
         return $this;
@@ -579,65 +511,12 @@ class PostBeefRequestBeefInnerFertiliser implements ModelInterface, ArrayAccess,
         if (is_null($crops_irrigated)) {
             throw new \InvalidArgumentException('non-nullable crops_irrigated cannot be null');
         }
+
+        if (($crops_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crops_irrigated when calling PostBeefRequestBeefInnerFertiliser., must be bigger than or equal to 0.');
+        }
+
         $this->container['crops_irrigated'] = $crops_irrigated;
-
-        return $this;
-    }
-
-    /**
-     * Gets other_dryland
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getOtherDryland()
-    {
-        return $this->container['other_dryland'];
-    }
-
-    /**
-     * Sets other_dryland
-     *
-     * @param float|null $other_dryland Other N fertiliser used for dryland. Deprecation note: Use `otherFertilisers` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setOtherDryland($other_dryland)
-    {
-        if (is_null($other_dryland)) {
-            throw new \InvalidArgumentException('non-nullable other_dryland cannot be null');
-        }
-        $this->container['other_dryland'] = $other_dryland;
-
-        return $this;
-    }
-
-    /**
-     * Gets other_irrigated
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getOtherIrrigated()
-    {
-        return $this->container['other_irrigated'];
-    }
-
-    /**
-     * Sets other_irrigated
-     *
-     * @param float|null $other_irrigated Other N fertiliser used for irrigated. Deprecation note: Use `otherFertilisers` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setOtherIrrigated($other_irrigated)
-    {
-        if (is_null($other_irrigated)) {
-            throw new \InvalidArgumentException('non-nullable other_irrigated cannot be null');
-        }
-        $this->container['other_irrigated'] = $other_irrigated;
 
         return $this;
     }

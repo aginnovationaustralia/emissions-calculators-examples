@@ -41,6 +41,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostBeef200ResponseIntermediateInnerIntensities } from './PostBeef200ResponseIntermediateInnerIntensities';
 import {
     PostBeef200ResponseIntermediateInnerIntensitiesFromJSON,
@@ -74,11 +81,11 @@ export interface PostSheepbeef200ResponseIntermediateBeef {
      */
     scope3: PostBeef200ResponseScope3;
     /**
-     * Carbon sequestration, in tonnes-CO2e
-     * @type {number}
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
      * @memberof PostSheepbeef200ResponseIntermediateBeef
      */
-    carbonSequestration: number;
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
     /**
      * 
      * @type {PostAquaculture200ResponseNet}
@@ -119,7 +126,7 @@ export function PostSheepbeef200ResponseIntermediateBeefFromJSONTyped(json: any,
         'scope1': PostBeef200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostBeef200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': json['carbonSequestration'],
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
         'intensities': PostBeef200ResponseIntermediateInnerIntensitiesFromJSON(json['intensities']),
     };
@@ -139,7 +146,7 @@ export function PostSheepbeef200ResponseIntermediateBeefToJSONTyped(value?: Post
         'scope1': PostBeef200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostBeef200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': value['carbonSequestration'],
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
         'intensities': PostBeef200ResponseIntermediateInnerIntensitiesToJSON(value['intensities']),
     };

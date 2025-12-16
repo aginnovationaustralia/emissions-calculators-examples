@@ -555,6 +555,60 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AreaPlanted (decimal) minimum
+            if (this.AreaPlanted < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AreaPlanted, must be a value greater than or equal to 0.", new [] { "AreaPlanted" });
+            }
+
+            // AverageYield (decimal) minimum
+            if (this.AverageYield < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageYield, must be a value greater than or equal to 0.", new [] { "AverageYield" });
+            }
+
+            // NonUreaNitrogen (decimal) minimum
+            if (this.NonUreaNitrogen < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for NonUreaNitrogen, must be a value greater than or equal to 0.", new [] { "NonUreaNitrogen" });
+            }
+
+            // PhosphorusApplication (decimal) minimum
+            if (this.PhosphorusApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PhosphorusApplication, must be a value greater than or equal to 0.", new [] { "PhosphorusApplication" });
+            }
+
+            // PotassiumApplication (decimal) minimum
+            if (this.PotassiumApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PotassiumApplication, must be a value greater than or equal to 0.", new [] { "PotassiumApplication" });
+            }
+
+            // SulfurApplication (decimal) minimum
+            if (this.SulfurApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SulfurApplication, must be a value greater than or equal to 0.", new [] { "SulfurApplication" });
+            }
+
+            // UreaApplication (decimal) minimum
+            if (this.UreaApplication < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UreaApplication, must be a value greater than or equal to 0.", new [] { "UreaApplication" });
+            }
+
+            // UreaAmmoniumNitrate (decimal) minimum
+            if (this.UreaAmmoniumNitrate < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UreaAmmoniumNitrate, must be a value greater than or equal to 0.", new [] { "UreaAmmoniumNitrate" });
+            }
+
+            // Limestone (decimal) minimum
+            if (this.Limestone < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Limestone, must be a value greater than or equal to 0.", new [] { "Limestone" });
+            }
+
             // LimestoneFraction (decimal) maximum
             if (this.LimestoneFraction > (decimal)1)
             {
@@ -565,6 +619,18 @@ namespace Org.OpenAPITools.Model
             if (this.LimestoneFraction < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for LimestoneFraction, must be a value greater than or equal to 0.", new [] { "LimestoneFraction" });
+            }
+
+            // HerbicideUse (decimal) minimum
+            if (this.HerbicideUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HerbicideUse, must be a value greater than or equal to 0.", new [] { "HerbicideUse" });
+            }
+
+            // GlyphosateOtherHerbicideUse (decimal) minimum
+            if (this.GlyphosateOtherHerbicideUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for GlyphosateOtherHerbicideUse, must be a value greater than or equal to 0.", new [] { "GlyphosateOtherHerbicideUse" });
             }
 
             // ElectricityRenewable (decimal) maximum

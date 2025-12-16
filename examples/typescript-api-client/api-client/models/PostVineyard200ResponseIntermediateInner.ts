@@ -34,6 +34,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostVineyard200ResponseScope1 } from './PostVineyard200ResponseScope1';
 import {
     PostVineyard200ResponseScope1FromJSON,
@@ -80,12 +87,6 @@ export interface PostVineyard200ResponseIntermediateInner {
      */
     scope3: PostVineyard200ResponseScope3;
     /**
-     * Carbon sequestration, in tonnes-CO2e
-     * @type {number}
-     * @memberof PostVineyard200ResponseIntermediateInner
-     */
-    carbonSequestration: number;
-    /**
      * 
      * @type {PostVineyard200ResponseIntermediateInnerIntensities}
      * @memberof PostVineyard200ResponseIntermediateInner
@@ -97,6 +98,12 @@ export interface PostVineyard200ResponseIntermediateInner {
      * @memberof PostVineyard200ResponseIntermediateInner
      */
     net: PostAquaculture200ResponseNet;
+    /**
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
+     * @memberof PostVineyard200ResponseIntermediateInner
+     */
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -107,9 +114,9 @@ export function instanceOfPostVineyard200ResponseIntermediateInner(value: object
     if (!('scope1' in value) || value['scope1'] === undefined) return false;
     if (!('scope2' in value) || value['scope2'] === undefined) return false;
     if (!('scope3' in value) || value['scope3'] === undefined) return false;
-    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     if (!('intensities' in value) || value['intensities'] === undefined) return false;
     if (!('net' in value) || value['net'] === undefined) return false;
+    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     return true;
 }
 
@@ -127,9 +134,9 @@ export function PostVineyard200ResponseIntermediateInnerFromJSONTyped(json: any,
         'scope1': PostVineyard200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostVineyard200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': json['carbonSequestration'],
         'intensities': PostVineyard200ResponseIntermediateInnerIntensitiesFromJSON(json['intensities']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -148,9 +155,9 @@ export function PostVineyard200ResponseIntermediateInnerToJSONTyped(value?: Post
         'scope1': PostVineyard200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostVineyard200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': value['carbonSequestration'],
         'intensities': PostVineyard200ResponseIntermediateInnerIntensitiesToJSON(value['intensities']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

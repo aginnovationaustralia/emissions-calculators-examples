@@ -34,6 +34,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostWildseafisheries200ResponseScope3 } from './PostWildseafisheries200ResponseScope3';
 import {
     PostWildseafisheries200ResponseScope3FromJSON,
@@ -93,12 +100,6 @@ export interface PostWildseafisheries200ResponseIntermediateInner {
      */
     purchasedOffsets: PostAquaculture200ResponsePurchasedOffsets;
     /**
-     * Carbon sequestration, in tonnes-CO2e
-     * @type {number}
-     * @memberof PostWildseafisheries200ResponseIntermediateInner
-     */
-    carbonSequestration: number;
-    /**
      * 
      * @type {PostWildseafisheries200ResponseIntermediateInnerIntensities}
      * @memberof PostWildseafisheries200ResponseIntermediateInner
@@ -110,6 +111,12 @@ export interface PostWildseafisheries200ResponseIntermediateInner {
      * @memberof PostWildseafisheries200ResponseIntermediateInner
      */
     net: PostAquaculture200ResponseNet;
+    /**
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
+     * @memberof PostWildseafisheries200ResponseIntermediateInner
+     */
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -121,9 +128,9 @@ export function instanceOfPostWildseafisheries200ResponseIntermediateInner(value
     if (!('scope2' in value) || value['scope2'] === undefined) return false;
     if (!('scope3' in value) || value['scope3'] === undefined) return false;
     if (!('purchasedOffsets' in value) || value['purchasedOffsets'] === undefined) return false;
-    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     if (!('intensities' in value) || value['intensities'] === undefined) return false;
     if (!('net' in value) || value['net'] === undefined) return false;
+    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     return true;
 }
 
@@ -142,9 +149,9 @@ export function PostWildseafisheries200ResponseIntermediateInnerFromJSONTyped(js
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostWildseafisheries200ResponseScope3FromJSON(json['scope3']),
         'purchasedOffsets': PostAquaculture200ResponsePurchasedOffsetsFromJSON(json['purchasedOffsets']),
-        'carbonSequestration': json['carbonSequestration'],
         'intensities': PostWildseafisheries200ResponseIntermediateInnerIntensitiesFromJSON(json['intensities']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -164,9 +171,9 @@ export function PostWildseafisheries200ResponseIntermediateInnerToJSONTyped(valu
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostWildseafisheries200ResponseScope3ToJSON(value['scope3']),
         'purchasedOffsets': PostAquaculture200ResponsePurchasedOffsetsToJSON(value['purchasedOffsets']),
-        'carbonSequestration': value['carbonSequestration'],
         'intensities': PostWildseafisheries200ResponseIntermediateInnerIntensitiesToJSON(value['intensities']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

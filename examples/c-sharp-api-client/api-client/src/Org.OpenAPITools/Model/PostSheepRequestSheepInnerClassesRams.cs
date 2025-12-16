@@ -43,11 +43,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="cleanWoolYield">Percentage of clean wool from weight of yield, from 0 to 100</param>
         /// <param name="headSold">Number of animals sold (head)</param>
         /// <param name="saleWeight">Weight at sale, in liveweight kg/head (kilogram per head)</param>
-        /// <param name="headPurchased">Number of animals purchased (head). Deprecation note: Please use &#x60;purchases&#x60; instead</param>
-        /// <param name="purchasedWeight">Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use &#x60;purchases&#x60; instead</param>
         /// <param name="purchases">purchases</param>
         [JsonConstructor]
-        public PostSheepRequestSheepInnerClassesRams(PostSheepRequestSheepInnerClassesRamsAutumn autumn, PostSheepRequestSheepInnerClassesRamsAutumn winter, PostSheepRequestSheepInnerClassesRamsAutumn spring, PostSheepRequestSheepInnerClassesRamsAutumn summer, decimal headShorn, decimal woolShorn, decimal cleanWoolYield, decimal headSold, decimal saleWeight, Option<decimal?> headPurchased = default, Option<decimal?> purchasedWeight = default, Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?> purchases = default)
+        public PostSheepRequestSheepInnerClassesRams(PostSheepRequestSheepInnerClassesRamsAutumn autumn, PostSheepRequestSheepInnerClassesRamsAutumn winter, PostSheepRequestSheepInnerClassesRamsAutumn spring, PostSheepRequestSheepInnerClassesRamsAutumn summer, decimal headShorn, decimal woolShorn, decimal cleanWoolYield, decimal headSold, decimal saleWeight, Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?> purchases = default)
         {
             Autumn = autumn;
             Winter = winter;
@@ -58,8 +56,6 @@ namespace Org.OpenAPITools.Model
             CleanWoolYield = cleanWoolYield;
             HeadSold = headSold;
             SaleWeight = saleWeight;
-            HeadPurchasedOption = headPurchased;
-            PurchasedWeightOption = purchasedWeight;
             PurchasesOption = purchases;
             OnCreated();
         }
@@ -126,36 +122,6 @@ namespace Org.OpenAPITools.Model
         public decimal SaleWeight { get; set; }
 
         /// <summary>
-        /// Used to track the state of HeadPurchased
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> HeadPurchasedOption { get; private set; }
-
-        /// <summary>
-        /// Number of animals purchased (head). Deprecation note: Please use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Number of animals purchased (head). Deprecation note: Please use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("headPurchased")]
-        [Obsolete]
-        public decimal? HeadPurchased { get { return this.HeadPurchasedOption; } set { this.HeadPurchasedOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of PurchasedWeight
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> PurchasedWeightOption { get; private set; }
-
-        /// <summary>
-        /// Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("purchasedWeight")]
-        [Obsolete]
-        public decimal? PurchasedWeight { get { return this.PurchasedWeightOption; } set { this.PurchasedWeightOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of Purchases
         /// </summary>
         [JsonIgnore]
@@ -191,8 +157,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  CleanWoolYield: ").Append(CleanWoolYield).Append("\n");
             sb.Append("  HeadSold: ").Append(HeadSold).Append("\n");
             sb.Append("  SaleWeight: ").Append(SaleWeight).Append("\n");
-            sb.Append("  HeadPurchased: ").Append(HeadPurchased).Append("\n");
-            sb.Append("  PurchasedWeight: ").Append(PurchasedWeight).Append("\n");
             sb.Append("  Purchases: ").Append(Purchases).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -206,6 +170,42 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // HeadShorn (decimal) minimum
+            if (this.HeadShorn < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HeadShorn, must be a value greater than or equal to 0.", new [] { "HeadShorn" });
+            }
+
+            // WoolShorn (decimal) minimum
+            if (this.WoolShorn < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for WoolShorn, must be a value greater than or equal to 0.", new [] { "WoolShorn" });
+            }
+
+            // CleanWoolYield (decimal) maximum
+            if (this.CleanWoolYield > (decimal)100)
+            {
+                yield return new ValidationResult("Invalid value for CleanWoolYield, must be a value less than or equal to 100.", new [] { "CleanWoolYield" });
+            }
+
+            // CleanWoolYield (decimal) minimum
+            if (this.CleanWoolYield < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CleanWoolYield, must be a value greater than or equal to 0.", new [] { "CleanWoolYield" });
+            }
+
+            // HeadSold (decimal) minimum
+            if (this.HeadSold < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HeadSold, must be a value greater than or equal to 0.", new [] { "HeadSold" });
+            }
+
+            // SaleWeight (decimal) minimum
+            if (this.SaleWeight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SaleWeight, must be a value greater than or equal to 0.", new [] { "SaleWeight" });
+            }
+
             yield break;
         }
     }
@@ -241,8 +241,6 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> cleanWoolYield = default;
             Option<decimal?> headSold = default;
             Option<decimal?> saleWeight = default;
-            Option<decimal?> headPurchased = default;
-            Option<decimal?> purchasedWeight = default;
             Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?> purchases = default;
 
             while (utf8JsonReader.Read())
@@ -286,12 +284,6 @@ namespace Org.OpenAPITools.Model
                             break;
                         case "saleWeight":
                             saleWeight = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "headPurchased":
-                            headPurchased = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "purchasedWeight":
-                            purchasedWeight = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "purchases":
                             purchases = new Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?>(JsonSerializer.Deserialize<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -356,16 +348,10 @@ namespace Org.OpenAPITools.Model
             if (saleWeight.IsSet && saleWeight.Value == null)
                 throw new ArgumentNullException(nameof(saleWeight), "Property is not nullable for class PostSheepRequestSheepInnerClassesRams.");
 
-            if (headPurchased.IsSet && headPurchased.Value == null)
-                throw new ArgumentNullException(nameof(headPurchased), "Property is not nullable for class PostSheepRequestSheepInnerClassesRams.");
-
-            if (purchasedWeight.IsSet && purchasedWeight.Value == null)
-                throw new ArgumentNullException(nameof(purchasedWeight), "Property is not nullable for class PostSheepRequestSheepInnerClassesRams.");
-
             if (purchases.IsSet && purchases.Value == null)
                 throw new ArgumentNullException(nameof(purchases), "Property is not nullable for class PostSheepRequestSheepInnerClassesRams.");
 
-            return new PostSheepRequestSheepInnerClassesRams(autumn.Value!, winter.Value!, spring.Value!, summer.Value!, headShorn.Value!.Value!, woolShorn.Value!.Value!, cleanWoolYield.Value!.Value!, headSold.Value!.Value!, saleWeight.Value!.Value!, headPurchased, purchasedWeight, purchases);
+            return new PostSheepRequestSheepInnerClassesRams(autumn.Value!, winter.Value!, spring.Value!, summer.Value!, headShorn.Value!.Value!, woolShorn.Value!.Value!, cleanWoolYield.Value!.Value!, headSold.Value!.Value!, saleWeight.Value!.Value!, purchases);
         }
 
         /// <summary>
@@ -424,12 +410,6 @@ namespace Org.OpenAPITools.Model
             writer.WriteNumber("headSold", postSheepRequestSheepInnerClassesRams.HeadSold);
 
             writer.WriteNumber("saleWeight", postSheepRequestSheepInnerClassesRams.SaleWeight);
-
-            if (postSheepRequestSheepInnerClassesRams.HeadPurchasedOption.IsSet)
-                writer.WriteNumber("headPurchased", postSheepRequestSheepInnerClassesRams.HeadPurchasedOption.Value!.Value);
-
-            if (postSheepRequestSheepInnerClassesRams.PurchasedWeightOption.IsSet)
-                writer.WriteNumber("purchasedWeight", postSheepRequestSheepInnerClassesRams.PurchasedWeightOption.Value!.Value);
 
             if (postSheepRequestSheepInnerClassesRams.PurchasesOption.IsSet)
             {

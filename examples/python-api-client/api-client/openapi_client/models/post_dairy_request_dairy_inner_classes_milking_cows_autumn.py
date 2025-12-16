@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +28,12 @@ class PostDairyRequestDairyInnerClassesMilkingCowsAutumn(BaseModel):
     """
     PostDairyRequestDairyInnerClassesMilkingCowsAutumn
     """ # noqa: E501
-    head: Union[StrictFloat, StrictInt] = Field(description="Number of animals (head)")
-    liveweight: Union[StrictFloat, StrictInt] = Field(description="Average liveweight of animals in kg/head (kilogram per head)")
+    head: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals (head)")
+    liveweight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average liveweight of animals in kg/head (kilogram per head)")
     liveweight_gain: Union[StrictFloat, StrictInt] = Field(description="Average liveweight gain in kg/day (kilogram per day)", alias="liveweightGain")
-    crude_protein: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Crude protein percent, between 0 and 100. Note: If no value is provided, zero will be assumed. This will result in large, negative output values. This input will become mandatory in a future version.", alias="crudeProtein")
-    dry_matter_digestibility: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Dry matter digestibility percent, between 0 and 100. Note: If no value is provided, zero will be assumed. This will result in large, negative output values. This input will become mandatory in a future version.", alias="dryMatterDigestibility")
-    milk_production: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Milk produced in L/day/head (litres per day per head)", alias="milkProduction")
+    crude_protein: Optional[Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]]] = Field(default=None, description="Crude protein percent, between 0 and 100. Note: If no value is provided, zero will be assumed. This will result in large, negative output values. This input will become mandatory in a future version.", alias="crudeProtein")
+    dry_matter_digestibility: Optional[Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]]] = Field(default=None, description="Dry matter digestibility percent, between 0 and 100. Note: If no value is provided, zero will be assumed. This will result in large, negative output values. This input will become mandatory in a future version.", alias="dryMatterDigestibility")
+    milk_production: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Milk produced in L/day/head (litres per day per head)", alias="milkProduction")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["head", "liveweight", "liveweightGain", "crudeProtein", "dryMatterDigestibility", "milkProduction"]
 

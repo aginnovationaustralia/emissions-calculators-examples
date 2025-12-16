@@ -343,7 +343,7 @@ class PostDairy200ResponseIntensities implements ModelInterface, ArrayAccess, \J
     /**
      * Sets intensity
      *
-     * @param float $intensity Dairy intensities including carbon sequestration, in tonnes-CO2e
+     * @param float $intensity Dairy emissions intensity including sequestration, in tonnes-CO2e/tonne milk solids
      *
      * @return self
      */

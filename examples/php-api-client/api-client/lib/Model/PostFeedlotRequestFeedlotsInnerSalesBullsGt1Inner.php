@@ -285,9 +285,17 @@ class PostFeedlotRequestFeedlotsInnerSalesBullsGt1Inner implements ModelInterfac
         if ($this->container['head'] === null) {
             $invalidProperties[] = "'head' can't be null";
         }
+        if (($this->container['head'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sale_weight'] === null) {
             $invalidProperties[] = "'sale_weight' can't be null";
         }
+        if (($this->container['sale_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sale_weight', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -325,6 +333,11 @@ class PostFeedlotRequestFeedlotsInnerSalesBullsGt1Inner implements ModelInterfac
         if (is_null($head)) {
             throw new \InvalidArgumentException('non-nullable head cannot be null');
         }
+
+        if (($head < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head when calling PostFeedlotRequestFeedlotsInnerSalesBullsGt1Inner., must be bigger than or equal to 0.');
+        }
+
         $this->container['head'] = $head;
 
         return $this;
@@ -352,6 +365,11 @@ class PostFeedlotRequestFeedlotsInnerSalesBullsGt1Inner implements ModelInterfac
         if (is_null($sale_weight)) {
             throw new \InvalidArgumentException('non-nullable sale_weight cannot be null');
         }
+
+        if (($sale_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sale_weight when calling PostFeedlotRequestFeedlotsInnerSalesBullsGt1Inner., must be bigger than or equal to 0.');
+        }
+
         $this->container['sale_weight'] = $sale_weight;
 
         return $this;

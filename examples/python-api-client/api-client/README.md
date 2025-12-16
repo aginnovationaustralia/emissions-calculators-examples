@@ -56,10 +56,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://emissionscalculator-mtls.development.aiaapi.com/calculator/3.0.0
+# Defining the host is optional and defaults to https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://emissionscalculator-mtls.development.aiaapi.com/calculator/3.0.0"
+    host = "https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0"
 )
 
 
@@ -82,7 +82,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://emissionscalculator-mtls.development.aiaapi.com/calculator/3.0.0*
+All URIs are relative to *https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -114,7 +114,6 @@ Class | Method | HTTP request | Description
  - [PostAquaculture200ResponseCarbonSequestration](docs/PostAquaculture200ResponseCarbonSequestration.md)
  - [PostAquaculture200ResponseIntensities](docs/PostAquaculture200ResponseIntensities.md)
  - [PostAquaculture200ResponseIntermediateInner](docs/PostAquaculture200ResponseIntermediateInner.md)
- - [PostAquaculture200ResponseIntermediateInnerCarbonSequestration](docs/PostAquaculture200ResponseIntermediateInnerCarbonSequestration.md)
  - [PostAquaculture200ResponseNet](docs/PostAquaculture200ResponseNet.md)
  - [PostAquaculture200ResponsePurchasedOffsets](docs/PostAquaculture200ResponsePurchasedOffsets.md)
  - [PostAquaculture200ResponseScope1](docs/PostAquaculture200ResponseScope1.md)
@@ -264,7 +263,6 @@ Class | Method | HTTP request | Description
  - [PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales](docs/PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales.md)
  - [PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies](docs/PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies.md)
  - [PostGoatRequestGoatsInnerClassesTradeBucks](docs/PostGoatRequestGoatsInnerClassesTradeBucks.md)
- - [PostGoatRequestGoatsInnerClassesTradeDoes](docs/PostGoatRequestGoatsInnerClassesTradeDoes.md)
  - [PostGoatRequestGoatsInnerClassesTradeKids](docs/PostGoatRequestGoatsInnerClassesTradeKids.md)
  - [PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies](docs/PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies.md)
  - [PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales](docs/PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales.md)
@@ -276,6 +274,7 @@ Class | Method | HTTP request | Description
  - [PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration](docs/PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration.md)
  - [PostGrainsRequest](docs/PostGrainsRequest.md)
  - [PostGrainsRequestCropsInner](docs/PostGrainsRequestCropsInner.md)
+ - [PostGrainsRequestVegetationInner](docs/PostGrainsRequestVegetationInner.md)
  - [PostHorticulture200Response](docs/PostHorticulture200Response.md)
  - [PostHorticulture200ResponseIntermediateInner](docs/PostHorticulture200ResponseIntermediateInner.md)
  - [PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration](docs/PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration.md)
@@ -283,6 +282,7 @@ Class | Method | HTTP request | Description
  - [PostHorticultureRequest](docs/PostHorticultureRequest.md)
  - [PostHorticultureRequestCropsInner](docs/PostHorticultureRequestCropsInner.md)
  - [PostHorticultureRequestCropsInnerRefrigerantsInner](docs/PostHorticultureRequestCropsInnerRefrigerantsInner.md)
+ - [PostHorticultureRequestVegetationInner](docs/PostHorticultureRequestVegetationInner.md)
  - [PostPork200Response](docs/PostPork200Response.md)
  - [PostPork200ResponseIntensities](docs/PostPork200ResponseIntensities.md)
  - [PostPork200ResponseIntermediateInner](docs/PostPork200ResponseIntermediateInner.md)
@@ -346,6 +346,7 @@ Class | Method | HTTP request | Description
  - [PostRice200ResponseScope1](docs/PostRice200ResponseScope1.md)
  - [PostRiceRequest](docs/PostRiceRequest.md)
  - [PostRiceRequestCropsInner](docs/PostRiceRequestCropsInner.md)
+ - [PostRiceRequestVegetationInner](docs/PostRiceRequestVegetationInner.md)
  - [PostSheep200Response](docs/PostSheep200Response.md)
  - [PostSheep200ResponseIntermediateInner](docs/PostSheep200ResponseIntermediateInner.md)
  - [PostSheep200ResponseIntermediateInnerIntensities](docs/PostSheep200ResponseIntermediateInnerIntensities.md)
@@ -355,8 +356,6 @@ Class | Method | HTTP request | Description
  - [PostSheepRequestSheepInnerClasses](docs/PostSheepRequestSheepInnerClasses.md)
  - [PostSheepRequestSheepInnerClassesRams](docs/PostSheepRequestSheepInnerClassesRams.md)
  - [PostSheepRequestSheepInnerClassesRamsAutumn](docs/PostSheepRequestSheepInnerClassesRamsAutumn.md)
- - [PostSheepRequestSheepInnerClassesTradeEwes](docs/PostSheepRequestSheepInnerClassesTradeEwes.md)
- - [PostSheepRequestSheepInnerClassesTradeLambsAndHoggets](docs/PostSheepRequestSheepInnerClassesTradeLambsAndHoggets.md)
  - [PostSheepRequestSheepInnerEwesLambing](docs/PostSheepRequestSheepInnerEwesLambing.md)
  - [PostSheepRequestSheepInnerSeasonalLambing](docs/PostSheepRequestSheepInnerSeasonalLambing.md)
  - [PostSheepRequestVegetationInner](docs/PostSheepRequestVegetationInner.md)
@@ -373,6 +372,7 @@ Class | Method | HTTP request | Description
  - [PostSugar200ResponseIntermediateInnerIntensities](docs/PostSugar200ResponseIntermediateInnerIntensities.md)
  - [PostSugarRequest](docs/PostSugarRequest.md)
  - [PostSugarRequestCropsInner](docs/PostSugarRequestCropsInner.md)
+ - [PostSugarRequestVegetationInner](docs/PostSugarRequestVegetationInner.md)
  - [PostVineyard200Response](docs/PostVineyard200Response.md)
  - [PostVineyard200ResponseIntermediateInner](docs/PostVineyard200ResponseIntermediateInner.md)
  - [PostVineyard200ResponseIntermediateInnerIntensities](docs/PostVineyard200ResponseIntermediateInnerIntensities.md)

@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostHorticultureRequestCropsInner Class Doc Comment
  *
  * @category Class
+ * @description Input data required for a single Horticulture enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -69,8 +70,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         'potassium_application' => 'float',
         'sulfur_application' => 'float',
         'rainfall_above600' => 'bool',
-        'urease_inhibitor_used' => 'bool',
-        'nitrification_inhibitor_used' => 'bool',
         'fraction_of_annual_crop_burnt' => 'float',
         'herbicide_use' => 'float',
         'glyphosate_other_herbicide_use' => 'float',
@@ -102,8 +101,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         'potassium_application' => null,
         'sulfur_application' => null,
         'rainfall_above600' => null,
-        'urease_inhibitor_used' => null,
-        'nitrification_inhibitor_used' => null,
         'fraction_of_annual_crop_burnt' => null,
         'herbicide_use' => null,
         'glyphosate_other_herbicide_use' => null,
@@ -133,8 +130,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         'potassium_application' => false,
         'sulfur_application' => false,
         'rainfall_above600' => false,
-        'urease_inhibitor_used' => false,
-        'nitrification_inhibitor_used' => false,
         'fraction_of_annual_crop_burnt' => false,
         'herbicide_use' => false,
         'glyphosate_other_herbicide_use' => false,
@@ -244,8 +239,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         'potassium_application' => 'potassiumApplication',
         'sulfur_application' => 'sulfurApplication',
         'rainfall_above600' => 'rainfallAbove600',
-        'urease_inhibitor_used' => 'ureaseInhibitorUsed',
-        'nitrification_inhibitor_used' => 'nitrificationInhibitorUsed',
         'fraction_of_annual_crop_burnt' => 'fractionOfAnnualCropBurnt',
         'herbicide_use' => 'herbicideUse',
         'glyphosate_other_herbicide_use' => 'glyphosateOtherHerbicideUse',
@@ -275,8 +268,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         'potassium_application' => 'setPotassiumApplication',
         'sulfur_application' => 'setSulfurApplication',
         'rainfall_above600' => 'setRainfallAbove600',
-        'urease_inhibitor_used' => 'setUreaseInhibitorUsed',
-        'nitrification_inhibitor_used' => 'setNitrificationInhibitorUsed',
         'fraction_of_annual_crop_burnt' => 'setFractionOfAnnualCropBurnt',
         'herbicide_use' => 'setHerbicideUse',
         'glyphosate_other_herbicide_use' => 'setGlyphosateOtherHerbicideUse',
@@ -306,8 +297,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         'potassium_application' => 'getPotassiumApplication',
         'sulfur_application' => 'getSulfurApplication',
         'rainfall_above600' => 'getRainfallAbove600',
-        'urease_inhibitor_used' => 'getUreaseInhibitorUsed',
-        'nitrification_inhibitor_used' => 'getNitrificationInhibitorUsed',
         'fraction_of_annual_crop_burnt' => 'getFractionOfAnnualCropBurnt',
         'herbicide_use' => 'getHerbicideUse',
         'glyphosate_other_herbicide_use' => 'getGlyphosateOtherHerbicideUse',
@@ -411,8 +400,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         $this->setIfExists('potassium_application', $data ?? [], null);
         $this->setIfExists('sulfur_application', $data ?? [], null);
         $this->setIfExists('rainfall_above600', $data ?? [], null);
-        $this->setIfExists('urease_inhibitor_used', $data ?? [], null);
-        $this->setIfExists('nitrification_inhibitor_used', $data ?? [], null);
         $this->setIfExists('fraction_of_annual_crop_burnt', $data ?? [], null);
         $this->setIfExists('herbicide_use', $data ?? [], null);
         $this->setIfExists('glyphosate_other_herbicide_use', $data ?? [], null);
@@ -467,57 +454,137 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if ($this->container['average_yield'] === null) {
             $invalidProperties[] = "'average_yield' can't be null";
         }
+        if (($this->container['average_yield'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_yield', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['area_sown'] === null) {
             $invalidProperties[] = "'area_sown' can't be null";
         }
+        if (($this->container['area_sown'] < 0)) {
+            $invalidProperties[] = "invalid value for 'area_sown', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_application'] === null) {
             $invalidProperties[] = "'urea_application' can't be null";
         }
+        if (($this->container['urea_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['non_urea_nitrogen'] === null) {
             $invalidProperties[] = "'non_urea_nitrogen' can't be null";
         }
+        if (($this->container['non_urea_nitrogen'] < 0)) {
+            $invalidProperties[] = "invalid value for 'non_urea_nitrogen', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_ammonium_nitrate'] === null) {
             $invalidProperties[] = "'urea_ammonium_nitrate' can't be null";
         }
+        if (($this->container['urea_ammonium_nitrate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_ammonium_nitrate', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['phosphorus_application'] === null) {
             $invalidProperties[] = "'phosphorus_application' can't be null";
         }
+        if (($this->container['phosphorus_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'phosphorus_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['potassium_application'] === null) {
             $invalidProperties[] = "'potassium_application' can't be null";
         }
+        if (($this->container['potassium_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'potassium_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sulfur_application'] === null) {
             $invalidProperties[] = "'sulfur_application' can't be null";
         }
+        if (($this->container['sulfur_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sulfur_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['rainfall_above600'] === null) {
             $invalidProperties[] = "'rainfall_above600' can't be null";
         }
         if ($this->container['fraction_of_annual_crop_burnt'] === null) {
             $invalidProperties[] = "'fraction_of_annual_crop_burnt' can't be null";
         }
+        if (($this->container['fraction_of_annual_crop_burnt'] > 1)) {
+            $invalidProperties[] = "invalid value for 'fraction_of_annual_crop_burnt', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['fraction_of_annual_crop_burnt'] < 0)) {
+            $invalidProperties[] = "invalid value for 'fraction_of_annual_crop_burnt', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['herbicide_use'] === null) {
             $invalidProperties[] = "'herbicide_use' can't be null";
         }
+        if (($this->container['herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['glyphosate_other_herbicide_use'] === null) {
             $invalidProperties[] = "'glyphosate_other_herbicide_use' can't be null";
         }
+        if (($this->container['glyphosate_other_herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'glyphosate_other_herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_allocation'] === null) {
             $invalidProperties[] = "'electricity_allocation' can't be null";
         }
+        if (($this->container['electricity_allocation'] > 1)) {
+            $invalidProperties[] = "invalid value for 'electricity_allocation', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['electricity_allocation'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_allocation', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone'] === null) {
             $invalidProperties[] = "'limestone' can't be null";
         }
+        if (($this->container['limestone'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone_fraction'] === null) {
             $invalidProperties[] = "'limestone_fraction' can't be null";
         }
+        if (($this->container['limestone_fraction'] > 1)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['limestone_fraction'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['diesel_use'] === null) {
             $invalidProperties[] = "'diesel_use' can't be null";
         }
+        if (($this->container['diesel_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'diesel_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['petrol_use'] === null) {
             $invalidProperties[] = "'petrol_use' can't be null";
         }
+        if (($this->container['petrol_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'petrol_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['lpg'] === null) {
             $invalidProperties[] = "'lpg' can't be null";
         }
+        if (($this->container['lpg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'lpg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['refrigerants'] === null) {
             $invalidProperties[] = "'refrigerants' can't be null";
         }
@@ -549,7 +616,7 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this Horticulture activity
      *
      * @return self
      */
@@ -622,6 +689,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($average_yield)) {
             throw new \InvalidArgumentException('non-nullable average_yield cannot be null');
         }
+
+        if (($average_yield < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_yield when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_yield'] = $average_yield;
 
         return $this;
@@ -649,6 +721,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($area_sown)) {
             throw new \InvalidArgumentException('non-nullable area_sown cannot be null');
         }
+
+        if (($area_sown < 0)) {
+            throw new \InvalidArgumentException('invalid value for $area_sown when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['area_sown'] = $area_sown;
 
         return $this;
@@ -676,6 +753,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($urea_application)) {
             throw new \InvalidArgumentException('non-nullable urea_application cannot be null');
         }
+
+        if (($urea_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_application when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_application'] = $urea_application;
 
         return $this;
@@ -703,6 +785,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($non_urea_nitrogen)) {
             throw new \InvalidArgumentException('non-nullable non_urea_nitrogen cannot be null');
         }
+
+        if (($non_urea_nitrogen < 0)) {
+            throw new \InvalidArgumentException('invalid value for $non_urea_nitrogen when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['non_urea_nitrogen'] = $non_urea_nitrogen;
 
         return $this;
@@ -730,6 +817,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($urea_ammonium_nitrate)) {
             throw new \InvalidArgumentException('non-nullable urea_ammonium_nitrate cannot be null');
         }
+
+        if (($urea_ammonium_nitrate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_ammonium_nitrate when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_ammonium_nitrate'] = $urea_ammonium_nitrate;
 
         return $this;
@@ -757,6 +849,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($phosphorus_application)) {
             throw new \InvalidArgumentException('non-nullable phosphorus_application cannot be null');
         }
+
+        if (($phosphorus_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $phosphorus_application when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['phosphorus_application'] = $phosphorus_application;
 
         return $this;
@@ -784,6 +881,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($potassium_application)) {
             throw new \InvalidArgumentException('non-nullable potassium_application cannot be null');
         }
+
+        if (($potassium_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $potassium_application when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['potassium_application'] = $potassium_application;
 
         return $this;
@@ -811,6 +913,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($sulfur_application)) {
             throw new \InvalidArgumentException('non-nullable sulfur_application cannot be null');
         }
+
+        if (($sulfur_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sulfur_application when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['sulfur_application'] = $sulfur_application;
 
         return $this;
@@ -844,64 +951,6 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets urease_inhibitor_used
-     *
-     * @return bool|null
-     * @deprecated
-     */
-    public function getUreaseInhibitorUsed()
-    {
-        return $this->container['urease_inhibitor_used'];
-    }
-
-    /**
-     * Sets urease_inhibitor_used
-     *
-     * @param bool|null $urease_inhibitor_used Urease inhibitor used. Deprecation note: No longer used (since v1.1.0)
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setUreaseInhibitorUsed($urease_inhibitor_used)
-    {
-        if (is_null($urease_inhibitor_used)) {
-            throw new \InvalidArgumentException('non-nullable urease_inhibitor_used cannot be null');
-        }
-        $this->container['urease_inhibitor_used'] = $urease_inhibitor_used;
-
-        return $this;
-    }
-
-    /**
-     * Gets nitrification_inhibitor_used
-     *
-     * @return bool|null
-     * @deprecated
-     */
-    public function getNitrificationInhibitorUsed()
-    {
-        return $this->container['nitrification_inhibitor_used'];
-    }
-
-    /**
-     * Sets nitrification_inhibitor_used
-     *
-     * @param bool|null $nitrification_inhibitor_used Nitrification inhibitor used. Deprecation note: No longer used (since v1.1.0)
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setNitrificationInhibitorUsed($nitrification_inhibitor_used)
-    {
-        if (is_null($nitrification_inhibitor_used)) {
-            throw new \InvalidArgumentException('non-nullable nitrification_inhibitor_used cannot be null');
-        }
-        $this->container['nitrification_inhibitor_used'] = $nitrification_inhibitor_used;
-
-        return $this;
-    }
-
-    /**
      * Gets fraction_of_annual_crop_burnt
      *
      * @return float
@@ -923,6 +972,14 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($fraction_of_annual_crop_burnt)) {
             throw new \InvalidArgumentException('non-nullable fraction_of_annual_crop_burnt cannot be null');
         }
+
+        if (($fraction_of_annual_crop_burnt > 1)) {
+            throw new \InvalidArgumentException('invalid value for $fraction_of_annual_crop_burnt when calling PostHorticultureRequestCropsInner., must be smaller than or equal to 1.');
+        }
+        if (($fraction_of_annual_crop_burnt < 0)) {
+            throw new \InvalidArgumentException('invalid value for $fraction_of_annual_crop_burnt when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['fraction_of_annual_crop_burnt'] = $fraction_of_annual_crop_burnt;
 
         return $this;
@@ -950,6 +1007,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable herbicide_use cannot be null');
         }
+
+        if (($herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide_use when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide_use'] = $herbicide_use;
 
         return $this;
@@ -977,6 +1039,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($glyphosate_other_herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable glyphosate_other_herbicide_use cannot be null');
         }
+
+        if (($glyphosate_other_herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $glyphosate_other_herbicide_use when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['glyphosate_other_herbicide_use'] = $glyphosate_other_herbicide_use;
 
         return $this;
@@ -1004,6 +1071,14 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($electricity_allocation)) {
             throw new \InvalidArgumentException('non-nullable electricity_allocation cannot be null');
         }
+
+        if (($electricity_allocation > 1)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_allocation when calling PostHorticultureRequestCropsInner., must be smaller than or equal to 1.');
+        }
+        if (($electricity_allocation < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_allocation when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_allocation'] = $electricity_allocation;
 
         return $this;
@@ -1031,6 +1106,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($limestone)) {
             throw new \InvalidArgumentException('non-nullable limestone cannot be null');
         }
+
+        if (($limestone < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone'] = $limestone;
 
         return $this;
@@ -1058,6 +1138,14 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($limestone_fraction)) {
             throw new \InvalidArgumentException('non-nullable limestone_fraction cannot be null');
         }
+
+        if (($limestone_fraction > 1)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostHorticultureRequestCropsInner., must be smaller than or equal to 1.');
+        }
+        if (($limestone_fraction < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone_fraction'] = $limestone_fraction;
 
         return $this;
@@ -1085,6 +1173,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($diesel_use)) {
             throw new \InvalidArgumentException('non-nullable diesel_use cannot be null');
         }
+
+        if (($diesel_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $diesel_use when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['diesel_use'] = $diesel_use;
 
         return $this;
@@ -1112,6 +1205,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($petrol_use)) {
             throw new \InvalidArgumentException('non-nullable petrol_use cannot be null');
         }
+
+        if (($petrol_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $petrol_use when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['petrol_use'] = $petrol_use;
 
         return $this;
@@ -1139,6 +1237,11 @@ class PostHorticultureRequestCropsInner implements ModelInterface, ArrayAccess, 
         if (is_null($lpg)) {
             throw new \InvalidArgumentException('non-nullable lpg cannot be null');
         }
+
+        if (($lpg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $lpg when calling PostHorticultureRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['lpg'] = $lpg;
 
         return $this;

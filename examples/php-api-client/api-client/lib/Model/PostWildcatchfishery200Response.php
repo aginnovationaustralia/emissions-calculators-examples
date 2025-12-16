@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostWildcatchfishery200Response Class Doc Comment
  *
  * @category Class
- * @description Emissions calculation output for the &#x60;wildcatchfishery&#x60; calculator
+ * @description Emissions calculation output for the WildCatchFishery calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

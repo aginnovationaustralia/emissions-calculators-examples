@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostBuffalo200Response Class Doc Comment
  *
  * @category Class
- * @description Emissions calculation output for the &#x60;Buffalo&#x60; calculator
+ * @description Emissions calculation output for the Buffalo calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -15,7 +15,6 @@ lib/Model/PostAquaculture200Response.php
 lib/Model/PostAquaculture200ResponseCarbonSequestration.php
 lib/Model/PostAquaculture200ResponseIntensities.php
 lib/Model/PostAquaculture200ResponseIntermediateInner.php
-lib/Model/PostAquaculture200ResponseIntermediateInnerCarbonSequestration.php
 lib/Model/PostAquaculture200ResponseNet.php
 lib/Model/PostAquaculture200ResponsePurchasedOffsets.php
 lib/Model/PostAquaculture200ResponseScope1.php
@@ -165,7 +164,6 @@ lib/Model/PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNannies.php
 lib/Model/PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales.php
 lib/Model/PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies.php
 lib/Model/PostGoatRequestGoatsInnerClassesTradeBucks.php
-lib/Model/PostGoatRequestGoatsInnerClassesTradeDoes.php
 lib/Model/PostGoatRequestGoatsInnerClassesTradeKids.php
 lib/Model/PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies.php
 lib/Model/PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales.php
@@ -177,6 +175,7 @@ lib/Model/PostGrains200ResponseIntermediateInner.php
 lib/Model/PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration.php
 lib/Model/PostGrainsRequest.php
 lib/Model/PostGrainsRequestCropsInner.php
+lib/Model/PostGrainsRequestVegetationInner.php
 lib/Model/PostHorticulture200Response.php
 lib/Model/PostHorticulture200ResponseIntermediateInner.php
 lib/Model/PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration.php
@@ -184,6 +183,7 @@ lib/Model/PostHorticulture200ResponseScope1.php
 lib/Model/PostHorticultureRequest.php
 lib/Model/PostHorticultureRequestCropsInner.php
 lib/Model/PostHorticultureRequestCropsInnerRefrigerantsInner.php
+lib/Model/PostHorticultureRequestVegetationInner.php
 lib/Model/PostPork200Response.php
 lib/Model/PostPork200ResponseIntensities.php
 lib/Model/PostPork200ResponseIntermediateInner.php
@@ -247,6 +247,7 @@ lib/Model/PostRice200ResponseIntermediateInnerIntensities.php
 lib/Model/PostRice200ResponseScope1.php
 lib/Model/PostRiceRequest.php
 lib/Model/PostRiceRequestCropsInner.php
+lib/Model/PostRiceRequestVegetationInner.php
 lib/Model/PostSheep200Response.php
 lib/Model/PostSheep200ResponseIntermediateInner.php
 lib/Model/PostSheep200ResponseIntermediateInnerIntensities.php
@@ -256,8 +257,6 @@ lib/Model/PostSheepRequestSheepInner.php
 lib/Model/PostSheepRequestSheepInnerClasses.php
 lib/Model/PostSheepRequestSheepInnerClassesRams.php
 lib/Model/PostSheepRequestSheepInnerClassesRamsAutumn.php
-lib/Model/PostSheepRequestSheepInnerClassesTradeEwes.php
-lib/Model/PostSheepRequestSheepInnerClassesTradeLambsAndHoggets.php
 lib/Model/PostSheepRequestSheepInnerEwesLambing.php
 lib/Model/PostSheepRequestSheepInnerSeasonalLambing.php
 lib/Model/PostSheepRequestVegetationInner.php
@@ -274,6 +273,7 @@ lib/Model/PostSugar200ResponseIntermediateInner.php
 lib/Model/PostSugar200ResponseIntermediateInnerIntensities.php
 lib/Model/PostSugarRequest.php
 lib/Model/PostSugarRequestCropsInner.php
+lib/Model/PostSugarRequestVegetationInner.php
 lib/Model/PostVineyard200Response.php
 lib/Model/PostVineyard200ResponseIntermediateInner.php
 lib/Model/PostVineyard200ResponseIntermediateInnerIntensities.php

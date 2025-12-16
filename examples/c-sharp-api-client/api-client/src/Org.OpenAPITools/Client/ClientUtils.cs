@@ -134,42 +134,8 @@ namespace Org.OpenAPITools.Client
                 return PostBeefRequest.StateEnumToJsonValue(postBeefRequestStateEnum);
             if (obj is PostBeefRequestBeefInner.ElectricitySourceEnum postBeefRequestBeefInnerElectricitySourceEnum)
                 return PostBeefRequestBeefInner.ElectricitySourceEnumToJsonValue(postBeefRequestBeefInnerElectricitySourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesBullsGt1.SourceEnum postBeefRequestBeefInnerClassesBullsGt1SourceEnum)
-                return PostBeefRequestBeefInnerClassesBullsGt1.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesBullsGt1SourceEnum);
             if (obj is PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner.PurchaseSourceEnum postBeefRequestBeefInnerClassesBullsGt1PurchasesInnerPurchaseSourceEnum)
                 return PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner.PurchaseSourceEnumToJsonValue(postBeefRequestBeefInnerClassesBullsGt1PurchasesInnerPurchaseSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesBullsGt1Traded.SourceEnum postBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesBullsGt1Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesCowsGt2.SourceEnum postBeefRequestBeefInnerClassesCowsGt2SourceEnum)
-                return PostBeefRequestBeefInnerClassesCowsGt2.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesCowsGt2SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesCowsGt2Traded.SourceEnum postBeefRequestBeefInnerClassesCowsGt2TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesCowsGt2Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesCowsGt2TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesHeifers1To2.SourceEnum postBeefRequestBeefInnerClassesHeifers1To2SourceEnum)
-                return PostBeefRequestBeefInnerClassesHeifers1To2.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesHeifers1To2SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesHeifers1To2Traded.SourceEnum postBeefRequestBeefInnerClassesHeifers1To2TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesHeifers1To2Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesHeifers1To2TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesHeifersGt2.SourceEnum postBeefRequestBeefInnerClassesHeifersGt2SourceEnum)
-                return PostBeefRequestBeefInnerClassesHeifersGt2.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesHeifersGt2SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesHeifersGt2Traded.SourceEnum postBeefRequestBeefInnerClassesHeifersGt2TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesHeifersGt2Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesHeifersGt2TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesHeifersLt1.SourceEnum postBeefRequestBeefInnerClassesHeifersLt1SourceEnum)
-                return PostBeefRequestBeefInnerClassesHeifersLt1.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesHeifersLt1SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesHeifersLt1Traded.SourceEnum postBeefRequestBeefInnerClassesHeifersLt1TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesHeifersLt1Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesHeifersLt1TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesSteers1To2.SourceEnum postBeefRequestBeefInnerClassesSteers1To2SourceEnum)
-                return PostBeefRequestBeefInnerClassesSteers1To2.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesSteers1To2SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesSteers1To2Traded.SourceEnum postBeefRequestBeefInnerClassesSteers1To2TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesSteers1To2Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesSteers1To2TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesSteersGt2.SourceEnum postBeefRequestBeefInnerClassesSteersGt2SourceEnum)
-                return PostBeefRequestBeefInnerClassesSteersGt2.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesSteersGt2SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesSteersGt2Traded.SourceEnum postBeefRequestBeefInnerClassesSteersGt2TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesSteersGt2Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesSteersGt2TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesSteersLt1.SourceEnum postBeefRequestBeefInnerClassesSteersLt1SourceEnum)
-                return PostBeefRequestBeefInnerClassesSteersLt1.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesSteersLt1SourceEnum);
-            if (obj is PostBeefRequestBeefInnerClassesSteersLt1Traded.SourceEnum postBeefRequestBeefInnerClassesSteersLt1TradedSourceEnum)
-                return PostBeefRequestBeefInnerClassesSteersLt1Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesSteersLt1TradedSourceEnum);
-            if (obj is PostBeefRequestBeefInnerFertiliser.OtherTypeEnum postBeefRequestBeefInnerFertiliserOtherTypeEnum)
-                return PostBeefRequestBeefInnerFertiliser.OtherTypeEnumToJsonValue(postBeefRequestBeefInnerFertiliserOtherTypeEnum);
             if (obj is PostBeefRequestBeefInnerFertiliserOtherFertilisersInner.OtherTypeEnum postBeefRequestBeefInnerFertiliserOtherFertilisersInnerOtherTypeEnum)
                 return PostBeefRequestBeefInnerFertiliserOtherFertilisersInner.OtherTypeEnumToJsonValue(postBeefRequestBeefInnerFertiliserOtherFertilisersInnerOtherTypeEnum);
             if (obj is PostBeefRequestBurningInnerBurning.FuelEnum postBeefRequestBurningInnerBurningFuelEnum)
@@ -196,8 +162,6 @@ namespace Org.OpenAPITools.Client
                 return PostCottonRequest.StateEnumToJsonValue(postCottonRequestStateEnum);
             if (obj is PostCottonRequestCropsInner.StateEnum postCottonRequestCropsInnerStateEnum)
                 return PostCottonRequestCropsInner.StateEnumToJsonValue(postCottonRequestCropsInnerStateEnum);
-            if (obj is PostCottonRequestCropsInner.OtherFertiliserTypeEnum postCottonRequestCropsInnerOtherFertiliserTypeEnum)
-                return PostCottonRequestCropsInner.OtherFertiliserTypeEnumToJsonValue(postCottonRequestCropsInnerOtherFertiliserTypeEnum);
             if (obj is PostDairyRequest.StateEnum postDairyRequestStateEnum)
                 return PostDairyRequest.StateEnumToJsonValue(postDairyRequestStateEnum);
             if (obj is PostDairyRequest.ProductionSystemEnum postDairyRequestProductionSystemEnum)
@@ -472,7 +436,7 @@ namespace Org.OpenAPITools.Client
         /// <summary>
         /// The base path of the API
         /// </summary>
-        public const string BASE_ADDRESS = "https://emissionscalculator-mtls.development.aiaapi.com/calculator/3.0.0";
+        public const string BASE_ADDRESS = "https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0";
 
         /// <summary>
         /// The scheme of the API
@@ -487,7 +451,7 @@ namespace Org.OpenAPITools.Client
         /// <summary>
         /// The host of the API
         /// </summary>
-        public const string HOST = "emissionscalculator-mtls.development.aiaapi.com";
+        public const string HOST = "emissionscalculator-mtls.staging.aiaapi.com";
 
         /// <summary>
         /// The format to use for DateTime serialization

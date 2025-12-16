@@ -32,7 +32,7 @@ from typing_extensions import Self
 
 class PostCotton200Response(BaseModel):
     """
-    Emissions calculation output for the `cotton` calculator
+    Emissions calculation output for the Cotton calculator
     """ # noqa: E501
     scope1: PostCotton200ResponseScope1
     scope2: PostAquaculture200ResponseScope2

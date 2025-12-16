@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostDairyRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to dairy
+ * @description Non-productive vegetation inputs along with allocations to each Dairy activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class PostDairyRequestVegetationInner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets dairy_proportion
      *
-     * @param float[] $dairy_proportion The proportion of the sequestration that is allocated to dairy
+     * @param float[] $dairy_proportion The proportion of the sequestration that is allocated to each dairy activity
      *
      * @return self
      */

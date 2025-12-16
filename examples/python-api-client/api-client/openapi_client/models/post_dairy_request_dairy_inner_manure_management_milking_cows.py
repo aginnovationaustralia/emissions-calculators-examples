@@ -32,9 +32,9 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows(BaseModel):
     anaerobic_lagoon: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(alias="anaerobicLagoon")
     sump_and_dispersal: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(alias="sumpAndDispersal")
     drain_to_paddocks: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(alias="drainToPaddocks")
-    soild_storage: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(alias="soildStorage")
+    solid_storage: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(alias="solidStorage")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["pasture", "anaerobicLagoon", "sumpAndDispersal", "drainToPaddocks", "soildStorage"]
+    __properties: ClassVar[List[str]] = ["pasture", "anaerobicLagoon", "sumpAndDispersal", "drainToPaddocks", "solidStorage"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,7 +98,7 @@ class PostDairyRequestDairyInnerManureManagementMilkingCows(BaseModel):
             "anaerobicLagoon": obj.get("anaerobicLagoon"),
             "sumpAndDispersal": obj.get("sumpAndDispersal"),
             "drainToPaddocks": obj.get("drainToPaddocks"),
-            "soildStorage": obj.get("soildStorage")
+            "solidStorage": obj.get("solidStorage")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

@@ -62,7 +62,7 @@ class PostSheepbeef200ResponseIntermediateBeef implements ModelInterface, ArrayA
         'scope1' => '\OpenAPI\Client\Model\PostBeef200ResponseScope1',
         'scope2' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope2',
         'scope3' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3',
-        'carbon_sequestration' => 'float',
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration',
         'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseNet',
         'intensities' => '\OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerIntensities'
     ];
@@ -428,7 +428,7 @@ class PostSheepbeef200ResponseIntermediateBeef implements ModelInterface, ArrayA
     /**
      * Gets carbon_sequestration
      *
-     * @return float
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -438,7 +438,7 @@ class PostSheepbeef200ResponseIntermediateBeef implements ModelInterface, ArrayA
     /**
      * Sets carbon_sequestration
      *
-     * @param float $carbon_sequestration Carbon sequestration, in tonnes-CO2e
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostGrains200Response Class Doc Comment
  *
  * @category Class
- * @description Emissions calculation output for the &#x60;grains&#x60; calculator
+ * @description Emissions calculation output for the Grains calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

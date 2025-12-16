@@ -63,8 +63,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         'winter' => 'float',
         'spring' => 'float',
         'summer' => 'float',
-        'head_purchased' => 'float',
-        'purchased_weight' => 'float',
         'head_sold' => 'float',
         'sale_weight' => 'float',
         'purchases' => '\OpenAPI\Client\Model\PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner[]',
@@ -83,8 +81,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         'winter' => null,
         'spring' => null,
         'summer' => null,
-        'head_purchased' => null,
-        'purchased_weight' => null,
         'head_sold' => null,
         'sale_weight' => null,
         'purchases' => null,
@@ -101,8 +97,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         'winter' => false,
         'spring' => false,
         'summer' => false,
-        'head_purchased' => false,
-        'purchased_weight' => false,
         'head_sold' => false,
         'sale_weight' => false,
         'purchases' => false,
@@ -199,8 +193,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         'winter' => 'winter',
         'spring' => 'spring',
         'summer' => 'summer',
-        'head_purchased' => 'headPurchased',
-        'purchased_weight' => 'purchasedWeight',
         'head_sold' => 'headSold',
         'sale_weight' => 'saleWeight',
         'purchases' => 'purchases',
@@ -217,8 +209,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         'winter' => 'setWinter',
         'spring' => 'setSpring',
         'summer' => 'setSummer',
-        'head_purchased' => 'setHeadPurchased',
-        'purchased_weight' => 'setPurchasedWeight',
         'head_sold' => 'setHeadSold',
         'sale_weight' => 'setSaleWeight',
         'purchases' => 'setPurchases',
@@ -235,8 +225,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         'winter' => 'getWinter',
         'spring' => 'getSpring',
         'summer' => 'getSummer',
-        'head_purchased' => 'getHeadPurchased',
-        'purchased_weight' => 'getPurchasedWeight',
         'head_sold' => 'getHeadSold',
         'sale_weight' => 'getSaleWeight',
         'purchases' => 'getPurchases',
@@ -304,8 +292,6 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         $this->setIfExists('winter', $data ?? [], null);
         $this->setIfExists('spring', $data ?? [], null);
         $this->setIfExists('summer', $data ?? [], null);
-        $this->setIfExists('head_purchased', $data ?? [], null);
-        $this->setIfExists('purchased_weight', $data ?? [], null);
         $this->setIfExists('head_sold', $data ?? [], null);
         $this->setIfExists('sale_weight', $data ?? [], null);
         $this->setIfExists('purchases', $data ?? [], null);
@@ -342,21 +328,45 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if ($this->container['autumn'] === null) {
             $invalidProperties[] = "'autumn' can't be null";
         }
+        if (($this->container['autumn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'autumn', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['winter'] === null) {
             $invalidProperties[] = "'winter' can't be null";
         }
+        if (($this->container['winter'] < 0)) {
+            $invalidProperties[] = "invalid value for 'winter', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['spring'] === null) {
             $invalidProperties[] = "'spring' can't be null";
         }
+        if (($this->container['spring'] < 0)) {
+            $invalidProperties[] = "invalid value for 'spring', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['summer'] === null) {
             $invalidProperties[] = "'summer' can't be null";
         }
+        if (($this->container['summer'] < 0)) {
+            $invalidProperties[] = "invalid value for 'summer', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['head_sold'] === null) {
             $invalidProperties[] = "'head_sold' can't be null";
         }
+        if (($this->container['head_sold'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_sold', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sale_weight'] === null) {
             $invalidProperties[] = "'sale_weight' can't be null";
         }
+        if (($this->container['sale_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sale_weight', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['manure'] === null) {
             $invalidProperties[] = "'manure' can't be null";
         }
@@ -397,6 +407,11 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if (is_null($autumn)) {
             throw new \InvalidArgumentException('non-nullable autumn cannot be null');
         }
+
+        if (($autumn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $autumn when calling PostPorkRequestPorkInnerClassesSlaughterPigs., must be bigger than or equal to 0.');
+        }
+
         $this->container['autumn'] = $autumn;
 
         return $this;
@@ -424,6 +439,11 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if (is_null($winter)) {
             throw new \InvalidArgumentException('non-nullable winter cannot be null');
         }
+
+        if (($winter < 0)) {
+            throw new \InvalidArgumentException('invalid value for $winter when calling PostPorkRequestPorkInnerClassesSlaughterPigs., must be bigger than or equal to 0.');
+        }
+
         $this->container['winter'] = $winter;
 
         return $this;
@@ -451,6 +471,11 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if (is_null($spring)) {
             throw new \InvalidArgumentException('non-nullable spring cannot be null');
         }
+
+        if (($spring < 0)) {
+            throw new \InvalidArgumentException('invalid value for $spring when calling PostPorkRequestPorkInnerClassesSlaughterPigs., must be bigger than or equal to 0.');
+        }
+
         $this->container['spring'] = $spring;
 
         return $this;
@@ -478,65 +503,12 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if (is_null($summer)) {
             throw new \InvalidArgumentException('non-nullable summer cannot be null');
         }
+
+        if (($summer < 0)) {
+            throw new \InvalidArgumentException('invalid value for $summer when calling PostPorkRequestPorkInnerClassesSlaughterPigs., must be bigger than or equal to 0.');
+        }
+
         $this->container['summer'] = $summer;
-
-        return $this;
-    }
-
-    /**
-     * Gets head_purchased
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getHeadPurchased()
-    {
-        return $this->container['head_purchased'];
-    }
-
-    /**
-     * Sets head_purchased
-     *
-     * @param float|null $head_purchased Number of animals purchased (head). Deprecation note: Please use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setHeadPurchased($head_purchased)
-    {
-        if (is_null($head_purchased)) {
-            throw new \InvalidArgumentException('non-nullable head_purchased cannot be null');
-        }
-        $this->container['head_purchased'] = $head_purchased;
-
-        return $this;
-    }
-
-    /**
-     * Gets purchased_weight
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getPurchasedWeight()
-    {
-        return $this->container['purchased_weight'];
-    }
-
-    /**
-     * Sets purchased_weight
-     *
-     * @param float|null $purchased_weight Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setPurchasedWeight($purchased_weight)
-    {
-        if (is_null($purchased_weight)) {
-            throw new \InvalidArgumentException('non-nullable purchased_weight cannot be null');
-        }
-        $this->container['purchased_weight'] = $purchased_weight;
 
         return $this;
     }
@@ -563,6 +535,11 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if (is_null($head_sold)) {
             throw new \InvalidArgumentException('non-nullable head_sold cannot be null');
         }
+
+        if (($head_sold < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_sold when calling PostPorkRequestPorkInnerClassesSlaughterPigs., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_sold'] = $head_sold;
 
         return $this;
@@ -590,6 +567,11 @@ class PostPorkRequestPorkInnerClassesSlaughterPigs implements ModelInterface, Ar
         if (is_null($sale_weight)) {
             throw new \InvalidArgumentException('non-nullable sale_weight cannot be null');
         }
+
+        if (($sale_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sale_weight when calling PostPorkRequestPorkInnerClassesSlaughterPigs., must be bigger than or equal to 0.');
+        }
+
         $this->container['sale_weight'] = $sale_weight;
 
         return $this;

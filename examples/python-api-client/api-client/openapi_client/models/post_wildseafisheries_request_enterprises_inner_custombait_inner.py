@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +28,8 @@ class PostWildseafisheriesRequestEnterprisesInnerCustombaitInner(BaseModel):
     """
     PostWildseafisheriesRequestEnterprisesInnerCustombaitInner
     """ # noqa: E501
-    purchased: Union[StrictFloat, StrictInt] = Field(description="Purchased product in tonnes")
-    emissions_intensity: Union[StrictFloat, StrictInt] = Field(description="Emissions intensity of product, in kg CO2e/kg", alias="emissionsIntensity")
+    purchased: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Purchased product in tonnes")
+    emissions_intensity: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Emissions intensity of product, in kg CO2e/kg", alias="emissionsIntensity")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["purchased", "emissionsIntensity"]
 

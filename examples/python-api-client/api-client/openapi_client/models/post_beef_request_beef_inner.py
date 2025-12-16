@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_beef_request_beef_inner_classes import PostBeefRequestBeefInnerClasses
@@ -30,25 +30,25 @@ from typing_extensions import Self
 
 class PostBeefRequestBeefInner(BaseModel):
     """
-    PostBeefRequestBeefInner
+    Input data required for a single Beef enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Beef activity")
     classes: PostBeefRequestBeefInnerClasses
-    limestone: Union[StrictFloat, StrictInt] = Field(description="Lime applied in tonnes")
-    limestone_fraction: Union[StrictFloat, StrictInt] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
+    limestone: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Lime applied in tonnes")
+    limestone_fraction: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
     fertiliser: PostBeefRequestBeefInnerFertiliser
-    diesel: Union[StrictFloat, StrictInt] = Field(description="Diesel usage in L (litres)")
-    petrol: Union[StrictFloat, StrictInt] = Field(description="Petrol usage in L (litres)")
-    lpg: Union[StrictFloat, StrictInt] = Field(description="LPG Fuel usage in L (litres)")
+    diesel: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Diesel usage in L (litres)")
+    petrol: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Petrol usage in L (litres)")
+    lpg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="LPG Fuel usage in L (litres)")
     mineral_supplementation: PostBeefRequestBeefInnerMineralSupplementation = Field(alias="mineralSupplementation")
     electricity_source: StrictStr = Field(description="Source of electricity", alias="electricitySource")
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
-    electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
-    grain_feed: Union[StrictFloat, StrictInt] = Field(description="Grain purchased for cattle feed in tonnes", alias="grainFeed")
-    hay_feed: Union[StrictFloat, StrictInt] = Field(description="Hay purchased for cattle feed in tonnes", alias="hayFeed")
-    cottonseed_feed: Union[StrictFloat, StrictInt] = Field(description="Cotton seed purchased for cattle feed in tonnes", alias="cottonseedFeed")
-    herbicide: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients of from herbicide (Paraquat, Diquat, Glyphosate) in kg (kilograms)")
-    herbicide_other: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients of from other herbicides in kg (kilograms)", alias="herbicideOther")
+    electricity_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
+    grain_feed: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Grain purchased for cattle feed in tonnes", alias="grainFeed")
+    hay_feed: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Hay purchased for cattle feed in tonnes", alias="hayFeed")
+    cottonseed_feed: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Cotton seed purchased for cattle feed in tonnes", alias="cottonseedFeed")
+    herbicide: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients of from herbicide (Paraquat, Diquat, Glyphosate) in kg (kilograms)")
+    herbicide_other: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients of from other herbicides in kg (kilograms)", alias="herbicideOther")
     cows_calving: PostBeefRequestBeefInnerCowsCalving = Field(alias="cowsCalving")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "classes", "limestone", "limestoneFraction", "fertiliser", "diesel", "petrol", "lpg", "mineralSupplementation", "electricitySource", "electricityRenewable", "electricityUse", "grainFeed", "hayFeed", "cottonseedFeed", "herbicide", "herbicideOther", "cowsCalving"]

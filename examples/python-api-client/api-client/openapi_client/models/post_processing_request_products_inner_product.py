@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class PostProcessingRequestProductsInnerProduct(BaseModel):
     Product being processed
     """ # noqa: E501
     unit: StrictStr
-    amount_made_per_year: Union[StrictFloat, StrictInt] = Field(alias="amountMadePerYear")
+    amount_made_per_year: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(alias="amountMadePerYear")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["unit", "amountMadePerYear"]
 

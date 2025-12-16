@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_buffalo_request_buffalos_inner_classes_bulls_purchases_inner import PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner
 from openapi_client.models.post_pork_request_pork_inner_classes_sows_manure import PostPorkRequestPorkInnerClassesSowsManure
 from typing import Optional, Set
@@ -29,18 +30,16 @@ class PostPorkRequestPorkInnerClassesSuckers(BaseModel):
     """
     Suckers
     """ # noqa: E501
-    autumn: Union[StrictFloat, StrictInt] = Field(description="Pig numbers in autumn")
-    winter: Union[StrictFloat, StrictInt] = Field(description="Pig numbers in winter")
-    spring: Union[StrictFloat, StrictInt] = Field(description="Pig numbers in spring")
-    summer: Union[StrictFloat, StrictInt] = Field(description="Pig numbers in summer")
-    head_purchased: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of animals purchased (head). Deprecation note: Please use `purchases` instead", alias="headPurchased")
-    purchased_weight: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead", alias="purchasedWeight")
-    head_sold: Union[StrictFloat, StrictInt] = Field(description="Number of animals sold (head)", alias="headSold")
-    sale_weight: Union[StrictFloat, StrictInt] = Field(description="Weight at sale, in liveweight kg/head (kilogram per head)", alias="saleWeight")
+    autumn: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Pig numbers in autumn")
+    winter: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Pig numbers in winter")
+    spring: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Pig numbers in spring")
+    summer: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Pig numbers in summer")
+    head_sold: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals sold (head)", alias="headSold")
+    sale_weight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Weight at sale, in liveweight kg/head (kilogram per head)", alias="saleWeight")
     purchases: Optional[List[PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner]] = None
     manure: PostPorkRequestPorkInnerClassesSowsManure
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer", "headPurchased", "purchasedWeight", "headSold", "saleWeight", "purchases", "manure"]
+    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer", "headSold", "saleWeight", "purchases", "manure"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -114,8 +113,6 @@ class PostPorkRequestPorkInnerClassesSuckers(BaseModel):
             "winter": obj.get("winter"),
             "spring": obj.get("spring"),
             "summer": obj.get("summer"),
-            "headPurchased": obj.get("headPurchased"),
-            "purchasedWeight": obj.get("purchasedWeight"),
             "headSold": obj.get("headSold"),
             "saleWeight": obj.get("saleWeight"),
             "purchases": [PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner.from_dict(_item) for _item in obj["purchases"]] if obj.get("purchases") is not None else None,

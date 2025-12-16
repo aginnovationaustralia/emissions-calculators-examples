@@ -124,6 +124,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CustomFeedPurchased (decimal) minimum
+            if (this.CustomFeedPurchased < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CustomFeedPurchased, must be a value greater than or equal to 0.", new [] { "CustomFeedPurchased" });
+            }
+
+            // CustomFeedEmissionIntensity (decimal) minimum
+            if (this.CustomFeedEmissionIntensity < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CustomFeedEmissionIntensity, must be a value greater than or equal to 0.", new [] { "CustomFeedEmissionIntensity" });
+            }
+
             yield break;
         }
     }

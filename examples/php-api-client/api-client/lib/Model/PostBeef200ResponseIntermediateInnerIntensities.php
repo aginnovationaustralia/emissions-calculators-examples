@@ -353,7 +353,7 @@ class PostBeef200ResponseIntermediateInnerIntensities implements ModelInterface,
     /**
      * Sets beef_excluding_sequestration
      *
-     * @param float $beef_excluding_sequestration Beef excluding sequestration, in kg-CO2e/kg liveweight
+     * @param float $beef_excluding_sequestration Beef emissions intensity excluding sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class PostBeef200ResponseIntermediateInnerIntensities implements ModelInterface,
     /**
      * Sets beef_including_sequestration
      *
-     * @param float $beef_including_sequestration Beef including sequestration, in kg-CO2e/kg liveweight
+     * @param float $beef_including_sequestration Beef emissions intensity including sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */

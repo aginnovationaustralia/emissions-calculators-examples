@@ -47,13 +47,6 @@ export interface PostPorkRequest {
      */
     state: PostPorkRequestStateEnum;
     /**
-     * Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude. Deprecation note: This field is deprecated
-     * @type {boolean}
-     * @memberof PostPorkRequest
-     * @deprecated
-     */
-    northOfTropicOfCapricorn: boolean;
-    /**
      * Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm
      * @type {boolean}
      * @memberof PostPorkRequest
@@ -96,7 +89,6 @@ export type PostPorkRequestStateEnum = typeof PostPorkRequestStateEnum[keyof typ
  */
 export function instanceOfPostPorkRequest(value: object): value is PostPorkRequest {
     if (!('state' in value) || value['state'] === undefined) return false;
-    if (!('northOfTropicOfCapricorn' in value) || value['northOfTropicOfCapricorn'] === undefined) return false;
     if (!('rainfallAbove600' in value) || value['rainfallAbove600'] === undefined) return false;
     if (!('pork' in value) || value['pork'] === undefined) return false;
     if (!('vegetation' in value) || value['vegetation'] === undefined) return false;
@@ -115,7 +107,6 @@ export function PostPorkRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
         
         'id': json['id'] == null ? undefined : json['id'],
         'state': json['state'],
-        'northOfTropicOfCapricorn': json['northOfTropicOfCapricorn'],
         'rainfallAbove600': json['rainfallAbove600'],
         'pork': ((json['pork'] as Array<any>).map(PostPorkRequestPorkInnerFromJSON)),
         'vegetation': ((json['vegetation'] as Array<any>).map(PostPorkRequestVegetationInnerFromJSON)),
@@ -135,7 +126,6 @@ export function PostPorkRequestToJSONTyped(value?: PostPorkRequest | null, ignor
         
         'id': value['id'],
         'state': value['state'],
-        'northOfTropicOfCapricorn': value['northOfTropicOfCapricorn'],
         'rainfallAbove600': value['rainfallAbove600'],
         'pork': ((value['pork'] as Array<any>).map(PostPorkRequestPorkInnerToJSON)),
         'vegetation': ((value['vegetation'] as Array<any>).map(PostPorkRequestVegetationInnerToJSON)),

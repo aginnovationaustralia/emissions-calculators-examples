@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostPoultryRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to broilers and layers
+ * @description Non-productive vegetation inputs along with allocations to each Poultry activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

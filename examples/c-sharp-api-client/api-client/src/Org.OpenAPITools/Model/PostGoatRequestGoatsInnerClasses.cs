@@ -46,9 +46,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="tradeOtherDoesCulledFemales">tradeOtherDoesCulledFemales</param>
         /// <param name="kids">kids</param>
         /// <param name="tradeKids">tradeKids</param>
-        /// <param name="tradeDoes">tradeDoes</param>
         [JsonConstructor]
-        public PostGoatRequestGoatsInnerClasses(Option<PostGoatRequestGoatsInnerClassesBucksBilly?> bucksBilly = default, Option<PostGoatRequestGoatsInnerClassesTradeBucks?> tradeBucks = default, Option<PostGoatRequestGoatsInnerClassesWethers?> wethers = default, Option<PostGoatRequestGoatsInnerClassesTradeWethers?> tradeWethers = default, Option<PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNannies?> maidenBreedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies?> tradeMaidenBreedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesBreedingDoesNannies?> breedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies?> tradeBreedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales?> otherDoesCulledFemales = default, Option<PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales?> tradeOtherDoesCulledFemales = default, Option<PostGoatRequestGoatsInnerClassesKids?> kids = default, Option<PostGoatRequestGoatsInnerClassesTradeKids?> tradeKids = default, Option<PostGoatRequestGoatsInnerClassesTradeDoes?> tradeDoes = default)
+        public PostGoatRequestGoatsInnerClasses(Option<PostGoatRequestGoatsInnerClassesBucksBilly?> bucksBilly = default, Option<PostGoatRequestGoatsInnerClassesTradeBucks?> tradeBucks = default, Option<PostGoatRequestGoatsInnerClassesWethers?> wethers = default, Option<PostGoatRequestGoatsInnerClassesTradeWethers?> tradeWethers = default, Option<PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNannies?> maidenBreedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies?> tradeMaidenBreedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesBreedingDoesNannies?> breedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies?> tradeBreedingDoesNannies = default, Option<PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales?> otherDoesCulledFemales = default, Option<PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales?> tradeOtherDoesCulledFemales = default, Option<PostGoatRequestGoatsInnerClassesKids?> kids = default, Option<PostGoatRequestGoatsInnerClassesTradeKids?> tradeKids = default)
         {
             BucksBillyOption = bucksBilly;
             TradeBucksOption = tradeBucks;
@@ -62,7 +61,6 @@ namespace Org.OpenAPITools.Model
             TradeOtherDoesCulledFemalesOption = tradeOtherDoesCulledFemales;
             KidsOption = kids;
             TradeKidsOption = tradeKids;
-            TradeDoesOption = tradeDoes;
             OnCreated();
         }
 
@@ -225,20 +223,6 @@ namespace Org.OpenAPITools.Model
         public PostGoatRequestGoatsInnerClassesTradeKids? TradeKids { get { return this.TradeKidsOption; } set { this.TradeKidsOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of TradeDoes
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<PostGoatRequestGoatsInnerClassesTradeDoes?> TradeDoesOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets TradeDoes
-        /// </summary>
-        [JsonPropertyName("tradeDoes")]
-        [Obsolete]
-        public PostGoatRequestGoatsInnerClassesTradeDoes? TradeDoes { get { return this.TradeDoesOption; } set { this.TradeDoesOption = new(value); } }
-
-        /// <summary>
         /// Gets or Sets additional properties
         /// </summary>
         [JsonExtensionData]
@@ -264,7 +248,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  TradeOtherDoesCulledFemales: ").Append(TradeOtherDoesCulledFemales).Append("\n");
             sb.Append("  Kids: ").Append(Kids).Append("\n");
             sb.Append("  TradeKids: ").Append(TradeKids).Append("\n");
-            sb.Append("  TradeDoes: ").Append(TradeDoes).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -315,7 +298,6 @@ namespace Org.OpenAPITools.Model
             Option<PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales?> tradeOtherDoesCulledFemales = default;
             Option<PostGoatRequestGoatsInnerClassesKids?> kids = default;
             Option<PostGoatRequestGoatsInnerClassesTradeKids?> tradeKids = default;
-            Option<PostGoatRequestGoatsInnerClassesTradeDoes?> tradeDoes = default;
 
             while (utf8JsonReader.Read())
             {
@@ -368,9 +350,6 @@ namespace Org.OpenAPITools.Model
                         case "tradeKids":
                             tradeKids = new Option<PostGoatRequestGoatsInnerClassesTradeKids?>(JsonSerializer.Deserialize<PostGoatRequestGoatsInnerClassesTradeKids>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "tradeDoes":
-                            tradeDoes = new Option<PostGoatRequestGoatsInnerClassesTradeDoes?>(JsonSerializer.Deserialize<PostGoatRequestGoatsInnerClassesTradeDoes>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
                         default:
                             break;
                     }
@@ -413,10 +392,7 @@ namespace Org.OpenAPITools.Model
             if (tradeKids.IsSet && tradeKids.Value == null)
                 throw new ArgumentNullException(nameof(tradeKids), "Property is not nullable for class PostGoatRequestGoatsInnerClasses.");
 
-            if (tradeDoes.IsSet && tradeDoes.Value == null)
-                throw new ArgumentNullException(nameof(tradeDoes), "Property is not nullable for class PostGoatRequestGoatsInnerClasses.");
-
-            return new PostGoatRequestGoatsInnerClasses(bucksBilly, tradeBucks, wethers, tradeWethers, maidenBreedingDoesNannies, tradeMaidenBreedingDoesNannies, breedingDoesNannies, tradeBreedingDoesNannies, otherDoesCulledFemales, tradeOtherDoesCulledFemales, kids, tradeKids, tradeDoes);
+            return new PostGoatRequestGoatsInnerClasses(bucksBilly, tradeBucks, wethers, tradeWethers, maidenBreedingDoesNannies, tradeMaidenBreedingDoesNannies, breedingDoesNannies, tradeBreedingDoesNannies, otherDoesCulledFemales, tradeOtherDoesCulledFemales, kids, tradeKids);
         }
 
         /// <summary>
@@ -479,9 +455,6 @@ namespace Org.OpenAPITools.Model
             if (postGoatRequestGoatsInnerClasses.TradeKidsOption.IsSet && postGoatRequestGoatsInnerClasses.TradeKids == null)
                 throw new ArgumentNullException(nameof(postGoatRequestGoatsInnerClasses.TradeKids), "Property is required for class PostGoatRequestGoatsInnerClasses.");
 
-            if (postGoatRequestGoatsInnerClasses.TradeDoesOption.IsSet && postGoatRequestGoatsInnerClasses.TradeDoes == null)
-                throw new ArgumentNullException(nameof(postGoatRequestGoatsInnerClasses.TradeDoes), "Property is required for class PostGoatRequestGoatsInnerClasses.");
-
             if (postGoatRequestGoatsInnerClasses.BucksBillyOption.IsSet)
             {
                 writer.WritePropertyName("bucksBilly");
@@ -541,11 +514,6 @@ namespace Org.OpenAPITools.Model
             {
                 writer.WritePropertyName("tradeKids");
                 JsonSerializer.Serialize(writer, postGoatRequestGoatsInnerClasses.TradeKids, jsonSerializerOptions);
-            }
-            if (postGoatRequestGoatsInnerClasses.TradeDoesOption.IsSet)
-            {
-                writer.WritePropertyName("tradeDoes");
-                JsonSerializer.Serialize(writer, postGoatRequestGoatsInnerClasses.TradeDoes, jsonSerializerOptions);
             }
         }
     }

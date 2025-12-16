@@ -332,6 +332,10 @@ class PostWildcatchfisheryRequestEnterprisesInnerBaitInner implements ModelInter
         if ($this->container['purchased_tonnes'] === null) {
             $invalidProperties[] = "'purchased_tonnes' can't be null";
         }
+        if (($this->container['purchased_tonnes'] < 0)) {
+            $invalidProperties[] = "invalid value for 'purchased_tonnes', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['additional_ingredients'] === null) {
             $invalidProperties[] = "'additional_ingredients' can't be null";
         }
@@ -346,6 +350,10 @@ class PostWildcatchfisheryRequestEnterprisesInnerBaitInner implements ModelInter
         if ($this->container['emissions_intensity'] === null) {
             $invalidProperties[] = "'emissions_intensity' can't be null";
         }
+        if (($this->container['emissions_intensity'] < 0)) {
+            $invalidProperties[] = "invalid value for 'emissions_intensity', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -420,6 +428,11 @@ class PostWildcatchfisheryRequestEnterprisesInnerBaitInner implements ModelInter
         if (is_null($purchased_tonnes)) {
             throw new \InvalidArgumentException('non-nullable purchased_tonnes cannot be null');
         }
+
+        if (($purchased_tonnes < 0)) {
+            throw new \InvalidArgumentException('invalid value for $purchased_tonnes when calling PostWildcatchfisheryRequestEnterprisesInnerBaitInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['purchased_tonnes'] = $purchased_tonnes;
 
         return $this;
@@ -482,6 +495,11 @@ class PostWildcatchfisheryRequestEnterprisesInnerBaitInner implements ModelInter
         if (is_null($emissions_intensity)) {
             throw new \InvalidArgumentException('non-nullable emissions_intensity cannot be null');
         }
+
+        if (($emissions_intensity < 0)) {
+            throw new \InvalidArgumentException('invalid value for $emissions_intensity when calling PostWildcatchfisheryRequestEnterprisesInnerBaitInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['emissions_intensity'] = $emissions_intensity;
 
         return $this;

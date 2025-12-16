@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class PostWildcatchfisheryRequest(BaseModel):
     """
-    Input data required for the `wildcatchfishery` calculator
+    Input data required for the WildCatchFishery calculator
     """ # noqa: E501
     enterprises: List[PostWildcatchfisheryRequestEnterprisesInner]
     additional_properties: Dict[str, Any] = {}

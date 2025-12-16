@@ -27,8 +27,8 @@ class PostPork200ResponseIntensities(BaseModel):
     """
     PostPork200ResponseIntensities
     """ # noqa: E501
-    pork_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Pork meat including carbon sequestration, in kg-CO2e/kg liveweight", alias="porkMeatIncludingSequestration")
-    pork_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Pork meat excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="porkMeatExcludingSequestration")
+    pork_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Pork meat emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight", alias="porkMeatIncludingSequestration")
+    pork_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Pork meat emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight", alias="porkMeatExcludingSequestration")
     liveweight_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Pork meat produced in kg liveweight", alias="liveweightProducedKg")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["porkMeatIncludingSequestration", "porkMeatExcludingSequestration", "liveweightProducedKg"]

@@ -28,9 +28,8 @@ class PostAquaculture200ResponseCarbonSequestration(BaseModel):
     Carbon sequestration, in tonnes-CO2e
     """ # noqa: E501
     total: Union[StrictFloat, StrictInt] = Field(description="Annual amount of carbon sequestered, in tonnes-CO2e")
-    intermediate: List[Union[StrictFloat, StrictInt]]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["total", "intermediate"]
+    __properties: ClassVar[List[str]] = ["total"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,8 +89,7 @@ class PostAquaculture200ResponseCarbonSequestration(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total": obj.get("total"),
-            "intermediate": obj.get("intermediate")
+            "total": obj.get("total")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

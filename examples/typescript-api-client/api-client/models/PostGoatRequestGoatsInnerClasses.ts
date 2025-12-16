@@ -20,6 +20,13 @@ import {
     PostGoatRequestGoatsInnerClassesWethersToJSON,
     PostGoatRequestGoatsInnerClassesWethersToJSONTyped,
 } from './PostGoatRequestGoatsInnerClassesWethers';
+import type { PostGoatRequestGoatsInnerClassesKids } from './PostGoatRequestGoatsInnerClassesKids';
+import {
+    PostGoatRequestGoatsInnerClassesKidsFromJSON,
+    PostGoatRequestGoatsInnerClassesKidsFromJSONTyped,
+    PostGoatRequestGoatsInnerClassesKidsToJSON,
+    PostGoatRequestGoatsInnerClassesKidsToJSONTyped,
+} from './PostGoatRequestGoatsInnerClassesKids';
 import type { PostGoatRequestGoatsInnerClassesTradeKids } from './PostGoatRequestGoatsInnerClassesTradeKids';
 import {
     PostGoatRequestGoatsInnerClassesTradeKidsFromJSON,
@@ -34,34 +41,6 @@ import {
     PostGoatRequestGoatsInnerClassesBreedingDoesNanniesToJSON,
     PostGoatRequestGoatsInnerClassesBreedingDoesNanniesToJSONTyped,
 } from './PostGoatRequestGoatsInnerClassesBreedingDoesNannies';
-import type { PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies } from './PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies';
-import {
-    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesFromJSON,
-    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesFromJSONTyped,
-    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesToJSON,
-    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesToJSONTyped,
-} from './PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies';
-import type { PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales } from './PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales';
-import {
-    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesFromJSON,
-    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesFromJSONTyped,
-    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesToJSON,
-    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesToJSONTyped,
-} from './PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales';
-import type { PostGoatRequestGoatsInnerClassesBucksBilly } from './PostGoatRequestGoatsInnerClassesBucksBilly';
-import {
-    PostGoatRequestGoatsInnerClassesBucksBillyFromJSON,
-    PostGoatRequestGoatsInnerClassesBucksBillyFromJSONTyped,
-    PostGoatRequestGoatsInnerClassesBucksBillyToJSON,
-    PostGoatRequestGoatsInnerClassesBucksBillyToJSONTyped,
-} from './PostGoatRequestGoatsInnerClassesBucksBilly';
-import type { PostGoatRequestGoatsInnerClassesKids } from './PostGoatRequestGoatsInnerClassesKids';
-import {
-    PostGoatRequestGoatsInnerClassesKidsFromJSON,
-    PostGoatRequestGoatsInnerClassesKidsFromJSONTyped,
-    PostGoatRequestGoatsInnerClassesKidsToJSON,
-    PostGoatRequestGoatsInnerClassesKidsToJSONTyped,
-} from './PostGoatRequestGoatsInnerClassesKids';
 import type { PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNannies } from './PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNannies';
 import {
     PostGoatRequestGoatsInnerClassesMaidenBreedingDoesNanniesFromJSON,
@@ -97,13 +76,27 @@ import {
     PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemalesToJSON,
     PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemalesToJSONTyped,
 } from './PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales';
-import type { PostGoatRequestGoatsInnerClassesTradeDoes } from './PostGoatRequestGoatsInnerClassesTradeDoes';
+import type { PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies } from './PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies';
 import {
-    PostGoatRequestGoatsInnerClassesTradeDoesFromJSON,
-    PostGoatRequestGoatsInnerClassesTradeDoesFromJSONTyped,
-    PostGoatRequestGoatsInnerClassesTradeDoesToJSON,
-    PostGoatRequestGoatsInnerClassesTradeDoesToJSONTyped,
-} from './PostGoatRequestGoatsInnerClassesTradeDoes';
+    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesFromJSON,
+    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesFromJSONTyped,
+    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesToJSON,
+    PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesToJSONTyped,
+} from './PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies';
+import type { PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales } from './PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales';
+import {
+    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesFromJSON,
+    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesFromJSONTyped,
+    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesToJSON,
+    PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesToJSONTyped,
+} from './PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales';
+import type { PostGoatRequestGoatsInnerClassesBucksBilly } from './PostGoatRequestGoatsInnerClassesBucksBilly';
+import {
+    PostGoatRequestGoatsInnerClassesBucksBillyFromJSON,
+    PostGoatRequestGoatsInnerClassesBucksBillyFromJSONTyped,
+    PostGoatRequestGoatsInnerClassesBucksBillyToJSON,
+    PostGoatRequestGoatsInnerClassesBucksBillyToJSONTyped,
+} from './PostGoatRequestGoatsInnerClassesBucksBilly';
 
 /**
  * Goat classes of different types
@@ -183,13 +176,6 @@ export interface PostGoatRequestGoatsInnerClasses {
      * @memberof PostGoatRequestGoatsInnerClasses
      */
     tradeKids?: PostGoatRequestGoatsInnerClassesTradeKids;
-    /**
-     * 
-     * @type {PostGoatRequestGoatsInnerClassesTradeDoes}
-     * @memberof PostGoatRequestGoatsInnerClasses
-     * @deprecated
-     */
-    tradeDoes?: PostGoatRequestGoatsInnerClassesTradeDoes;
 }
 
 /**
@@ -221,7 +207,6 @@ export function PostGoatRequestGoatsInnerClassesFromJSONTyped(json: any, ignoreD
         'tradeOtherDoesCulledFemales': json['tradeOtherDoesCulledFemales'] == null ? undefined : PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemalesFromJSON(json['tradeOtherDoesCulledFemales']),
         'kids': json['kids'] == null ? undefined : PostGoatRequestGoatsInnerClassesKidsFromJSON(json['kids']),
         'tradeKids': json['tradeKids'] == null ? undefined : PostGoatRequestGoatsInnerClassesTradeKidsFromJSON(json['tradeKids']),
-        'tradeDoes': json['tradeDoes'] == null ? undefined : PostGoatRequestGoatsInnerClassesTradeDoesFromJSON(json['tradeDoes']),
     };
 }
 
@@ -248,7 +233,6 @@ export function PostGoatRequestGoatsInnerClassesToJSONTyped(value?: PostGoatRequ
         'tradeOtherDoesCulledFemales': PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemalesToJSON(value['tradeOtherDoesCulledFemales']),
         'kids': PostGoatRequestGoatsInnerClassesKidsToJSON(value['kids']),
         'tradeKids': PostGoatRequestGoatsInnerClassesTradeKidsToJSON(value['tradeKids']),
-        'tradeDoes': PostGoatRequestGoatsInnerClassesTradeDoesToJSON(value['tradeDoes']),
     };
 }
 

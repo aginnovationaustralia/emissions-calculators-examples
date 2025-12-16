@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostPoultryRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;poultry&#x60; calculator
+ * @description Input data required for the Poultry calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

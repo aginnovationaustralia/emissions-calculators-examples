@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +29,8 @@ class PostBeefRequestBeefInnerFertiliserOtherFertilisersInner(BaseModel):
     Other fertiliser, of a specific type, used for different applications (such as dryland pasture)
     """ # noqa: E501
     other_type: StrictStr = Field(description="Other N fertiliser type", alias="otherType")
-    other_dryland: Union[StrictFloat, StrictInt] = Field(description="Other N fertiliser used for dryland. From v1.1.0, supply tonnes of product. For earlier versions, supply tonnes of N", alias="otherDryland")
-    other_irrigated: Union[StrictFloat, StrictInt] = Field(description="Other N fertiliser used for irrigated. From v1.1.0, supply tonnes of product. For earlier versions, supply tonnes of N", alias="otherIrrigated")
+    other_dryland: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Other N fertiliser used for dryland. From v1.1.0, supply tonnes of product. For earlier versions, supply tonnes of N", alias="otherDryland")
+    other_irrigated: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Other N fertiliser used for irrigated. From v1.1.0, supply tonnes of product. For earlier versions, supply tonnes of N", alias="otherIrrigated")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["otherType", "otherDryland", "otherIrrigated"]
 

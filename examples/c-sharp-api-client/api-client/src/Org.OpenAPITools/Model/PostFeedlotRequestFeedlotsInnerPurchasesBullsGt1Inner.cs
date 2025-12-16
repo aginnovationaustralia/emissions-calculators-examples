@@ -263,6 +263,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Head (decimal) minimum
+            if (this.Head < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Head, must be a value greater than or equal to 0.", new [] { "Head" });
+            }
+
+            // PurchaseWeight (decimal) minimum
+            if (this.PurchaseWeight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PurchaseWeight, must be a value greater than or equal to 0.", new [] { "PurchaseWeight" });
+            }
+
             yield break;
         }
     }

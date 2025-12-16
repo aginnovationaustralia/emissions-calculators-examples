@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostHorticultureRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;horticulture&#x60; calculator
+ * @description Input data required for a single Horticulture enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,11 +59,12 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'state' => 'string',
         'crops' => '\OpenAPI\Client\Model\PostHorticultureRequestCropsInner[]',
         'electricity_renewable' => 'float',
         'electricity_use' => 'float',
-        'vegetation' => '\OpenAPI\Client\Model\PostCottonRequestVegetationInner[]'
+        'vegetation' => '\OpenAPI\Client\Model\PostHorticultureRequestVegetationInner[]'
     ];
 
     /**
@@ -74,6 +75,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'state' => null,
         'crops' => null,
         'electricity_renewable' => null,
@@ -87,6 +89,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
         'state' => false,
         'crops' => false,
         'electricity_renewable' => false,
@@ -180,6 +183,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'state' => 'state',
         'crops' => 'crops',
         'electricity_renewable' => 'electricityRenewable',
@@ -193,6 +197,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'state' => 'setState',
         'crops' => 'setCrops',
         'electricity_renewable' => 'setElectricityRenewable',
@@ -206,6 +211,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'state' => 'getState',
         'crops' => 'getCrops',
         'electricity_renewable' => 'getElectricityRenewable',
@@ -299,6 +305,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('crops', $data ?? [], null);
         $this->setIfExists('electricity_renewable', $data ?? [], null);
@@ -362,6 +369,10 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['vegetation'] === null) {
             $invalidProperties[] = "'vegetation' can't be null";
         }
@@ -379,6 +390,33 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier for this Horticulture activity
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets state
@@ -501,6 +539,11 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostHorticultureRequest., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -509,7 +552,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets vegetation
      *
-     * @return \OpenAPI\Client\Model\PostCottonRequestVegetationInner[]
+     * @return \OpenAPI\Client\Model\PostHorticultureRequestVegetationInner[]
      */
     public function getVegetation()
     {
@@ -519,7 +562,7 @@ class PostHorticultureRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets vegetation
      *
-     * @param \OpenAPI\Client\Model\PostCottonRequestVegetationInner[] $vegetation vegetation
+     * @param \OpenAPI\Client\Model\PostHorticultureRequestVegetationInner[] $vegetation vegetation
      *
      * @return self
      */

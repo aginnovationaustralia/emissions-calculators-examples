@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostVineyardRequestVineyardsInner Class Doc Comment
  *
  * @category Class
+ * @description Input data required for a single Vineyard enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -508,39 +509,91 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if ($this->container['area_planted'] === null) {
             $invalidProperties[] = "'area_planted' can't be null";
         }
+        if (($this->container['area_planted'] < 0)) {
+            $invalidProperties[] = "invalid value for 'area_planted', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['average_yield'] === null) {
             $invalidProperties[] = "'average_yield' can't be null";
         }
+        if (($this->container['average_yield'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_yield', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['non_urea_nitrogen'] === null) {
             $invalidProperties[] = "'non_urea_nitrogen' can't be null";
         }
+        if (($this->container['non_urea_nitrogen'] < 0)) {
+            $invalidProperties[] = "invalid value for 'non_urea_nitrogen', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['phosphorus_application'] === null) {
             $invalidProperties[] = "'phosphorus_application' can't be null";
         }
+        if (($this->container['phosphorus_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'phosphorus_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['potassium_application'] === null) {
             $invalidProperties[] = "'potassium_application' can't be null";
         }
+        if (($this->container['potassium_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'potassium_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sulfur_application'] === null) {
             $invalidProperties[] = "'sulfur_application' can't be null";
         }
+        if (($this->container['sulfur_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sulfur_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_application'] === null) {
             $invalidProperties[] = "'urea_application' can't be null";
         }
+        if (($this->container['urea_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_ammonium_nitrate'] === null) {
             $invalidProperties[] = "'urea_ammonium_nitrate' can't be null";
         }
+        if (($this->container['urea_ammonium_nitrate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_ammonium_nitrate', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone'] === null) {
             $invalidProperties[] = "'limestone' can't be null";
         }
+        if (($this->container['limestone'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone_fraction'] === null) {
             $invalidProperties[] = "'limestone_fraction' can't be null";
         }
+        if (($this->container['limestone_fraction'] > 1)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['limestone_fraction'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['herbicide_use'] === null) {
             $invalidProperties[] = "'herbicide_use' can't be null";
         }
+        if (($this->container['herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['glyphosate_other_herbicide_use'] === null) {
             $invalidProperties[] = "'glyphosate_other_herbicide_use' can't be null";
         }
+        if (($this->container['glyphosate_other_herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'glyphosate_other_herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_renewable'] === null) {
             $invalidProperties[] = "'electricity_renewable' can't be null";
         }
@@ -613,7 +666,7 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this Vineyard activity
      *
      * @return self
      */
@@ -740,6 +793,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($area_planted)) {
             throw new \InvalidArgumentException('non-nullable area_planted cannot be null');
         }
+
+        if (($area_planted < 0)) {
+            throw new \InvalidArgumentException('invalid value for $area_planted when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['area_planted'] = $area_planted;
 
         return $this;
@@ -767,6 +825,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($average_yield)) {
             throw new \InvalidArgumentException('non-nullable average_yield cannot be null');
         }
+
+        if (($average_yield < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_yield when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_yield'] = $average_yield;
 
         return $this;
@@ -794,6 +857,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($non_urea_nitrogen)) {
             throw new \InvalidArgumentException('non-nullable non_urea_nitrogen cannot be null');
         }
+
+        if (($non_urea_nitrogen < 0)) {
+            throw new \InvalidArgumentException('invalid value for $non_urea_nitrogen when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['non_urea_nitrogen'] = $non_urea_nitrogen;
 
         return $this;
@@ -821,6 +889,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($phosphorus_application)) {
             throw new \InvalidArgumentException('non-nullable phosphorus_application cannot be null');
         }
+
+        if (($phosphorus_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $phosphorus_application when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['phosphorus_application'] = $phosphorus_application;
 
         return $this;
@@ -848,6 +921,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($potassium_application)) {
             throw new \InvalidArgumentException('non-nullable potassium_application cannot be null');
         }
+
+        if (($potassium_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $potassium_application when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['potassium_application'] = $potassium_application;
 
         return $this;
@@ -875,6 +953,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($sulfur_application)) {
             throw new \InvalidArgumentException('non-nullable sulfur_application cannot be null');
         }
+
+        if (($sulfur_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sulfur_application when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['sulfur_application'] = $sulfur_application;
 
         return $this;
@@ -902,6 +985,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($urea_application)) {
             throw new \InvalidArgumentException('non-nullable urea_application cannot be null');
         }
+
+        if (($urea_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_application when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_application'] = $urea_application;
 
         return $this;
@@ -929,6 +1017,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($urea_ammonium_nitrate)) {
             throw new \InvalidArgumentException('non-nullable urea_ammonium_nitrate cannot be null');
         }
+
+        if (($urea_ammonium_nitrate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_ammonium_nitrate when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_ammonium_nitrate'] = $urea_ammonium_nitrate;
 
         return $this;
@@ -956,6 +1049,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($limestone)) {
             throw new \InvalidArgumentException('non-nullable limestone cannot be null');
         }
+
+        if (($limestone < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone'] = $limestone;
 
         return $this;
@@ -983,6 +1081,14 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($limestone_fraction)) {
             throw new \InvalidArgumentException('non-nullable limestone_fraction cannot be null');
         }
+
+        if (($limestone_fraction > 1)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostVineyardRequestVineyardsInner., must be smaller than or equal to 1.');
+        }
+        if (($limestone_fraction < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone_fraction'] = $limestone_fraction;
 
         return $this;
@@ -1010,6 +1116,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable herbicide_use cannot be null');
         }
+
+        if (($herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide_use when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide_use'] = $herbicide_use;
 
         return $this;
@@ -1037,6 +1148,11 @@ class PostVineyardRequestVineyardsInner implements ModelInterface, ArrayAccess, 
         if (is_null($glyphosate_other_herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable glyphosate_other_herbicide_use cannot be null');
         }
+
+        if (($glyphosate_other_herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $glyphosate_other_herbicide_use when calling PostVineyardRequestVineyardsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['glyphosate_other_herbicide_use'] = $glyphosate_other_herbicide_use;
 
         return $this;

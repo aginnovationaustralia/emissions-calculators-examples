@@ -28,12 +28,12 @@ class PostSheepRequestSheepInnerEwesLambing(BaseModel):
     """
     The proportion of ewes lambing in each season, as a value from 0 to 1
     """ # noqa: E501
-    autumn: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
-    winter: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     spring: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     summer: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
+    autumn: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
+    winter: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer"]
+    __properties: ClassVar[List[str]] = ["spring", "summer", "autumn", "winter"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,10 +93,10 @@ class PostSheepRequestSheepInnerEwesLambing(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "autumn": obj.get("autumn"),
-            "winter": obj.get("winter"),
             "spring": obj.get("spring"),
-            "summer": obj.get("summer")
+            "summer": obj.get("summer"),
+            "autumn": obj.get("autumn"),
+            "winter": obj.get("winter")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

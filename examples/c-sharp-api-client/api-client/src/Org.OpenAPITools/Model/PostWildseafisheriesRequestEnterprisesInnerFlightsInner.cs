@@ -88,6 +88,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CommercialFlightPassengers (decimal) minimum
+            if (this.CommercialFlightPassengers < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CommercialFlightPassengers, must be a value greater than or equal to 0.", new [] { "CommercialFlightPassengers" });
+            }
+
+            // TotalFlightDistance (decimal) minimum
+            if (this.TotalFlightDistance < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalFlightDistance, must be a value greater than or equal to 0.", new [] { "TotalFlightDistance" });
+            }
+
             yield break;
         }
     }

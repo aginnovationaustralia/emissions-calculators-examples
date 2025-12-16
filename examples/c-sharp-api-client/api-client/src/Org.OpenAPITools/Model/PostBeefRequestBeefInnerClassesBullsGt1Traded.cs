@@ -40,12 +40,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="summer">summer</param>
         /// <param name="headSold">Number of animals sold (head)</param>
         /// <param name="saleWeight">Weight at sale, in liveweight kg/head (kilogram per head)</param>
-        /// <param name="headPurchased">Number of animals purchased (head). Deprecation note: Use &#x60;purchases&#x60; instead</param>
-        /// <param name="purchasedWeight">Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Use &#x60;purchases&#x60; instead</param>
-        /// <param name="source">Source location of livestock purchase. Deprecation note: Use &#x60;purchases&#x60; instead</param>
         /// <param name="purchases">purchases</param>
         [JsonConstructor]
-        public PostBeefRequestBeefInnerClassesBullsGt1Traded(PostBeefRequestBeefInnerClassesBullsGt1Autumn autumn, PostBeefRequestBeefInnerClassesBullsGt1Autumn winter, PostBeefRequestBeefInnerClassesBullsGt1Autumn spring, PostBeefRequestBeefInnerClassesBullsGt1Autumn summer, decimal headSold, decimal saleWeight, Option<decimal?> headPurchased = default, Option<decimal?> purchasedWeight = default, Option<SourceEnum?> source = default, Option<List<PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner>?> purchases = default)
+        public PostBeefRequestBeefInnerClassesBullsGt1Traded(PostBeefRequestBeefInnerClassesBullsGt1Autumn autumn, PostBeefRequestBeefInnerClassesBullsGt1Autumn winter, PostBeefRequestBeefInnerClassesBullsGt1Autumn spring, PostBeefRequestBeefInnerClassesBullsGt1Autumn summer, decimal headSold, decimal saleWeight, Option<List<PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner>?> purchases = default)
         {
             Autumn = autumn;
             Winter = winter;
@@ -53,180 +50,11 @@ namespace Org.OpenAPITools.Model
             Summer = summer;
             HeadSold = headSold;
             SaleWeight = saleWeight;
-            HeadPurchasedOption = headPurchased;
-            PurchasedWeightOption = purchasedWeight;
-            SourceOption = source;
             PurchasesOption = purchases;
             OnCreated();
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Source location of livestock purchase. Deprecation note: Use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Source location of livestock purchase. Deprecation note: Use &#x60;purchases&#x60; instead</value>
-        public enum SourceEnum
-        {
-            /// <summary>
-            /// Enum DairyOrigin for value: Dairy origin
-            /// </summary>
-            DairyOrigin = 1,
-
-            /// <summary>
-            /// Enum NthSthCentralQLD for value: nth/sth/central QLD
-            /// </summary>
-            NthSthCentralQLD = 2,
-
-            /// <summary>
-            /// Enum NthSthNSWVICSthSA for value: nth/sth NSW/VIC/sth SA
-            /// </summary>
-            NthSthNSWVICSthSA = 3,
-
-            /// <summary>
-            /// Enum NSWSAPastoralZone for value: NSW/SA pastoral zone
-            /// </summary>
-            NSWSAPastoralZone = 4,
-
-            /// <summary>
-            /// Enum SwWA for value: sw WA
-            /// </summary>
-            SwWA = 5,
-
-            /// <summary>
-            /// Enum WAPastoral for value: WA pastoral
-            /// </summary>
-            WAPastoral = 6,
-
-            /// <summary>
-            /// Enum TAS for value: TAS
-            /// </summary>
-            TAS = 7,
-
-            /// <summary>
-            /// Enum NT for value: NT
-            /// </summary>
-            NT = 8
-        }
-
-        /// <summary>
-        /// Returns a <see cref="SourceEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static SourceEnum SourceEnumFromString(string value)
-        {
-            if (value.Equals("Dairy origin"))
-                return SourceEnum.DairyOrigin;
-
-            if (value.Equals("nth/sth/central QLD"))
-                return SourceEnum.NthSthCentralQLD;
-
-            if (value.Equals("nth/sth NSW/VIC/sth SA"))
-                return SourceEnum.NthSthNSWVICSthSA;
-
-            if (value.Equals("NSW/SA pastoral zone"))
-                return SourceEnum.NSWSAPastoralZone;
-
-            if (value.Equals("sw WA"))
-                return SourceEnum.SwWA;
-
-            if (value.Equals("WA pastoral"))
-                return SourceEnum.WAPastoral;
-
-            if (value.Equals("TAS"))
-                return SourceEnum.TAS;
-
-            if (value.Equals("NT"))
-                return SourceEnum.NT;
-
-            throw new NotImplementedException($"Could not convert value to type SourceEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="SourceEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static SourceEnum? SourceEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Dairy origin"))
-                return SourceEnum.DairyOrigin;
-
-            if (value.Equals("nth/sth/central QLD"))
-                return SourceEnum.NthSthCentralQLD;
-
-            if (value.Equals("nth/sth NSW/VIC/sth SA"))
-                return SourceEnum.NthSthNSWVICSthSA;
-
-            if (value.Equals("NSW/SA pastoral zone"))
-                return SourceEnum.NSWSAPastoralZone;
-
-            if (value.Equals("sw WA"))
-                return SourceEnum.SwWA;
-
-            if (value.Equals("WA pastoral"))
-                return SourceEnum.WAPastoral;
-
-            if (value.Equals("TAS"))
-                return SourceEnum.TAS;
-
-            if (value.Equals("NT"))
-                return SourceEnum.NT;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="SourceEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string SourceEnumToJsonValue(SourceEnum? value)
-        {
-            if (value == SourceEnum.DairyOrigin)
-                return "Dairy origin";
-
-            if (value == SourceEnum.NthSthCentralQLD)
-                return "nth/sth/central QLD";
-
-            if (value == SourceEnum.NthSthNSWVICSthSA)
-                return "nth/sth NSW/VIC/sth SA";
-
-            if (value == SourceEnum.NSWSAPastoralZone)
-                return "NSW/SA pastoral zone";
-
-            if (value == SourceEnum.SwWA)
-                return "sw WA";
-
-            if (value == SourceEnum.WAPastoral)
-                return "WA pastoral";
-
-            if (value == SourceEnum.TAS)
-                return "TAS";
-
-            if (value == SourceEnum.NT)
-                return "NT";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Used to track the state of Source
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<SourceEnum?> SourceOption { get; private set; }
-
-        /// <summary>
-        /// Source location of livestock purchase. Deprecation note: Use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Source location of livestock purchase. Deprecation note: Use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("source")]
-        [Obsolete]
-        public SourceEnum? Source { get { return this.SourceOption; } set { this.SourceOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets Autumn
@@ -267,36 +95,6 @@ namespace Org.OpenAPITools.Model
         public decimal SaleWeight { get; set; }
 
         /// <summary>
-        /// Used to track the state of HeadPurchased
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> HeadPurchasedOption { get; private set; }
-
-        /// <summary>
-        /// Number of animals purchased (head). Deprecation note: Use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Number of animals purchased (head). Deprecation note: Use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("headPurchased")]
-        [Obsolete]
-        public decimal? HeadPurchased { get { return this.HeadPurchasedOption; } set { this.HeadPurchasedOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of PurchasedWeight
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> PurchasedWeightOption { get; private set; }
-
-        /// <summary>
-        /// Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("purchasedWeight")]
-        [Obsolete]
-        public decimal? PurchasedWeight { get { return this.PurchasedWeightOption; } set { this.PurchasedWeightOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of Purchases
         /// </summary>
         [JsonIgnore]
@@ -329,9 +127,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Summer: ").Append(Summer).Append("\n");
             sb.Append("  HeadSold: ").Append(HeadSold).Append("\n");
             sb.Append("  SaleWeight: ").Append(SaleWeight).Append("\n");
-            sb.Append("  HeadPurchased: ").Append(HeadPurchased).Append("\n");
-            sb.Append("  PurchasedWeight: ").Append(PurchasedWeight).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Purchases: ").Append(Purchases).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -345,6 +140,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // HeadSold (decimal) minimum
+            if (this.HeadSold < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HeadSold, must be a value greater than or equal to 0.", new [] { "HeadSold" });
+            }
+
+            // SaleWeight (decimal) minimum
+            if (this.SaleWeight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SaleWeight, must be a value greater than or equal to 0.", new [] { "SaleWeight" });
+            }
+
             yield break;
         }
     }
@@ -377,9 +184,6 @@ namespace Org.OpenAPITools.Model
             Option<PostBeefRequestBeefInnerClassesBullsGt1Autumn?> summer = default;
             Option<decimal?> headSold = default;
             Option<decimal?> saleWeight = default;
-            Option<decimal?> headPurchased = default;
-            Option<decimal?> purchasedWeight = default;
-            Option<PostBeefRequestBeefInnerClassesBullsGt1Traded.SourceEnum?> source = default;
             Option<List<PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner>?> purchases = default;
 
             while (utf8JsonReader.Read())
@@ -414,17 +218,6 @@ namespace Org.OpenAPITools.Model
                             break;
                         case "saleWeight":
                             saleWeight = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "headPurchased":
-                            headPurchased = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "purchasedWeight":
-                            purchasedWeight = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "source":
-                            string? sourceRawValue = utf8JsonReader.GetString();
-                            if (sourceRawValue != null)
-                                source = new Option<PostBeefRequestBeefInnerClassesBullsGt1Traded.SourceEnum?>(PostBeefRequestBeefInnerClassesBullsGt1Traded.SourceEnumFromStringOrDefault(sourceRawValue));
                             break;
                         case "purchases":
                             purchases = new Option<List<PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner>?>(JsonSerializer.Deserialize<List<PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -471,19 +264,10 @@ namespace Org.OpenAPITools.Model
             if (saleWeight.IsSet && saleWeight.Value == null)
                 throw new ArgumentNullException(nameof(saleWeight), "Property is not nullable for class PostBeefRequestBeefInnerClassesBullsGt1Traded.");
 
-            if (headPurchased.IsSet && headPurchased.Value == null)
-                throw new ArgumentNullException(nameof(headPurchased), "Property is not nullable for class PostBeefRequestBeefInnerClassesBullsGt1Traded.");
-
-            if (purchasedWeight.IsSet && purchasedWeight.Value == null)
-                throw new ArgumentNullException(nameof(purchasedWeight), "Property is not nullable for class PostBeefRequestBeefInnerClassesBullsGt1Traded.");
-
-            if (source.IsSet && source.Value == null)
-                throw new ArgumentNullException(nameof(source), "Property is not nullable for class PostBeefRequestBeefInnerClassesBullsGt1Traded.");
-
             if (purchases.IsSet && purchases.Value == null)
                 throw new ArgumentNullException(nameof(purchases), "Property is not nullable for class PostBeefRequestBeefInnerClassesBullsGt1Traded.");
 
-            return new PostBeefRequestBeefInnerClassesBullsGt1Traded(autumn.Value!, winter.Value!, spring.Value!, summer.Value!, headSold.Value!.Value!, saleWeight.Value!.Value!, headPurchased, purchasedWeight, source, purchases);
+            return new PostBeefRequestBeefInnerClassesBullsGt1Traded(autumn.Value!, winter.Value!, spring.Value!, summer.Value!, headSold.Value!.Value!, saleWeight.Value!.Value!, purchases);
         }
 
         /// <summary>
@@ -537,14 +321,6 @@ namespace Org.OpenAPITools.Model
 
             writer.WriteNumber("saleWeight", postBeefRequestBeefInnerClassesBullsGt1Traded.SaleWeight);
 
-            if (postBeefRequestBeefInnerClassesBullsGt1Traded.HeadPurchasedOption.IsSet)
-                writer.WriteNumber("headPurchased", postBeefRequestBeefInnerClassesBullsGt1Traded.HeadPurchasedOption.Value!.Value);
-
-            if (postBeefRequestBeefInnerClassesBullsGt1Traded.PurchasedWeightOption.IsSet)
-                writer.WriteNumber("purchasedWeight", postBeefRequestBeefInnerClassesBullsGt1Traded.PurchasedWeightOption.Value!.Value);
-
-            var sourceRawValue = PostBeefRequestBeefInnerClassesBullsGt1Traded.SourceEnumToJsonValue(postBeefRequestBeefInnerClassesBullsGt1Traded.SourceOption.Value!.Value);
-            writer.WriteString("source", sourceRawValue);
             if (postBeefRequestBeefInnerClassesBullsGt1Traded.PurchasesOption.IsSet)
             {
                 writer.WritePropertyName("purchases");

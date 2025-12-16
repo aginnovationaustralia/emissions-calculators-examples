@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostDairyRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;dairy&#x60; calculator
+ * @description Input data required for a single Dairy enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,6 +59,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'state' => 'string',
         'rainfall_above600' => 'bool',
         'production_system' => 'string',
@@ -74,6 +75,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'state' => null,
         'rainfall_above600' => null,
         'production_system' => null,
@@ -87,6 +89,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
         'state' => false,
         'rainfall_above600' => false,
         'production_system' => false,
@@ -180,6 +183,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'state' => 'state',
         'rainfall_above600' => 'rainfallAbove600',
         'production_system' => 'productionSystem',
@@ -193,6 +197,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'state' => 'setState',
         'rainfall_above600' => 'setRainfallAbove600',
         'production_system' => 'setProductionSystem',
@@ -206,6 +211,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'state' => 'getState',
         'rainfall_above600' => 'getRainfallAbove600',
         'production_system' => 'getProductionSystem',
@@ -318,6 +324,7 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('rainfall_above600', $data ?? [], null);
         $this->setIfExists('production_system', $data ?? [], null);
@@ -399,6 +406,33 @@ class PostDairyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id Unique identifier for this Dairy activity
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets state

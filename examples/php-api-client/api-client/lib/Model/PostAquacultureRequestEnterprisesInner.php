@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostAquacultureRequestEnterprisesInner Class Doc Comment
  *
  * @category Class
- * @description Input data required for a single aquaculture enterprise
+ * @description Input data required for a single Aquaculture enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -490,6 +490,10 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if ($this->container['total_harvest_kg'] === null) {
             $invalidProperties[] = "'total_harvest_kg' can't be null";
         }
+        if (($this->container['total_harvest_kg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_harvest_kg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['refrigerants'] === null) {
             $invalidProperties[] = "'refrigerants' can't be null";
         }
@@ -508,6 +512,10 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if ($this->container['total_commercial_flights_km'] === null) {
             $invalidProperties[] = "'total_commercial_flights_km' can't be null";
         }
+        if (($this->container['total_commercial_flights_km'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_commercial_flights_km', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_renewable'] === null) {
             $invalidProperties[] = "'electricity_renewable' can't be null";
         }
@@ -522,6 +530,10 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_source'] === null) {
             $invalidProperties[] = "'electricity_source' can't be null";
         }
@@ -543,6 +555,10 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if ($this->container['solid_waste'] === null) {
             $invalidProperties[] = "'solid_waste' can't be null";
         }
+        if (!is_null($this->container['carbon_offsets']) && ($this->container['carbon_offsets'] < 0)) {
+            $invalidProperties[] = "invalid value for 'carbon_offsets', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -571,7 +587,7 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this Aquaculture activity
      *
      * @return self
      */
@@ -681,6 +697,11 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if (is_null($total_harvest_kg)) {
             throw new \InvalidArgumentException('non-nullable total_harvest_kg cannot be null');
         }
+
+        if (($total_harvest_kg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_harvest_kg when calling PostAquacultureRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['total_harvest_kg'] = $total_harvest_kg;
 
         return $this;
@@ -843,6 +864,11 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if (is_null($total_commercial_flights_km)) {
             throw new \InvalidArgumentException('non-nullable total_commercial_flights_km cannot be null');
         }
+
+        if (($total_commercial_flights_km < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_commercial_flights_km when calling PostAquacultureRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['total_commercial_flights_km'] = $total_commercial_flights_km;
 
         return $this;
@@ -905,6 +931,11 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostAquacultureRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -1050,6 +1081,11 @@ class PostAquacultureRequestEnterprisesInner implements ModelInterface, ArrayAcc
         if (is_null($carbon_offsets)) {
             throw new \InvalidArgumentException('non-nullable carbon_offsets cannot be null');
         }
+
+        if (($carbon_offsets < 0)) {
+            throw new \InvalidArgumentException('invalid value for $carbon_offsets when calling PostAquacultureRequestEnterprisesInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['carbon_offsets'] = $carbon_offsets;
 
         return $this;

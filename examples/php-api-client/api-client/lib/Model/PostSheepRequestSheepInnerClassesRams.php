@@ -65,8 +65,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         'head_shorn' => 'float',
         'wool_shorn' => 'float',
         'clean_wool_yield' => 'float',
-        'head_purchased' => 'float',
-        'purchased_weight' => 'float',
         'head_sold' => 'float',
         'sale_weight' => 'float',
         'purchases' => '\OpenAPI\Client\Model\PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner[]'
@@ -87,8 +85,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         'head_shorn' => null,
         'wool_shorn' => null,
         'clean_wool_yield' => null,
-        'head_purchased' => null,
-        'purchased_weight' => null,
         'head_sold' => null,
         'sale_weight' => null,
         'purchases' => null
@@ -107,8 +103,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         'head_shorn' => false,
         'wool_shorn' => false,
         'clean_wool_yield' => false,
-        'head_purchased' => false,
-        'purchased_weight' => false,
         'head_sold' => false,
         'sale_weight' => false,
         'purchases' => false
@@ -207,8 +201,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         'head_shorn' => 'headShorn',
         'wool_shorn' => 'woolShorn',
         'clean_wool_yield' => 'cleanWoolYield',
-        'head_purchased' => 'headPurchased',
-        'purchased_weight' => 'purchasedWeight',
         'head_sold' => 'headSold',
         'sale_weight' => 'saleWeight',
         'purchases' => 'purchases'
@@ -227,8 +219,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         'head_shorn' => 'setHeadShorn',
         'wool_shorn' => 'setWoolShorn',
         'clean_wool_yield' => 'setCleanWoolYield',
-        'head_purchased' => 'setHeadPurchased',
-        'purchased_weight' => 'setPurchasedWeight',
         'head_sold' => 'setHeadSold',
         'sale_weight' => 'setSaleWeight',
         'purchases' => 'setPurchases'
@@ -247,8 +237,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         'head_shorn' => 'getHeadShorn',
         'wool_shorn' => 'getWoolShorn',
         'clean_wool_yield' => 'getCleanWoolYield',
-        'head_purchased' => 'getHeadPurchased',
-        'purchased_weight' => 'getPurchasedWeight',
         'head_sold' => 'getHeadSold',
         'sale_weight' => 'getSaleWeight',
         'purchases' => 'getPurchases'
@@ -318,8 +306,6 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         $this->setIfExists('head_shorn', $data ?? [], null);
         $this->setIfExists('wool_shorn', $data ?? [], null);
         $this->setIfExists('clean_wool_yield', $data ?? [], null);
-        $this->setIfExists('head_purchased', $data ?? [], null);
-        $this->setIfExists('purchased_weight', $data ?? [], null);
         $this->setIfExists('head_sold', $data ?? [], null);
         $this->setIfExists('sale_weight', $data ?? [], null);
         $this->setIfExists('purchases', $data ?? [], null);
@@ -367,18 +353,42 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         if ($this->container['head_shorn'] === null) {
             $invalidProperties[] = "'head_shorn' can't be null";
         }
+        if (($this->container['head_shorn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_shorn', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['wool_shorn'] === null) {
             $invalidProperties[] = "'wool_shorn' can't be null";
         }
+        if (($this->container['wool_shorn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'wool_shorn', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['clean_wool_yield'] === null) {
             $invalidProperties[] = "'clean_wool_yield' can't be null";
         }
+        if (($this->container['clean_wool_yield'] > 100)) {
+            $invalidProperties[] = "invalid value for 'clean_wool_yield', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['clean_wool_yield'] < 0)) {
+            $invalidProperties[] = "invalid value for 'clean_wool_yield', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['head_sold'] === null) {
             $invalidProperties[] = "'head_sold' can't be null";
         }
+        if (($this->container['head_sold'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_sold', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sale_weight'] === null) {
             $invalidProperties[] = "'sale_weight' can't be null";
         }
+        if (($this->container['sale_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sale_weight', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -524,6 +534,11 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         if (is_null($head_shorn)) {
             throw new \InvalidArgumentException('non-nullable head_shorn cannot be null');
         }
+
+        if (($head_shorn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_shorn when calling PostSheepRequestSheepInnerClassesRams., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_shorn'] = $head_shorn;
 
         return $this;
@@ -551,6 +566,11 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         if (is_null($wool_shorn)) {
             throw new \InvalidArgumentException('non-nullable wool_shorn cannot be null');
         }
+
+        if (($wool_shorn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $wool_shorn when calling PostSheepRequestSheepInnerClassesRams., must be bigger than or equal to 0.');
+        }
+
         $this->container['wool_shorn'] = $wool_shorn;
 
         return $this;
@@ -578,65 +598,15 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         if (is_null($clean_wool_yield)) {
             throw new \InvalidArgumentException('non-nullable clean_wool_yield cannot be null');
         }
+
+        if (($clean_wool_yield > 100)) {
+            throw new \InvalidArgumentException('invalid value for $clean_wool_yield when calling PostSheepRequestSheepInnerClassesRams., must be smaller than or equal to 100.');
+        }
+        if (($clean_wool_yield < 0)) {
+            throw new \InvalidArgumentException('invalid value for $clean_wool_yield when calling PostSheepRequestSheepInnerClassesRams., must be bigger than or equal to 0.');
+        }
+
         $this->container['clean_wool_yield'] = $clean_wool_yield;
-
-        return $this;
-    }
-
-    /**
-     * Gets head_purchased
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getHeadPurchased()
-    {
-        return $this->container['head_purchased'];
-    }
-
-    /**
-     * Sets head_purchased
-     *
-     * @param float|null $head_purchased Number of animals purchased (head). Deprecation note: Please use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setHeadPurchased($head_purchased)
-    {
-        if (is_null($head_purchased)) {
-            throw new \InvalidArgumentException('non-nullable head_purchased cannot be null');
-        }
-        $this->container['head_purchased'] = $head_purchased;
-
-        return $this;
-    }
-
-    /**
-     * Gets purchased_weight
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getPurchasedWeight()
-    {
-        return $this->container['purchased_weight'];
-    }
-
-    /**
-     * Sets purchased_weight
-     *
-     * @param float|null $purchased_weight Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setPurchasedWeight($purchased_weight)
-    {
-        if (is_null($purchased_weight)) {
-            throw new \InvalidArgumentException('non-nullable purchased_weight cannot be null');
-        }
-        $this->container['purchased_weight'] = $purchased_weight;
 
         return $this;
     }
@@ -663,6 +633,11 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         if (is_null($head_sold)) {
             throw new \InvalidArgumentException('non-nullable head_sold cannot be null');
         }
+
+        if (($head_sold < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_sold when calling PostSheepRequestSheepInnerClassesRams., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_sold'] = $head_sold;
 
         return $this;
@@ -690,6 +665,11 @@ class PostSheepRequestSheepInnerClassesRams implements ModelInterface, ArrayAcce
         if (is_null($sale_weight)) {
             throw new \InvalidArgumentException('non-nullable sale_weight cannot be null');
         }
+
+        if (($sale_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sale_weight when calling PostSheepRequestSheepInnerClassesRams., must be bigger than or equal to 0.');
+        }
+
         $this->container['sale_weight'] = $sale_weight;
 
         return $this;

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.post_goat_request_goats_inner import PostGoatRequestGoatsInner
 from openapi_client.models.post_goat_request_vegetation_inner import PostGoatRequestVegetationInner
 from typing import Optional, Set
@@ -27,14 +27,15 @@ from typing_extensions import Self
 
 class PostGoatRequest(BaseModel):
     """
-    Input data required for the `goat` calculator
+    Input data required for a single Goat enterprise
     """ # noqa: E501
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Goat activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     rainfall_above600: StrictBool = Field(description="Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm", alias="rainfallAbove600")
     goats: List[PostGoatRequestGoatsInner]
     vegetation: List[PostGoatRequestVegetationInner]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["state", "rainfallAbove600", "goats", "vegetation"]
+    __properties: ClassVar[List[str]] = ["id", "state", "rainfallAbove600", "goats", "vegetation"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
@@ -115,6 +116,7 @@ class PostGoatRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "state": obj.get("state"),
             "rainfallAbove600": obj.get("rainfallAbove600"),
             "goats": [PostGoatRequestGoatsInner.from_dict(_item) for _item in obj["goats"]] if obj.get("goats") is not None else None,

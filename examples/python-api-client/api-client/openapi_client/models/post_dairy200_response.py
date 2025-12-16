@@ -32,7 +32,7 @@ from typing_extensions import Self
 
 class PostDairy200Response(BaseModel):
     """
-    Emissions calculation output for the `dairy` calculator
+    Emissions calculation output for the Dairy calculator
     """ # noqa: E501
     scope1: PostDairy200ResponseScope1
     scope2: PostAquaculture200ResponseScope2

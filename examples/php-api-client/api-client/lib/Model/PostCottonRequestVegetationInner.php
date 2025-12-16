@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostCottonRequestVegetationInner Class Doc Comment
  *
  * @category Class
+ * @description Non-productive vegetation inputs along with allocations to each Cotton activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -343,7 +344,7 @@ class PostCottonRequestVegetationInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets allocation_to_crops
      *
-     * @param float[] $allocation_to_crops allocation_to_crops
+     * @param float[] $allocation_to_crops The proportion of the sequestration that is allocated to each crop activity
      *
      * @return self
      */

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class PostHorticultureRequestCropsInnerRefrigerantsInner(BaseModel):
     PostHorticultureRequestCropsInnerRefrigerantsInner
     """ # noqa: E501
     refrigerant: StrictStr = Field(description="Refrigerant type")
-    charge_size: Union[StrictFloat, StrictInt] = Field(description="Amount of refrigerant contained in the appliance, in kg", alias="chargeSize")
+    charge_size: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Amount of refrigerant contained in the appliance, in kg", alias="chargeSize")
     __properties: ClassVar[List[str]] = ["refrigerant", "chargeSize"]
 
     @field_validator('refrigerant')

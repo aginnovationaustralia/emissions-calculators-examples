@@ -227,6 +227,24 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // FluidWasteKl (decimal) minimum
+            if (this.FluidWasteKl < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for FluidWasteKl, must be a value greater than or equal to 0.", new [] { "FluidWasteKl" });
+            }
+
+            // AverageInletCOD (decimal) minimum
+            if (this.AverageInletCOD < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageInletCOD, must be a value greater than or equal to 0.", new [] { "AverageInletCOD" });
+            }
+
+            // AverageOutletCOD (decimal) minimum
+            if (this.AverageOutletCOD < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for AverageOutletCOD, must be a value greater than or equal to 0.", new [] { "AverageOutletCOD" });
+            }
+
             // FlaredCombustedFraction (decimal) maximum
             if (this.FlaredCombustedFraction > (decimal)1)
             {

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_wildseafisheries_request_enterprises_inner_bait_inner import PostWildseafisheriesRequestEnterprisesInnerBaitInner
@@ -31,23 +31,23 @@ from typing_extensions import Self
 
 class PostWildseafisheriesRequestEnterprisesInner(BaseModel):
     """
-    PostWildseafisheriesRequestEnterprisesInner
+    Input data required for a single WildSeaFisheries enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this WildSeaFisheries activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     electricity_source: StrictStr = Field(description="Source of electricity", alias="electricitySource")
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
-    electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
-    total_whole_weight_caught: Union[StrictFloat, StrictInt] = Field(description="Total whole weight caught in kg", alias="totalWholeWeightCaught")
-    diesel: Union[StrictFloat, StrictInt] = Field(description="Diesel usage in L (litres)")
-    petrol: Union[StrictFloat, StrictInt] = Field(description="Petrol usage in L (litres)")
-    lpg: Union[StrictFloat, StrictInt] = Field(description="LPG Fuel usage in L (litres)")
+    electricity_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
+    total_whole_weight_caught: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total whole weight caught in kg", alias="totalWholeWeightCaught")
+    diesel: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Diesel usage in L (litres)")
+    petrol: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Petrol usage in L (litres)")
+    lpg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="LPG Fuel usage in L (litres)")
     refrigerants: List[PostWildseafisheriesRequestEnterprisesInnerRefrigerantsInner]
     transports: List[PostWildseafisheriesRequestEnterprisesInnerTransportsInner] = Field(description="Transportation")
     flights: List[PostWildseafisheriesRequestEnterprisesInnerFlightsInner] = Field(description="CommercialFlight")
     bait: List[PostWildseafisheriesRequestEnterprisesInnerBaitInner] = Field(description="Bait")
     custombait: List[PostWildseafisheriesRequestEnterprisesInnerCustombaitInner] = Field(description="Custom bait")
-    carbon_offset: Union[StrictFloat, StrictInt] = Field(description="Carbon offsets purchased, in t CO2. Offsetting 2 t CO2 would be 2.0 (not -2.0)", alias="carbonOffset")
+    carbon_offset: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Carbon offsets purchased, in t CO2. Offsetting 2 t CO2 would be 2.0 (not -2.0)", alias="carbonOffset")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "state", "electricitySource", "electricityRenewable", "electricityUse", "totalWholeWeightCaught", "diesel", "petrol", "lpg", "refrigerants", "transports", "flights", "bait", "custombait", "carbonOffset"]
 

@@ -410,7 +410,7 @@ class PostGoat200ResponseIntensities implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets goat_meat_breeding_including_sequestration
      *
-     * @param float $goat_meat_breeding_including_sequestration Goat meat (breeding herd) including carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $goat_meat_breeding_including_sequestration Goat meat (breeding herd) emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -437,7 +437,7 @@ class PostGoat200ResponseIntensities implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets goat_meat_breeding_excluding_sequestration
      *
-     * @param float $goat_meat_breeding_excluding_sequestration Goat meat (breeding herd) excluding carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $goat_meat_breeding_excluding_sequestration Goat meat (breeding herd) emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -464,7 +464,7 @@ class PostGoat200ResponseIntensities implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets wool_including_sequestration
      *
-     * @param float $wool_including_sequestration Wool production including carbon sequestration, in kg-CO2e/kg greasy
+     * @param float $wool_including_sequestration Wool production emissions intensity including carbon sequestration, in kg-CO2e/kg greasy
      *
      * @return self
      */
@@ -491,7 +491,7 @@ class PostGoat200ResponseIntensities implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets wool_excluding_sequestration
      *
-     * @param float $wool_excluding_sequestration Wool production excluding carbon sequestration, in kg-CO2e/kg greasy
+     * @param float $wool_excluding_sequestration Wool production emissions intensity excluding carbon sequestration, in kg-CO2e/kg greasy
      *
      * @return self
      */

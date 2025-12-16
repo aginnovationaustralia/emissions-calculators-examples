@@ -149,6 +149,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Head (decimal) minimum
+            if (this.Head < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Head, must be a value greater than or equal to 0.", new [] { "Head" });
+            }
+
+            // Liveweight (decimal) minimum
+            if (this.Liveweight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Liveweight, must be a value greater than or equal to 0.", new [] { "Liveweight" });
+            }
+
             // CrudeProtein (decimal) maximum
             if (this.CrudeProteinOption.IsSet && this.CrudeProteinOption.Value > (decimal)100)
             {
@@ -171,6 +183,12 @@ namespace Org.OpenAPITools.Model
             if (this.DryMatterDigestibilityOption.IsSet && this.DryMatterDigestibilityOption.Value < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for DryMatterDigestibility, must be a value greater than or equal to 0.", new [] { "DryMatterDigestibility" });
+            }
+
+            // MilkProduction (decimal) minimum
+            if (this.MilkProductionOption.IsSet && this.MilkProductionOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for MilkProduction, must be a value greater than or equal to 0.", new [] { "MilkProduction" });
             }
 
             yield break;

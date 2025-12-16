@@ -153,6 +153,36 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // OutdoorSystems (decimal) minimum
+            if (this.OutdoorSystemsOption.IsSet && this.OutdoorSystemsOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for OutdoorSystems, must be a value greater than or equal to 0.", new [] { "OutdoorSystems" });
+            }
+
+            // CoveredAnaerobicPond (decimal) minimum
+            if (this.CoveredAnaerobicPondOption.IsSet && this.CoveredAnaerobicPondOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CoveredAnaerobicPond, must be a value greater than or equal to 0.", new [] { "CoveredAnaerobicPond" });
+            }
+
+            // UncoveredAnaerobicPond (decimal) minimum
+            if (this.UncoveredAnaerobicPondOption.IsSet && this.UncoveredAnaerobicPondOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UncoveredAnaerobicPond, must be a value greater than or equal to 0.", new [] { "UncoveredAnaerobicPond" });
+            }
+
+            // DeepLitter (decimal) minimum
+            if (this.DeepLitterOption.IsSet && this.DeepLitterOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for DeepLitter, must be a value greater than or equal to 0.", new [] { "DeepLitter" });
+            }
+
+            // UndefinedSystem (decimal) minimum
+            if (this.UndefinedSystemOption.IsSet && this.UndefinedSystemOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for UndefinedSystem, must be a value greater than or equal to 0.", new [] { "UndefinedSystem" });
+            }
+
             yield break;
         }
     }

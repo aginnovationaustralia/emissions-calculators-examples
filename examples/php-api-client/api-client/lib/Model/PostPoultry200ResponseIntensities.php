@@ -356,7 +356,7 @@ class PostPoultry200ResponseIntensities implements ModelInterface, ArrayAccess, 
     /**
      * Sets poultry_meat_including_sequestration
      *
-     * @param float $poultry_meat_including_sequestration Poultry meat including carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $poultry_meat_including_sequestration Poultry meat emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -383,7 +383,7 @@ class PostPoultry200ResponseIntensities implements ModelInterface, ArrayAccess, 
     /**
      * Sets poultry_meat_excluding_sequestration
      *
-     * @param float $poultry_meat_excluding_sequestration Poultry meat excluding carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $poultry_meat_excluding_sequestration Poultry meat emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class PostPoultry200ResponseIntensities implements ModelInterface, ArrayAccess, 
     /**
      * Sets poultry_eggs_including_sequestration
      *
-     * @param float $poultry_eggs_including_sequestration Poultry eggs including carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $poultry_eggs_including_sequestration Poultry eggs emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -437,7 +437,7 @@ class PostPoultry200ResponseIntensities implements ModelInterface, ArrayAccess, 
     /**
      * Sets poultry_eggs_excluding_sequestration
      *
-     * @param float $poultry_eggs_excluding_sequestration Poultry eggs excluding carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $poultry_eggs_excluding_sequestration Poultry eggs emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */

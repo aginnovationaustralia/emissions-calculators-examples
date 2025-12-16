@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +28,8 @@ class PostWildseafisheriesRequestEnterprisesInnerFlightsInner(BaseModel):
     """
     PostWildseafisheriesRequestEnterprisesInnerFlightsInner
     """ # noqa: E501
-    commercial_flight_passengers: Union[StrictFloat, StrictInt] = Field(description="Commercial flight passengers per year", alias="commercialFlightPassengers")
-    total_flight_distance: Union[StrictFloat, StrictInt] = Field(description="Total commercial flight distance in km", alias="totalFlightDistance")
+    commercial_flight_passengers: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Commercial flight passengers per year", alias="commercialFlightPassengers")
+    total_flight_distance: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total commercial flight distance in km", alias="totalFlightDistance")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["commercialFlightPassengers", "totalFlightDistance"]
 

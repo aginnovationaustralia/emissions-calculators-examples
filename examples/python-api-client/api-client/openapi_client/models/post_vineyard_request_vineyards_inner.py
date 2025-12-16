@@ -30,24 +30,24 @@ from typing_extensions import Self
 
 class PostVineyardRequestVineyardsInner(BaseModel):
     """
-    PostVineyardRequestVineyardsInner
+    Input data required for a single Vineyard enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Vineyard activity")
     state: StrictStr = Field(description="What state the location is in. Note: Western Australia is split up into two regions, `wa_nw` is North-West Western Australia, `wa_sw` is South-West Western Australia")
     rainfall_above600: StrictBool = Field(description="Is there enough rainfall or irrigation to drain through the soil profile, typically above 600mm", alias="rainfallAbove600")
     irrigated: StrictBool = Field(description="Is the crop irrigated?")
-    area_planted: Union[StrictFloat, StrictInt] = Field(description="Area planted, in ha (hectares)", alias="areaPlanted")
-    average_yield: Union[StrictFloat, StrictInt] = Field(description="Average yield, in t/ha (tonnes per hectare)", alias="averageYield")
-    non_urea_nitrogen: Union[StrictFloat, StrictInt] = Field(description="Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare)", alias="nonUreaNitrogen")
-    phosphorus_application: Union[StrictFloat, StrictInt] = Field(description="Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare)", alias="phosphorusApplication")
-    potassium_application: Union[StrictFloat, StrictInt] = Field(description="Potassium application, in kg K/ha (kilograms of potassium per hectare)", alias="potassiumApplication")
-    sulfur_application: Union[StrictFloat, StrictInt] = Field(description="Sulfur application, in kg S/ha (kilograms of sulfur per hectare)", alias="sulfurApplication")
-    urea_application: Union[StrictFloat, StrictInt] = Field(description="Urea nitrogen application, in kg Urea/ha (kilograms of urea per hectare)", alias="ureaApplication")
-    urea_ammonium_nitrate: Union[StrictFloat, StrictInt] = Field(description="Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare)", alias="ureaAmmoniumNitrate")
-    limestone: Union[StrictFloat, StrictInt] = Field(description="Lime applied in tonnes")
-    limestone_fraction: Union[StrictFloat, StrictInt] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
-    herbicide_use: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)", alias="herbicideUse")
-    glyphosate_other_herbicide_use: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients from other herbicide use (Paraquat, Diquat, Glyphosate), in kg (kilogram)", alias="glyphosateOtherHerbicideUse")
+    area_planted: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Area planted, in ha (hectares)", alias="areaPlanted")
+    average_yield: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average yield, in t/ha (tonnes per hectare)", alias="averageYield")
+    non_urea_nitrogen: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Non-urea nitrogen application, in kg N/ha (kilograms of nitrogen per hectare)", alias="nonUreaNitrogen")
+    phosphorus_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Phosphorus application, in kg P/ha (kilograms of phosphorus per hectare)", alias="phosphorusApplication")
+    potassium_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Potassium application, in kg K/ha (kilograms of potassium per hectare)", alias="potassiumApplication")
+    sulfur_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Sulfur application, in kg S/ha (kilograms of sulfur per hectare)", alias="sulfurApplication")
+    urea_application: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea nitrogen application, in kg Urea/ha (kilograms of urea per hectare)", alias="ureaApplication")
+    urea_ammonium_nitrate: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Urea-Ammonium nitrate application, in kg product/ha (kilograms of product per hectare)", alias="ureaAmmoniumNitrate")
+    limestone: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Lime applied in tonnes")
+    limestone_fraction: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of lime as limestone vs dolomite, between 0 and 1", alias="limestoneFraction")
+    herbicide_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)", alias="herbicideUse")
+    glyphosate_other_herbicide_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients from other herbicide use (Paraquat, Diquat, Glyphosate), in kg (kilogram)", alias="glyphosateOtherHerbicideUse")
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
     electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
     electricity_source: StrictStr = Field(description="Source of electricity", alias="electricitySource")

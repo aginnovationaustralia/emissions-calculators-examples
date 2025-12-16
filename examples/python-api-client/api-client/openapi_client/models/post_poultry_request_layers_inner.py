@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_poultry_request_broilers_inner_groups_inner_feed_inner import PostPoultryRequestBroilersInnerGroupsInnerFeedInner
@@ -33,30 +33,30 @@ from typing_extensions import Self
 
 class PostPoultryRequestLayersInner(BaseModel):
     """
-    PostPoultryRequestLayersInner
+    Input data required for a single Poultry (layers) enterprise
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
+    id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this Poultry (layers) activity")
     layers: PostPoultryRequestLayersInnerLayers
     meat_chicken_layers: PostPoultryRequestLayersInnerMeatChickenLayers = Field(alias="meatChickenLayers")
     feed: List[PostPoultryRequestBroilersInnerGroupsInnerFeedInner]
-    purchased_free_range: Union[StrictFloat, StrictInt] = Field(description="Fraction of chickens purchased that are free range. Note: fraction of chickens purchased that are conventional is `1 - purchasedFreeRange`", alias="purchasedFreeRange")
-    diesel: Union[StrictFloat, StrictInt] = Field(description="Diesel usage in L (litres)")
-    petrol: Union[StrictFloat, StrictInt] = Field(description="Petrol usage in L (litres)")
-    lpg: Union[StrictFloat, StrictInt] = Field(description="LPG Fuel usage in L (litres)")
+    purchased_free_range: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of chickens purchased that are free range. Note: fraction of chickens purchased that are conventional is `1 - purchasedFreeRange`", alias="purchasedFreeRange")
+    diesel: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Diesel usage in L (litres)")
+    petrol: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Petrol usage in L (litres)")
+    lpg: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="LPG Fuel usage in L (litres)")
     electricity_source: StrictStr = Field(description="Source of electricity", alias="electricitySource")
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
-    electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
-    hay: Union[StrictFloat, StrictInt] = Field(description="Hay purchased in tonnes")
-    herbicide: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients of from herbicide (Paraquat, Diquat, Glyphosate) in kg (kilograms)")
-    herbicide_other: Union[StrictFloat, StrictInt] = Field(description="Total amount of active ingredients of from other herbicides in kg (kilograms)", alias="herbicideOther")
-    manure_waste_allocation: Union[StrictFloat, StrictInt] = Field(description="Fraction allocation of manure waste, from 0 to 1. Note: only for pasture range, paddock and free range systems", alias="manureWasteAllocation")
-    waste_handled_drylot_or_storage: Union[StrictFloat, StrictInt] = Field(description="Fraction of waste handled through dryland and solid storage, from 0 to 1", alias="wasteHandledDrylotOrStorage")
-    litter_recycled: Union[StrictFloat, StrictInt] = Field(description="Fraction of litter recycled, from 0 to 1", alias="litterRecycled")
-    litter_recycle_frequency: Union[StrictFloat, StrictInt] = Field(description="Number of litter cycles per year", alias="litterRecycleFrequency")
+    electricity_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
+    hay: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Hay purchased in tonnes")
+    herbicide: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients of from herbicide (Paraquat, Diquat, Glyphosate) in kg (kilograms)")
+    herbicide_other: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total amount of active ingredients of from other herbicides in kg (kilograms)", alias="herbicideOther")
+    manure_waste_allocation: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction allocation of manure waste, from 0 to 1. Note: only for pasture range, paddock and free range systems", alias="manureWasteAllocation")
+    waste_handled_drylot_or_storage: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of waste handled through dryland and solid storage, from 0 to 1", alias="wasteHandledDrylotOrStorage")
+    litter_recycled: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Fraction of litter recycled, from 0 to 1", alias="litterRecycled")
+    litter_recycle_frequency: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of litter cycles per year", alias="litterRecycleFrequency")
     meat_chicken_layers_purchases: PostPoultryRequestBroilersInnerMeatChickenLayersPurchases = Field(alias="meatChickenLayersPurchases")
     layers_purchases: PostPoultryRequestLayersInnerLayersPurchases = Field(alias="layersPurchases")
-    custom_feed_purchased: Union[StrictFloat, StrictInt] = Field(description="Custom feed purchased, in tonnes", alias="customFeedPurchased")
-    custom_feed_emission_intensity: Union[StrictFloat, StrictInt] = Field(description="Emissions intensity of custom feed in GHG (kg CO2-e/kg input)", alias="customFeedEmissionIntensity")
+    custom_feed_purchased: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Custom feed purchased, in tonnes", alias="customFeedPurchased")
+    custom_feed_emission_intensity: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Emissions intensity of custom feed in GHG (kg CO2-e/kg input)", alias="customFeedEmissionIntensity")
     meat_chicken_layers_egg_sale: PostPoultryRequestLayersInnerMeatChickenLayersEggSale = Field(alias="meatChickenLayersEggSale")
     layers_egg_sale: PostPoultryRequestLayersInnerLayersEggSale = Field(alias="layersEggSale")
     additional_properties: Dict[str, Any] = {}

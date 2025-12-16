@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from openapi_client.models.post_aquaculture_request_enterprises_inner_fluid_waste_inner import PostAquacultureRequestEnterprisesInnerFluidWasteInner
@@ -36,14 +36,14 @@ class PostProcessingRequestProductsInner(BaseModel):
     id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
     product: PostProcessingRequestProductsInnerProduct
     electricity_renewable: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Percent of total electricity usage that is drawn from renewable sources, between 0 and 1. Unused if `electricitySource` is `Renewable`", alias="electricityRenewable")
-    electricity_use: Union[StrictFloat, StrictInt] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
+    electricity_use: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Electricity use in KWh (kilowatt hours)", alias="electricityUse")
     electricity_source: StrictStr = Field(description="Source of electricity", alias="electricitySource")
     fuel: PostAquacultureRequestEnterprisesInnerFuel
     refrigerants: List[PostHorticultureRequestCropsInnerRefrigerantsInner] = Field(description="Refrigerant type")
     fluid_waste: List[PostAquacultureRequestEnterprisesInnerFluidWasteInner] = Field(description="Amount of fluid waste, in kL (kilolitres)", alias="fluidWaste")
     solid_waste: PostAquacultureRequestEnterprisesInnerSolidWaste = Field(alias="solidWaste")
-    purchased_co2: Union[StrictFloat, StrictInt] = Field(description="Quantity of CO2 purchased, in kg CO2", alias="purchasedCO2")
-    carbon_offsets: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Carbon offsets purchased, in t CO2. Offsetting 2 t CO2 would be 2.0 (not -2.0)", alias="carbonOffsets")
+    purchased_co2: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Quantity of CO2 purchased, in kg CO2", alias="purchasedCO2")
+    carbon_offsets: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Carbon offsets purchased, in t CO2. Offsetting 2 t CO2 would be 2.0 (not -2.0)", alias="carbonOffsets")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "product", "electricityRenewable", "electricityUse", "electricitySource", "fuel", "refrigerants", "fluidWaste", "solidWaste", "purchasedCO2", "carbonOffsets"]
 

@@ -460,6 +460,10 @@ class PostBeefRequestBurningInnerBurning implements ModelInterface, ArrayAccess,
         if ($this->container['years_since_last_fire'] === null) {
             $invalidProperties[] = "'years_since_last_fire' can't be null";
         }
+        if (($this->container['years_since_last_fire'] < 0)) {
+            $invalidProperties[] = "invalid value for 'years_since_last_fire', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['fire_scar_area'] === null) {
             $invalidProperties[] = "'fire_scar_area' can't be null";
         }
@@ -660,6 +664,11 @@ class PostBeefRequestBurningInnerBurning implements ModelInterface, ArrayAccess,
         if (is_null($years_since_last_fire)) {
             throw new \InvalidArgumentException('non-nullable years_since_last_fire cannot be null');
         }
+
+        if (($years_since_last_fire < 0)) {
+            throw new \InvalidArgumentException('invalid value for $years_since_last_fire when calling PostBeefRequestBurningInnerBurning., must be bigger than or equal to 0.');
+        }
+
         $this->container['years_since_last_fire'] = $years_since_last_fire;
 
         return $this;

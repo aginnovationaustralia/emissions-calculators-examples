@@ -328,8 +328,7 @@ class PostBeefRequestVegetationInnerVegetation implements ModelInterface, ArrayA
     public const SOIL_COLOURED_SANDS = 'Coloured Sands';
     public const SOIL_DUPLEX = 'Duplex';
     public const SOIL_CLAY = 'Clay';
-    public const SOIL_OTHER_SOILS = '"Other Soils"';
-    public const SOIL_OTHER_SOILS2 = 'Other Soils';
+    public const SOIL_OTHER_SOILS = 'Other Soils';
     public const SOIL_DUPLEX_SOILS = 'Duplex Soils';
     public const SOIL_SANDY_SOILS = 'Sandy Soils';
     public const SOIL_CALCAROSOLS = 'Calcarosols';
@@ -459,7 +458,6 @@ class PostBeefRequestVegetationInnerVegetation implements ModelInterface, ArrayA
             self::SOIL_DUPLEX,
             self::SOIL_CLAY,
             self::SOIL_OTHER_SOILS,
-            self::SOIL_OTHER_SOILS2,
             self::SOIL_DUPLEX_SOILS,
             self::SOIL_SANDY_SOILS,
             self::SOIL_CALCAROSOLS,
@@ -574,9 +572,17 @@ class PostBeefRequestVegetationInnerVegetation implements ModelInterface, ArrayA
         if ($this->container['area'] === null) {
             $invalidProperties[] = "'area' can't be null";
         }
+        if (($this->container['area'] < 0)) {
+            $invalidProperties[] = "invalid value for 'area', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['age'] === null) {
             $invalidProperties[] = "'age' can't be null";
         }
+        if (($this->container['age'] < 0)) {
+            $invalidProperties[] = "invalid value for 'age', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -725,6 +731,11 @@ class PostBeefRequestVegetationInnerVegetation implements ModelInterface, ArrayA
         if (is_null($area)) {
             throw new \InvalidArgumentException('non-nullable area cannot be null');
         }
+
+        if (($area < 0)) {
+            throw new \InvalidArgumentException('invalid value for $area when calling PostBeefRequestVegetationInnerVegetation., must be bigger than or equal to 0.');
+        }
+
         $this->container['area'] = $area;
 
         return $this;
@@ -752,6 +763,11 @@ class PostBeefRequestVegetationInnerVegetation implements ModelInterface, ArrayA
         if (is_null($age)) {
             throw new \InvalidArgumentException('non-nullable age cannot be null');
         }
+
+        if (($age < 0)) {
+            throw new \InvalidArgumentException('invalid value for $age when calling PostBeefRequestVegetationInnerVegetation., must be bigger than or equal to 0.');
+        }
+
         $this->container['age'] = $age;
 
         return $this;

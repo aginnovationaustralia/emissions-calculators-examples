@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -29,9 +29,9 @@ class PostWildcatchfisheryRequestEnterprisesInnerBaitInner(BaseModel):
     PostWildcatchfisheryRequestEnterprisesInnerBaitInner
     """ # noqa: E501
     type: StrictStr = Field(description="Bait product type")
-    purchased_tonnes: Union[StrictFloat, StrictInt] = Field(description="Purchased product in tonnes", alias="purchasedTonnes")
+    purchased_tonnes: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Purchased product in tonnes", alias="purchasedTonnes")
     additional_ingredients: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="Additional ingredient fraction, from 0 to 1", alias="additionalIngredients")
-    emissions_intensity: Union[StrictFloat, StrictInt] = Field(description="Emissions intensity of additional ingredients, in kg CO2e/kg bait (default 0)", alias="emissionsIntensity")
+    emissions_intensity: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Emissions intensity of additional ingredients, in kg CO2e/kg bait (default 0)", alias="emissionsIntensity")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "purchasedTonnes", "additionalIngredients", "emissionsIntensity"]
 

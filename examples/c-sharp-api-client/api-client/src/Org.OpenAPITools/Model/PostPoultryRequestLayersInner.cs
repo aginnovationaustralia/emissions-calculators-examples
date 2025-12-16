@@ -375,6 +375,36 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // PurchasedFreeRange (decimal) maximum
+            if (this.PurchasedFreeRange > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for PurchasedFreeRange, must be a value less than or equal to 1.", new [] { "PurchasedFreeRange" });
+            }
+
+            // PurchasedFreeRange (decimal) minimum
+            if (this.PurchasedFreeRange < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PurchasedFreeRange, must be a value greater than or equal to 0.", new [] { "PurchasedFreeRange" });
+            }
+
+            // Diesel (decimal) minimum
+            if (this.Diesel < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Diesel, must be a value greater than or equal to 0.", new [] { "Diesel" });
+            }
+
+            // Petrol (decimal) minimum
+            if (this.Petrol < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Petrol, must be a value greater than or equal to 0.", new [] { "Petrol" });
+            }
+
+            // Lpg (decimal) minimum
+            if (this.Lpg < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Lpg, must be a value greater than or equal to 0.", new [] { "Lpg" });
+            }
+
             // ElectricityRenewable (decimal) maximum
             if (this.ElectricityRenewable > (decimal)1)
             {
@@ -385,6 +415,84 @@ namespace Org.OpenAPITools.Model
             if (this.ElectricityRenewable < (decimal)0)
             {
                 yield return new ValidationResult("Invalid value for ElectricityRenewable, must be a value greater than or equal to 0.", new [] { "ElectricityRenewable" });
+            }
+
+            // ElectricityUse (decimal) minimum
+            if (this.ElectricityUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityUse, must be a value greater than or equal to 0.", new [] { "ElectricityUse" });
+            }
+
+            // Hay (decimal) minimum
+            if (this.Hay < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Hay, must be a value greater than or equal to 0.", new [] { "Hay" });
+            }
+
+            // Herbicide (decimal) minimum
+            if (this.Herbicide < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Herbicide, must be a value greater than or equal to 0.", new [] { "Herbicide" });
+            }
+
+            // HerbicideOther (decimal) minimum
+            if (this.HerbicideOther < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HerbicideOther, must be a value greater than or equal to 0.", new [] { "HerbicideOther" });
+            }
+
+            // ManureWasteAllocation (decimal) maximum
+            if (this.ManureWasteAllocation > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for ManureWasteAllocation, must be a value less than or equal to 1.", new [] { "ManureWasteAllocation" });
+            }
+
+            // ManureWasteAllocation (decimal) minimum
+            if (this.ManureWasteAllocation < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ManureWasteAllocation, must be a value greater than or equal to 0.", new [] { "ManureWasteAllocation" });
+            }
+
+            // WasteHandledDrylotOrStorage (decimal) maximum
+            if (this.WasteHandledDrylotOrStorage > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for WasteHandledDrylotOrStorage, must be a value less than or equal to 1.", new [] { "WasteHandledDrylotOrStorage" });
+            }
+
+            // WasteHandledDrylotOrStorage (decimal) minimum
+            if (this.WasteHandledDrylotOrStorage < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for WasteHandledDrylotOrStorage, must be a value greater than or equal to 0.", new [] { "WasteHandledDrylotOrStorage" });
+            }
+
+            // LitterRecycled (decimal) maximum
+            if (this.LitterRecycled > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for LitterRecycled, must be a value less than or equal to 1.", new [] { "LitterRecycled" });
+            }
+
+            // LitterRecycled (decimal) minimum
+            if (this.LitterRecycled < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for LitterRecycled, must be a value greater than or equal to 0.", new [] { "LitterRecycled" });
+            }
+
+            // LitterRecycleFrequency (decimal) minimum
+            if (this.LitterRecycleFrequency < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for LitterRecycleFrequency, must be a value greater than or equal to 0.", new [] { "LitterRecycleFrequency" });
+            }
+
+            // CustomFeedPurchased (decimal) minimum
+            if (this.CustomFeedPurchased < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CustomFeedPurchased, must be a value greater than or equal to 0.", new [] { "CustomFeedPurchased" });
+            }
+
+            // CustomFeedEmissionIntensity (decimal) minimum
+            if (this.CustomFeedEmissionIntensity < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CustomFeedEmissionIntensity, must be a value greater than or equal to 0.", new [] { "CustomFeedEmissionIntensity" });
             }
 
             yield break;

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostWildcatchfishery200ResponseIntermediateInner Class Doc Comment
  *
  * @category Class
- * @description Intermediate emissions calculation output for the &#x60;wildcatchfishery&#x60; calculator
+ * @description Intermediate emissions calculation output for the WildCatchFishery calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,7 @@ class PostWildcatchfishery200ResponseIntermediateInner implements ModelInterface
         'scope3' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope3',
         'intensities' => '\OpenAPI\Client\Model\PostWildcatchfishery200ResponseIntensities',
         'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseNet',
-        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration'
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PostWildcatchfishery200ResponseIntermediateInner implements ModelInterface
     /**
      * Sets id
      *
-     * @param string $id Unique identifier for this activity
+     * @param string $id Unique identifier for this WildCatchFishery activity
      *
      * @return self
      */
@@ -519,7 +519,7 @@ class PostWildcatchfishery200ResponseIntermediateInner implements ModelInterface
     /**
      * Gets carbon_sequestration
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -529,7 +529,7 @@ class PostWildcatchfishery200ResponseIntermediateInner implements ModelInterface
     /**
      * Sets carbon_sequestration
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration $carbon_sequestration carbon_sequestration
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

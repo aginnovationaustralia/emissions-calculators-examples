@@ -376,6 +376,10 @@ class PostWildseafisheriesRequestEnterprisesInnerTransportsInner implements Mode
         if ($this->container['distance'] === null) {
             $invalidProperties[] = "'distance' can't be null";
         }
+        if (($this->container['distance'] < 0)) {
+            $invalidProperties[] = "invalid value for 'distance', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -487,6 +491,11 @@ class PostWildseafisheriesRequestEnterprisesInnerTransportsInner implements Mode
         if (is_null($distance)) {
             throw new \InvalidArgumentException('non-nullable distance cannot be null');
         }
+
+        if (($distance < 0)) {
+            throw new \InvalidArgumentException('invalid value for $distance when calling PostWildseafisheriesRequestEnterprisesInnerTransportsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['distance'] = $distance;
 
         return $this;

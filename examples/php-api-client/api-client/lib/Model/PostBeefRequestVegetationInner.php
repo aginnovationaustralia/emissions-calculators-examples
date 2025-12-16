@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostBeefRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to beef
+ * @description Non-productive vegetation inputs along with allocations to each Beef activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +60,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'vegetation' => '\OpenAPI\Client\Model\PostBeefRequestVegetationInnerVegetation',
-        'beef_proportion' => 'float',
         'allocation_to_beef' => 'float[]'
     ];
 
@@ -73,7 +72,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'vegetation' => null,
-        'beef_proportion' => null,
         'allocation_to_beef' => null
     ];
 
@@ -84,7 +82,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'vegetation' => false,
-        'beef_proportion' => false,
         'allocation_to_beef' => false
     ];
 
@@ -175,7 +172,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'vegetation' => 'vegetation',
-        'beef_proportion' => 'beefProportion',
         'allocation_to_beef' => 'allocationToBeef'
     ];
 
@@ -186,7 +182,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'vegetation' => 'setVegetation',
-        'beef_proportion' => 'setBeefProportion',
         'allocation_to_beef' => 'setAllocationToBeef'
     ];
 
@@ -197,7 +192,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'vegetation' => 'getVegetation',
-        'beef_proportion' => 'getBeefProportion',
         'allocation_to_beef' => 'getAllocationToBeef'
     ];
 
@@ -259,7 +253,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
     public function __construct(?array $data = null)
     {
         $this->setIfExists('vegetation', $data ?? [], null);
-        $this->setIfExists('beef_proportion', $data ?? [], null);
         $this->setIfExists('allocation_to_beef', $data ?? [], null);
     }
 
@@ -339,35 +332,6 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
     }
 
     /**
-     * Gets beef_proportion
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getBeefProportion()
-    {
-        return $this->container['beef_proportion'];
-    }
-
-    /**
-     * Sets beef_proportion
-     *
-     * @param float|null $beef_proportion The proportion of the sequestration that is allocated to beef. Deprecation note: Please use `allocationToBeef` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setBeefProportion($beef_proportion)
-    {
-        if (is_null($beef_proportion)) {
-            throw new \InvalidArgumentException('non-nullable beef_proportion cannot be null');
-        }
-        $this->container['beef_proportion'] = $beef_proportion;
-
-        return $this;
-    }
-
-    /**
      * Gets allocation_to_beef
      *
      * @return float[]
@@ -380,7 +344,7 @@ class PostBeefRequestVegetationInner implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets allocation_to_beef
      *
-     * @param float[] $allocation_to_beef The proportion of the sequestration that is allocated to each beef
+     * @param float[] $allocation_to_beef The proportion of the sequestration that is allocated to each beef activity
      *
      * @return self
      */

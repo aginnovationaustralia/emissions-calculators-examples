@@ -97,8 +97,7 @@ namespace TestApi
                 spring: spring,
                 summer: summer,
                 headSold: 25,
-                saleWeight: 500,
-                source: PostBeefRequestBeefInnerClassesCowsGt2.SourceEnum.NthSthCentralQLD // Should not be necessary
+                saleWeight: 500
             );
 
             // Create classes object
@@ -112,8 +111,7 @@ namespace TestApi
                 pastureDryland: 10.0m,
                 pastureIrrigated: 2.0m,
                 cropsDryland: 8.0m,
-                cropsIrrigated: 1.0m,
-                otherType: PostBeefRequestBeefInnerFertiliser.OtherTypeEnum.MonoammoniumPhosphateMAP // Should not be necessary
+                cropsIrrigated: 1.0m
             );
 
             // Create mineral supplementation
@@ -169,47 +167,12 @@ namespace TestApi
             return beefRequest;
         }
 
-        static X509Certificate2? LoadCertificateFromPemFiles(string certPath, string keyPath)
-        {
-            try
-            {
-                if (!File.Exists(certPath) || !File.Exists(keyPath))
-                {
-                    Console.WriteLine($"Warning: Certificate files not found at {certPath} or {keyPath}");
-                    return null;
-                }
-
-                var certificate = new X509Certificate2(certPath);
-                var keyPem = File.ReadAllText(keyPath);
-
-                // Extract private key from PEM
-                var header = "-----BEGIN PRIVATE KEY-----";
-                var footer = "-----END PRIVATE KEY-----";
-                var start = keyPem.IndexOf(header) + header.Length;
-                var end = keyPem.IndexOf(footer, start);
-                var keyBase64 = keyPem.Substring(start, end - start).Replace("\n", "").Replace("\r", "");
-
-                var keyBytes = Convert.FromBase64String(keyBase64);
-
-                using var rsa = RSA.Create();
-                rsa.ImportPkcs8PrivateKey(keyBytes, out _);
-
-                return new X509Certificate2(certificate.CopyWithPrivateKey(rsa).Export(X509ContentType.Pfx));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading certificate: {ex.Message}");
-                return null;
-            }
-        }
-
         static async Task TestBeefApi()
         {
             // Load client certificate for mTLS
             var certPath = "./cert.pem";
             var keyPath = "./key.pem";
             var clientCertificate = Utils.GetCertificateFromPEMPaths(certPath, keyPath);
-            // var clientCertificate = LoadCertificateFromPemFiles(certPath, keyPath);
 
             // Create host builder with API configuration
             Action<HostBuilderContext, IServiceCollection, HostConfiguration> configureApi = (context, services, options) =>

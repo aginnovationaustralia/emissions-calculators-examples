@@ -39,20 +39,20 @@ namespace Org.OpenAPITools.Model
         /// <param name="scope2">scope2</param>
         /// <param name="scope3">scope3</param>
         /// <param name="purchasedOffsets">purchasedOffsets</param>
-        /// <param name="carbonSequestration">Carbon sequestration, in tonnes-CO2e</param>
         /// <param name="intensities">intensities</param>
         /// <param name="net">net</param>
+        /// <param name="carbonSequestration">carbonSequestration</param>
         [JsonConstructor]
-        public PostWildseafisheries200ResponseIntermediateInner(string id, PostWildseafisheries200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostWildseafisheries200ResponseScope3 scope3, PostAquaculture200ResponsePurchasedOffsets purchasedOffsets, decimal carbonSequestration, PostWildseafisheries200ResponseIntermediateInnerIntensities intensities, PostAquaculture200ResponseNet net)
+        public PostWildseafisheries200ResponseIntermediateInner(string id, PostWildseafisheries200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostWildseafisheries200ResponseScope3 scope3, PostAquaculture200ResponsePurchasedOffsets purchasedOffsets, PostWildseafisheries200ResponseIntermediateInnerIntensities intensities, PostAquaculture200ResponseNet net, PostAquaculture200ResponseCarbonSequestration carbonSequestration)
         {
             Id = id;
             Scope1 = scope1;
             Scope2 = scope2;
             Scope3 = scope3;
             PurchasedOffsets = purchasedOffsets;
-            CarbonSequestration = carbonSequestration;
             Intensities = intensities;
             Net = net;
+            CarbonSequestration = carbonSequestration;
             OnCreated();
         }
 
@@ -90,13 +90,6 @@ namespace Org.OpenAPITools.Model
         public PostAquaculture200ResponsePurchasedOffsets PurchasedOffsets { get; set; }
 
         /// <summary>
-        /// Carbon sequestration, in tonnes-CO2e
-        /// </summary>
-        /// <value>Carbon sequestration, in tonnes-CO2e</value>
-        [JsonPropertyName("carbonSequestration")]
-        public decimal CarbonSequestration { get; set; }
-
-        /// <summary>
         /// Gets or Sets Intensities
         /// </summary>
         [JsonPropertyName("intensities")]
@@ -107,6 +100,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonPropertyName("net")]
         public PostAquaculture200ResponseNet Net { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CarbonSequestration
+        /// </summary>
+        [JsonPropertyName("carbonSequestration")]
+        public PostAquaculture200ResponseCarbonSequestration CarbonSequestration { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -127,9 +126,9 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Scope2: ").Append(Scope2).Append("\n");
             sb.Append("  Scope3: ").Append(Scope3).Append("\n");
             sb.Append("  PurchasedOffsets: ").Append(PurchasedOffsets).Append("\n");
-            sb.Append("  CarbonSequestration: ").Append(CarbonSequestration).Append("\n");
             sb.Append("  Intensities: ").Append(Intensities).Append("\n");
             sb.Append("  Net: ").Append(Net).Append("\n");
+            sb.Append("  CarbonSequestration: ").Append(CarbonSequestration).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -173,9 +172,9 @@ namespace Org.OpenAPITools.Model
             Option<PostAquaculture200ResponseScope2?> scope2 = default;
             Option<PostWildseafisheries200ResponseScope3?> scope3 = default;
             Option<PostAquaculture200ResponsePurchasedOffsets?> purchasedOffsets = default;
-            Option<decimal?> carbonSequestration = default;
             Option<PostWildseafisheries200ResponseIntermediateInnerIntensities?> intensities = default;
             Option<PostAquaculture200ResponseNet?> net = default;
+            Option<PostAquaculture200ResponseCarbonSequestration?> carbonSequestration = default;
 
             while (utf8JsonReader.Read())
             {
@@ -207,14 +206,14 @@ namespace Org.OpenAPITools.Model
                         case "purchasedOffsets":
                             purchasedOffsets = new Option<PostAquaculture200ResponsePurchasedOffsets?>(JsonSerializer.Deserialize<PostAquaculture200ResponsePurchasedOffsets>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "carbonSequestration":
-                            carbonSequestration = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
                         case "intensities":
                             intensities = new Option<PostWildseafisheries200ResponseIntermediateInnerIntensities?>(JsonSerializer.Deserialize<PostWildseafisheries200ResponseIntermediateInnerIntensities>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "net":
                             net = new Option<PostAquaculture200ResponseNet?>(JsonSerializer.Deserialize<PostAquaculture200ResponseNet>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "carbonSequestration":
+                            carbonSequestration = new Option<PostAquaculture200ResponseCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -237,14 +236,14 @@ namespace Org.OpenAPITools.Model
             if (!purchasedOffsets.IsSet)
                 throw new ArgumentException("Property is required for class PostWildseafisheries200ResponseIntermediateInner.", nameof(purchasedOffsets));
 
-            if (!carbonSequestration.IsSet)
-                throw new ArgumentException("Property is required for class PostWildseafisheries200ResponseIntermediateInner.", nameof(carbonSequestration));
-
             if (!intensities.IsSet)
                 throw new ArgumentException("Property is required for class PostWildseafisheries200ResponseIntermediateInner.", nameof(intensities));
 
             if (!net.IsSet)
                 throw new ArgumentException("Property is required for class PostWildseafisheries200ResponseIntermediateInner.", nameof(net));
+
+            if (!carbonSequestration.IsSet)
+                throw new ArgumentException("Property is required for class PostWildseafisheries200ResponseIntermediateInner.", nameof(carbonSequestration));
 
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class PostWildseafisheries200ResponseIntermediateInner.");
@@ -261,16 +260,16 @@ namespace Org.OpenAPITools.Model
             if (purchasedOffsets.IsSet && purchasedOffsets.Value == null)
                 throw new ArgumentNullException(nameof(purchasedOffsets), "Property is not nullable for class PostWildseafisheries200ResponseIntermediateInner.");
 
-            if (carbonSequestration.IsSet && carbonSequestration.Value == null)
-                throw new ArgumentNullException(nameof(carbonSequestration), "Property is not nullable for class PostWildseafisheries200ResponseIntermediateInner.");
-
             if (intensities.IsSet && intensities.Value == null)
                 throw new ArgumentNullException(nameof(intensities), "Property is not nullable for class PostWildseafisheries200ResponseIntermediateInner.");
 
             if (net.IsSet && net.Value == null)
                 throw new ArgumentNullException(nameof(net), "Property is not nullable for class PostWildseafisheries200ResponseIntermediateInner.");
 
-            return new PostWildseafisheries200ResponseIntermediateInner(id.Value!, scope1.Value!, scope2.Value!, scope3.Value!, purchasedOffsets.Value!, carbonSequestration.Value!.Value!, intensities.Value!, net.Value!);
+            if (carbonSequestration.IsSet && carbonSequestration.Value == null)
+                throw new ArgumentNullException(nameof(carbonSequestration), "Property is not nullable for class PostWildseafisheries200ResponseIntermediateInner.");
+
+            return new PostWildseafisheries200ResponseIntermediateInner(id.Value!, scope1.Value!, scope2.Value!, scope3.Value!, purchasedOffsets.Value!, intensities.Value!, net.Value!, carbonSequestration.Value!);
         }
 
         /// <summary>
@@ -318,6 +317,9 @@ namespace Org.OpenAPITools.Model
             if (postWildseafisheries200ResponseIntermediateInner.Net == null)
                 throw new ArgumentNullException(nameof(postWildseafisheries200ResponseIntermediateInner.Net), "Property is required for class PostWildseafisheries200ResponseIntermediateInner.");
 
+            if (postWildseafisheries200ResponseIntermediateInner.CarbonSequestration == null)
+                throw new ArgumentNullException(nameof(postWildseafisheries200ResponseIntermediateInner.CarbonSequestration), "Property is required for class PostWildseafisheries200ResponseIntermediateInner.");
+
             writer.WriteString("id", postWildseafisheries200ResponseIntermediateInner.Id);
 
             writer.WritePropertyName("scope1");
@@ -328,12 +330,12 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, postWildseafisheries200ResponseIntermediateInner.Scope3, jsonSerializerOptions);
             writer.WritePropertyName("purchasedOffsets");
             JsonSerializer.Serialize(writer, postWildseafisheries200ResponseIntermediateInner.PurchasedOffsets, jsonSerializerOptions);
-            writer.WriteNumber("carbonSequestration", postWildseafisheries200ResponseIntermediateInner.CarbonSequestration);
-
             writer.WritePropertyName("intensities");
             JsonSerializer.Serialize(writer, postWildseafisheries200ResponseIntermediateInner.Intensities, jsonSerializerOptions);
             writer.WritePropertyName("net");
             JsonSerializer.Serialize(writer, postWildseafisheries200ResponseIntermediateInner.Net, jsonSerializerOptions);
+            writer.WritePropertyName("carbonSequestration");
+            JsonSerializer.Serialize(writer, postWildseafisheries200ResponseIntermediateInner.CarbonSequestration, jsonSerializerOptions);
         }
     }
 }

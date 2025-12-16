@@ -268,6 +268,24 @@ namespace Org.OpenAPITools.Model
                 yield return new ValidationResult("Invalid value for ElectricityRenewable, must be a value greater than or equal to 0.", new [] { "ElectricityRenewable" });
             }
 
+            // ElectricityUse (decimal) minimum
+            if (this.ElectricityUse < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for ElectricityUse, must be a value greater than or equal to 0.", new [] { "ElectricityUse" });
+            }
+
+            // PurchasedCO2 (decimal) minimum
+            if (this.PurchasedCO2 < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PurchasedCO2, must be a value greater than or equal to 0.", new [] { "PurchasedCO2" });
+            }
+
+            // CarbonOffsets (decimal) minimum
+            if (this.CarbonOffsetsOption.IsSet && this.CarbonOffsetsOption.Value < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CarbonOffsets, must be a value greater than or equal to 0.", new [] { "CarbonOffsets" });
+            }
+
             yield break;
         }
     }

@@ -48,7 +48,6 @@ namespace Org.OpenAPITools.Client
             _jsonOptions.Converters.Add(new PostAquaculture200ResponseCarbonSequestrationJsonConverter());
             _jsonOptions.Converters.Add(new PostAquaculture200ResponseIntensitiesJsonConverter());
             _jsonOptions.Converters.Add(new PostAquaculture200ResponseIntermediateInnerJsonConverter());
-            _jsonOptions.Converters.Add(new PostAquaculture200ResponseIntermediateInnerCarbonSequestrationJsonConverter());
             _jsonOptions.Converters.Add(new PostAquaculture200ResponseNetJsonConverter());
             _jsonOptions.Converters.Add(new PostAquaculture200ResponsePurchasedOffsetsJsonConverter());
             _jsonOptions.Converters.Add(new PostAquaculture200ResponseScope1JsonConverter());
@@ -198,7 +197,6 @@ namespace Org.OpenAPITools.Client
             _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesOtherDoesCulledFemalesJsonConverter());
             _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesTradeBreedingDoesNanniesJsonConverter());
             _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesTradeBucksJsonConverter());
-            _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesTradeDoesJsonConverter());
             _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesTradeKidsJsonConverter());
             _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNanniesJsonConverter());
             _jsonOptions.Converters.Add(new PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemalesJsonConverter());
@@ -292,8 +290,6 @@ namespace Org.OpenAPITools.Client
             _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerClassesJsonConverter());
             _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerClassesRamsJsonConverter());
             _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerClassesRamsAutumnJsonConverter());
-            _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerClassesTradeEwesJsonConverter());
-            _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerClassesTradeLambsAndHoggetsJsonConverter());
             _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerEwesLambingJsonConverter());
             _jsonOptions.Converters.Add(new PostSheepRequestSheepInnerSeasonalLambingJsonConverter());
             _jsonOptions.Converters.Add(new PostSheepRequestVegetationInnerJsonConverter());

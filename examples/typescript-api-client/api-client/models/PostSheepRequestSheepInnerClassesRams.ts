@@ -77,20 +77,6 @@ export interface PostSheepRequestSheepInnerClassesRams {
      */
     cleanWoolYield: number;
     /**
-     * Number of animals purchased (head). Deprecation note: Please use `purchases` instead
-     * @type {number}
-     * @memberof PostSheepRequestSheepInnerClassesRams
-     * @deprecated
-     */
-    headPurchased?: number;
-    /**
-     * Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead
-     * @type {number}
-     * @memberof PostSheepRequestSheepInnerClassesRams
-     * @deprecated
-     */
-    purchasedWeight?: number;
-    /**
      * Number of animals sold (head)
      * @type {number}
      * @memberof PostSheepRequestSheepInnerClassesRams
@@ -143,8 +129,6 @@ export function PostSheepRequestSheepInnerClassesRamsFromJSONTyped(json: any, ig
         'headShorn': json['headShorn'],
         'woolShorn': json['woolShorn'],
         'cleanWoolYield': json['cleanWoolYield'],
-        'headPurchased': json['headPurchased'] == null ? undefined : json['headPurchased'],
-        'purchasedWeight': json['purchasedWeight'] == null ? undefined : json['purchasedWeight'],
         'headSold': json['headSold'],
         'saleWeight': json['saleWeight'],
         'purchases': json['purchases'] == null ? undefined : ((json['purchases'] as Array<any>).map(PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInnerFromJSON)),
@@ -169,8 +153,6 @@ export function PostSheepRequestSheepInnerClassesRamsToJSONTyped(value?: PostShe
         'headShorn': value['headShorn'],
         'woolShorn': value['woolShorn'],
         'cleanWoolYield': value['cleanWoolYield'],
-        'headPurchased': value['headPurchased'],
-        'purchasedWeight': value['purchasedWeight'],
         'headSold': value['headSold'],
         'saleWeight': value['saleWeight'],
         'purchases': value['purchases'] == null ? undefined : ((value['purchases'] as Array<any>).map(PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInnerToJSON)),

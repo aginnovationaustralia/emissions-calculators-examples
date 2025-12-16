@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +28,8 @@ class PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner(BaseModel):
     """
     PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner
     """ # noqa: E501
-    head: Union[StrictFloat, StrictInt] = Field(description="Number of animals purchased (head)")
-    purchase_weight: Union[StrictFloat, StrictInt] = Field(description="Weight at purchase, in liveweight kg/head (kilogram per head)", alias="purchaseWeight")
+    head: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals purchased (head)")
+    purchase_weight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Weight at purchase, in liveweight kg/head (kilogram per head)", alias="purchaseWeight")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["head", "purchaseWeight"]
 

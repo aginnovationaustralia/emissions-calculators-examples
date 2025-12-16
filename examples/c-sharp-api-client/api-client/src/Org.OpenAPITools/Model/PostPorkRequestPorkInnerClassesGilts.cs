@@ -41,11 +41,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="headSold">Number of animals sold (head)</param>
         /// <param name="saleWeight">Weight at sale, in liveweight kg/head (kilogram per head)</param>
         /// <param name="manure">manure</param>
-        /// <param name="headPurchased">Number of animals purchased (head). Deprecation note: Please use &#x60;purchases&#x60; instead</param>
-        /// <param name="purchasedWeight">Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use &#x60;purchases&#x60; instead</param>
         /// <param name="purchases">purchases</param>
         [JsonConstructor]
-        public PostPorkRequestPorkInnerClassesGilts(decimal autumn, decimal winter, decimal spring, decimal summer, decimal headSold, decimal saleWeight, PostPorkRequestPorkInnerClassesSowsManure manure, Option<decimal?> headPurchased = default, Option<decimal?> purchasedWeight = default, Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?> purchases = default)
+        public PostPorkRequestPorkInnerClassesGilts(decimal autumn, decimal winter, decimal spring, decimal summer, decimal headSold, decimal saleWeight, PostPorkRequestPorkInnerClassesSowsManure manure, Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?> purchases = default)
         {
             Autumn = autumn;
             Winter = winter;
@@ -54,8 +52,6 @@ namespace Org.OpenAPITools.Model
             HeadSold = headSold;
             SaleWeight = saleWeight;
             Manure = manure;
-            HeadPurchasedOption = headPurchased;
-            PurchasedWeightOption = purchasedWeight;
             PurchasesOption = purchases;
             OnCreated();
         }
@@ -111,36 +107,6 @@ namespace Org.OpenAPITools.Model
         public PostPorkRequestPorkInnerClassesSowsManure Manure { get; set; }
 
         /// <summary>
-        /// Used to track the state of HeadPurchased
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> HeadPurchasedOption { get; private set; }
-
-        /// <summary>
-        /// Number of animals purchased (head). Deprecation note: Please use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Number of animals purchased (head). Deprecation note: Please use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("headPurchased")]
-        [Obsolete]
-        public decimal? HeadPurchased { get { return this.HeadPurchasedOption; } set { this.HeadPurchasedOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of PurchasedWeight
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> PurchasedWeightOption { get; private set; }
-
-        /// <summary>
-        /// Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use &#x60;purchases&#x60; instead
-        /// </summary>
-        /// <value>Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use &#x60;purchases&#x60; instead</value>
-        [JsonPropertyName("purchasedWeight")]
-        [Obsolete]
-        public decimal? PurchasedWeight { get { return this.PurchasedWeightOption; } set { this.PurchasedWeightOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of Purchases
         /// </summary>
         [JsonIgnore]
@@ -174,8 +140,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  HeadSold: ").Append(HeadSold).Append("\n");
             sb.Append("  SaleWeight: ").Append(SaleWeight).Append("\n");
             sb.Append("  Manure: ").Append(Manure).Append("\n");
-            sb.Append("  HeadPurchased: ").Append(HeadPurchased).Append("\n");
-            sb.Append("  PurchasedWeight: ").Append(PurchasedWeight).Append("\n");
             sb.Append("  Purchases: ").Append(Purchases).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
@@ -189,6 +153,42 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Autumn (decimal) minimum
+            if (this.Autumn < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Autumn, must be a value greater than or equal to 0.", new [] { "Autumn" });
+            }
+
+            // Winter (decimal) minimum
+            if (this.Winter < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Winter, must be a value greater than or equal to 0.", new [] { "Winter" });
+            }
+
+            // Spring (decimal) minimum
+            if (this.Spring < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Spring, must be a value greater than or equal to 0.", new [] { "Spring" });
+            }
+
+            // Summer (decimal) minimum
+            if (this.Summer < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Summer, must be a value greater than or equal to 0.", new [] { "Summer" });
+            }
+
+            // HeadSold (decimal) minimum
+            if (this.HeadSold < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for HeadSold, must be a value greater than or equal to 0.", new [] { "HeadSold" });
+            }
+
+            // SaleWeight (decimal) minimum
+            if (this.SaleWeight < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for SaleWeight, must be a value greater than or equal to 0.", new [] { "SaleWeight" });
+            }
+
             yield break;
         }
     }
@@ -222,8 +222,6 @@ namespace Org.OpenAPITools.Model
             Option<decimal?> headSold = default;
             Option<decimal?> saleWeight = default;
             Option<PostPorkRequestPorkInnerClassesSowsManure?> manure = default;
-            Option<decimal?> headPurchased = default;
-            Option<decimal?> purchasedWeight = default;
             Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?> purchases = default;
 
             while (utf8JsonReader.Read())
@@ -261,12 +259,6 @@ namespace Org.OpenAPITools.Model
                             break;
                         case "manure":
                             manure = new Option<PostPorkRequestPorkInnerClassesSowsManure?>(JsonSerializer.Deserialize<PostPorkRequestPorkInnerClassesSowsManure>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
-                        case "headPurchased":
-                            headPurchased = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
-                            break;
-                        case "purchasedWeight":
-                            purchasedWeight = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "purchases":
                             purchases = new Option<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>?>(JsonSerializer.Deserialize<List<PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -319,16 +311,10 @@ namespace Org.OpenAPITools.Model
             if (manure.IsSet && manure.Value == null)
                 throw new ArgumentNullException(nameof(manure), "Property is not nullable for class PostPorkRequestPorkInnerClassesGilts.");
 
-            if (headPurchased.IsSet && headPurchased.Value == null)
-                throw new ArgumentNullException(nameof(headPurchased), "Property is not nullable for class PostPorkRequestPorkInnerClassesGilts.");
-
-            if (purchasedWeight.IsSet && purchasedWeight.Value == null)
-                throw new ArgumentNullException(nameof(purchasedWeight), "Property is not nullable for class PostPorkRequestPorkInnerClassesGilts.");
-
             if (purchases.IsSet && purchases.Value == null)
                 throw new ArgumentNullException(nameof(purchases), "Property is not nullable for class PostPorkRequestPorkInnerClassesGilts.");
 
-            return new PostPorkRequestPorkInnerClassesGilts(autumn.Value!.Value!, winter.Value!.Value!, spring.Value!.Value!, summer.Value!.Value!, headSold.Value!.Value!, saleWeight.Value!.Value!, manure.Value!, headPurchased, purchasedWeight, purchases);
+            return new PostPorkRequestPorkInnerClassesGilts(autumn.Value!.Value!, winter.Value!.Value!, spring.Value!.Value!, summer.Value!.Value!, headSold.Value!.Value!, saleWeight.Value!.Value!, manure.Value!, purchases);
         }
 
         /// <summary>
@@ -375,12 +361,6 @@ namespace Org.OpenAPITools.Model
 
             writer.WritePropertyName("manure");
             JsonSerializer.Serialize(writer, postPorkRequestPorkInnerClassesGilts.Manure, jsonSerializerOptions);
-            if (postPorkRequestPorkInnerClassesGilts.HeadPurchasedOption.IsSet)
-                writer.WriteNumber("headPurchased", postPorkRequestPorkInnerClassesGilts.HeadPurchasedOption.Value!.Value);
-
-            if (postPorkRequestPorkInnerClassesGilts.PurchasedWeightOption.IsSet)
-                writer.WriteNumber("purchasedWeight", postPorkRequestPorkInnerClassesGilts.PurchasedWeightOption.Value!.Value);
-
             if (postPorkRequestPorkInnerClassesGilts.PurchasesOption.IsSet)
             {
                 writer.WritePropertyName("purchases");

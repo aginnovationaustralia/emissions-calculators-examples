@@ -378,6 +378,10 @@ class PostProcessingRequestProductsInner implements ModelInterface, ArrayAccess,
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_source'] === null) {
             $invalidProperties[] = "'electricity_source' can't be null";
         }
@@ -405,6 +409,14 @@ class PostProcessingRequestProductsInner implements ModelInterface, ArrayAccess,
         if ($this->container['purchased_co2'] === null) {
             $invalidProperties[] = "'purchased_co2' can't be null";
         }
+        if (($this->container['purchased_co2'] < 0)) {
+            $invalidProperties[] = "invalid value for 'purchased_co2', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['carbon_offsets']) && ($this->container['carbon_offsets'] < 0)) {
+            $invalidProperties[] = "invalid value for 'carbon_offsets', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -531,6 +543,11 @@ class PostProcessingRequestProductsInner implements ModelInterface, ArrayAccess,
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostProcessingRequestProductsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -703,6 +720,11 @@ class PostProcessingRequestProductsInner implements ModelInterface, ArrayAccess,
         if (is_null($purchased_co2)) {
             throw new \InvalidArgumentException('non-nullable purchased_co2 cannot be null');
         }
+
+        if (($purchased_co2 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $purchased_co2 when calling PostProcessingRequestProductsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['purchased_co2'] = $purchased_co2;
 
         return $this;
@@ -730,6 +752,11 @@ class PostProcessingRequestProductsInner implements ModelInterface, ArrayAccess,
         if (is_null($carbon_offsets)) {
             throw new \InvalidArgumentException('non-nullable carbon_offsets cannot be null');
         }
+
+        if (($carbon_offsets < 0)) {
+            throw new \InvalidArgumentException('invalid value for $carbon_offsets when calling PostProcessingRequestProductsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['carbon_offsets'] = $carbon_offsets;
 
         return $this;

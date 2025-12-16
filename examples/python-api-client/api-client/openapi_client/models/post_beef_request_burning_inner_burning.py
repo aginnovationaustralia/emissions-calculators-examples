@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +32,7 @@ class PostBeefRequestBurningInnerBurning(BaseModel):
     season: StrictStr = Field(description="The time relative to the fire season in which the burning took place")
     patchiness: StrictStr = Field(description="The patchiness of the savannah/vegetation that was burnt")
     rainfall_zone: StrictStr = Field(description="The rainfall zone in which the burning took place", alias="rainfallZone")
-    years_since_last_fire: Union[StrictFloat, StrictInt] = Field(description="Time since the last fire, in years", alias="yearsSinceLastFire")
+    years_since_last_fire: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Time since the last fire, in years", alias="yearsSinceLastFire")
     fire_scar_area: Union[StrictFloat, StrictInt] = Field(description="The total area of the fire scar, in ha (hectares)", alias="fireScarArea")
     vegetation: StrictStr = Field(description="The vegetation class that was burnt")
     additional_properties: Dict[str, Any] = {}

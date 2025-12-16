@@ -48,6 +48,13 @@ import {
     PostPork200ResponseScope1ToJSON,
     PostPork200ResponseScope1ToJSONTyped,
 } from './PostPork200ResponseScope1';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 
 /**
  * Intermediate emissions calculation output for the Pork calculator
@@ -80,12 +87,6 @@ export interface PostPork200ResponseIntermediateInner {
      */
     scope3: PostPork200ResponseScope3;
     /**
-     * Carbon sequestration, in tonnes-CO2e
-     * @type {number}
-     * @memberof PostPork200ResponseIntermediateInner
-     */
-    carbonSequestration: number;
-    /**
      * 
      * @type {PostPork200ResponseNet}
      * @memberof PostPork200ResponseIntermediateInner
@@ -97,6 +98,12 @@ export interface PostPork200ResponseIntermediateInner {
      * @memberof PostPork200ResponseIntermediateInner
      */
     intensities: PostPork200ResponseIntensities;
+    /**
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
+     * @memberof PostPork200ResponseIntermediateInner
+     */
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -107,9 +114,9 @@ export function instanceOfPostPork200ResponseIntermediateInner(value: object): v
     if (!('scope1' in value) || value['scope1'] === undefined) return false;
     if (!('scope2' in value) || value['scope2'] === undefined) return false;
     if (!('scope3' in value) || value['scope3'] === undefined) return false;
-    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     if (!('net' in value) || value['net'] === undefined) return false;
     if (!('intensities' in value) || value['intensities'] === undefined) return false;
+    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     return true;
 }
 
@@ -127,9 +134,9 @@ export function PostPork200ResponseIntermediateInnerFromJSONTyped(json: any, ign
         'scope1': PostPork200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostPork200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': json['carbonSequestration'],
         'net': PostPork200ResponseNetFromJSON(json['net']),
         'intensities': PostPork200ResponseIntensitiesFromJSON(json['intensities']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -148,9 +155,9 @@ export function PostPork200ResponseIntermediateInnerToJSONTyped(value?: PostPork
         'scope1': PostPork200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostPork200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': value['carbonSequestration'],
         'net': PostPork200ResponseNetToJSON(value['net']),
         'intensities': PostPork200ResponseIntensitiesToJSON(value['intensities']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

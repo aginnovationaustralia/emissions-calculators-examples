@@ -60,8 +60,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     protected static $openAPITypes = [
         'rice_produced_tonnes' => 'float',
         'rice_excluding_sequestration' => 'float',
-        'rice_including_sequestration' => 'float',
-        'intensity' => 'float'
+        'rice_including_sequestration' => 'float'
     ];
 
     /**
@@ -74,8 +73,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     protected static $openAPIFormats = [
         'rice_produced_tonnes' => null,
         'rice_excluding_sequestration' => null,
-        'rice_including_sequestration' => null,
-        'intensity' => null
+        'rice_including_sequestration' => null
     ];
 
     /**
@@ -86,8 +84,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     protected static array $openAPINullables = [
         'rice_produced_tonnes' => false,
         'rice_excluding_sequestration' => false,
-        'rice_including_sequestration' => false,
-        'intensity' => false
+        'rice_including_sequestration' => false
     ];
 
     /**
@@ -178,8 +175,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     protected static $attributeMap = [
         'rice_produced_tonnes' => 'riceProducedTonnes',
         'rice_excluding_sequestration' => 'riceExcludingSequestration',
-        'rice_including_sequestration' => 'riceIncludingSequestration',
-        'intensity' => 'intensity'
+        'rice_including_sequestration' => 'riceIncludingSequestration'
     ];
 
     /**
@@ -190,8 +186,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     protected static $setters = [
         'rice_produced_tonnes' => 'setRiceProducedTonnes',
         'rice_excluding_sequestration' => 'setRiceExcludingSequestration',
-        'rice_including_sequestration' => 'setRiceIncludingSequestration',
-        'intensity' => 'setIntensity'
+        'rice_including_sequestration' => 'setRiceIncludingSequestration'
     ];
 
     /**
@@ -202,8 +197,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     protected static $getters = [
         'rice_produced_tonnes' => 'getRiceProducedTonnes',
         'rice_excluding_sequestration' => 'getRiceExcludingSequestration',
-        'rice_including_sequestration' => 'getRiceIncludingSequestration',
-        'intensity' => 'getIntensity'
+        'rice_including_sequestration' => 'getRiceIncludingSequestration'
     ];
 
     /**
@@ -266,7 +260,6 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
         $this->setIfExists('rice_produced_tonnes', $data ?? [], null);
         $this->setIfExists('rice_excluding_sequestration', $data ?? [], null);
         $this->setIfExists('rice_including_sequestration', $data ?? [], null);
-        $this->setIfExists('intensity', $data ?? [], null);
     }
 
     /**
@@ -304,9 +297,6 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
         }
         if ($this->container['rice_including_sequestration'] === null) {
             $invalidProperties[] = "'rice_including_sequestration' can't be null";
-        }
-        if ($this->container['intensity'] === null) {
-            $invalidProperties[] = "'intensity' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,7 +353,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     /**
      * Sets rice_excluding_sequestration
      *
-     * @param float $rice_excluding_sequestration Rice excluding sequestration, in t-CO2e/t rice
+     * @param float $rice_excluding_sequestration Rice emissions intensity excluding sequestration, in t-CO2e/t rice
      *
      * @return self
      */
@@ -390,7 +380,7 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
     /**
      * Sets rice_including_sequestration
      *
-     * @param float $rice_including_sequestration Rice including sequestration, in t-CO2e/t rice
+     * @param float $rice_including_sequestration Rice emissions intensity including sequestration, in t-CO2e/t rice
      *
      * @return self
      */
@@ -400,35 +390,6 @@ class PostRice200ResponseIntermediateInnerIntensities implements ModelInterface,
             throw new \InvalidArgumentException('non-nullable rice_including_sequestration cannot be null');
         }
         $this->container['rice_including_sequestration'] = $rice_including_sequestration;
-
-        return $this;
-    }
-
-    /**
-     * Gets intensity
-     *
-     * @return float
-     * @deprecated
-     */
-    public function getIntensity()
-    {
-        return $this->container['intensity'];
-    }
-
-    /**
-     * Sets intensity
-     *
-     * @param float $intensity Emissions intensity of rice production. Deprecation note: Use `riceIncludingSequestration` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setIntensity($intensity)
-    {
-        if (is_null($intensity)) {
-            throw new \InvalidArgumentException('non-nullable intensity cannot be null');
-        }
-        $this->container['intensity'] = $intensity;
 
         return $this;
     }

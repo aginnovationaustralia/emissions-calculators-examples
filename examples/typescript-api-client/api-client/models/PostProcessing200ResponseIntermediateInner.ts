@@ -20,13 +20,6 @@ import {
     PostAquaculture200ResponseScope2ToJSON,
     PostAquaculture200ResponseScope2ToJSONTyped,
 } from './PostAquaculture200ResponseScope2';
-import type { PostAquaculture200ResponseIntermediateInnerCarbonSequestration } from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
-import {
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSONTyped,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSONTyped,
-} from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
 import type { PostProcessing200ResponseScope3 } from './PostProcessing200ResponseScope3';
 import {
     PostProcessing200ResponseScope3FromJSON,
@@ -55,6 +48,13 @@ import {
     PostProcessing200ResponseIntensitiesInnerToJSON,
     PostProcessing200ResponseIntensitiesInnerToJSONTyped,
 } from './PostProcessing200ResponseIntensitiesInner';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 
 /**
  * Intermediate emissions calculation output for the Processing calculator
@@ -88,12 +88,6 @@ export interface PostProcessing200ResponseIntermediateInner {
     scope3: PostProcessing200ResponseScope3;
     /**
      * 
-     * @type {PostAquaculture200ResponseIntermediateInnerCarbonSequestration}
-     * @memberof PostProcessing200ResponseIntermediateInner
-     */
-    carbonSequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration;
-    /**
-     * 
      * @type {PostProcessing200ResponseIntensitiesInner}
      * @memberof PostProcessing200ResponseIntermediateInner
      */
@@ -104,6 +98,12 @@ export interface PostProcessing200ResponseIntermediateInner {
      * @memberof PostProcessing200ResponseIntermediateInner
      */
     net: PostAquaculture200ResponseNet;
+    /**
+     * 
+     * @type {PostAquaculture200ResponseCarbonSequestration}
+     * @memberof PostProcessing200ResponseIntermediateInner
+     */
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -114,9 +114,9 @@ export function instanceOfPostProcessing200ResponseIntermediateInner(value: obje
     if (!('scope1' in value) || value['scope1'] === undefined) return false;
     if (!('scope2' in value) || value['scope2'] === undefined) return false;
     if (!('scope3' in value) || value['scope3'] === undefined) return false;
-    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     if (!('intensities' in value) || value['intensities'] === undefined) return false;
     if (!('net' in value) || value['net'] === undefined) return false;
+    if (!('carbonSequestration' in value) || value['carbonSequestration'] === undefined) return false;
     return true;
 }
 
@@ -134,9 +134,9 @@ export function PostProcessing200ResponseIntermediateInnerFromJSONTyped(json: an
         'scope1': PostProcessing200ResponseScope1FromJSON(json['scope1']),
         'scope2': PostAquaculture200ResponseScope2FromJSON(json['scope2']),
         'scope3': PostProcessing200ResponseScope3FromJSON(json['scope3']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON(json['carbonSequestration']),
         'intensities': PostProcessing200ResponseIntensitiesInnerFromJSON(json['intensities']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -155,9 +155,9 @@ export function PostProcessing200ResponseIntermediateInnerToJSONTyped(value?: Po
         'scope1': PostProcessing200ResponseScope1ToJSON(value['scope1']),
         'scope2': PostAquaculture200ResponseScope2ToJSON(value['scope2']),
         'scope3': PostProcessing200ResponseScope3ToJSON(value['scope3']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON(value['carbonSequestration']),
         'intensities': PostProcessing200ResponseIntensitiesInnerToJSON(value['intensities']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

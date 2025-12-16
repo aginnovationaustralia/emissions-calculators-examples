@@ -18,12 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.post_aquaculture200_response_carbon_sequestration import PostAquaculture200ResponseCarbonSequestration
 from openapi_client.models.post_aquaculture200_response_net import PostAquaculture200ResponseNet
 from openapi_client.models.post_aquaculture200_response_scope2 import PostAquaculture200ResponseScope2
-from openapi_client.models.post_beef200_response_scope1 import PostBeef200ResponseScope1
 from openapi_client.models.post_beef200_response_scope3 import PostBeef200ResponseScope3
+from openapi_client.models.post_buffalo200_response_scope1 import PostBuffalo200ResponseScope1
 from openapi_client.models.post_sheep200_response_intermediate_inner_intensities import PostSheep200ResponseIntermediateInnerIntensities
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,10 +33,10 @@ class PostSheepbeef200ResponseIntermediateSheep(BaseModel):
     """
     Emission output breakdown just for sheep livestock
     """ # noqa: E501
-    scope1: PostBeef200ResponseScope1
+    scope1: PostBuffalo200ResponseScope1
     scope2: PostAquaculture200ResponseScope2
     scope3: PostBeef200ResponseScope3
-    carbon_sequestration: Union[StrictFloat, StrictInt] = Field(description="Carbon sequestration, in tonnes-CO2e", alias="carbonSequestration")
+    carbon_sequestration: PostAquaculture200ResponseCarbonSequestration = Field(alias="carbonSequestration")
     net: PostAquaculture200ResponseNet
     intensities: PostSheep200ResponseIntermediateInnerIntensities
     additional_properties: Dict[str, Any] = {}
@@ -91,6 +92,9 @@ class PostSheepbeef200ResponseIntermediateSheep(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of scope3
         if self.scope3:
             _dict['scope3'] = self.scope3.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of carbon_sequestration
+        if self.carbon_sequestration:
+            _dict['carbonSequestration'] = self.carbon_sequestration.to_dict()
         # override the default output from pydantic by calling `to_dict()` of net
         if self.net:
             _dict['net'] = self.net.to_dict()
@@ -114,10 +118,10 @@ class PostSheepbeef200ResponseIntermediateSheep(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "scope1": PostBeef200ResponseScope1.from_dict(obj["scope1"]) if obj.get("scope1") is not None else None,
+            "scope1": PostBuffalo200ResponseScope1.from_dict(obj["scope1"]) if obj.get("scope1") is not None else None,
             "scope2": PostAquaculture200ResponseScope2.from_dict(obj["scope2"]) if obj.get("scope2") is not None else None,
             "scope3": PostBeef200ResponseScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
-            "carbonSequestration": obj.get("carbonSequestration"),
+            "carbonSequestration": PostAquaculture200ResponseCarbonSequestration.from_dict(obj["carbonSequestration"]) if obj.get("carbonSequestration") is not None else None,
             "net": PostAquaculture200ResponseNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
             "intensities": PostSheep200ResponseIntermediateInnerIntensities.from_dict(obj["intensities"]) if obj.get("intensities") is not None else None
         })

@@ -97,10 +97,7 @@ namespace TestApi
                 spring: spring,
                 summer: summer,
                 headSold: 25,
-                saleWeight: 500,
-                // NOTE: This field is not required in the OpenAPI spec but there is a bug in the code generator for C#.
-                // If it is undefined, the class fails to serialise to JSON
-                source: PostBeefRequestBeefInnerClassesCowsGt2.SourceEnum.NthSthCentralQLD
+                saleWeight: 500
             );
 
             // Create classes object
@@ -114,10 +111,7 @@ namespace TestApi
                 pastureDryland: 10.0m,
                 pastureIrrigated: 2.0m,
                 cropsDryland: 8.0m,
-                cropsIrrigated: 1.0m,
-                // NOTE: This field is not required in the OpenAPI spec but there is a bug in the code generator for C#.
-                // If it is undefined, the class fails to serialise to JSON
-                otherType: PostBeefRequestBeefInnerFertiliser.OtherTypeEnum.MonoammoniumPhosphateMAP
+                cropsIrrigated: 1.0m
             );
 
             // Create mineral supplementation

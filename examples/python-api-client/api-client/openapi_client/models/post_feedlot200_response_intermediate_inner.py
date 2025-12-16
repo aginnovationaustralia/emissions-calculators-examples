@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_carbon_sequestration import PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+from openapi_client.models.post_aquaculture200_response_carbon_sequestration import PostAquaculture200ResponseCarbonSequestration
 from openapi_client.models.post_aquaculture200_response_scope2 import PostAquaculture200ResponseScope2
 from openapi_client.models.post_feedlot200_response_intermediate_inner_intensities import PostFeedlot200ResponseIntermediateInnerIntensities
 from openapi_client.models.post_feedlot200_response_intermediate_inner_net import PostFeedlot200ResponseIntermediateInnerNet
@@ -31,17 +31,17 @@ from typing_extensions import Self
 
 class PostFeedlot200ResponseIntermediateInner(BaseModel):
     """
-    PostFeedlot200ResponseIntermediateInner
+    Intermediate emissions calculation output for the Feedlot calculator
     """ # noqa: E501
-    id: StrictStr = Field(description="Unique identifier for this activity")
+    id: StrictStr = Field(description="Unique identifier for this Feedlot activity")
     scope1: PostFeedlot200ResponseScope1
     scope2: PostAquaculture200ResponseScope2
     scope3: PostFeedlot200ResponseScope3
-    carbon_sequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration = Field(alias="carbonSequestration")
     net: PostFeedlot200ResponseIntermediateInnerNet
     intensities: PostFeedlot200ResponseIntermediateInnerIntensities
+    carbon_sequestration: PostAquaculture200ResponseCarbonSequestration = Field(alias="carbonSequestration")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "scope1", "scope2", "scope3", "carbonSequestration", "net", "intensities"]
+    __properties: ClassVar[List[str]] = ["id", "scope1", "scope2", "scope3", "net", "intensities", "carbonSequestration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,15 +93,15 @@ class PostFeedlot200ResponseIntermediateInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of scope3
         if self.scope3:
             _dict['scope3'] = self.scope3.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of carbon_sequestration
-        if self.carbon_sequestration:
-            _dict['carbonSequestration'] = self.carbon_sequestration.to_dict()
         # override the default output from pydantic by calling `to_dict()` of net
         if self.net:
             _dict['net'] = self.net.to_dict()
         # override the default output from pydantic by calling `to_dict()` of intensities
         if self.intensities:
             _dict['intensities'] = self.intensities.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of carbon_sequestration
+        if self.carbon_sequestration:
+            _dict['carbonSequestration'] = self.carbon_sequestration.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -123,9 +123,9 @@ class PostFeedlot200ResponseIntermediateInner(BaseModel):
             "scope1": PostFeedlot200ResponseScope1.from_dict(obj["scope1"]) if obj.get("scope1") is not None else None,
             "scope2": PostAquaculture200ResponseScope2.from_dict(obj["scope2"]) if obj.get("scope2") is not None else None,
             "scope3": PostFeedlot200ResponseScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
-            "carbonSequestration": PostAquaculture200ResponseIntermediateInnerCarbonSequestration.from_dict(obj["carbonSequestration"]) if obj.get("carbonSequestration") is not None else None,
             "net": PostFeedlot200ResponseIntermediateInnerNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
-            "intensities": PostFeedlot200ResponseIntermediateInnerIntensities.from_dict(obj["intensities"]) if obj.get("intensities") is not None else None
+            "intensities": PostFeedlot200ResponseIntermediateInnerIntensities.from_dict(obj["intensities"]) if obj.get("intensities") is not None else None,
+            "carbonSequestration": PostAquaculture200ResponseCarbonSequestration.from_dict(obj["carbonSequestration"]) if obj.get("carbonSequestration") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

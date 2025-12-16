@@ -68,7 +68,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://emissionscalculator-mtls.development.aiaapi.com/calculator/3.0.0*
+All URIs are relative to *https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -99,7 +99,6 @@ Class | Method | HTTP request | Description
 - [PostAquaculture200ResponseCarbonSequestration](docs/Model/PostAquaculture200ResponseCarbonSequestration.md)
 - [PostAquaculture200ResponseIntensities](docs/Model/PostAquaculture200ResponseIntensities.md)
 - [PostAquaculture200ResponseIntermediateInner](docs/Model/PostAquaculture200ResponseIntermediateInner.md)
-- [PostAquaculture200ResponseIntermediateInnerCarbonSequestration](docs/Model/PostAquaculture200ResponseIntermediateInnerCarbonSequestration.md)
 - [PostAquaculture200ResponseNet](docs/Model/PostAquaculture200ResponseNet.md)
 - [PostAquaculture200ResponsePurchasedOffsets](docs/Model/PostAquaculture200ResponsePurchasedOffsets.md)
 - [PostAquaculture200ResponseScope1](docs/Model/PostAquaculture200ResponseScope1.md)
@@ -249,7 +248,6 @@ Class | Method | HTTP request | Description
 - [PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales](docs/Model/PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales.md)
 - [PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies](docs/Model/PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies.md)
 - [PostGoatRequestGoatsInnerClassesTradeBucks](docs/Model/PostGoatRequestGoatsInnerClassesTradeBucks.md)
-- [PostGoatRequestGoatsInnerClassesTradeDoes](docs/Model/PostGoatRequestGoatsInnerClassesTradeDoes.md)
 - [PostGoatRequestGoatsInnerClassesTradeKids](docs/Model/PostGoatRequestGoatsInnerClassesTradeKids.md)
 - [PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies](docs/Model/PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies.md)
 - [PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales](docs/Model/PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales.md)
@@ -261,6 +259,7 @@ Class | Method | HTTP request | Description
 - [PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration](docs/Model/PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration.md)
 - [PostGrainsRequest](docs/Model/PostGrainsRequest.md)
 - [PostGrainsRequestCropsInner](docs/Model/PostGrainsRequestCropsInner.md)
+- [PostGrainsRequestVegetationInner](docs/Model/PostGrainsRequestVegetationInner.md)
 - [PostHorticulture200Response](docs/Model/PostHorticulture200Response.md)
 - [PostHorticulture200ResponseIntermediateInner](docs/Model/PostHorticulture200ResponseIntermediateInner.md)
 - [PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration](docs/Model/PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration.md)
@@ -268,6 +267,7 @@ Class | Method | HTTP request | Description
 - [PostHorticultureRequest](docs/Model/PostHorticultureRequest.md)
 - [PostHorticultureRequestCropsInner](docs/Model/PostHorticultureRequestCropsInner.md)
 - [PostHorticultureRequestCropsInnerRefrigerantsInner](docs/Model/PostHorticultureRequestCropsInnerRefrigerantsInner.md)
+- [PostHorticultureRequestVegetationInner](docs/Model/PostHorticultureRequestVegetationInner.md)
 - [PostPork200Response](docs/Model/PostPork200Response.md)
 - [PostPork200ResponseIntensities](docs/Model/PostPork200ResponseIntensities.md)
 - [PostPork200ResponseIntermediateInner](docs/Model/PostPork200ResponseIntermediateInner.md)
@@ -331,6 +331,7 @@ Class | Method | HTTP request | Description
 - [PostRice200ResponseScope1](docs/Model/PostRice200ResponseScope1.md)
 - [PostRiceRequest](docs/Model/PostRiceRequest.md)
 - [PostRiceRequestCropsInner](docs/Model/PostRiceRequestCropsInner.md)
+- [PostRiceRequestVegetationInner](docs/Model/PostRiceRequestVegetationInner.md)
 - [PostSheep200Response](docs/Model/PostSheep200Response.md)
 - [PostSheep200ResponseIntermediateInner](docs/Model/PostSheep200ResponseIntermediateInner.md)
 - [PostSheep200ResponseIntermediateInnerIntensities](docs/Model/PostSheep200ResponseIntermediateInnerIntensities.md)
@@ -340,8 +341,6 @@ Class | Method | HTTP request | Description
 - [PostSheepRequestSheepInnerClasses](docs/Model/PostSheepRequestSheepInnerClasses.md)
 - [PostSheepRequestSheepInnerClassesRams](docs/Model/PostSheepRequestSheepInnerClassesRams.md)
 - [PostSheepRequestSheepInnerClassesRamsAutumn](docs/Model/PostSheepRequestSheepInnerClassesRamsAutumn.md)
-- [PostSheepRequestSheepInnerClassesTradeEwes](docs/Model/PostSheepRequestSheepInnerClassesTradeEwes.md)
-- [PostSheepRequestSheepInnerClassesTradeLambsAndHoggets](docs/Model/PostSheepRequestSheepInnerClassesTradeLambsAndHoggets.md)
 - [PostSheepRequestSheepInnerEwesLambing](docs/Model/PostSheepRequestSheepInnerEwesLambing.md)
 - [PostSheepRequestSheepInnerSeasonalLambing](docs/Model/PostSheepRequestSheepInnerSeasonalLambing.md)
 - [PostSheepRequestVegetationInner](docs/Model/PostSheepRequestVegetationInner.md)
@@ -358,6 +357,7 @@ Class | Method | HTTP request | Description
 - [PostSugar200ResponseIntermediateInnerIntensities](docs/Model/PostSugar200ResponseIntermediateInnerIntensities.md)
 - [PostSugarRequest](docs/Model/PostSugarRequest.md)
 - [PostSugarRequestCropsInner](docs/Model/PostSugarRequestCropsInner.md)
+- [PostSugarRequestVegetationInner](docs/Model/PostSugarRequestVegetationInner.md)
 - [PostVineyard200Response](docs/Model/PostVineyard200Response.md)
 - [PostVineyard200ResponseIntermediateInner](docs/Model/PostVineyard200ResponseIntermediateInner.md)
 - [PostVineyard200ResponseIntermediateInnerIntensities](docs/Model/PostVineyard200ResponseIntermediateInnerIntensities.md)

@@ -20,13 +20,6 @@ import {
     PostAquaculture200ResponseScope2ToJSON,
     PostAquaculture200ResponseScope2ToJSONTyped,
 } from './PostAquaculture200ResponseScope2';
-import type { PostAquaculture200ResponseIntermediateInnerCarbonSequestration } from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
-import {
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSONTyped,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON,
-    PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSONTyped,
-} from './PostAquaculture200ResponseIntermediateInnerCarbonSequestration';
 import type { PostAquaculture200ResponseNet } from './PostAquaculture200ResponseNet';
 import {
     PostAquaculture200ResponseNetFromJSON,
@@ -34,6 +27,13 @@ import {
     PostAquaculture200ResponseNetToJSON,
     PostAquaculture200ResponseNetToJSONTyped,
 } from './PostAquaculture200ResponseNet';
+import type { PostAquaculture200ResponseCarbonSequestration } from './PostAquaculture200ResponseCarbonSequestration';
+import {
+    PostAquaculture200ResponseCarbonSequestrationFromJSON,
+    PostAquaculture200ResponseCarbonSequestrationFromJSONTyped,
+    PostAquaculture200ResponseCarbonSequestrationToJSON,
+    PostAquaculture200ResponseCarbonSequestrationToJSONTyped,
+} from './PostAquaculture200ResponseCarbonSequestration';
 import type { PostWildcatchfishery200ResponseIntensities } from './PostWildcatchfishery200ResponseIntensities';
 import {
     PostWildcatchfishery200ResponseIntensitiesFromJSON,
@@ -100,10 +100,10 @@ export interface PostWildcatchfishery200ResponseIntermediateInner {
     net: PostAquaculture200ResponseNet;
     /**
      * 
-     * @type {PostAquaculture200ResponseIntermediateInnerCarbonSequestration}
+     * @type {PostAquaculture200ResponseCarbonSequestration}
      * @memberof PostWildcatchfishery200ResponseIntermediateInner
      */
-    carbonSequestration: PostAquaculture200ResponseIntermediateInnerCarbonSequestration;
+    carbonSequestration: PostAquaculture200ResponseCarbonSequestration;
 }
 
 /**
@@ -136,7 +136,7 @@ export function PostWildcatchfishery200ResponseIntermediateInnerFromJSONTyped(js
         'scope3': PostAquaculture200ResponseScope3FromJSON(json['scope3']),
         'intensities': PostWildcatchfishery200ResponseIntensitiesFromJSON(json['intensities']),
         'net': PostAquaculture200ResponseNetFromJSON(json['net']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationFromJSON(json['carbonSequestration']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationFromJSON(json['carbonSequestration']),
     };
 }
 
@@ -157,7 +157,7 @@ export function PostWildcatchfishery200ResponseIntermediateInnerToJSONTyped(valu
         'scope3': PostAquaculture200ResponseScope3ToJSON(value['scope3']),
         'intensities': PostWildcatchfishery200ResponseIntensitiesToJSON(value['intensities']),
         'net': PostAquaculture200ResponseNetToJSON(value['net']),
-        'carbonSequestration': PostAquaculture200ResponseIntermediateInnerCarbonSequestrationToJSON(value['carbonSequestration']),
+        'carbonSequestration': PostAquaculture200ResponseCarbonSequestrationToJSON(value['carbonSequestration']),
     };
 }
 

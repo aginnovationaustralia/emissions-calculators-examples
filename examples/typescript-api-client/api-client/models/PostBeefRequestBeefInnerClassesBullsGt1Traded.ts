@@ -59,27 +59,6 @@ export interface PostBeefRequestBeefInnerClassesBullsGt1Traded {
      */
     summer: PostBeefRequestBeefInnerClassesBullsGt1Autumn;
     /**
-     * Number of animals purchased (head). Deprecation note: Use `purchases` instead
-     * @type {number}
-     * @memberof PostBeefRequestBeefInnerClassesBullsGt1Traded
-     * @deprecated
-     */
-    headPurchased?: number;
-    /**
-     * Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Use `purchases` instead
-     * @type {number}
-     * @memberof PostBeefRequestBeefInnerClassesBullsGt1Traded
-     * @deprecated
-     */
-    purchasedWeight?: number;
-    /**
-     * Source location of livestock purchase. Deprecation note: Use `purchases` instead
-     * @type {string}
-     * @memberof PostBeefRequestBeefInnerClassesBullsGt1Traded
-     * @deprecated
-     */
-    source?: PostBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum;
-    /**
      * Number of animals sold (head)
      * @type {number}
      * @memberof PostBeefRequestBeefInnerClassesBullsGt1Traded
@@ -98,23 +77,6 @@ export interface PostBeefRequestBeefInnerClassesBullsGt1Traded {
      */
     purchases?: Array<PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner>;
 }
-
-
-/**
- * @export
- */
-export const PostBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum = {
-    DairyOrigin: 'Dairy origin',
-    NthSthCentralQld: 'nth/sth/central QLD',
-    NthSthNswVicSthSa: 'nth/sth NSW/VIC/sth SA',
-    NswSaPastoralZone: 'NSW/SA pastoral zone',
-    SwWa: 'sw WA',
-    WaPastoral: 'WA pastoral',
-    Tas: 'TAS',
-    Nt: 'NT'
-} as const;
-export type PostBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum = typeof PostBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum[keyof typeof PostBeefRequestBeefInnerClassesBullsGt1TradedSourceEnum];
-
 
 /**
  * Check if a given object implements the PostBeefRequestBeefInnerClassesBullsGt1Traded interface.
@@ -143,9 +105,6 @@ export function PostBeefRequestBeefInnerClassesBullsGt1TradedFromJSONTyped(json:
         'winter': PostBeefRequestBeefInnerClassesBullsGt1AutumnFromJSON(json['winter']),
         'spring': PostBeefRequestBeefInnerClassesBullsGt1AutumnFromJSON(json['spring']),
         'summer': PostBeefRequestBeefInnerClassesBullsGt1AutumnFromJSON(json['summer']),
-        'headPurchased': json['headPurchased'] == null ? undefined : json['headPurchased'],
-        'purchasedWeight': json['purchasedWeight'] == null ? undefined : json['purchasedWeight'],
-        'source': json['source'] == null ? undefined : json['source'],
         'headSold': json['headSold'],
         'saleWeight': json['saleWeight'],
         'purchases': json['purchases'] == null ? undefined : ((json['purchases'] as Array<any>).map(PostBeefRequestBeefInnerClassesBullsGt1PurchasesInnerFromJSON)),
@@ -167,9 +126,6 @@ export function PostBeefRequestBeefInnerClassesBullsGt1TradedToJSONTyped(value?:
         'winter': PostBeefRequestBeefInnerClassesBullsGt1AutumnToJSON(value['winter']),
         'spring': PostBeefRequestBeefInnerClassesBullsGt1AutumnToJSON(value['spring']),
         'summer': PostBeefRequestBeefInnerClassesBullsGt1AutumnToJSON(value['summer']),
-        'headPurchased': value['headPurchased'],
-        'purchasedWeight': value['purchasedWeight'],
-        'source': value['source'],
         'headSold': value['headSold'],
         'saleWeight': value['saleWeight'],
         'purchases': value['purchases'] == null ? undefined : ((value['purchases'] as Array<any>).map(PostBeefRequestBeefInnerClassesBullsGt1PurchasesInnerToJSON)),

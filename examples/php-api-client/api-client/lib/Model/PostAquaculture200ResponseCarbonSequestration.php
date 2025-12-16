@@ -59,8 +59,7 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float',
-        'intermediate' => 'float[]'
+        'total' => 'float'
     ];
 
     /**
@@ -71,8 +70,7 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null,
-        'intermediate' => null
+        'total' => null
     ];
 
     /**
@@ -81,8 +79,7 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'total' => false,
-        'intermediate' => false
+        'total' => false
     ];
 
     /**
@@ -171,8 +168,7 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total',
-        'intermediate' => 'intermediate'
+        'total' => 'total'
     ];
 
     /**
@@ -181,8 +177,7 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal',
-        'intermediate' => 'setIntermediate'
+        'total' => 'setTotal'
     ];
 
     /**
@@ -191,8 +186,7 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal',
-        'intermediate' => 'getIntermediate'
+        'total' => 'getTotal'
     ];
 
     /**
@@ -253,7 +247,6 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
     public function __construct(?array $data = null)
     {
         $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('intermediate', $data ?? [], null);
     }
 
     /**
@@ -285,9 +278,6 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
 
         if ($this->container['total'] === null) {
             $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['intermediate'] === null) {
-            $invalidProperties[] = "'intermediate' can't be null";
         }
         return $invalidProperties;
     }
@@ -327,33 +317,6 @@ class PostAquaculture200ResponseCarbonSequestration implements ModelInterface, A
             throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
         $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets intermediate
-     *
-     * @return float[]
-     */
-    public function getIntermediate()
-    {
-        return $this->container['intermediate'];
-    }
-
-    /**
-     * Sets intermediate
-     *
-     * @param float[] $intermediate intermediate
-     *
-     * @return self
-     */
-    public function setIntermediate($intermediate)
-    {
-        if (is_null($intermediate)) {
-            throw new \InvalidArgumentException('non-nullable intermediate cannot be null');
-        }
-        $this->container['intermediate'] = $intermediate;
 
         return $this;
     }

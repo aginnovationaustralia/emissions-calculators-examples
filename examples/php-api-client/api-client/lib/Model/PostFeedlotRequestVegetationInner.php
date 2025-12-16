@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostFeedlotRequestVegetationInner Class Doc Comment
  *
  * @category Class
+ * @description Non-productive vegetation inputs along with allocations to each Feedlot activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -343,7 +344,7 @@ class PostFeedlotRequestVegetationInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets feedlot_proportion
      *
-     * @param float[] $feedlot_proportion feedlot_proportion
+     * @param float[] $feedlot_proportion The proportion of the sequestration that is allocated to each feedlot activity
      *
      * @return self
      */

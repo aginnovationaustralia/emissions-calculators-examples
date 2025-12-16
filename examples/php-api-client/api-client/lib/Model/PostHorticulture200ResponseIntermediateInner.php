@@ -65,7 +65,7 @@ class PostHorticulture200ResponseIntermediateInner implements ModelInterface, Ar
         'scope3' => '\OpenAPI\Client\Model\PostCotton200ResponseScope3',
         'intensities_with_sequestration' => '\OpenAPI\Client\Model\PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration',
         'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseNet',
-        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration'
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PostHorticulture200ResponseIntermediateInner implements ModelInterface, Ar
     /**
      * Sets id
      *
-     * @param string $id Unique identifier for this activity
+     * @param string $id Unique identifier for this Horticulture activity
      *
      * @return self
      */
@@ -519,7 +519,7 @@ class PostHorticulture200ResponseIntermediateInner implements ModelInterface, Ar
     /**
      * Gets carbon_sequestration
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -529,7 +529,7 @@ class PostHorticulture200ResponseIntermediateInner implements ModelInterface, Ar
     /**
      * Sets carbon_sequestration
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration $carbon_sequestration carbon_sequestration
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

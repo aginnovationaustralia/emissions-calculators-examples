@@ -333,9 +333,17 @@ class PostBuffaloRequestBuffalosInnerClassesBulls implements ModelInterface, Arr
         if ($this->container['head_sold'] === null) {
             $invalidProperties[] = "'head_sold' can't be null";
         }
+        if (($this->container['head_sold'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_sold', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sale_weight'] === null) {
             $invalidProperties[] = "'sale_weight' can't be null";
         }
+        if (($this->container['sale_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sale_weight', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -481,6 +489,11 @@ class PostBuffaloRequestBuffalosInnerClassesBulls implements ModelInterface, Arr
         if (is_null($head_sold)) {
             throw new \InvalidArgumentException('non-nullable head_sold cannot be null');
         }
+
+        if (($head_sold < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_sold when calling PostBuffaloRequestBuffalosInnerClassesBulls., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_sold'] = $head_sold;
 
         return $this;
@@ -508,6 +521,11 @@ class PostBuffaloRequestBuffalosInnerClassesBulls implements ModelInterface, Arr
         if (is_null($sale_weight)) {
             throw new \InvalidArgumentException('non-nullable sale_weight cannot be null');
         }
+
+        if (($sale_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sale_weight when calling PostBuffaloRequestBuffalosInnerClassesBulls., must be bigger than or equal to 0.');
+        }
+
         $this->container['sale_weight'] = $sale_weight;
 
         return $this;

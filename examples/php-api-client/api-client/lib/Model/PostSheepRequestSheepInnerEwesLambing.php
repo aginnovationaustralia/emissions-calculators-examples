@@ -59,10 +59,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'autumn' => 'float',
-        'winter' => 'float',
         'spring' => 'float',
-        'summer' => 'float'
+        'summer' => 'float',
+        'autumn' => 'float',
+        'winter' => 'float'
     ];
 
     /**
@@ -73,10 +73,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'autumn' => null,
-        'winter' => null,
         'spring' => null,
-        'summer' => null
+        'summer' => null,
+        'autumn' => null,
+        'winter' => null
     ];
 
     /**
@@ -85,10 +85,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'autumn' => false,
-        'winter' => false,
         'spring' => false,
-        'summer' => false
+        'summer' => false,
+        'autumn' => false,
+        'winter' => false
     ];
 
     /**
@@ -177,10 +177,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'autumn' => 'autumn',
-        'winter' => 'winter',
         'spring' => 'spring',
-        'summer' => 'summer'
+        'summer' => 'summer',
+        'autumn' => 'autumn',
+        'winter' => 'winter'
     ];
 
     /**
@@ -189,10 +189,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'autumn' => 'setAutumn',
-        'winter' => 'setWinter',
         'spring' => 'setSpring',
-        'summer' => 'setSummer'
+        'summer' => 'setSummer',
+        'autumn' => 'setAutumn',
+        'winter' => 'setWinter'
     ];
 
     /**
@@ -201,10 +201,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'autumn' => 'getAutumn',
-        'winter' => 'getWinter',
         'spring' => 'getSpring',
-        'summer' => 'getSummer'
+        'summer' => 'getSummer',
+        'autumn' => 'getAutumn',
+        'winter' => 'getWinter'
     ];
 
     /**
@@ -264,10 +264,10 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('autumn', $data ?? [], null);
-        $this->setIfExists('winter', $data ?? [], null);
         $this->setIfExists('spring', $data ?? [], null);
         $this->setIfExists('summer', $data ?? [], null);
+        $this->setIfExists('autumn', $data ?? [], null);
+        $this->setIfExists('winter', $data ?? [], null);
     }
 
     /**
@@ -297,28 +297,6 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['autumn'] === null) {
-            $invalidProperties[] = "'autumn' can't be null";
-        }
-        if (($this->container['autumn'] > 1)) {
-            $invalidProperties[] = "invalid value for 'autumn', must be smaller than or equal to 1.";
-        }
-
-        if (($this->container['autumn'] < 0)) {
-            $invalidProperties[] = "invalid value for 'autumn', must be bigger than or equal to 0.";
-        }
-
-        if ($this->container['winter'] === null) {
-            $invalidProperties[] = "'winter' can't be null";
-        }
-        if (($this->container['winter'] > 1)) {
-            $invalidProperties[] = "invalid value for 'winter', must be smaller than or equal to 1.";
-        }
-
-        if (($this->container['winter'] < 0)) {
-            $invalidProperties[] = "invalid value for 'winter', must be bigger than or equal to 0.";
-        }
-
         if ($this->container['spring'] === null) {
             $invalidProperties[] = "'spring' can't be null";
         }
@@ -341,6 +319,28 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
             $invalidProperties[] = "invalid value for 'summer', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['autumn'] === null) {
+            $invalidProperties[] = "'autumn' can't be null";
+        }
+        if (($this->container['autumn'] > 1)) {
+            $invalidProperties[] = "invalid value for 'autumn', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['autumn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'autumn', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['winter'] === null) {
+            $invalidProperties[] = "'winter' can't be null";
+        }
+        if (($this->container['winter'] > 1)) {
+            $invalidProperties[] = "invalid value for 'winter', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['winter'] < 0)) {
+            $invalidProperties[] = "invalid value for 'winter', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -355,76 +355,6 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets autumn
-     *
-     * @return float
-     */
-    public function getAutumn()
-    {
-        return $this->container['autumn'];
-    }
-
-    /**
-     * Sets autumn
-     *
-     * @param float $autumn autumn
-     *
-     * @return self
-     */
-    public function setAutumn($autumn)
-    {
-        if (is_null($autumn)) {
-            throw new \InvalidArgumentException('non-nullable autumn cannot be null');
-        }
-
-        if (($autumn > 1)) {
-            throw new \InvalidArgumentException('invalid value for $autumn when calling PostSheepRequestSheepInnerEwesLambing., must be smaller than or equal to 1.');
-        }
-        if (($autumn < 0)) {
-            throw new \InvalidArgumentException('invalid value for $autumn when calling PostSheepRequestSheepInnerEwesLambing., must be bigger than or equal to 0.');
-        }
-
-        $this->container['autumn'] = $autumn;
-
-        return $this;
-    }
-
-    /**
-     * Gets winter
-     *
-     * @return float
-     */
-    public function getWinter()
-    {
-        return $this->container['winter'];
-    }
-
-    /**
-     * Sets winter
-     *
-     * @param float $winter winter
-     *
-     * @return self
-     */
-    public function setWinter($winter)
-    {
-        if (is_null($winter)) {
-            throw new \InvalidArgumentException('non-nullable winter cannot be null');
-        }
-
-        if (($winter > 1)) {
-            throw new \InvalidArgumentException('invalid value for $winter when calling PostSheepRequestSheepInnerEwesLambing., must be smaller than or equal to 1.');
-        }
-        if (($winter < 0)) {
-            throw new \InvalidArgumentException('invalid value for $winter when calling PostSheepRequestSheepInnerEwesLambing., must be bigger than or equal to 0.');
-        }
-
-        $this->container['winter'] = $winter;
-
-        return $this;
-    }
 
     /**
      * Gets spring
@@ -492,6 +422,76 @@ class PostSheepRequestSheepInnerEwesLambing implements ModelInterface, ArrayAcce
         }
 
         $this->container['summer'] = $summer;
+
+        return $this;
+    }
+
+    /**
+     * Gets autumn
+     *
+     * @return float
+     */
+    public function getAutumn()
+    {
+        return $this->container['autumn'];
+    }
+
+    /**
+     * Sets autumn
+     *
+     * @param float $autumn autumn
+     *
+     * @return self
+     */
+    public function setAutumn($autumn)
+    {
+        if (is_null($autumn)) {
+            throw new \InvalidArgumentException('non-nullable autumn cannot be null');
+        }
+
+        if (($autumn > 1)) {
+            throw new \InvalidArgumentException('invalid value for $autumn when calling PostSheepRequestSheepInnerEwesLambing., must be smaller than or equal to 1.');
+        }
+        if (($autumn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $autumn when calling PostSheepRequestSheepInnerEwesLambing., must be bigger than or equal to 0.');
+        }
+
+        $this->container['autumn'] = $autumn;
+
+        return $this;
+    }
+
+    /**
+     * Gets winter
+     *
+     * @return float
+     */
+    public function getWinter()
+    {
+        return $this->container['winter'];
+    }
+
+    /**
+     * Sets winter
+     *
+     * @param float $winter winter
+     *
+     * @return self
+     */
+    public function setWinter($winter)
+    {
+        if (is_null($winter)) {
+            throw new \InvalidArgumentException('non-nullable winter cannot be null');
+        }
+
+        if (($winter > 1)) {
+            throw new \InvalidArgumentException('invalid value for $winter when calling PostSheepRequestSheepInnerEwesLambing., must be smaller than or equal to 1.');
+        }
+        if (($winter < 0)) {
+            throw new \InvalidArgumentException('invalid value for $winter when calling PostSheepRequestSheepInnerEwesLambing., must be bigger than or equal to 0.');
+        }
+
+        $this->container['winter'] = $winter;
 
         return $this;
     }

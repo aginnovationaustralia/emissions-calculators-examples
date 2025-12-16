@@ -334,6 +334,10 @@ class PostAquacultureRequestEnterprisesInnerBaitInner implements ModelInterface,
         if ($this->container['purchased_tonnes'] === null) {
             $invalidProperties[] = "'purchased_tonnes' can't be null";
         }
+        if (($this->container['purchased_tonnes'] < 0)) {
+            $invalidProperties[] = "invalid value for 'purchased_tonnes', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['additional_ingredients'] === null) {
             $invalidProperties[] = "'additional_ingredients' can't be null";
         }
@@ -422,6 +426,11 @@ class PostAquacultureRequestEnterprisesInnerBaitInner implements ModelInterface,
         if (is_null($purchased_tonnes)) {
             throw new \InvalidArgumentException('non-nullable purchased_tonnes cannot be null');
         }
+
+        if (($purchased_tonnes < 0)) {
+            throw new \InvalidArgumentException('invalid value for $purchased_tonnes when calling PostAquacultureRequestEnterprisesInnerBaitInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['purchased_tonnes'] = $purchased_tonnes;
 
         return $this;

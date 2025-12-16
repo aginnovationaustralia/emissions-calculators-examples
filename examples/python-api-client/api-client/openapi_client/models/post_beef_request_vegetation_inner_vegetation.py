@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,8 +31,8 @@ class PostBeefRequestVegetationInnerVegetation(BaseModel):
     region: StrictStr = Field(description="The rainfall region that the vegetation is in")
     tree_species: StrictStr = Field(description="The species of tree", alias="treeSpecies")
     soil: StrictStr = Field(description="The soil type the tree is in")
-    area: Union[StrictFloat, StrictInt] = Field(description="The area of trees, in ha (hectares)")
-    age: Union[StrictFloat, StrictInt] = Field(description="The age of the trees, in years")
+    area: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="The area of trees, in ha (hectares)")
+    age: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="The age of the trees, in years")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["region", "treeSpecies", "soil", "area", "age"]
 
@@ -52,8 +53,8 @@ class PostBeefRequestVegetationInnerVegetation(BaseModel):
     @field_validator('soil')
     def soil_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Loams & Clays', 'No Soil / Tree data available', 'Coloured Sands', 'Duplex', 'Clay', '\"Other Soils\"', 'Other Soils', 'Duplex Soils', 'Sandy Soils', 'Calcarosols', 'Grey Cracking Clays', 'Red Earths', 'Non-cracking Clays', 'Red Duplex', 'Cracking Clays', 'Clays', 'Clay Gidgee', 'Clay (Brigalo and Belah)', 'Kandosols', 'Sandy Duplexes', 'Clay & Red Loam', 'Loam', 'Structured Earths', 'Loamy Soils', 'Yellow Duplex', 'Gradational soils', 'Open Downs', 'Duplex Woodland', 'Earths', 'Tenosols']):
-            raise ValueError("must be one of enum values ('Loams & Clays', 'No Soil / Tree data available', 'Coloured Sands', 'Duplex', 'Clay', '\"Other Soils\"', 'Other Soils', 'Duplex Soils', 'Sandy Soils', 'Calcarosols', 'Grey Cracking Clays', 'Red Earths', 'Non-cracking Clays', 'Red Duplex', 'Cracking Clays', 'Clays', 'Clay Gidgee', 'Clay (Brigalo and Belah)', 'Kandosols', 'Sandy Duplexes', 'Clay & Red Loam', 'Loam', 'Structured Earths', 'Loamy Soils', 'Yellow Duplex', 'Gradational soils', 'Open Downs', 'Duplex Woodland', 'Earths', 'Tenosols')")
+        if value not in set(['Loams & Clays', 'No Soil / Tree data available', 'Coloured Sands', 'Duplex', 'Clay', 'Other Soils', 'Duplex Soils', 'Sandy Soils', 'Calcarosols', 'Grey Cracking Clays', 'Red Earths', 'Non-cracking Clays', 'Red Duplex', 'Cracking Clays', 'Clays', 'Clay Gidgee', 'Clay (Brigalo and Belah)', 'Kandosols', 'Sandy Duplexes', 'Clay & Red Loam', 'Loam', 'Structured Earths', 'Loamy Soils', 'Yellow Duplex', 'Gradational soils', 'Open Downs', 'Duplex Woodland', 'Earths', 'Tenosols']):
+            raise ValueError("must be one of enum values ('Loams & Clays', 'No Soil / Tree data available', 'Coloured Sands', 'Duplex', 'Clay', 'Other Soils', 'Duplex Soils', 'Sandy Soils', 'Calcarosols', 'Grey Cracking Clays', 'Red Earths', 'Non-cracking Clays', 'Red Duplex', 'Cracking Clays', 'Clays', 'Clay Gidgee', 'Clay (Brigalo and Belah)', 'Kandosols', 'Sandy Duplexes', 'Clay & Red Loam', 'Loam', 'Structured Earths', 'Loamy Soils', 'Yellow Duplex', 'Gradational soils', 'Open Downs', 'Duplex Woodland', 'Earths', 'Tenosols')")
         return value
 
     model_config = ConfigDict(

@@ -35,16 +35,14 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="PostPorkRequest" /> class.
         /// </summary>
         /// <param name="state">What state the location is in. Note: Western Australia is split up into two regions, &#x60;wa_nw&#x60; is North-West Western Australia, &#x60;wa_sw&#x60; is South-West Western Australia</param>
-        /// <param name="northOfTropicOfCapricorn">Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude. Deprecation note: This field is deprecated</param>
         /// <param name="rainfallAbove600">Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm</param>
         /// <param name="pork">pork</param>
         /// <param name="vegetation">vegetation</param>
         /// <param name="id">Unique identifier for this Pork activity</param>
         [JsonConstructor]
-        public PostPorkRequest(StateEnum state, bool northOfTropicOfCapricorn, bool rainfallAbove600, List<PostPorkRequestPorkInner> pork, List<PostPorkRequestVegetationInner> vegetation, Option<string?> id = default)
+        public PostPorkRequest(StateEnum state, bool rainfallAbove600, List<PostPorkRequestPorkInner> pork, List<PostPorkRequestVegetationInner> vegetation, Option<string?> id = default)
         {
             State = state;
-            NorthOfTropicOfCapricorn = northOfTropicOfCapricorn;
             RainfallAbove600 = rainfallAbove600;
             Pork = pork;
             Vegetation = vegetation;
@@ -227,14 +225,6 @@ namespace Org.OpenAPITools.Model
         public StateEnum State { get; set; }
 
         /// <summary>
-        /// Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude. Deprecation note: This field is deprecated
-        /// </summary>
-        /// <value>Is this farm north of the Tropic of Capricorn. Note: this is currently approximately -23.43621 degrees latitude. Deprecation note: This field is deprecated</value>
-        [JsonPropertyName("northOfTropicOfCapricorn")]
-        [Obsolete]
-        public bool NorthOfTropicOfCapricorn { get; set; }
-
-        /// <summary>
         /// Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm
         /// </summary>
         /// <value>Is there enough rainfall to drain through the soil profile. Note: this is typically above 600mm</value>
@@ -282,7 +272,6 @@ namespace Org.OpenAPITools.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PostPorkRequest {\n");
             sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  NorthOfTropicOfCapricorn: ").Append(NorthOfTropicOfCapricorn).Append("\n");
             sb.Append("  RainfallAbove600: ").Append(RainfallAbove600).Append("\n");
             sb.Append("  Pork: ").Append(Pork).Append("\n");
             sb.Append("  Vegetation: ").Append(Vegetation).Append("\n");
@@ -326,7 +315,6 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<PostPorkRequest.StateEnum?> state = default;
-            Option<bool?> northOfTropicOfCapricorn = default;
             Option<bool?> rainfallAbove600 = default;
             Option<List<PostPorkRequestPorkInner>?> pork = default;
             Option<List<PostPorkRequestVegetationInner>?> vegetation = default;
@@ -352,9 +340,6 @@ namespace Org.OpenAPITools.Model
                             if (stateRawValue != null)
                                 state = new Option<PostPorkRequest.StateEnum?>(PostPorkRequest.StateEnumFromStringOrDefault(stateRawValue));
                             break;
-                        case "northOfTropicOfCapricorn":
-                            northOfTropicOfCapricorn = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
-                            break;
                         case "rainfallAbove600":
                             rainfallAbove600 = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
@@ -376,9 +361,6 @@ namespace Org.OpenAPITools.Model
             if (!state.IsSet)
                 throw new ArgumentException("Property is required for class PostPorkRequest.", nameof(state));
 
-            if (!northOfTropicOfCapricorn.IsSet)
-                throw new ArgumentException("Property is required for class PostPorkRequest.", nameof(northOfTropicOfCapricorn));
-
             if (!rainfallAbove600.IsSet)
                 throw new ArgumentException("Property is required for class PostPorkRequest.", nameof(rainfallAbove600));
 
@@ -390,9 +372,6 @@ namespace Org.OpenAPITools.Model
 
             if (state.IsSet && state.Value == null)
                 throw new ArgumentNullException(nameof(state), "Property is not nullable for class PostPorkRequest.");
-
-            if (northOfTropicOfCapricorn.IsSet && northOfTropicOfCapricorn.Value == null)
-                throw new ArgumentNullException(nameof(northOfTropicOfCapricorn), "Property is not nullable for class PostPorkRequest.");
 
             if (rainfallAbove600.IsSet && rainfallAbove600.Value == null)
                 throw new ArgumentNullException(nameof(rainfallAbove600), "Property is not nullable for class PostPorkRequest.");
@@ -406,7 +385,7 @@ namespace Org.OpenAPITools.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class PostPorkRequest.");
 
-            return new PostPorkRequest(state.Value!.Value!, northOfTropicOfCapricorn.Value!.Value!, rainfallAbove600.Value!.Value!, pork.Value!, vegetation.Value!, id);
+            return new PostPorkRequest(state.Value!.Value!, rainfallAbove600.Value!.Value!, pork.Value!, vegetation.Value!, id);
         }
 
         /// <summary>
@@ -444,8 +423,6 @@ namespace Org.OpenAPITools.Model
 
             var stateRawValue = PostPorkRequest.StateEnumToJsonValue(postPorkRequest.State);
             writer.WriteString("state", stateRawValue);
-            writer.WriteBoolean("northOfTropicOfCapricorn", postPorkRequest.NorthOfTropicOfCapricorn);
-
             writer.WriteBoolean("rainfallAbove600", postPorkRequest.RainfallAbove600);
 
             writer.WritePropertyName("pork");

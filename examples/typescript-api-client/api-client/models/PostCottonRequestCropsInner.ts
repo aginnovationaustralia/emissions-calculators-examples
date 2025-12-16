@@ -74,13 +74,6 @@ export interface PostCottonRequestCropsInner {
      */
     ureaApplication: number;
     /**
-     * Other N fertiliser type
-     * @type {string}
-     * @memberof PostCottonRequestCropsInner
-     * @deprecated
-     */
-    otherFertiliserType?: PostCottonRequestCropsInnerOtherFertiliserTypeEnum;
-    /**
      * Other N fertiliser application, in kg/ha (kilograms per hectare)
      * @type {number}
      * @memberof PostCottonRequestCropsInner
@@ -128,13 +121,6 @@ export interface PostCottonRequestCropsInner {
      * @memberof PostCottonRequestCropsInner
      */
     rainfallAbove600: boolean;
-    /**
-     * Fraction of annual production of crop that is burnt. If included, this should only ever be 0 for cotton
-     * @type {number}
-     * @memberof PostCottonRequestCropsInner
-     * @deprecated
-     */
-    fractionOfAnnualCropBurnt: number;
     /**
      * Total amount of active ingredients from general herbicide/pesticide use, in kg (kilogram)
      * @type {number}
@@ -202,27 +188,6 @@ export const PostCottonRequestCropsInnerStateEnum = {
 } as const;
 export type PostCottonRequestCropsInnerStateEnum = typeof PostCottonRequestCropsInnerStateEnum[keyof typeof PostCottonRequestCropsInnerStateEnum];
 
-/**
- * @export
- */
-export const PostCottonRequestCropsInnerOtherFertiliserTypeEnum = {
-    MonoammoniumPhosphateMap: 'Monoammonium phosphate (MAP)',
-    DiammoniumPhosphateDap: 'Diammonium Phosphate (DAP)',
-    UreaAmmoniumNitrateUan: 'Urea-Ammonium Nitrate (UAN)',
-    AmmoniumNitrateAn: 'Ammonium Nitrate (AN)',
-    CalciumAmmoniumNitrateCan: 'Calcium Ammonium Nitrate (CAN)',
-    TripleSuperphosphateTsp: 'Triple Superphosphate (TSP)',
-    SuperPotash11: 'Super Potash 1:1',
-    SuperPotash21: 'Super Potash 2:1',
-    SuperPotash31: 'Super Potash 3:1',
-    SuperPotash41: 'Super Potash 4:1',
-    SuperPotash51: 'Super Potash 5:1',
-    MuriateOfPotash: 'Muriate of Potash',
-    SulphateOfPotash: 'Sulphate of Potash',
-    SulphateOfAmmonia: 'Sulphate of Ammonia'
-} as const;
-export type PostCottonRequestCropsInnerOtherFertiliserTypeEnum = typeof PostCottonRequestCropsInnerOtherFertiliserTypeEnum[keyof typeof PostCottonRequestCropsInnerOtherFertiliserTypeEnum];
-
 
 /**
  * Check if a given object implements the PostCottonRequestCropsInner interface.
@@ -244,7 +209,6 @@ export function instanceOfPostCottonRequestCropsInner(value: object): value is P
     if (!('sulfurApplication' in value) || value['sulfurApplication'] === undefined) return false;
     if (!('singleSuperPhosphate' in value) || value['singleSuperPhosphate'] === undefined) return false;
     if (!('rainfallAbove600' in value) || value['rainfallAbove600'] === undefined) return false;
-    if (!('fractionOfAnnualCropBurnt' in value) || value['fractionOfAnnualCropBurnt'] === undefined) return false;
     if (!('herbicideUse' in value) || value['herbicideUse'] === undefined) return false;
     if (!('glyphosateOtherHerbicideUse' in value) || value['glyphosateOtherHerbicideUse'] === undefined) return false;
     if (!('electricityAllocation' in value) || value['electricityAllocation'] === undefined) return false;
@@ -275,7 +239,6 @@ export function PostCottonRequestCropsInnerFromJSONTyped(json: any, ignoreDiscri
         'cottonSeedPerBaleKg': json['cottonSeedPerBaleKg'],
         'wastePerBaleKg': json['wastePerBaleKg'],
         'ureaApplication': json['ureaApplication'],
-        'otherFertiliserType': json['otherFertiliserType'] == null ? undefined : json['otherFertiliserType'],
         'otherFertiliserApplication': json['otherFertiliserApplication'],
         'nonUreaNitrogen': json['nonUreaNitrogen'],
         'ureaAmmoniumNitrate': json['ureaAmmoniumNitrate'],
@@ -284,7 +247,6 @@ export function PostCottonRequestCropsInnerFromJSONTyped(json: any, ignoreDiscri
         'sulfurApplication': json['sulfurApplication'],
         'singleSuperPhosphate': json['singleSuperPhosphate'],
         'rainfallAbove600': json['rainfallAbove600'],
-        'fractionOfAnnualCropBurnt': json['fractionOfAnnualCropBurnt'],
         'herbicideUse': json['herbicideUse'],
         'glyphosateOtherHerbicideUse': json['glyphosateOtherHerbicideUse'],
         'electricityAllocation': json['electricityAllocation'],
@@ -316,7 +278,6 @@ export function PostCottonRequestCropsInnerToJSONTyped(value?: PostCottonRequest
         'cottonSeedPerBaleKg': value['cottonSeedPerBaleKg'],
         'wastePerBaleKg': value['wastePerBaleKg'],
         'ureaApplication': value['ureaApplication'],
-        'otherFertiliserType': value['otherFertiliserType'],
         'otherFertiliserApplication': value['otherFertiliserApplication'],
         'nonUreaNitrogen': value['nonUreaNitrogen'],
         'ureaAmmoniumNitrate': value['ureaAmmoniumNitrate'],
@@ -325,7 +286,6 @@ export function PostCottonRequestCropsInnerToJSONTyped(value?: PostCottonRequest
         'sulfurApplication': value['sulfurApplication'],
         'singleSuperPhosphate': value['singleSuperPhosphate'],
         'rainfallAbove600': value['rainfallAbove600'],
-        'fractionOfAnnualCropBurnt': value['fractionOfAnnualCropBurnt'],
         'herbicideUse': value['herbicideUse'],
         'glyphosateOtherHerbicideUse': value['glyphosateOtherHerbicideUse'],
         'electricityAllocation': value['electricityAllocation'],

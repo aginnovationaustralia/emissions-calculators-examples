@@ -429,12 +429,24 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if ($this->container['diesel'] === null) {
             $invalidProperties[] = "'diesel' can't be null";
         }
+        if (($this->container['diesel'] < 0)) {
+            $invalidProperties[] = "invalid value for 'diesel', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['petrol'] === null) {
             $invalidProperties[] = "'petrol' can't be null";
         }
+        if (($this->container['petrol'] < 0)) {
+            $invalidProperties[] = "invalid value for 'petrol', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['lpg'] === null) {
             $invalidProperties[] = "'lpg' can't be null";
         }
+        if (($this->container['lpg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'lpg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_source'] === null) {
             $invalidProperties[] = "'electricity_source' can't be null";
         }
@@ -461,30 +473,82 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['hay'] === null) {
             $invalidProperties[] = "'hay' can't be null";
         }
+        if (($this->container['hay'] < 0)) {
+            $invalidProperties[] = "invalid value for 'hay', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['herbicide'] === null) {
             $invalidProperties[] = "'herbicide' can't be null";
         }
+        if (($this->container['herbicide'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['herbicide_other'] === null) {
             $invalidProperties[] = "'herbicide_other' can't be null";
         }
+        if (($this->container['herbicide_other'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide_other', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['manure_waste_allocation'] === null) {
             $invalidProperties[] = "'manure_waste_allocation' can't be null";
         }
+        if (($this->container['manure_waste_allocation'] > 1)) {
+            $invalidProperties[] = "invalid value for 'manure_waste_allocation', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['manure_waste_allocation'] < 0)) {
+            $invalidProperties[] = "invalid value for 'manure_waste_allocation', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['waste_handled_drylot_or_storage'] === null) {
             $invalidProperties[] = "'waste_handled_drylot_or_storage' can't be null";
         }
+        if (($this->container['waste_handled_drylot_or_storage'] > 1)) {
+            $invalidProperties[] = "invalid value for 'waste_handled_drylot_or_storage', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['waste_handled_drylot_or_storage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'waste_handled_drylot_or_storage', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['litter_recycled'] === null) {
             $invalidProperties[] = "'litter_recycled' can't be null";
         }
+        if (($this->container['litter_recycled'] > 1)) {
+            $invalidProperties[] = "invalid value for 'litter_recycled', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['litter_recycled'] < 0)) {
+            $invalidProperties[] = "invalid value for 'litter_recycled', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['litter_recycle_frequency'] === null) {
             $invalidProperties[] = "'litter_recycle_frequency' can't be null";
         }
+        if (($this->container['litter_recycle_frequency'] < 0)) {
+            $invalidProperties[] = "invalid value for 'litter_recycle_frequency', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['purchased_free_range'] === null) {
             $invalidProperties[] = "'purchased_free_range' can't be null";
         }
+        if (($this->container['purchased_free_range'] > 1)) {
+            $invalidProperties[] = "invalid value for 'purchased_free_range', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['purchased_free_range'] < 0)) {
+            $invalidProperties[] = "invalid value for 'purchased_free_range', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['meat_chicken_growers_purchases'] === null) {
             $invalidProperties[] = "'meat_chicken_growers_purchases' can't be null";
         }
@@ -588,6 +652,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($diesel)) {
             throw new \InvalidArgumentException('non-nullable diesel cannot be null');
         }
+
+        if (($diesel < 0)) {
+            throw new \InvalidArgumentException('invalid value for $diesel when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['diesel'] = $diesel;
 
         return $this;
@@ -615,6 +684,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($petrol)) {
             throw new \InvalidArgumentException('non-nullable petrol cannot be null');
         }
+
+        if (($petrol < 0)) {
+            throw new \InvalidArgumentException('invalid value for $petrol when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['petrol'] = $petrol;
 
         return $this;
@@ -642,6 +716,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($lpg)) {
             throw new \InvalidArgumentException('non-nullable lpg cannot be null');
         }
+
+        if (($lpg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $lpg when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['lpg'] = $lpg;
 
         return $this;
@@ -741,6 +820,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -768,6 +852,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($hay)) {
             throw new \InvalidArgumentException('non-nullable hay cannot be null');
         }
+
+        if (($hay < 0)) {
+            throw new \InvalidArgumentException('invalid value for $hay when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['hay'] = $hay;
 
         return $this;
@@ -795,6 +884,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($herbicide)) {
             throw new \InvalidArgumentException('non-nullable herbicide cannot be null');
         }
+
+        if (($herbicide < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide'] = $herbicide;
 
         return $this;
@@ -822,6 +916,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($herbicide_other)) {
             throw new \InvalidArgumentException('non-nullable herbicide_other cannot be null');
         }
+
+        if (($herbicide_other < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide_other when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide_other'] = $herbicide_other;
 
         return $this;
@@ -849,6 +948,14 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($manure_waste_allocation)) {
             throw new \InvalidArgumentException('non-nullable manure_waste_allocation cannot be null');
         }
+
+        if (($manure_waste_allocation > 1)) {
+            throw new \InvalidArgumentException('invalid value for $manure_waste_allocation when calling PostPoultryRequestBroilersInner., must be smaller than or equal to 1.');
+        }
+        if (($manure_waste_allocation < 0)) {
+            throw new \InvalidArgumentException('invalid value for $manure_waste_allocation when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['manure_waste_allocation'] = $manure_waste_allocation;
 
         return $this;
@@ -876,6 +983,14 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($waste_handled_drylot_or_storage)) {
             throw new \InvalidArgumentException('non-nullable waste_handled_drylot_or_storage cannot be null');
         }
+
+        if (($waste_handled_drylot_or_storage > 1)) {
+            throw new \InvalidArgumentException('invalid value for $waste_handled_drylot_or_storage when calling PostPoultryRequestBroilersInner., must be smaller than or equal to 1.');
+        }
+        if (($waste_handled_drylot_or_storage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $waste_handled_drylot_or_storage when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['waste_handled_drylot_or_storage'] = $waste_handled_drylot_or_storage;
 
         return $this;
@@ -903,6 +1018,14 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($litter_recycled)) {
             throw new \InvalidArgumentException('non-nullable litter_recycled cannot be null');
         }
+
+        if (($litter_recycled > 1)) {
+            throw new \InvalidArgumentException('invalid value for $litter_recycled when calling PostPoultryRequestBroilersInner., must be smaller than or equal to 1.');
+        }
+        if (($litter_recycled < 0)) {
+            throw new \InvalidArgumentException('invalid value for $litter_recycled when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['litter_recycled'] = $litter_recycled;
 
         return $this;
@@ -930,6 +1053,11 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($litter_recycle_frequency)) {
             throw new \InvalidArgumentException('non-nullable litter_recycle_frequency cannot be null');
         }
+
+        if (($litter_recycle_frequency < 0)) {
+            throw new \InvalidArgumentException('invalid value for $litter_recycle_frequency when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['litter_recycle_frequency'] = $litter_recycle_frequency;
 
         return $this;
@@ -957,6 +1085,14 @@ class PostPoultryRequestBroilersInner implements ModelInterface, ArrayAccess, \J
         if (is_null($purchased_free_range)) {
             throw new \InvalidArgumentException('non-nullable purchased_free_range cannot be null');
         }
+
+        if (($purchased_free_range > 1)) {
+            throw new \InvalidArgumentException('invalid value for $purchased_free_range when calling PostPoultryRequestBroilersInner., must be smaller than or equal to 1.');
+        }
+        if (($purchased_free_range < 0)) {
+            throw new \InvalidArgumentException('invalid value for $purchased_free_range when calling PostPoultryRequestBroilersInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['purchased_free_range'] = $purchased_free_range;
 
         return $this;

@@ -300,15 +300,31 @@ class PostDairyRequestDairyInnerSeasonalFertiliserAutumn implements ModelInterfa
         if ($this->container['crops_irrigated'] === null) {
             $invalidProperties[] = "'crops_irrigated' can't be null";
         }
+        if (($this->container['crops_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crops_irrigated', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['crops_dryland'] === null) {
             $invalidProperties[] = "'crops_dryland' can't be null";
         }
+        if (($this->container['crops_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crops_dryland', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['pasture_irrigated'] === null) {
             $invalidProperties[] = "'pasture_irrigated' can't be null";
         }
+        if (($this->container['pasture_irrigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'pasture_irrigated', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['pasture_dryland'] === null) {
             $invalidProperties[] = "'pasture_dryland' can't be null";
         }
+        if (($this->container['pasture_dryland'] < 0)) {
+            $invalidProperties[] = "invalid value for 'pasture_dryland', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -346,6 +362,11 @@ class PostDairyRequestDairyInnerSeasonalFertiliserAutumn implements ModelInterfa
         if (is_null($crops_irrigated)) {
             throw new \InvalidArgumentException('non-nullable crops_irrigated cannot be null');
         }
+
+        if (($crops_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crops_irrigated when calling PostDairyRequestDairyInnerSeasonalFertiliserAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['crops_irrigated'] = $crops_irrigated;
 
         return $this;
@@ -373,6 +394,11 @@ class PostDairyRequestDairyInnerSeasonalFertiliserAutumn implements ModelInterfa
         if (is_null($crops_dryland)) {
             throw new \InvalidArgumentException('non-nullable crops_dryland cannot be null');
         }
+
+        if (($crops_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crops_dryland when calling PostDairyRequestDairyInnerSeasonalFertiliserAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['crops_dryland'] = $crops_dryland;
 
         return $this;
@@ -400,6 +426,11 @@ class PostDairyRequestDairyInnerSeasonalFertiliserAutumn implements ModelInterfa
         if (is_null($pasture_irrigated)) {
             throw new \InvalidArgumentException('non-nullable pasture_irrigated cannot be null');
         }
+
+        if (($pasture_irrigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $pasture_irrigated when calling PostDairyRequestDairyInnerSeasonalFertiliserAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['pasture_irrigated'] = $pasture_irrigated;
 
         return $this;
@@ -427,6 +458,11 @@ class PostDairyRequestDairyInnerSeasonalFertiliserAutumn implements ModelInterfa
         if (is_null($pasture_dryland)) {
             throw new \InvalidArgumentException('non-nullable pasture_dryland cannot be null');
         }
+
+        if (($pasture_dryland < 0)) {
+            throw new \InvalidArgumentException('invalid value for $pasture_dryland when calling PostDairyRequestDairyInnerSeasonalFertiliserAutumn., must be bigger than or equal to 0.');
+        }
+
         $this->container['pasture_dryland'] = $pasture_dryland;
 
         return $this;

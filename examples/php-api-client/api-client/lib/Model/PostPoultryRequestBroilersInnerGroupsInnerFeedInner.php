@@ -303,12 +303,28 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInner implements ModelInterf
         if ($this->container['feed_purchased'] === null) {
             $invalidProperties[] = "'feed_purchased' can't be null";
         }
+        if (($this->container['feed_purchased'] < 0)) {
+            $invalidProperties[] = "invalid value for 'feed_purchased', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['additional_ingredient'] === null) {
             $invalidProperties[] = "'additional_ingredient' can't be null";
         }
+        if (($this->container['additional_ingredient'] > 1)) {
+            $invalidProperties[] = "invalid value for 'additional_ingredient', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['additional_ingredient'] < 0)) {
+            $invalidProperties[] = "invalid value for 'additional_ingredient', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['emission_intensity'] === null) {
             $invalidProperties[] = "'emission_intensity' can't be null";
         }
+        if (($this->container['emission_intensity'] < 0)) {
+            $invalidProperties[] = "invalid value for 'emission_intensity', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -373,6 +389,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInner implements ModelInterf
         if (is_null($feed_purchased)) {
             throw new \InvalidArgumentException('non-nullable feed_purchased cannot be null');
         }
+
+        if (($feed_purchased < 0)) {
+            throw new \InvalidArgumentException('invalid value for $feed_purchased when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['feed_purchased'] = $feed_purchased;
 
         return $this;
@@ -400,6 +421,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInner implements ModelInterf
         if (is_null($additional_ingredient)) {
             throw new \InvalidArgumentException('non-nullable additional_ingredient cannot be null');
         }
+
+        if (($additional_ingredient > 1)) {
+            throw new \InvalidArgumentException('invalid value for $additional_ingredient when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInner., must be smaller than or equal to 1.');
+        }
+        if (($additional_ingredient < 0)) {
+            throw new \InvalidArgumentException('invalid value for $additional_ingredient when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['additional_ingredient'] = $additional_ingredient;
 
         return $this;
@@ -427,6 +456,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInner implements ModelInterf
         if (is_null($emission_intensity)) {
             throw new \InvalidArgumentException('non-nullable emission_intensity cannot be null');
         }
+
+        if (($emission_intensity < 0)) {
+            throw new \InvalidArgumentException('invalid value for $emission_intensity when calling PostPoultryRequestBroilersInnerGroupsInnerFeedInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['emission_intensity'] = $emission_intensity;
 
         return $this;

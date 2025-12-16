@@ -37,11 +37,11 @@ namespace Org.OpenAPITools.Model
         /// <param name="scope1">scope1</param>
         /// <param name="scope2">scope2</param>
         /// <param name="scope3">scope3</param>
-        /// <param name="carbonSequestration">Carbon sequestration, in tonnes-CO2e</param>
+        /// <param name="carbonSequestration">carbonSequestration</param>
         /// <param name="net">net</param>
         /// <param name="intensities">intensities</param>
         [JsonConstructor]
-        public PostSheepbeef200ResponseIntermediateBeef(PostBeef200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostBeef200ResponseScope3 scope3, decimal carbonSequestration, PostAquaculture200ResponseNet net, PostBeef200ResponseIntermediateInnerIntensities intensities)
+        public PostSheepbeef200ResponseIntermediateBeef(PostBeef200ResponseScope1 scope1, PostAquaculture200ResponseScope2 scope2, PostBeef200ResponseScope3 scope3, PostAquaculture200ResponseCarbonSequestration carbonSequestration, PostAquaculture200ResponseNet net, PostBeef200ResponseIntermediateInnerIntensities intensities)
         {
             Scope1 = scope1;
             Scope2 = scope2;
@@ -73,11 +73,10 @@ namespace Org.OpenAPITools.Model
         public PostBeef200ResponseScope3 Scope3 { get; set; }
 
         /// <summary>
-        /// Carbon sequestration, in tonnes-CO2e
+        /// Gets or Sets CarbonSequestration
         /// </summary>
-        /// <value>Carbon sequestration, in tonnes-CO2e</value>
         [JsonPropertyName("carbonSequestration")]
-        public decimal CarbonSequestration { get; set; }
+        public PostAquaculture200ResponseCarbonSequestration CarbonSequestration { get; set; }
 
         /// <summary>
         /// Gets or Sets Net
@@ -152,7 +151,7 @@ namespace Org.OpenAPITools.Model
             Option<PostBeef200ResponseScope1?> scope1 = default;
             Option<PostAquaculture200ResponseScope2?> scope2 = default;
             Option<PostBeef200ResponseScope3?> scope3 = default;
-            Option<decimal?> carbonSequestration = default;
+            Option<PostAquaculture200ResponseCarbonSequestration?> carbonSequestration = default;
             Option<PostAquaculture200ResponseNet?> net = default;
             Option<PostBeef200ResponseIntermediateInnerIntensities?> intensities = default;
 
@@ -181,7 +180,7 @@ namespace Org.OpenAPITools.Model
                             scope3 = new Option<PostBeef200ResponseScope3?>(JsonSerializer.Deserialize<PostBeef200ResponseScope3>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "carbonSequestration":
-                            carbonSequestration = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            carbonSequestration = new Option<PostAquaculture200ResponseCarbonSequestration?>(JsonSerializer.Deserialize<PostAquaculture200ResponseCarbonSequestration>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "net":
                             net = new Option<PostAquaculture200ResponseNet?>(JsonSerializer.Deserialize<PostAquaculture200ResponseNet>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -231,7 +230,7 @@ namespace Org.OpenAPITools.Model
             if (intensities.IsSet && intensities.Value == null)
                 throw new ArgumentNullException(nameof(intensities), "Property is not nullable for class PostSheepbeef200ResponseIntermediateBeef.");
 
-            return new PostSheepbeef200ResponseIntermediateBeef(scope1.Value!, scope2.Value!, scope3.Value!, carbonSequestration.Value!.Value!, net.Value!, intensities.Value!);
+            return new PostSheepbeef200ResponseIntermediateBeef(scope1.Value!, scope2.Value!, scope3.Value!, carbonSequestration.Value!, net.Value!, intensities.Value!);
         }
 
         /// <summary>
@@ -267,6 +266,9 @@ namespace Org.OpenAPITools.Model
             if (postSheepbeef200ResponseIntermediateBeef.Scope3 == null)
                 throw new ArgumentNullException(nameof(postSheepbeef200ResponseIntermediateBeef.Scope3), "Property is required for class PostSheepbeef200ResponseIntermediateBeef.");
 
+            if (postSheepbeef200ResponseIntermediateBeef.CarbonSequestration == null)
+                throw new ArgumentNullException(nameof(postSheepbeef200ResponseIntermediateBeef.CarbonSequestration), "Property is required for class PostSheepbeef200ResponseIntermediateBeef.");
+
             if (postSheepbeef200ResponseIntermediateBeef.Net == null)
                 throw new ArgumentNullException(nameof(postSheepbeef200ResponseIntermediateBeef.Net), "Property is required for class PostSheepbeef200ResponseIntermediateBeef.");
 
@@ -279,8 +281,8 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, postSheepbeef200ResponseIntermediateBeef.Scope2, jsonSerializerOptions);
             writer.WritePropertyName("scope3");
             JsonSerializer.Serialize(writer, postSheepbeef200ResponseIntermediateBeef.Scope3, jsonSerializerOptions);
-            writer.WriteNumber("carbonSequestration", postSheepbeef200ResponseIntermediateBeef.CarbonSequestration);
-
+            writer.WritePropertyName("carbonSequestration");
+            JsonSerializer.Serialize(writer, postSheepbeef200ResponseIntermediateBeef.CarbonSequestration, jsonSerializerOptions);
             writer.WritePropertyName("net");
             JsonSerializer.Serialize(writer, postSheepbeef200ResponseIntermediateBeef.Net, jsonSerializerOptions);
             writer.WritePropertyName("intensities");

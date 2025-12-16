@@ -277,11 +277,11 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
     public function __construct(?array $data = null)
     {
         $this->setIfExists('mineral_block', $data ?? [], 0);
-        $this->setIfExists('mineral_block_urea', $data ?? [], 0);
+        $this->setIfExists('mineral_block_urea', $data ?? [], null);
         $this->setIfExists('weaner_block', $data ?? [], 0);
-        $this->setIfExists('weaner_block_urea', $data ?? [], 0);
+        $this->setIfExists('weaner_block_urea', $data ?? [], null);
         $this->setIfExists('dry_season_mix', $data ?? [], 0);
-        $this->setIfExists('dry_season_mix_urea', $data ?? [], 0);
+        $this->setIfExists('dry_season_mix_urea', $data ?? [], null);
     }
 
     /**
@@ -314,21 +314,57 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if ($this->container['mineral_block'] === null) {
             $invalidProperties[] = "'mineral_block' can't be null";
         }
+        if (($this->container['mineral_block'] < 0)) {
+            $invalidProperties[] = "invalid value for 'mineral_block', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['mineral_block_urea'] === null) {
             $invalidProperties[] = "'mineral_block_urea' can't be null";
         }
+        if (($this->container['mineral_block_urea'] > 1)) {
+            $invalidProperties[] = "invalid value for 'mineral_block_urea', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['mineral_block_urea'] < 0)) {
+            $invalidProperties[] = "invalid value for 'mineral_block_urea', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['weaner_block'] === null) {
             $invalidProperties[] = "'weaner_block' can't be null";
         }
+        if (($this->container['weaner_block'] < 0)) {
+            $invalidProperties[] = "invalid value for 'weaner_block', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['weaner_block_urea'] === null) {
             $invalidProperties[] = "'weaner_block_urea' can't be null";
         }
+        if (($this->container['weaner_block_urea'] > 1)) {
+            $invalidProperties[] = "invalid value for 'weaner_block_urea', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['weaner_block_urea'] < 0)) {
+            $invalidProperties[] = "invalid value for 'weaner_block_urea', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['dry_season_mix'] === null) {
             $invalidProperties[] = "'dry_season_mix' can't be null";
         }
+        if (($this->container['dry_season_mix'] < 0)) {
+            $invalidProperties[] = "invalid value for 'dry_season_mix', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['dry_season_mix_urea'] === null) {
             $invalidProperties[] = "'dry_season_mix_urea' can't be null";
         }
+        if (($this->container['dry_season_mix_urea'] > 1)) {
+            $invalidProperties[] = "invalid value for 'dry_season_mix_urea', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['dry_season_mix_urea'] < 0)) {
+            $invalidProperties[] = "invalid value for 'dry_season_mix_urea', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -366,6 +402,11 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if (is_null($mineral_block)) {
             throw new \InvalidArgumentException('non-nullable mineral_block cannot be null');
         }
+
+        if (($mineral_block < 0)) {
+            throw new \InvalidArgumentException('invalid value for $mineral_block when calling PostBeefRequestBeefInnerMineralSupplementation., must be bigger than or equal to 0.');
+        }
+
         $this->container['mineral_block'] = $mineral_block;
 
         return $this;
@@ -393,6 +434,14 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if (is_null($mineral_block_urea)) {
             throw new \InvalidArgumentException('non-nullable mineral_block_urea cannot be null');
         }
+
+        if (($mineral_block_urea > 1)) {
+            throw new \InvalidArgumentException('invalid value for $mineral_block_urea when calling PostBeefRequestBeefInnerMineralSupplementation., must be smaller than or equal to 1.');
+        }
+        if (($mineral_block_urea < 0)) {
+            throw new \InvalidArgumentException('invalid value for $mineral_block_urea when calling PostBeefRequestBeefInnerMineralSupplementation., must be bigger than or equal to 0.');
+        }
+
         $this->container['mineral_block_urea'] = $mineral_block_urea;
 
         return $this;
@@ -420,6 +469,11 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if (is_null($weaner_block)) {
             throw new \InvalidArgumentException('non-nullable weaner_block cannot be null');
         }
+
+        if (($weaner_block < 0)) {
+            throw new \InvalidArgumentException('invalid value for $weaner_block when calling PostBeefRequestBeefInnerMineralSupplementation., must be bigger than or equal to 0.');
+        }
+
         $this->container['weaner_block'] = $weaner_block;
 
         return $this;
@@ -447,6 +501,14 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if (is_null($weaner_block_urea)) {
             throw new \InvalidArgumentException('non-nullable weaner_block_urea cannot be null');
         }
+
+        if (($weaner_block_urea > 1)) {
+            throw new \InvalidArgumentException('invalid value for $weaner_block_urea when calling PostBeefRequestBeefInnerMineralSupplementation., must be smaller than or equal to 1.');
+        }
+        if (($weaner_block_urea < 0)) {
+            throw new \InvalidArgumentException('invalid value for $weaner_block_urea when calling PostBeefRequestBeefInnerMineralSupplementation., must be bigger than or equal to 0.');
+        }
+
         $this->container['weaner_block_urea'] = $weaner_block_urea;
 
         return $this;
@@ -474,6 +536,11 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if (is_null($dry_season_mix)) {
             throw new \InvalidArgumentException('non-nullable dry_season_mix cannot be null');
         }
+
+        if (($dry_season_mix < 0)) {
+            throw new \InvalidArgumentException('invalid value for $dry_season_mix when calling PostBeefRequestBeefInnerMineralSupplementation., must be bigger than or equal to 0.');
+        }
+
         $this->container['dry_season_mix'] = $dry_season_mix;
 
         return $this;
@@ -501,6 +568,14 @@ class PostBeefRequestBeefInnerMineralSupplementation implements ModelInterface, 
         if (is_null($dry_season_mix_urea)) {
             throw new \InvalidArgumentException('non-nullable dry_season_mix_urea cannot be null');
         }
+
+        if (($dry_season_mix_urea > 1)) {
+            throw new \InvalidArgumentException('invalid value for $dry_season_mix_urea when calling PostBeefRequestBeefInnerMineralSupplementation., must be smaller than or equal to 1.');
+        }
+        if (($dry_season_mix_urea < 0)) {
+            throw new \InvalidArgumentException('invalid value for $dry_season_mix_urea when calling PostBeefRequestBeefInnerMineralSupplementation., must be bigger than or equal to 0.');
+        }
+
         $this->container['dry_season_mix_urea'] = $dry_season_mix_urea;
 
         return $this;

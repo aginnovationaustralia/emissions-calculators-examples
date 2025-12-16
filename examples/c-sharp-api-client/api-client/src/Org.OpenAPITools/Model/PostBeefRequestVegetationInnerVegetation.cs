@@ -1142,129 +1142,124 @@ namespace Org.OpenAPITools.Model
             Clay = 5,
 
             /// <summary>
-            /// Enum OtherSoils for value: \&quot;Other Soils\&quot;
+            /// Enum OtherSoils for value: Other Soils
             /// </summary>
             OtherSoils = 6,
 
             /// <summary>
-            /// Enum OtherSoils2 for value: Other Soils
-            /// </summary>
-            OtherSoils2 = 7,
-
-            /// <summary>
             /// Enum DuplexSoils for value: Duplex Soils
             /// </summary>
-            DuplexSoils = 8,
+            DuplexSoils = 7,
 
             /// <summary>
             /// Enum SandySoils for value: Sandy Soils
             /// </summary>
-            SandySoils = 9,
+            SandySoils = 8,
 
             /// <summary>
             /// Enum Calcarosols for value: Calcarosols
             /// </summary>
-            Calcarosols = 10,
+            Calcarosols = 9,
 
             /// <summary>
             /// Enum GreyCrackingClays for value: Grey Cracking Clays
             /// </summary>
-            GreyCrackingClays = 11,
+            GreyCrackingClays = 10,
 
             /// <summary>
             /// Enum RedEarths for value: Red Earths
             /// </summary>
-            RedEarths = 12,
+            RedEarths = 11,
 
             /// <summary>
             /// Enum NonCrackingClays for value: Non-cracking Clays
             /// </summary>
-            NonCrackingClays = 13,
+            NonCrackingClays = 12,
 
             /// <summary>
             /// Enum RedDuplex for value: Red Duplex
             /// </summary>
-            RedDuplex = 14,
+            RedDuplex = 13,
 
             /// <summary>
             /// Enum CrackingClays for value: Cracking Clays
             /// </summary>
-            CrackingClays = 15,
+            CrackingClays = 14,
 
             /// <summary>
             /// Enum Clays for value: Clays
             /// </summary>
-            Clays = 16,
+            Clays = 15,
 
             /// <summary>
             /// Enum ClayGidgee for value: Clay Gidgee
             /// </summary>
-            ClayGidgee = 17,
+            ClayGidgee = 16,
 
             /// <summary>
             /// Enum ClayBrigaloAndBelah for value: Clay (Brigalo and Belah)
             /// </summary>
-            ClayBrigaloAndBelah = 18,
+            ClayBrigaloAndBelah = 17,
 
             /// <summary>
             /// Enum Kandosols for value: Kandosols
             /// </summary>
-            Kandosols = 19,
+            Kandosols = 18,
 
             /// <summary>
             /// Enum SandyDuplexes for value: Sandy Duplexes
             /// </summary>
-            SandyDuplexes = 20,
+            SandyDuplexes = 19,
 
             /// <summary>
             /// Enum ClayRedLoam for value: Clay &amp; Red Loam
             /// </summary>
-            ClayRedLoam = 21,
+            ClayRedLoam = 20,
 
             /// <summary>
             /// Enum Loam for value: Loam
             /// </summary>
-            Loam = 22,
+            Loam = 21,
 
             /// <summary>
             /// Enum StructuredEarths for value: Structured Earths
             /// </summary>
-            StructuredEarths = 23,
+            StructuredEarths = 22,
 
             /// <summary>
             /// Enum LoamySoils for value: Loamy Soils
             /// </summary>
-            LoamySoils = 24,
+            LoamySoils = 23,
 
             /// <summary>
             /// Enum YellowDuplex for value: Yellow Duplex
             /// </summary>
-            YellowDuplex = 25,
+            YellowDuplex = 24,
 
             /// <summary>
             /// Enum GradationalSoils for value: Gradational soils
             /// </summary>
-            GradationalSoils = 26,
+            GradationalSoils = 25,
 
             /// <summary>
             /// Enum OpenDowns for value: Open Downs
             /// </summary>
-            OpenDowns = 27,
+            OpenDowns = 26,
 
             /// <summary>
             /// Enum DuplexWoodland for value: Duplex Woodland
             /// </summary>
-            DuplexWoodland = 28,
+            DuplexWoodland = 27,
 
             /// <summary>
             /// Enum Earths for value: Earths
             /// </summary>
-            Earths = 29,
+            Earths = 28,
 
             /// <summary>
             /// Enum Tenosols for value: Tenosols
             /// </summary>
-            Tenosols = 30
+            Tenosols = 29
         }
 
         /// <summary>
@@ -1290,11 +1285,8 @@ namespace Org.OpenAPITools.Model
             if (value.Equals("Clay"))
                 return SoilEnum.Clay;
 
-            if (value.Equals("\"Other Soils\""))
-                return SoilEnum.OtherSoils;
-
             if (value.Equals("Other Soils"))
-                return SoilEnum.OtherSoils2;
+                return SoilEnum.OtherSoils;
 
             if (value.Equals("Duplex Soils"))
                 return SoilEnum.DuplexSoils;
@@ -1390,11 +1382,8 @@ namespace Org.OpenAPITools.Model
             if (value.Equals("Clay"))
                 return SoilEnum.Clay;
 
-            if (value.Equals("\"Other Soils\""))
-                return SoilEnum.OtherSoils;
-
             if (value.Equals("Other Soils"))
-                return SoilEnum.OtherSoils2;
+                return SoilEnum.OtherSoils;
 
             if (value.Equals("Duplex Soils"))
                 return SoilEnum.DuplexSoils;
@@ -1492,9 +1481,6 @@ namespace Org.OpenAPITools.Model
                 return "Clay";
 
             if (value == SoilEnum.OtherSoils)
-                return "\"Other Soils\"";
-
-            if (value == SoilEnum.OtherSoils2)
                 return "Other Soils";
 
             if (value == SoilEnum.DuplexSoils)
@@ -1621,6 +1607,18 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Area (decimal) minimum
+            if (this.Area < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Area, must be a value greater than or equal to 0.", new [] { "Area" });
+            }
+
+            // Age (decimal) minimum
+            if (this.Age < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for Age, must be a value greater than or equal to 0.", new [] { "Age" });
+            }
+
             yield break;
         }
     }

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class PostWildseafisheriesRequestEnterprisesInnerTransportsInner(BaseModel):
     """ # noqa: E501
     type: StrictStr = Field(description="Transport type")
     fuel: StrictStr = Field(description="Fuel type")
-    distance: Union[StrictFloat, StrictInt] = Field(description="Distance in km")
+    distance: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Distance in km")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "fuel", "distance"]
 

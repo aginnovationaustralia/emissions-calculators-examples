@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from openapi_client.models.post_beef_request_beef_inner_classes_bulls_gt1_autumn import PostBeefRequestBeefInnerClassesBullsGt1Autumn
 from openapi_client.models.post_beef_request_beef_inner_classes_bulls_gt1_purchases_inner import PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner
 from typing import Optional, Set
@@ -33,24 +34,11 @@ class PostBeefRequestBeefInnerClassesHeifersLt1Traded(BaseModel):
     winter: PostBeefRequestBeefInnerClassesBullsGt1Autumn
     spring: PostBeefRequestBeefInnerClassesBullsGt1Autumn
     summer: PostBeefRequestBeefInnerClassesBullsGt1Autumn
-    head_purchased: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of animals purchased (head). Deprecation note: Use `purchases` instead", alias="headPurchased")
-    purchased_weight: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Use `purchases` instead", alias="purchasedWeight")
-    source: Optional[StrictStr] = Field(default=None, description="Source location of livestock purchase. Deprecation note: Use `purchases` instead")
-    head_sold: Union[StrictFloat, StrictInt] = Field(description="Number of animals sold (head)", alias="headSold")
-    sale_weight: Union[StrictFloat, StrictInt] = Field(description="Weight at sale, in liveweight kg/head (kilogram per head)", alias="saleWeight")
+    head_sold: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals sold (head)", alias="headSold")
+    sale_weight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Weight at sale, in liveweight kg/head (kilogram per head)", alias="saleWeight")
     purchases: Optional[List[PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner]] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer", "headPurchased", "purchasedWeight", "source", "headSold", "saleWeight", "purchases"]
-
-    @field_validator('source')
-    def source_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Dairy origin', 'nth/sth/central QLD', 'nth/sth NSW/VIC/sth SA', 'NSW/SA pastoral zone', 'sw WA', 'WA pastoral', 'TAS', 'NT']):
-            raise ValueError("must be one of enum values ('Dairy origin', 'nth/sth/central QLD', 'nth/sth NSW/VIC/sth SA', 'NSW/SA pastoral zone', 'sw WA', 'WA pastoral', 'TAS', 'NT')")
-        return value
+    __properties: ClassVar[List[str]] = ["autumn", "winter", "spring", "summer", "headSold", "saleWeight", "purchases"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -133,9 +121,6 @@ class PostBeefRequestBeefInnerClassesHeifersLt1Traded(BaseModel):
             "winter": PostBeefRequestBeefInnerClassesBullsGt1Autumn.from_dict(obj["winter"]) if obj.get("winter") is not None else None,
             "spring": PostBeefRequestBeefInnerClassesBullsGt1Autumn.from_dict(obj["spring"]) if obj.get("spring") is not None else None,
             "summer": PostBeefRequestBeefInnerClassesBullsGt1Autumn.from_dict(obj["summer"]) if obj.get("summer") is not None else None,
-            "headPurchased": obj.get("headPurchased"),
-            "purchasedWeight": obj.get("purchasedWeight"),
-            "source": obj.get("source"),
             "headSold": obj.get("headSold"),
             "saleWeight": obj.get("saleWeight"),
             "purchases": [PostBeefRequestBeefInnerClassesBullsGt1PurchasesInner.from_dict(_item) for _item in obj["purchases"]] if obj.get("purchases") is not None else None

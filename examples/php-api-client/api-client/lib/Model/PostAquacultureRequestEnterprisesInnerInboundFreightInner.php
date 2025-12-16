@@ -320,6 +320,10 @@ class PostAquacultureRequestEnterprisesInnerInboundFreightInner implements Model
         if ($this->container['total_km_tonnes'] === null) {
             $invalidProperties[] = "'total_km_tonnes' can't be null";
         }
+        if (($this->container['total_km_tonnes'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_km_tonnes', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -394,6 +398,11 @@ class PostAquacultureRequestEnterprisesInnerInboundFreightInner implements Model
         if (is_null($total_km_tonnes)) {
             throw new \InvalidArgumentException('non-nullable total_km_tonnes cannot be null');
         }
+
+        if (($total_km_tonnes < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_km_tonnes when calling PostAquacultureRequestEnterprisesInnerInboundFreightInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['total_km_tonnes'] = $total_km_tonnes;
 
         return $this;

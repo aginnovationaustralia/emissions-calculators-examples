@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,11 +28,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerFeedInnerIngredients(BaseModel):
     """
     Poultry broiler feed ingredients as fractions, each from 0 to 1
     """ # noqa: E501
-    wheat: Optional[Union[StrictFloat, StrictInt]] = None
-    barley: Optional[Union[StrictFloat, StrictInt]] = None
-    sorghum: Optional[Union[StrictFloat, StrictInt]] = None
-    soybean: Optional[Union[StrictFloat, StrictInt]] = None
-    millrun: Optional[Union[StrictFloat, StrictInt]] = None
+    wheat: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None
+    barley: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None
+    sorghum: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None
+    soybean: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None
+    millrun: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["wheat", "barley", "sorghum", "soybean", "millrun"]
 

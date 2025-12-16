@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,15 +28,15 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner(BaseModel):
     """
     A class of cattle with a specific feedlot stay duration
     """ # noqa: E501
-    livestock: Union[StrictFloat, StrictInt] = Field(description="Number of animals (head)")
-    stay_average_duration: Union[StrictFloat, StrictInt] = Field(description="Average stay length in feedlot, in days", alias="stayAverageDuration")
-    liveweight: Union[StrictFloat, StrictInt] = Field(description="Average liveweight of animals in kg/head (kilogram per head)")
-    dry_matter_digestibility: Union[StrictFloat, StrictInt] = Field(description="Percent dry matter digestibility of the feed eaten, from 0 to 100", alias="dryMatterDigestibility")
-    crude_protein: Union[StrictFloat, StrictInt] = Field(description="Percent crude protein of the whole diet, from 0 to 100", alias="crudeProtein")
-    nitrogen_retention: Union[StrictFloat, StrictInt] = Field(description="Percent nitrogen retention of intake, from 0 to 100", alias="nitrogenRetention")
-    daily_intake: Union[StrictFloat, StrictInt] = Field(description="Daily intake of dry matter in kilograms per head per day", alias="dailyIntake")
-    ndf: Union[StrictFloat, StrictInt] = Field(description="Percent Neutral detergent fibre (NDF) of intake, from 0 to 100")
-    ether_extract: Union[StrictFloat, StrictInt] = Field(description="Percent ether extract of intake, from 0 to 100", alias="etherExtract")
+    livestock: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Number of animals (head)")
+    stay_average_duration: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average stay length in feedlot, in days", alias="stayAverageDuration")
+    liveweight: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average liveweight of animals in kg/head (kilogram per head)")
+    dry_matter_digestibility: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(description="Percent dry matter digestibility of the feed eaten, from 0 to 100", alias="dryMatterDigestibility")
+    crude_protein: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(description="Percent crude protein of the whole diet, from 0 to 100", alias="crudeProtein")
+    nitrogen_retention: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(description="Percent nitrogen retention of intake, from 0 to 100", alias="nitrogenRetention")
+    daily_intake: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Daily intake of dry matter in kilograms per head per day", alias="dailyIntake")
+    ndf: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(description="Percent Neutral detergent fibre (NDF) of intake, from 0 to 100")
+    ether_extract: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]] = Field(description="Percent ether extract of intake, from 0 to 100", alias="etherExtract")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["livestock", "stayAverageDuration", "liveweight", "dryMatterDigestibility", "crudeProtein", "nitrogenRetention", "dailyIntake", "ndf", "etherExtract"]
 

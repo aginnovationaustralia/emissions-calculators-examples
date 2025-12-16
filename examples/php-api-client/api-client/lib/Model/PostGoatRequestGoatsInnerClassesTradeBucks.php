@@ -63,8 +63,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         'winter' => '\OpenAPI\Client\Model\PostBuffaloRequestBuffalosInnerClassesBullsAutumn',
         'spring' => '\OpenAPI\Client\Model\PostBuffaloRequestBuffalosInnerClassesBullsAutumn',
         'summer' => '\OpenAPI\Client\Model\PostBuffaloRequestBuffalosInnerClassesBullsAutumn',
-        'head_purchased' => 'float',
-        'purchased_weight' => 'float',
         'head_sold' => 'float',
         'sale_weight' => 'float',
         'head_shorn' => 'float',
@@ -85,8 +83,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         'winter' => null,
         'spring' => null,
         'summer' => null,
-        'head_purchased' => null,
-        'purchased_weight' => null,
         'head_sold' => null,
         'sale_weight' => null,
         'head_shorn' => null,
@@ -105,8 +101,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         'winter' => false,
         'spring' => false,
         'summer' => false,
-        'head_purchased' => false,
-        'purchased_weight' => false,
         'head_sold' => false,
         'sale_weight' => false,
         'head_shorn' => false,
@@ -205,8 +199,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         'winter' => 'winter',
         'spring' => 'spring',
         'summer' => 'summer',
-        'head_purchased' => 'headPurchased',
-        'purchased_weight' => 'purchasedWeight',
         'head_sold' => 'headSold',
         'sale_weight' => 'saleWeight',
         'head_shorn' => 'headShorn',
@@ -225,8 +217,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         'winter' => 'setWinter',
         'spring' => 'setSpring',
         'summer' => 'setSummer',
-        'head_purchased' => 'setHeadPurchased',
-        'purchased_weight' => 'setPurchasedWeight',
         'head_sold' => 'setHeadSold',
         'sale_weight' => 'setSaleWeight',
         'head_shorn' => 'setHeadShorn',
@@ -245,8 +235,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         'winter' => 'getWinter',
         'spring' => 'getSpring',
         'summer' => 'getSummer',
-        'head_purchased' => 'getHeadPurchased',
-        'purchased_weight' => 'getPurchasedWeight',
         'head_sold' => 'getHeadSold',
         'sale_weight' => 'getSaleWeight',
         'head_shorn' => 'getHeadShorn',
@@ -316,8 +304,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         $this->setIfExists('winter', $data ?? [], null);
         $this->setIfExists('spring', $data ?? [], null);
         $this->setIfExists('summer', $data ?? [], null);
-        $this->setIfExists('head_purchased', $data ?? [], null);
-        $this->setIfExists('purchased_weight', $data ?? [], null);
         $this->setIfExists('head_sold', $data ?? [], null);
         $this->setIfExists('sale_weight', $data ?? [], null);
         $this->setIfExists('head_shorn', $data ?? [], null);
@@ -368,18 +354,42 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         if ($this->container['head_sold'] === null) {
             $invalidProperties[] = "'head_sold' can't be null";
         }
+        if (($this->container['head_sold'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_sold', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sale_weight'] === null) {
             $invalidProperties[] = "'sale_weight' can't be null";
         }
+        if (($this->container['sale_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sale_weight', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['head_shorn'] === null) {
             $invalidProperties[] = "'head_shorn' can't be null";
         }
+        if (($this->container['head_shorn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head_shorn', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['wool_shorn'] === null) {
             $invalidProperties[] = "'wool_shorn' can't be null";
         }
+        if (($this->container['wool_shorn'] < 0)) {
+            $invalidProperties[] = "invalid value for 'wool_shorn', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['clean_wool_yield'] === null) {
             $invalidProperties[] = "'clean_wool_yield' can't be null";
         }
+        if (($this->container['clean_wool_yield'] > 100)) {
+            $invalidProperties[] = "invalid value for 'clean_wool_yield', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['clean_wool_yield'] < 0)) {
+            $invalidProperties[] = "invalid value for 'clean_wool_yield', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -504,64 +514,6 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
     }
 
     /**
-     * Gets head_purchased
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getHeadPurchased()
-    {
-        return $this->container['head_purchased'];
-    }
-
-    /**
-     * Sets head_purchased
-     *
-     * @param float|null $head_purchased Number of animals purchased (head). Deprecation note: Please use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setHeadPurchased($head_purchased)
-    {
-        if (is_null($head_purchased)) {
-            throw new \InvalidArgumentException('non-nullable head_purchased cannot be null');
-        }
-        $this->container['head_purchased'] = $head_purchased;
-
-        return $this;
-    }
-
-    /**
-     * Gets purchased_weight
-     *
-     * @return float|null
-     * @deprecated
-     */
-    public function getPurchasedWeight()
-    {
-        return $this->container['purchased_weight'];
-    }
-
-    /**
-     * Sets purchased_weight
-     *
-     * @param float|null $purchased_weight Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setPurchasedWeight($purchased_weight)
-    {
-        if (is_null($purchased_weight)) {
-            throw new \InvalidArgumentException('non-nullable purchased_weight cannot be null');
-        }
-        $this->container['purchased_weight'] = $purchased_weight;
-
-        return $this;
-    }
-
-    /**
      * Gets head_sold
      *
      * @return float
@@ -583,6 +535,11 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         if (is_null($head_sold)) {
             throw new \InvalidArgumentException('non-nullable head_sold cannot be null');
         }
+
+        if (($head_sold < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_sold when calling PostGoatRequestGoatsInnerClassesTradeBucks., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_sold'] = $head_sold;
 
         return $this;
@@ -610,6 +567,11 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         if (is_null($sale_weight)) {
             throw new \InvalidArgumentException('non-nullable sale_weight cannot be null');
         }
+
+        if (($sale_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sale_weight when calling PostGoatRequestGoatsInnerClassesTradeBucks., must be bigger than or equal to 0.');
+        }
+
         $this->container['sale_weight'] = $sale_weight;
 
         return $this;
@@ -637,6 +599,11 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         if (is_null($head_shorn)) {
             throw new \InvalidArgumentException('non-nullable head_shorn cannot be null');
         }
+
+        if (($head_shorn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head_shorn when calling PostGoatRequestGoatsInnerClassesTradeBucks., must be bigger than or equal to 0.');
+        }
+
         $this->container['head_shorn'] = $head_shorn;
 
         return $this;
@@ -664,6 +631,11 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         if (is_null($wool_shorn)) {
             throw new \InvalidArgumentException('non-nullable wool_shorn cannot be null');
         }
+
+        if (($wool_shorn < 0)) {
+            throw new \InvalidArgumentException('invalid value for $wool_shorn when calling PostGoatRequestGoatsInnerClassesTradeBucks., must be bigger than or equal to 0.');
+        }
+
         $this->container['wool_shorn'] = $wool_shorn;
 
         return $this;
@@ -691,6 +663,14 @@ class PostGoatRequestGoatsInnerClassesTradeBucks implements ModelInterface, Arra
         if (is_null($clean_wool_yield)) {
             throw new \InvalidArgumentException('non-nullable clean_wool_yield cannot be null');
         }
+
+        if (($clean_wool_yield > 100)) {
+            throw new \InvalidArgumentException('invalid value for $clean_wool_yield when calling PostGoatRequestGoatsInnerClassesTradeBucks., must be smaller than or equal to 100.');
+        }
+        if (($clean_wool_yield < 0)) {
+            throw new \InvalidArgumentException('invalid value for $clean_wool_yield when calling PostGoatRequestGoatsInnerClassesTradeBucks., must be bigger than or equal to 0.');
+        }
+
         $this->container['clean_wool_yield'] = $clean_wool_yield;
 
         return $this;

@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostSheep200Response Class Doc Comment
  *
  * @category Class
- * @description Emissions calculation output for the &#x60;sheep&#x60; calculator
+ * @description Emissions calculation output for the Sheep calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

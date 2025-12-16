@@ -65,7 +65,7 @@ class PostGoat200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'scope3' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3',
         'net' => '\OpenAPI\Client\Model\PostGoat200ResponseNet',
         'intensities' => '\OpenAPI\Client\Model\PostGoat200ResponseIntensities',
-        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration'
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PostGoat200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Sets id
      *
-     * @param string $id Unique identifier for this activity
+     * @param string $id Unique identifier for this Goat activity
      *
      * @return self
      */
@@ -519,7 +519,7 @@ class PostGoat200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Gets carbon_sequestration
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -529,7 +529,7 @@ class PostGoat200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Sets carbon_sequestration
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration $carbon_sequestration carbon_sequestration
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

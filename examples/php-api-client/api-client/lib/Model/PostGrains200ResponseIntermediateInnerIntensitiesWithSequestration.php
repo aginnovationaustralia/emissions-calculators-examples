@@ -353,7 +353,7 @@ class PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration impleme
     /**
      * Sets grains_excluding_sequestration
      *
-     * @param float $grains_excluding_sequestration Grains excluding sequestration, in t-CO2e/t grain
+     * @param float $grains_excluding_sequestration Grains emissions intensity excluding sequestration, in t-CO2e/t grain
      *
      * @return self
      */
@@ -380,7 +380,7 @@ class PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration impleme
     /**
      * Sets grains_including_sequestration
      *
-     * @param float $grains_including_sequestration Grains including sequestration, in t-CO2e/t grain
+     * @param float $grains_including_sequestration Grains emissions intensity including sequestration, in t-CO2e/t grain
      *
      * @return self
      */

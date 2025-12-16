@@ -28,8 +28,8 @@ class PostBuffalo200ResponseIntensities(BaseModel):
     PostBuffalo200ResponseIntensities
     """ # noqa: E501
     liveweight_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Amount of buffalo meat produced in kg liveweight", alias="liveweightProducedKg")
-    buffalo_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Buffalo meat (breeding herd) excluding sequestration, in kg-CO2e/kg liveweight", alias="buffaloMeatExcludingSequestration")
-    buffalo_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Buffalo meat (breeding herd) including sequestration, in kg-CO2e/kg liveweight", alias="buffaloMeatIncludingSequestration")
+    buffalo_meat_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Buffalo meat (breeding herd) emissions intensity excluding sequestration, in kg-CO2e/kg liveweight", alias="buffaloMeatExcludingSequestration")
+    buffalo_meat_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Buffalo meat (breeding herd) emissions intensity including sequestration, in kg-CO2e/kg liveweight", alias="buffaloMeatIncludingSequestration")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["liveweightProducedKg", "buffaloMeatExcludingSequestration", "buffaloMeatIncludingSequestration"]
 

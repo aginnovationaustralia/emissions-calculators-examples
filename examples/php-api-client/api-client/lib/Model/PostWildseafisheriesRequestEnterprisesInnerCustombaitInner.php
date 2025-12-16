@@ -285,9 +285,17 @@ class PostWildseafisheriesRequestEnterprisesInnerCustombaitInner implements Mode
         if ($this->container['purchased'] === null) {
             $invalidProperties[] = "'purchased' can't be null";
         }
+        if (($this->container['purchased'] < 0)) {
+            $invalidProperties[] = "invalid value for 'purchased', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['emissions_intensity'] === null) {
             $invalidProperties[] = "'emissions_intensity' can't be null";
         }
+        if (($this->container['emissions_intensity'] < 0)) {
+            $invalidProperties[] = "invalid value for 'emissions_intensity', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -325,6 +333,11 @@ class PostWildseafisheriesRequestEnterprisesInnerCustombaitInner implements Mode
         if (is_null($purchased)) {
             throw new \InvalidArgumentException('non-nullable purchased cannot be null');
         }
+
+        if (($purchased < 0)) {
+            throw new \InvalidArgumentException('invalid value for $purchased when calling PostWildseafisheriesRequestEnterprisesInnerCustombaitInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['purchased'] = $purchased;
 
         return $this;
@@ -352,6 +365,11 @@ class PostWildseafisheriesRequestEnterprisesInnerCustombaitInner implements Mode
         if (is_null($emissions_intensity)) {
             throw new \InvalidArgumentException('non-nullable emissions_intensity cannot be null');
         }
+
+        if (($emissions_intensity < 0)) {
+            throw new \InvalidArgumentException('invalid value for $emissions_intensity when calling PostWildseafisheriesRequestEnterprisesInnerCustombaitInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['emissions_intensity'] = $emissions_intensity;
 
         return $this;

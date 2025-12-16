@@ -33,7 +33,6 @@ __all__ = [
     "PostAquaculture200ResponseCarbonSequestration",
     "PostAquaculture200ResponseIntensities",
     "PostAquaculture200ResponseIntermediateInner",
-    "PostAquaculture200ResponseIntermediateInnerCarbonSequestration",
     "PostAquaculture200ResponseNet",
     "PostAquaculture200ResponsePurchasedOffsets",
     "PostAquaculture200ResponseScope1",
@@ -183,7 +182,6 @@ __all__ = [
     "PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales",
     "PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies",
     "PostGoatRequestGoatsInnerClassesTradeBucks",
-    "PostGoatRequestGoatsInnerClassesTradeDoes",
     "PostGoatRequestGoatsInnerClassesTradeKids",
     "PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies",
     "PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales",
@@ -195,6 +193,7 @@ __all__ = [
     "PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration",
     "PostGrainsRequest",
     "PostGrainsRequestCropsInner",
+    "PostGrainsRequestVegetationInner",
     "PostHorticulture200Response",
     "PostHorticulture200ResponseIntermediateInner",
     "PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration",
@@ -202,6 +201,7 @@ __all__ = [
     "PostHorticultureRequest",
     "PostHorticultureRequestCropsInner",
     "PostHorticultureRequestCropsInnerRefrigerantsInner",
+    "PostHorticultureRequestVegetationInner",
     "PostPork200Response",
     "PostPork200ResponseIntensities",
     "PostPork200ResponseIntermediateInner",
@@ -265,6 +265,7 @@ __all__ = [
     "PostRice200ResponseScope1",
     "PostRiceRequest",
     "PostRiceRequestCropsInner",
+    "PostRiceRequestVegetationInner",
     "PostSheep200Response",
     "PostSheep200ResponseIntermediateInner",
     "PostSheep200ResponseIntermediateInnerIntensities",
@@ -274,8 +275,6 @@ __all__ = [
     "PostSheepRequestSheepInnerClasses",
     "PostSheepRequestSheepInnerClassesRams",
     "PostSheepRequestSheepInnerClassesRamsAutumn",
-    "PostSheepRequestSheepInnerClassesTradeEwes",
-    "PostSheepRequestSheepInnerClassesTradeLambsAndHoggets",
     "PostSheepRequestSheepInnerEwesLambing",
     "PostSheepRequestSheepInnerSeasonalLambing",
     "PostSheepRequestVegetationInner",
@@ -292,6 +291,7 @@ __all__ = [
     "PostSugar200ResponseIntermediateInnerIntensities",
     "PostSugarRequest",
     "PostSugarRequestCropsInner",
+    "PostSugarRequestVegetationInner",
     "PostVineyard200Response",
     "PostVineyard200ResponseIntermediateInner",
     "PostVineyard200ResponseIntermediateInnerIntensities",
@@ -341,7 +341,6 @@ from openapi_client.models.post_aquaculture200_response import PostAquaculture20
 from openapi_client.models.post_aquaculture200_response_carbon_sequestration import PostAquaculture200ResponseCarbonSequestration as PostAquaculture200ResponseCarbonSequestration
 from openapi_client.models.post_aquaculture200_response_intensities import PostAquaculture200ResponseIntensities as PostAquaculture200ResponseIntensities
 from openapi_client.models.post_aquaculture200_response_intermediate_inner import PostAquaculture200ResponseIntermediateInner as PostAquaculture200ResponseIntermediateInner
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_carbon_sequestration import PostAquaculture200ResponseIntermediateInnerCarbonSequestration as PostAquaculture200ResponseIntermediateInnerCarbonSequestration
 from openapi_client.models.post_aquaculture200_response_net import PostAquaculture200ResponseNet as PostAquaculture200ResponseNet
 from openapi_client.models.post_aquaculture200_response_purchased_offsets import PostAquaculture200ResponsePurchasedOffsets as PostAquaculture200ResponsePurchasedOffsets
 from openapi_client.models.post_aquaculture200_response_scope1 import PostAquaculture200ResponseScope1 as PostAquaculture200ResponseScope1
@@ -491,7 +490,6 @@ from openapi_client.models.post_goat_request_goats_inner_classes_maiden_breeding
 from openapi_client.models.post_goat_request_goats_inner_classes_other_does_culled_females import PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales as PostGoatRequestGoatsInnerClassesOtherDoesCulledFemales
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_breeding_does_nannies import PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies as PostGoatRequestGoatsInnerClassesTradeBreedingDoesNannies
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_bucks import PostGoatRequestGoatsInnerClassesTradeBucks as PostGoatRequestGoatsInnerClassesTradeBucks
-from openapi_client.models.post_goat_request_goats_inner_classes_trade_does import PostGoatRequestGoatsInnerClassesTradeDoes as PostGoatRequestGoatsInnerClassesTradeDoes
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_kids import PostGoatRequestGoatsInnerClassesTradeKids as PostGoatRequestGoatsInnerClassesTradeKids
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_maiden_breeding_does_nannies import PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies as PostGoatRequestGoatsInnerClassesTradeMaidenBreedingDoesNannies
 from openapi_client.models.post_goat_request_goats_inner_classes_trade_other_does_culled_females import PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales as PostGoatRequestGoatsInnerClassesTradeOtherDoesCulledFemales
@@ -503,6 +501,7 @@ from openapi_client.models.post_grains200_response_intermediate_inner import Pos
 from openapi_client.models.post_grains200_response_intermediate_inner_intensities_with_sequestration import PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration as PostGrains200ResponseIntermediateInnerIntensitiesWithSequestration
 from openapi_client.models.post_grains_request import PostGrainsRequest as PostGrainsRequest
 from openapi_client.models.post_grains_request_crops_inner import PostGrainsRequestCropsInner as PostGrainsRequestCropsInner
+from openapi_client.models.post_grains_request_vegetation_inner import PostGrainsRequestVegetationInner as PostGrainsRequestVegetationInner
 from openapi_client.models.post_horticulture200_response import PostHorticulture200Response as PostHorticulture200Response
 from openapi_client.models.post_horticulture200_response_intermediate_inner import PostHorticulture200ResponseIntermediateInner as PostHorticulture200ResponseIntermediateInner
 from openapi_client.models.post_horticulture200_response_intermediate_inner_intensities_with_sequestration import PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration as PostHorticulture200ResponseIntermediateInnerIntensitiesWithSequestration
@@ -510,6 +509,7 @@ from openapi_client.models.post_horticulture200_response_scope1 import PostHorti
 from openapi_client.models.post_horticulture_request import PostHorticultureRequest as PostHorticultureRequest
 from openapi_client.models.post_horticulture_request_crops_inner import PostHorticultureRequestCropsInner as PostHorticultureRequestCropsInner
 from openapi_client.models.post_horticulture_request_crops_inner_refrigerants_inner import PostHorticultureRequestCropsInnerRefrigerantsInner as PostHorticultureRequestCropsInnerRefrigerantsInner
+from openapi_client.models.post_horticulture_request_vegetation_inner import PostHorticultureRequestVegetationInner as PostHorticultureRequestVegetationInner
 from openapi_client.models.post_pork200_response import PostPork200Response as PostPork200Response
 from openapi_client.models.post_pork200_response_intensities import PostPork200ResponseIntensities as PostPork200ResponseIntensities
 from openapi_client.models.post_pork200_response_intermediate_inner import PostPork200ResponseIntermediateInner as PostPork200ResponseIntermediateInner
@@ -573,6 +573,7 @@ from openapi_client.models.post_rice200_response_intermediate_inner_intensities 
 from openapi_client.models.post_rice200_response_scope1 import PostRice200ResponseScope1 as PostRice200ResponseScope1
 from openapi_client.models.post_rice_request import PostRiceRequest as PostRiceRequest
 from openapi_client.models.post_rice_request_crops_inner import PostRiceRequestCropsInner as PostRiceRequestCropsInner
+from openapi_client.models.post_rice_request_vegetation_inner import PostRiceRequestVegetationInner as PostRiceRequestVegetationInner
 from openapi_client.models.post_sheep200_response import PostSheep200Response as PostSheep200Response
 from openapi_client.models.post_sheep200_response_intermediate_inner import PostSheep200ResponseIntermediateInner as PostSheep200ResponseIntermediateInner
 from openapi_client.models.post_sheep200_response_intermediate_inner_intensities import PostSheep200ResponseIntermediateInnerIntensities as PostSheep200ResponseIntermediateInnerIntensities
@@ -582,8 +583,6 @@ from openapi_client.models.post_sheep_request_sheep_inner import PostSheepReques
 from openapi_client.models.post_sheep_request_sheep_inner_classes import PostSheepRequestSheepInnerClasses as PostSheepRequestSheepInnerClasses
 from openapi_client.models.post_sheep_request_sheep_inner_classes_rams import PostSheepRequestSheepInnerClassesRams as PostSheepRequestSheepInnerClassesRams
 from openapi_client.models.post_sheep_request_sheep_inner_classes_rams_autumn import PostSheepRequestSheepInnerClassesRamsAutumn as PostSheepRequestSheepInnerClassesRamsAutumn
-from openapi_client.models.post_sheep_request_sheep_inner_classes_trade_ewes import PostSheepRequestSheepInnerClassesTradeEwes as PostSheepRequestSheepInnerClassesTradeEwes
-from openapi_client.models.post_sheep_request_sheep_inner_classes_trade_lambs_and_hoggets import PostSheepRequestSheepInnerClassesTradeLambsAndHoggets as PostSheepRequestSheepInnerClassesTradeLambsAndHoggets
 from openapi_client.models.post_sheep_request_sheep_inner_ewes_lambing import PostSheepRequestSheepInnerEwesLambing as PostSheepRequestSheepInnerEwesLambing
 from openapi_client.models.post_sheep_request_sheep_inner_seasonal_lambing import PostSheepRequestSheepInnerSeasonalLambing as PostSheepRequestSheepInnerSeasonalLambing
 from openapi_client.models.post_sheep_request_vegetation_inner import PostSheepRequestVegetationInner as PostSheepRequestVegetationInner
@@ -600,6 +599,7 @@ from openapi_client.models.post_sugar200_response_intermediate_inner import Post
 from openapi_client.models.post_sugar200_response_intermediate_inner_intensities import PostSugar200ResponseIntermediateInnerIntensities as PostSugar200ResponseIntermediateInnerIntensities
 from openapi_client.models.post_sugar_request import PostSugarRequest as PostSugarRequest
 from openapi_client.models.post_sugar_request_crops_inner import PostSugarRequestCropsInner as PostSugarRequestCropsInner
+from openapi_client.models.post_sugar_request_vegetation_inner import PostSugarRequestVegetationInner as PostSugarRequestVegetationInner
 from openapi_client.models.post_vineyard200_response import PostVineyard200Response as PostVineyard200Response
 from openapi_client.models.post_vineyard200_response_intermediate_inner import PostVineyard200ResponseIntermediateInner as PostVineyard200ResponseIntermediateInner
 from openapi_client.models.post_vineyard200_response_intermediate_inner_intensities import PostVineyard200ResponseIntermediateInnerIntensities as PostVineyard200ResponseIntermediateInnerIntensities

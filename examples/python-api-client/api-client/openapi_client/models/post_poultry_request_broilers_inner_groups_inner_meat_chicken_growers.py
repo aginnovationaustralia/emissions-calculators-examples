@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,16 +28,16 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers(BaseModel):
     """
     Broiler class with seasonal data
     """ # noqa: E501
-    birds: Union[StrictFloat, StrictInt] = Field(description="Total number of birds/head")
-    average_stay_length50: Union[StrictFloat, StrictInt] = Field(description="Average length of stay until 50% of the flock is depleted, in days", alias="averageStayLength50")
-    liveweight50: Union[StrictFloat, StrictInt] = Field(description="Average liveweight during the 50% depletion period, in kg")
-    average_stay_length100: Union[StrictFloat, StrictInt] = Field(description="Average length of stay until 100% of the flock is depleted, in days", alias="averageStayLength100")
-    liveweight100: Union[StrictFloat, StrictInt] = Field(description="Average liveweight during the 100% depletion period, in kg")
-    dry_matter_intake: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Dry matter intake, in kg/head/day", alias="dryMatterIntake")
-    dry_matter_digestibility: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Dry matter digestibility fraction, from 0 to 1", alias="dryMatterDigestibility")
-    crude_protein: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Crude protein fraction, from 0 to 1", alias="crudeProtein")
-    manure_ash: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Manure ash fraction, from 0 to 1", alias="manureAsh")
-    nitrogen_retention_rate: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Nitrogen retention rate fraction, from 0 to 1", alias="nitrogenRetentionRate")
+    birds: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Total number of birds/head")
+    average_stay_length50: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average length of stay until 50% of the flock is depleted, in days", alias="averageStayLength50")
+    liveweight50: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average liveweight during the 50% depletion period, in kg")
+    average_stay_length100: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average length of stay until 100% of the flock is depleted, in days", alias="averageStayLength100")
+    liveweight100: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]] = Field(description="Average liveweight during the 100% depletion period, in kg")
+    dry_matter_intake: Optional[Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Dry matter intake, in kg/head/day", alias="dryMatterIntake")
+    dry_matter_digestibility: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(default=None, description="Dry matter digestibility fraction, from 0 to 1", alias="dryMatterDigestibility")
+    crude_protein: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(default=None, description="Crude protein fraction, from 0 to 1", alias="crudeProtein")
+    manure_ash: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(default=None, description="Manure ash fraction, from 0 to 1", alias="manureAsh")
+    nitrogen_retention_rate: Optional[Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]] = Field(default=None, description="Nitrogen retention rate fraction, from 0 to 1", alias="nitrogenRetentionRate")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["birds", "averageStayLength50", "liveweight50", "averageStayLength100", "liveweight100", "dryMatterIntake", "dryMatterDigestibility", "crudeProtein", "manureAsh", "nitrogenRetentionRate"]
 

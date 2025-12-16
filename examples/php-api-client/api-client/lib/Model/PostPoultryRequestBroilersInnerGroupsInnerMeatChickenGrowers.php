@@ -342,18 +342,74 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if ($this->container['birds'] === null) {
             $invalidProperties[] = "'birds' can't be null";
         }
+        if (($this->container['birds'] < 0)) {
+            $invalidProperties[] = "invalid value for 'birds', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['average_stay_length50'] === null) {
             $invalidProperties[] = "'average_stay_length50' can't be null";
         }
+        if (($this->container['average_stay_length50'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_stay_length50', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['liveweight50'] === null) {
             $invalidProperties[] = "'liveweight50' can't be null";
         }
+        if (($this->container['liveweight50'] < 0)) {
+            $invalidProperties[] = "invalid value for 'liveweight50', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['average_stay_length100'] === null) {
             $invalidProperties[] = "'average_stay_length100' can't be null";
         }
+        if (($this->container['average_stay_length100'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_stay_length100', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['liveweight100'] === null) {
             $invalidProperties[] = "'liveweight100' can't be null";
         }
+        if (($this->container['liveweight100'] < 0)) {
+            $invalidProperties[] = "invalid value for 'liveweight100', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['dry_matter_intake']) && ($this->container['dry_matter_intake'] < 0)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_intake', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['dry_matter_digestibility']) && ($this->container['dry_matter_digestibility'] > 1)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_digestibility', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['dry_matter_digestibility']) && ($this->container['dry_matter_digestibility'] < 0)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_digestibility', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['crude_protein']) && ($this->container['crude_protein'] > 1)) {
+            $invalidProperties[] = "invalid value for 'crude_protein', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['crude_protein']) && ($this->container['crude_protein'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crude_protein', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['manure_ash']) && ($this->container['manure_ash'] > 1)) {
+            $invalidProperties[] = "invalid value for 'manure_ash', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['manure_ash']) && ($this->container['manure_ash'] < 0)) {
+            $invalidProperties[] = "invalid value for 'manure_ash', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['nitrogen_retention_rate']) && ($this->container['nitrogen_retention_rate'] > 1)) {
+            $invalidProperties[] = "invalid value for 'nitrogen_retention_rate', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['nitrogen_retention_rate']) && ($this->container['nitrogen_retention_rate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'nitrogen_retention_rate', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -391,6 +447,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($birds)) {
             throw new \InvalidArgumentException('non-nullable birds cannot be null');
         }
+
+        if (($birds < 0)) {
+            throw new \InvalidArgumentException('invalid value for $birds when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['birds'] = $birds;
 
         return $this;
@@ -418,6 +479,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($average_stay_length50)) {
             throw new \InvalidArgumentException('non-nullable average_stay_length50 cannot be null');
         }
+
+        if (($average_stay_length50 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_stay_length50 when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_stay_length50'] = $average_stay_length50;
 
         return $this;
@@ -445,6 +511,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($liveweight50)) {
             throw new \InvalidArgumentException('non-nullable liveweight50 cannot be null');
         }
+
+        if (($liveweight50 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $liveweight50 when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['liveweight50'] = $liveweight50;
 
         return $this;
@@ -472,6 +543,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($average_stay_length100)) {
             throw new \InvalidArgumentException('non-nullable average_stay_length100 cannot be null');
         }
+
+        if (($average_stay_length100 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_stay_length100 when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_stay_length100'] = $average_stay_length100;
 
         return $this;
@@ -499,6 +575,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($liveweight100)) {
             throw new \InvalidArgumentException('non-nullable liveweight100 cannot be null');
         }
+
+        if (($liveweight100 < 0)) {
+            throw new \InvalidArgumentException('invalid value for $liveweight100 when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['liveweight100'] = $liveweight100;
 
         return $this;
@@ -526,6 +607,11 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($dry_matter_intake)) {
             throw new \InvalidArgumentException('non-nullable dry_matter_intake cannot be null');
         }
+
+        if (($dry_matter_intake < 0)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_intake when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['dry_matter_intake'] = $dry_matter_intake;
 
         return $this;
@@ -553,6 +639,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($dry_matter_digestibility)) {
             throw new \InvalidArgumentException('non-nullable dry_matter_digestibility cannot be null');
         }
+
+        if (($dry_matter_digestibility > 1)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_digestibility when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be smaller than or equal to 1.');
+        }
+        if (($dry_matter_digestibility < 0)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_digestibility when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['dry_matter_digestibility'] = $dry_matter_digestibility;
 
         return $this;
@@ -580,6 +674,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($crude_protein)) {
             throw new \InvalidArgumentException('non-nullable crude_protein cannot be null');
         }
+
+        if (($crude_protein > 1)) {
+            throw new \InvalidArgumentException('invalid value for $crude_protein when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be smaller than or equal to 1.');
+        }
+        if (($crude_protein < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crude_protein when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['crude_protein'] = $crude_protein;
 
         return $this;
@@ -607,6 +709,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($manure_ash)) {
             throw new \InvalidArgumentException('non-nullable manure_ash cannot be null');
         }
+
+        if (($manure_ash > 1)) {
+            throw new \InvalidArgumentException('invalid value for $manure_ash when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be smaller than or equal to 1.');
+        }
+        if (($manure_ash < 0)) {
+            throw new \InvalidArgumentException('invalid value for $manure_ash when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['manure_ash'] = $manure_ash;
 
         return $this;
@@ -634,6 +744,14 @@ class PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers implements Mo
         if (is_null($nitrogen_retention_rate)) {
             throw new \InvalidArgumentException('non-nullable nitrogen_retention_rate cannot be null');
         }
+
+        if (($nitrogen_retention_rate > 1)) {
+            throw new \InvalidArgumentException('invalid value for $nitrogen_retention_rate when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be smaller than or equal to 1.');
+        }
+        if (($nitrogen_retention_rate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $nitrogen_retention_rate when calling PostPoultryRequestBroilersInnerGroupsInnerMeatChickenGrowers., must be bigger than or equal to 0.');
+        }
+
         $this->container['nitrogen_retention_rate'] = $nitrogen_retention_rate;
 
         return $this;

@@ -28,8 +28,8 @@ class PostBeef200ResponseIntermediateInnerIntensities(BaseModel):
     PostBeef200ResponseIntermediateInnerIntensities
     """ # noqa: E501
     liveweight_beef_produced_kg: Union[StrictFloat, StrictInt] = Field(description="Amount of beef produced in kg liveweight", alias="liveweightBeefProducedKg")
-    beef_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef excluding sequestration, in kg-CO2e/kg liveweight", alias="beefExcludingSequestration")
-    beef_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef including sequestration, in kg-CO2e/kg liveweight", alias="beefIncludingSequestration")
+    beef_excluding_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef emissions intensity excluding sequestration, in kg-CO2e/kg liveweight", alias="beefExcludingSequestration")
+    beef_including_sequestration: Union[StrictFloat, StrictInt] = Field(description="Beef emissions intensity including sequestration, in kg-CO2e/kg liveweight", alias="beefIncludingSequestration")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["liveweightBeefProducedKg", "beefExcludingSequestration", "beefIncludingSequestration"]
 

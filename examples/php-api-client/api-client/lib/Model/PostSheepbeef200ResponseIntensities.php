@@ -386,7 +386,7 @@ class PostSheepbeef200ResponseIntensities implements ModelInterface, ArrayAccess
     /**
      * Sets beef_including_sequestration
      *
-     * @param float $beef_including_sequestration Beef including carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $beef_including_sequestration Beef emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -413,7 +413,7 @@ class PostSheepbeef200ResponseIntensities implements ModelInterface, ArrayAccess
     /**
      * Sets beef_excluding_sequestration
      *
-     * @param float $beef_excluding_sequestration Beef excluding carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $beef_excluding_sequestration Beef emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -467,7 +467,7 @@ class PostSheepbeef200ResponseIntensities implements ModelInterface, ArrayAccess
     /**
      * Sets wool_including_sequestration
      *
-     * @param float $wool_including_sequestration Wool production including carbon sequestration, in kg-CO2e/kg greasy
+     * @param float $wool_including_sequestration Wool production emissions intensity including carbon sequestration, in kg-CO2e/kg greasy wool
      *
      * @return self
      */
@@ -494,7 +494,7 @@ class PostSheepbeef200ResponseIntensities implements ModelInterface, ArrayAccess
     /**
      * Sets wool_excluding_sequestration
      *
-     * @param float $wool_excluding_sequestration Wool production excluding carbon sequestration, in kg-CO2e/kg greasy
+     * @param float $wool_excluding_sequestration Wool production emissions intensity excluding carbon sequestration, in kg-CO2e/kg greasy wool
      *
      * @return self
      */
@@ -521,7 +521,7 @@ class PostSheepbeef200ResponseIntensities implements ModelInterface, ArrayAccess
     /**
      * Sets sheep_meat_breeding_including_sequestration
      *
-     * @param float $sheep_meat_breeding_including_sequestration Sheep meat (breeding herd) including carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $sheep_meat_breeding_including_sequestration Sheep meat (breeding herd) emissions intensity including carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */
@@ -548,7 +548,7 @@ class PostSheepbeef200ResponseIntensities implements ModelInterface, ArrayAccess
     /**
      * Sets sheep_meat_breeding_excluding_sequestration
      *
-     * @param float $sheep_meat_breeding_excluding_sequestration Sheep meat (breeding herd) excluding carbon sequestration, in kg-CO2e/kg liveweight
+     * @param float $sheep_meat_breeding_excluding_sequestration Sheep meat (breeding herd) emissions intensity excluding carbon sequestration, in kg-CO2e/kg liveweight
      *
      * @return self
      */

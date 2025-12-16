@@ -33,7 +33,7 @@ from typing_extensions import Self
 
 class PostWildcatchfishery200Response(BaseModel):
     """
-    Emissions calculation output for the `wildcatchfishery` calculator
+    Emissions calculation output for the WildCatchFishery calculator
     """ # noqa: E501
     scope1: PostWildcatchfishery200ResponseScope1
     scope2: PostAquaculture200ResponseScope2

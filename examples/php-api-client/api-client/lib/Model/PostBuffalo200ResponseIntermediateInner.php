@@ -65,7 +65,7 @@ class PostBuffalo200ResponseIntermediateInner implements ModelInterface, ArrayAc
         'scope3' => '\OpenAPI\Client\Model\PostBuffalo200ResponseScope3',
         'net' => '\OpenAPI\Client\Model\PostBuffalo200ResponseNet',
         'intensities' => '\OpenAPI\Client\Model\PostBuffalo200ResponseIntensities',
-        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration'
+        'carbon_sequestration' => '\OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration'
     ];
 
     /**
@@ -367,7 +367,7 @@ class PostBuffalo200ResponseIntermediateInner implements ModelInterface, ArrayAc
     /**
      * Sets id
      *
-     * @param string $id Unique identifier for this activity
+     * @param string $id Unique identifier for this Buffalo activity
      *
      * @return self
      */
@@ -519,7 +519,7 @@ class PostBuffalo200ResponseIntermediateInner implements ModelInterface, ArrayAc
     /**
      * Gets carbon_sequestration
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration
+     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration
      */
     public function getCarbonSequestration()
     {
@@ -529,7 +529,7 @@ class PostBuffalo200ResponseIntermediateInner implements ModelInterface, ArrayAc
     /**
      * Sets carbon_sequestration
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerCarbonSequestration $carbon_sequestration carbon_sequestration
+     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseCarbonSequestration $carbon_sequestration carbon_sequestration
      *
      * @return self
      */

@@ -59,20 +59,6 @@ export interface PostPorkRequestPorkInnerClassesSuckers {
      */
     summer: number;
     /**
-     * Number of animals purchased (head). Deprecation note: Please use `purchases` instead
-     * @type {number}
-     * @memberof PostPorkRequestPorkInnerClassesSuckers
-     * @deprecated
-     */
-    headPurchased?: number;
-    /**
-     * Weight at purchase, in liveweight kg/head (kilogram per head). Deprecation note: Please use `purchases` instead
-     * @type {number}
-     * @memberof PostPorkRequestPorkInnerClassesSuckers
-     * @deprecated
-     */
-    purchasedWeight?: number;
-    /**
      * Number of animals sold (head)
      * @type {number}
      * @memberof PostPorkRequestPorkInnerClassesSuckers
@@ -126,8 +112,6 @@ export function PostPorkRequestPorkInnerClassesSuckersFromJSONTyped(json: any, i
         'winter': json['winter'],
         'spring': json['spring'],
         'summer': json['summer'],
-        'headPurchased': json['headPurchased'] == null ? undefined : json['headPurchased'],
-        'purchasedWeight': json['purchasedWeight'] == null ? undefined : json['purchasedWeight'],
         'headSold': json['headSold'],
         'saleWeight': json['saleWeight'],
         'purchases': json['purchases'] == null ? undefined : ((json['purchases'] as Array<any>).map(PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInnerFromJSON)),
@@ -150,8 +134,6 @@ export function PostPorkRequestPorkInnerClassesSuckersToJSONTyped(value?: PostPo
         'winter': value['winter'],
         'spring': value['spring'],
         'summer': value['summer'],
-        'headPurchased': value['headPurchased'],
-        'purchasedWeight': value['purchasedWeight'],
         'headSold': value['headSold'],
         'saleWeight': value['saleWeight'],
         'purchases': value['purchases'] == null ? undefined : ((value['purchases'] as Array<any>).map(PostBuffaloRequestBuffalosInnerClassesBullsPurchasesInnerToJSON)),

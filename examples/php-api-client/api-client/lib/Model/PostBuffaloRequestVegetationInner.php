@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostBuffaloRequestVegetationInner Class Doc Comment
  *
  * @category Class
- * @description Non-productive vegetation inputs along with allocations to Buffalo
+ * @description Non-productive vegetation inputs along with allocations to each Buffalo activity
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -344,7 +344,7 @@ class PostBuffaloRequestVegetationInner implements ModelInterface, ArrayAccess, 
     /**
      * Sets buffalo_proportion
      *
-     * @param float[] $buffalo_proportion The proportion of the sequestration that is allocated to Buffalo
+     * @param float[] $buffalo_proportion The proportion of the sequestration that is allocated to each Buffalo activity
      *
      * @return self
      */

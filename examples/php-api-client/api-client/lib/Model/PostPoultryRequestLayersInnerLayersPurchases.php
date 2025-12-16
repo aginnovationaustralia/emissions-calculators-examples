@@ -286,9 +286,17 @@ class PostPoultryRequestLayersInnerLayersPurchases implements ModelInterface, Ar
         if ($this->container['head'] === null) {
             $invalidProperties[] = "'head' can't be null";
         }
+        if (($this->container['head'] < 0)) {
+            $invalidProperties[] = "invalid value for 'head', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['purchase_weight'] === null) {
             $invalidProperties[] = "'purchase_weight' can't be null";
         }
+        if (($this->container['purchase_weight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'purchase_weight', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -326,6 +334,11 @@ class PostPoultryRequestLayersInnerLayersPurchases implements ModelInterface, Ar
         if (is_null($head)) {
             throw new \InvalidArgumentException('non-nullable head cannot be null');
         }
+
+        if (($head < 0)) {
+            throw new \InvalidArgumentException('invalid value for $head when calling PostPoultryRequestLayersInnerLayersPurchases., must be bigger than or equal to 0.');
+        }
+
         $this->container['head'] = $head;
 
         return $this;
@@ -353,6 +366,11 @@ class PostPoultryRequestLayersInnerLayersPurchases implements ModelInterface, Ar
         if (is_null($purchase_weight)) {
             throw new \InvalidArgumentException('non-nullable purchase_weight cannot be null');
         }
+
+        if (($purchase_weight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $purchase_weight when calling PostPoultryRequestLayersInnerLayersPurchases., must be bigger than or equal to 0.');
+        }
+
         $this->container['purchase_weight'] = $purchase_weight;
 
         return $this;

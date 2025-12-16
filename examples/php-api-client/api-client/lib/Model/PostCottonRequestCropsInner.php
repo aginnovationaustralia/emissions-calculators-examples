@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostCottonRequestCropsInner Class Doc Comment
  *
  * @category Class
+ * @description Input data required for a single Cotton enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -67,7 +68,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'cotton_seed_per_bale_kg' => 'float',
         'waste_per_bale_kg' => 'float',
         'urea_application' => 'float',
-        'other_fertiliser_type' => 'string',
         'other_fertiliser_application' => 'float',
         'non_urea_nitrogen' => 'float',
         'urea_ammonium_nitrate' => 'float',
@@ -76,7 +76,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'sulfur_application' => 'float',
         'single_super_phosphate' => 'float',
         'rainfall_above600' => 'bool',
-        'fraction_of_annual_crop_burnt' => 'float',
         'herbicide_use' => 'float',
         'glyphosate_other_herbicide_use' => 'float',
         'electricity_allocation' => 'float',
@@ -104,7 +103,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'cotton_seed_per_bale_kg' => null,
         'waste_per_bale_kg' => null,
         'urea_application' => null,
-        'other_fertiliser_type' => null,
         'other_fertiliser_application' => null,
         'non_urea_nitrogen' => null,
         'urea_ammonium_nitrate' => null,
@@ -113,7 +111,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'sulfur_application' => null,
         'single_super_phosphate' => null,
         'rainfall_above600' => null,
-        'fraction_of_annual_crop_burnt' => null,
         'herbicide_use' => null,
         'glyphosate_other_herbicide_use' => null,
         'electricity_allocation' => null,
@@ -139,7 +136,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'cotton_seed_per_bale_kg' => false,
         'waste_per_bale_kg' => false,
         'urea_application' => false,
-        'other_fertiliser_type' => false,
         'other_fertiliser_application' => false,
         'non_urea_nitrogen' => false,
         'urea_ammonium_nitrate' => false,
@@ -148,7 +144,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'sulfur_application' => false,
         'single_super_phosphate' => false,
         'rainfall_above600' => false,
-        'fraction_of_annual_crop_burnt' => false,
         'herbicide_use' => false,
         'glyphosate_other_herbicide_use' => false,
         'electricity_allocation' => false,
@@ -254,7 +249,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'cotton_seed_per_bale_kg' => 'cottonSeedPerBaleKg',
         'waste_per_bale_kg' => 'wastePerBaleKg',
         'urea_application' => 'ureaApplication',
-        'other_fertiliser_type' => 'otherFertiliserType',
         'other_fertiliser_application' => 'otherFertiliserApplication',
         'non_urea_nitrogen' => 'nonUreaNitrogen',
         'urea_ammonium_nitrate' => 'ureaAmmoniumNitrate',
@@ -263,7 +257,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'sulfur_application' => 'sulfurApplication',
         'single_super_phosphate' => 'singleSuperPhosphate',
         'rainfall_above600' => 'rainfallAbove600',
-        'fraction_of_annual_crop_burnt' => 'fractionOfAnnualCropBurnt',
         'herbicide_use' => 'herbicideUse',
         'glyphosate_other_herbicide_use' => 'glyphosateOtherHerbicideUse',
         'electricity_allocation' => 'electricityAllocation',
@@ -289,7 +282,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'cotton_seed_per_bale_kg' => 'setCottonSeedPerBaleKg',
         'waste_per_bale_kg' => 'setWastePerBaleKg',
         'urea_application' => 'setUreaApplication',
-        'other_fertiliser_type' => 'setOtherFertiliserType',
         'other_fertiliser_application' => 'setOtherFertiliserApplication',
         'non_urea_nitrogen' => 'setNonUreaNitrogen',
         'urea_ammonium_nitrate' => 'setUreaAmmoniumNitrate',
@@ -298,7 +290,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'sulfur_application' => 'setSulfurApplication',
         'single_super_phosphate' => 'setSingleSuperPhosphate',
         'rainfall_above600' => 'setRainfallAbove600',
-        'fraction_of_annual_crop_burnt' => 'setFractionOfAnnualCropBurnt',
         'herbicide_use' => 'setHerbicideUse',
         'glyphosate_other_herbicide_use' => 'setGlyphosateOtherHerbicideUse',
         'electricity_allocation' => 'setElectricityAllocation',
@@ -324,7 +315,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'cotton_seed_per_bale_kg' => 'getCottonSeedPerBaleKg',
         'waste_per_bale_kg' => 'getWastePerBaleKg',
         'urea_application' => 'getUreaApplication',
-        'other_fertiliser_type' => 'getOtherFertiliserType',
         'other_fertiliser_application' => 'getOtherFertiliserApplication',
         'non_urea_nitrogen' => 'getNonUreaNitrogen',
         'urea_ammonium_nitrate' => 'getUreaAmmoniumNitrate',
@@ -333,7 +323,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         'sulfur_application' => 'getSulfurApplication',
         'single_super_phosphate' => 'getSingleSuperPhosphate',
         'rainfall_above600' => 'getRainfallAbove600',
-        'fraction_of_annual_crop_burnt' => 'getFractionOfAnnualCropBurnt',
         'herbicide_use' => 'getHerbicideUse',
         'glyphosate_other_herbicide_use' => 'getGlyphosateOtherHerbicideUse',
         'electricity_allocation' => 'getElectricityAllocation',
@@ -394,20 +383,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
     public const STATE_TAS = 'tas';
     public const STATE_NT = 'nt';
     public const STATE_ACT = 'act';
-    public const OTHER_FERTILISER_TYPE_MONOAMMONIUM_PHOSPHATE__MAP = 'Monoammonium phosphate (MAP)';
-    public const OTHER_FERTILISER_TYPE_DIAMMONIUM_PHOSPHATE__DAP = 'Diammonium Phosphate (DAP)';
-    public const OTHER_FERTILISER_TYPE_UREA_AMMONIUM_NITRATE__UAN = 'Urea-Ammonium Nitrate (UAN)';
-    public const OTHER_FERTILISER_TYPE_AMMONIUM_NITRATE__AN = 'Ammonium Nitrate (AN)';
-    public const OTHER_FERTILISER_TYPE_CALCIUM_AMMONIUM_NITRATE__CAN = 'Calcium Ammonium Nitrate (CAN)';
-    public const OTHER_FERTILISER_TYPE_TRIPLE_SUPERPHOSPHATE__TSP = 'Triple Superphosphate (TSP)';
-    public const OTHER_FERTILISER_TYPE_SUPER_POTASH_1_1 = 'Super Potash 1:1';
-    public const OTHER_FERTILISER_TYPE_SUPER_POTASH_2_1 = 'Super Potash 2:1';
-    public const OTHER_FERTILISER_TYPE_SUPER_POTASH_3_1 = 'Super Potash 3:1';
-    public const OTHER_FERTILISER_TYPE_SUPER_POTASH_4_1 = 'Super Potash 4:1';
-    public const OTHER_FERTILISER_TYPE_SUPER_POTASH_5_1 = 'Super Potash 5:1';
-    public const OTHER_FERTILISER_TYPE_MURIATE_OF_POTASH = 'Muriate of Potash';
-    public const OTHER_FERTILISER_TYPE_SULPHATE_OF_POTASH = 'Sulphate of Potash';
-    public const OTHER_FERTILISER_TYPE_SULPHATE_OF_AMMONIA = 'Sulphate of Ammonia';
 
     /**
      * Gets allowable values of the enum
@@ -426,31 +401,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
             self::STATE_TAS,
             self::STATE_NT,
             self::STATE_ACT,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOtherFertiliserTypeAllowableValues()
-    {
-        return [
-            self::OTHER_FERTILISER_TYPE_MONOAMMONIUM_PHOSPHATE__MAP,
-            self::OTHER_FERTILISER_TYPE_DIAMMONIUM_PHOSPHATE__DAP,
-            self::OTHER_FERTILISER_TYPE_UREA_AMMONIUM_NITRATE__UAN,
-            self::OTHER_FERTILISER_TYPE_AMMONIUM_NITRATE__AN,
-            self::OTHER_FERTILISER_TYPE_CALCIUM_AMMONIUM_NITRATE__CAN,
-            self::OTHER_FERTILISER_TYPE_TRIPLE_SUPERPHOSPHATE__TSP,
-            self::OTHER_FERTILISER_TYPE_SUPER_POTASH_1_1,
-            self::OTHER_FERTILISER_TYPE_SUPER_POTASH_2_1,
-            self::OTHER_FERTILISER_TYPE_SUPER_POTASH_3_1,
-            self::OTHER_FERTILISER_TYPE_SUPER_POTASH_4_1,
-            self::OTHER_FERTILISER_TYPE_SUPER_POTASH_5_1,
-            self::OTHER_FERTILISER_TYPE_MURIATE_OF_POTASH,
-            self::OTHER_FERTILISER_TYPE_SULPHATE_OF_POTASH,
-            self::OTHER_FERTILISER_TYPE_SULPHATE_OF_AMMONIA,
         ];
     }
 
@@ -478,7 +428,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('cotton_seed_per_bale_kg', $data ?? [], null);
         $this->setIfExists('waste_per_bale_kg', $data ?? [], null);
         $this->setIfExists('urea_application', $data ?? [], null);
-        $this->setIfExists('other_fertiliser_type', $data ?? [], null);
         $this->setIfExists('other_fertiliser_application', $data ?? [], null);
         $this->setIfExists('non_urea_nitrogen', $data ?? [], 0);
         $this->setIfExists('urea_ammonium_nitrate', $data ?? [], 0);
@@ -487,7 +436,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('sulfur_application', $data ?? [], 0);
         $this->setIfExists('single_super_phosphate', $data ?? [], null);
         $this->setIfExists('rainfall_above600', $data ?? [], null);
-        $this->setIfExists('fraction_of_annual_crop_burnt', $data ?? [], 0);
         $this->setIfExists('herbicide_use', $data ?? [], null);
         $this->setIfExists('glyphosate_other_herbicide_use', $data ?? [], null);
         $this->setIfExists('electricity_allocation', $data ?? [], null);
@@ -540,84 +488,168 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['average_cotton_yield'] === null) {
             $invalidProperties[] = "'average_cotton_yield' can't be null";
         }
+        if (($this->container['average_cotton_yield'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_cotton_yield', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['area_sown'] === null) {
             $invalidProperties[] = "'area_sown' can't be null";
         }
+        if (($this->container['area_sown'] < 0)) {
+            $invalidProperties[] = "invalid value for 'area_sown', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['average_weight_per_bale_kg'] === null) {
             $invalidProperties[] = "'average_weight_per_bale_kg' can't be null";
         }
+        if (($this->container['average_weight_per_bale_kg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'average_weight_per_bale_kg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['cotton_lint_per_bale_kg'] === null) {
             $invalidProperties[] = "'cotton_lint_per_bale_kg' can't be null";
         }
+        if (($this->container['cotton_lint_per_bale_kg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'cotton_lint_per_bale_kg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['cotton_seed_per_bale_kg'] === null) {
             $invalidProperties[] = "'cotton_seed_per_bale_kg' can't be null";
         }
+        if (($this->container['cotton_seed_per_bale_kg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'cotton_seed_per_bale_kg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['waste_per_bale_kg'] === null) {
             $invalidProperties[] = "'waste_per_bale_kg' can't be null";
         }
+        if (($this->container['waste_per_bale_kg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'waste_per_bale_kg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_application'] === null) {
             $invalidProperties[] = "'urea_application' can't be null";
         }
-        $allowedValues = $this->getOtherFertiliserTypeAllowableValues();
-        if (!is_null($this->container['other_fertiliser_type']) && !in_array($this->container['other_fertiliser_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'other_fertiliser_type', must be one of '%s'",
-                $this->container['other_fertiliser_type'],
-                implode("', '", $allowedValues)
-            );
+        if (($this->container['urea_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_application', must be bigger than or equal to 0.";
         }
 
         if ($this->container['other_fertiliser_application'] === null) {
             $invalidProperties[] = "'other_fertiliser_application' can't be null";
         }
+        if (($this->container['other_fertiliser_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'other_fertiliser_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['non_urea_nitrogen'] === null) {
             $invalidProperties[] = "'non_urea_nitrogen' can't be null";
         }
+        if (($this->container['non_urea_nitrogen'] < 0)) {
+            $invalidProperties[] = "invalid value for 'non_urea_nitrogen', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['urea_ammonium_nitrate'] === null) {
             $invalidProperties[] = "'urea_ammonium_nitrate' can't be null";
         }
+        if (($this->container['urea_ammonium_nitrate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'urea_ammonium_nitrate', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['phosphorus_application'] === null) {
             $invalidProperties[] = "'phosphorus_application' can't be null";
         }
+        if (($this->container['phosphorus_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'phosphorus_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['potassium_application'] === null) {
             $invalidProperties[] = "'potassium_application' can't be null";
         }
+        if (($this->container['potassium_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'potassium_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['sulfur_application'] === null) {
             $invalidProperties[] = "'sulfur_application' can't be null";
         }
+        if (($this->container['sulfur_application'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sulfur_application', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['single_super_phosphate'] === null) {
             $invalidProperties[] = "'single_super_phosphate' can't be null";
         }
+        if (($this->container['single_super_phosphate'] < 0)) {
+            $invalidProperties[] = "invalid value for 'single_super_phosphate', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['rainfall_above600'] === null) {
             $invalidProperties[] = "'rainfall_above600' can't be null";
-        }
-        if ($this->container['fraction_of_annual_crop_burnt'] === null) {
-            $invalidProperties[] = "'fraction_of_annual_crop_burnt' can't be null";
         }
         if ($this->container['herbicide_use'] === null) {
             $invalidProperties[] = "'herbicide_use' can't be null";
         }
+        if (($this->container['herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['glyphosate_other_herbicide_use'] === null) {
             $invalidProperties[] = "'glyphosate_other_herbicide_use' can't be null";
         }
+        if (($this->container['glyphosate_other_herbicide_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'glyphosate_other_herbicide_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['electricity_allocation'] === null) {
             $invalidProperties[] = "'electricity_allocation' can't be null";
         }
+        if (($this->container['electricity_allocation'] > 1)) {
+            $invalidProperties[] = "invalid value for 'electricity_allocation', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['electricity_allocation'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_allocation', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone'] === null) {
             $invalidProperties[] = "'limestone' can't be null";
         }
+        if (($this->container['limestone'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone_fraction'] === null) {
             $invalidProperties[] = "'limestone_fraction' can't be null";
         }
+        if (($this->container['limestone_fraction'] > 1)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['limestone_fraction'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['diesel_use'] === null) {
             $invalidProperties[] = "'diesel_use' can't be null";
         }
+        if (($this->container['diesel_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'diesel_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['petrol_use'] === null) {
             $invalidProperties[] = "'petrol_use' can't be null";
         }
+        if (($this->container['petrol_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'petrol_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['lpg'] === null) {
             $invalidProperties[] = "'lpg' can't be null";
         }
+        if (($this->container['lpg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'lpg', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -646,7 +678,7 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this Cotton activity
      *
      * @return self
      */
@@ -719,6 +751,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($average_cotton_yield)) {
             throw new \InvalidArgumentException('non-nullable average_cotton_yield cannot be null');
         }
+
+        if (($average_cotton_yield < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_cotton_yield when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_cotton_yield'] = $average_cotton_yield;
 
         return $this;
@@ -746,6 +783,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($area_sown)) {
             throw new \InvalidArgumentException('non-nullable area_sown cannot be null');
         }
+
+        if (($area_sown < 0)) {
+            throw new \InvalidArgumentException('invalid value for $area_sown when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['area_sown'] = $area_sown;
 
         return $this;
@@ -773,6 +815,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($average_weight_per_bale_kg)) {
             throw new \InvalidArgumentException('non-nullable average_weight_per_bale_kg cannot be null');
         }
+
+        if (($average_weight_per_bale_kg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $average_weight_per_bale_kg when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['average_weight_per_bale_kg'] = $average_weight_per_bale_kg;
 
         return $this;
@@ -800,6 +847,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($cotton_lint_per_bale_kg)) {
             throw new \InvalidArgumentException('non-nullable cotton_lint_per_bale_kg cannot be null');
         }
+
+        if (($cotton_lint_per_bale_kg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $cotton_lint_per_bale_kg when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['cotton_lint_per_bale_kg'] = $cotton_lint_per_bale_kg;
 
         return $this;
@@ -827,6 +879,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($cotton_seed_per_bale_kg)) {
             throw new \InvalidArgumentException('non-nullable cotton_seed_per_bale_kg cannot be null');
         }
+
+        if (($cotton_seed_per_bale_kg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $cotton_seed_per_bale_kg when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['cotton_seed_per_bale_kg'] = $cotton_seed_per_bale_kg;
 
         return $this;
@@ -854,6 +911,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($waste_per_bale_kg)) {
             throw new \InvalidArgumentException('non-nullable waste_per_bale_kg cannot be null');
         }
+
+        if (($waste_per_bale_kg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $waste_per_bale_kg when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['waste_per_bale_kg'] = $waste_per_bale_kg;
 
         return $this;
@@ -881,46 +943,12 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($urea_application)) {
             throw new \InvalidArgumentException('non-nullable urea_application cannot be null');
         }
+
+        if (($urea_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_application when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_application'] = $urea_application;
-
-        return $this;
-    }
-
-    /**
-     * Gets other_fertiliser_type
-     *
-     * @return string|null
-     * @deprecated
-     */
-    public function getOtherFertiliserType()
-    {
-        return $this->container['other_fertiliser_type'];
-    }
-
-    /**
-     * Sets other_fertiliser_type
-     *
-     * @param string|null $other_fertiliser_type Other N fertiliser type
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setOtherFertiliserType($other_fertiliser_type)
-    {
-        if (is_null($other_fertiliser_type)) {
-            throw new \InvalidArgumentException('non-nullable other_fertiliser_type cannot be null');
-        }
-        $allowedValues = $this->getOtherFertiliserTypeAllowableValues();
-        if (!in_array($other_fertiliser_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'other_fertiliser_type', must be one of '%s'",
-                    $other_fertiliser_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['other_fertiliser_type'] = $other_fertiliser_type;
 
         return $this;
     }
@@ -947,6 +975,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($other_fertiliser_application)) {
             throw new \InvalidArgumentException('non-nullable other_fertiliser_application cannot be null');
         }
+
+        if (($other_fertiliser_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $other_fertiliser_application when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['other_fertiliser_application'] = $other_fertiliser_application;
 
         return $this;
@@ -974,6 +1007,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($non_urea_nitrogen)) {
             throw new \InvalidArgumentException('non-nullable non_urea_nitrogen cannot be null');
         }
+
+        if (($non_urea_nitrogen < 0)) {
+            throw new \InvalidArgumentException('invalid value for $non_urea_nitrogen when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['non_urea_nitrogen'] = $non_urea_nitrogen;
 
         return $this;
@@ -1001,6 +1039,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($urea_ammonium_nitrate)) {
             throw new \InvalidArgumentException('non-nullable urea_ammonium_nitrate cannot be null');
         }
+
+        if (($urea_ammonium_nitrate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $urea_ammonium_nitrate when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['urea_ammonium_nitrate'] = $urea_ammonium_nitrate;
 
         return $this;
@@ -1028,6 +1071,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($phosphorus_application)) {
             throw new \InvalidArgumentException('non-nullable phosphorus_application cannot be null');
         }
+
+        if (($phosphorus_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $phosphorus_application when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['phosphorus_application'] = $phosphorus_application;
 
         return $this;
@@ -1055,6 +1103,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($potassium_application)) {
             throw new \InvalidArgumentException('non-nullable potassium_application cannot be null');
         }
+
+        if (($potassium_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $potassium_application when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['potassium_application'] = $potassium_application;
 
         return $this;
@@ -1082,6 +1135,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($sulfur_application)) {
             throw new \InvalidArgumentException('non-nullable sulfur_application cannot be null');
         }
+
+        if (($sulfur_application < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sulfur_application when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['sulfur_application'] = $sulfur_application;
 
         return $this;
@@ -1109,6 +1167,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($single_super_phosphate)) {
             throw new \InvalidArgumentException('non-nullable single_super_phosphate cannot be null');
         }
+
+        if (($single_super_phosphate < 0)) {
+            throw new \InvalidArgumentException('invalid value for $single_super_phosphate when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['single_super_phosphate'] = $single_super_phosphate;
 
         return $this;
@@ -1142,35 +1205,6 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets fraction_of_annual_crop_burnt
-     *
-     * @return float
-     * @deprecated
-     */
-    public function getFractionOfAnnualCropBurnt()
-    {
-        return $this->container['fraction_of_annual_crop_burnt'];
-    }
-
-    /**
-     * Sets fraction_of_annual_crop_burnt
-     *
-     * @param float $fraction_of_annual_crop_burnt Fraction of annual production of crop that is burnt. If included, this should only ever be 0 for cotton
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setFractionOfAnnualCropBurnt($fraction_of_annual_crop_burnt)
-    {
-        if (is_null($fraction_of_annual_crop_burnt)) {
-            throw new \InvalidArgumentException('non-nullable fraction_of_annual_crop_burnt cannot be null');
-        }
-        $this->container['fraction_of_annual_crop_burnt'] = $fraction_of_annual_crop_burnt;
-
-        return $this;
-    }
-
-    /**
      * Gets herbicide_use
      *
      * @return float
@@ -1192,6 +1226,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable herbicide_use cannot be null');
         }
+
+        if (($herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide_use when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide_use'] = $herbicide_use;
 
         return $this;
@@ -1219,6 +1258,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($glyphosate_other_herbicide_use)) {
             throw new \InvalidArgumentException('non-nullable glyphosate_other_herbicide_use cannot be null');
         }
+
+        if (($glyphosate_other_herbicide_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $glyphosate_other_herbicide_use when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['glyphosate_other_herbicide_use'] = $glyphosate_other_herbicide_use;
 
         return $this;
@@ -1246,6 +1290,14 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($electricity_allocation)) {
             throw new \InvalidArgumentException('non-nullable electricity_allocation cannot be null');
         }
+
+        if (($electricity_allocation > 1)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_allocation when calling PostCottonRequestCropsInner., must be smaller than or equal to 1.');
+        }
+        if (($electricity_allocation < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_allocation when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_allocation'] = $electricity_allocation;
 
         return $this;
@@ -1273,6 +1325,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($limestone)) {
             throw new \InvalidArgumentException('non-nullable limestone cannot be null');
         }
+
+        if (($limestone < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone'] = $limestone;
 
         return $this;
@@ -1300,6 +1357,14 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($limestone_fraction)) {
             throw new \InvalidArgumentException('non-nullable limestone_fraction cannot be null');
         }
+
+        if (($limestone_fraction > 1)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostCottonRequestCropsInner., must be smaller than or equal to 1.');
+        }
+        if (($limestone_fraction < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone_fraction'] = $limestone_fraction;
 
         return $this;
@@ -1327,6 +1392,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($diesel_use)) {
             throw new \InvalidArgumentException('non-nullable diesel_use cannot be null');
         }
+
+        if (($diesel_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $diesel_use when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['diesel_use'] = $diesel_use;
 
         return $this;
@@ -1354,6 +1424,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($petrol_use)) {
             throw new \InvalidArgumentException('non-nullable petrol_use cannot be null');
         }
+
+        if (($petrol_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $petrol_use when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['petrol_use'] = $petrol_use;
 
         return $this;
@@ -1381,6 +1456,11 @@ class PostCottonRequestCropsInner implements ModelInterface, ArrayAccess, \JsonS
         if (is_null($lpg)) {
             throw new \InvalidArgumentException('non-nullable lpg cannot be null');
         }
+
+        if (($lpg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $lpg when calling PostCottonRequestCropsInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['lpg'] = $lpg;
 
         return $this;

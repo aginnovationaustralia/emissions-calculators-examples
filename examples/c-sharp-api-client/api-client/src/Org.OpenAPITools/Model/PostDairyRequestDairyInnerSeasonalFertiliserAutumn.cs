@@ -104,6 +104,30 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CropsIrrigated (decimal) minimum
+            if (this.CropsIrrigated < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CropsIrrigated, must be a value greater than or equal to 0.", new [] { "CropsIrrigated" });
+            }
+
+            // CropsDryland (decimal) minimum
+            if (this.CropsDryland < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for CropsDryland, must be a value greater than or equal to 0.", new [] { "CropsDryland" });
+            }
+
+            // PastureIrrigated (decimal) minimum
+            if (this.PastureIrrigated < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PastureIrrigated, must be a value greater than or equal to 0.", new [] { "PastureIrrigated" });
+            }
+
+            // PastureDryland (decimal) minimum
+            if (this.PastureDryland < (decimal)0)
+            {
+                yield return new ValidationResult("Invalid value for PastureDryland, must be a value greater than or equal to 0.", new [] { "PastureDryland" });
+            }
+
             yield break;
         }
     }

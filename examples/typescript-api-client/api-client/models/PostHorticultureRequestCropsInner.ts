@@ -94,20 +94,6 @@ export interface PostHorticultureRequestCropsInner {
      */
     rainfallAbove600: boolean;
     /**
-     * Urease inhibitor used. Deprecation note: No longer used (since v1.1.0)
-     * @type {boolean}
-     * @memberof PostHorticultureRequestCropsInner
-     * @deprecated
-     */
-    ureaseInhibitorUsed?: boolean;
-    /**
-     * Nitrification inhibitor used. Deprecation note: No longer used (since v1.1.0)
-     * @type {boolean}
-     * @memberof PostHorticultureRequestCropsInner
-     * @deprecated
-     */
-    nitrificationInhibitorUsed?: boolean;
-    /**
      * Fraction of annual production of crop that is burnt, from 0 to 1
      * @type {number}
      * @memberof PostHorticultureRequestCropsInner
@@ -232,8 +218,6 @@ export function PostHorticultureRequestCropsInnerFromJSONTyped(json: any, ignore
         'potassiumApplication': json['potassiumApplication'],
         'sulfurApplication': json['sulfurApplication'],
         'rainfallAbove600': json['rainfallAbove600'],
-        'ureaseInhibitorUsed': json['ureaseInhibitorUsed'] == null ? undefined : json['ureaseInhibitorUsed'],
-        'nitrificationInhibitorUsed': json['nitrificationInhibitorUsed'] == null ? undefined : json['nitrificationInhibitorUsed'],
         'fractionOfAnnualCropBurnt': json['fractionOfAnnualCropBurnt'],
         'herbicideUse': json['herbicideUse'],
         'glyphosateOtherHerbicideUse': json['glyphosateOtherHerbicideUse'],
@@ -269,8 +253,6 @@ export function PostHorticultureRequestCropsInnerToJSONTyped(value?: PostHorticu
         'potassiumApplication': value['potassiumApplication'],
         'sulfurApplication': value['sulfurApplication'],
         'rainfallAbove600': value['rainfallAbove600'],
-        'ureaseInhibitorUsed': value['ureaseInhibitorUsed'],
-        'nitrificationInhibitorUsed': value['nitrificationInhibitorUsed'],
         'fractionOfAnnualCropBurnt': value['fractionOfAnnualCropBurnt'],
         'herbicideUse': value['herbicideUse'],
         'glyphosateOtherHerbicideUse': value['glyphosateOtherHerbicideUse'],

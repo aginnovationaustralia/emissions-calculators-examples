@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostBeefRequestBeefInner Class Doc Comment
  *
  * @category Class
+ * @description Input data required for a single Beef enterprise
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -415,21 +416,45 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['limestone'] === null) {
             $invalidProperties[] = "'limestone' can't be null";
         }
+        if (($this->container['limestone'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['limestone_fraction'] === null) {
             $invalidProperties[] = "'limestone_fraction' can't be null";
         }
+        if (($this->container['limestone_fraction'] > 1)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be smaller than or equal to 1.";
+        }
+
+        if (($this->container['limestone_fraction'] < 0)) {
+            $invalidProperties[] = "invalid value for 'limestone_fraction', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['fertiliser'] === null) {
             $invalidProperties[] = "'fertiliser' can't be null";
         }
         if ($this->container['diesel'] === null) {
             $invalidProperties[] = "'diesel' can't be null";
         }
+        if (($this->container['diesel'] < 0)) {
+            $invalidProperties[] = "invalid value for 'diesel', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['petrol'] === null) {
             $invalidProperties[] = "'petrol' can't be null";
         }
+        if (($this->container['petrol'] < 0)) {
+            $invalidProperties[] = "invalid value for 'petrol', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['lpg'] === null) {
             $invalidProperties[] = "'lpg' can't be null";
         }
+        if (($this->container['lpg'] < 0)) {
+            $invalidProperties[] = "invalid value for 'lpg', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['mineral_supplementation'] === null) {
             $invalidProperties[] = "'mineral_supplementation' can't be null";
         }
@@ -459,21 +484,45 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['grain_feed'] === null) {
             $invalidProperties[] = "'grain_feed' can't be null";
         }
+        if (($this->container['grain_feed'] < 0)) {
+            $invalidProperties[] = "invalid value for 'grain_feed', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['hay_feed'] === null) {
             $invalidProperties[] = "'hay_feed' can't be null";
         }
+        if (($this->container['hay_feed'] < 0)) {
+            $invalidProperties[] = "invalid value for 'hay_feed', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['cottonseed_feed'] === null) {
             $invalidProperties[] = "'cottonseed_feed' can't be null";
         }
+        if (($this->container['cottonseed_feed'] < 0)) {
+            $invalidProperties[] = "invalid value for 'cottonseed_feed', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['herbicide'] === null) {
             $invalidProperties[] = "'herbicide' can't be null";
         }
+        if (($this->container['herbicide'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['herbicide_other'] === null) {
             $invalidProperties[] = "'herbicide_other' can't be null";
         }
+        if (($this->container['herbicide_other'] < 0)) {
+            $invalidProperties[] = "invalid value for 'herbicide_other', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['cows_calving'] === null) {
             $invalidProperties[] = "'cows_calving' can't be null";
         }
@@ -505,7 +554,7 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets id
      *
-     * @param string|null $id Unique identifier for this activity
+     * @param string|null $id Unique identifier for this Beef activity
      *
      * @return self
      */
@@ -568,6 +617,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($limestone)) {
             throw new \InvalidArgumentException('non-nullable limestone cannot be null');
         }
+
+        if (($limestone < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone'] = $limestone;
 
         return $this;
@@ -595,6 +649,14 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($limestone_fraction)) {
             throw new \InvalidArgumentException('non-nullable limestone_fraction cannot be null');
         }
+
+        if (($limestone_fraction > 1)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostBeefRequestBeefInner., must be smaller than or equal to 1.');
+        }
+        if (($limestone_fraction < 0)) {
+            throw new \InvalidArgumentException('invalid value for $limestone_fraction when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['limestone_fraction'] = $limestone_fraction;
 
         return $this;
@@ -649,6 +711,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($diesel)) {
             throw new \InvalidArgumentException('non-nullable diesel cannot be null');
         }
+
+        if (($diesel < 0)) {
+            throw new \InvalidArgumentException('invalid value for $diesel when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['diesel'] = $diesel;
 
         return $this;
@@ -676,6 +743,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($petrol)) {
             throw new \InvalidArgumentException('non-nullable petrol cannot be null');
         }
+
+        if (($petrol < 0)) {
+            throw new \InvalidArgumentException('invalid value for $petrol when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['petrol'] = $petrol;
 
         return $this;
@@ -703,6 +775,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($lpg)) {
             throw new \InvalidArgumentException('non-nullable lpg cannot be null');
         }
+
+        if (($lpg < 0)) {
+            throw new \InvalidArgumentException('invalid value for $lpg when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['lpg'] = $lpg;
 
         return $this;
@@ -829,6 +906,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -856,6 +938,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($grain_feed)) {
             throw new \InvalidArgumentException('non-nullable grain_feed cannot be null');
         }
+
+        if (($grain_feed < 0)) {
+            throw new \InvalidArgumentException('invalid value for $grain_feed when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['grain_feed'] = $grain_feed;
 
         return $this;
@@ -883,6 +970,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($hay_feed)) {
             throw new \InvalidArgumentException('non-nullable hay_feed cannot be null');
         }
+
+        if (($hay_feed < 0)) {
+            throw new \InvalidArgumentException('invalid value for $hay_feed when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['hay_feed'] = $hay_feed;
 
         return $this;
@@ -910,6 +1002,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($cottonseed_feed)) {
             throw new \InvalidArgumentException('non-nullable cottonseed_feed cannot be null');
         }
+
+        if (($cottonseed_feed < 0)) {
+            throw new \InvalidArgumentException('invalid value for $cottonseed_feed when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['cottonseed_feed'] = $cottonseed_feed;
 
         return $this;
@@ -937,6 +1034,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($herbicide)) {
             throw new \InvalidArgumentException('non-nullable herbicide cannot be null');
         }
+
+        if (($herbicide < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide'] = $herbicide;
 
         return $this;
@@ -964,6 +1066,11 @@ class PostBeefRequestBeefInner implements ModelInterface, ArrayAccess, \JsonSeri
         if (is_null($herbicide_other)) {
             throw new \InvalidArgumentException('non-nullable herbicide_other cannot be null');
         }
+
+        if (($herbicide_other < 0)) {
+            throw new \InvalidArgumentException('invalid value for $herbicide_other when calling PostBeefRequestBeefInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['herbicide_other'] = $herbicide_other;
 
         return $this;

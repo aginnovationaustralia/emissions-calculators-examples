@@ -335,30 +335,86 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if ($this->container['livestock'] === null) {
             $invalidProperties[] = "'livestock' can't be null";
         }
+        if (($this->container['livestock'] < 0)) {
+            $invalidProperties[] = "invalid value for 'livestock', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['stay_average_duration'] === null) {
             $invalidProperties[] = "'stay_average_duration' can't be null";
         }
+        if (($this->container['stay_average_duration'] < 0)) {
+            $invalidProperties[] = "invalid value for 'stay_average_duration', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['liveweight'] === null) {
             $invalidProperties[] = "'liveweight' can't be null";
         }
+        if (($this->container['liveweight'] < 0)) {
+            $invalidProperties[] = "invalid value for 'liveweight', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['dry_matter_digestibility'] === null) {
             $invalidProperties[] = "'dry_matter_digestibility' can't be null";
         }
+        if (($this->container['dry_matter_digestibility'] > 100)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_digestibility', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['dry_matter_digestibility'] < 0)) {
+            $invalidProperties[] = "invalid value for 'dry_matter_digestibility', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['crude_protein'] === null) {
             $invalidProperties[] = "'crude_protein' can't be null";
         }
+        if (($this->container['crude_protein'] > 100)) {
+            $invalidProperties[] = "invalid value for 'crude_protein', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['crude_protein'] < 0)) {
+            $invalidProperties[] = "invalid value for 'crude_protein', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['nitrogen_retention'] === null) {
             $invalidProperties[] = "'nitrogen_retention' can't be null";
         }
+        if (($this->container['nitrogen_retention'] > 100)) {
+            $invalidProperties[] = "invalid value for 'nitrogen_retention', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['nitrogen_retention'] < 0)) {
+            $invalidProperties[] = "invalid value for 'nitrogen_retention', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['daily_intake'] === null) {
             $invalidProperties[] = "'daily_intake' can't be null";
         }
+        if (($this->container['daily_intake'] < 0)) {
+            $invalidProperties[] = "invalid value for 'daily_intake', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['ndf'] === null) {
             $invalidProperties[] = "'ndf' can't be null";
         }
+        if (($this->container['ndf'] > 100)) {
+            $invalidProperties[] = "invalid value for 'ndf', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['ndf'] < 0)) {
+            $invalidProperties[] = "invalid value for 'ndf', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['ether_extract'] === null) {
             $invalidProperties[] = "'ether_extract' can't be null";
         }
+        if (($this->container['ether_extract'] > 100)) {
+            $invalidProperties[] = "invalid value for 'ether_extract', must be smaller than or equal to 100.";
+        }
+
+        if (($this->container['ether_extract'] < 0)) {
+            $invalidProperties[] = "invalid value for 'ether_extract', must be bigger than or equal to 0.";
+        }
+
         return $invalidProperties;
     }
 
@@ -396,6 +452,11 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($livestock)) {
             throw new \InvalidArgumentException('non-nullable livestock cannot be null');
         }
+
+        if (($livestock < 0)) {
+            throw new \InvalidArgumentException('invalid value for $livestock when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['livestock'] = $livestock;
 
         return $this;
@@ -423,6 +484,11 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($stay_average_duration)) {
             throw new \InvalidArgumentException('non-nullable stay_average_duration cannot be null');
         }
+
+        if (($stay_average_duration < 0)) {
+            throw new \InvalidArgumentException('invalid value for $stay_average_duration when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['stay_average_duration'] = $stay_average_duration;
 
         return $this;
@@ -450,6 +516,11 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($liveweight)) {
             throw new \InvalidArgumentException('non-nullable liveweight cannot be null');
         }
+
+        if (($liveweight < 0)) {
+            throw new \InvalidArgumentException('invalid value for $liveweight when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['liveweight'] = $liveweight;
 
         return $this;
@@ -477,6 +548,14 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($dry_matter_digestibility)) {
             throw new \InvalidArgumentException('non-nullable dry_matter_digestibility cannot be null');
         }
+
+        if (($dry_matter_digestibility > 100)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_digestibility when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be smaller than or equal to 100.');
+        }
+        if (($dry_matter_digestibility < 0)) {
+            throw new \InvalidArgumentException('invalid value for $dry_matter_digestibility when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['dry_matter_digestibility'] = $dry_matter_digestibility;
 
         return $this;
@@ -504,6 +583,14 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($crude_protein)) {
             throw new \InvalidArgumentException('non-nullable crude_protein cannot be null');
         }
+
+        if (($crude_protein > 100)) {
+            throw new \InvalidArgumentException('invalid value for $crude_protein when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be smaller than or equal to 100.');
+        }
+        if (($crude_protein < 0)) {
+            throw new \InvalidArgumentException('invalid value for $crude_protein when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['crude_protein'] = $crude_protein;
 
         return $this;
@@ -531,6 +618,14 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($nitrogen_retention)) {
             throw new \InvalidArgumentException('non-nullable nitrogen_retention cannot be null');
         }
+
+        if (($nitrogen_retention > 100)) {
+            throw new \InvalidArgumentException('invalid value for $nitrogen_retention when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be smaller than or equal to 100.');
+        }
+        if (($nitrogen_retention < 0)) {
+            throw new \InvalidArgumentException('invalid value for $nitrogen_retention when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['nitrogen_retention'] = $nitrogen_retention;
 
         return $this;
@@ -558,6 +653,11 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($daily_intake)) {
             throw new \InvalidArgumentException('non-nullable daily_intake cannot be null');
         }
+
+        if (($daily_intake < 0)) {
+            throw new \InvalidArgumentException('invalid value for $daily_intake when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['daily_intake'] = $daily_intake;
 
         return $this;
@@ -585,6 +685,14 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($ndf)) {
             throw new \InvalidArgumentException('non-nullable ndf cannot be null');
         }
+
+        if (($ndf > 100)) {
+            throw new \InvalidArgumentException('invalid value for $ndf when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be smaller than or equal to 100.');
+        }
+        if (($ndf < 0)) {
+            throw new \InvalidArgumentException('invalid value for $ndf when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['ndf'] = $ndf;
 
         return $this;
@@ -612,6 +720,14 @@ class PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner implements ModelInter
         if (is_null($ether_extract)) {
             throw new \InvalidArgumentException('non-nullable ether_extract cannot be null');
         }
+
+        if (($ether_extract > 100)) {
+            throw new \InvalidArgumentException('invalid value for $ether_extract when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be smaller than or equal to 100.');
+        }
+        if (($ether_extract < 0)) {
+            throw new \InvalidArgumentException('invalid value for $ether_extract when calling PostFeedlotRequestFeedlotsInnerGroupsInnerStaysInner., must be bigger than or equal to 0.');
+        }
+
         $this->container['ether_extract'] = $ether_extract;
 
         return $this;

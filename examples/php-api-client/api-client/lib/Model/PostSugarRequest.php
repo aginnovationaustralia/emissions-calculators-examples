@@ -36,7 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PostSugarRequest Class Doc Comment
  *
  * @category Class
- * @description Input data required for the &#x60;sugar&#x60; calculator
+ * @description Input data required for the Sugar calculator
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,7 @@ class PostSugarRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'crops' => '\OpenAPI\Client\Model\PostSugarRequestCropsInner[]',
         'electricity_renewable' => 'float',
         'electricity_use' => 'float',
-        'vegetation' => '\OpenAPI\Client\Model\PostCottonRequestVegetationInner[]'
+        'vegetation' => '\OpenAPI\Client\Model\PostSugarRequestVegetationInner[]'
     ];
 
     /**
@@ -362,6 +362,10 @@ class PostSugarRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['electricity_use'] === null) {
             $invalidProperties[] = "'electricity_use' can't be null";
         }
+        if (($this->container['electricity_use'] < 0)) {
+            $invalidProperties[] = "invalid value for 'electricity_use', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['vegetation'] === null) {
             $invalidProperties[] = "'vegetation' can't be null";
         }
@@ -501,6 +505,11 @@ class PostSugarRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($electricity_use)) {
             throw new \InvalidArgumentException('non-nullable electricity_use cannot be null');
         }
+
+        if (($electricity_use < 0)) {
+            throw new \InvalidArgumentException('invalid value for $electricity_use when calling PostSugarRequest., must be bigger than or equal to 0.');
+        }
+
         $this->container['electricity_use'] = $electricity_use;
 
         return $this;
@@ -509,7 +518,7 @@ class PostSugarRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets vegetation
      *
-     * @return \OpenAPI\Client\Model\PostCottonRequestVegetationInner[]
+     * @return \OpenAPI\Client\Model\PostSugarRequestVegetationInner[]
      */
     public function getVegetation()
     {
@@ -519,7 +528,7 @@ class PostSugarRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets vegetation
      *
-     * @param \OpenAPI\Client\Model\PostCottonRequestVegetationInner[] $vegetation vegetation
+     * @param \OpenAPI\Client\Model\PostSugarRequestVegetationInner[] $vegetation vegetation
      *
      * @return self
      */
