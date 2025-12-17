@@ -56,10 +56,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0
+# Defining the host is optional and defaults to https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0"
+    host = "https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0"
 )
 
 
@@ -82,7 +82,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0*
+All URIs are relative to *https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

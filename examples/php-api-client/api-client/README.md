@@ -68,7 +68,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0*
+All URIs are relative to *https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

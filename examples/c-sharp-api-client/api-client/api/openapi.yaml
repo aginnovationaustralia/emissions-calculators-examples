@@ -11,7 +11,7 @@ info:
   version: 3.0.0
 servers:
 - description: Production Server
-  url: https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0
+  url: https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0
 tags:
 - description: GAF spreadsheet-based calculator
   name: GAF

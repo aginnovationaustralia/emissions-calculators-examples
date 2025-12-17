@@ -436,7 +436,7 @@ namespace Org.OpenAPITools.Client
         /// <summary>
         /// The base path of the API
         /// </summary>
-        public const string BASE_ADDRESS = "https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0";
+        public const string BASE_ADDRESS = "https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0";
 
         /// <summary>
         /// The scheme of the API
@@ -451,7 +451,7 @@ namespace Org.OpenAPITools.Client
         /// <summary>
         /// The host of the API
         /// </summary>
-        public const string HOST = "emissionscalculator-mtls.staging.aiaapi.com";
+        public const string HOST = "emissionscalculator-mtls.production.aiaapi.com";
 
         /// <summary>
         /// The format to use for DateTime serialization

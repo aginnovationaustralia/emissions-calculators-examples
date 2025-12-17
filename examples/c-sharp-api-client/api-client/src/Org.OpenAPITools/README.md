@@ -6,12 +6,12 @@ Create a config.yaml file similar to what is below, then run the following power
 
 ```yaml
 generatorName: csharp
-inputSpec: https://d3eb6lsaaazlpd.cloudfront.net/api/3.0.0/openapi.json
+inputSpec: https://docs.aiaplatform.com.au/api/3.0.0/openapi.json
 outputDir: out
 
 # https://openapi-generator.tech/docs/generators/csharp
 additionalProperties:
-  packageGuid: '{FE1F65E0-7C9A-4D2A-B4B3-81C891BCB0D7}'
+  packageGuid: '{FAD42EC1-C54A-4B10-AD9D-CF580A0E9425}'
 
 # https://openapi-generator.tech/docs/integrations/#github-integration
 # gitHost:
