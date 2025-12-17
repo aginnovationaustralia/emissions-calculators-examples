@@ -1,0 +1,5 @@
+templateDir: templates
+files:
+  configuration.mustache:
+    templateType: SupportingFiles
+    destinationFilename: openapi_client/configuration.py
