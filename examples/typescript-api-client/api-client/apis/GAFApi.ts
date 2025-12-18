@@ -1006,6 +1006,7 @@ export class GAFApi extends runtime.BaseAPI {
     /**
      * Retrieve a simple JSON response
      * Perform wildseafisheries calculation
+     * @deprecated
      */
     async postWildseafisheriesRaw(requestParameters: PostWildseafisheriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostWildseafisheries200Response>> {
         if (requestParameters['postWildseafisheriesRequest'] == null) {
@@ -1038,6 +1039,7 @@ export class GAFApi extends runtime.BaseAPI {
     /**
      * Retrieve a simple JSON response
      * Perform wildseafisheries calculation
+     * @deprecated
      */
     async postWildseafisheries(requestParameters: PostWildseafisheriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostWildseafisheries200Response> {
         const response = await this.postWildseafisheriesRaw(requestParameters, initOverrides);

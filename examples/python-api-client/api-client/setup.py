@@ -42,7 +42,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="CC-BY-ND-4.0",
+    license="CC-BY-4.0",
     long_description_content_type='text/markdown',
     long_description="""\
     Emissions Calculators for various farming activities

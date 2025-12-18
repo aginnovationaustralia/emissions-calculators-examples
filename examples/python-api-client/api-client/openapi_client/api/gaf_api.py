@@ -5337,7 +5337,7 @@ class GAFApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PostWildseafisheries200Response:
-        """Perform wildseafisheries calculation
+        """(Deprecated) Perform wildseafisheries calculation
 
         Retrieve a simple JSON response
 
@@ -5364,6 +5364,7 @@ class GAFApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("POST /wildseafisheries is deprecated.", DeprecationWarning)
 
         _param = self._post_wildseafisheries_serialize(
             post_wildseafisheries_request=post_wildseafisheries_request,
@@ -5405,7 +5406,7 @@ class GAFApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PostWildseafisheries200Response]:
-        """Perform wildseafisheries calculation
+        """(Deprecated) Perform wildseafisheries calculation
 
         Retrieve a simple JSON response
 
@@ -5432,6 +5433,7 @@ class GAFApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("POST /wildseafisheries is deprecated.", DeprecationWarning)
 
         _param = self._post_wildseafisheries_serialize(
             post_wildseafisheries_request=post_wildseafisheries_request,
@@ -5473,7 +5475,7 @@ class GAFApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Perform wildseafisheries calculation
+        """(Deprecated) Perform wildseafisheries calculation
 
         Retrieve a simple JSON response
 
@@ -5500,6 +5502,7 @@ class GAFApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("POST /wildseafisheries is deprecated.", DeprecationWarning)
 
         _param = self._post_wildseafisheries_serialize(
             post_wildseafisheries_request=post_wildseafisheries_request,
