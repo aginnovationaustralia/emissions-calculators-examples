@@ -483,6 +483,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="postWildseafisheriesRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostWildseafisheriesApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<IPostWildseafisheriesApiResponse> PostWildseafisheriesAsync(PostWildseafisheriesRequest postWildseafisheriesRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -494,6 +495,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="postWildseafisheriesRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostWildseafisheriesApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<IPostWildseafisheriesApiResponse?> PostWildseafisheriesOrDefaultAsync(PostWildseafisheriesRequest postWildseafisheriesRequest, System.Threading.CancellationToken cancellationToken = default);
     }
 

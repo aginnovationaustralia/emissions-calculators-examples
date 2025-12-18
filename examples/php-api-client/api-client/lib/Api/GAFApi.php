@@ -5267,6 +5267,7 @@ class GAFApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PostWildseafisheries200Response
+     * @deprecated
      */
     public function postWildseafisheries($post_wildseafisheries_request, string $contentType = self::contentTypes['postWildseafisheries'][0])
     {
@@ -5285,6 +5286,7 @@ class GAFApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PostWildseafisheries200Response, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function postWildseafisheriesWithHttpInfo($post_wildseafisheries_request, string $contentType = self::contentTypes['postWildseafisheries'][0])
     {
@@ -5369,6 +5371,7 @@ class GAFApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function postWildseafisheriesAsync($post_wildseafisheries_request, string $contentType = self::contentTypes['postWildseafisheries'][0])
     {
@@ -5390,6 +5393,7 @@ class GAFApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function postWildseafisheriesAsyncWithHttpInfo($post_wildseafisheries_request, string $contentType = self::contentTypes['postWildseafisheries'][0])
     {
@@ -5440,6 +5444,7 @@ class GAFApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function postWildseafisheriesRequest($post_wildseafisheries_request, string $contentType = self::contentTypes['postWildseafisheries'][0])
     {
