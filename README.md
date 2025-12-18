@@ -1,6 +1,14 @@
-# Example clients for working with the AIA carbon calculators API
+# Example clients for working with the AIA Emissions Calculators API
 
-This repo contains examples and sample code that make it easy to start working with the REST API implementing the [Greenhouse Accounting Framework (GAF) Tools for Australian Primary Industries](https://piccc.org.au/resources/Tools.html). It is developed and maintained by [Agricultural Innovation Australia](https://aginnovationaustralia.com.au).
+The [AIA Environmental Accounting Platform (EAP)](https://www.aiaeap.com/) is an on-farm GHG emissions calculation engine developed by [Agricultural Innovation Australia](https://aginnovationaustralia.com.au). Free access to AIA’s open-source code is supported by the Australian Government through funding from the _Improving Consistency of On-Farm Emissions Estimates Program_.
+
+This repo contains examples and sample code that make it easy to start working with the Emissions Calculators REST API that is part of the AIA EAP.
+
+<p align='center'>
+  <a href='https://aginnovationaustralia.com.au'>
+    <img src='./assets/logo-light.svg' alt='Agricultural Innovation Australia' />
+  </a>
+</p>
 
 # Examples
 
@@ -20,6 +28,21 @@ If you still have a question, feel free to [open a github issue](https://github.
 
 # License
 
-![Creative Commons Attribution No Derivatives](./assets/by.png)
+![Creative Commons Attribution](./assets/by.png)
 
 This project is licensed under a [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+
+---
+
+<p align="center">
+Made with ❤️ by
+</p>
+
+<p align="center">
+    <a href="https://exogee.com">
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="./assets/exogee-white.svg">
+            <img src="./assets/exogee-black.svg" alt="Exogee">
+        </picture>
+    </a>
+</p>
