@@ -1,0 +1,15 @@
+{
+  "name": "typescript-multiple-package-versions",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Agricultural Innovation Australia",
+  "license": "CC-BY-4.0",
+  "description": "",
+  "dependencies": {
+    "@aginnovationaustralia/emissions-calculators3.0.0": "npm:@aginnovationaustralia/emissions-calculators@^3.0.0",
+    "@aginnovationaustralia/emissions-calculators3.0.1": "npm:@aginnovationaustralia/emissions-calculators@^3.0.1"
+  }
+}
