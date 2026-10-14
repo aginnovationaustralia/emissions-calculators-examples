@@ -35,7 +35,7 @@ If you still have a question, feel free to [open a github issue](https://github.
 
 # License
 
-![Creative Commons Attribution](./assets/by.png)
+![Creative Commons Attribution](../../assets/by.png)
 
 This project is licensed under a [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
