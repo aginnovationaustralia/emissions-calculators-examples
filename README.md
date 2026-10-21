@@ -16,7 +16,16 @@ The repo currently includes fully documented and automatically generated API cli
 - use the source code in the example clients straight away
 - code generate your own client for working with the API
 
-Each example has a script that can run and execute a succesful calculation, they typically jsut require configuring your client certificate files. They also include a script that is generating the client directly from the OpenAPI file for the API.
+Each example has a script that can run and execute a successful calculation, they typically just require configuring your client certificate files. They also include a script that is generating the client directly from the OpenAPI file for the API.
+
+# Generation of client code
+
+The generation of each language client is designed to be easy to reproduce and regenerate by anyone. Each example folder has a `generate.sh` script that should run cleanly out of the box. The scripts now accept the version as a first argument, and the calculator name as the second. The repo has a client generated for the beef calculator. If you want to generate a client for another calculator, run the generate script with your desired calculator name. For example, to generate the files for the `all-modules` calculator:
+
+```
+cd examples/c-sharp-api-client
+./generate.sh 4.0.2 all-modules
+```
 
 # Contributing and support
 

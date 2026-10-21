@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+API_VERSION=${1:?Usage: $0 <api-version> [spec-name]  (e.g. $0 4.0.2 beef)}
+SPEC_NAME=${2:-beef}
+
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -15,7 +18,7 @@ EXAMPLE_FOLDERS=(
 )
 
 echo "=========================================="
-echo "Running generate.sh for all API client examples"
+echo "Running generate.sh for all API client examples (API version $API_VERSION, spec $SPEC_NAME)"
 echo "=========================================="
 
 for folder in "${EXAMPLE_FOLDERS[@]}"; do
@@ -29,7 +32,7 @@ for folder in "${EXAMPLE_FOLDERS[@]}"; do
         echo "=========================================="
         
         cd "$example_path"
-        bash generate.sh
+        bash generate.sh "$API_VERSION" "$SPEC_NAME"
         
         echo ""
         echo "✓ Completed: $folder"
