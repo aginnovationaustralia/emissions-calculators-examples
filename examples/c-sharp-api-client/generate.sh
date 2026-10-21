@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 API_CLIENT_DIR=api-client
-API_VERSION=3.0.0
+API_VERSION=${1:-3.0.0}
 rm -rf $API_CLIENT_DIR
 
 npm -g install @openapitools/openapi-generator-cli
