@@ -10,99 +10,165 @@ from pprint import pprint
 
 def create_valid_beef_input():
     """Create a valid beef input using from_dict methods"""
-    
-    # Create sample data for a beef cattle operation
-    # This structure matches PostBeefRequest model requirements
+
+    # Sample data for a single beef herd, matching the PostBeefRequest model.
+    # Most numeric inputs are wrapped as {"value": number}.
     beef_data = {
-        "state": "qld",  # Queensland (must be valid enum: nsw, vic, qld, sa, wa_nw, wa_sw, tas, nt, act)
-        "northOfTropicOfCapricorn": True,
-        "rainfallAbove600": True,
-        "beef": [
-            {
-                "id": "beef_cattle_001",
-                "classes": {
-                    # Example: Cows greater than 2 years old
-                    "cowsGt2": {
-                        "spring": {
-                            "head": 50,  # number of animals
-                            "liveweight": 450,  # average kg/head
-                            "liveweightGain": 0.5,  # kg/day
-                            "crudeProtein": None,  # optional
-                            "dryMatterDigestibility": None  # optional
-                        },
-                        "summer": {
-                            "head": 50,
-                            "liveweight": 440,
-                            "liveweightGain": 0.3,
-                            "crudeProtein": None,
-                            "dryMatterDigestibility": None
-                        },
-                        "autumn": {
-                            "head": 50,
-                            "liveweight": 460,
-                            "liveweightGain": 0.4,
-                            "crudeProtein": None,
-                            "dryMatterDigestibility": None
-                        },
-                        "winter": {
-                            "head": 50,
-                            "liveweight": 450,
-                            "liveweightGain": 0.4,
-                            "crudeProtein": None,
-                            "dryMatterDigestibility": None
-                        },
-                        "headSold": 25,  # required: number sold
-                        "saleWeight": 500,  # required: weight at sale in kg/head
-                        "headPurchased": None,  # optional
-                        "purchasedWeight": None,  # optional
-                        "source": None,  # optional
-                        "purchases": None  # optional
-                    }
+      "isFebruaryInLeapYear": False,
+      "electricity": {
+        "method": "location",
+        "electricityPurchasedKWh": {
+          "value": 5000
+        },
+        "region": "QLD"
+      },
+      "herds": [
+        {
+          "id": "beef_cattle_001",
+          "electricityAllocation": {
+            "value": 1
+          },
+          "region": "QLD - Moderate/High",
+          "classes": {
+            "period": "seasonal",
+            "cowsGt3Years": {
+              "spring": {
+                "head": {
+                  "value": 50
                 },
-                "limestone": 10.0,
-                "limestoneFraction": 0.8,  # Fraction between 0 and 1
-                "fertiliser": {
-                    "singleSuperphosphate": 5.0,
-                    "pastureDryland": 10.0,
-                    "pastureIrrigated": 2.0,
-                    "cropsDryland": 8.0,
-                    "cropsIrrigated": 1.0,
-                    "otherDryland": None,
-                    "otherIrrigated": None,
-                    "otherType": None,
-                    "otherFertilisers": None
+                "proportionCowsThisSeasonInCalf": {
+                  "value": 0.2
                 },
-                "diesel": 1000,
-                "petrol": 200,
-                "lpg": 100,
-                "mineralSupplementation": {
-                    "mineralBlock": 2.0,
-                    "mineralBlockUrea": 0.3,
-                    "weanerBlock": 1.0,
-                    "weanerBlockUrea": 0.2,
-                    "drySeasonMix": 1.5,
-                    "drySeasonMixUrea": 0.25
-                },
-                "electricitySource": "State Grid",  # Must be 'State Grid' or 'Renewable'
-                "electricityRenewable": 0.2,  # Fraction between 0 and 1
-                "electricityUse": 5000,  # kWh
-                "grainFeed": 10.0,  # tonnes
-                "hayFeed": 5.0,
-                "cottonseedFeed": 2.0,
-                "herbicide": 50.0,  # kg
-                "herbicideOther": 20.0,
-                "cowsCalving": {
-                    "spring": 0.2,
-                    "summer": 0.1,
-                    "autumn": 0.5,
-                    "winter": 0.2
+                "proportionCowsPreviousSeasonInCalf": {
+                  "value": 0.2
                 }
+              },
+              "summer": {
+                "head": {
+                  "value": 50
+                },
+                "proportionCowsThisSeasonInCalf": {
+                  "value": 0.1
+                },
+                "proportionCowsPreviousSeasonInCalf": {
+                  "value": 0.2
+                }
+              },
+              "autumn": {
+                "head": {
+                  "value": 50
+                },
+                "proportionCowsThisSeasonInCalf": {
+                  "value": 0.5
+                },
+                "proportionCowsPreviousSeasonInCalf": {
+                  "value": 0.1
+                }
+              },
+              "winter": {
+                "head": {
+                  "value": 50
+                },
+                "proportionCowsThisSeasonInCalf": {
+                  "value": 0.2
+                },
+                "proportionCowsPreviousSeasonInCalf": {
+                  "value": 0.5
+                }
+              }
             }
-        ],
-        "burning": [],  # List of burning activities (optional)
-        "vegetation": []  # List of vegetation activities (optional)
+          },
+          "breed": "Northern Brahman cross breed",
+          "grazingSystem": "Non-irrigated pasture",
+          "climateZone": "Tropical dry",
+          "isInLeachingZone": False,
+          "excludedFromNaturalWater": False,
+          "liveweightSoldKg": {
+            "value": 12500
+          },
+          "fuel": {
+            "transport": [
+              {
+                "vehicleType": "Cars and light commercial vehicles",
+                "fuelType": "Diesel oil",
+                "amountKilolitres": {
+                  "value": 1
+                }
+              }
+            ],
+            "stationary": []
+          },
+          "lime": {
+            "applications": [
+              {
+                "type": "Limestone",
+                "massAppliedKg": {
+                  "value": 10000
+                },
+                "limestoneFraction": {
+                  "value": 0.8
+                }
+              }
+            ]
+          },
+          "pasture": {
+            "type": "Perennial pasture",
+            "areaManaged": {
+              "value": 500
+            },
+            "fractionOfAnnualCropBurnt": {
+              "value": 0
+            },
+            "residues": {
+              "calculationMethod": "1"
+            }
+          },
+          "purchasedLivestock": [],
+          "purchasedFeed": [],
+          "purchasedMineralSupplements": [
+            {
+              "type": "Lick block, dry season mix",
+              "amount": {
+                "value": 2
+              }
+            }
+          ],
+          "chemicals": [
+            {
+              "type": "Herbicide (paraquat, diquat, glyphosate)",
+              "amountKg": {
+                "value": 50
+              }
+            }
+          ],
+          "services": {
+            "fuel": {
+              "transport": [],
+              "stationary": []
+            }
+          },
+          "fertiliser": {
+            "productionSystem": "Non-irrigated pasture",
+            "inorganic": {
+              "calculationMethodScope1": "1",
+              "applications": [
+                {
+                  "fertiliserType": "Urea",
+                  "massAppliedKg": {
+                    "value": 2000
+                  },
+                  "calculationMethodScope3": "1"
+                }
+              ]
+            },
+            "organic": {
+              "applications": []
+            }
+          }
+        }
+      ]
     }
-    
+
     beef_input = openapi_client.PostBeefRequest.from_dict(beef_data)
     return beef_input
 
@@ -110,7 +176,7 @@ def test_beef_api():
     """Test the beef API endpoint with valid input"""
     
     configuration = openapi_client.Configuration(
-        host="https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0",
+        host="https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta",
         cert_file="cert.pem",
         key_file="key.pem",
     )
@@ -124,15 +190,15 @@ def test_beef_api():
     print("=" * 50)
 
     with openapi_client.ApiClient(configuration) as api_client:
-        api_instance = openapi_client.GAFApi(api_client)
+        api_instance = openapi_client.EmissionsCalculatorsApi(api_client)
 
         try:
             print("Calling beef API...")
             api_response = api_instance.post_beef(beef_input)
-            print("The response of GAFApi->post_beef:\n")
+            print("The response of EmissionsCalculatorsApi->post_beef:\n")
             pprint(api_response)
         except ApiException as e:
-            print("Exception when calling GAFApi->post_beef: %s\n" % e)
+            print("Exception when calling EmissionsCalculatorsApi->post_beef: %s\n" % e)
             print("This is expected if you don't have proper authentication configured")
 
 def main():

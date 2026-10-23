@@ -1,6 +1,16 @@
 # Example Python API client for the AIA Carbon Calculators API
 
-This example shows how to call the REST API available at https://emissionscalculator-mtls.production.aiaapi.com/calculator/3.0.0 using a simple Python script.
+This example shows how to call the REST API available at https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta using a simple Python script.
+
+## Prerequisites
+
+On macOS the required tools can be installed with [Homebrew](https://brew.sh):
+
+```
+brew install python node openjdk
+```
+
+This provides Python 3 (3.9+ is required). `node` and `openjdk` are only needed to run [generate.sh](./generate.sh), as the openapi-generator-cli is a Node wrapper around a Java tool.
 
 ## Running the example
 
@@ -16,4 +26,8 @@ run_test.sh
 
 The Python API client has been generated using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) tool. The generation can be reproduced by running [generate.sh](./generate.sh). If you supply your mTLS certificate files correctly (you can place them in the resources folder and they will be copied in) the generation script should be able to execute the sample test successfully.
 
-For now, the Python generator does not support all the configuration needed for an mTLS connection out of the box. Several fixes have been applied to the generated code in the `api-client` folder to let this work end to end, using [user defined templates](https://openapi-generator.tech/docs/customization#user-defined-templates). Once this [PR](https://github.com/OpenAPITools/openapi-generator/pull/22229) has been merged and released, it will be possible to make requests via mTLS without any code changes to the generated Python client code needed.
+The generation script takes the API version as an argument, e.g. `./generate.sh 4.0.2` (the default).
+
+Before generating, [generate.sh](./generate.sh) removes "Empty object" `oneOf` branches from the downloaded spec, because the Python generator maps them to a plain object that matches any input.
+
+**Temporary:** `gas` is also made optional on `OutputMethod1`/`OutputMethod2`, because the API currently omits it from some outputs (such as `scope3.services`). This should be removed once the API or spec is fixed.

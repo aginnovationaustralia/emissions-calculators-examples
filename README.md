@@ -16,7 +16,7 @@ The repo currently includes fully documented and automatically generated API cli
 - use the source code in the example clients straight away
 - code generate your own client for working with the API
 
-Each example has a script that can run and execute a succesful calculation, they typically jsut require configuring your client certificate files. They also include a script that is generating the client directly from the OpenAPI file for the API.
+Each example has a script that can run and execute a successful calculation, they typically just require configuring your client certificate files. They also include a script that is generating the client directly from the OpenAPI file for the API.
 
 # Contributing and support
 
