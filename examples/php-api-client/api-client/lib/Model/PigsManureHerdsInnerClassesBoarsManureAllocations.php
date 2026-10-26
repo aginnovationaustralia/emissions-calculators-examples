@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,12 +58,12 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
      * @var string[]
      */
     protected static $openAPITypes = [
-        'outdoor_and_free_range' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlag1OutdoorAndFreeRange',
-        'solid_storage' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlag1SolidStorage',
-        'deep_litter' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlag1DeepLitter',
-        'anaerobic_lagoon' => '\OpenAPI\Client\Model\Method2MeasuredFractions1AnaerobicLagoon',
-        'digester' => '\OpenAPI\Client\Model\Method2MeasuredFractions1Digester',
-        'pit_storage' => '\OpenAPI\Client\Model\Method2MeasuredFractions1PitStorage'
+        'outdoor_and_free_range' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlagOutdoorAndFreeRange',
+        'solid_storage' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlagSolidStorage',
+        'deep_litter' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlagDeepLitter',
+        'anaerobic_lagoon' => '\OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoon',
+        'digester' => '\OpenAPI\Client\Model\Method2MeasuredFractionsDigester',
+        'pit_storage' => '\OpenAPI\Client\Model\Method2MeasuredFractionsPitStorage'
     ];
 
     /**
@@ -346,7 +346,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Gets outdoor_and_free_range
      *
-     * @return \OpenAPI\Client\Model\Method1SolidsSeparationFlag1OutdoorAndFreeRange
+     * @return \OpenAPI\Client\Model\Method1SolidsSeparationFlagOutdoorAndFreeRange
      */
     public function getOutdoorAndFreeRange()
     {
@@ -356,7 +356,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Sets outdoor_and_free_range
      *
-     * @param \OpenAPI\Client\Model\Method1SolidsSeparationFlag1OutdoorAndFreeRange $outdoor_and_free_range outdoor_and_free_range
+     * @param \OpenAPI\Client\Model\Method1SolidsSeparationFlagOutdoorAndFreeRange $outdoor_and_free_range outdoor_and_free_range
      *
      * @return self
      */
@@ -373,7 +373,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Gets solid_storage
      *
-     * @return \OpenAPI\Client\Model\Method1SolidsSeparationFlag1SolidStorage
+     * @return \OpenAPI\Client\Model\Method1SolidsSeparationFlagSolidStorage
      */
     public function getSolidStorage()
     {
@@ -383,7 +383,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Sets solid_storage
      *
-     * @param \OpenAPI\Client\Model\Method1SolidsSeparationFlag1SolidStorage $solid_storage solid_storage
+     * @param \OpenAPI\Client\Model\Method1SolidsSeparationFlagSolidStorage $solid_storage solid_storage
      *
      * @return self
      */
@@ -400,7 +400,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Gets deep_litter
      *
-     * @return \OpenAPI\Client\Model\Method1SolidsSeparationFlag1DeepLitter
+     * @return \OpenAPI\Client\Model\Method1SolidsSeparationFlagDeepLitter
      */
     public function getDeepLitter()
     {
@@ -410,7 +410,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Sets deep_litter
      *
-     * @param \OpenAPI\Client\Model\Method1SolidsSeparationFlag1DeepLitter $deep_litter deep_litter
+     * @param \OpenAPI\Client\Model\Method1SolidsSeparationFlagDeepLitter $deep_litter deep_litter
      *
      * @return self
      */
@@ -427,7 +427,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Gets anaerobic_lagoon
      *
-     * @return \OpenAPI\Client\Model\Method2MeasuredFractions1AnaerobicLagoon
+     * @return \OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoon
      */
     public function getAnaerobicLagoon()
     {
@@ -437,7 +437,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Sets anaerobic_lagoon
      *
-     * @param \OpenAPI\Client\Model\Method2MeasuredFractions1AnaerobicLagoon $anaerobic_lagoon anaerobic_lagoon
+     * @param \OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoon $anaerobic_lagoon anaerobic_lagoon
      *
      * @return self
      */
@@ -454,7 +454,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Gets digester
      *
-     * @return \OpenAPI\Client\Model\Method2MeasuredFractions1Digester
+     * @return \OpenAPI\Client\Model\Method2MeasuredFractionsDigester
      */
     public function getDigester()
     {
@@ -464,7 +464,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Sets digester
      *
-     * @param \OpenAPI\Client\Model\Method2MeasuredFractions1Digester $digester digester
+     * @param \OpenAPI\Client\Model\Method2MeasuredFractionsDigester $digester digester
      *
      * @return self
      */
@@ -481,7 +481,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Gets pit_storage
      *
-     * @return \OpenAPI\Client\Model\Method2MeasuredFractions1PitStorage
+     * @return \OpenAPI\Client\Model\Method2MeasuredFractionsPitStorage
      */
     public function getPitStorage()
     {
@@ -491,7 +491,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations implements ModelInterfac
     /**
      * Sets pit_storage
      *
-     * @param \OpenAPI\Client\Model\Method2MeasuredFractions1PitStorage $pit_storage pit_storage
+     * @param \OpenAPI\Client\Model\Method2MeasuredFractionsPitStorage $pit_storage pit_storage
      *
      * @return self
      */

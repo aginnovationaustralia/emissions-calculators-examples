@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -27,13 +27,6 @@ import {
     Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentToJSON,
     Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentToJSONTyped,
 } from './Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment';
-import type { Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment } from './Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment';
-import {
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentFromJSON,
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentFromJSONTyped,
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentToJSON,
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentToJSONTyped,
-} from './Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment';
 import type { Method1SolidsSeparationFlagPitStorageTreatmentStage2Allocations } from './Method1SolidsSeparationFlagPitStorageTreatmentStage2Allocations';
 import {
     Method1SolidsSeparationFlagPitStorageTreatmentStage2AllocationsFromJSON,
@@ -48,10 +41,6 @@ import {
  * @interface Method2MeasuredFractionsPitStorage
  */
 export interface Method2MeasuredFractionsPitStorage {
-    /**
-     * 
-     */
-    fractionSolidsSeparatedPreTreatment: Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment;
     /**
      * 
      */
@@ -70,7 +59,6 @@ export interface Method2MeasuredFractionsPitStorage {
  * Check if a given object implements the Method2MeasuredFractionsPitStorage interface.
  */
 export function instanceOfMethod2MeasuredFractionsPitStorage(value: object): value is Method2MeasuredFractionsPitStorage {
-    if (!('fractionSolidsSeparatedPreTreatment' in value) || value['fractionSolidsSeparatedPreTreatment'] === undefined) return false;
     if (!('manureAllocated' in value) || value['manureAllocated'] === undefined) return false;
     if (!('treatmentStage2Allocations' in value) || value['treatmentStage2Allocations'] === undefined) return false;
     if (!('fractionNitrogenSeparatedPreTreatment' in value) || value['fractionNitrogenSeparatedPreTreatment'] === undefined) return false;
@@ -87,7 +75,6 @@ export function Method2MeasuredFractionsPitStorageFromJSONTyped(json: any, ignor
     }
     return {
         
-        'fractionSolidsSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentFromJSON(json['fractionSolidsSeparatedPreTreatment']),
         'manureAllocated': Method1SolidsSeparationFlagPitStorageManureAllocatedFromJSON(json['manureAllocated']),
         'treatmentStage2Allocations': Method1SolidsSeparationFlagPitStorageTreatmentStage2AllocationsFromJSON(json['treatmentStage2Allocations']),
         'fractionNitrogenSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentFromJSON(json['fractionNitrogenSeparatedPreTreatment']),
@@ -105,7 +92,6 @@ export function Method2MeasuredFractionsPitStorageToJSONTyped(value?: Method2Mea
 
     return {
         
-        'fractionSolidsSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentToJSON(value['fractionSolidsSeparatedPreTreatment']),
         'manureAllocated': Method1SolidsSeparationFlagPitStorageManureAllocatedToJSON(value['manureAllocated']),
         'treatmentStage2Allocations': Method1SolidsSeparationFlagPitStorageTreatmentStage2AllocationsToJSON(value['treatmentStage2Allocations']),
         'fractionNitrogenSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentToJSON(value['fractionNitrogenSeparatedPreTreatment']),

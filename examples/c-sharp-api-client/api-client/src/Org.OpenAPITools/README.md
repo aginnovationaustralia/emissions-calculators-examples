@@ -6,12 +6,12 @@ Create a config.yaml file similar to what is below, then run the following power
 
 ```yaml
 generatorName: csharp
-inputSpec: /var/folders/5f/p5_n7v8d10l948zk477b04qc0000gn/T/tmp.tnaP11vOYM/openapi.json
+inputSpec: /var/folders/5f/p5_n7v8d10l948zk477b04qc0000gn/T/tmp.tJadtpH9YY/openapi.json
 outputDir: out
 
 # https://openapi-generator.tech/docs/generators/csharp
 additionalProperties:
-  packageGuid: '{53EBE55D-0A6E-41E3-ADDD-8D9A1B454A39}'
+  packageGuid: '{EEDCFE23-471C-441F-8E8E-C3A3635AF9A4}'
 
 # https://openapi-generator.tech/docs/integrations/#github-integration
 # gitHost:
@@ -77,8 +77,8 @@ namespace YourProject
 
             IHost host = builder.Build();
             var api = host.Services.GetRequiredService<IEmissionsCalculatorsApi>();
-            IPostAllModulesApiResponse apiResponse = await api.PostAllModulesAsync("todo");
-            PostAllModules200Response? model = apiResponse.Ok();
+            IPostBeefApiResponse apiResponse = await api.PostBeefAsync("todo");
+            PostBeef200Response? model = apiResponse.Ok();
         }
     }
 }
@@ -99,7 +99,7 @@ namespace YourProject
   Use the provided On and After partial methods in the api classes.
 
 ## Api Information
-- appName: AIA Calculator API
+- appName: AIA Calculator API - beef
 - appVersion: 4.0.2
 - appDescription: Emissions Calculators for various farming activities
 

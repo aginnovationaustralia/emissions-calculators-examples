@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -19,8 +19,11 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.method13_amount import Method13Amount
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.method13_clearings_inner import Method13ClearingsInner
+from openapi_client.models.method13_method2_actual_stem_density import Method13Method2ActualStemDensity
+from openapi_client.models.method13_method2_biomass_at_maturity import Method13Method2BiomassAtMaturity
+from openapi_client.models.method13_plantings_inner import Method13PlantingsInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +32,26 @@ class Method13(BaseModel):
     """
     Method13
     """ # noqa: E501
-    amount: Method13Amount
-    type: StrictStr = Field(description="The type of mineral supplement purchased.")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["amount", "type"]
+    method2_actual_stem_density: Optional[Method13Method2ActualStemDensity] = Field(default=None, alias="method2ActualStemDensity")
+    method2_biomass_at_maturity: Optional[Method13Method2BiomassAtMaturity] = Field(default=None, alias="method2BiomassAtMaturity")
+    plantings: List[Method13PlantingsInner]
+    crop_type: StrictStr = Field(alias="cropType")
+    clearings: List[Method13ClearingsInner]
+    calculation_method: StrictStr = Field(alias="calculationMethod")
+    __properties: ClassVar[List[str]] = ["method2ActualStemDensity", "method2BiomassAtMaturity", "plantings", "cropType", "clearings", "calculationMethod"]
 
-    @field_validator('type')
-    def type_validate_enum(cls, value):
+    @field_validator('crop_type')
+    def crop_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Lick block, dry season mix', 'Lick block, weaner', 'Lick block, mineral']):
-            raise ValueError("must be one of enum values ('Lick block, dry season mix', 'Lick block, weaner', 'Lick block, mineral')")
+        if value not in set(['Oranges', 'Macadamias', 'Almonds', 'Apples', 'Peaches', 'Olives', 'Avocados', 'Mangoes', 'Grapes', 'Kiwifruits']):
+            raise ValueError("must be one of enum values ('Oranges', 'Macadamias', 'Almonds', 'Apples', 'Peaches', 'Olives', 'Avocados', 'Mangoes', 'Grapes', 'Kiwifruits')")
+        return value
+
+    @field_validator('calculation_method')
+    def calculation_method_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['1']):
+            raise ValueError("must be one of enum values ('1')")
         return value
 
     model_config = ConfigDict(
@@ -71,10 +84,8 @@ class Method13(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -82,14 +93,24 @@ class Method13(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of amount
-        if self.amount:
-            _dict['amount'] = self.amount.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
+        # override the default output from pydantic by calling `to_dict()` of method2_actual_stem_density
+        if self.method2_actual_stem_density:
+            _dict['method2ActualStemDensity'] = self.method2_actual_stem_density.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of method2_biomass_at_maturity
+        if self.method2_biomass_at_maturity:
+            _dict['method2BiomassAtMaturity'] = self.method2_biomass_at_maturity.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in plantings (list)
+        _items = []
+        if self.plantings:
+            for _item_plantings in self.plantings:
+                _items.append(_item_plantings.to_dict() if _item_plantings is not None else None)
+            _dict['plantings'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in clearings (list)
+        _items = []
+        if self.clearings:
+            for _item_clearings in self.clearings:
+                _items.append(_item_clearings.to_dict() if _item_clearings is not None else None)
+            _dict['clearings'] = _items
         return _dict
 
     @classmethod
@@ -102,14 +123,13 @@ class Method13(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "amount": Method13Amount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
-            "type": obj.get("type")
+            "method2ActualStemDensity": Method13Method2ActualStemDensity.from_dict(obj["method2ActualStemDensity"]) if obj.get("method2ActualStemDensity") is not None else None,
+            "method2BiomassAtMaturity": Method13Method2BiomassAtMaturity.from_dict(obj["method2BiomassAtMaturity"]) if obj.get("method2BiomassAtMaturity") is not None else None,
+            "plantings": [Method13PlantingsInner.from_dict(_item) for _item in obj["plantings"]] if obj.get("plantings") is not None else None,
+            "cropType": obj.get("cropType"),
+            "clearings": [Method13ClearingsInner.from_dict(_item) for _item in obj["clearings"]] if obj.get("clearings") is not None else None,
+            "calculationMethod": obj.get("calculationMethod")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

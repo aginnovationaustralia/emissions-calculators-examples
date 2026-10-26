@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.cars_and_light_commercial_vehicles_pre2004_amount_kilolitres import CarsAndLightCommercialVehiclesPre2004AmountKilolitres
+from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,7 +31,7 @@ class CompressedNaturalGasCNG(BaseModel):
     """ # noqa: E501
     vehicle_type: StrictStr = Field(alias="vehicleType")
     fuel_type: StrictStr = Field(description="Type of compressed natural gas fuel used by this vehicle", alias="fuelType")
-    amount_cubic_metres: CarsAndLightCommercialVehiclesPre2004AmountKilolitres = Field(alias="amountCubicMetres")
+    amount_cubic_metres: CarsAndLightCommercialVehiclesAmountKilolitres = Field(alias="amountCubicMetres")
     __properties: ClassVar[List[str]] = ["vehicleType", "fuelType", "amountCubicMetres"]
 
     @field_validator('vehicle_type')
@@ -104,7 +104,7 @@ class CompressedNaturalGasCNG(BaseModel):
         _obj = cls.model_validate({
             "vehicleType": obj.get("vehicleType"),
             "fuelType": obj.get("fuelType"),
-            "amountCubicMetres": CarsAndLightCommercialVehiclesPre2004AmountKilolitres.from_dict(obj["amountCubicMetres"]) if obj.get("amountCubicMetres") is not None else None
+            "amountCubicMetres": CarsAndLightCommercialVehiclesAmountKilolitres.from_dict(obj["amountCubicMetres"]) if obj.get("amountCubicMetres") is not None else None
         })
         return _obj
 

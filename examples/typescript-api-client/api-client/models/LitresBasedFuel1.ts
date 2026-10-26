@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { Aviation } from './Aviation';
+import type { Aviation1 } from './Aviation1';
 import {
-    instanceOfAviation,
-    AviationFromJSON,
-    AviationFromJSONTyped,
-    AviationToJSON,
-} from './Aviation';
+    instanceOfAviation1,
+    Aviation1FromJSON,
+    Aviation1FromJSONTyped,
+    Aviation1ToJSON,
+} from './Aviation1';
 import type { CarsAndLightCommercialVehicles1 } from './CarsAndLightCommercialVehicles1';
 import {
     instanceOfCarsAndLightCommercialVehicles1,
@@ -27,48 +27,48 @@ import {
     CarsAndLightCommercialVehicles1FromJSONTyped,
     CarsAndLightCommercialVehicles1ToJSON,
 } from './CarsAndLightCommercialVehicles1';
-import type { CarsAndLightCommercialVehiclesPre2004 } from './CarsAndLightCommercialVehiclesPre2004';
+import type { CarsAndLightCommercialVehiclesPre20041 } from './CarsAndLightCommercialVehiclesPre20041';
 import {
-    instanceOfCarsAndLightCommercialVehiclesPre2004,
-    CarsAndLightCommercialVehiclesPre2004FromJSON,
-    CarsAndLightCommercialVehiclesPre2004FromJSONTyped,
-    CarsAndLightCommercialVehiclesPre2004ToJSON,
-} from './CarsAndLightCommercialVehiclesPre2004';
-import type { HeavyDutyVehicles } from './HeavyDutyVehicles';
+    instanceOfCarsAndLightCommercialVehiclesPre20041,
+    CarsAndLightCommercialVehiclesPre20041FromJSON,
+    CarsAndLightCommercialVehiclesPre20041FromJSONTyped,
+    CarsAndLightCommercialVehiclesPre20041ToJSON,
+} from './CarsAndLightCommercialVehiclesPre20041';
+import type { HeavyDutyVehicles1 } from './HeavyDutyVehicles1';
 import {
-    instanceOfHeavyDutyVehicles,
-    HeavyDutyVehiclesFromJSON,
-    HeavyDutyVehiclesFromJSONTyped,
-    HeavyDutyVehiclesToJSON,
-} from './HeavyDutyVehicles';
-import type { LightDutyVehicles } from './LightDutyVehicles';
+    instanceOfHeavyDutyVehicles1,
+    HeavyDutyVehicles1FromJSON,
+    HeavyDutyVehicles1FromJSONTyped,
+    HeavyDutyVehicles1ToJSON,
+} from './HeavyDutyVehicles1';
+import type { LightDutyVehicles1 } from './LightDutyVehicles1';
 import {
-    instanceOfLightDutyVehicles,
-    LightDutyVehiclesFromJSON,
-    LightDutyVehiclesFromJSONTyped,
-    LightDutyVehiclesToJSON,
-} from './LightDutyVehicles';
-import type { OffRoadAgricultureAndForestryEquipment } from './OffRoadAgricultureAndForestryEquipment';
+    instanceOfLightDutyVehicles1,
+    LightDutyVehicles1FromJSON,
+    LightDutyVehicles1FromJSONTyped,
+    LightDutyVehicles1ToJSON,
+} from './LightDutyVehicles1';
+import type { OffRoadAgricultureAndForestryEquipment1 } from './OffRoadAgricultureAndForestryEquipment1';
 import {
-    instanceOfOffRoadAgricultureAndForestryEquipment,
-    OffRoadAgricultureAndForestryEquipmentFromJSON,
-    OffRoadAgricultureAndForestryEquipmentFromJSONTyped,
-    OffRoadAgricultureAndForestryEquipmentToJSON,
-} from './OffRoadAgricultureAndForestryEquipment';
-import type { Vessel } from './Vessel';
+    instanceOfOffRoadAgricultureAndForestryEquipment1,
+    OffRoadAgricultureAndForestryEquipment1FromJSON,
+    OffRoadAgricultureAndForestryEquipment1FromJSONTyped,
+    OffRoadAgricultureAndForestryEquipment1ToJSON,
+} from './OffRoadAgricultureAndForestryEquipment1';
+import type { Vessel1 } from './Vessel1';
 import {
-    instanceOfVessel,
-    VesselFromJSON,
-    VesselFromJSONTyped,
-    VesselToJSON,
-} from './Vessel';
+    instanceOfVessel1,
+    Vessel1FromJSON,
+    Vessel1FromJSONTyped,
+    Vessel1ToJSON,
+} from './Vessel1';
 
 /**
  * @type LitresBasedFuel1
  * 
  * @export
  */
-export type LitresBasedFuel1 = Aviation | CarsAndLightCommercialVehicles1 | CarsAndLightCommercialVehiclesPre2004 | HeavyDutyVehicles | LightDutyVehicles | OffRoadAgricultureAndForestryEquipment | Vessel;
+export type LitresBasedFuel1 = Aviation1 | CarsAndLightCommercialVehicles1 | CarsAndLightCommercialVehiclesPre20041 | HeavyDutyVehicles1 | LightDutyVehicles1 | OffRoadAgricultureAndForestryEquipment1 | Vessel1;
 /**
  * Check if a given object matches one of the LitresBasedFuel1 variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -78,25 +78,25 @@ export function instanceOfLitresBasedFuel1(value: any): boolean {
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfAviation(value)) {
+    if (instanceOfAviation1(value)) {
         return true;
     }
     if (instanceOfCarsAndLightCommercialVehicles1(value)) {
         return true;
     }
-    if (instanceOfCarsAndLightCommercialVehiclesPre2004(value)) {
+    if (instanceOfCarsAndLightCommercialVehiclesPre20041(value)) {
         return true;
     }
-    if (instanceOfHeavyDutyVehicles(value)) {
+    if (instanceOfHeavyDutyVehicles1(value)) {
         return true;
     }
-    if (instanceOfLightDutyVehicles(value)) {
+    if (instanceOfLightDutyVehicles1(value)) {
         return true;
     }
-    if (instanceOfOffRoadAgricultureAndForestryEquipment(value)) {
+    if (instanceOfOffRoadAgricultureAndForestryEquipment1(value)) {
         return true;
     }
-    if (instanceOfVessel(value)) {
+    if (instanceOfVessel1(value)) {
         return true;
     }
     return false;
@@ -114,26 +114,26 @@ export function LitresBasedFuel1FromJSONTyped(json: any, ignoreDiscriminator: bo
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfAviation(json)) {
-        return AviationFromJSONTyped(json, true);
+    if (instanceOfAviation1(json)) {
+        return Aviation1FromJSONTyped(json, true);
     }
     if (instanceOfCarsAndLightCommercialVehicles1(json)) {
         return CarsAndLightCommercialVehicles1FromJSONTyped(json, true);
     }
-    if (instanceOfCarsAndLightCommercialVehiclesPre2004(json)) {
-        return CarsAndLightCommercialVehiclesPre2004FromJSONTyped(json, true);
+    if (instanceOfCarsAndLightCommercialVehiclesPre20041(json)) {
+        return CarsAndLightCommercialVehiclesPre20041FromJSONTyped(json, true);
     }
-    if (instanceOfHeavyDutyVehicles(json)) {
-        return HeavyDutyVehiclesFromJSONTyped(json, true);
+    if (instanceOfHeavyDutyVehicles1(json)) {
+        return HeavyDutyVehicles1FromJSONTyped(json, true);
     }
-    if (instanceOfLightDutyVehicles(json)) {
-        return LightDutyVehiclesFromJSONTyped(json, true);
+    if (instanceOfLightDutyVehicles1(json)) {
+        return LightDutyVehicles1FromJSONTyped(json, true);
     }
-    if (instanceOfOffRoadAgricultureAndForestryEquipment(json)) {
-        return OffRoadAgricultureAndForestryEquipmentFromJSONTyped(json, true);
+    if (instanceOfOffRoadAgricultureAndForestryEquipment1(json)) {
+        return OffRoadAgricultureAndForestryEquipment1FromJSONTyped(json, true);
     }
-    if (instanceOfVessel(json)) {
-        return VesselFromJSONTyped(json, true);
+    if (instanceOfVessel1(json)) {
+        return Vessel1FromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -149,26 +149,26 @@ export function LitresBasedFuel1ToJSONTyped(value?: LitresBasedFuel1 | null, ign
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfAviation(value)) {
-        return AviationToJSON(value as Aviation);
+    if (instanceOfAviation1(value)) {
+        return Aviation1ToJSON(value as Aviation1);
     }
     if (instanceOfCarsAndLightCommercialVehicles1(value)) {
         return CarsAndLightCommercialVehicles1ToJSON(value as CarsAndLightCommercialVehicles1);
     }
-    if (instanceOfCarsAndLightCommercialVehiclesPre2004(value)) {
-        return CarsAndLightCommercialVehiclesPre2004ToJSON(value as CarsAndLightCommercialVehiclesPre2004);
+    if (instanceOfCarsAndLightCommercialVehiclesPre20041(value)) {
+        return CarsAndLightCommercialVehiclesPre20041ToJSON(value as CarsAndLightCommercialVehiclesPre20041);
     }
-    if (instanceOfHeavyDutyVehicles(value)) {
-        return HeavyDutyVehiclesToJSON(value as HeavyDutyVehicles);
+    if (instanceOfHeavyDutyVehicles1(value)) {
+        return HeavyDutyVehicles1ToJSON(value as HeavyDutyVehicles1);
     }
-    if (instanceOfLightDutyVehicles(value)) {
-        return LightDutyVehiclesToJSON(value as LightDutyVehicles);
+    if (instanceOfLightDutyVehicles1(value)) {
+        return LightDutyVehicles1ToJSON(value as LightDutyVehicles1);
     }
-    if (instanceOfOffRoadAgricultureAndForestryEquipment(value)) {
-        return OffRoadAgricultureAndForestryEquipmentToJSON(value as OffRoadAgricultureAndForestryEquipment);
+    if (instanceOfOffRoadAgricultureAndForestryEquipment1(value)) {
+        return OffRoadAgricultureAndForestryEquipment1ToJSON(value as OffRoadAgricultureAndForestryEquipment1);
     }
-    if (instanceOfVessel(value)) {
-        return VesselToJSON(value as Vessel);
+    if (instanceOfVessel1(value)) {
+        return Vessel1ToJSON(value as Vessel1);
     }
     return {};
 }

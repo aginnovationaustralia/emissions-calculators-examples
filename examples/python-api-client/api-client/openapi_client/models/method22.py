@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,10 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.method22_amount import Method22Amount
-from openapi_client.models.method22_custom_emissions_factor import Method22CustomEmissionsFactor
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.method22_anaerobic_digestion_inner import Method22AnaerobicDigestionInner
+from openapi_client.models.method22_composting_inner import Method22CompostingInner
+from openapi_client.models.method22_incineration_inner import Method22IncinerationInner
+from openapi_client.models.method22_unmanaged_burial_inner import Method22UnmanagedBurialInner
+from openapi_client.models.method22_unmanaged_deep_inner import Method22UnmanagedDeepInner
+from openapi_client.models.method22_unmanaged_shallow_inner import Method22UnmanagedShallowInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,10 +34,22 @@ class Method22(BaseModel):
     """
     Method22
     """ # noqa: E501
-    amount: Method22Amount
-    custom_emissions_factor: Method22CustomEmissionsFactor = Field(alias="customEmissionsFactor")
+    method: StrictStr
+    unmanaged_burial: Optional[List[Method22UnmanagedBurialInner]] = Field(default=None, alias="unmanagedBurial")
+    unmanaged_deep: Optional[List[Method22UnmanagedDeepInner]] = Field(default=None, alias="unmanagedDeep")
+    unmanaged_shallow: Optional[List[Method22UnmanagedShallowInner]] = Field(default=None, alias="unmanagedShallow")
+    composting: Optional[List[Method22CompostingInner]] = None
+    anaerobic_digestion: Optional[List[Method22AnaerobicDigestionInner]] = Field(default=None, alias="anaerobicDigestion")
+    incineration: Optional[List[Method22IncinerationInner]] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["amount", "customEmissionsFactor"]
+    __properties: ClassVar[List[str]] = ["method", "unmanagedBurial", "unmanagedDeep", "unmanagedShallow", "composting", "anaerobicDigestion", "incineration"]
+
+    @field_validator('method')
+    def method_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['2']):
+            raise ValueError("must be one of enum values ('2')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,12 +92,42 @@ class Method22(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of amount
-        if self.amount:
-            _dict['amount'] = self.amount.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of custom_emissions_factor
-        if self.custom_emissions_factor:
-            _dict['customEmissionsFactor'] = self.custom_emissions_factor.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in unmanaged_burial (list)
+        _items = []
+        if self.unmanaged_burial:
+            for _item_unmanaged_burial in self.unmanaged_burial:
+                _items.append(_item_unmanaged_burial.to_dict() if _item_unmanaged_burial is not None else None)
+            _dict['unmanagedBurial'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in unmanaged_deep (list)
+        _items = []
+        if self.unmanaged_deep:
+            for _item_unmanaged_deep in self.unmanaged_deep:
+                _items.append(_item_unmanaged_deep.to_dict() if _item_unmanaged_deep is not None else None)
+            _dict['unmanagedDeep'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in unmanaged_shallow (list)
+        _items = []
+        if self.unmanaged_shallow:
+            for _item_unmanaged_shallow in self.unmanaged_shallow:
+                _items.append(_item_unmanaged_shallow.to_dict() if _item_unmanaged_shallow is not None else None)
+            _dict['unmanagedShallow'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in composting (list)
+        _items = []
+        if self.composting:
+            for _item_composting in self.composting:
+                _items.append(_item_composting.to_dict() if _item_composting is not None else None)
+            _dict['composting'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in anaerobic_digestion (list)
+        _items = []
+        if self.anaerobic_digestion:
+            for _item_anaerobic_digestion in self.anaerobic_digestion:
+                _items.append(_item_anaerobic_digestion.to_dict() if _item_anaerobic_digestion is not None else None)
+            _dict['anaerobicDigestion'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in incineration (list)
+        _items = []
+        if self.incineration:
+            for _item_incineration in self.incineration:
+                _items.append(_item_incineration.to_dict() if _item_incineration is not None else None)
+            _dict['incineration'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -99,8 +145,13 @@ class Method22(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "amount": Method22Amount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
-            "customEmissionsFactor": Method22CustomEmissionsFactor.from_dict(obj["customEmissionsFactor"]) if obj.get("customEmissionsFactor") is not None else None
+            "method": obj.get("method"),
+            "unmanagedBurial": [Method22UnmanagedBurialInner.from_dict(_item) for _item in obj["unmanagedBurial"]] if obj.get("unmanagedBurial") is not None else None,
+            "unmanagedDeep": [Method22UnmanagedDeepInner.from_dict(_item) for _item in obj["unmanagedDeep"]] if obj.get("unmanagedDeep") is not None else None,
+            "unmanagedShallow": [Method22UnmanagedShallowInner.from_dict(_item) for _item in obj["unmanagedShallow"]] if obj.get("unmanagedShallow") is not None else None,
+            "composting": [Method22CompostingInner.from_dict(_item) for _item in obj["composting"]] if obj.get("composting") is not None else None,
+            "anaerobicDigestion": [Method22AnaerobicDigestionInner.from_dict(_item) for _item in obj["anaerobicDigestion"]] if obj.get("anaerobicDigestion") is not None else None,
+            "incineration": [Method22IncinerationInner.from_dict(_item) for _item in obj["incineration"]] if obj.get("incineration") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

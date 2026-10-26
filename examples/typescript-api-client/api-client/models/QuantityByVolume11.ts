@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { QuantityByVolume11VolumeWasteCubicMetres } from './QuantityByVolume11VolumeWasteCubicMetres';
+import type { QuantityByVolume11AmountKilolitres } from './QuantityByVolume11AmountKilolitres';
 import {
-    QuantityByVolume11VolumeWasteCubicMetresFromJSON,
-    QuantityByVolume11VolumeWasteCubicMetresFromJSONTyped,
-    QuantityByVolume11VolumeWasteCubicMetresToJSON,
-    QuantityByVolume11VolumeWasteCubicMetresToJSONTyped,
-} from './QuantityByVolume11VolumeWasteCubicMetres';
+    QuantityByVolume11AmountKilolitresFromJSON,
+    QuantityByVolume11AmountKilolitresFromJSONTyped,
+    QuantityByVolume11AmountKilolitresToJSON,
+    QuantityByVolume11AmountKilolitresToJSONTyped,
+} from './QuantityByVolume11AmountKilolitres';
 
 /**
  * 
@@ -28,40 +28,59 @@ import {
  */
 export interface QuantityByVolume11 {
     /**
-     * Type of solid waste treated at this facility (Burial)
+     * 
      */
-    wasteType: QuantityByVolume11WasteTypeEnum;
+    fuelClass: QuantityByVolume11FuelClassEnum;
+    /**
+     * Type of liquid fuel used in stationary equipment
+     */
+    fuelType: QuantityByVolume11FuelTypeEnum;
     /**
      * 
      */
-    volumeWasteCubicMetres: QuantityByVolume11VolumeWasteCubicMetres;
+    amountKilolitres: QuantityByVolume11AmountKilolitres;
 }
 
 
 /**
  * @export
  */
-export const QuantityByVolume11WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    Nappies: 'Nappies',
+export const QuantityByVolume11FuelClassEnum = {
+    LiquidFuels: 'Liquid fuels',
 } as const;
-export type QuantityByVolume11WasteTypeEnum = typeof QuantityByVolume11WasteTypeEnum[keyof typeof QuantityByVolume11WasteTypeEnum];
+export type QuantityByVolume11FuelClassEnum = typeof QuantityByVolume11FuelClassEnum[keyof typeof QuantityByVolume11FuelClassEnum];
+
+/**
+ * @export
+ */
+export const QuantityByVolume11FuelTypeEnum = {
+    PetroleumBasedOilsOtherThanFuels: 'Petroleum based oils other than fuels',
+    PetroleumBasedGreases: 'Petroleum based greases',
+    AutomotiveGasolinePetrol: 'Automotive gasoline/petrol',
+    AviationGasoline: 'Aviation gasoline',
+    Kerosene: 'Kerosene',
+    AviationTurbineFuelKerosene: 'Aviation turbine fuel/kerosene',
+    HeatingOil: 'Heating oil',
+    DieselOil: 'Diesel oil',
+    FuelOil: 'Fuel oil',
+    LiquefiedAromaticHydrocarbons: 'Liquefied aromatic hydrocarbons',
+    SolventsMineralTurpentineOrWhiteSpirits: 'Solvents: mineral turpentine or white spirits',
+    LiquefiedPetroleumGas: 'Liquefied petroleum gas',
+    Naphtha: 'Naphtha',
+    OtherPetroleumProducts: 'Other petroleum products',
+} as const;
+export type QuantityByVolume11FuelTypeEnum = typeof QuantityByVolume11FuelTypeEnum[keyof typeof QuantityByVolume11FuelTypeEnum];
 
 
 /**
  * Check if a given object implements the QuantityByVolume11 interface.
  */
 export function instanceOfQuantityByVolume11(value: object): value is QuantityByVolume11 {
-    if (!('wasteType' in value) || value['wasteType'] === undefined) return false;
-    if (!('volumeWasteCubicMetres' in value) || value['volumeWasteCubicMetres'] === undefined) return false;
+    if (!('fuelClass' in value) || value['fuelClass'] === undefined) return false;
+    if (value['fuelClass'] !== 'Liquid fuels') return false;
+    
+    if (!('fuelType' in value) || value['fuelType'] === undefined) return false;
+    if (!('amountKilolitres' in value) || value['amountKilolitres'] === undefined) return false;
     return true;
 }
 
@@ -75,8 +94,9 @@ export function QuantityByVolume11FromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'wasteType': json['wasteType'],
-        'volumeWasteCubicMetres': QuantityByVolume11VolumeWasteCubicMetresFromJSON(json['volumeWasteCubicMetres']),
+        'fuelClass': json['fuelClass'],
+        'fuelType': json['fuelType'],
+        'amountKilolitres': QuantityByVolume11AmountKilolitresFromJSON(json['amountKilolitres']),
     };
 }
 
@@ -91,8 +111,9 @@ export function QuantityByVolume11ToJSONTyped(value?: QuantityByVolume11 | null,
 
     return {
         
-        'wasteType': value['wasteType'],
-        'volumeWasteCubicMetres': QuantityByVolume11VolumeWasteCubicMetresToJSON(value['volumeWasteCubicMetres']),
+        'fuelClass': value['fuelClass'],
+        'fuelType': value['fuelType'],
+        'amountKilolitres': QuantityByVolume11AmountKilolitresToJSON(value['amountKilolitres']),
     };
 }
 

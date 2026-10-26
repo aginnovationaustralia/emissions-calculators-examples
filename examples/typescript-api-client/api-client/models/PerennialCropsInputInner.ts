@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { Method16 } from './Method16';
+import type { Method13 } from './Method13';
 import {
-    instanceOfMethod16,
-    Method16FromJSON,
-    Method16FromJSONTyped,
-    Method16ToJSON,
-} from './Method16';
+    instanceOfMethod13,
+    Method13FromJSON,
+    Method13FromJSONTyped,
+    Method13ToJSON,
+} from './Method13';
 import type { Method2BiomassAtMaturity } from './Method2BiomassAtMaturity';
 import {
     instanceOfMethod2BiomassAtMaturity,
@@ -40,7 +40,7 @@ import {
  * 
  * @export
  */
-export type PerennialCropsInputInner = Method16 | Method2BiomassAtMaturity | Method2StemDensity;
+export type PerennialCropsInputInner = Method13 | Method2BiomassAtMaturity | Method2StemDensity;
 /**
  * Check if a given object matches one of the PerennialCropsInputInner variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -50,7 +50,7 @@ export function instanceOfPerennialCropsInputInner(value: any): boolean {
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfMethod16(value)) {
+    if (instanceOfMethod13(value)) {
         return true;
     }
     if (instanceOfMethod2BiomassAtMaturity(value)) {
@@ -74,8 +74,8 @@ export function PerennialCropsInputInnerFromJSONTyped(json: any, ignoreDiscrimin
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfMethod16(json)) {
-        return Method16FromJSONTyped(json, true);
+    if (instanceOfMethod13(json)) {
+        return Method13FromJSONTyped(json, true);
     }
     if (instanceOfMethod2BiomassAtMaturity(json)) {
         return Method2BiomassAtMaturityFromJSONTyped(json, true);
@@ -97,8 +97,8 @@ export function PerennialCropsInputInnerToJSONTyped(value?: PerennialCropsInputI
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfMethod16(value)) {
-        return Method16ToJSON(value as Method16);
+    if (instanceOfMethod13(value)) {
+        return Method13ToJSON(value as Method13);
     }
     if (instanceOfMethod2BiomassAtMaturity(value)) {
         return Method2BiomassAtMaturityToJSON(value as Method2BiomassAtMaturity);

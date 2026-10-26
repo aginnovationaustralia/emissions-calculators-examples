@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TimeInLocationsMethod2MeasuredProportionsManureAllocations } from './TimeInLocationsMethod2MeasuredProportionsManureAllocations';
+import type { TimeInLocationsMethod1ProductionSystemMilkProduction } from './TimeInLocationsMethod1ProductionSystemMilkProduction';
 import {
-    TimeInLocationsMethod2MeasuredProportionsManureAllocationsFromJSON,
-    TimeInLocationsMethod2MeasuredProportionsManureAllocationsFromJSONTyped,
-    TimeInLocationsMethod2MeasuredProportionsManureAllocationsToJSON,
-    TimeInLocationsMethod2MeasuredProportionsManureAllocationsToJSONTyped,
-} from './TimeInLocationsMethod2MeasuredProportionsManureAllocations';
-import type { TimeInLocationsMethod2MeasuredProportionsMilkProduction } from './TimeInLocationsMethod2MeasuredProportionsMilkProduction';
+    TimeInLocationsMethod1ProductionSystemMilkProductionFromJSON,
+    TimeInLocationsMethod1ProductionSystemMilkProductionFromJSONTyped,
+    TimeInLocationsMethod1ProductionSystemMilkProductionToJSON,
+    TimeInLocationsMethod1ProductionSystemMilkProductionToJSONTyped,
+} from './TimeInLocationsMethod1ProductionSystemMilkProduction';
+import type { TimeInLocationsMethod1ProductionSystemManureAllocations } from './TimeInLocationsMethod1ProductionSystemManureAllocations';
 import {
-    TimeInLocationsMethod2MeasuredProportionsMilkProductionFromJSON,
-    TimeInLocationsMethod2MeasuredProportionsMilkProductionFromJSONTyped,
-    TimeInLocationsMethod2MeasuredProportionsMilkProductionToJSON,
-    TimeInLocationsMethod2MeasuredProportionsMilkProductionToJSONTyped,
-} from './TimeInLocationsMethod2MeasuredProportionsMilkProduction';
-import type { TimeInLocationsMethod2MeasuredProportionsClasses } from './TimeInLocationsMethod2MeasuredProportionsClasses';
-import {
-    TimeInLocationsMethod2MeasuredProportionsClassesFromJSON,
-    TimeInLocationsMethod2MeasuredProportionsClassesFromJSONTyped,
-    TimeInLocationsMethod2MeasuredProportionsClassesToJSON,
-    TimeInLocationsMethod2MeasuredProportionsClassesToJSONTyped,
-} from './TimeInLocationsMethod2MeasuredProportionsClasses';
+    TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSON,
+    TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSONTyped,
+    TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON,
+    TimeInLocationsMethod1ProductionSystemManureAllocationsToJSONTyped,
+} from './TimeInLocationsMethod1ProductionSystemManureAllocations';
 import type { TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations } from './TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations';
 import {
     TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsFromJSON,
@@ -41,6 +34,20 @@ import {
     TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsToJSON,
     TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsToJSONTyped,
 } from './TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations';
+import type { PigsManureHerdsInnerFractionAppliedToSoils } from './PigsManureHerdsInnerFractionAppliedToSoils';
+import {
+    PigsManureHerdsInnerFractionAppliedToSoilsFromJSON,
+    PigsManureHerdsInnerFractionAppliedToSoilsFromJSONTyped,
+    PigsManureHerdsInnerFractionAppliedToSoilsToJSON,
+    PigsManureHerdsInnerFractionAppliedToSoilsToJSONTyped,
+} from './PigsManureHerdsInnerFractionAppliedToSoils';
+import type { TimeInLocationsMethod1ProductionSystemClasses } from './TimeInLocationsMethod1ProductionSystemClasses';
+import {
+    TimeInLocationsMethod1ProductionSystemClassesFromJSON,
+    TimeInLocationsMethod1ProductionSystemClassesFromJSONTyped,
+    TimeInLocationsMethod1ProductionSystemClassesToJSON,
+    TimeInLocationsMethod1ProductionSystemClassesToJSONTyped,
+} from './TimeInLocationsMethod1ProductionSystemClasses';
 
 /**
  * 
@@ -51,11 +58,11 @@ export interface TimeInLocationsMethod2MeasuredProportions {
     /**
      * 
      */
-    classes: TimeInLocationsMethod2MeasuredProportionsClasses;
+    classes: TimeInLocationsMethod1ProductionSystemClasses;
     /**
      * 
      */
-    milkProduction: TimeInLocationsMethod2MeasuredProportionsMilkProduction;
+    milkProduction: TimeInLocationsMethod1ProductionSystemMilkProduction;
     /**
      * Breed of cattle for this dairy herd
      */
@@ -63,27 +70,15 @@ export interface TimeInLocationsMethod2MeasuredProportions {
     /**
      * 
      */
-    manureAllocations: TimeInLocationsMethod2MeasuredProportionsManureAllocations;
+    manureAllocations: TimeInLocationsMethod1ProductionSystemManureAllocations;
     /**
      * Is the activity in a leaching zone. See chapter 1.8.2 for more details on leaching zones.
      */
     isInLeachingZone: boolean;
     /**
-     * What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.
+     * 
      */
-    method2MeanAnnualTemperature?: TimeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum;
-    /**
-     * The production system which most accurately describes the land used for grazing and feed.
-     */
-    grazingSystem: TimeInLocationsMethod2MeasuredProportionsGrazingSystemEnum;
-    /**
-     * The climate zone the activity is located in (like "Tropical dry") or the basic zone type ("dry" or "wet"). See Chapter 1 section 1.8.2 for more details.
-     */
-    climateZone: TimeInLocationsMethod2MeasuredProportionsClimateZoneEnum;
-    /**
-     * The state or territory the activity is based in
-     */
-    state: TimeInLocationsMethod2MeasuredProportionsStateEnum;
+    fractionAppliedToSoils: PigsManureHerdsInnerFractionAppliedToSoils;
     /**
      * 
      */
@@ -108,78 +103,6 @@ export const TimeInLocationsMethod2MeasuredProportionsBreedEnum = {
 } as const;
 export type TimeInLocationsMethod2MeasuredProportionsBreedEnum = typeof TimeInLocationsMethod2MeasuredProportionsBreedEnum[keyof typeof TimeInLocationsMethod2MeasuredProportionsBreedEnum];
 
-/**
- * @export
- */
-export const TimeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum = {
-    _11: '11',
-    _12: '12',
-    _13: '13',
-    _14: '14',
-    _15: '15',
-    _16: '16',
-    _17: '17',
-    _18: '18',
-    _19: '19',
-    _20: '20',
-    _21: '21',
-    _22: '22',
-    _23: '23',
-    _24: '24',
-    _25: '25',
-    _26: '26',
-    _27: '27',
-    _10OrBelow: '10 or below',
-    _28OrAbove: '28 or above',
-} as const;
-export type TimeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum = typeof TimeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum[keyof typeof TimeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod2MeasuredProportionsGrazingSystemEnum = {
-    NonIrrigatedPasture: 'Non-irrigated pasture',
-    IrrigatedPasture: 'Irrigated pasture',
-    IrrigatedCrop: 'Irrigated crop',
-    NonIrrigatedCropLowRainfall: 'Non-irrigated crop (low rainfall)',
-    NonIrrigatedCropHighRainfall: 'Non-irrigated crop (high rainfall)',
-} as const;
-export type TimeInLocationsMethod2MeasuredProportionsGrazingSystemEnum = typeof TimeInLocationsMethod2MeasuredProportionsGrazingSystemEnum[keyof typeof TimeInLocationsMethod2MeasuredProportionsGrazingSystemEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod2MeasuredProportionsClimateZoneEnum = {
-    TropicalMontane: 'Tropical montane',
-    TropicalWet: 'Tropical wet',
-    TropicalMoist: 'Tropical moist',
-    WarmTemperateMoist: 'Warm temperate moist',
-    CoolTemperateMoist: 'Cool temperate moist',
-    BorealMoist: 'Boreal moist',
-    TropicalDry: 'Tropical dry',
-    WarmTemperateDry: 'Warm temperate dry',
-    CoolTemperateDry: 'Cool temperate dry',
-    BorealDry: 'Boreal dry',
-    Dry: 'dry',
-    Wet: 'wet',
-} as const;
-export type TimeInLocationsMethod2MeasuredProportionsClimateZoneEnum = typeof TimeInLocationsMethod2MeasuredProportionsClimateZoneEnum[keyof typeof TimeInLocationsMethod2MeasuredProportionsClimateZoneEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod2MeasuredProportionsStateEnum = {
-    Act: 'ACT',
-    Tas: 'TAS',
-    Nsw: 'NSW',
-    Vic: 'VIC',
-    Qld: 'QLD',
-    Sa: 'SA',
-    Wa: 'WA',
-    Nt: 'NT',
-} as const;
-export type TimeInLocationsMethod2MeasuredProportionsStateEnum = typeof TimeInLocationsMethod2MeasuredProportionsStateEnum[keyof typeof TimeInLocationsMethod2MeasuredProportionsStateEnum];
-
 
 /**
  * Check if a given object implements the TimeInLocationsMethod2MeasuredProportions interface.
@@ -190,9 +113,7 @@ export function instanceOfTimeInLocationsMethod2MeasuredProportions(value: objec
     if (!('breed' in value) || value['breed'] === undefined) return false;
     if (!('manureAllocations' in value) || value['manureAllocations'] === undefined) return false;
     if (!('isInLeachingZone' in value) || value['isInLeachingZone'] === undefined) return false;
-    if (!('grazingSystem' in value) || value['grazingSystem'] === undefined) return false;
-    if (!('climateZone' in value) || value['climateZone'] === undefined) return false;
-    if (!('state' in value) || value['state'] === undefined) return false;
+    if (!('fractionAppliedToSoils' in value) || value['fractionAppliedToSoils'] === undefined) return false;
     if (!('method2TimeSpentInLocations' in value) || value['method2TimeSpentInLocations'] === undefined) return false;
     return true;
 }
@@ -207,15 +128,12 @@ export function TimeInLocationsMethod2MeasuredProportionsFromJSONTyped(json: any
     }
     return {
         
-        'classes': TimeInLocationsMethod2MeasuredProportionsClassesFromJSON(json['classes']),
-        'milkProduction': TimeInLocationsMethod2MeasuredProportionsMilkProductionFromJSON(json['milkProduction']),
+        'classes': TimeInLocationsMethod1ProductionSystemClassesFromJSON(json['classes']),
+        'milkProduction': TimeInLocationsMethod1ProductionSystemMilkProductionFromJSON(json['milkProduction']),
         'breed': json['breed'],
-        'manureAllocations': TimeInLocationsMethod2MeasuredProportionsManureAllocationsFromJSON(json['manureAllocations']),
+        'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSON(json['manureAllocations']),
         'isInLeachingZone': json['isInLeachingZone'],
-        'method2MeanAnnualTemperature': json['method2MeanAnnualTemperature'] == null ? undefined : json['method2MeanAnnualTemperature'],
-        'grazingSystem': json['grazingSystem'],
-        'climateZone': json['climateZone'],
-        'state': json['state'],
+        'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsFromJSON(json['fractionAppliedToSoils']),
         'method2TimeSpentInLocations': TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsFromJSON(json['method2TimeSpentInLocations']),
     };
 }
@@ -231,15 +149,12 @@ export function TimeInLocationsMethod2MeasuredProportionsToJSONTyped(value?: Tim
 
     return {
         
-        'classes': TimeInLocationsMethod2MeasuredProportionsClassesToJSON(value['classes']),
-        'milkProduction': TimeInLocationsMethod2MeasuredProportionsMilkProductionToJSON(value['milkProduction']),
+        'classes': TimeInLocationsMethod1ProductionSystemClassesToJSON(value['classes']),
+        'milkProduction': TimeInLocationsMethod1ProductionSystemMilkProductionToJSON(value['milkProduction']),
         'breed': value['breed'],
-        'manureAllocations': TimeInLocationsMethod2MeasuredProportionsManureAllocationsToJSON(value['manureAllocations']),
+        'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON(value['manureAllocations']),
         'isInLeachingZone': value['isInLeachingZone'],
-        'method2MeanAnnualTemperature': value['method2MeanAnnualTemperature'],
-        'grazingSystem': value['grazingSystem'],
-        'climateZone': value['climateZone'],
-        'state': value['state'],
+        'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsToJSON(value['fractionAppliedToSoils']),
         'method2TimeSpentInLocations': TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsToJSON(value['method2TimeSpentInLocations']),
     };
 }

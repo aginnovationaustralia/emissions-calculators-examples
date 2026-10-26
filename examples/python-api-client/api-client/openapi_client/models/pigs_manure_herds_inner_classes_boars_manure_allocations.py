@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,24 +18,24 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.method1_solids_separation_flag1 import Method1SolidsSeparationFlag1
-from openapi_client.models.method2_measured_fractions1 import Method2MeasuredFractions1
+from openapi_client.models.method1_solids_separation_flag import Method1SolidsSeparationFlag
+from openapi_client.models.method2_measured_fractions import Method2MeasuredFractions
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-PIGSMANUREHERDSINNERCLASSESBOARSMANUREALLOCATIONS_ONE_OF_SCHEMAS = ["Method1SolidsSeparationFlag1", "Method2MeasuredFractions1"]
+PIGSMANUREHERDSINNERCLASSESBOARSMANUREALLOCATIONS_ONE_OF_SCHEMAS = ["Method1SolidsSeparationFlag", "Method2MeasuredFractions"]
 
 class PigsManureHerdsInnerClassesBoarsManureAllocations(BaseModel):
     """
     PigsManureHerdsInnerClassesBoarsManureAllocations
     """
-    # data type: Method1SolidsSeparationFlag1
-    oneof_schema_1_validator: Optional[Method1SolidsSeparationFlag1] = None
-    # data type: Method2MeasuredFractions1
-    oneof_schema_2_validator: Optional[Method2MeasuredFractions1] = None
-    actual_instance: Optional[Union[Method1SolidsSeparationFlag1, Method2MeasuredFractions1]] = None
-    one_of_schemas: Set[str] = { "Method1SolidsSeparationFlag1", "Method2MeasuredFractions1" }
+    # data type: Method1SolidsSeparationFlag
+    oneof_schema_1_validator: Optional[Method1SolidsSeparationFlag] = None
+    # data type: Method2MeasuredFractions
+    oneof_schema_2_validator: Optional[Method2MeasuredFractions] = None
+    actual_instance: Optional[Union[Method1SolidsSeparationFlag, Method2MeasuredFractions]] = None
+    one_of_schemas: Set[str] = { "Method1SolidsSeparationFlag", "Method2MeasuredFractions" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,22 +58,22 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations(BaseModel):
         instance = PigsManureHerdsInnerClassesBoarsManureAllocations.model_construct()
         error_messages = []
         match = 0
-        # validate data type: Method1SolidsSeparationFlag1
-        if not isinstance(v, Method1SolidsSeparationFlag1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Method1SolidsSeparationFlag1`")
+        # validate data type: Method1SolidsSeparationFlag
+        if not isinstance(v, Method1SolidsSeparationFlag):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Method1SolidsSeparationFlag`")
         else:
             match += 1
-        # validate data type: Method2MeasuredFractions1
-        if not isinstance(v, Method2MeasuredFractions1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Method2MeasuredFractions1`")
+        # validate data type: Method2MeasuredFractions
+        if not isinstance(v, Method2MeasuredFractions):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Method2MeasuredFractions`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag1, Method2MeasuredFractions1. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag, Method2MeasuredFractions. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag1, Method2MeasuredFractions1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag, Method2MeasuredFractions. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,25 +88,25 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into Method1SolidsSeparationFlag1
+        # deserialize data into Method1SolidsSeparationFlag
         try:
-            instance.actual_instance = Method1SolidsSeparationFlag1.from_json(json_str)
+            instance.actual_instance = Method1SolidsSeparationFlag.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Method2MeasuredFractions1
+        # deserialize data into Method2MeasuredFractions
         try:
-            instance.actual_instance = Method2MeasuredFractions1.from_json(json_str)
+            instance.actual_instance = Method2MeasuredFractions.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag1, Method2MeasuredFractions1. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag, Method2MeasuredFractions. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag1, Method2MeasuredFractions1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PigsManureHerdsInnerClassesBoarsManureAllocations with oneOf schemas: Method1SolidsSeparationFlag, Method2MeasuredFractions. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class PigsManureHerdsInnerClassesBoarsManureAllocations(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Method1SolidsSeparationFlag1, Method2MeasuredFractions1]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Method1SolidsSeparationFlag, Method2MeasuredFractions]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { Method11 } from './Method11';
+import type { Method1 } from './Method1';
 import {
-    instanceOfMethod11,
-    Method11FromJSON,
-    Method11FromJSONTyped,
-    Method11ToJSON,
-} from './Method11';
-import type { Method24 } from './Method24';
+    instanceOfMethod1,
+    Method1FromJSON,
+    Method1FromJSONTyped,
+    Method1ToJSON,
+} from './Method1';
+import type { Method2 } from './Method2';
 import {
-    instanceOfMethod24,
-    Method24FromJSON,
-    Method24FromJSONTyped,
-    Method24ToJSON,
-} from './Method24';
+    instanceOfMethod2,
+    Method2FromJSON,
+    Method2FromJSONTyped,
+    Method2ToJSON,
+} from './Method2';
 
 /**
  * @type PostBeefRequestHerdsInnerPastureResidues
  * 
  * @export
  */
-export type PostBeefRequestHerdsInnerPastureResidues = Method11 | Method24;
+export type PostBeefRequestHerdsInnerPastureResidues = Method1 | Method2;
 /**
  * Check if a given object matches one of the PostBeefRequestHerdsInnerPastureResidues variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -43,10 +43,10 @@ export function instanceOfPostBeefRequestHerdsInnerPastureResidues(value: any): 
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfMethod11(value)) {
+    if (instanceOfMethod1(value)) {
         return true;
     }
-    if (instanceOfMethod24(value)) {
+    if (instanceOfMethod2(value)) {
         return true;
     }
     return false;
@@ -64,11 +64,11 @@ export function PostBeefRequestHerdsInnerPastureResiduesFromJSONTyped(json: any,
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfMethod11(json)) {
-        return Method11FromJSONTyped(json, true);
+    if (instanceOfMethod1(json)) {
+        return Method1FromJSONTyped(json, true);
     }
-    if (instanceOfMethod24(json)) {
-        return Method24FromJSONTyped(json, true);
+    if (instanceOfMethod2(json)) {
+        return Method2FromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -84,11 +84,11 @@ export function PostBeefRequestHerdsInnerPastureResiduesToJSONTyped(value?: Post
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfMethod11(value)) {
-        return Method11ToJSON(value as Method11);
+    if (instanceOfMethod1(value)) {
+        return Method1ToJSON(value as Method1);
     }
-    if (instanceOfMethod24(value)) {
-        return Method24ToJSON(value as Method24);
+    if (instanceOfMethod2(value)) {
+        return Method2ToJSON(value as Method2);
     }
     return {};
 }

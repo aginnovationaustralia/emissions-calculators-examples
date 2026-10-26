@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,10 +58,8 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
      * @var string[]
      */
     protected static $openAPITypes = [
-        'milking_shed_mms_allocation' => '\OpenAPI\Client\Model\SolidsSeparationMethod1FeedPadMMSAllocation',
-        'feed_pad_mms_allocation' => '\OpenAPI\Client\Model\SolidsSeparationMethod1FeedPadMMSAllocation',
-        'solids_separated_pre_treatment' => 'bool',
-        'fraction_solids_separated_pre_treatment' => '\OpenAPI\Client\Model\SolidsSeparationMethod2FractionSolidsSeparatedPreTreatment'
+        'milking_shed_mms_allocation' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation',
+        'feed_pad_mms_allocation' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation'
     ];
 
     /**
@@ -73,9 +71,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
      */
     protected static $openAPIFormats = [
         'milking_shed_mms_allocation' => null,
-        'feed_pad_mms_allocation' => null,
-        'solids_separated_pre_treatment' => null,
-        'fraction_solids_separated_pre_treatment' => null
+        'feed_pad_mms_allocation' => null
     ];
 
     /**
@@ -85,9 +81,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
      */
     protected static array $openAPINullables = [
         'milking_shed_mms_allocation' => false,
-        'feed_pad_mms_allocation' => false,
-        'solids_separated_pre_treatment' => false,
-        'fraction_solids_separated_pre_treatment' => false
+        'feed_pad_mms_allocation' => false
     ];
 
     /**
@@ -177,9 +171,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
      */
     protected static $attributeMap = [
         'milking_shed_mms_allocation' => 'milkingShedMMSAllocation',
-        'feed_pad_mms_allocation' => 'feedPadMMSAllocation',
-        'solids_separated_pre_treatment' => 'solidsSeparatedPreTreatment',
-        'fraction_solids_separated_pre_treatment' => 'fractionSolidsSeparatedPreTreatment'
+        'feed_pad_mms_allocation' => 'feedPadMMSAllocation'
     ];
 
     /**
@@ -189,9 +181,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
      */
     protected static $setters = [
         'milking_shed_mms_allocation' => 'setMilkingShedMmsAllocation',
-        'feed_pad_mms_allocation' => 'setFeedPadMmsAllocation',
-        'solids_separated_pre_treatment' => 'setSolidsSeparatedPreTreatment',
-        'fraction_solids_separated_pre_treatment' => 'setFractionSolidsSeparatedPreTreatment'
+        'feed_pad_mms_allocation' => 'setFeedPadMmsAllocation'
     ];
 
     /**
@@ -201,9 +191,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
      */
     protected static $getters = [
         'milking_shed_mms_allocation' => 'getMilkingShedMmsAllocation',
-        'feed_pad_mms_allocation' => 'getFeedPadMmsAllocation',
-        'solids_separated_pre_treatment' => 'getSolidsSeparatedPreTreatment',
-        'fraction_solids_separated_pre_treatment' => 'getFractionSolidsSeparatedPreTreatment'
+        'feed_pad_mms_allocation' => 'getFeedPadMmsAllocation'
     ];
 
     /**
@@ -265,8 +253,6 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
     {
         $this->setIfExists('milking_shed_mms_allocation', $data ?? [], null);
         $this->setIfExists('feed_pad_mms_allocation', $data ?? [], null);
-        $this->setIfExists('solids_separated_pre_treatment', $data ?? [], null);
-        $this->setIfExists('fraction_solids_separated_pre_treatment', $data ?? [], null);
     }
 
     /**
@@ -302,12 +288,6 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
         if ($this->container['feed_pad_mms_allocation'] === null) {
             $invalidProperties[] = "'feed_pad_mms_allocation' can't be null";
         }
-        if ($this->container['solids_separated_pre_treatment'] === null) {
-            $invalidProperties[] = "'solids_separated_pre_treatment' can't be null";
-        }
-        if ($this->container['fraction_solids_separated_pre_treatment'] === null) {
-            $invalidProperties[] = "'fraction_solids_separated_pre_treatment' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +306,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
     /**
      * Gets milking_shed_mms_allocation
      *
-     * @return \OpenAPI\Client\Model\SolidsSeparationMethod1FeedPadMMSAllocation
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation
      */
     public function getMilkingShedMmsAllocation()
     {
@@ -336,7 +316,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
     /**
      * Sets milking_shed_mms_allocation
      *
-     * @param \OpenAPI\Client\Model\SolidsSeparationMethod1FeedPadMMSAllocation $milking_shed_mms_allocation milking_shed_mms_allocation
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation $milking_shed_mms_allocation milking_shed_mms_allocation
      *
      * @return self
      */
@@ -353,7 +333,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
     /**
      * Gets feed_pad_mms_allocation
      *
-     * @return \OpenAPI\Client\Model\SolidsSeparationMethod1FeedPadMMSAllocation
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation
      */
     public function getFeedPadMmsAllocation()
     {
@@ -363,7 +343,7 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
     /**
      * Sets feed_pad_mms_allocation
      *
-     * @param \OpenAPI\Client\Model\SolidsSeparationMethod1FeedPadMMSAllocation $feed_pad_mms_allocation feed_pad_mms_allocation
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation $feed_pad_mms_allocation feed_pad_mms_allocation
      *
      * @return self
      */
@@ -373,60 +353,6 @@ class TimeInLocationsMethod1ProductionSystemManureAllocations implements ModelIn
             throw new \InvalidArgumentException('non-nullable feed_pad_mms_allocation cannot be null');
         }
         $this->container['feed_pad_mms_allocation'] = $feed_pad_mms_allocation;
-
-        return $this;
-    }
-
-    /**
-     * Gets solids_separated_pre_treatment
-     *
-     * @return bool
-     */
-    public function getSolidsSeparatedPreTreatment()
-    {
-        return $this->container['solids_separated_pre_treatment'];
-    }
-
-    /**
-     * Sets solids_separated_pre_treatment
-     *
-     * @param bool $solids_separated_pre_treatment If solids produced by these cattle were separated by pre-treatment of manure (applicable to anaerobic lagoons only).
-     *
-     * @return self
-     */
-    public function setSolidsSeparatedPreTreatment($solids_separated_pre_treatment)
-    {
-        if (is_null($solids_separated_pre_treatment)) {
-            throw new \InvalidArgumentException('non-nullable solids_separated_pre_treatment cannot be null');
-        }
-        $this->container['solids_separated_pre_treatment'] = $solids_separated_pre_treatment;
-
-        return $this;
-    }
-
-    /**
-     * Gets fraction_solids_separated_pre_treatment
-     *
-     * @return \OpenAPI\Client\Model\SolidsSeparationMethod2FractionSolidsSeparatedPreTreatment
-     */
-    public function getFractionSolidsSeparatedPreTreatment()
-    {
-        return $this->container['fraction_solids_separated_pre_treatment'];
-    }
-
-    /**
-     * Sets fraction_solids_separated_pre_treatment
-     *
-     * @param \OpenAPI\Client\Model\SolidsSeparationMethod2FractionSolidsSeparatedPreTreatment $fraction_solids_separated_pre_treatment fraction_solids_separated_pre_treatment
-     *
-     * @return self
-     */
-    public function setFractionSolidsSeparatedPreTreatment($fraction_solids_separated_pre_treatment)
-    {
-        if (is_null($fraction_solids_separated_pre_treatment)) {
-            throw new \InvalidArgumentException('non-nullable fraction_solids_separated_pre_treatment cannot be null');
-        }
-        $this->container['fraction_solids_separated_pre_treatment'] = $fraction_solids_separated_pre_treatment;
 
         return $this;
     }

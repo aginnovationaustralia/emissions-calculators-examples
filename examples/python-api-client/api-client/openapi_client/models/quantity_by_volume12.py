@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.quantity_by_volume12_volume_waste_cubic_metres import QuantityByVolume12VolumeWasteCubicMetres
+from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,15 +29,23 @@ class QuantityByVolume12(BaseModel):
     """
     QuantityByVolume12
     """ # noqa: E501
-    waste_type: StrictStr = Field(description="Type of solid waste treated at this facility (Unmanaged - deep)", alias="wasteType")
-    volume_waste_cubic_metres: QuantityByVolume12VolumeWasteCubicMetres = Field(alias="volumeWasteCubicMetres")
-    __properties: ClassVar[List[str]] = ["wasteType", "volumeWasteCubicMetres"]
+    fuel_class: StrictStr = Field(alias="fuelClass")
+    fuel_type: StrictStr = Field(description="Type of liquid fuel used in stationary equipment", alias="fuelType")
+    amount_kilolitres: CarsAndLightCommercialVehicles1AmountKilolitres = Field(alias="amountKilolitres")
+    __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountKilolitres"]
 
-    @field_validator('waste_type')
-    def waste_type_validate_enum(cls, value):
+    @field_validator('fuel_class')
+    def fuel_class_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Food waste', 'Green waste', 'Wood products (at time of harvest)', 'Wood products (at end of life)', 'Sludge', 'Paper and cardboard', 'Textiles', 'Rubber and leather', 'Inert waste', 'Nappies']):
-            raise ValueError("must be one of enum values ('Food waste', 'Green waste', 'Wood products (at time of harvest)', 'Wood products (at end of life)', 'Sludge', 'Paper and cardboard', 'Textiles', 'Rubber and leather', 'Inert waste', 'Nappies')")
+        if value not in set(['Liquid fuels']):
+            raise ValueError("must be one of enum values ('Liquid fuels')")
+        return value
+
+    @field_validator('fuel_type')
+    def fuel_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['Petroleum based oils other than fuels', 'Petroleum based greases', 'Automotive gasoline/petrol', 'Aviation gasoline', 'Kerosene', 'Aviation turbine fuel/kerosene', 'Heating oil', 'Diesel oil', 'Fuel oil', 'Liquefied aromatic hydrocarbons', 'Solvents: mineral turpentine or white spirits', 'Liquefied petroleum gas', 'Naphtha', 'Other petroleum products']):
+            raise ValueError("must be one of enum values ('Petroleum based oils other than fuels', 'Petroleum based greases', 'Automotive gasoline/petrol', 'Aviation gasoline', 'Kerosene', 'Aviation turbine fuel/kerosene', 'Heating oil', 'Diesel oil', 'Fuel oil', 'Liquefied aromatic hydrocarbons', 'Solvents: mineral turpentine or white spirits', 'Liquefied petroleum gas', 'Naphtha', 'Other petroleum products')")
         return value
 
     model_config = ConfigDict(
@@ -79,9 +87,9 @@ class QuantityByVolume12(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of volume_waste_cubic_metres
-        if self.volume_waste_cubic_metres:
-            _dict['volumeWasteCubicMetres'] = self.volume_waste_cubic_metres.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of amount_kilolitres
+        if self.amount_kilolitres:
+            _dict['amountKilolitres'] = self.amount_kilolitres.to_dict()
         return _dict
 
     @classmethod
@@ -94,8 +102,9 @@ class QuantityByVolume12(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "wasteType": obj.get("wasteType"),
-            "volumeWasteCubicMetres": QuantityByVolume12VolumeWasteCubicMetres.from_dict(obj["volumeWasteCubicMetres"]) if obj.get("volumeWasteCubicMetres") is not None else None
+            "fuelClass": obj.get("fuelClass"),
+            "fuelType": obj.get("fuelType"),
+            "amountKilolitres": CarsAndLightCommercialVehicles1AmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None
         })
         return _obj
 

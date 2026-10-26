@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -60,7 +60,7 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner implements ModelInterface, 
     protected static $openAPITypes = [
         'mass_applied_kg' => '\OpenAPI\Client\Model\GypsumApplicationMassAppliedKg',
         'custom_scope3_emissions_factor' => '\OpenAPI\Client\Model\GypsumApplicationCustomScope3EmissionsFactor',
-        'limestone_fraction' => '\OpenAPI\Client\Model\LimestoneOrDolomiteApplication1LimestoneFraction',
+        'limestone_fraction' => '\OpenAPI\Client\Model\LimestoneOrDolomiteApplicationLimestoneFraction',
         'type' => 'string'
     ];
 
@@ -377,7 +377,7 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner implements ModelInterface, 
     /**
      * Gets limestone_fraction
      *
-     * @return \OpenAPI\Client\Model\LimestoneOrDolomiteApplication1LimestoneFraction
+     * @return \OpenAPI\Client\Model\LimestoneOrDolomiteApplicationLimestoneFraction
      */
     public function getLimestoneFraction()
     {
@@ -387,7 +387,7 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner implements ModelInterface, 
     /**
      * Sets limestone_fraction
      *
-     * @param \OpenAPI\Client\Model\LimestoneOrDolomiteApplication1LimestoneFraction $limestone_fraction limestone_fraction
+     * @param \OpenAPI\Client\Model\LimestoneOrDolomiteApplicationLimestoneFraction $limestone_fraction limestone_fraction
      *
      * @return self
      */

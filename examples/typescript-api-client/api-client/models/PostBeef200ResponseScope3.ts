@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,90 +13,90 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PostAllModules200ResponseScope3PurchasedFeed } from './PostAllModules200ResponseScope3PurchasedFeed';
+import type { PostBeef200ResponseScope3Total } from './PostBeef200ResponseScope3Total';
 import {
-    PostAllModules200ResponseScope3PurchasedFeedFromJSON,
-    PostAllModules200ResponseScope3PurchasedFeedFromJSONTyped,
-    PostAllModules200ResponseScope3PurchasedFeedToJSON,
-    PostAllModules200ResponseScope3PurchasedFeedToJSONTyped,
-} from './PostAllModules200ResponseScope3PurchasedFeed';
-import type { PostAllModules200ResponseScope3PurchasedLivestock } from './PostAllModules200ResponseScope3PurchasedLivestock';
+    PostBeef200ResponseScope3TotalFromJSON,
+    PostBeef200ResponseScope3TotalFromJSONTyped,
+    PostBeef200ResponseScope3TotalToJSON,
+    PostBeef200ResponseScope3TotalToJSONTyped,
+} from './PostBeef200ResponseScope3Total';
+import type { PostBeef200ResponseScope3SolidWaste } from './PostBeef200ResponseScope3SolidWaste';
 import {
-    PostAllModules200ResponseScope3PurchasedLivestockFromJSON,
-    PostAllModules200ResponseScope3PurchasedLivestockFromJSONTyped,
-    PostAllModules200ResponseScope3PurchasedLivestockToJSON,
-    PostAllModules200ResponseScope3PurchasedLivestockToJSONTyped,
-} from './PostAllModules200ResponseScope3PurchasedLivestock';
-import type { PostAllModules200ResponseScope3Electricity } from './PostAllModules200ResponseScope3Electricity';
+    PostBeef200ResponseScope3SolidWasteFromJSON,
+    PostBeef200ResponseScope3SolidWasteFromJSONTyped,
+    PostBeef200ResponseScope3SolidWasteToJSON,
+    PostBeef200ResponseScope3SolidWasteToJSONTyped,
+} from './PostBeef200ResponseScope3SolidWaste';
+import type { PostBeef200ResponseScope3PurchasedFeed } from './PostBeef200ResponseScope3PurchasedFeed';
 import {
-    PostAllModules200ResponseScope3ElectricityFromJSON,
-    PostAllModules200ResponseScope3ElectricityFromJSONTyped,
-    PostAllModules200ResponseScope3ElectricityToJSON,
-    PostAllModules200ResponseScope3ElectricityToJSONTyped,
-} from './PostAllModules200ResponseScope3Electricity';
-import type { PostAllModules200ResponseScope3SolidWaste } from './PostAllModules200ResponseScope3SolidWaste';
+    PostBeef200ResponseScope3PurchasedFeedFromJSON,
+    PostBeef200ResponseScope3PurchasedFeedFromJSONTyped,
+    PostBeef200ResponseScope3PurchasedFeedToJSON,
+    PostBeef200ResponseScope3PurchasedFeedToJSONTyped,
+} from './PostBeef200ResponseScope3PurchasedFeed';
+import type { PostBeef200ResponseScope3Fuel } from './PostBeef200ResponseScope3Fuel';
 import {
-    PostAllModules200ResponseScope3SolidWasteFromJSON,
-    PostAllModules200ResponseScope3SolidWasteFromJSONTyped,
-    PostAllModules200ResponseScope3SolidWasteToJSON,
-    PostAllModules200ResponseScope3SolidWasteToJSONTyped,
-} from './PostAllModules200ResponseScope3SolidWaste';
-import type { PostAquaculture200ResponseScope3Total } from './PostAquaculture200ResponseScope3Total';
+    PostBeef200ResponseScope3FuelFromJSON,
+    PostBeef200ResponseScope3FuelFromJSONTyped,
+    PostBeef200ResponseScope3FuelToJSON,
+    PostBeef200ResponseScope3FuelToJSONTyped,
+} from './PostBeef200ResponseScope3Fuel';
+import type { PostBeef200ResponseScope3Electricity } from './PostBeef200ResponseScope3Electricity';
 import {
-    PostAquaculture200ResponseScope3TotalFromJSON,
-    PostAquaculture200ResponseScope3TotalFromJSONTyped,
-    PostAquaculture200ResponseScope3TotalToJSON,
-    PostAquaculture200ResponseScope3TotalToJSONTyped,
-} from './PostAquaculture200ResponseScope3Total';
-import type { PostAllModules200ResponseScope3PurchasedMineralSupplements } from './PostAllModules200ResponseScope3PurchasedMineralSupplements';
+    PostBeef200ResponseScope3ElectricityFromJSON,
+    PostBeef200ResponseScope3ElectricityFromJSONTyped,
+    PostBeef200ResponseScope3ElectricityToJSON,
+    PostBeef200ResponseScope3ElectricityToJSONTyped,
+} from './PostBeef200ResponseScope3Electricity';
+import type { PostBeef200ResponseScope3Fertiliser } from './PostBeef200ResponseScope3Fertiliser';
 import {
-    PostAllModules200ResponseScope3PurchasedMineralSupplementsFromJSON,
-    PostAllModules200ResponseScope3PurchasedMineralSupplementsFromJSONTyped,
-    PostAllModules200ResponseScope3PurchasedMineralSupplementsToJSON,
-    PostAllModules200ResponseScope3PurchasedMineralSupplementsToJSONTyped,
-} from './PostAllModules200ResponseScope3PurchasedMineralSupplements';
-import type { PostAllModules200ResponseScope3Fuel } from './PostAllModules200ResponseScope3Fuel';
+    PostBeef200ResponseScope3FertiliserFromJSON,
+    PostBeef200ResponseScope3FertiliserFromJSONTyped,
+    PostBeef200ResponseScope3FertiliserToJSON,
+    PostBeef200ResponseScope3FertiliserToJSONTyped,
+} from './PostBeef200ResponseScope3Fertiliser';
+import type { PostBeef200ResponseScope3PurchasedLivestock } from './PostBeef200ResponseScope3PurchasedLivestock';
 import {
-    PostAllModules200ResponseScope3FuelFromJSON,
-    PostAllModules200ResponseScope3FuelFromJSONTyped,
-    PostAllModules200ResponseScope3FuelToJSON,
-    PostAllModules200ResponseScope3FuelToJSONTyped,
-} from './PostAllModules200ResponseScope3Fuel';
-import type { PostAllModules200ResponseScope3Services } from './PostAllModules200ResponseScope3Services';
+    PostBeef200ResponseScope3PurchasedLivestockFromJSON,
+    PostBeef200ResponseScope3PurchasedLivestockFromJSONTyped,
+    PostBeef200ResponseScope3PurchasedLivestockToJSON,
+    PostBeef200ResponseScope3PurchasedLivestockToJSONTyped,
+} from './PostBeef200ResponseScope3PurchasedLivestock';
+import type { PostBeef200ResponseScope3Agrichemicals } from './PostBeef200ResponseScope3Agrichemicals';
 import {
-    PostAllModules200ResponseScope3ServicesFromJSON,
-    PostAllModules200ResponseScope3ServicesFromJSONTyped,
-    PostAllModules200ResponseScope3ServicesToJSON,
-    PostAllModules200ResponseScope3ServicesToJSONTyped,
-} from './PostAllModules200ResponseScope3Services';
-import type { PostAllModules200ResponseScope3Agrichemicals } from './PostAllModules200ResponseScope3Agrichemicals';
+    PostBeef200ResponseScope3AgrichemicalsFromJSON,
+    PostBeef200ResponseScope3AgrichemicalsFromJSONTyped,
+    PostBeef200ResponseScope3AgrichemicalsToJSON,
+    PostBeef200ResponseScope3AgrichemicalsToJSONTyped,
+} from './PostBeef200ResponseScope3Agrichemicals';
+import type { PostBeef200ResponseScope3Services } from './PostBeef200ResponseScope3Services';
 import {
-    PostAllModules200ResponseScope3AgrichemicalsFromJSON,
-    PostAllModules200ResponseScope3AgrichemicalsFromJSONTyped,
-    PostAllModules200ResponseScope3AgrichemicalsToJSON,
-    PostAllModules200ResponseScope3AgrichemicalsToJSONTyped,
-} from './PostAllModules200ResponseScope3Agrichemicals';
-import type { PostAllModules200ResponseScope3Fertiliser } from './PostAllModules200ResponseScope3Fertiliser';
+    PostBeef200ResponseScope3ServicesFromJSON,
+    PostBeef200ResponseScope3ServicesFromJSONTyped,
+    PostBeef200ResponseScope3ServicesToJSON,
+    PostBeef200ResponseScope3ServicesToJSONTyped,
+} from './PostBeef200ResponseScope3Services';
+import type { PostBeef200ResponseScope3PurchasedMineralSupplements } from './PostBeef200ResponseScope3PurchasedMineralSupplements';
 import {
-    PostAllModules200ResponseScope3FertiliserFromJSON,
-    PostAllModules200ResponseScope3FertiliserFromJSONTyped,
-    PostAllModules200ResponseScope3FertiliserToJSON,
-    PostAllModules200ResponseScope3FertiliserToJSONTyped,
-} from './PostAllModules200ResponseScope3Fertiliser';
-import type { PostAllModules200ResponseScope3SoilAmeliorants } from './PostAllModules200ResponseScope3SoilAmeliorants';
+    PostBeef200ResponseScope3PurchasedMineralSupplementsFromJSON,
+    PostBeef200ResponseScope3PurchasedMineralSupplementsFromJSONTyped,
+    PostBeef200ResponseScope3PurchasedMineralSupplementsToJSON,
+    PostBeef200ResponseScope3PurchasedMineralSupplementsToJSONTyped,
+} from './PostBeef200ResponseScope3PurchasedMineralSupplements';
+import type { PostBeef200ResponseScope3OtherPurchasedGoodsAndServices } from './PostBeef200ResponseScope3OtherPurchasedGoodsAndServices';
 import {
-    PostAllModules200ResponseScope3SoilAmeliorantsFromJSON,
-    PostAllModules200ResponseScope3SoilAmeliorantsFromJSONTyped,
-    PostAllModules200ResponseScope3SoilAmeliorantsToJSON,
-    PostAllModules200ResponseScope3SoilAmeliorantsToJSONTyped,
-} from './PostAllModules200ResponseScope3SoilAmeliorants';
-import type { PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices } from './PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices';
+    PostBeef200ResponseScope3OtherPurchasedGoodsAndServicesFromJSON,
+    PostBeef200ResponseScope3OtherPurchasedGoodsAndServicesFromJSONTyped,
+    PostBeef200ResponseScope3OtherPurchasedGoodsAndServicesToJSON,
+    PostBeef200ResponseScope3OtherPurchasedGoodsAndServicesToJSONTyped,
+} from './PostBeef200ResponseScope3OtherPurchasedGoodsAndServices';
+import type { PostBeef200ResponseScope3SoilAmeliorants } from './PostBeef200ResponseScope3SoilAmeliorants';
 import {
-    PostAllModules200ResponseScope3OtherPurchasedGoodsAndServicesFromJSON,
-    PostAllModules200ResponseScope3OtherPurchasedGoodsAndServicesFromJSONTyped,
-    PostAllModules200ResponseScope3OtherPurchasedGoodsAndServicesToJSON,
-    PostAllModules200ResponseScope3OtherPurchasedGoodsAndServicesToJSONTyped,
-} from './PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices';
+    PostBeef200ResponseScope3SoilAmeliorantsFromJSON,
+    PostBeef200ResponseScope3SoilAmeliorantsFromJSONTyped,
+    PostBeef200ResponseScope3SoilAmeliorantsToJSON,
+    PostBeef200ResponseScope3SoilAmeliorantsToJSONTyped,
+} from './PostBeef200ResponseScope3SoilAmeliorants';
 
 /**
  * Scope 3 emissions are indirect greenhouse gas emissions other than scope 2 emissions that are generated in the wider economy, in tonnes-CO2e (tonnes of carbon dioxide equivalent)
@@ -107,51 +107,51 @@ export interface PostBeef200ResponseScope3 {
     /**
      * 
      */
-    total: PostAquaculture200ResponseScope3Total;
+    total: PostBeef200ResponseScope3Total;
     /**
      * 
      */
-    purchasedLivestock: PostAllModules200ResponseScope3PurchasedLivestock;
+    purchasedLivestock: PostBeef200ResponseScope3PurchasedLivestock;
     /**
      * 
      */
-    purchasedFeed: PostAllModules200ResponseScope3PurchasedFeed;
+    purchasedFeed: PostBeef200ResponseScope3PurchasedFeed;
     /**
      * 
      */
-    purchasedMineralSupplements: PostAllModules200ResponseScope3PurchasedMineralSupplements;
+    purchasedMineralSupplements: PostBeef200ResponseScope3PurchasedMineralSupplements;
     /**
      * 
      */
-    fertiliser: PostAllModules200ResponseScope3Fertiliser;
+    fertiliser: PostBeef200ResponseScope3Fertiliser;
     /**
      * 
      */
-    agrichemicals: PostAllModules200ResponseScope3Agrichemicals;
+    agrichemicals: PostBeef200ResponseScope3Agrichemicals;
     /**
      * 
      */
-    soilAmeliorants: PostAllModules200ResponseScope3SoilAmeliorants;
+    soilAmeliorants: PostBeef200ResponseScope3SoilAmeliorants;
     /**
      * 
      */
-    services: PostAllModules200ResponseScope3Services;
+    services: PostBeef200ResponseScope3Services;
     /**
      * 
      */
-    solidWaste: PostAllModules200ResponseScope3SolidWaste;
+    solidWaste: PostBeef200ResponseScope3SolidWaste;
     /**
      * 
      */
-    fuel: PostAllModules200ResponseScope3Fuel;
+    fuel: PostBeef200ResponseScope3Fuel;
     /**
      * 
      */
-    electricity: PostAllModules200ResponseScope3Electricity;
+    electricity: PostBeef200ResponseScope3Electricity;
     /**
      * 
      */
-    otherPurchasedGoodsAndServices: PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices;
+    otherPurchasedGoodsAndServices: PostBeef200ResponseScope3OtherPurchasedGoodsAndServices;
 }
 
 /**
@@ -183,18 +183,18 @@ export function PostBeef200ResponseScope3FromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'total': PostAquaculture200ResponseScope3TotalFromJSON(json['total']),
-        'purchasedLivestock': PostAllModules200ResponseScope3PurchasedLivestockFromJSON(json['purchasedLivestock']),
-        'purchasedFeed': PostAllModules200ResponseScope3PurchasedFeedFromJSON(json['purchasedFeed']),
-        'purchasedMineralSupplements': PostAllModules200ResponseScope3PurchasedMineralSupplementsFromJSON(json['purchasedMineralSupplements']),
-        'fertiliser': PostAllModules200ResponseScope3FertiliserFromJSON(json['fertiliser']),
-        'agrichemicals': PostAllModules200ResponseScope3AgrichemicalsFromJSON(json['agrichemicals']),
-        'soilAmeliorants': PostAllModules200ResponseScope3SoilAmeliorantsFromJSON(json['soilAmeliorants']),
-        'services': PostAllModules200ResponseScope3ServicesFromJSON(json['services']),
-        'solidWaste': PostAllModules200ResponseScope3SolidWasteFromJSON(json['solidWaste']),
-        'fuel': PostAllModules200ResponseScope3FuelFromJSON(json['fuel']),
-        'electricity': PostAllModules200ResponseScope3ElectricityFromJSON(json['electricity']),
-        'otherPurchasedGoodsAndServices': PostAllModules200ResponseScope3OtherPurchasedGoodsAndServicesFromJSON(json['otherPurchasedGoodsAndServices']),
+        'total': PostBeef200ResponseScope3TotalFromJSON(json['total']),
+        'purchasedLivestock': PostBeef200ResponseScope3PurchasedLivestockFromJSON(json['purchasedLivestock']),
+        'purchasedFeed': PostBeef200ResponseScope3PurchasedFeedFromJSON(json['purchasedFeed']),
+        'purchasedMineralSupplements': PostBeef200ResponseScope3PurchasedMineralSupplementsFromJSON(json['purchasedMineralSupplements']),
+        'fertiliser': PostBeef200ResponseScope3FertiliserFromJSON(json['fertiliser']),
+        'agrichemicals': PostBeef200ResponseScope3AgrichemicalsFromJSON(json['agrichemicals']),
+        'soilAmeliorants': PostBeef200ResponseScope3SoilAmeliorantsFromJSON(json['soilAmeliorants']),
+        'services': PostBeef200ResponseScope3ServicesFromJSON(json['services']),
+        'solidWaste': PostBeef200ResponseScope3SolidWasteFromJSON(json['solidWaste']),
+        'fuel': PostBeef200ResponseScope3FuelFromJSON(json['fuel']),
+        'electricity': PostBeef200ResponseScope3ElectricityFromJSON(json['electricity']),
+        'otherPurchasedGoodsAndServices': PostBeef200ResponseScope3OtherPurchasedGoodsAndServicesFromJSON(json['otherPurchasedGoodsAndServices']),
     };
 }
 
@@ -209,18 +209,18 @@ export function PostBeef200ResponseScope3ToJSONTyped(value?: PostBeef200Response
 
     return {
         
-        'total': PostAquaculture200ResponseScope3TotalToJSON(value['total']),
-        'purchasedLivestock': PostAllModules200ResponseScope3PurchasedLivestockToJSON(value['purchasedLivestock']),
-        'purchasedFeed': PostAllModules200ResponseScope3PurchasedFeedToJSON(value['purchasedFeed']),
-        'purchasedMineralSupplements': PostAllModules200ResponseScope3PurchasedMineralSupplementsToJSON(value['purchasedMineralSupplements']),
-        'fertiliser': PostAllModules200ResponseScope3FertiliserToJSON(value['fertiliser']),
-        'agrichemicals': PostAllModules200ResponseScope3AgrichemicalsToJSON(value['agrichemicals']),
-        'soilAmeliorants': PostAllModules200ResponseScope3SoilAmeliorantsToJSON(value['soilAmeliorants']),
-        'services': PostAllModules200ResponseScope3ServicesToJSON(value['services']),
-        'solidWaste': PostAllModules200ResponseScope3SolidWasteToJSON(value['solidWaste']),
-        'fuel': PostAllModules200ResponseScope3FuelToJSON(value['fuel']),
-        'electricity': PostAllModules200ResponseScope3ElectricityToJSON(value['electricity']),
-        'otherPurchasedGoodsAndServices': PostAllModules200ResponseScope3OtherPurchasedGoodsAndServicesToJSON(value['otherPurchasedGoodsAndServices']),
+        'total': PostBeef200ResponseScope3TotalToJSON(value['total']),
+        'purchasedLivestock': PostBeef200ResponseScope3PurchasedLivestockToJSON(value['purchasedLivestock']),
+        'purchasedFeed': PostBeef200ResponseScope3PurchasedFeedToJSON(value['purchasedFeed']),
+        'purchasedMineralSupplements': PostBeef200ResponseScope3PurchasedMineralSupplementsToJSON(value['purchasedMineralSupplements']),
+        'fertiliser': PostBeef200ResponseScope3FertiliserToJSON(value['fertiliser']),
+        'agrichemicals': PostBeef200ResponseScope3AgrichemicalsToJSON(value['agrichemicals']),
+        'soilAmeliorants': PostBeef200ResponseScope3SoilAmeliorantsToJSON(value['soilAmeliorants']),
+        'services': PostBeef200ResponseScope3ServicesToJSON(value['services']),
+        'solidWaste': PostBeef200ResponseScope3SolidWasteToJSON(value['solidWaste']),
+        'fuel': PostBeef200ResponseScope3FuelToJSON(value['fuel']),
+        'electricity': PostBeef200ResponseScope3ElectricityToJSON(value['electricity']),
+        'otherPurchasedGoodsAndServices': PostBeef200ResponseScope3OtherPurchasedGoodsAndServicesToJSON(value['otherPurchasedGoodsAndServices']),
     };
 }
 

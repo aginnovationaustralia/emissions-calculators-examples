@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,7 +59,7 @@ class FertiliserInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'production_system' => 'string',
-        'inorganic' => '\OpenAPI\Client\Model\InorganicFertiliserScope1Method2Inorganic',
+        'inorganic' => '\OpenAPI\Client\Model\SpecificProductionSystemScope1Method2Inorganic',
         'organic' => '\OpenAPI\Client\Model\OrganicFertilisersInput'
     ];
 
@@ -343,7 +343,7 @@ class FertiliserInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets inorganic
      *
-     * @return \OpenAPI\Client\Model\InorganicFertiliserScope1Method2Inorganic
+     * @return \OpenAPI\Client\Model\SpecificProductionSystemScope1Method2Inorganic
      */
     public function getInorganic()
     {
@@ -353,7 +353,7 @@ class FertiliserInput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets inorganic
      *
-     * @param \OpenAPI\Client\Model\InorganicFertiliserScope1Method2Inorganic $inorganic inorganic
+     * @param \OpenAPI\Client\Model\SpecificProductionSystemScope1Method2Inorganic $inorganic inorganic
      *
      * @return self
      */

@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -60,7 +60,7 @@ class CompressedNaturalGasCNG implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'vehicle_type' => '\OpenAPI\Client\Model\CompressedNaturalGasCNGVehicleType',
         'fuel_type' => 'string',
-        'amount_cubic_metres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesPre2004AmountKilolitres'
+        'amount_cubic_metres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres'
     ];
 
     /**
@@ -370,7 +370,7 @@ class CompressedNaturalGasCNG implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets amount_cubic_metres
      *
-     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehiclesPre2004AmountKilolitres
+     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres
      */
     public function getAmountCubicMetres()
     {
@@ -380,7 +380,7 @@ class CompressedNaturalGasCNG implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets amount_cubic_metres
      *
-     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehiclesPre2004AmountKilolitres $amount_cubic_metres amount_cubic_metres
+     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres $amount_cubic_metres amount_cubic_metres
      *
      * @return self
      */

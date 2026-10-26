@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,7 +58,7 @@ class Method2StemDensityClearingsInner implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $openAPITypes = [
-        'area_cleared' => '\OpenAPI\Client\Model\Method16ClearingsInnerAreaCleared',
+        'area_cleared' => '\OpenAPI\Client\Model\Method13ClearingsInnerAreaCleared',
         'method2_age_at_clearing' => '\OpenAPI\Client\Model\Method2StemDensityClearingsInnerMethod2AgeAtClearing'
     ];
 
@@ -306,7 +306,7 @@ class Method2StemDensityClearingsInner implements ModelInterface, ArrayAccess, \
     /**
      * Gets area_cleared
      *
-     * @return \OpenAPI\Client\Model\Method16ClearingsInnerAreaCleared
+     * @return \OpenAPI\Client\Model\Method13ClearingsInnerAreaCleared
      */
     public function getAreaCleared()
     {
@@ -316,7 +316,7 @@ class Method2StemDensityClearingsInner implements ModelInterface, ArrayAccess, \
     /**
      * Sets area_cleared
      *
-     * @param \OpenAPI\Client\Model\Method16ClearingsInnerAreaCleared $area_cleared area_cleared
+     * @param \OpenAPI\Client\Model\Method13ClearingsInnerAreaCleared $area_cleared area_cleared
      *
      * @return self
      */

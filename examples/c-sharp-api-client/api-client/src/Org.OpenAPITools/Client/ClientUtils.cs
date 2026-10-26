@@ -1,5 +1,5 @@
 /*
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -113,8 +113,6 @@ namespace Org.OpenAPITools.Client
                 return boolean
                     ? "true"
                     : "false";
-            if (obj is Alpacas.TypeEnum alpacasTypeEnum)
-                return Alpacas.TypeEnumToJsonValue(alpacasTypeEnum);
             if (obj is AquacultureFeed.TypeEnum aquacultureFeedTypeEnum)
                 return AquacultureFeed.TypeEnumToJsonValue(aquacultureFeedTypeEnum);
             if (obj is Aviation.VehicleTypeEnum aviationVehicleTypeEnum)
@@ -125,24 +123,14 @@ namespace Org.OpenAPITools.Client
                 return Aviation1.VehicleTypeEnumToJsonValue(aviation1VehicleTypeEnum);
             if (obj is Aviation1.FuelTypeEnum aviation1FuelTypeEnum)
                 return Aviation1.FuelTypeEnumToJsonValue(aviation1FuelTypeEnum);
-            if (obj is Aviation2.VehicleTypeEnum aviation2VehicleTypeEnum)
-                return Aviation2.VehicleTypeEnumToJsonValue(aviation2VehicleTypeEnum);
-            if (obj is Aviation2.FuelTypeEnum aviation2FuelTypeEnum)
-                return Aviation2.FuelTypeEnumToJsonValue(aviation2FuelTypeEnum);
             if (obj is BasicProductionSystemScope1Method1.ProductionSystemEnum basicProductionSystemScope1Method1ProductionSystemEnum)
                 return BasicProductionSystemScope1Method1.ProductionSystemEnumToJsonValue(basicProductionSystemScope1Method1ProductionSystemEnum);
+            if (obj is BasicProductionSystemScope1Method1Inorganic.CalculationMethodScope1Enum basicProductionSystemScope1Method1InorganicCalculationMethodScope1Enum)
+                return BasicProductionSystemScope1Method1Inorganic.CalculationMethodScope1EnumToJsonValue(basicProductionSystemScope1Method1InorganicCalculationMethodScope1Enum);
             if (obj is BeefClassesWithMonthlyInput.PeriodEnum beefClassesWithMonthlyInputPeriodEnum)
                 return BeefClassesWithMonthlyInput.PeriodEnumToJsonValue(beefClassesWithMonthlyInputPeriodEnum);
             if (obj is BeefClassesWithSeasonalInput.PeriodEnum beefClassesWithSeasonalInputPeriodEnum)
                 return BeefClassesWithSeasonalInput.PeriodEnumToJsonValue(beefClassesWithSeasonalInputPeriodEnum);
-            if (obj is Buffalo.TypeEnum buffaloTypeEnum)
-                return Buffalo.TypeEnumToJsonValue(buffaloTypeEnum);
-            if (obj is CalfSale.ClassEnum calfSaleClassEnum)
-                return CalfSale.ClassEnumToJsonValue(calfSaleClassEnum);
-            if (obj is Camels.TypeEnum camelsTypeEnum)
-                return Camels.TypeEnumToJsonValue(camelsTypeEnum);
-            if (obj is Camels1.TypeEnum camels1TypeEnum)
-                return Camels1.TypeEnumToJsonValue(camels1TypeEnum);
             if (obj is CarsAndLightCommercialVehicles.VehicleTypeEnum carsAndLightCommercialVehiclesVehicleTypeEnum)
                 return CarsAndLightCommercialVehicles.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehiclesVehicleTypeEnum);
             if (obj is CarsAndLightCommercialVehicles.FuelTypeEnum carsAndLightCommercialVehiclesFuelTypeEnum)
@@ -151,14 +139,6 @@ namespace Org.OpenAPITools.Client
                 return CarsAndLightCommercialVehicles1.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehicles1VehicleTypeEnum);
             if (obj is CarsAndLightCommercialVehicles1.FuelTypeEnum carsAndLightCommercialVehicles1FuelTypeEnum)
                 return CarsAndLightCommercialVehicles1.FuelTypeEnumToJsonValue(carsAndLightCommercialVehicles1FuelTypeEnum);
-            if (obj is CarsAndLightCommercialVehicles2.VehicleTypeEnum carsAndLightCommercialVehicles2VehicleTypeEnum)
-                return CarsAndLightCommercialVehicles2.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehicles2VehicleTypeEnum);
-            if (obj is CarsAndLightCommercialVehicles2.FuelTypeEnum carsAndLightCommercialVehicles2FuelTypeEnum)
-                return CarsAndLightCommercialVehicles2.FuelTypeEnumToJsonValue(carsAndLightCommercialVehicles2FuelTypeEnum);
-            if (obj is CarsAndLightCommercialVehicles3.VehicleTypeEnum carsAndLightCommercialVehicles3VehicleTypeEnum)
-                return CarsAndLightCommercialVehicles3.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehicles3VehicleTypeEnum);
-            if (obj is CarsAndLightCommercialVehicles3.FuelTypeEnum carsAndLightCommercialVehicles3FuelTypeEnum)
-                return CarsAndLightCommercialVehicles3.FuelTypeEnumToJsonValue(carsAndLightCommercialVehicles3FuelTypeEnum);
             if (obj is CarsAndLightCommercialVehiclesPre2004.VehicleTypeEnum carsAndLightCommercialVehiclesPre2004VehicleTypeEnum)
                 return CarsAndLightCommercialVehiclesPre2004.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehiclesPre2004VehicleTypeEnum);
             if (obj is CarsAndLightCommercialVehiclesPre2004.FuelTypeEnum carsAndLightCommercialVehiclesPre2004FuelTypeEnum)
@@ -167,26 +147,6 @@ namespace Org.OpenAPITools.Client
                 return CarsAndLightCommercialVehiclesPre20041.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehiclesPre20041VehicleTypeEnum);
             if (obj is CarsAndLightCommercialVehiclesPre20041.FuelTypeEnum carsAndLightCommercialVehiclesPre20041FuelTypeEnum)
                 return CarsAndLightCommercialVehiclesPre20041.FuelTypeEnumToJsonValue(carsAndLightCommercialVehiclesPre20041FuelTypeEnum);
-            if (obj is CarsAndLightCommercialVehiclesPre20042.VehicleTypeEnum carsAndLightCommercialVehiclesPre20042VehicleTypeEnum)
-                return CarsAndLightCommercialVehiclesPre20042.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehiclesPre20042VehicleTypeEnum);
-            if (obj is CarsAndLightCommercialVehiclesPre20042.FuelTypeEnum carsAndLightCommercialVehiclesPre20042FuelTypeEnum)
-                return CarsAndLightCommercialVehiclesPre20042.FuelTypeEnumToJsonValue(carsAndLightCommercialVehiclesPre20042FuelTypeEnum);
-            if (obj is ClearableAreaExistingTrees.RegionEnum clearableAreaExistingTreesRegionEnum)
-                return ClearableAreaExistingTrees.RegionEnumToJsonValue(clearableAreaExistingTreesRegionEnum);
-            if (obj is ClearableAreaExistingTreesPlantingEventsInner.SpeciesNameEnum clearableAreaExistingTreesPlantingEventsInnerSpeciesNameEnum)
-                return ClearableAreaExistingTreesPlantingEventsInner.SpeciesNameEnumToJsonValue(clearableAreaExistingTreesPlantingEventsInnerSpeciesNameEnum);
-            if (obj is ClearableAreaExistingTreesPlantingEventsInner.ShapeEnum clearableAreaExistingTreesPlantingEventsInnerShapeEnum)
-                return ClearableAreaExistingTreesPlantingEventsInner.ShapeEnumToJsonValue(clearableAreaExistingTreesPlantingEventsInnerShapeEnum);
-            if (obj is ClearedToCrops.UseAfterClearingEnum clearedToCropsUseAfterClearingEnum)
-                return ClearedToCrops.UseAfterClearingEnumToJsonValue(clearedToCropsUseAfterClearingEnum);
-            if (obj is ClearedToCrops.CropProductionSystemEnum clearedToCropsCropProductionSystemEnum)
-                return ClearedToCrops.CropProductionSystemEnumToJsonValue(clearedToCropsCropProductionSystemEnum);
-            if (obj is ClearedToPasture.UseAfterClearingEnum clearedToPastureUseAfterClearingEnum)
-                return ClearedToPasture.UseAfterClearingEnumToJsonValue(clearedToPastureUseAfterClearingEnum);
-            if (obj is ClearedToPasture.PastureProductionSystemEnum clearedToPasturePastureProductionSystemEnum)
-                return ClearedToPasture.PastureProductionSystemEnumToJsonValue(clearedToPasturePastureProductionSystemEnum);
-            if (obj is ClearedToSettlements.UseAfterClearingEnum clearedToSettlementsUseAfterClearingEnum)
-                return ClearedToSettlements.UseAfterClearingEnumToJsonValue(clearedToSettlementsUseAfterClearingEnum);
             if (obj is CompressedNaturalGasCNG.VehicleTypeEnum compressedNaturalGasCNGVehicleTypeEnum)
                 return CompressedNaturalGasCNG.VehicleTypeEnumToJsonValue(compressedNaturalGasCNGVehicleTypeEnum);
             if (obj is CompressedNaturalGasCNG.FuelTypeEnum compressedNaturalGasCNGFuelTypeEnum)
@@ -195,32 +155,12 @@ namespace Org.OpenAPITools.Client
                 return CompressedNaturalGasCNG1.VehicleTypeEnumToJsonValue(compressedNaturalGasCNG1VehicleTypeEnum);
             if (obj is CompressedNaturalGasCNG1.FuelTypeEnum compressedNaturalGasCNG1FuelTypeEnum)
                 return CompressedNaturalGasCNG1.FuelTypeEnumToJsonValue(compressedNaturalGasCNG1FuelTypeEnum);
-            if (obj is CompressedNaturalGasCNG2.VehicleTypeEnum compressedNaturalGasCNG2VehicleTypeEnum)
-                return CompressedNaturalGasCNG2.VehicleTypeEnumToJsonValue(compressedNaturalGasCNG2VehicleTypeEnum);
-            if (obj is CompressedNaturalGasCNG2.FuelTypeEnum compressedNaturalGasCNG2FuelTypeEnum)
-                return CompressedNaturalGasCNG2.FuelTypeEnumToJsonValue(compressedNaturalGasCNG2FuelTypeEnum);
-            if (obj is Crop.StateEnum cropStateEnum)
-                return Crop.StateEnumToJsonValue(cropStateEnum);
-            if (obj is Crop.ClimateZoneEnum cropClimateZoneEnum)
-                return Crop.ClimateZoneEnumToJsonValue(cropClimateZoneEnum);
-            if (obj is CropCrop.TypeEnum cropCropTypeEnum)
-                return CropCrop.TypeEnumToJsonValue(cropCropTypeEnum);
             if (obj is DairyManure.TypeEnum dairyManureTypeEnum)
                 return DairyManure.TypeEnumToJsonValue(dairyManureTypeEnum);
-            if (obj is Deer.TypeEnum deerTypeEnum)
-                return Deer.TypeEnumToJsonValue(deerTypeEnum);
-            if (obj is EmusOstriches.TypeEnum emusOstrichesTypeEnum)
-                return EmusOstriches.TypeEnumToJsonValue(emusOstrichesTypeEnum);
-            if (obj is EnvironmentalPlantings.SpeciesNameEnum environmentalPlantingsSpeciesNameEnum)
-                return EnvironmentalPlantings.SpeciesNameEnumToJsonValue(environmentalPlantingsSpeciesNameEnum);
             if (obj is FarmForestry.TypeEnum farmForestryTypeEnum)
                 return FarmForestry.TypeEnumToJsonValue(farmForestryTypeEnum);
             if (obj is FeedlotManure.TypeEnum feedlotManureTypeEnum)
                 return FeedlotManure.TypeEnumToJsonValue(feedlotManureTypeEnum);
-            if (obj is ForestryPlantation.StateEnum forestryPlantationStateEnum)
-                return ForestryPlantation.StateEnumToJsonValue(forestryPlantationStateEnum);
-            if (obj is ForestryPlantation.ClimateZoneEnum forestryPlantationClimateZoneEnum)
-                return ForestryPlantation.ClimateZoneEnumToJsonValue(forestryPlantationClimateZoneEnum);
             if (obj is FromFarmRecords.CalculationMethodEnum fromFarmRecordsCalculationMethodEnum)
                 return FromFarmRecords.CalculationMethodEnumToJsonValue(fromFarmRecordsCalculationMethodEnum);
             if (obj is FromFullCAMSimulation.CalculationMethodEnum fromFullCAMSimulationCalculationMethodEnum)
@@ -233,8 +173,6 @@ namespace Org.OpenAPITools.Client
                 return GaseousFuelsNaturalGas1.FuelClassEnumToJsonValue(gaseousFuelsNaturalGas1FuelClassEnum);
             if (obj is GaseousFuelsNaturalGas1.FuelTypeEnum gaseousFuelsNaturalGas1FuelTypeEnum)
                 return GaseousFuelsNaturalGas1.FuelTypeEnumToJsonValue(gaseousFuelsNaturalGas1FuelTypeEnum);
-            if (obj is Goats.TypeEnum goatsTypeEnum)
-                return Goats.TypeEnumToJsonValue(goatsTypeEnum);
             if (obj is GypsumApplication.TypeEnum gypsumApplicationTypeEnum)
                 return GypsumApplication.TypeEnumToJsonValue(gypsumApplicationTypeEnum);
             if (obj is HeavyDutyVehicles.VehicleTypeEnum heavyDutyVehiclesVehicleTypeEnum)
@@ -245,18 +183,8 @@ namespace Org.OpenAPITools.Client
                 return HeavyDutyVehicles1.VehicleTypeEnumToJsonValue(heavyDutyVehicles1VehicleTypeEnum);
             if (obj is HeavyDutyVehicles1.FuelTypeEnum heavyDutyVehicles1FuelTypeEnum)
                 return HeavyDutyVehicles1.FuelTypeEnumToJsonValue(heavyDutyVehicles1FuelTypeEnum);
-            if (obj is HeavyDutyVehicles2.VehicleTypeEnum heavyDutyVehicles2VehicleTypeEnum)
-                return HeavyDutyVehicles2.VehicleTypeEnumToJsonValue(heavyDutyVehicles2VehicleTypeEnum);
-            if (obj is HeavyDutyVehicles2.FuelTypeEnum heavyDutyVehicles2FuelTypeEnum)
-                return HeavyDutyVehicles2.FuelTypeEnumToJsonValue(heavyDutyVehicles2FuelTypeEnum);
-            if (obj is Horses.TypeEnum horsesTypeEnum)
-                return Horses.TypeEnumToJsonValue(horsesTypeEnum);
             if (obj is HumanInducedNaturalRegeneration.TypeEnum humanInducedNaturalRegenerationTypeEnum)
                 return HumanInducedNaturalRegeneration.TypeEnumToJsonValue(humanInducedNaturalRegenerationTypeEnum);
-            if (obj is InorganicFertiliserScope1Method1Inorganic.CalculationMethodScope1Enum inorganicFertiliserScope1Method1InorganicCalculationMethodScope1Enum)
-                return InorganicFertiliserScope1Method1Inorganic.CalculationMethodScope1EnumToJsonValue(inorganicFertiliserScope1Method1InorganicCalculationMethodScope1Enum);
-            if (obj is InorganicFertiliserScope1Method2Inorganic.CalculationMethodScope1Enum inorganicFertiliserScope1Method2InorganicCalculationMethodScope1Enum)
-                return InorganicFertiliserScope1Method2Inorganic.CalculationMethodScope1EnumToJsonValue(inorganicFertiliserScope1Method2InorganicCalculationMethodScope1Enum);
             if (obj is LandClearingForestToCropland.RegionEnum landClearingForestToCroplandRegionEnum)
                 return LandClearingForestToCropland.RegionEnumToJsonValue(landClearingForestToCroplandRegionEnum);
             if (obj is LandClearingForestToCropland.TypeEnum landClearingForestToCroplandTypeEnum)
@@ -283,62 +211,28 @@ namespace Org.OpenAPITools.Client
                 return LightDutyVehicles1.VehicleTypeEnumToJsonValue(lightDutyVehicles1VehicleTypeEnum);
             if (obj is LightDutyVehicles1.FuelTypeEnum lightDutyVehicles1FuelTypeEnum)
                 return LightDutyVehicles1.FuelTypeEnumToJsonValue(lightDutyVehicles1FuelTypeEnum);
-            if (obj is LightDutyVehicles2.VehicleTypeEnum lightDutyVehicles2VehicleTypeEnum)
-                return LightDutyVehicles2.VehicleTypeEnumToJsonValue(lightDutyVehicles2VehicleTypeEnum);
-            if (obj is LightDutyVehicles2.FuelTypeEnum lightDutyVehicles2FuelTypeEnum)
-                return LightDutyVehicles2.FuelTypeEnumToJsonValue(lightDutyVehicles2FuelTypeEnum);
             if (obj is LimestoneOrDolomiteApplication.TypeEnum limestoneOrDolomiteApplicationTypeEnum)
                 return LimestoneOrDolomiteApplication.TypeEnumToJsonValue(limestoneOrDolomiteApplicationTypeEnum);
-            if (obj is LimestoneOrDolomiteApplication1.TypeEnum limestoneOrDolomiteApplication1TypeEnum)
-                return LimestoneOrDolomiteApplication1.TypeEnumToJsonValue(limestoneOrDolomiteApplication1TypeEnum);
             if (obj is LocationBased.MethodEnum locationBasedMethodEnum)
                 return LocationBased.MethodEnumToJsonValue(locationBasedMethodEnum);
             if (obj is LocationBased.RegionEnum locationBasedRegionEnum)
                 return LocationBased.RegionEnumToJsonValue(locationBasedRegionEnum);
-            if (obj is LocationBased1.MethodEnum locationBased1MethodEnum)
-                return LocationBased1.MethodEnumToJsonValue(locationBased1MethodEnum);
-            if (obj is LocationBased1.RegionEnum locationBased1RegionEnum)
-                return LocationBased1.RegionEnumToJsonValue(locationBased1RegionEnum);
-            if (obj is MalleeEucalyptSpecies.SpeciesNameEnum malleeEucalyptSpeciesSpeciesNameEnum)
-                return MalleeEucalyptSpecies.SpeciesNameEnumToJsonValue(malleeEucalyptSpeciesSpeciesNameEnum);
             if (obj is MarketBased.MethodEnum marketBasedMethodEnum)
                 return MarketBased.MethodEnumToJsonValue(marketBasedMethodEnum);
             if (obj is MarketBased.RegionEnum marketBasedRegionEnum)
                 return MarketBased.RegionEnumToJsonValue(marketBasedRegionEnum);
-            if (obj is MarketBased1.MethodEnum marketBased1MethodEnum)
-                return MarketBased1.MethodEnumToJsonValue(marketBased1MethodEnum);
-            if (obj is MarketBased1.RegionEnum marketBased1RegionEnum)
-                return MarketBased1.RegionEnumToJsonValue(marketBased1RegionEnum);
-            if (obj is MatureCattleSale.ClassEnum matureCattleSaleClassEnum)
-                return MatureCattleSale.ClassEnumToJsonValue(matureCattleSaleClassEnum);
-            if (obj is MatureCattleSale1.ClassEnum matureCattleSale1ClassEnum)
-                return MatureCattleSale1.ClassEnumToJsonValue(matureCattleSale1ClassEnum);
             if (obj is Method1.CalculationMethodEnum method1CalculationMethodEnum)
                 return Method1.CalculationMethodEnumToJsonValue(method1CalculationMethodEnum);
-            if (obj is Method11.CalculationMethodEnum method11CalculationMethodEnum)
-                return Method11.CalculationMethodEnumToJsonValue(method11CalculationMethodEnum);
+            if (obj is Method11.TypeEnum method11TypeEnum)
+                return Method11.TypeEnumToJsonValue(method11TypeEnum);
             if (obj is Method12.MethodEnum method12MethodEnum)
                 return Method12.MethodEnumToJsonValue(method12MethodEnum);
-            if (obj is Method13.TypeEnum method13TypeEnum)
-                return Method13.TypeEnumToJsonValue(method13TypeEnum);
-            if (obj is Method14.MethodEnum method14MethodEnum)
-                return Method14.MethodEnumToJsonValue(method14MethodEnum);
-            if (obj is Method15.TypeEnum method15TypeEnum)
-                return Method15.TypeEnumToJsonValue(method15TypeEnum);
-            if (obj is Method16.CropTypeEnum method16CropTypeEnum)
-                return Method16.CropTypeEnumToJsonValue(method16CropTypeEnum);
-            if (obj is Method16.CalculationMethodEnum method16CalculationMethodEnum)
-                return Method16.CalculationMethodEnumToJsonValue(method16CalculationMethodEnum);
+            if (obj is Method13.CropTypeEnum method13CropTypeEnum)
+                return Method13.CropTypeEnumToJsonValue(method13CropTypeEnum);
+            if (obj is Method13.CalculationMethodEnum method13CalculationMethodEnum)
+                return Method13.CalculationMethodEnumToJsonValue(method13CalculationMethodEnum);
             if (obj is Method1ByFeedType.RegionEnum method1ByFeedTypeRegionEnum)
                 return Method1ByFeedType.RegionEnumToJsonValue(method1ByFeedTypeRegionEnum);
-            if (obj is Method1DistanceAndWeight.FreightTypeEnum method1DistanceAndWeightFreightTypeEnum)
-                return Method1DistanceAndWeight.FreightTypeEnumToJsonValue(method1DistanceAndWeightFreightTypeEnum);
-            if (obj is Method1DistanceAndWeight.CalculationMethodEnum method1DistanceAndWeightCalculationMethodEnum)
-                return Method1DistanceAndWeight.CalculationMethodEnumToJsonValue(method1DistanceAndWeightCalculationMethodEnum);
-            if (obj is Method1DistanceAndWeight1.FreightTypeEnum method1DistanceAndWeight1FreightTypeEnum)
-                return Method1DistanceAndWeight1.FreightTypeEnumToJsonValue(method1DistanceAndWeight1FreightTypeEnum);
-            if (obj is Method1DistanceAndWeight1.CalculationMethodEnum method1DistanceAndWeight1CalculationMethodEnum)
-                return Method1DistanceAndWeight1.CalculationMethodEnumToJsonValue(method1DistanceAndWeight1CalculationMethodEnum);
             if (obj is Method1EmissionFactorMethod1Liveweight.TypeEnum method1EmissionFactorMethod1LiveweightTypeEnum)
                 return Method1EmissionFactorMethod1Liveweight.TypeEnumToJsonValue(method1EmissionFactorMethod1LiveweightTypeEnum);
             if (obj is Method1EmissionFactorMethod1Liveweight.CategoryEnum method1EmissionFactorMethod1LiveweightCategoryEnum)
@@ -349,92 +243,18 @@ namespace Org.OpenAPITools.Client
                 return Method1EmissionFactorMethod1Liveweight.ClassEnumToJsonValue(method1EmissionFactorMethod1LiveweightClassEnum);
             if (obj is Method1EmissionFactorMethod1Liveweight.SeasonEnum method1EmissionFactorMethod1LiveweightSeasonEnum)
                 return Method1EmissionFactorMethod1Liveweight.SeasonEnumToJsonValue(method1EmissionFactorMethod1LiveweightSeasonEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight1.TypeEnum method1EmissionFactorMethod1Liveweight1TypeEnum)
-                return Method1EmissionFactorMethod1Liveweight1.TypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight1TypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight1.CategoryEnum method1EmissionFactorMethod1Liveweight1CategoryEnum)
-                return Method1EmissionFactorMethod1Liveweight1.CategoryEnumToJsonValue(method1EmissionFactorMethod1Liveweight1CategoryEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight1.BreedEnum method1EmissionFactorMethod1Liveweight1BreedEnum)
-                return Method1EmissionFactorMethod1Liveweight1.BreedEnumToJsonValue(method1EmissionFactorMethod1Liveweight1BreedEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight1.ClassEnum method1EmissionFactorMethod1Liveweight1ClassEnum)
-                return Method1EmissionFactorMethod1Liveweight1.ClassEnumToJsonValue(method1EmissionFactorMethod1Liveweight1ClassEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight2.TypeEnum method1EmissionFactorMethod1Liveweight2TypeEnum)
-                return Method1EmissionFactorMethod1Liveweight2.TypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight2TypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight2.LivestockTypeEnum method1EmissionFactorMethod1Liveweight2LivestockTypeEnum)
-                return Method1EmissionFactorMethod1Liveweight2.LivestockTypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight2LivestockTypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight3.TypeEnum method1EmissionFactorMethod1Liveweight3TypeEnum)
-                return Method1EmissionFactorMethod1Liveweight3.TypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight3TypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight3.CategoryEnum method1EmissionFactorMethod1Liveweight3CategoryEnum)
-                return Method1EmissionFactorMethod1Liveweight3.CategoryEnumToJsonValue(method1EmissionFactorMethod1Liveweight3CategoryEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight3.WeightClassEnum method1EmissionFactorMethod1Liveweight3WeightClassEnum)
-                return Method1EmissionFactorMethod1Liveweight3.WeightClassEnumToJsonValue(method1EmissionFactorMethod1Liveweight3WeightClassEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight4.TypeEnum method1EmissionFactorMethod1Liveweight4TypeEnum)
-                return Method1EmissionFactorMethod1Liveweight4.TypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight4TypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight4.WeightClassEnum method1EmissionFactorMethod1Liveweight4WeightClassEnum)
-                return Method1EmissionFactorMethod1Liveweight4.WeightClassEnumToJsonValue(method1EmissionFactorMethod1Liveweight4WeightClassEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight5.TypeEnum method1EmissionFactorMethod1Liveweight5TypeEnum)
-                return Method1EmissionFactorMethod1Liveweight5.TypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight5TypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight5.ClassEnum method1EmissionFactorMethod1Liveweight5ClassEnum)
-                return Method1EmissionFactorMethod1Liveweight5.ClassEnumToJsonValue(method1EmissionFactorMethod1Liveweight5ClassEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight5.StateEnum method1EmissionFactorMethod1Liveweight5StateEnum)
-                return Method1EmissionFactorMethod1Liveweight5.StateEnumToJsonValue(method1EmissionFactorMethod1Liveweight5StateEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight5.SeasonEnum method1EmissionFactorMethod1Liveweight5SeasonEnum)
-                return Method1EmissionFactorMethod1Liveweight5.SeasonEnumToJsonValue(method1EmissionFactorMethod1Liveweight5SeasonEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight6.TypeEnum method1EmissionFactorMethod1Liveweight6TypeEnum)
-                return Method1EmissionFactorMethod1Liveweight6.TypeEnumToJsonValue(method1EmissionFactorMethod1Liveweight6TypeEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight6.CategoryEnum method1EmissionFactorMethod1Liveweight6CategoryEnum)
-                return Method1EmissionFactorMethod1Liveweight6.CategoryEnumToJsonValue(method1EmissionFactorMethod1Liveweight6CategoryEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight6.RegionEnum method1EmissionFactorMethod1Liveweight6RegionEnum)
-                return Method1EmissionFactorMethod1Liveweight6.RegionEnumToJsonValue(method1EmissionFactorMethod1Liveweight6RegionEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight6.ClassEnum method1EmissionFactorMethod1Liveweight6ClassEnum)
-                return Method1EmissionFactorMethod1Liveweight6.ClassEnumToJsonValue(method1EmissionFactorMethod1Liveweight6ClassEnum);
-            if (obj is Method1EmissionFactorMethod1Liveweight6.SeasonEnum method1EmissionFactorMethod1Liveweight6SeasonEnum)
-                return Method1EmissionFactorMethod1Liveweight6.SeasonEnumToJsonValue(method1EmissionFactorMethod1Liveweight6SeasonEnum);
             if (obj is Method1EmissionFactorMethod2Liveweight.TypeEnum method1EmissionFactorMethod2LiveweightTypeEnum)
                 return Method1EmissionFactorMethod2Liveweight.TypeEnumToJsonValue(method1EmissionFactorMethod2LiveweightTypeEnum);
             if (obj is Method1EmissionFactorMethod2Liveweight.CategoryEnum method1EmissionFactorMethod2LiveweightCategoryEnum)
                 return Method1EmissionFactorMethod2Liveweight.CategoryEnumToJsonValue(method1EmissionFactorMethod2LiveweightCategoryEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight1.TypeEnum method1EmissionFactorMethod2Liveweight1TypeEnum)
-                return Method1EmissionFactorMethod2Liveweight1.TypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight1TypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight1.CategoryEnum method1EmissionFactorMethod2Liveweight1CategoryEnum)
-                return Method1EmissionFactorMethod2Liveweight1.CategoryEnumToJsonValue(method1EmissionFactorMethod2Liveweight1CategoryEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight2.TypeEnum method1EmissionFactorMethod2Liveweight2TypeEnum)
-                return Method1EmissionFactorMethod2Liveweight2.TypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight2TypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight2.LivestockTypeEnum method1EmissionFactorMethod2Liveweight2LivestockTypeEnum)
-                return Method1EmissionFactorMethod2Liveweight2.LivestockTypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight2LivestockTypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight3.TypeEnum method1EmissionFactorMethod2Liveweight3TypeEnum)
-                return Method1EmissionFactorMethod2Liveweight3.TypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight3TypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight3.CategoryEnum method1EmissionFactorMethod2Liveweight3CategoryEnum)
-                return Method1EmissionFactorMethod2Liveweight3.CategoryEnumToJsonValue(method1EmissionFactorMethod2Liveweight3CategoryEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight4.TypeEnum method1EmissionFactorMethod2Liveweight4TypeEnum)
-                return Method1EmissionFactorMethod2Liveweight4.TypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight4TypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight5.TypeEnum method1EmissionFactorMethod2Liveweight5TypeEnum)
-                return Method1EmissionFactorMethod2Liveweight5.TypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight5TypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight5.ClassEnum method1EmissionFactorMethod2Liveweight5ClassEnum)
-                return Method1EmissionFactorMethod2Liveweight5.ClassEnumToJsonValue(method1EmissionFactorMethod2Liveweight5ClassEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight6.TypeEnum method1EmissionFactorMethod2Liveweight6TypeEnum)
-                return Method1EmissionFactorMethod2Liveweight6.TypeEnumToJsonValue(method1EmissionFactorMethod2Liveweight6TypeEnum);
-            if (obj is Method1EmissionFactorMethod2Liveweight6.CategoryEnum method1EmissionFactorMethod2Liveweight6CategoryEnum)
-                return Method1EmissionFactorMethod2Liveweight6.CategoryEnumToJsonValue(method1EmissionFactorMethod2Liveweight6CategoryEnum);
             if (obj is Method2.CalculationMethodEnum method2CalculationMethodEnum)
                 return Method2.CalculationMethodEnumToJsonValue(method2CalculationMethodEnum);
-            if (obj is Method21.MethodEnum method21MethodEnum)
-                return Method21.MethodEnumToJsonValue(method21MethodEnum);
-            if (obj is Method23.MethodEnum method23MethodEnum)
-                return Method23.MethodEnumToJsonValue(method23MethodEnum);
-            if (obj is Method24.CalculationMethodEnum method24CalculationMethodEnum)
-                return Method24.CalculationMethodEnumToJsonValue(method24CalculationMethodEnum);
+            if (obj is Method22.MethodEnum method22MethodEnum)
+                return Method22.MethodEnumToJsonValue(method22MethodEnum);
             if (obj is Method2BiomassAtMaturity.CropTypeEnum method2BiomassAtMaturityCropTypeEnum)
                 return Method2BiomassAtMaturity.CropTypeEnumToJsonValue(method2BiomassAtMaturityCropTypeEnum);
             if (obj is Method2BiomassAtMaturity.CalculationMethodEnum method2BiomassAtMaturityCalculationMethodEnum)
                 return Method2BiomassAtMaturity.CalculationMethodEnumToJsonValue(method2BiomassAtMaturityCalculationMethodEnum);
-            if (obj is Method2ByFraction.CalculationMethodEnum method2ByFractionCalculationMethodEnum)
-                return Method2ByFraction.CalculationMethodEnumToJsonValue(method2ByFractionCalculationMethodEnum);
-            if (obj is Method2ByFraction1.CalculationMethodEnum method2ByFraction1CalculationMethodEnum)
-                return Method2ByFraction1.CalculationMethodEnumToJsonValue(method2ByFraction1CalculationMethodEnum);
-            if (obj is Method2ByMass.CalculationMethodEnum method2ByMassCalculationMethodEnum)
-                return Method2ByMass.CalculationMethodEnumToJsonValue(method2ByMassCalculationMethodEnum);
-            if (obj is Method2ByMass1.CalculationMethodEnum method2ByMass1CalculationMethodEnum)
-                return Method2ByMass1.CalculationMethodEnumToJsonValue(method2ByMass1CalculationMethodEnum);
             if (obj is Method2EmissionFactorMethod1Liveweight.TypeEnum method2EmissionFactorMethod1LiveweightTypeEnum)
                 return Method2EmissionFactorMethod1Liveweight.TypeEnumToJsonValue(method2EmissionFactorMethod1LiveweightTypeEnum);
             if (obj is Method2EmissionFactorMethod1Liveweight.RegionEnum method2EmissionFactorMethod1LiveweightRegionEnum)
@@ -443,68 +263,12 @@ namespace Org.OpenAPITools.Client
                 return Method2EmissionFactorMethod1Liveweight.ClassEnumToJsonValue(method2EmissionFactorMethod1LiveweightClassEnum);
             if (obj is Method2EmissionFactorMethod1Liveweight.SeasonEnum method2EmissionFactorMethod1LiveweightSeasonEnum)
                 return Method2EmissionFactorMethod1Liveweight.SeasonEnumToJsonValue(method2EmissionFactorMethod1LiveweightSeasonEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight1.TypeEnum method2EmissionFactorMethod1Liveweight1TypeEnum)
-                return Method2EmissionFactorMethod1Liveweight1.TypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight1TypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight1.BreedEnum method2EmissionFactorMethod1Liveweight1BreedEnum)
-                return Method2EmissionFactorMethod1Liveweight1.BreedEnumToJsonValue(method2EmissionFactorMethod1Liveweight1BreedEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight1.ClassEnum method2EmissionFactorMethod1Liveweight1ClassEnum)
-                return Method2EmissionFactorMethod1Liveweight1.ClassEnumToJsonValue(method2EmissionFactorMethod1Liveweight1ClassEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight2.TypeEnum method2EmissionFactorMethod1Liveweight2TypeEnum)
-                return Method2EmissionFactorMethod1Liveweight2.TypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight2TypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight2.LivestockTypeEnum method2EmissionFactorMethod1Liveweight2LivestockTypeEnum)
-                return Method2EmissionFactorMethod1Liveweight2.LivestockTypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight2LivestockTypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight3.TypeEnum method2EmissionFactorMethod1Liveweight3TypeEnum)
-                return Method2EmissionFactorMethod1Liveweight3.TypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight3TypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight3.WeightClassEnum method2EmissionFactorMethod1Liveweight3WeightClassEnum)
-                return Method2EmissionFactorMethod1Liveweight3.WeightClassEnumToJsonValue(method2EmissionFactorMethod1Liveweight3WeightClassEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight4.TypeEnum method2EmissionFactorMethod1Liveweight4TypeEnum)
-                return Method2EmissionFactorMethod1Liveweight4.TypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight4TypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight4.WeightClassEnum method2EmissionFactorMethod1Liveweight4WeightClassEnum)
-                return Method2EmissionFactorMethod1Liveweight4.WeightClassEnumToJsonValue(method2EmissionFactorMethod1Liveweight4WeightClassEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight5.TypeEnum method2EmissionFactorMethod1Liveweight5TypeEnum)
-                return Method2EmissionFactorMethod1Liveweight5.TypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight5TypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight5.StateEnum method2EmissionFactorMethod1Liveweight5StateEnum)
-                return Method2EmissionFactorMethod1Liveweight5.StateEnumToJsonValue(method2EmissionFactorMethod1Liveweight5StateEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight5.SeasonEnum method2EmissionFactorMethod1Liveweight5SeasonEnum)
-                return Method2EmissionFactorMethod1Liveweight5.SeasonEnumToJsonValue(method2EmissionFactorMethod1Liveweight5SeasonEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight5.ClassEnum method2EmissionFactorMethod1Liveweight5ClassEnum)
-                return Method2EmissionFactorMethod1Liveweight5.ClassEnumToJsonValue(method2EmissionFactorMethod1Liveweight5ClassEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight6.TypeEnum method2EmissionFactorMethod1Liveweight6TypeEnum)
-                return Method2EmissionFactorMethod1Liveweight6.TypeEnumToJsonValue(method2EmissionFactorMethod1Liveweight6TypeEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight6.RegionEnum method2EmissionFactorMethod1Liveweight6RegionEnum)
-                return Method2EmissionFactorMethod1Liveweight6.RegionEnumToJsonValue(method2EmissionFactorMethod1Liveweight6RegionEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight6.ClassEnum method2EmissionFactorMethod1Liveweight6ClassEnum)
-                return Method2EmissionFactorMethod1Liveweight6.ClassEnumToJsonValue(method2EmissionFactorMethod1Liveweight6ClassEnum);
-            if (obj is Method2EmissionFactorMethod1Liveweight6.SeasonEnum method2EmissionFactorMethod1Liveweight6SeasonEnum)
-                return Method2EmissionFactorMethod1Liveweight6.SeasonEnumToJsonValue(method2EmissionFactorMethod1Liveweight6SeasonEnum);
             if (obj is Method2EmissionFactorMethod2Liveweight.TypeEnum method2EmissionFactorMethod2LiveweightTypeEnum)
                 return Method2EmissionFactorMethod2Liveweight.TypeEnumToJsonValue(method2EmissionFactorMethod2LiveweightTypeEnum);
-            if (obj is Method2EmissionFactorMethod2Liveweight1.TypeEnum method2EmissionFactorMethod2Liveweight1TypeEnum)
-                return Method2EmissionFactorMethod2Liveweight1.TypeEnumToJsonValue(method2EmissionFactorMethod2Liveweight1TypeEnum);
-            if (obj is Method2EmissionFactorMethod2Liveweight2.TypeEnum method2EmissionFactorMethod2Liveweight2TypeEnum)
-                return Method2EmissionFactorMethod2Liveweight2.TypeEnumToJsonValue(method2EmissionFactorMethod2Liveweight2TypeEnum);
-            if (obj is Method2EmissionFactorMethod2Liveweight3.TypeEnum method2EmissionFactorMethod2Liveweight3TypeEnum)
-                return Method2EmissionFactorMethod2Liveweight3.TypeEnumToJsonValue(method2EmissionFactorMethod2Liveweight3TypeEnum);
-            if (obj is Method2EmissionFactorMethod2Liveweight4.TypeEnum method2EmissionFactorMethod2Liveweight4TypeEnum)
-                return Method2EmissionFactorMethod2Liveweight4.TypeEnumToJsonValue(method2EmissionFactorMethod2Liveweight4TypeEnum);
-            if (obj is Method2EmissionFactorMethod2Liveweight5.TypeEnum method2EmissionFactorMethod2Liveweight5TypeEnum)
-                return Method2EmissionFactorMethod2Liveweight5.TypeEnumToJsonValue(method2EmissionFactorMethod2Liveweight5TypeEnum);
-            if (obj is Method2Fuel.FreightTypeEnum method2FuelFreightTypeEnum)
-                return Method2Fuel.FreightTypeEnumToJsonValue(method2FuelFreightTypeEnum);
-            if (obj is Method2Fuel.CalculationMethodEnum method2FuelCalculationMethodEnum)
-                return Method2Fuel.CalculationMethodEnumToJsonValue(method2FuelCalculationMethodEnum);
-            if (obj is Method2Fuel1.FreightTypeEnum method2Fuel1FreightTypeEnum)
-                return Method2Fuel1.FreightTypeEnumToJsonValue(method2Fuel1FreightTypeEnum);
-            if (obj is Method2Fuel1.CalculationMethodEnum method2Fuel1CalculationMethodEnum)
-                return Method2Fuel1.CalculationMethodEnumToJsonValue(method2Fuel1CalculationMethodEnum);
             if (obj is Method2StemDensity.CropTypeEnum method2StemDensityCropTypeEnum)
                 return Method2StemDensity.CropTypeEnumToJsonValue(method2StemDensityCropTypeEnum);
             if (obj is Method2StemDensity.CalculationMethodEnum method2StemDensityCalculationMethodEnum)
                 return Method2StemDensity.CalculationMethodEnumToJsonValue(method2StemDensityCalculationMethodEnum);
-            if (obj is MulesAsses.TypeEnum mulesAssesTypeEnum)
-                return MulesAsses.TypeEnumToJsonValue(mulesAssesTypeEnum);
-            if (obj is NativeSpeciesRegeneration500mmRainfall.SpeciesNameEnum nativeSpeciesRegeneration500mmRainfallSpeciesNameEnum)
-                return NativeSpeciesRegeneration500mmRainfall.SpeciesNameEnumToJsonValue(nativeSpeciesRegeneration500mmRainfallSpeciesNameEnum);
             if (obj is OffRoadAgricultureAndForestryEquipment.VehicleTypeEnum offRoadAgricultureAndForestryEquipmentVehicleTypeEnum)
                 return OffRoadAgricultureAndForestryEquipment.VehicleTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipmentVehicleTypeEnum);
             if (obj is OffRoadAgricultureAndForestryEquipment.FuelTypeEnum offRoadAgricultureAndForestryEquipmentFuelTypeEnum)
@@ -513,120 +277,16 @@ namespace Org.OpenAPITools.Client
                 return OffRoadAgricultureAndForestryEquipment1.VehicleTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipment1VehicleTypeEnum);
             if (obj is OffRoadAgricultureAndForestryEquipment1.FuelTypeEnum offRoadAgricultureAndForestryEquipment1FuelTypeEnum)
                 return OffRoadAgricultureAndForestryEquipment1.FuelTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipment1FuelTypeEnum);
-            if (obj is OffRoadAgricultureAndForestryEquipment2.VehicleTypeEnum offRoadAgricultureAndForestryEquipment2VehicleTypeEnum)
-                return OffRoadAgricultureAndForestryEquipment2.VehicleTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipment2VehicleTypeEnum);
-            if (obj is OffRoadAgricultureAndForestryEquipment2.FuelTypeEnum offRoadAgricultureAndForestryEquipment2FuelTypeEnum)
-                return OffRoadAgricultureAndForestryEquipment2.FuelTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipment2FuelTypeEnum);
             if (obj is OutputInput.MethodEnum outputInputMethodEnum)
                 return OutputInput.MethodEnumToJsonValue(outputInputMethodEnum);
             if (obj is OutputMethod1.GasEnum outputMethod1GasEnum)
                 return OutputMethod1.GasEnumToJsonValue(outputMethod1GasEnum);
             if (obj is OutputMethod2.GasEnum outputMethod2GasEnum)
                 return OutputMethod2.GasEnumToJsonValue(outputMethod2GasEnum);
-            if (obj is Pasture.StateEnum pastureStateEnum)
-                return Pasture.StateEnumToJsonValue(pastureStateEnum);
-            if (obj is Pasture.ClimateZoneEnum pastureClimateZoneEnum)
-                return Pasture.ClimateZoneEnumToJsonValue(pastureClimateZoneEnum);
             if (obj is PigsManure.TypeEnum pigsManureTypeEnum)
                 return PigsManure.TypeEnumToJsonValue(pigsManureTypeEnum);
             if (obj is PlantationForestry.TypeEnum plantationForestryTypeEnum)
                 return PlantationForestry.TypeEnumToJsonValue(plantationForestryTypeEnum);
-            if (obj is PostAllModulesRequestBeef.RegionEnum postAllModulesRequestBeefRegionEnum)
-                return PostAllModulesRequestBeef.RegionEnumToJsonValue(postAllModulesRequestBeefRegionEnum);
-            if (obj is PostAllModulesRequestBeef.BreedEnum postAllModulesRequestBeefBreedEnum)
-                return PostAllModulesRequestBeef.BreedEnumToJsonValue(postAllModulesRequestBeefBreedEnum);
-            if (obj is PostAllModulesRequestBeef.GrazingSystemEnum postAllModulesRequestBeefGrazingSystemEnum)
-                return PostAllModulesRequestBeef.GrazingSystemEnumToJsonValue(postAllModulesRequestBeefGrazingSystemEnum);
-            if (obj is PostAllModulesRequestBeef.ClimateZoneEnum postAllModulesRequestBeefClimateZoneEnum)
-                return PostAllModulesRequestBeef.ClimateZoneEnumToJsonValue(postAllModulesRequestBeefClimateZoneEnum);
-            if (obj is PostAllModulesRequestBeef.Method2MeanAnnualTemperatureEnum postAllModulesRequestBeefMethod2MeanAnnualTemperatureEnum)
-                return PostAllModulesRequestBeef.Method2MeanAnnualTemperatureEnumToJsonValue(postAllModulesRequestBeefMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostAllModulesRequestChemicalsInner.TypeEnum postAllModulesRequestChemicalsInnerTypeEnum)
-                return PostAllModulesRequestChemicalsInner.TypeEnumToJsonValue(postAllModulesRequestChemicalsInnerTypeEnum);
-            if (obj is PostAllModulesRequestCrop.StateEnum postAllModulesRequestCropStateEnum)
-                return PostAllModulesRequestCrop.StateEnumToJsonValue(postAllModulesRequestCropStateEnum);
-            if (obj is PostAllModulesRequestCrop.ClimateZoneEnum postAllModulesRequestCropClimateZoneEnum)
-                return PostAllModulesRequestCrop.ClimateZoneEnumToJsonValue(postAllModulesRequestCropClimateZoneEnum);
-            if (obj is PostAllModulesRequestCropCrop.TypeEnum postAllModulesRequestCropCropTypeEnum)
-                return PostAllModulesRequestCropCrop.TypeEnumToJsonValue(postAllModulesRequestCropCropTypeEnum);
-            if (obj is PostAllModulesRequestFeedlot.StateEnum postAllModulesRequestFeedlotStateEnum)
-                return PostAllModulesRequestFeedlot.StateEnumToJsonValue(postAllModulesRequestFeedlotStateEnum);
-            if (obj is PostAllModulesRequestFeedlot.GrazingSystemEnum postAllModulesRequestFeedlotGrazingSystemEnum)
-                return PostAllModulesRequestFeedlot.GrazingSystemEnumToJsonValue(postAllModulesRequestFeedlotGrazingSystemEnum);
-            if (obj is PostAllModulesRequestFeedlot.Method2MeanAnnualTemperatureEnum postAllModulesRequestFeedlotMethod2MeanAnnualTemperatureEnum)
-                return PostAllModulesRequestFeedlot.Method2MeanAnnualTemperatureEnumToJsonValue(postAllModulesRequestFeedlotMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostAllModulesRequestFertiliser.ClimateZoneEnum postAllModulesRequestFertiliserClimateZoneEnum)
-                return PostAllModulesRequestFertiliser.ClimateZoneEnumToJsonValue(postAllModulesRequestFertiliserClimateZoneEnum);
-            if (obj is PostAllModulesRequestFishery.LocationEnum postAllModulesRequestFisheryLocationEnum)
-                return PostAllModulesRequestFishery.LocationEnumToJsonValue(postAllModulesRequestFisheryLocationEnum);
-            if (obj is PostAllModulesRequestFuel.StateEnum postAllModulesRequestFuelStateEnum)
-                return PostAllModulesRequestFuel.StateEnumToJsonValue(postAllModulesRequestFuelStateEnum);
-            if (obj is PostAllModulesRequestOtherLivestock.StateEnum postAllModulesRequestOtherLivestockStateEnum)
-                return PostAllModulesRequestOtherLivestock.StateEnumToJsonValue(postAllModulesRequestOtherLivestockStateEnum);
-            if (obj is PostAllModulesRequestOtherLivestock.ClimateZoneEnum postAllModulesRequestOtherLivestockClimateZoneEnum)
-                return PostAllModulesRequestOtherLivestock.ClimateZoneEnumToJsonValue(postAllModulesRequestOtherLivestockClimateZoneEnum);
-            if (obj is PostAllModulesRequestOtherLivestock.GrazingSystemEnum postAllModulesRequestOtherLivestockGrazingSystemEnum)
-                return PostAllModulesRequestOtherLivestock.GrazingSystemEnumToJsonValue(postAllModulesRequestOtherLivestockGrazingSystemEnum);
-            if (obj is PostAllModulesRequestOtherLivestock.Method2MeanAnnualTemperatureEnum postAllModulesRequestOtherLivestockMethod2MeanAnnualTemperatureEnum)
-                return PostAllModulesRequestOtherLivestock.Method2MeanAnnualTemperatureEnumToJsonValue(postAllModulesRequestOtherLivestockMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostAllModulesRequestPasture.ClimateZoneEnum postAllModulesRequestPastureClimateZoneEnum)
-                return PostAllModulesRequestPasture.ClimateZoneEnumToJsonValue(postAllModulesRequestPastureClimateZoneEnum);
-            if (obj is PostAllModulesRequestPasture.StateEnum postAllModulesRequestPastureStateEnum)
-                return PostAllModulesRequestPasture.StateEnumToJsonValue(postAllModulesRequestPastureStateEnum);
-            if (obj is PostAllModulesRequestPasturePasture.TypeEnum postAllModulesRequestPasturePastureTypeEnum)
-                return PostAllModulesRequestPasturePasture.TypeEnumToJsonValue(postAllModulesRequestPasturePastureTypeEnum);
-            if (obj is PostAllModulesRequestPigs.StateEnum postAllModulesRequestPigsStateEnum)
-                return PostAllModulesRequestPigs.StateEnumToJsonValue(postAllModulesRequestPigsStateEnum);
-            if (obj is PostAllModulesRequestPigs.GrazingSystemEnum postAllModulesRequestPigsGrazingSystemEnum)
-                return PostAllModulesRequestPigs.GrazingSystemEnumToJsonValue(postAllModulesRequestPigsGrazingSystemEnum);
-            if (obj is PostAllModulesRequestPigs.Method2MeanAnnualTemperatureEnum postAllModulesRequestPigsMethod2MeanAnnualTemperatureEnum)
-                return PostAllModulesRequestPigs.Method2MeanAnnualTemperatureEnumToJsonValue(postAllModulesRequestPigsMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostAllModulesRequestPoultry.StateEnum postAllModulesRequestPoultryStateEnum)
-                return PostAllModulesRequestPoultry.StateEnumToJsonValue(postAllModulesRequestPoultryStateEnum);
-            if (obj is PostAllModulesRequestPoultry.ClimateZoneEnum postAllModulesRequestPoultryClimateZoneEnum)
-                return PostAllModulesRequestPoultry.ClimateZoneEnumToJsonValue(postAllModulesRequestPoultryClimateZoneEnum);
-            if (obj is PostAllModulesRequestPoultry.GrazingSystemEnum postAllModulesRequestPoultryGrazingSystemEnum)
-                return PostAllModulesRequestPoultry.GrazingSystemEnumToJsonValue(postAllModulesRequestPoultryGrazingSystemEnum);
-            if (obj is PostAllModulesRequestPoultry.Method2MeanAnnualTemperatureEnum postAllModulesRequestPoultryMethod2MeanAnnualTemperatureEnum)
-                return PostAllModulesRequestPoultry.Method2MeanAnnualTemperatureEnumToJsonValue(postAllModulesRequestPoultryMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostAllModulesRequestPurchasedLivestockInner.CategoryEnum postAllModulesRequestPurchasedLivestockInnerCategoryEnum)
-                return PostAllModulesRequestPurchasedLivestockInner.CategoryEnumToJsonValue(postAllModulesRequestPurchasedLivestockInnerCategoryEnum);
-            if (obj is PostAllModulesRequestPurchasedLivestockInner.RegionEnum postAllModulesRequestPurchasedLivestockInnerRegionEnum)
-                return PostAllModulesRequestPurchasedLivestockInner.RegionEnumToJsonValue(postAllModulesRequestPurchasedLivestockInnerRegionEnum);
-            if (obj is PostAllModulesRequestPurchasedLivestockInner.BreedEnum postAllModulesRequestPurchasedLivestockInnerBreedEnum)
-                return PostAllModulesRequestPurchasedLivestockInner.BreedEnumToJsonValue(postAllModulesRequestPurchasedLivestockInnerBreedEnum);
-            if (obj is PostAllModulesRequestPurchasedLivestockInner.LivestockTypeEnum postAllModulesRequestPurchasedLivestockInnerLivestockTypeEnum)
-                return PostAllModulesRequestPurchasedLivestockInner.LivestockTypeEnumToJsonValue(postAllModulesRequestPurchasedLivestockInnerLivestockTypeEnum);
-            if (obj is PostAllModulesRequestPurchasedPackagingInner.TypeEnum postAllModulesRequestPurchasedPackagingInnerTypeEnum)
-                return PostAllModulesRequestPurchasedPackagingInner.TypeEnumToJsonValue(postAllModulesRequestPurchasedPackagingInnerTypeEnum);
-            if (obj is PostAllModulesRequestRefrigerantsInner.RefrigerantEnum postAllModulesRequestRefrigerantsInnerRefrigerantEnum)
-                return PostAllModulesRequestRefrigerantsInner.RefrigerantEnumToJsonValue(postAllModulesRequestRefrigerantsInnerRefrigerantEnum);
-            if (obj is PostAllModulesRequestRefrigerantsInner.RefrigerationTypeEnum postAllModulesRequestRefrigerantsInnerRefrigerationTypeEnum)
-                return PostAllModulesRequestRefrigerantsInner.RefrigerationTypeEnumToJsonValue(postAllModulesRequestRefrigerantsInnerRefrigerationTypeEnum);
-            if (obj is PostAllModulesRequestRiceCrop.PreSeasonWaterRegimeTypeEnum postAllModulesRequestRiceCropPreSeasonWaterRegimeTypeEnum)
-                return PostAllModulesRequestRiceCrop.PreSeasonWaterRegimeTypeEnumToJsonValue(postAllModulesRequestRiceCropPreSeasonWaterRegimeTypeEnum);
-            if (obj is PostAllModulesRequestRiceCrop.WaterRegimeTypeEnum postAllModulesRequestRiceCropWaterRegimeTypeEnum)
-                return PostAllModulesRequestRiceCrop.WaterRegimeTypeEnumToJsonValue(postAllModulesRequestRiceCropWaterRegimeTypeEnum);
-            if (obj is PostAllModulesRequestRiceCropOrganicAmendmentsInner.TypeEnum postAllModulesRequestRiceCropOrganicAmendmentsInnerTypeEnum)
-                return PostAllModulesRequestRiceCropOrganicAmendmentsInner.TypeEnumToJsonValue(postAllModulesRequestRiceCropOrganicAmendmentsInnerTypeEnum);
-            if (obj is PostAllModulesRequestServices.StateEnum postAllModulesRequestServicesStateEnum)
-                return PostAllModulesRequestServices.StateEnumToJsonValue(postAllModulesRequestServicesStateEnum);
-            if (obj is PostAllModulesRequestSheep.StateEnum postAllModulesRequestSheepStateEnum)
-                return PostAllModulesRequestSheep.StateEnumToJsonValue(postAllModulesRequestSheepStateEnum);
-            if (obj is PostAllModulesRequestSheep.ClimateZoneEnum postAllModulesRequestSheepClimateZoneEnum)
-                return PostAllModulesRequestSheep.ClimateZoneEnumToJsonValue(postAllModulesRequestSheepClimateZoneEnum);
-            if (obj is PostAllModulesRequestSheep.GrazingSystemEnum postAllModulesRequestSheepGrazingSystemEnum)
-                return PostAllModulesRequestSheep.GrazingSystemEnumToJsonValue(postAllModulesRequestSheepGrazingSystemEnum);
-            if (obj is PostAllModulesRequestSheep.Method2MeanAnnualTemperatureEnum postAllModulesRequestSheepMethod2MeanAnnualTemperatureEnum)
-                return PostAllModulesRequestSheep.Method2MeanAnnualTemperatureEnumToJsonValue(postAllModulesRequestSheepMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostAquacultureRequestFisheriesInner.StateEnum postAquacultureRequestFisheriesInnerStateEnum)
-                return PostAquacultureRequestFisheriesInner.StateEnumToJsonValue(postAquacultureRequestFisheriesInnerStateEnum);
-            if (obj is PostAquacultureRequestFisheriesInnerFishery.LocationEnum postAquacultureRequestFisheriesInnerFisheryLocationEnum)
-                return PostAquacultureRequestFisheriesInnerFishery.LocationEnumToJsonValue(postAquacultureRequestFisheriesInnerFisheryLocationEnum);
-            if (obj is PostAquacultureRequestFisheriesInnerRefrigerantsInner.RefrigerantEnum postAquacultureRequestFisheriesInnerRefrigerantsInnerRefrigerantEnum)
-                return PostAquacultureRequestFisheriesInnerRefrigerantsInner.RefrigerantEnumToJsonValue(postAquacultureRequestFisheriesInnerRefrigerantsInnerRefrigerantEnum);
-            if (obj is PostAquacultureRequestFisheriesInnerRefrigerantsInner.RefrigerationTypeEnum postAquacultureRequestFisheriesInnerRefrigerantsInnerRefrigerationTypeEnum)
-                return PostAquacultureRequestFisheriesInnerRefrigerantsInner.RefrigerationTypeEnumToJsonValue(postAquacultureRequestFisheriesInnerRefrigerantsInnerRefrigerationTypeEnum);
             if (obj is PostBeefRequestHerdsInner.RegionEnum postBeefRequestHerdsInnerRegionEnum)
                 return PostBeefRequestHerdsInner.RegionEnumToJsonValue(postBeefRequestHerdsInnerRegionEnum);
             if (obj is PostBeefRequestHerdsInner.BreedEnum postBeefRequestHerdsInnerBreedEnum)
@@ -641,86 +301,6 @@ namespace Org.OpenAPITools.Client
                 return PostBeefRequestHerdsInnerChemicalsInner.TypeEnumToJsonValue(postBeefRequestHerdsInnerChemicalsInnerTypeEnum);
             if (obj is PostBeefRequestHerdsInnerPasture.TypeEnum postBeefRequestHerdsInnerPastureTypeEnum)
                 return PostBeefRequestHerdsInnerPasture.TypeEnumToJsonValue(postBeefRequestHerdsInnerPastureTypeEnum);
-            if (obj is PostCottonRequestCropsInner.StateEnum postCottonRequestCropsInnerStateEnum)
-                return PostCottonRequestCropsInner.StateEnumToJsonValue(postCottonRequestCropsInnerStateEnum);
-            if (obj is PostCottonRequestCropsInner.ClimateZoneEnum postCottonRequestCropsInnerClimateZoneEnum)
-                return PostCottonRequestCropsInner.ClimateZoneEnumToJsonValue(postCottonRequestCropsInnerClimateZoneEnum);
-            if (obj is PostFeedlotRequestLotsInner.StateEnum postFeedlotRequestLotsInnerStateEnum)
-                return PostFeedlotRequestLotsInner.StateEnumToJsonValue(postFeedlotRequestLotsInnerStateEnum);
-            if (obj is PostFeedlotRequestLotsInner.GrazingSystemEnum postFeedlotRequestLotsInnerGrazingSystemEnum)
-                return PostFeedlotRequestLotsInner.GrazingSystemEnumToJsonValue(postFeedlotRequestLotsInnerGrazingSystemEnum);
-            if (obj is PostFeedlotRequestLotsInner.Method2MeanAnnualTemperatureEnum postFeedlotRequestLotsInnerMethod2MeanAnnualTemperatureEnum)
-                return PostFeedlotRequestLotsInner.Method2MeanAnnualTemperatureEnumToJsonValue(postFeedlotRequestLotsInnerMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostGrainsRequestCropsInner.StateEnum postGrainsRequestCropsInnerStateEnum)
-                return PostGrainsRequestCropsInner.StateEnumToJsonValue(postGrainsRequestCropsInnerStateEnum);
-            if (obj is PostGrainsRequestCropsInner.ClimateZoneEnum postGrainsRequestCropsInnerClimateZoneEnum)
-                return PostGrainsRequestCropsInner.ClimateZoneEnumToJsonValue(postGrainsRequestCropsInnerClimateZoneEnum);
-            if (obj is PostGrainsRequestCropsInnerCrop.TypeEnum postGrainsRequestCropsInnerCropTypeEnum)
-                return PostGrainsRequestCropsInnerCrop.TypeEnumToJsonValue(postGrainsRequestCropsInnerCropTypeEnum);
-            if (obj is PostHorticultureRequestCropsInner.StateEnum postHorticultureRequestCropsInnerStateEnum)
-                return PostHorticultureRequestCropsInner.StateEnumToJsonValue(postHorticultureRequestCropsInnerStateEnum);
-            if (obj is PostHorticultureRequestCropsInner.ClimateZoneEnum postHorticultureRequestCropsInnerClimateZoneEnum)
-                return PostHorticultureRequestCropsInner.ClimateZoneEnumToJsonValue(postHorticultureRequestCropsInnerClimateZoneEnum);
-            if (obj is PostHorticultureRequestCropsInnerCrop.TypeEnum postHorticultureRequestCropsInnerCropTypeEnum)
-                return PostHorticultureRequestCropsInnerCrop.TypeEnumToJsonValue(postHorticultureRequestCropsInnerCropTypeEnum);
-            if (obj is PostOtherLivestockRequestHerdsInner.StateEnum postOtherLivestockRequestHerdsInnerStateEnum)
-                return PostOtherLivestockRequestHerdsInner.StateEnumToJsonValue(postOtherLivestockRequestHerdsInnerStateEnum);
-            if (obj is PostOtherLivestockRequestHerdsInner.ClimateZoneEnum postOtherLivestockRequestHerdsInnerClimateZoneEnum)
-                return PostOtherLivestockRequestHerdsInner.ClimateZoneEnumToJsonValue(postOtherLivestockRequestHerdsInnerClimateZoneEnum);
-            if (obj is PostOtherLivestockRequestHerdsInner.GrazingSystemEnum postOtherLivestockRequestHerdsInnerGrazingSystemEnum)
-                return PostOtherLivestockRequestHerdsInner.GrazingSystemEnumToJsonValue(postOtherLivestockRequestHerdsInnerGrazingSystemEnum);
-            if (obj is PostOtherLivestockRequestHerdsInner.Method2MeanAnnualTemperatureEnum postOtherLivestockRequestHerdsInnerMethod2MeanAnnualTemperatureEnum)
-                return PostOtherLivestockRequestHerdsInner.Method2MeanAnnualTemperatureEnumToJsonValue(postOtherLivestockRequestHerdsInnerMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostPigsRequestHerdsInner.StateEnum postPigsRequestHerdsInnerStateEnum)
-                return PostPigsRequestHerdsInner.StateEnumToJsonValue(postPigsRequestHerdsInnerStateEnum);
-            if (obj is PostPigsRequestHerdsInner.GrazingSystemEnum postPigsRequestHerdsInnerGrazingSystemEnum)
-                return PostPigsRequestHerdsInner.GrazingSystemEnumToJsonValue(postPigsRequestHerdsInnerGrazingSystemEnum);
-            if (obj is PostPigsRequestHerdsInner.Method2MeanAnnualTemperatureEnum postPigsRequestHerdsInnerMethod2MeanAnnualTemperatureEnum)
-                return PostPigsRequestHerdsInner.Method2MeanAnnualTemperatureEnumToJsonValue(postPigsRequestHerdsInnerMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostPostProductionRequest.StateEnum postPostProductionRequestStateEnum)
-                return PostPostProductionRequest.StateEnumToJsonValue(postPostProductionRequestStateEnum);
-            if (obj is PostPostProductionRequestPurchasedPackagingInner.TypeEnum postPostProductionRequestPurchasedPackagingInnerTypeEnum)
-                return PostPostProductionRequestPurchasedPackagingInner.TypeEnumToJsonValue(postPostProductionRequestPurchasedPackagingInnerTypeEnum);
-            if (obj is PostPoultryRequestFlocksInner.StateEnum postPoultryRequestFlocksInnerStateEnum)
-                return PostPoultryRequestFlocksInner.StateEnumToJsonValue(postPoultryRequestFlocksInnerStateEnum);
-            if (obj is PostPoultryRequestFlocksInner.ClimateZoneEnum postPoultryRequestFlocksInnerClimateZoneEnum)
-                return PostPoultryRequestFlocksInner.ClimateZoneEnumToJsonValue(postPoultryRequestFlocksInnerClimateZoneEnum);
-            if (obj is PostPoultryRequestFlocksInner.GrazingSystemEnum postPoultryRequestFlocksInnerGrazingSystemEnum)
-                return PostPoultryRequestFlocksInner.GrazingSystemEnumToJsonValue(postPoultryRequestFlocksInnerGrazingSystemEnum);
-            if (obj is PostPoultryRequestFlocksInner.Method2MeanAnnualTemperatureEnum postPoultryRequestFlocksInnerMethod2MeanAnnualTemperatureEnum)
-                return PostPoultryRequestFlocksInner.Method2MeanAnnualTemperatureEnumToJsonValue(postPoultryRequestFlocksInnerMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostRiceRequestCropsInner.StateEnum postRiceRequestCropsInnerStateEnum)
-                return PostRiceRequestCropsInner.StateEnumToJsonValue(postRiceRequestCropsInnerStateEnum);
-            if (obj is PostRiceRequestCropsInner.ClimateZoneEnum postRiceRequestCropsInnerClimateZoneEnum)
-                return PostRiceRequestCropsInner.ClimateZoneEnumToJsonValue(postRiceRequestCropsInnerClimateZoneEnum);
-            if (obj is PostRiceRequestCropsInnerCrop.PreSeasonWaterRegimeTypeEnum postRiceRequestCropsInnerCropPreSeasonWaterRegimeTypeEnum)
-                return PostRiceRequestCropsInnerCrop.PreSeasonWaterRegimeTypeEnumToJsonValue(postRiceRequestCropsInnerCropPreSeasonWaterRegimeTypeEnum);
-            if (obj is PostRiceRequestCropsInnerCrop.WaterRegimeTypeEnum postRiceRequestCropsInnerCropWaterRegimeTypeEnum)
-                return PostRiceRequestCropsInnerCrop.WaterRegimeTypeEnumToJsonValue(postRiceRequestCropsInnerCropWaterRegimeTypeEnum);
-            if (obj is PostRiceRequestCropsInnerCropOrganicAmendmentsInner.TypeEnum postRiceRequestCropsInnerCropOrganicAmendmentsInnerTypeEnum)
-                return PostRiceRequestCropsInnerCropOrganicAmendmentsInner.TypeEnumToJsonValue(postRiceRequestCropsInnerCropOrganicAmendmentsInnerTypeEnum);
-            if (obj is PostRiceRequestCropsInnerFertiliser.ProductionSystemEnum postRiceRequestCropsInnerFertiliserProductionSystemEnum)
-                return PostRiceRequestCropsInnerFertiliser.ProductionSystemEnumToJsonValue(postRiceRequestCropsInnerFertiliserProductionSystemEnum);
-            if (obj is PostSheepRequestFlocksInner.StateEnum postSheepRequestFlocksInnerStateEnum)
-                return PostSheepRequestFlocksInner.StateEnumToJsonValue(postSheepRequestFlocksInnerStateEnum);
-            if (obj is PostSheepRequestFlocksInner.ClimateZoneEnum postSheepRequestFlocksInnerClimateZoneEnum)
-                return PostSheepRequestFlocksInner.ClimateZoneEnumToJsonValue(postSheepRequestFlocksInnerClimateZoneEnum);
-            if (obj is PostSheepRequestFlocksInner.GrazingSystemEnum postSheepRequestFlocksInnerGrazingSystemEnum)
-                return PostSheepRequestFlocksInner.GrazingSystemEnumToJsonValue(postSheepRequestFlocksInnerGrazingSystemEnum);
-            if (obj is PostSheepRequestFlocksInner.Method2MeanAnnualTemperatureEnum postSheepRequestFlocksInnerMethod2MeanAnnualTemperatureEnum)
-                return PostSheepRequestFlocksInner.Method2MeanAnnualTemperatureEnumToJsonValue(postSheepRequestFlocksInnerMethod2MeanAnnualTemperatureEnum);
-            if (obj is PostSugarRequestCropsInner.StateEnum postSugarRequestCropsInnerStateEnum)
-                return PostSugarRequestCropsInner.StateEnumToJsonValue(postSugarRequestCropsInnerStateEnum);
-            if (obj is PostSugarRequestCropsInner.ClimateZoneEnum postSugarRequestCropsInnerClimateZoneEnum)
-                return PostSugarRequestCropsInner.ClimateZoneEnumToJsonValue(postSugarRequestCropsInnerClimateZoneEnum);
-            if (obj is PostViticultureRequestCropsInner.StateEnum postViticultureRequestCropsInnerStateEnum)
-                return PostViticultureRequestCropsInner.StateEnumToJsonValue(postViticultureRequestCropsInnerStateEnum);
-            if (obj is PostViticultureRequestCropsInner.ClimateZoneEnum postViticultureRequestCropsInnerClimateZoneEnum)
-                return PostViticultureRequestCropsInner.ClimateZoneEnumToJsonValue(postViticultureRequestCropsInnerClimateZoneEnum);
-            if (obj is PostViticultureRequestCropsInnerFertiliser.ProductionSystemEnum postViticultureRequestCropsInnerFertiliserProductionSystemEnum)
-                return PostViticultureRequestCropsInnerFertiliser.ProductionSystemEnumToJsonValue(postViticultureRequestCropsInnerFertiliserProductionSystemEnum);
-            if (obj is PostWildCatchFisheriesRequestFisheriesInner.StateEnum postWildCatchFisheriesRequestFisheriesInnerStateEnum)
-                return PostWildCatchFisheriesRequestFisheriesInner.StateEnumToJsonValue(postWildCatchFisheriesRequestFisheriesInnerStateEnum);
             if (obj is PoultryManure.TypeEnum poultryManureTypeEnum)
                 return PoultryManure.TypeEnumToJsonValue(poultryManureTypeEnum);
             if (obj is PurchasedFeedListInputInner.TypeEnum purchasedFeedListInputInnerTypeEnum)
@@ -769,34 +349,16 @@ namespace Org.OpenAPITools.Client
                 return QuantityByMass1.WasteTypeEnumToJsonValue(quantityByMass1WasteTypeEnum);
             if (obj is QuantityByMass10.WasteTypeEnum quantityByMass10WasteTypeEnum)
                 return QuantityByMass10.WasteTypeEnumToJsonValue(quantityByMass10WasteTypeEnum);
-            if (obj is QuantityByMass11.TypeEnum quantityByMass11TypeEnum)
-                return QuantityByMass11.TypeEnumToJsonValue(quantityByMass11TypeEnum);
-            if (obj is QuantityByMass13.WasteTypeEnum quantityByMass13WasteTypeEnum)
-                return QuantityByMass13.WasteTypeEnumToJsonValue(quantityByMass13WasteTypeEnum);
-            if (obj is QuantityByMass14.WasteTypeEnum quantityByMass14WasteTypeEnum)
-                return QuantityByMass14.WasteTypeEnumToJsonValue(quantityByMass14WasteTypeEnum);
-            if (obj is QuantityByMass15.WasteTypeEnum quantityByMass15WasteTypeEnum)
-                return QuantityByMass15.WasteTypeEnumToJsonValue(quantityByMass15WasteTypeEnum);
-            if (obj is QuantityByMass16.WasteTypeEnum quantityByMass16WasteTypeEnum)
-                return QuantityByMass16.WasteTypeEnumToJsonValue(quantityByMass16WasteTypeEnum);
-            if (obj is QuantityByMass17.WasteTypeEnum quantityByMass17WasteTypeEnum)
-                return QuantityByMass17.WasteTypeEnumToJsonValue(quantityByMass17WasteTypeEnum);
-            if (obj is QuantityByMass18.WasteTypeEnum quantityByMass18WasteTypeEnum)
-                return QuantityByMass18.WasteTypeEnumToJsonValue(quantityByMass18WasteTypeEnum);
-            if (obj is QuantityByMass19.WasteTypeEnum quantityByMass19WasteTypeEnum)
-                return QuantityByMass19.WasteTypeEnumToJsonValue(quantityByMass19WasteTypeEnum);
+            if (obj is QuantityByMass11.FuelClassEnum quantityByMass11FuelClassEnum)
+                return QuantityByMass11.FuelClassEnumToJsonValue(quantityByMass11FuelClassEnum);
+            if (obj is QuantityByMass11.FuelTypeEnum quantityByMass11FuelTypeEnum)
+                return QuantityByMass11.FuelTypeEnumToJsonValue(quantityByMass11FuelTypeEnum);
+            if (obj is QuantityByMass12.FuelClassEnum quantityByMass12FuelClassEnum)
+                return QuantityByMass12.FuelClassEnumToJsonValue(quantityByMass12FuelClassEnum);
+            if (obj is QuantityByMass12.FuelTypeEnum quantityByMass12FuelTypeEnum)
+                return QuantityByMass12.FuelTypeEnumToJsonValue(quantityByMass12FuelTypeEnum);
             if (obj is QuantityByMass2.WasteTypeEnum quantityByMass2WasteTypeEnum)
                 return QuantityByMass2.WasteTypeEnumToJsonValue(quantityByMass2WasteTypeEnum);
-            if (obj is QuantityByMass20.TypeEnum quantityByMass20TypeEnum)
-                return QuantityByMass20.TypeEnumToJsonValue(quantityByMass20TypeEnum);
-            if (obj is QuantityByMass22.FuelClassEnum quantityByMass22FuelClassEnum)
-                return QuantityByMass22.FuelClassEnumToJsonValue(quantityByMass22FuelClassEnum);
-            if (obj is QuantityByMass22.FuelTypeEnum quantityByMass22FuelTypeEnum)
-                return QuantityByMass22.FuelTypeEnumToJsonValue(quantityByMass22FuelTypeEnum);
-            if (obj is QuantityByMass23.FuelClassEnum quantityByMass23FuelClassEnum)
-                return QuantityByMass23.FuelClassEnumToJsonValue(quantityByMass23FuelClassEnum);
-            if (obj is QuantityByMass23.FuelTypeEnum quantityByMass23FuelTypeEnum)
-                return QuantityByMass23.FuelTypeEnumToJsonValue(quantityByMass23FuelTypeEnum);
             if (obj is QuantityByMass3.WasteTypeEnum quantityByMass3WasteTypeEnum)
                 return QuantityByMass3.WasteTypeEnumToJsonValue(quantityByMass3WasteTypeEnum);
             if (obj is QuantityByMass4.WasteTypeEnum quantityByMass4WasteTypeEnum)
@@ -811,44 +373,22 @@ namespace Org.OpenAPITools.Client
                 return QuantityByMass8.WasteTypeEnumToJsonValue(quantityByMass8WasteTypeEnum);
             if (obj is QuantityByMass9.WasteTypeEnum quantityByMass9WasteTypeEnum)
                 return QuantityByMass9.WasteTypeEnumToJsonValue(quantityByMass9WasteTypeEnum);
-            if (obj is QuantityByUnits.TypeEnum quantityByUnitsTypeEnum)
-                return QuantityByUnits.TypeEnumToJsonValue(quantityByUnitsTypeEnum);
-            if (obj is QuantityByUnits2.TypeEnum quantityByUnits2TypeEnum)
-                return QuantityByUnits2.TypeEnumToJsonValue(quantityByUnits2TypeEnum);
             if (obj is QuantityByVolume.WasteTypeEnum quantityByVolumeWasteTypeEnum)
                 return QuantityByVolume.WasteTypeEnumToJsonValue(quantityByVolumeWasteTypeEnum);
             if (obj is QuantityByVolume1.WasteTypeEnum quantityByVolume1WasteTypeEnum)
                 return QuantityByVolume1.WasteTypeEnumToJsonValue(quantityByVolume1WasteTypeEnum);
             if (obj is QuantityByVolume10.WasteTypeEnum quantityByVolume10WasteTypeEnum)
                 return QuantityByVolume10.WasteTypeEnumToJsonValue(quantityByVolume10WasteTypeEnum);
-            if (obj is QuantityByVolume11.WasteTypeEnum quantityByVolume11WasteTypeEnum)
-                return QuantityByVolume11.WasteTypeEnumToJsonValue(quantityByVolume11WasteTypeEnum);
-            if (obj is QuantityByVolume12.WasteTypeEnum quantityByVolume12WasteTypeEnum)
-                return QuantityByVolume12.WasteTypeEnumToJsonValue(quantityByVolume12WasteTypeEnum);
-            if (obj is QuantityByVolume13.WasteTypeEnum quantityByVolume13WasteTypeEnum)
-                return QuantityByVolume13.WasteTypeEnumToJsonValue(quantityByVolume13WasteTypeEnum);
-            if (obj is QuantityByVolume14.WasteTypeEnum quantityByVolume14WasteTypeEnum)
-                return QuantityByVolume14.WasteTypeEnumToJsonValue(quantityByVolume14WasteTypeEnum);
-            if (obj is QuantityByVolume15.WasteTypeEnum quantityByVolume15WasteTypeEnum)
-                return QuantityByVolume15.WasteTypeEnumToJsonValue(quantityByVolume15WasteTypeEnum);
-            if (obj is QuantityByVolume16.WasteTypeEnum quantityByVolume16WasteTypeEnum)
-                return QuantityByVolume16.WasteTypeEnumToJsonValue(quantityByVolume16WasteTypeEnum);
-            if (obj is QuantityByVolume17.WasteTypeEnum quantityByVolume17WasteTypeEnum)
-                return QuantityByVolume17.WasteTypeEnumToJsonValue(quantityByVolume17WasteTypeEnum);
-            if (obj is QuantityByVolume18.WasteTypeEnum quantityByVolume18WasteTypeEnum)
-                return QuantityByVolume18.WasteTypeEnumToJsonValue(quantityByVolume18WasteTypeEnum);
-            if (obj is QuantityByVolume19.WasteTypeEnum quantityByVolume19WasteTypeEnum)
-                return QuantityByVolume19.WasteTypeEnumToJsonValue(quantityByVolume19WasteTypeEnum);
+            if (obj is QuantityByVolume11.FuelClassEnum quantityByVolume11FuelClassEnum)
+                return QuantityByVolume11.FuelClassEnumToJsonValue(quantityByVolume11FuelClassEnum);
+            if (obj is QuantityByVolume11.FuelTypeEnum quantityByVolume11FuelTypeEnum)
+                return QuantityByVolume11.FuelTypeEnumToJsonValue(quantityByVolume11FuelTypeEnum);
+            if (obj is QuantityByVolume12.FuelClassEnum quantityByVolume12FuelClassEnum)
+                return QuantityByVolume12.FuelClassEnumToJsonValue(quantityByVolume12FuelClassEnum);
+            if (obj is QuantityByVolume12.FuelTypeEnum quantityByVolume12FuelTypeEnum)
+                return QuantityByVolume12.FuelTypeEnumToJsonValue(quantityByVolume12FuelTypeEnum);
             if (obj is QuantityByVolume2.WasteTypeEnum quantityByVolume2WasteTypeEnum)
                 return QuantityByVolume2.WasteTypeEnumToJsonValue(quantityByVolume2WasteTypeEnum);
-            if (obj is QuantityByVolume20.FuelClassEnum quantityByVolume20FuelClassEnum)
-                return QuantityByVolume20.FuelClassEnumToJsonValue(quantityByVolume20FuelClassEnum);
-            if (obj is QuantityByVolume20.FuelTypeEnum quantityByVolume20FuelTypeEnum)
-                return QuantityByVolume20.FuelTypeEnumToJsonValue(quantityByVolume20FuelTypeEnum);
-            if (obj is QuantityByVolume21.FuelClassEnum quantityByVolume21FuelClassEnum)
-                return QuantityByVolume21.FuelClassEnumToJsonValue(quantityByVolume21FuelClassEnum);
-            if (obj is QuantityByVolume21.FuelTypeEnum quantityByVolume21FuelTypeEnum)
-                return QuantityByVolume21.FuelTypeEnumToJsonValue(quantityByVolume21FuelTypeEnum);
             if (obj is QuantityByVolume3.WasteTypeEnum quantityByVolume3WasteTypeEnum)
                 return QuantityByVolume3.WasteTypeEnumToJsonValue(quantityByVolume3WasteTypeEnum);
             if (obj is QuantityByVolume4.WasteTypeEnum quantityByVolume4WasteTypeEnum)
@@ -895,10 +435,6 @@ namespace Org.OpenAPITools.Client
                 return Scope3Method2OtherFertiliserType1.CalculationMethodScope3EnumToJsonValue(scope3Method2OtherFertiliserType1CalculationMethodScope3Enum);
             if (obj is Scope3Method2OtherFertiliserType1.FertiliserTypeEnum scope3Method2OtherFertiliserType1FertiliserTypeEnum)
                 return Scope3Method2OtherFertiliserType1.FertiliserTypeEnumToJsonValue(scope3Method2OtherFertiliserType1FertiliserTypeEnum);
-            if (obj is SheepClassesMonthlyInput.PeriodEnum sheepClassesMonthlyInputPeriodEnum)
-                return SheepClassesMonthlyInput.PeriodEnumToJsonValue(sheepClassesMonthlyInputPeriodEnum);
-            if (obj is SheepClassesSeasonalInput.PeriodEnum sheepClassesSeasonalInputPeriodEnum)
-                return SheepClassesSeasonalInput.PeriodEnumToJsonValue(sheepClassesSeasonalInputPeriodEnum);
             if (obj is SolidFuels.FuelClassEnum solidFuelsFuelClassEnum)
                 return SolidFuels.FuelClassEnumToJsonValue(solidFuelsFuelClassEnum);
             if (obj is SolidFuels.FuelTypeEnum solidFuelsFuelTypeEnum)
@@ -909,64 +445,16 @@ namespace Org.OpenAPITools.Client
                 return SolidFuels1.FuelTypeEnumToJsonValue(solidFuels1FuelTypeEnum);
             if (obj is SpecificProductionSystemScope1Method2.ProductionSystemEnum specificProductionSystemScope1Method2ProductionSystemEnum)
                 return SpecificProductionSystemScope1Method2.ProductionSystemEnumToJsonValue(specificProductionSystemScope1Method2ProductionSystemEnum);
+            if (obj is SpecificProductionSystemScope1Method2Inorganic.CalculationMethodScope1Enum specificProductionSystemScope1Method2InorganicCalculationMethodScope1Enum)
+                return SpecificProductionSystemScope1Method2Inorganic.CalculationMethodScope1EnumToJsonValue(specificProductionSystemScope1Method2InorganicCalculationMethodScope1Enum);
             if (obj is TimeInLocationsMethod1ProductionSystem.BreedEnum timeInLocationsMethod1ProductionSystemBreedEnum)
                 return TimeInLocationsMethod1ProductionSystem.BreedEnumToJsonValue(timeInLocationsMethod1ProductionSystemBreedEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem.GrazingSystemEnum timeInLocationsMethod1ProductionSystemGrazingSystemEnum)
-                return TimeInLocationsMethod1ProductionSystem.GrazingSystemEnumToJsonValue(timeInLocationsMethod1ProductionSystemGrazingSystemEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem.ClimateZoneEnum timeInLocationsMethod1ProductionSystemClimateZoneEnum)
-                return TimeInLocationsMethod1ProductionSystem.ClimateZoneEnumToJsonValue(timeInLocationsMethod1ProductionSystemClimateZoneEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem.StateEnum timeInLocationsMethod1ProductionSystemStateEnum)
-                return TimeInLocationsMethod1ProductionSystem.StateEnumToJsonValue(timeInLocationsMethod1ProductionSystemStateEnum);
             if (obj is TimeInLocationsMethod1ProductionSystem.SystemEnum timeInLocationsMethod1ProductionSystemSystemEnum)
                 return TimeInLocationsMethod1ProductionSystem.SystemEnumToJsonValue(timeInLocationsMethod1ProductionSystemSystemEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem.Method2MeanAnnualTemperatureEnum timeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum)
-                return TimeInLocationsMethod1ProductionSystem.Method2MeanAnnualTemperatureEnumToJsonValue(timeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem1.BreedEnum timeInLocationsMethod1ProductionSystem1BreedEnum)
-                return TimeInLocationsMethod1ProductionSystem1.BreedEnumToJsonValue(timeInLocationsMethod1ProductionSystem1BreedEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem1.GrazingSystemEnum timeInLocationsMethod1ProductionSystem1GrazingSystemEnum)
-                return TimeInLocationsMethod1ProductionSystem1.GrazingSystemEnumToJsonValue(timeInLocationsMethod1ProductionSystem1GrazingSystemEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem1.ClimateZoneEnum timeInLocationsMethod1ProductionSystem1ClimateZoneEnum)
-                return TimeInLocationsMethod1ProductionSystem1.ClimateZoneEnumToJsonValue(timeInLocationsMethod1ProductionSystem1ClimateZoneEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem1.StateEnum timeInLocationsMethod1ProductionSystem1StateEnum)
-                return TimeInLocationsMethod1ProductionSystem1.StateEnumToJsonValue(timeInLocationsMethod1ProductionSystem1StateEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem1.SystemEnum timeInLocationsMethod1ProductionSystem1SystemEnum)
-                return TimeInLocationsMethod1ProductionSystem1.SystemEnumToJsonValue(timeInLocationsMethod1ProductionSystem1SystemEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem1.Method2MeanAnnualTemperatureEnum timeInLocationsMethod1ProductionSystem1Method2MeanAnnualTemperatureEnum)
-                return TimeInLocationsMethod1ProductionSystem1.Method2MeanAnnualTemperatureEnumToJsonValue(timeInLocationsMethod1ProductionSystem1Method2MeanAnnualTemperatureEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem2.BreedEnum timeInLocationsMethod1ProductionSystem2BreedEnum)
-                return TimeInLocationsMethod1ProductionSystem2.BreedEnumToJsonValue(timeInLocationsMethod1ProductionSystem2BreedEnum);
-            if (obj is TimeInLocationsMethod1ProductionSystem2.SystemEnum timeInLocationsMethod1ProductionSystem2SystemEnum)
-                return TimeInLocationsMethod1ProductionSystem2.SystemEnumToJsonValue(timeInLocationsMethod1ProductionSystem2SystemEnum);
             if (obj is TimeInLocationsMethod2MeasuredProportions.BreedEnum timeInLocationsMethod2MeasuredProportionsBreedEnum)
                 return TimeInLocationsMethod2MeasuredProportions.BreedEnumToJsonValue(timeInLocationsMethod2MeasuredProportionsBreedEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions.GrazingSystemEnum timeInLocationsMethod2MeasuredProportionsGrazingSystemEnum)
-                return TimeInLocationsMethod2MeasuredProportions.GrazingSystemEnumToJsonValue(timeInLocationsMethod2MeasuredProportionsGrazingSystemEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions.ClimateZoneEnum timeInLocationsMethod2MeasuredProportionsClimateZoneEnum)
-                return TimeInLocationsMethod2MeasuredProportions.ClimateZoneEnumToJsonValue(timeInLocationsMethod2MeasuredProportionsClimateZoneEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions.StateEnum timeInLocationsMethod2MeasuredProportionsStateEnum)
-                return TimeInLocationsMethod2MeasuredProportions.StateEnumToJsonValue(timeInLocationsMethod2MeasuredProportionsStateEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions.Method2MeanAnnualTemperatureEnum timeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum)
-                return TimeInLocationsMethod2MeasuredProportions.Method2MeanAnnualTemperatureEnumToJsonValue(timeInLocationsMethod2MeasuredProportionsMethod2MeanAnnualTemperatureEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions1.BreedEnum timeInLocationsMethod2MeasuredProportions1BreedEnum)
-                return TimeInLocationsMethod2MeasuredProportions1.BreedEnumToJsonValue(timeInLocationsMethod2MeasuredProportions1BreedEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions1.GrazingSystemEnum timeInLocationsMethod2MeasuredProportions1GrazingSystemEnum)
-                return TimeInLocationsMethod2MeasuredProportions1.GrazingSystemEnumToJsonValue(timeInLocationsMethod2MeasuredProportions1GrazingSystemEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions1.ClimateZoneEnum timeInLocationsMethod2MeasuredProportions1ClimateZoneEnum)
-                return TimeInLocationsMethod2MeasuredProportions1.ClimateZoneEnumToJsonValue(timeInLocationsMethod2MeasuredProportions1ClimateZoneEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions1.StateEnum timeInLocationsMethod2MeasuredProportions1StateEnum)
-                return TimeInLocationsMethod2MeasuredProportions1.StateEnumToJsonValue(timeInLocationsMethod2MeasuredProportions1StateEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions1.Method2MeanAnnualTemperatureEnum timeInLocationsMethod2MeasuredProportions1Method2MeanAnnualTemperatureEnum)
-                return TimeInLocationsMethod2MeasuredProportions1.Method2MeanAnnualTemperatureEnumToJsonValue(timeInLocationsMethod2MeasuredProportions1Method2MeanAnnualTemperatureEnum);
-            if (obj is TimeInLocationsMethod2MeasuredProportions2.BreedEnum timeInLocationsMethod2MeasuredProportions2BreedEnum)
-                return TimeInLocationsMethod2MeasuredProportions2.BreedEnumToJsonValue(timeInLocationsMethod2MeasuredProportions2BreedEnum);
             if (obj is TracedManure.OriginEnum tracedManureOriginEnum)
                 return TracedManure.OriginEnumToJsonValue(tracedManureOriginEnum);
-            if (obj is UnclearableAreaNoExistingTrees.RegionEnum unclearableAreaNoExistingTreesRegionEnum)
-                return UnclearableAreaNoExistingTrees.RegionEnumToJsonValue(unclearableAreaNoExistingTreesRegionEnum);
-            if (obj is UnclearableAreaNoExistingTreesPlantingEventsInner.SpeciesNameEnum unclearableAreaNoExistingTreesPlantingEventsInnerSpeciesNameEnum)
-                return UnclearableAreaNoExistingTreesPlantingEventsInner.SpeciesNameEnumToJsonValue(unclearableAreaNoExistingTreesPlantingEventsInnerSpeciesNameEnum);
-            if (obj is UnclearableAreaNoExistingTreesPlantingEventsInner.ShapeEnum unclearableAreaNoExistingTreesPlantingEventsInnerShapeEnum)
-                return UnclearableAreaNoExistingTreesPlantingEventsInner.ShapeEnumToJsonValue(unclearableAreaNoExistingTreesPlantingEventsInnerShapeEnum);
             if (obj is UntracedManure.OriginEnum untracedManureOriginEnum)
                 return UntracedManure.OriginEnumToJsonValue(untracedManureOriginEnum);
             if (obj is UntracedManure.OrganicFertiliserTypeEnum untracedManureOrganicFertiliserTypeEnum)
@@ -979,22 +467,6 @@ namespace Org.OpenAPITools.Client
                 return Vessel1.VehicleTypeEnumToJsonValue(vessel1VehicleTypeEnum);
             if (obj is Vessel1.FuelTypeEnum vessel1FuelTypeEnum)
                 return Vessel1.FuelTypeEnumToJsonValue(vessel1FuelTypeEnum);
-            if (obj is Vessel2.VehicleTypeEnum vessel2VehicleTypeEnum)
-                return Vessel2.VehicleTypeEnumToJsonValue(vessel2VehicleTypeEnum);
-            if (obj is Vessel2.FuelTypeEnum vessel2FuelTypeEnum)
-                return Vessel2.FuelTypeEnumToJsonValue(vessel2FuelTypeEnum);
-            if (obj is WastewaterTreatmentMethod1.FacilityTypeEnum wastewaterTreatmentMethod1FacilityTypeEnum)
-                return WastewaterTreatmentMethod1.FacilityTypeEnumToJsonValue(wastewaterTreatmentMethod1FacilityTypeEnum);
-            if (obj is WastewaterTreatmentMethod1.CommodityTypeEnum wastewaterTreatmentMethod1CommodityTypeEnum)
-                return WastewaterTreatmentMethod1.CommodityTypeEnumToJsonValue(wastewaterTreatmentMethod1CommodityTypeEnum);
-            if (obj is WastewaterTreatmentMethod11.FacilityTypeEnum wastewaterTreatmentMethod11FacilityTypeEnum)
-                return WastewaterTreatmentMethod11.FacilityTypeEnumToJsonValue(wastewaterTreatmentMethod11FacilityTypeEnum);
-            if (obj is WastewaterTreatmentMethod11.CommodityTypeEnum wastewaterTreatmentMethod11CommodityTypeEnum)
-                return WastewaterTreatmentMethod11.CommodityTypeEnumToJsonValue(wastewaterTreatmentMethod11CommodityTypeEnum);
-            if (obj is WastewaterTreatmentMethod2.FacilityTypeEnum wastewaterTreatmentMethod2FacilityTypeEnum)
-                return WastewaterTreatmentMethod2.FacilityTypeEnumToJsonValue(wastewaterTreatmentMethod2FacilityTypeEnum);
-            if (obj is WastewaterTreatmentMethod21.FacilityTypeEnum wastewaterTreatmentMethod21FacilityTypeEnum)
-                return WastewaterTreatmentMethod21.FacilityTypeEnumToJsonValue(wastewaterTreatmentMethod21FacilityTypeEnum);
             if (obj is WithOriginRegion.ComponentTypeEnum withOriginRegionComponentTypeEnum)
                 return WithOriginRegion.ComponentTypeEnumToJsonValue(withOriginRegionComponentTypeEnum);
             if (obj is WithOriginRegion.ComponentOriginEnum withOriginRegionComponentOriginEnum)

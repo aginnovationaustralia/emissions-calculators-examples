@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,27 +18,27 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.method16 import Method16
+from openapi_client.models.method13 import Method13
 from openapi_client.models.method2_biomass_at_maturity import Method2BiomassAtMaturity
 from openapi_client.models.method2_stem_density import Method2StemDensity
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-PERENNIALCROPSINPUTINNER_ONE_OF_SCHEMAS = ["Method16", "Method2BiomassAtMaturity", "Method2StemDensity"]
+PERENNIALCROPSINPUTINNER_ONE_OF_SCHEMAS = ["Method13", "Method2BiomassAtMaturity", "Method2StemDensity"]
 
 class PerennialCropsInputInner(BaseModel):
     """
     PerennialCropsInputInner
     """
-    # data type: Method16
-    oneof_schema_1_validator: Optional[Method16] = None
+    # data type: Method13
+    oneof_schema_1_validator: Optional[Method13] = None
     # data type: Method2StemDensity
     oneof_schema_2_validator: Optional[Method2StemDensity] = None
     # data type: Method2BiomassAtMaturity
     oneof_schema_3_validator: Optional[Method2BiomassAtMaturity] = None
-    actual_instance: Optional[Union[Method16, Method2BiomassAtMaturity, Method2StemDensity]] = None
-    one_of_schemas: Set[str] = { "Method16", "Method2BiomassAtMaturity", "Method2StemDensity" }
+    actual_instance: Optional[Union[Method13, Method2BiomassAtMaturity, Method2StemDensity]] = None
+    one_of_schemas: Set[str] = { "Method13", "Method2BiomassAtMaturity", "Method2StemDensity" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -61,9 +61,9 @@ class PerennialCropsInputInner(BaseModel):
         instance = PerennialCropsInputInner.model_construct()
         error_messages = []
         match = 0
-        # validate data type: Method16
-        if not isinstance(v, Method16):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Method16`")
+        # validate data type: Method13
+        if not isinstance(v, Method13):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Method13`")
         else:
             match += 1
         # validate data type: Method2StemDensity
@@ -78,10 +78,10 @@ class PerennialCropsInputInner(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PerennialCropsInputInner with oneOf schemas: Method16, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in PerennialCropsInputInner with oneOf schemas: Method13, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PerennialCropsInputInner with oneOf schemas: Method16, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in PerennialCropsInputInner with oneOf schemas: Method13, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -96,9 +96,9 @@ class PerennialCropsInputInner(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into Method16
+        # deserialize data into Method13
         try:
-            instance.actual_instance = Method16.from_json(json_str)
+            instance.actual_instance = Method13.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -117,10 +117,10 @@ class PerennialCropsInputInner(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PerennialCropsInputInner with oneOf schemas: Method16, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into PerennialCropsInputInner with oneOf schemas: Method13, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PerennialCropsInputInner with oneOf schemas: Method16, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PerennialCropsInputInner with oneOf schemas: Method13, Method2BiomassAtMaturity, Method2StemDensity. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -134,7 +134,7 @@ class PerennialCropsInputInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Method16, Method2BiomassAtMaturity, Method2StemDensity]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Method13, Method2BiomassAtMaturity, Method2StemDensity]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

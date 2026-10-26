@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -63,10 +63,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         'breed' => 'string',
         'manure_allocations' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocations',
         'is_in_leaching_zone' => 'bool',
-        'method2_mean_annual_temperature' => 'string',
-        'grazing_system' => 'string',
-        'climate_zone' => 'string',
-        'state' => 'string',
+        'fraction_applied_to_soils' => '\OpenAPI\Client\Model\PigsManureHerdsInnerFractionAppliedToSoils',
         'system' => 'string'
     ];
 
@@ -83,10 +80,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         'breed' => null,
         'manure_allocations' => null,
         'is_in_leaching_zone' => null,
-        'method2_mean_annual_temperature' => null,
-        'grazing_system' => null,
-        'climate_zone' => null,
-        'state' => null,
+        'fraction_applied_to_soils' => null,
         'system' => null
     ];
 
@@ -101,10 +95,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         'breed' => false,
         'manure_allocations' => false,
         'is_in_leaching_zone' => false,
-        'method2_mean_annual_temperature' => false,
-        'grazing_system' => false,
-        'climate_zone' => false,
-        'state' => false,
+        'fraction_applied_to_soils' => false,
         'system' => false
     ];
 
@@ -199,10 +190,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         'breed' => 'breed',
         'manure_allocations' => 'manureAllocations',
         'is_in_leaching_zone' => 'isInLeachingZone',
-        'method2_mean_annual_temperature' => 'method2MeanAnnualTemperature',
-        'grazing_system' => 'grazingSystem',
-        'climate_zone' => 'climateZone',
-        'state' => 'state',
+        'fraction_applied_to_soils' => 'fractionAppliedToSoils',
         'system' => 'system'
     ];
 
@@ -217,10 +205,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         'breed' => 'setBreed',
         'manure_allocations' => 'setManureAllocations',
         'is_in_leaching_zone' => 'setIsInLeachingZone',
-        'method2_mean_annual_temperature' => 'setMethod2MeanAnnualTemperature',
-        'grazing_system' => 'setGrazingSystem',
-        'climate_zone' => 'setClimateZone',
-        'state' => 'setState',
+        'fraction_applied_to_soils' => 'setFractionAppliedToSoils',
         'system' => 'setSystem'
     ];
 
@@ -235,10 +220,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         'breed' => 'getBreed',
         'manure_allocations' => 'getManureAllocations',
         'is_in_leaching_zone' => 'getIsInLeachingZone',
-        'method2_mean_annual_temperature' => 'getMethod2MeanAnnualTemperature',
-        'grazing_system' => 'getGrazingSystem',
-        'climate_zone' => 'getClimateZone',
-        'state' => 'getState',
+        'fraction_applied_to_soils' => 'getFractionAppliedToSoils',
         'system' => 'getSystem'
     ];
 
@@ -304,10 +286,7 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         $this->setIfExists('breed', $data ?? [], null);
         $this->setIfExists('manure_allocations', $data ?? [], null);
         $this->setIfExists('is_in_leaching_zone', $data ?? [], null);
-        $this->setIfExists('method2_mean_annual_temperature', $data ?? [], null);
-        $this->setIfExists('grazing_system', $data ?? [], null);
-        $this->setIfExists('climate_zone', $data ?? [], null);
-        $this->setIfExists('state', $data ?? [], null);
+        $this->setIfExists('fraction_applied_to_soils', $data ?? [], null);
         $this->setIfExists('system', $data ?? [], null);
     }
 
@@ -353,14 +332,8 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         if ($this->container['is_in_leaching_zone'] === null) {
             $invalidProperties[] = "'is_in_leaching_zone' can't be null";
         }
-        if ($this->container['grazing_system'] === null) {
-            $invalidProperties[] = "'grazing_system' can't be null";
-        }
-        if ($this->container['climate_zone'] === null) {
-            $invalidProperties[] = "'climate_zone' can't be null";
-        }
-        if ($this->container['state'] === null) {
-            $invalidProperties[] = "'state' can't be null";
+        if ($this->container['fraction_applied_to_soils'] === null) {
+            $invalidProperties[] = "'fraction_applied_to_soils' can't be null";
         }
         if ($this->container['system'] === null) {
             $invalidProperties[] = "'system' can't be null";
@@ -516,109 +489,28 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets method2_mean_annual_temperature
+     * Gets fraction_applied_to_soils
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\PigsManureHerdsInnerFractionAppliedToSoils
      */
-    public function getMethod2MeanAnnualTemperature()
+    public function getFractionAppliedToSoils()
     {
-        return $this->container['method2_mean_annual_temperature'];
+        return $this->container['fraction_applied_to_soils'];
     }
 
     /**
-     * Sets method2_mean_annual_temperature
+     * Sets fraction_applied_to_soils
      *
-     * @param string|null $method2_mean_annual_temperature What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.
+     * @param \OpenAPI\Client\Model\PigsManureHerdsInnerFractionAppliedToSoils $fraction_applied_to_soils fraction_applied_to_soils
      *
      * @return self
      */
-    public function setMethod2MeanAnnualTemperature($method2_mean_annual_temperature)
+    public function setFractionAppliedToSoils($fraction_applied_to_soils)
     {
-        if (is_null($method2_mean_annual_temperature)) {
-            throw new \InvalidArgumentException('non-nullable method2_mean_annual_temperature cannot be null');
+        if (is_null($fraction_applied_to_soils)) {
+            throw new \InvalidArgumentException('non-nullable fraction_applied_to_soils cannot be null');
         }
-        $this->container['method2_mean_annual_temperature'] = $method2_mean_annual_temperature;
-
-        return $this;
-    }
-
-    /**
-     * Gets grazing_system
-     *
-     * @return string
-     */
-    public function getGrazingSystem()
-    {
-        return $this->container['grazing_system'];
-    }
-
-    /**
-     * Sets grazing_system
-     *
-     * @param string $grazing_system The production system which most accurately describes the land used for grazing and feed.
-     *
-     * @return self
-     */
-    public function setGrazingSystem($grazing_system)
-    {
-        if (is_null($grazing_system)) {
-            throw new \InvalidArgumentException('non-nullable grazing_system cannot be null');
-        }
-        $this->container['grazing_system'] = $grazing_system;
-
-        return $this;
-    }
-
-    /**
-     * Gets climate_zone
-     *
-     * @return string
-     */
-    public function getClimateZone()
-    {
-        return $this->container['climate_zone'];
-    }
-
-    /**
-     * Sets climate_zone
-     *
-     * @param string $climate_zone The climate zone the activity is located in (like \"Tropical dry\") or the basic zone type (\"dry\" or \"wet\"). See Chapter 1 section 1.8.2 for more details.
-     *
-     * @return self
-     */
-    public function setClimateZone($climate_zone)
-    {
-        if (is_null($climate_zone)) {
-            throw new \InvalidArgumentException('non-nullable climate_zone cannot be null');
-        }
-        $this->container['climate_zone'] = $climate_zone;
-
-        return $this;
-    }
-
-    /**
-     * Gets state
-     *
-     * @return string
-     */
-    public function getState()
-    {
-        return $this->container['state'];
-    }
-
-    /**
-     * Sets state
-     *
-     * @param string $state The state or territory the activity is based in
-     *
-     * @return self
-     */
-    public function setState($state)
-    {
-        if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
-        }
-        $this->container['state'] = $state;
+        $this->container['fraction_applied_to_soils'] = $fraction_applied_to_soils;
 
         return $this;
     }

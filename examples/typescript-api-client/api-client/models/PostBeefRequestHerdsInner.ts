@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -34,13 +34,6 @@ import {
     PostBeefRequestHerdsInnerLimeToJSON,
     PostBeefRequestHerdsInnerLimeToJSONTyped,
 } from './PostBeefRequestHerdsInnerLime';
-import type { PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner } from './PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner';
-import {
-    PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerFromJSON,
-    PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerFromJSONTyped,
-    PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerToJSON,
-    PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerToJSONTyped,
-} from './PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner';
 import type { PurchasedFeedListInputInner } from './PurchasedFeedListInputInner';
 import {
     PurchasedFeedListInputInnerFromJSON,
@@ -76,13 +69,6 @@ import {
     PostBeefRequestHerdsInnerChemicalsInnerToJSON,
     PostBeefRequestHerdsInnerChemicalsInnerToJSONTyped,
 } from './PostBeefRequestHerdsInnerChemicalsInner';
-import type { PostAquacultureRequestFisheriesInnerWaste } from './PostAquacultureRequestFisheriesInnerWaste';
-import {
-    PostAquacultureRequestFisheriesInnerWasteFromJSON,
-    PostAquacultureRequestFisheriesInnerWasteFromJSONTyped,
-    PostAquacultureRequestFisheriesInnerWasteToJSON,
-    PostAquacultureRequestFisheriesInnerWasteToJSONTyped,
-} from './PostAquacultureRequestFisheriesInnerWaste';
 import type { BeefClassesInput } from './BeefClassesInput';
 import {
     BeefClassesInputFromJSON,
@@ -97,13 +83,27 @@ import {
     PostBeefRequestHerdsInnerPastureToJSON,
     PostBeefRequestHerdsInnerPastureToJSONTyped,
 } from './PostBeefRequestHerdsInnerPasture';
-import type { Beef1 } from './Beef1';
+import type { PostBeefRequestHerdsInnerWaste } from './PostBeefRequestHerdsInnerWaste';
 import {
-    Beef1FromJSON,
-    Beef1FromJSONTyped,
-    Beef1ToJSON,
-    Beef1ToJSONTyped,
-} from './Beef1';
+    PostBeefRequestHerdsInnerWasteFromJSON,
+    PostBeefRequestHerdsInnerWasteFromJSONTyped,
+    PostBeefRequestHerdsInnerWasteToJSON,
+    PostBeefRequestHerdsInnerWasteToJSONTyped,
+} from './PostBeefRequestHerdsInnerWaste';
+import type { Beef } from './Beef';
+import {
+    BeefFromJSON,
+    BeefFromJSONTyped,
+    BeefToJSON,
+    BeefToJSONTyped,
+} from './Beef';
+import type { PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner } from './PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner';
+import {
+    PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerFromJSON,
+    PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerFromJSONTyped,
+    PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerToJSON,
+    PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerToJSONTyped,
+} from './PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner';
 import type { PostBeefRequestHerdsInnerLiveweightSoldKg } from './PostBeefRequestHerdsInnerLiveweightSoldKg';
 import {
     PostBeefRequestHerdsInnerLiveweightSoldKgFromJSON,
@@ -177,7 +177,7 @@ export interface PostBeefRequestHerdsInner {
     /**
      * 
      */
-    purchasedLivestock: Array<Beef1>;
+    purchasedLivestock: Array<Beef>;
     /**
      * 
      */
@@ -197,11 +197,11 @@ export interface PostBeefRequestHerdsInner {
     /**
      * Data for any additional purchased goods or services that were used within the reporting period for this enterprise that can't be captured by other inputs.
      */
-    otherPurchasedGoodsAndServices?: Array<PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner>;
+    otherPurchasedGoodsAndServices?: Array<PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner>;
     /**
      * 
      */
-    waste?: PostAquacultureRequestFisheriesInnerWaste;
+    waste?: PostBeefRequestHerdsInnerWaste;
     /**
      * 
      */
@@ -347,13 +347,13 @@ export function PostBeefRequestHerdsInnerFromJSONTyped(json: any, ignoreDiscrimi
         'fuel': FuelInputFromJSON(json['fuel']),
         'lime': PostBeefRequestHerdsInnerLimeFromJSON(json['lime']),
         'pasture': PostBeefRequestHerdsInnerPastureFromJSON(json['pasture']),
-        'purchasedLivestock': ((json['purchasedLivestock'] as Array<any>).map(Beef1FromJSON)),
+        'purchasedLivestock': ((json['purchasedLivestock'] as Array<any>).map(BeefFromJSON)),
         'purchasedFeed': ((json['purchasedFeed'] as Array<any>).map(PurchasedFeedListInputInnerFromJSON)),
         'purchasedMineralSupplements': ((json['purchasedMineralSupplements'] as Array<any>).map(PostBeefRequestHerdsInnerPurchasedMineralSupplementsInnerFromJSON)),
         'chemicals': ((json['chemicals'] as Array<any>).map(PostBeefRequestHerdsInnerChemicalsInnerFromJSON)),
         'services': PostBeefRequestHerdsInnerServicesFromJSON(json['services']),
-        'otherPurchasedGoodsAndServices': json['otherPurchasedGoodsAndServices'] == null ? undefined : ((json['otherPurchasedGoodsAndServices'] as Array<any>).map(PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerFromJSON)),
-        'waste': json['waste'] == null ? undefined : PostAquacultureRequestFisheriesInnerWasteFromJSON(json['waste']),
+        'otherPurchasedGoodsAndServices': json['otherPurchasedGoodsAndServices'] == null ? undefined : ((json['otherPurchasedGoodsAndServices'] as Array<any>).map(PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerFromJSON)),
+        'waste': json['waste'] == null ? undefined : PostBeefRequestHerdsInnerWasteFromJSON(json['waste']),
         'fertiliser': FertiliserInputFromJSON(json['fertiliser']),
     };
 }
@@ -383,13 +383,13 @@ export function PostBeefRequestHerdsInnerToJSONTyped(value?: PostBeefRequestHerd
         'fuel': FuelInputToJSON(value['fuel']),
         'lime': PostBeefRequestHerdsInnerLimeToJSON(value['lime']),
         'pasture': PostBeefRequestHerdsInnerPastureToJSON(value['pasture']),
-        'purchasedLivestock': ((value['purchasedLivestock'] as Array<any>).map(Beef1ToJSON)),
+        'purchasedLivestock': ((value['purchasedLivestock'] as Array<any>).map(BeefToJSON)),
         'purchasedFeed': ((value['purchasedFeed'] as Array<any>).map(PurchasedFeedListInputInnerToJSON)),
         'purchasedMineralSupplements': ((value['purchasedMineralSupplements'] as Array<any>).map(PostBeefRequestHerdsInnerPurchasedMineralSupplementsInnerToJSON)),
         'chemicals': ((value['chemicals'] as Array<any>).map(PostBeefRequestHerdsInnerChemicalsInnerToJSON)),
         'services': PostBeefRequestHerdsInnerServicesToJSON(value['services']),
-        'otherPurchasedGoodsAndServices': value['otherPurchasedGoodsAndServices'] == null ? undefined : ((value['otherPurchasedGoodsAndServices'] as Array<any>).map(PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerToJSON)),
-        'waste': PostAquacultureRequestFisheriesInnerWasteToJSON(value['waste']),
+        'otherPurchasedGoodsAndServices': value['otherPurchasedGoodsAndServices'] == null ? undefined : ((value['otherPurchasedGoodsAndServices'] as Array<any>).map(PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerToJSON)),
+        'waste': PostBeefRequestHerdsInnerWasteToJSON(value['waste']),
         'fertiliser': FertiliserInputToJSON(value['fertiliser']),
     };
 }

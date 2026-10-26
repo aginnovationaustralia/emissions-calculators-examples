@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -40,7 +40,6 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCows(BaseModel):
     method2_duration_days: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2DurationDays] = Field(default=None, alias="method2DurationDays")
     method2_dry_matter_digestibility: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2DryMatterDigestibility] = Field(default=None, alias="method2DryMatterDigestibility")
     method2_crude_protein: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2CrudeProtein] = Field(default=None, alias="method2CrudeProtein")
-    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["head", "method2Liveweight", "method2LiveweightGain", "method2DurationDays", "method2DryMatterDigestibility", "method2CrudeProtein"]
 
     model_config = ConfigDict(
@@ -73,10 +72,8 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCows(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -102,11 +99,6 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCows(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of method2_crude_protein
         if self.method2_crude_protein:
             _dict['method2CrudeProtein'] = self.method2_crude_protein.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -126,11 +118,6 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCows(BaseModel):
             "method2DryMatterDigestibility": TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2DryMatterDigestibility.from_dict(obj["method2DryMatterDigestibility"]) if obj.get("method2DryMatterDigestibility") is not None else None,
             "method2CrudeProtein": TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2CrudeProtein.from_dict(obj["method2CrudeProtein"]) if obj.get("method2CrudeProtein") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

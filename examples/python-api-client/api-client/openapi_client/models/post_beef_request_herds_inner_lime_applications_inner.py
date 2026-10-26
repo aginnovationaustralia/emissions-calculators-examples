@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -19,23 +19,23 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from openapi_client.models.gypsum_application import GypsumApplication
-from openapi_client.models.limestone_or_dolomite_application1 import LimestoneOrDolomiteApplication1
+from openapi_client.models.limestone_or_dolomite_application import LimestoneOrDolomiteApplication
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-POSTBEEFREQUESTHERDSINNERLIMEAPPLICATIONSINNER_ONE_OF_SCHEMAS = ["GypsumApplication", "LimestoneOrDolomiteApplication1"]
+POSTBEEFREQUESTHERDSINNERLIMEAPPLICATIONSINNER_ONE_OF_SCHEMAS = ["GypsumApplication", "LimestoneOrDolomiteApplication"]
 
 class PostBeefRequestHerdsInnerLimeApplicationsInner(BaseModel):
     """
     PostBeefRequestHerdsInnerLimeApplicationsInner
     """
-    # data type: LimestoneOrDolomiteApplication1
-    oneof_schema_1_validator: Optional[LimestoneOrDolomiteApplication1] = None
+    # data type: LimestoneOrDolomiteApplication
+    oneof_schema_1_validator: Optional[LimestoneOrDolomiteApplication] = None
     # data type: GypsumApplication
     oneof_schema_2_validator: Optional[GypsumApplication] = None
-    actual_instance: Optional[Union[GypsumApplication, LimestoneOrDolomiteApplication1]] = None
-    one_of_schemas: Set[str] = { "GypsumApplication", "LimestoneOrDolomiteApplication1" }
+    actual_instance: Optional[Union[GypsumApplication, LimestoneOrDolomiteApplication]] = None
+    one_of_schemas: Set[str] = { "GypsumApplication", "LimestoneOrDolomiteApplication" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,9 +58,9 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner(BaseModel):
         instance = PostBeefRequestHerdsInnerLimeApplicationsInner.model_construct()
         error_messages = []
         match = 0
-        # validate data type: LimestoneOrDolomiteApplication1
-        if not isinstance(v, LimestoneOrDolomiteApplication1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `LimestoneOrDolomiteApplication1`")
+        # validate data type: LimestoneOrDolomiteApplication
+        if not isinstance(v, LimestoneOrDolomiteApplication):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `LimestoneOrDolomiteApplication`")
         else:
             match += 1
         # validate data type: GypsumApplication
@@ -70,10 +70,10 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication1. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,9 +88,9 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into LimestoneOrDolomiteApplication1
+        # deserialize data into LimestoneOrDolomiteApplication
         try:
-            instance.actual_instance = LimestoneOrDolomiteApplication1.from_json(json_str)
+            instance.actual_instance = LimestoneOrDolomiteApplication.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -103,10 +103,10 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication1. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PostBeefRequestHerdsInnerLimeApplicationsInner with oneOf schemas: GypsumApplication, LimestoneOrDolomiteApplication. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class PostBeefRequestHerdsInnerLimeApplicationsInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], GypsumApplication, LimestoneOrDolomiteApplication1]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], GypsumApplication, LimestoneOrDolomiteApplication]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

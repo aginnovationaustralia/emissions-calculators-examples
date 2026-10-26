@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -72,13 +72,13 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
         'fuel' => '\OpenAPI\Client\Model\FuelInput',
         'lime' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerLime',
         'pasture' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPasture',
-        'purchased_livestock' => '\OpenAPI\Client\Model\Beef1[]',
+        'purchased_livestock' => '\OpenAPI\Client\Model\Beef[]',
         'purchased_feed' => '\OpenAPI\Client\Model\PurchasedFeedListInputInner[]',
         'purchased_mineral_supplements' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner[]',
         'chemicals' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerChemicalsInner[]',
         'services' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerServices',
-        'other_purchased_goods_and_services' => '\OpenAPI\Client\Model\PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner[]',
-        'waste' => '\OpenAPI\Client\Model\PostAquacultureRequestFisheriesInnerWaste',
+        'other_purchased_goods_and_services' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner[]',
+        'waste' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerWaste',
         'fertiliser' => '\OpenAPI\Client\Model\FertiliserInput'
     ];
 
@@ -1128,7 +1128,7 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets purchased_livestock
      *
-     * @return \OpenAPI\Client\Model\Beef1[]
+     * @return \OpenAPI\Client\Model\Beef[]
      */
     public function getPurchasedLivestock()
     {
@@ -1138,7 +1138,7 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets purchased_livestock
      *
-     * @param \OpenAPI\Client\Model\Beef1[] $purchased_livestock purchased_livestock
+     * @param \OpenAPI\Client\Model\Beef[] $purchased_livestock purchased_livestock
      *
      * @return self
      */
@@ -1263,7 +1263,7 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets other_purchased_goods_and_services
      *
-     * @return \OpenAPI\Client\Model\PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner[]|null
+     * @return \OpenAPI\Client\Model\PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner[]|null
      */
     public function getOtherPurchasedGoodsAndServices()
     {
@@ -1273,7 +1273,7 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets other_purchased_goods_and_services
      *
-     * @param \OpenAPI\Client\Model\PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner[]|null $other_purchased_goods_and_services Data for any additional purchased goods or services that were used within the reporting period for this enterprise that can't be captured by other inputs.
+     * @param \OpenAPI\Client\Model\PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner[]|null $other_purchased_goods_and_services Data for any additional purchased goods or services that were used within the reporting period for this enterprise that can't be captured by other inputs.
      *
      * @return self
      */
@@ -1290,7 +1290,7 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets waste
      *
-     * @return \OpenAPI\Client\Model\PostAquacultureRequestFisheriesInnerWaste|null
+     * @return \OpenAPI\Client\Model\PostBeefRequestHerdsInnerWaste|null
      */
     public function getWaste()
     {
@@ -1300,7 +1300,7 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets waste
      *
-     * @param \OpenAPI\Client\Model\PostAquacultureRequestFisheriesInnerWaste|null $waste waste
+     * @param \OpenAPI\Client\Model\PostBeefRequestHerdsInnerWaste|null $waste waste
      *
      * @return self
      */

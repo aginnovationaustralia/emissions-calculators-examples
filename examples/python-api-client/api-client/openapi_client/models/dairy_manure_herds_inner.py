@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,24 +18,24 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.time_in_locations_method1_production_system2 import TimeInLocationsMethod1ProductionSystem2
-from openapi_client.models.time_in_locations_method2_measured_proportions2 import TimeInLocationsMethod2MeasuredProportions2
+from openapi_client.models.time_in_locations_method1_production_system import TimeInLocationsMethod1ProductionSystem
+from openapi_client.models.time_in_locations_method2_measured_proportions import TimeInLocationsMethod2MeasuredProportions
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-DAIRYMANUREHERDSINNER_ONE_OF_SCHEMAS = ["TimeInLocationsMethod1ProductionSystem2", "TimeInLocationsMethod2MeasuredProportions2"]
+DAIRYMANUREHERDSINNER_ONE_OF_SCHEMAS = ["TimeInLocationsMethod1ProductionSystem", "TimeInLocationsMethod2MeasuredProportions"]
 
 class DairyManureHerdsInner(BaseModel):
     """
     DairyManureHerdsInner
     """
-    # data type: TimeInLocationsMethod1ProductionSystem2
-    oneof_schema_1_validator: Optional[TimeInLocationsMethod1ProductionSystem2] = None
-    # data type: TimeInLocationsMethod2MeasuredProportions2
-    oneof_schema_2_validator: Optional[TimeInLocationsMethod2MeasuredProportions2] = None
-    actual_instance: Optional[Union[TimeInLocationsMethod1ProductionSystem2, TimeInLocationsMethod2MeasuredProportions2]] = None
-    one_of_schemas: Set[str] = { "TimeInLocationsMethod1ProductionSystem2", "TimeInLocationsMethod2MeasuredProportions2" }
+    # data type: TimeInLocationsMethod1ProductionSystem
+    oneof_schema_1_validator: Optional[TimeInLocationsMethod1ProductionSystem] = None
+    # data type: TimeInLocationsMethod2MeasuredProportions
+    oneof_schema_2_validator: Optional[TimeInLocationsMethod2MeasuredProportions] = None
+    actual_instance: Optional[Union[TimeInLocationsMethod1ProductionSystem, TimeInLocationsMethod2MeasuredProportions]] = None
+    one_of_schemas: Set[str] = { "TimeInLocationsMethod1ProductionSystem", "TimeInLocationsMethod2MeasuredProportions" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,22 +58,22 @@ class DairyManureHerdsInner(BaseModel):
         instance = DairyManureHerdsInner.model_construct()
         error_messages = []
         match = 0
-        # validate data type: TimeInLocationsMethod1ProductionSystem2
-        if not isinstance(v, TimeInLocationsMethod1ProductionSystem2):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `TimeInLocationsMethod1ProductionSystem2`")
+        # validate data type: TimeInLocationsMethod1ProductionSystem
+        if not isinstance(v, TimeInLocationsMethod1ProductionSystem):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimeInLocationsMethod1ProductionSystem`")
         else:
             match += 1
-        # validate data type: TimeInLocationsMethod2MeasuredProportions2
-        if not isinstance(v, TimeInLocationsMethod2MeasuredProportions2):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `TimeInLocationsMethod2MeasuredProportions2`")
+        # validate data type: TimeInLocationsMethod2MeasuredProportions
+        if not isinstance(v, TimeInLocationsMethod2MeasuredProportions):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `TimeInLocationsMethod2MeasuredProportions`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem2, TimeInLocationsMethod2MeasuredProportions2. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem, TimeInLocationsMethod2MeasuredProportions. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem2, TimeInLocationsMethod2MeasuredProportions2. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem, TimeInLocationsMethod2MeasuredProportions. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,25 +88,25 @@ class DairyManureHerdsInner(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into TimeInLocationsMethod1ProductionSystem2
+        # deserialize data into TimeInLocationsMethod1ProductionSystem
         try:
-            instance.actual_instance = TimeInLocationsMethod1ProductionSystem2.from_json(json_str)
+            instance.actual_instance = TimeInLocationsMethod1ProductionSystem.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into TimeInLocationsMethod2MeasuredProportions2
+        # deserialize data into TimeInLocationsMethod2MeasuredProportions
         try:
-            instance.actual_instance = TimeInLocationsMethod2MeasuredProportions2.from_json(json_str)
+            instance.actual_instance = TimeInLocationsMethod2MeasuredProportions.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem2, TimeInLocationsMethod2MeasuredProportions2. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem, TimeInLocationsMethod2MeasuredProportions. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem2, TimeInLocationsMethod2MeasuredProportions2. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into DairyManureHerdsInner with oneOf schemas: TimeInLocationsMethod1ProductionSystem, TimeInLocationsMethod2MeasuredProportions. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class DairyManureHerdsInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], TimeInLocationsMethod1ProductionSystem2, TimeInLocationsMethod2MeasuredProportions2]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], TimeInLocationsMethod1ProductionSystem, TimeInLocationsMethod2MeasuredProportions]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

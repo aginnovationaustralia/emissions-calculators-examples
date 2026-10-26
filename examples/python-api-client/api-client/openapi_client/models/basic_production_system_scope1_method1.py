@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.inorganic_fertiliser_scope1_method1_inorganic import InorganicFertiliserScope1Method1Inorganic
+from openapi_client.models.basic_production_system_scope1_method1_inorganic import BasicProductionSystemScope1Method1Inorganic
 from openapi_client.models.organic_fertilisers_input import OrganicFertilisersInput
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class BasicProductionSystemScope1Method1(BaseModel):
     BasicProductionSystemScope1Method1
     """ # noqa: E501
     production_system: StrictStr = Field(description="Production system of the crop", alias="productionSystem")
-    inorganic: InorganicFertiliserScope1Method1Inorganic
+    inorganic: BasicProductionSystemScope1Method1Inorganic
     organic: OrganicFertilisersInput
     __properties: ClassVar[List[str]] = ["productionSystem", "inorganic", "organic"]
 
@@ -100,7 +100,7 @@ class BasicProductionSystemScope1Method1(BaseModel):
 
         _obj = cls.model_validate({
             "productionSystem": obj.get("productionSystem"),
-            "inorganic": InorganicFertiliserScope1Method1Inorganic.from_dict(obj["inorganic"]) if obj.get("inorganic") is not None else None,
+            "inorganic": BasicProductionSystemScope1Method1Inorganic.from_dict(obj["inorganic"]) if obj.get("inorganic") is not None else None,
             "organic": OrganicFertilisersInput.from_dict(obj["organic"]) if obj.get("organic") is not None else None
         })
         return _obj

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,18 +20,18 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_all_modules200_response_scope3_agrichemicals import PostAllModules200ResponseScope3Agrichemicals
-from openapi_client.models.post_all_modules200_response_scope3_electricity import PostAllModules200ResponseScope3Electricity
-from openapi_client.models.post_all_modules200_response_scope3_fertiliser import PostAllModules200ResponseScope3Fertiliser
-from openapi_client.models.post_all_modules200_response_scope3_fuel import PostAllModules200ResponseScope3Fuel
-from openapi_client.models.post_all_modules200_response_scope3_other_purchased_goods_and_services import PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices
-from openapi_client.models.post_all_modules200_response_scope3_purchased_feed import PostAllModules200ResponseScope3PurchasedFeed
-from openapi_client.models.post_all_modules200_response_scope3_purchased_livestock import PostAllModules200ResponseScope3PurchasedLivestock
-from openapi_client.models.post_all_modules200_response_scope3_purchased_mineral_supplements import PostAllModules200ResponseScope3PurchasedMineralSupplements
-from openapi_client.models.post_all_modules200_response_scope3_services import PostAllModules200ResponseScope3Services
-from openapi_client.models.post_all_modules200_response_scope3_soil_ameliorants import PostAllModules200ResponseScope3SoilAmeliorants
-from openapi_client.models.post_all_modules200_response_scope3_solid_waste import PostAllModules200ResponseScope3SolidWaste
-from openapi_client.models.post_aquaculture200_response_scope3_total import PostAquaculture200ResponseScope3Total
+from openapi_client.models.post_beef200_response_scope3_agrichemicals import PostBeef200ResponseScope3Agrichemicals
+from openapi_client.models.post_beef200_response_scope3_electricity import PostBeef200ResponseScope3Electricity
+from openapi_client.models.post_beef200_response_scope3_fertiliser import PostBeef200ResponseScope3Fertiliser
+from openapi_client.models.post_beef200_response_scope3_fuel import PostBeef200ResponseScope3Fuel
+from openapi_client.models.post_beef200_response_scope3_other_purchased_goods_and_services import PostBeef200ResponseScope3OtherPurchasedGoodsAndServices
+from openapi_client.models.post_beef200_response_scope3_purchased_feed import PostBeef200ResponseScope3PurchasedFeed
+from openapi_client.models.post_beef200_response_scope3_purchased_livestock import PostBeef200ResponseScope3PurchasedLivestock
+from openapi_client.models.post_beef200_response_scope3_purchased_mineral_supplements import PostBeef200ResponseScope3PurchasedMineralSupplements
+from openapi_client.models.post_beef200_response_scope3_services import PostBeef200ResponseScope3Services
+from openapi_client.models.post_beef200_response_scope3_soil_ameliorants import PostBeef200ResponseScope3SoilAmeliorants
+from openapi_client.models.post_beef200_response_scope3_solid_waste import PostBeef200ResponseScope3SolidWaste
+from openapi_client.models.post_beef200_response_scope3_total import PostBeef200ResponseScope3Total
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -40,18 +40,18 @@ class PostBeef200ResponseScope3(BaseModel):
     """
     Scope 3 emissions are indirect greenhouse gas emissions other than scope 2 emissions that are generated in the wider economy, in tonnes-CO2e (tonnes of carbon dioxide equivalent)
     """ # noqa: E501
-    total: PostAquaculture200ResponseScope3Total
-    purchased_livestock: PostAllModules200ResponseScope3PurchasedLivestock = Field(alias="purchasedLivestock")
-    purchased_feed: PostAllModules200ResponseScope3PurchasedFeed = Field(alias="purchasedFeed")
-    purchased_mineral_supplements: PostAllModules200ResponseScope3PurchasedMineralSupplements = Field(alias="purchasedMineralSupplements")
-    fertiliser: PostAllModules200ResponseScope3Fertiliser
-    agrichemicals: PostAllModules200ResponseScope3Agrichemicals
-    soil_ameliorants: PostAllModules200ResponseScope3SoilAmeliorants = Field(alias="soilAmeliorants")
-    services: PostAllModules200ResponseScope3Services
-    solid_waste: PostAllModules200ResponseScope3SolidWaste = Field(alias="solidWaste")
-    fuel: PostAllModules200ResponseScope3Fuel
-    electricity: PostAllModules200ResponseScope3Electricity
-    other_purchased_goods_and_services: PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices = Field(alias="otherPurchasedGoodsAndServices")
+    total: PostBeef200ResponseScope3Total
+    purchased_livestock: PostBeef200ResponseScope3PurchasedLivestock = Field(alias="purchasedLivestock")
+    purchased_feed: PostBeef200ResponseScope3PurchasedFeed = Field(alias="purchasedFeed")
+    purchased_mineral_supplements: PostBeef200ResponseScope3PurchasedMineralSupplements = Field(alias="purchasedMineralSupplements")
+    fertiliser: PostBeef200ResponseScope3Fertiliser
+    agrichemicals: PostBeef200ResponseScope3Agrichemicals
+    soil_ameliorants: PostBeef200ResponseScope3SoilAmeliorants = Field(alias="soilAmeliorants")
+    services: PostBeef200ResponseScope3Services
+    solid_waste: PostBeef200ResponseScope3SolidWaste = Field(alias="solidWaste")
+    fuel: PostBeef200ResponseScope3Fuel
+    electricity: PostBeef200ResponseScope3Electricity
+    other_purchased_goods_and_services: PostBeef200ResponseScope3OtherPurchasedGoodsAndServices = Field(alias="otherPurchasedGoodsAndServices")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["total", "purchasedLivestock", "purchasedFeed", "purchasedMineralSupplements", "fertiliser", "agrichemicals", "soilAmeliorants", "services", "solidWaste", "fuel", "electricity", "otherPurchasedGoodsAndServices"]
 
@@ -149,18 +149,18 @@ class PostBeef200ResponseScope3(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "total": PostAquaculture200ResponseScope3Total.from_dict(obj["total"]) if obj.get("total") is not None else None,
-            "purchasedLivestock": PostAllModules200ResponseScope3PurchasedLivestock.from_dict(obj["purchasedLivestock"]) if obj.get("purchasedLivestock") is not None else None,
-            "purchasedFeed": PostAllModules200ResponseScope3PurchasedFeed.from_dict(obj["purchasedFeed"]) if obj.get("purchasedFeed") is not None else None,
-            "purchasedMineralSupplements": PostAllModules200ResponseScope3PurchasedMineralSupplements.from_dict(obj["purchasedMineralSupplements"]) if obj.get("purchasedMineralSupplements") is not None else None,
-            "fertiliser": PostAllModules200ResponseScope3Fertiliser.from_dict(obj["fertiliser"]) if obj.get("fertiliser") is not None else None,
-            "agrichemicals": PostAllModules200ResponseScope3Agrichemicals.from_dict(obj["agrichemicals"]) if obj.get("agrichemicals") is not None else None,
-            "soilAmeliorants": PostAllModules200ResponseScope3SoilAmeliorants.from_dict(obj["soilAmeliorants"]) if obj.get("soilAmeliorants") is not None else None,
-            "services": PostAllModules200ResponseScope3Services.from_dict(obj["services"]) if obj.get("services") is not None else None,
-            "solidWaste": PostAllModules200ResponseScope3SolidWaste.from_dict(obj["solidWaste"]) if obj.get("solidWaste") is not None else None,
-            "fuel": PostAllModules200ResponseScope3Fuel.from_dict(obj["fuel"]) if obj.get("fuel") is not None else None,
-            "electricity": PostAllModules200ResponseScope3Electricity.from_dict(obj["electricity"]) if obj.get("electricity") is not None else None,
-            "otherPurchasedGoodsAndServices": PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices.from_dict(obj["otherPurchasedGoodsAndServices"]) if obj.get("otherPurchasedGoodsAndServices") is not None else None
+            "total": PostBeef200ResponseScope3Total.from_dict(obj["total"]) if obj.get("total") is not None else None,
+            "purchasedLivestock": PostBeef200ResponseScope3PurchasedLivestock.from_dict(obj["purchasedLivestock"]) if obj.get("purchasedLivestock") is not None else None,
+            "purchasedFeed": PostBeef200ResponseScope3PurchasedFeed.from_dict(obj["purchasedFeed"]) if obj.get("purchasedFeed") is not None else None,
+            "purchasedMineralSupplements": PostBeef200ResponseScope3PurchasedMineralSupplements.from_dict(obj["purchasedMineralSupplements"]) if obj.get("purchasedMineralSupplements") is not None else None,
+            "fertiliser": PostBeef200ResponseScope3Fertiliser.from_dict(obj["fertiliser"]) if obj.get("fertiliser") is not None else None,
+            "agrichemicals": PostBeef200ResponseScope3Agrichemicals.from_dict(obj["agrichemicals"]) if obj.get("agrichemicals") is not None else None,
+            "soilAmeliorants": PostBeef200ResponseScope3SoilAmeliorants.from_dict(obj["soilAmeliorants"]) if obj.get("soilAmeliorants") is not None else None,
+            "services": PostBeef200ResponseScope3Services.from_dict(obj["services"]) if obj.get("services") is not None else None,
+            "solidWaste": PostBeef200ResponseScope3SolidWaste.from_dict(obj["solidWaste"]) if obj.get("solidWaste") is not None else None,
+            "fuel": PostBeef200ResponseScope3Fuel.from_dict(obj["fuel"]) if obj.get("fuel") is not None else None,
+            "electricity": PostBeef200ResponseScope3Electricity.from_dict(obj["electricity"]) if obj.get("electricity") is not None else None,
+            "otherPurchasedGoodsAndServices": PostBeef200ResponseScope3OtherPurchasedGoodsAndServices.from_dict(obj["otherPurchasedGoodsAndServices"]) if obj.get("otherPurchasedGoodsAndServices") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

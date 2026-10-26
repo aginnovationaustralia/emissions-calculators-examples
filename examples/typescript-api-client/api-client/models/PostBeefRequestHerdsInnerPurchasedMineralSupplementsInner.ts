@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { Method15 } from './Method15';
+import type { Method11 } from './Method11';
 import {
-    instanceOfMethod15,
-    Method15FromJSON,
-    Method15FromJSONTyped,
-    Method15ToJSON,
-} from './Method15';
-import type { Method25 } from './Method25';
+    instanceOfMethod11,
+    Method11FromJSON,
+    Method11FromJSONTyped,
+    Method11ToJSON,
+} from './Method11';
+import type { Method21 } from './Method21';
 import {
-    instanceOfMethod25,
-    Method25FromJSON,
-    Method25FromJSONTyped,
-    Method25ToJSON,
-} from './Method25';
+    instanceOfMethod21,
+    Method21FromJSON,
+    Method21FromJSONTyped,
+    Method21ToJSON,
+} from './Method21';
 
 /**
  * @type PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner
  * 
  * @export
  */
-export type PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner = Method15 | Method25;
+export type PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner = Method11 | Method21;
 /**
  * Check if a given object matches one of the PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -43,10 +43,10 @@ export function instanceOfPostBeefRequestHerdsInnerPurchasedMineralSupplementsIn
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfMethod15(value)) {
+    if (instanceOfMethod11(value)) {
         return true;
     }
-    if (instanceOfMethod25(value)) {
+    if (instanceOfMethod21(value)) {
         return true;
     }
     return false;
@@ -64,11 +64,11 @@ export function PostBeefRequestHerdsInnerPurchasedMineralSupplementsInnerFromJSO
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfMethod15(json)) {
-        return Method15FromJSONTyped(json, true);
+    if (instanceOfMethod11(json)) {
+        return Method11FromJSONTyped(json, true);
     }
-    if (instanceOfMethod25(json)) {
-        return Method25FromJSONTyped(json, true);
+    if (instanceOfMethod21(json)) {
+        return Method21FromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -84,11 +84,11 @@ export function PostBeefRequestHerdsInnerPurchasedMineralSupplementsInnerToJSONT
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfMethod15(value)) {
-        return Method15ToJSON(value as Method15);
+    if (instanceOfMethod11(value)) {
+        return Method11ToJSON(value as Method11);
     }
-    if (instanceOfMethod25(value)) {
-        return Method25ToJSON(value as Method25);
+    if (instanceOfMethod21(value)) {
+        return Method21ToJSON(value as Method21);
     }
     return {};
 }

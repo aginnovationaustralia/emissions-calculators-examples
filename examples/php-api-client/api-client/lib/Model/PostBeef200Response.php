@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -63,7 +63,7 @@ class PostBeef200Response implements ModelInterface, ArrayAccess, \JsonSerializa
         'scope2' => '\OpenAPI\Client\Model\Scope2Output',
         'scope3' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3',
         'intermediate' => '\OpenAPI\Client\Model\PostBeef200ResponseIntermediateInner[]',
-        'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseNet',
+        'net' => '\OpenAPI\Client\Model\PostBeef200ResponseNet',
         'intensities' => '\OpenAPI\Client\Model\PostBeef200ResponseIntensities'
     ];
 
@@ -455,7 +455,7 @@ class PostBeef200Response implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets net
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseNet
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseNet
      */
     public function getNet()
     {
@@ -465,7 +465,7 @@ class PostBeef200Response implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets net
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseNet $net net
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseNet $net net
      *
      * @return self
      */

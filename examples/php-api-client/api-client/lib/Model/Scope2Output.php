@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,7 +59,7 @@ class Scope2Output implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'electricity' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope3Electricity',
+        'electricity' => '\OpenAPI\Client\Model\Scope2OutputElectricity',
         'total' => '\OpenAPI\Client\Model\Scope2OutputTotal'
     ];
 
@@ -307,7 +307,7 @@ class Scope2Output implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets electricity
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope3Electricity
+     * @return \OpenAPI\Client\Model\Scope2OutputElectricity
      */
     public function getElectricity()
     {
@@ -317,7 +317,7 @@ class Scope2Output implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets electricity
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope3Electricity $electricity electricity
+     * @param \OpenAPI\Client\Model\Scope2OutputElectricity $electricity electricity
      *
      * @return self
      */

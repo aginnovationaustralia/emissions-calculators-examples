@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -61,7 +61,7 @@ class PurchasedFeedListInputInner implements ModelInterface, ArrayAccess, \JsonS
         'amount' => '\OpenAPI\Client\Model\RegionlessFeedTypeAmount',
         'type' => 'string',
         'region' => 'string',
-        'custom_emissions_factor' => '\OpenAPI\Client\Model\Method2CustomEmissionsFactor2CustomEmissionsFactor'
+        'custom_emissions_factor' => '\OpenAPI\Client\Model\Method2CustomEmissionsFactorCustomEmissionsFactor'
     ];
 
     /**
@@ -407,7 +407,7 @@ class PurchasedFeedListInputInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets custom_emissions_factor
      *
-     * @return \OpenAPI\Client\Model\Method2CustomEmissionsFactor2CustomEmissionsFactor
+     * @return \OpenAPI\Client\Model\Method2CustomEmissionsFactorCustomEmissionsFactor
      */
     public function getCustomEmissionsFactor()
     {
@@ -417,7 +417,7 @@ class PurchasedFeedListInputInner implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets custom_emissions_factor
      *
-     * @param \OpenAPI\Client\Model\Method2CustomEmissionsFactor2CustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
+     * @param \OpenAPI\Client\Model\Method2CustomEmissionsFactorCustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
      *
      * @return self
      */

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { CompressedNaturalGasCNG2 } from './CompressedNaturalGasCNG2';
+import type { CompressedNaturalGasCNG1 } from './CompressedNaturalGasCNG1';
 import {
-    instanceOfCompressedNaturalGasCNG2,
-    CompressedNaturalGasCNG2FromJSON,
-    CompressedNaturalGasCNG2FromJSONTyped,
-    CompressedNaturalGasCNG2ToJSON,
-} from './CompressedNaturalGasCNG2';
-import type { LitresBasedFuel3 } from './LitresBasedFuel3';
+    instanceOfCompressedNaturalGasCNG1,
+    CompressedNaturalGasCNG1FromJSON,
+    CompressedNaturalGasCNG1FromJSONTyped,
+    CompressedNaturalGasCNG1ToJSON,
+} from './CompressedNaturalGasCNG1';
+import type { LitresBasedFuel1 } from './LitresBasedFuel1';
 import {
-    instanceOfLitresBasedFuel3,
-    LitresBasedFuel3FromJSON,
-    LitresBasedFuel3FromJSONTyped,
-    LitresBasedFuel3ToJSON,
-} from './LitresBasedFuel3';
+    instanceOfLitresBasedFuel1,
+    LitresBasedFuel1FromJSON,
+    LitresBasedFuel1FromJSONTyped,
+    LitresBasedFuel1ToJSON,
+} from './LitresBasedFuel1';
 
 /**
  * @type ServicesFuelInputTransportInner
  * 
  * @export
  */
-export type ServicesFuelInputTransportInner = CompressedNaturalGasCNG2 | LitresBasedFuel3;
+export type ServicesFuelInputTransportInner = CompressedNaturalGasCNG1 | LitresBasedFuel1;
 /**
  * Check if a given object matches one of the ServicesFuelInputTransportInner variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -43,10 +43,10 @@ export function instanceOfServicesFuelInputTransportInner(value: any): boolean {
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfCompressedNaturalGasCNG2(value)) {
+    if (instanceOfCompressedNaturalGasCNG1(value)) {
         return true;
     }
-    if (instanceOfLitresBasedFuel3(value)) {
+    if (instanceOfLitresBasedFuel1(value)) {
         return true;
     }
     return false;
@@ -64,11 +64,11 @@ export function ServicesFuelInputTransportInnerFromJSONTyped(json: any, ignoreDi
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfCompressedNaturalGasCNG2(json)) {
-        return CompressedNaturalGasCNG2FromJSONTyped(json, true);
+    if (instanceOfCompressedNaturalGasCNG1(json)) {
+        return CompressedNaturalGasCNG1FromJSONTyped(json, true);
     }
-    if (instanceOfLitresBasedFuel3(json)) {
-        return LitresBasedFuel3FromJSONTyped(json, true);
+    if (instanceOfLitresBasedFuel1(json)) {
+        return LitresBasedFuel1FromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -84,11 +84,11 @@ export function ServicesFuelInputTransportInnerToJSONTyped(value?: ServicesFuelI
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfCompressedNaturalGasCNG2(value)) {
-        return CompressedNaturalGasCNG2ToJSON(value as CompressedNaturalGasCNG2);
+    if (instanceOfCompressedNaturalGasCNG1(value)) {
+        return CompressedNaturalGasCNG1ToJSON(value as CompressedNaturalGasCNG1);
     }
-    if (instanceOfLitresBasedFuel3(value)) {
-        return LitresBasedFuel3ToJSON(value as LitresBasedFuel3);
+    if (instanceOfLitresBasedFuel1(value)) {
+        return LitresBasedFuel1ToJSON(value as LitresBasedFuel1);
     }
     return {};
 }

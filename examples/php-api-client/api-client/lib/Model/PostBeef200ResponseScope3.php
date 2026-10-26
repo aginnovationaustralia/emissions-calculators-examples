@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,18 +59,18 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $openAPITypes = [
-        'total' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope3Total',
-        'purchased_livestock' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedLivestock',
-        'purchased_feed' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedFeed',
-        'purchased_mineral_supplements' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedMineralSupplements',
-        'fertiliser' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3Fertiliser',
-        'agrichemicals' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3Agrichemicals',
-        'soil_ameliorants' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3SoilAmeliorants',
-        'services' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3Services',
-        'solid_waste' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3SolidWaste',
-        'fuel' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3Fuel',
-        'electricity' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3Electricity',
-        'other_purchased_goods_and_services' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices'
+        'total' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3Total',
+        'purchased_livestock' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedLivestock',
+        'purchased_feed' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedFeed',
+        'purchased_mineral_supplements' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedMineralSupplements',
+        'fertiliser' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3Fertiliser',
+        'agrichemicals' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3Agrichemicals',
+        'soil_ameliorants' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3SoilAmeliorants',
+        'services' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3Services',
+        'solid_waste' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3SolidWaste',
+        'fuel' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3Fuel',
+        'electricity' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3Electricity',
+        'other_purchased_goods_and_services' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3OtherPurchasedGoodsAndServices'
     ];
 
     /**
@@ -407,7 +407,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets total
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope3Total
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3Total
      */
     public function getTotal()
     {
@@ -417,7 +417,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets total
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope3Total $total total
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3Total $total total
      *
      * @return self
      */
@@ -434,7 +434,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets purchased_livestock
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedLivestock
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedLivestock
      */
     public function getPurchasedLivestock()
     {
@@ -444,7 +444,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets purchased_livestock
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedLivestock $purchased_livestock purchased_livestock
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedLivestock $purchased_livestock purchased_livestock
      *
      * @return self
      */
@@ -461,7 +461,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets purchased_feed
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedFeed
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedFeed
      */
     public function getPurchasedFeed()
     {
@@ -471,7 +471,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets purchased_feed
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedFeed $purchased_feed purchased_feed
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedFeed $purchased_feed purchased_feed
      *
      * @return self
      */
@@ -488,7 +488,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets purchased_mineral_supplements
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedMineralSupplements
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedMineralSupplements
      */
     public function getPurchasedMineralSupplements()
     {
@@ -498,7 +498,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets purchased_mineral_supplements
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3PurchasedMineralSupplements $purchased_mineral_supplements purchased_mineral_supplements
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3PurchasedMineralSupplements $purchased_mineral_supplements purchased_mineral_supplements
      *
      * @return self
      */
@@ -515,7 +515,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets fertiliser
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3Fertiliser
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3Fertiliser
      */
     public function getFertiliser()
     {
@@ -525,7 +525,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets fertiliser
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3Fertiliser $fertiliser fertiliser
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3Fertiliser $fertiliser fertiliser
      *
      * @return self
      */
@@ -542,7 +542,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets agrichemicals
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3Agrichemicals
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3Agrichemicals
      */
     public function getAgrichemicals()
     {
@@ -552,7 +552,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets agrichemicals
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3Agrichemicals $agrichemicals agrichemicals
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3Agrichemicals $agrichemicals agrichemicals
      *
      * @return self
      */
@@ -569,7 +569,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets soil_ameliorants
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3SoilAmeliorants
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3SoilAmeliorants
      */
     public function getSoilAmeliorants()
     {
@@ -579,7 +579,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets soil_ameliorants
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3SoilAmeliorants $soil_ameliorants soil_ameliorants
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3SoilAmeliorants $soil_ameliorants soil_ameliorants
      *
      * @return self
      */
@@ -596,7 +596,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets services
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3Services
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3Services
      */
     public function getServices()
     {
@@ -606,7 +606,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets services
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3Services $services services
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3Services $services services
      *
      * @return self
      */
@@ -623,7 +623,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets solid_waste
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3SolidWaste
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3SolidWaste
      */
     public function getSolidWaste()
     {
@@ -633,7 +633,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets solid_waste
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3SolidWaste $solid_waste solid_waste
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3SolidWaste $solid_waste solid_waste
      *
      * @return self
      */
@@ -650,7 +650,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets fuel
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3Fuel
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3Fuel
      */
     public function getFuel()
     {
@@ -660,7 +660,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets fuel
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3Fuel $fuel fuel
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3Fuel $fuel fuel
      *
      * @return self
      */
@@ -677,7 +677,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets electricity
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3Electricity
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3Electricity
      */
     public function getElectricity()
     {
@@ -687,7 +687,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets electricity
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3Electricity $electricity electricity
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3Electricity $electricity electricity
      *
      * @return self
      */
@@ -704,7 +704,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets other_purchased_goods_and_services
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3OtherPurchasedGoodsAndServices
      */
     public function getOtherPurchasedGoodsAndServices()
     {
@@ -714,7 +714,7 @@ class PostBeef200ResponseScope3 implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets other_purchased_goods_and_services
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices $other_purchased_goods_and_services other_purchased_goods_and_services
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3OtherPurchasedGoodsAndServices $other_purchased_goods_and_services other_purchased_goods_and_services
      *
      * @return self
      */

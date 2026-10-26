@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -21,9 +21,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.beef_scope1_output import BeefScope1Output
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_net import PostAquaculture200ResponseIntermediateInnerNet
 from openapi_client.models.post_beef200_response_intermediate_inner_intensities import PostBeef200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_beef200_response_scope3 import PostBeef200ResponseScope3
+from openapi_client.models.post_beef200_response_intermediate_inner_net import PostBeef200ResponseIntermediateInnerNet
+from openapi_client.models.post_beef200_response_intermediate_inner_scope3 import PostBeef200ResponseIntermediateInnerScope3
 from openapi_client.models.scope2_output import Scope2Output
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,8 +36,8 @@ class PostBeef200ResponseIntermediateInner(BaseModel):
     id: StrictStr = Field(description="Unique identifier for this Beef activity")
     scope1: BeefScope1Output
     scope2: Scope2Output
-    scope3: PostBeef200ResponseScope3
-    net: PostAquaculture200ResponseIntermediateInnerNet
+    scope3: PostBeef200ResponseIntermediateInnerScope3
+    net: PostBeef200ResponseIntermediateInnerNet
     intensities: PostBeef200ResponseIntermediateInnerIntensities
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "scope1", "scope2", "scope3", "net", "intensities"]
@@ -118,8 +118,8 @@ class PostBeef200ResponseIntermediateInner(BaseModel):
             "id": obj.get("id"),
             "scope1": BeefScope1Output.from_dict(obj["scope1"]) if obj.get("scope1") is not None else None,
             "scope2": Scope2Output.from_dict(obj["scope2"]) if obj.get("scope2") is not None else None,
-            "scope3": PostBeef200ResponseScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
-            "net": PostAquaculture200ResponseIntermediateInnerNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
+            "scope3": PostBeef200ResponseIntermediateInnerScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
+            "net": PostBeef200ResponseIntermediateInnerNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
             "intensities": PostBeef200ResponseIntermediateInnerIntensities.from_dict(obj["intensities"]) if obj.get("intensities") is not None else None
         })
         # store additional fields in additional_properties

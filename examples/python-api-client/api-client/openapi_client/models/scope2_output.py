@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_aquaculture200_response_scope3_electricity import PostAquaculture200ResponseScope3Electricity
+from openapi_client.models.scope2_output_electricity import Scope2OutputElectricity
 from openapi_client.models.scope2_output_total import Scope2OutputTotal
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class Scope2Output(BaseModel):
     """
     Scope 2 greenhouse gas emissions are the emissions released to the atmosphere from the indirect consumption of an energy commodity, in tonnes-CO2e (tonnes of carbon dioxide equivalent)
     """ # noqa: E501
-    electricity: PostAquaculture200ResponseScope3Electricity
+    electricity: Scope2OutputElectricity
     total: Scope2OutputTotal
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["electricity", "total"]
@@ -99,7 +99,7 @@ class Scope2Output(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "electricity": PostAquaculture200ResponseScope3Electricity.from_dict(obj["electricity"]) if obj.get("electricity") is not None else None,
+            "electricity": Scope2OutputElectricity.from_dict(obj["electricity"]) if obj.get("electricity") is not None else None,
             "total": Scope2OutputTotal.from_dict(obj["total"]) if obj.get("total") is not None else None
         })
         # store additional fields in additional_properties

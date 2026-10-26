@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.method16_clearings_inner_area_cleared import Method16ClearingsInnerAreaCleared
+from openapi_client.models.method13_clearings_inner_area_cleared import Method13ClearingsInnerAreaCleared
 from openapi_client.models.method2_stem_density_clearings_inner_method2_age_at_clearing import Method2StemDensityClearingsInnerMethod2AgeAtClearing
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class Method2StemDensityClearingsInner(BaseModel):
     """
     Method2StemDensityClearingsInner
     """ # noqa: E501
-    area_cleared: Method16ClearingsInnerAreaCleared = Field(alias="areaCleared")
+    area_cleared: Method13ClearingsInnerAreaCleared = Field(alias="areaCleared")
     method2_age_at_clearing: Method2StemDensityClearingsInnerMethod2AgeAtClearing = Field(alias="method2AgeAtClearing")
     __properties: ClassVar[List[str]] = ["areaCleared", "method2AgeAtClearing"]
 
@@ -91,7 +91,7 @@ class Method2StemDensityClearingsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "areaCleared": Method16ClearingsInnerAreaCleared.from_dict(obj["areaCleared"]) if obj.get("areaCleared") is not None else None,
+            "areaCleared": Method13ClearingsInnerAreaCleared.from_dict(obj["areaCleared"]) if obj.get("areaCleared") is not None else None,
             "method2AgeAtClearing": Method2StemDensityClearingsInnerMethod2AgeAtClearing.from_dict(obj["method2AgeAtClearing"]) if obj.get("method2AgeAtClearing") is not None else None
         })
         return _obj

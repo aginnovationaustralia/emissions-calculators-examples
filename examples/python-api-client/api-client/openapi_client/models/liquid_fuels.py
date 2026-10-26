@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,24 +18,24 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.quantity_by_mass22 import QuantityByMass22
-from openapi_client.models.quantity_by_volume20 import QuantityByVolume20
+from openapi_client.models.quantity_by_mass11 import QuantityByMass11
+from openapi_client.models.quantity_by_volume11 import QuantityByVolume11
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-LIQUIDFUELS_ONE_OF_SCHEMAS = ["QuantityByMass22", "QuantityByVolume20"]
+LIQUIDFUELS_ONE_OF_SCHEMAS = ["QuantityByMass11", "QuantityByVolume11"]
 
 class LiquidFuels(BaseModel):
     """
     LiquidFuels
     """
-    # data type: QuantityByVolume20
-    oneof_schema_1_validator: Optional[QuantityByVolume20] = None
-    # data type: QuantityByMass22
-    oneof_schema_2_validator: Optional[QuantityByMass22] = None
-    actual_instance: Optional[Union[QuantityByMass22, QuantityByVolume20]] = None
-    one_of_schemas: Set[str] = { "QuantityByMass22", "QuantityByVolume20" }
+    # data type: QuantityByVolume11
+    oneof_schema_1_validator: Optional[QuantityByVolume11] = None
+    # data type: QuantityByMass11
+    oneof_schema_2_validator: Optional[QuantityByMass11] = None
+    actual_instance: Optional[Union[QuantityByMass11, QuantityByVolume11]] = None
+    one_of_schemas: Set[str] = { "QuantityByMass11", "QuantityByVolume11" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,22 +58,22 @@ class LiquidFuels(BaseModel):
         instance = LiquidFuels.model_construct()
         error_messages = []
         match = 0
-        # validate data type: QuantityByVolume20
-        if not isinstance(v, QuantityByVolume20):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `QuantityByVolume20`")
+        # validate data type: QuantityByVolume11
+        if not isinstance(v, QuantityByVolume11):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `QuantityByVolume11`")
         else:
             match += 1
-        # validate data type: QuantityByMass22
-        if not isinstance(v, QuantityByMass22):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `QuantityByMass22`")
+        # validate data type: QuantityByMass11
+        if not isinstance(v, QuantityByMass11):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `QuantityByMass11`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in LiquidFuels with oneOf schemas: QuantityByMass22, QuantityByVolume20. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in LiquidFuels with oneOf schemas: QuantityByMass11, QuantityByVolume11. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in LiquidFuels with oneOf schemas: QuantityByMass22, QuantityByVolume20. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in LiquidFuels with oneOf schemas: QuantityByMass11, QuantityByVolume11. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,25 +88,25 @@ class LiquidFuels(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into QuantityByVolume20
+        # deserialize data into QuantityByVolume11
         try:
-            instance.actual_instance = QuantityByVolume20.from_json(json_str)
+            instance.actual_instance = QuantityByVolume11.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into QuantityByMass22
+        # deserialize data into QuantityByMass11
         try:
-            instance.actual_instance = QuantityByMass22.from_json(json_str)
+            instance.actual_instance = QuantityByMass11.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into LiquidFuels with oneOf schemas: QuantityByMass22, QuantityByVolume20. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into LiquidFuels with oneOf schemas: QuantityByMass11, QuantityByVolume11. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into LiquidFuels with oneOf schemas: QuantityByMass22, QuantityByVolume20. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into LiquidFuels with oneOf schemas: QuantityByMass11, QuantityByVolume11. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class LiquidFuels(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], QuantityByMass22, QuantityByVolume20]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], QuantityByMass11, QuantityByVolume11]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

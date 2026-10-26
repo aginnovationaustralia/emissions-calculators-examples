@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -60,7 +60,7 @@ class LiquidFuels implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'fuel_class' => 'string',
         'fuel_type' => 'string',
-        'amount_kilolitres' => '\OpenAPI\Client\Model\QuantityByVolume20AmountKilolitres',
+        'amount_kilolitres' => '\OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres',
         'amount_tonnes' => '\OpenAPI\Client\Model\SolidFuelsAmountTonnes'
     ];
 
@@ -380,7 +380,7 @@ class LiquidFuels implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount_kilolitres
      *
-     * @return \OpenAPI\Client\Model\QuantityByVolume20AmountKilolitres
+     * @return \OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres
      */
     public function getAmountKilolitres()
     {
@@ -390,7 +390,7 @@ class LiquidFuels implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount_kilolitres
      *
-     * @param \OpenAPI\Client\Model\QuantityByVolume20AmountKilolitres $amount_kilolitres amount_kilolitres
+     * @param \OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres $amount_kilolitres amount_kilolitres
      *
      * @return self
      */

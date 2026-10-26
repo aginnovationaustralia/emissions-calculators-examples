@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { QuantityByMass11AmountMass } from './QuantityByMass11AmountMass';
+import type { SolidFuelsAmountTonnes } from './SolidFuelsAmountTonnes';
 import {
-    QuantityByMass11AmountMassFromJSON,
-    QuantityByMass11AmountMassFromJSONTyped,
-    QuantityByMass11AmountMassToJSON,
-    QuantityByMass11AmountMassToJSONTyped,
-} from './QuantityByMass11AmountMass';
+    SolidFuelsAmountTonnesFromJSON,
+    SolidFuelsAmountTonnesFromJSONTyped,
+    SolidFuelsAmountTonnesToJSON,
+    SolidFuelsAmountTonnesToJSONTyped,
+} from './SolidFuelsAmountTonnes';
 
 /**
  * 
@@ -30,31 +30,48 @@ export interface QuantityByMass11 {
     /**
      * 
      */
-    amountMass: QuantityByMass11AmountMass;
+    fuelClass: QuantityByMass11FuelClassEnum;
     /**
-     * The type of packaging purchased.
+     * Type of liquid fuel used in stationary equipment
      */
-    type: QuantityByMass11TypeEnum;
+    fuelType: QuantityByMass11FuelTypeEnum;
+    /**
+     * 
+     */
+    amountTonnes: SolidFuelsAmountTonnes;
 }
 
 
 /**
  * @export
  */
-export const QuantityByMass11TypeEnum = {
-    CorrugatedBoard: 'Corrugated board',
-    PlasticFilmLdpe: 'Plastic film LDPE',
-    PlasticSheetHdpe: 'Plastic sheet HDPE',
+export const QuantityByMass11FuelClassEnum = {
+    LiquidFuels: 'Liquid fuels',
 } as const;
-export type QuantityByMass11TypeEnum = typeof QuantityByMass11TypeEnum[keyof typeof QuantityByMass11TypeEnum];
+export type QuantityByMass11FuelClassEnum = typeof QuantityByMass11FuelClassEnum[keyof typeof QuantityByMass11FuelClassEnum];
+
+/**
+ * @export
+ */
+export const QuantityByMass11FuelTypeEnum = {
+    CrudeOilAndCondensates: 'Crude oil and condensates',
+    OtherNaturalGasLiquids: 'Other natural gas liquids',
+    PetroleumCoke: 'Petroleum coke',
+    RefineryGasAndLiquids: 'Refinery gas and liquids',
+    RefineryCoke: 'Refinery coke',
+} as const;
+export type QuantityByMass11FuelTypeEnum = typeof QuantityByMass11FuelTypeEnum[keyof typeof QuantityByMass11FuelTypeEnum];
 
 
 /**
  * Check if a given object implements the QuantityByMass11 interface.
  */
 export function instanceOfQuantityByMass11(value: object): value is QuantityByMass11 {
-    if (!('amountMass' in value) || value['amountMass'] === undefined) return false;
-    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('fuelClass' in value) || value['fuelClass'] === undefined) return false;
+    if (value['fuelClass'] !== 'Liquid fuels') return false;
+    
+    if (!('fuelType' in value) || value['fuelType'] === undefined) return false;
+    if (!('amountTonnes' in value) || value['amountTonnes'] === undefined) return false;
     return true;
 }
 
@@ -68,8 +85,9 @@ export function QuantityByMass11FromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'amountMass': QuantityByMass11AmountMassFromJSON(json['amountMass']),
-        'type': json['type'],
+        'fuelClass': json['fuelClass'],
+        'fuelType': json['fuelType'],
+        'amountTonnes': SolidFuelsAmountTonnesFromJSON(json['amountTonnes']),
     };
 }
 
@@ -84,8 +102,9 @@ export function QuantityByMass11ToJSONTyped(value?: QuantityByMass11 | null, ign
 
     return {
         
-        'amountMass': QuantityByMass11AmountMassToJSON(value['amountMass']),
-        'type': value['type'],
+        'fuelClass': value['fuelClass'],
+        'fuelType': value['fuelType'],
+        'amountTonnes': SolidFuelsAmountTonnesToJSON(value['amountTonnes']),
     };
 }
 

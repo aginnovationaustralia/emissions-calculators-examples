@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -21,9 +21,9 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.beef_scope1_output_plus_lulucf import BeefScope1OutputPlusLULUCF
-from openapi_client.models.post_aquaculture200_response_net import PostAquaculture200ResponseNet
 from openapi_client.models.post_beef200_response_intensities import PostBeef200ResponseIntensities
 from openapi_client.models.post_beef200_response_intermediate_inner import PostBeef200ResponseIntermediateInner
+from openapi_client.models.post_beef200_response_net import PostBeef200ResponseNet
 from openapi_client.models.post_beef200_response_scope3 import PostBeef200ResponseScope3
 from openapi_client.models.scope2_output import Scope2Output
 from typing import Optional, Set
@@ -38,7 +38,7 @@ class PostBeef200Response(BaseModel):
     scope2: Scope2Output
     scope3: PostBeef200ResponseScope3
     intermediate: List[PostBeef200ResponseIntermediateInner]
-    net: PostAquaculture200ResponseNet
+    net: PostBeef200ResponseNet
     intensities: PostBeef200ResponseIntensities
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["scope1", "scope2", "scope3", "intermediate", "net", "intensities"]
@@ -126,7 +126,7 @@ class PostBeef200Response(BaseModel):
             "scope2": Scope2Output.from_dict(obj["scope2"]) if obj.get("scope2") is not None else None,
             "scope3": PostBeef200ResponseScope3.from_dict(obj["scope3"]) if obj.get("scope3") is not None else None,
             "intermediate": [PostBeef200ResponseIntermediateInner.from_dict(_item) for _item in obj["intermediate"]] if obj.get("intermediate") is not None else None,
-            "net": PostAquaculture200ResponseNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
+            "net": PostBeef200ResponseNet.from_dict(obj["net"]) if obj.get("net") is not None else None,
             "intensities": PostBeef200ResponseIntensities.from_dict(obj["intensities"]) if obj.get("intensities") is not None else None
         })
         # store additional fields in additional_properties

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PostBeef200ResponseScope3 } from './PostBeef200ResponseScope3';
-import {
-    PostBeef200ResponseScope3FromJSON,
-    PostBeef200ResponseScope3FromJSONTyped,
-    PostBeef200ResponseScope3ToJSON,
-    PostBeef200ResponseScope3ToJSONTyped,
-} from './PostBeef200ResponseScope3';
 import type { BeefScope1Output } from './BeefScope1Output';
 import {
     BeefScope1OutputFromJSON,
@@ -27,13 +20,20 @@ import {
     BeefScope1OutputToJSON,
     BeefScope1OutputToJSONTyped,
 } from './BeefScope1Output';
-import type { PostAquaculture200ResponseIntermediateInnerNet } from './PostAquaculture200ResponseIntermediateInnerNet';
+import type { PostBeef200ResponseIntermediateInnerScope3 } from './PostBeef200ResponseIntermediateInnerScope3';
 import {
-    PostAquaculture200ResponseIntermediateInnerNetFromJSON,
-    PostAquaculture200ResponseIntermediateInnerNetFromJSONTyped,
-    PostAquaculture200ResponseIntermediateInnerNetToJSON,
-    PostAquaculture200ResponseIntermediateInnerNetToJSONTyped,
-} from './PostAquaculture200ResponseIntermediateInnerNet';
+    PostBeef200ResponseIntermediateInnerScope3FromJSON,
+    PostBeef200ResponseIntermediateInnerScope3FromJSONTyped,
+    PostBeef200ResponseIntermediateInnerScope3ToJSON,
+    PostBeef200ResponseIntermediateInnerScope3ToJSONTyped,
+} from './PostBeef200ResponseIntermediateInnerScope3';
+import type { PostBeef200ResponseIntermediateInnerNet } from './PostBeef200ResponseIntermediateInnerNet';
+import {
+    PostBeef200ResponseIntermediateInnerNetFromJSON,
+    PostBeef200ResponseIntermediateInnerNetFromJSONTyped,
+    PostBeef200ResponseIntermediateInnerNetToJSON,
+    PostBeef200ResponseIntermediateInnerNetToJSONTyped,
+} from './PostBeef200ResponseIntermediateInnerNet';
 import type { Scope2Output } from './Scope2Output';
 import {
     Scope2OutputFromJSON,
@@ -70,11 +70,11 @@ export interface PostBeef200ResponseIntermediateInner {
     /**
      * 
      */
-    scope3: PostBeef200ResponseScope3;
+    scope3: PostBeef200ResponseIntermediateInnerScope3;
     /**
      * 
      */
-    net: PostAquaculture200ResponseIntermediateInnerNet;
+    net: PostBeef200ResponseIntermediateInnerNet;
     /**
      * 
      */
@@ -107,8 +107,8 @@ export function PostBeef200ResponseIntermediateInnerFromJSONTyped(json: any, ign
         'id': json['id'],
         'scope1': BeefScope1OutputFromJSON(json['scope1']),
         'scope2': Scope2OutputFromJSON(json['scope2']),
-        'scope3': PostBeef200ResponseScope3FromJSON(json['scope3']),
-        'net': PostAquaculture200ResponseIntermediateInnerNetFromJSON(json['net']),
+        'scope3': PostBeef200ResponseIntermediateInnerScope3FromJSON(json['scope3']),
+        'net': PostBeef200ResponseIntermediateInnerNetFromJSON(json['net']),
         'intensities': PostBeef200ResponseIntermediateInnerIntensitiesFromJSON(json['intensities']),
     };
 }
@@ -127,8 +127,8 @@ export function PostBeef200ResponseIntermediateInnerToJSONTyped(value?: PostBeef
         'id': value['id'],
         'scope1': BeefScope1OutputToJSON(value['scope1']),
         'scope2': Scope2OutputToJSON(value['scope2']),
-        'scope3': PostBeef200ResponseScope3ToJSON(value['scope3']),
-        'net': PostAquaculture200ResponseIntermediateInnerNetToJSON(value['net']),
+        'scope3': PostBeef200ResponseIntermediateInnerScope3ToJSON(value['scope3']),
+        'net': PostBeef200ResponseIntermediateInnerNetToJSON(value['net']),
         'intensities': PostBeef200ResponseIntermediateInnerIntensitiesToJSON(value['intensities']),
     };
 }

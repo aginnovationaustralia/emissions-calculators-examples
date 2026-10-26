@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { InorganicFertiliserScope1Method2Inorganic } from './InorganicFertiliserScope1Method2Inorganic';
+import type { SpecificProductionSystemScope1Method2Inorganic } from './SpecificProductionSystemScope1Method2Inorganic';
 import {
-    InorganicFertiliserScope1Method2InorganicFromJSON,
-    InorganicFertiliserScope1Method2InorganicFromJSONTyped,
-    InorganicFertiliserScope1Method2InorganicToJSON,
-    InorganicFertiliserScope1Method2InorganicToJSONTyped,
-} from './InorganicFertiliserScope1Method2Inorganic';
+    SpecificProductionSystemScope1Method2InorganicFromJSON,
+    SpecificProductionSystemScope1Method2InorganicFromJSONTyped,
+    SpecificProductionSystemScope1Method2InorganicToJSON,
+    SpecificProductionSystemScope1Method2InorganicToJSONTyped,
+} from './SpecificProductionSystemScope1Method2Inorganic';
 import type { OrganicFertilisersInput } from './OrganicFertilisersInput';
 import {
     OrganicFertilisersInputFromJSON,
@@ -41,7 +41,7 @@ export interface SpecificProductionSystemScope1Method2 {
     /**
      * 
      */
-    inorganic: InorganicFertiliserScope1Method2Inorganic;
+    inorganic: SpecificProductionSystemScope1Method2Inorganic;
     /**
      * 
      */
@@ -81,7 +81,7 @@ export function SpecificProductionSystemScope1Method2FromJSONTyped(json: any, ig
     return {
         
         'productionSystem': json['productionSystem'],
-        'inorganic': InorganicFertiliserScope1Method2InorganicFromJSON(json['inorganic']),
+        'inorganic': SpecificProductionSystemScope1Method2InorganicFromJSON(json['inorganic']),
         'organic': OrganicFertilisersInputFromJSON(json['organic']),
     };
 }
@@ -98,7 +98,7 @@ export function SpecificProductionSystemScope1Method2ToJSONTyped(value?: Specifi
     return {
         
         'productionSystem': value['productionSystem'],
-        'inorganic': InorganicFertiliserScope1Method2InorganicToJSON(value['inorganic']),
+        'inorganic': SpecificProductionSystemScope1Method2InorganicToJSON(value['inorganic']),
         'organic': OrganicFertilisersInputToJSON(value['organic']),
     };
 }

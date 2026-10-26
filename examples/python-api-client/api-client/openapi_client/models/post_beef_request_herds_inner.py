@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,19 +20,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.beef1 import Beef1
+from openapi_client.models.beef import Beef
 from openapi_client.models.beef_classes_input import BeefClassesInput
 from openapi_client.models.fertiliser_input import FertiliserInput
 from openapi_client.models.fuel_input import FuelInput
-from openapi_client.models.post_aquaculture_request_fisheries_inner_other_purchased_goods_and_services_inner import PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste import PostAquacultureRequestFisheriesInnerWaste
 from openapi_client.models.post_beef_request_herds_inner_chemicals_inner import PostBeefRequestHerdsInnerChemicalsInner
 from openapi_client.models.post_beef_request_herds_inner_electricity_allocation import PostBeefRequestHerdsInnerElectricityAllocation
 from openapi_client.models.post_beef_request_herds_inner_lime import PostBeefRequestHerdsInnerLime
 from openapi_client.models.post_beef_request_herds_inner_liveweight_sold_kg import PostBeefRequestHerdsInnerLiveweightSoldKg
+from openapi_client.models.post_beef_request_herds_inner_other_purchased_goods_and_services_inner import PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner
 from openapi_client.models.post_beef_request_herds_inner_pasture import PostBeefRequestHerdsInnerPasture
 from openapi_client.models.post_beef_request_herds_inner_purchased_mineral_supplements_inner import PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner
 from openapi_client.models.post_beef_request_herds_inner_services import PostBeefRequestHerdsInnerServices
+from openapi_client.models.post_beef_request_herds_inner_waste import PostBeefRequestHerdsInnerWaste
 from openapi_client.models.purchased_feed_list_input_inner import PurchasedFeedListInputInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -56,13 +56,13 @@ class PostBeefRequestHerdsInner(BaseModel):
     fuel: FuelInput
     lime: PostBeefRequestHerdsInnerLime
     pasture: PostBeefRequestHerdsInnerPasture
-    purchased_livestock: List[Beef1] = Field(alias="purchasedLivestock")
+    purchased_livestock: List[Beef] = Field(alias="purchasedLivestock")
     purchased_feed: List[PurchasedFeedListInputInner] = Field(alias="purchasedFeed")
     purchased_mineral_supplements: List[PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner] = Field(alias="purchasedMineralSupplements")
     chemicals: List[PostBeefRequestHerdsInnerChemicalsInner]
     services: PostBeefRequestHerdsInnerServices
-    other_purchased_goods_and_services: Optional[List[PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner]] = Field(default=None, description="Data for any additional purchased goods or services that were used within the reporting period for this enterprise that can't be captured by other inputs.", alias="otherPurchasedGoodsAndServices")
-    waste: Optional[PostAquacultureRequestFisheriesInnerWaste] = None
+    other_purchased_goods_and_services: Optional[List[PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner]] = Field(default=None, description="Data for any additional purchased goods or services that were used within the reporting period for this enterprise that can't be captured by other inputs.", alias="otherPurchasedGoodsAndServices")
+    waste: Optional[PostBeefRequestHerdsInnerWaste] = None
     fertiliser: FertiliserInput
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "electricityAllocation", "region", "classes", "breed", "grazingSystem", "method2MeanAnnualTemperature", "climateZone", "isInLeachingZone", "excludedFromNaturalWater", "liveweightSoldKg", "fuel", "lime", "pasture", "purchasedLivestock", "purchasedFeed", "purchasedMineralSupplements", "chemicals", "services", "otherPurchasedGoodsAndServices", "waste", "fertiliser"]
@@ -234,13 +234,13 @@ class PostBeefRequestHerdsInner(BaseModel):
             "fuel": FuelInput.from_dict(obj["fuel"]) if obj.get("fuel") is not None else None,
             "lime": PostBeefRequestHerdsInnerLime.from_dict(obj["lime"]) if obj.get("lime") is not None else None,
             "pasture": PostBeefRequestHerdsInnerPasture.from_dict(obj["pasture"]) if obj.get("pasture") is not None else None,
-            "purchasedLivestock": [Beef1.from_dict(_item) for _item in obj["purchasedLivestock"]] if obj.get("purchasedLivestock") is not None else None,
+            "purchasedLivestock": [Beef.from_dict(_item) for _item in obj["purchasedLivestock"]] if obj.get("purchasedLivestock") is not None else None,
             "purchasedFeed": [PurchasedFeedListInputInner.from_dict(_item) for _item in obj["purchasedFeed"]] if obj.get("purchasedFeed") is not None else None,
             "purchasedMineralSupplements": [PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner.from_dict(_item) for _item in obj["purchasedMineralSupplements"]] if obj.get("purchasedMineralSupplements") is not None else None,
             "chemicals": [PostBeefRequestHerdsInnerChemicalsInner.from_dict(_item) for _item in obj["chemicals"]] if obj.get("chemicals") is not None else None,
             "services": PostBeefRequestHerdsInnerServices.from_dict(obj["services"]) if obj.get("services") is not None else None,
-            "otherPurchasedGoodsAndServices": [PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner.from_dict(_item) for _item in obj["otherPurchasedGoodsAndServices"]] if obj.get("otherPurchasedGoodsAndServices") is not None else None,
-            "waste": PostAquacultureRequestFisheriesInnerWaste.from_dict(obj["waste"]) if obj.get("waste") is not None else None,
+            "otherPurchasedGoodsAndServices": [PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner.from_dict(_item) for _item in obj["otherPurchasedGoodsAndServices"]] if obj.get("otherPurchasedGoodsAndServices") is not None else None,
+            "waste": PostBeefRequestHerdsInnerWaste.from_dict(obj["waste"]) if obj.get("waste") is not None else None,
             "fertiliser": FertiliserInput.from_dict(obj["fertiliser"]) if obj.get("fertiliser") is not None else None
         })
         # store additional fields in additional_properties

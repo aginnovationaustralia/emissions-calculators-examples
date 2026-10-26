@@ -1,5 +1,5 @@
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -32,11 +32,11 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="AIA Calculator API",
+    description="AIA Calculator API - beef",
     author="AIA",
     author_email="contact@aginnovationaustralia.com.au",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "AIA Calculator API"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "AIA Calculator API - beef"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

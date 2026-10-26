@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -27,6 +27,13 @@ import {
     TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON,
     TimeInLocationsMethod1ProductionSystemManureAllocationsToJSONTyped,
 } from './TimeInLocationsMethod1ProductionSystemManureAllocations';
+import type { PigsManureHerdsInnerFractionAppliedToSoils } from './PigsManureHerdsInnerFractionAppliedToSoils';
+import {
+    PigsManureHerdsInnerFractionAppliedToSoilsFromJSON,
+    PigsManureHerdsInnerFractionAppliedToSoilsFromJSONTyped,
+    PigsManureHerdsInnerFractionAppliedToSoilsToJSON,
+    PigsManureHerdsInnerFractionAppliedToSoilsToJSONTyped,
+} from './PigsManureHerdsInnerFractionAppliedToSoils';
 import type { TimeInLocationsMethod1ProductionSystemClasses } from './TimeInLocationsMethod1ProductionSystemClasses';
 import {
     TimeInLocationsMethod1ProductionSystemClassesFromJSON,
@@ -62,21 +69,9 @@ export interface TimeInLocationsMethod1ProductionSystem {
      */
     isInLeachingZone: boolean;
     /**
-     * What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.
+     * 
      */
-    method2MeanAnnualTemperature?: TimeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum;
-    /**
-     * The production system which most accurately describes the land used for grazing and feed.
-     */
-    grazingSystem: TimeInLocationsMethod1ProductionSystemGrazingSystemEnum;
-    /**
-     * The climate zone the activity is located in (like "Tropical dry") or the basic zone type ("dry" or "wet"). See Chapter 1 section 1.8.2 for more details.
-     */
-    climateZone: TimeInLocationsMethod1ProductionSystemClimateZoneEnum;
-    /**
-     * The state or territory the activity is based in
-     */
-    state: TimeInLocationsMethod1ProductionSystemStateEnum;
+    fractionAppliedToSoils: PigsManureHerdsInnerFractionAppliedToSoils;
     /**
      * Production system used to manage this dairy herd
      */
@@ -104,78 +99,6 @@ export type TimeInLocationsMethod1ProductionSystemBreedEnum = typeof TimeInLocat
 /**
  * @export
  */
-export const TimeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum = {
-    _11: '11',
-    _12: '12',
-    _13: '13',
-    _14: '14',
-    _15: '15',
-    _16: '16',
-    _17: '17',
-    _18: '18',
-    _19: '19',
-    _20: '20',
-    _21: '21',
-    _22: '22',
-    _23: '23',
-    _24: '24',
-    _25: '25',
-    _26: '26',
-    _27: '27',
-    _10OrBelow: '10 or below',
-    _28OrAbove: '28 or above',
-} as const;
-export type TimeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum = typeof TimeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum[keyof typeof TimeInLocationsMethod1ProductionSystemMethod2MeanAnnualTemperatureEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod1ProductionSystemGrazingSystemEnum = {
-    NonIrrigatedPasture: 'Non-irrigated pasture',
-    IrrigatedPasture: 'Irrigated pasture',
-    IrrigatedCrop: 'Irrigated crop',
-    NonIrrigatedCropLowRainfall: 'Non-irrigated crop (low rainfall)',
-    NonIrrigatedCropHighRainfall: 'Non-irrigated crop (high rainfall)',
-} as const;
-export type TimeInLocationsMethod1ProductionSystemGrazingSystemEnum = typeof TimeInLocationsMethod1ProductionSystemGrazingSystemEnum[keyof typeof TimeInLocationsMethod1ProductionSystemGrazingSystemEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod1ProductionSystemClimateZoneEnum = {
-    TropicalMontane: 'Tropical montane',
-    TropicalWet: 'Tropical wet',
-    TropicalMoist: 'Tropical moist',
-    WarmTemperateMoist: 'Warm temperate moist',
-    CoolTemperateMoist: 'Cool temperate moist',
-    BorealMoist: 'Boreal moist',
-    TropicalDry: 'Tropical dry',
-    WarmTemperateDry: 'Warm temperate dry',
-    CoolTemperateDry: 'Cool temperate dry',
-    BorealDry: 'Boreal dry',
-    Dry: 'dry',
-    Wet: 'wet',
-} as const;
-export type TimeInLocationsMethod1ProductionSystemClimateZoneEnum = typeof TimeInLocationsMethod1ProductionSystemClimateZoneEnum[keyof typeof TimeInLocationsMethod1ProductionSystemClimateZoneEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod1ProductionSystemStateEnum = {
-    Act: 'ACT',
-    Tas: 'TAS',
-    Nsw: 'NSW',
-    Vic: 'VIC',
-    Qld: 'QLD',
-    Sa: 'SA',
-    Wa: 'WA',
-    Nt: 'NT',
-} as const;
-export type TimeInLocationsMethod1ProductionSystemStateEnum = typeof TimeInLocationsMethod1ProductionSystemStateEnum[keyof typeof TimeInLocationsMethod1ProductionSystemStateEnum];
-
-/**
- * @export
- */
 export const TimeInLocationsMethod1ProductionSystemSystemEnum = {
     GrazedOnly: 'Grazed only',
     LimitedFeedpad: 'Limited feedpad',
@@ -194,9 +117,7 @@ export function instanceOfTimeInLocationsMethod1ProductionSystem(value: object):
     if (!('breed' in value) || value['breed'] === undefined) return false;
     if (!('manureAllocations' in value) || value['manureAllocations'] === undefined) return false;
     if (!('isInLeachingZone' in value) || value['isInLeachingZone'] === undefined) return false;
-    if (!('grazingSystem' in value) || value['grazingSystem'] === undefined) return false;
-    if (!('climateZone' in value) || value['climateZone'] === undefined) return false;
-    if (!('state' in value) || value['state'] === undefined) return false;
+    if (!('fractionAppliedToSoils' in value) || value['fractionAppliedToSoils'] === undefined) return false;
     if (!('system' in value) || value['system'] === undefined) return false;
     return true;
 }
@@ -216,10 +137,7 @@ export function TimeInLocationsMethod1ProductionSystemFromJSONTyped(json: any, i
         'breed': json['breed'],
         'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSON(json['manureAllocations']),
         'isInLeachingZone': json['isInLeachingZone'],
-        'method2MeanAnnualTemperature': json['method2MeanAnnualTemperature'] == null ? undefined : json['method2MeanAnnualTemperature'],
-        'grazingSystem': json['grazingSystem'],
-        'climateZone': json['climateZone'],
-        'state': json['state'],
+        'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsFromJSON(json['fractionAppliedToSoils']),
         'system': json['system'],
     };
 }
@@ -240,10 +158,7 @@ export function TimeInLocationsMethod1ProductionSystemToJSONTyped(value?: TimeIn
         'breed': value['breed'],
         'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON(value['manureAllocations']),
         'isInLeachingZone': value['isInLeachingZone'],
-        'method2MeanAnnualTemperature': value['method2MeanAnnualTemperature'],
-        'grazingSystem': value['grazingSystem'],
-        'climateZone': value['climateZone'],
-        'state': value['state'],
+        'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsToJSON(value['fractionAppliedToSoils']),
         'system': value['system'],
     };
 }

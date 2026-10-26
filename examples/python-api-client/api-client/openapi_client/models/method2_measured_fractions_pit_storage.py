@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -23,7 +23,6 @@ from typing import Any, ClassVar, Dict, List
 from openapi_client.models.method1_solids_separation_flag_pit_storage_manure_allocated import Method1SolidsSeparationFlagPitStorageManureAllocated
 from openapi_client.models.method1_solids_separation_flag_pit_storage_treatment_stage2_allocations import Method1SolidsSeparationFlagPitStorageTreatmentStage2Allocations
 from openapi_client.models.method2_measured_fractions_anaerobic_lagoon_fraction_nitrogen_separated_pre_treatment import Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment
-from openapi_client.models.method2_measured_fractions_anaerobic_lagoon_fraction_solids_separated_pre_treatment import Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,11 +31,10 @@ class Method2MeasuredFractionsPitStorage(BaseModel):
     """
     Method2MeasuredFractionsPitStorage
     """ # noqa: E501
-    fraction_solids_separated_pre_treatment: Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment = Field(alias="fractionSolidsSeparatedPreTreatment")
     manure_allocated: Method1SolidsSeparationFlagPitStorageManureAllocated = Field(alias="manureAllocated")
     treatment_stage2_allocations: Method1SolidsSeparationFlagPitStorageTreatmentStage2Allocations = Field(alias="treatmentStage2Allocations")
     fraction_nitrogen_separated_pre_treatment: Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment = Field(alias="fractionNitrogenSeparatedPreTreatment")
-    __properties: ClassVar[List[str]] = ["fractionSolidsSeparatedPreTreatment", "manureAllocated", "treatmentStage2Allocations", "fractionNitrogenSeparatedPreTreatment"]
+    __properties: ClassVar[List[str]] = ["manureAllocated", "treatmentStage2Allocations", "fractionNitrogenSeparatedPreTreatment"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -77,9 +75,6 @@ class Method2MeasuredFractionsPitStorage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of fraction_solids_separated_pre_treatment
-        if self.fraction_solids_separated_pre_treatment:
-            _dict['fractionSolidsSeparatedPreTreatment'] = self.fraction_solids_separated_pre_treatment.to_dict()
         # override the default output from pydantic by calling `to_dict()` of manure_allocated
         if self.manure_allocated:
             _dict['manureAllocated'] = self.manure_allocated.to_dict()
@@ -101,7 +96,6 @@ class Method2MeasuredFractionsPitStorage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fractionSolidsSeparatedPreTreatment": Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment.from_dict(obj["fractionSolidsSeparatedPreTreatment"]) if obj.get("fractionSolidsSeparatedPreTreatment") is not None else None,
             "manureAllocated": Method1SolidsSeparationFlagPitStorageManureAllocated.from_dict(obj["manureAllocated"]) if obj.get("manureAllocated") is not None else None,
             "treatmentStage2Allocations": Method1SolidsSeparationFlagPitStorageTreatmentStage2Allocations.from_dict(obj["treatmentStage2Allocations"]) if obj.get("treatmentStage2Allocations") is not None else None,
             "fractionNitrogenSeparatedPreTreatment": Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment.from_dict(obj["fractionNitrogenSeparatedPreTreatment"]) if obj.get("fractionNitrogenSeparatedPreTreatment") is not None else None

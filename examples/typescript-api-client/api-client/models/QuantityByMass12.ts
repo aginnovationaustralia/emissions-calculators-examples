@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,20 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { QuantityByMass12AmountMass } from './QuantityByMass12AmountMass';
+import type { SolidFuels1AmountTonnes } from './SolidFuels1AmountTonnes';
 import {
-    QuantityByMass12AmountMassFromJSON,
-    QuantityByMass12AmountMassFromJSONTyped,
-    QuantityByMass12AmountMassToJSON,
-    QuantityByMass12AmountMassToJSONTyped,
-} from './QuantityByMass12AmountMass';
-import type { QuantityByMass12CustomEmissionsFactor } from './QuantityByMass12CustomEmissionsFactor';
-import {
-    QuantityByMass12CustomEmissionsFactorFromJSON,
-    QuantityByMass12CustomEmissionsFactorFromJSONTyped,
-    QuantityByMass12CustomEmissionsFactorToJSON,
-    QuantityByMass12CustomEmissionsFactorToJSONTyped,
-} from './QuantityByMass12CustomEmissionsFactor';
+    SolidFuels1AmountTonnesFromJSON,
+    SolidFuels1AmountTonnesFromJSONTyped,
+    SolidFuels1AmountTonnesToJSON,
+    SolidFuels1AmountTonnesToJSONTyped,
+} from './SolidFuels1AmountTonnes';
 
 /**
  * 
@@ -37,19 +30,48 @@ export interface QuantityByMass12 {
     /**
      * 
      */
-    amountMass: QuantityByMass12AmountMass;
+    fuelClass: QuantityByMass12FuelClassEnum;
+    /**
+     * Type of liquid fuel used in stationary equipment
+     */
+    fuelType: QuantityByMass12FuelTypeEnum;
     /**
      * 
      */
-    customEmissionsFactor: QuantityByMass12CustomEmissionsFactor;
+    amountTonnes: SolidFuels1AmountTonnes;
 }
+
+
+/**
+ * @export
+ */
+export const QuantityByMass12FuelClassEnum = {
+    LiquidFuels: 'Liquid fuels',
+} as const;
+export type QuantityByMass12FuelClassEnum = typeof QuantityByMass12FuelClassEnum[keyof typeof QuantityByMass12FuelClassEnum];
+
+/**
+ * @export
+ */
+export const QuantityByMass12FuelTypeEnum = {
+    CrudeOilAndCondensates: 'Crude oil and condensates',
+    OtherNaturalGasLiquids: 'Other natural gas liquids',
+    PetroleumCoke: 'Petroleum coke',
+    RefineryGasAndLiquids: 'Refinery gas and liquids',
+    RefineryCoke: 'Refinery coke',
+} as const;
+export type QuantityByMass12FuelTypeEnum = typeof QuantityByMass12FuelTypeEnum[keyof typeof QuantityByMass12FuelTypeEnum];
+
 
 /**
  * Check if a given object implements the QuantityByMass12 interface.
  */
 export function instanceOfQuantityByMass12(value: object): value is QuantityByMass12 {
-    if (!('amountMass' in value) || value['amountMass'] === undefined) return false;
-    if (!('customEmissionsFactor' in value) || value['customEmissionsFactor'] === undefined) return false;
+    if (!('fuelClass' in value) || value['fuelClass'] === undefined) return false;
+    if (value['fuelClass'] !== 'Liquid fuels') return false;
+    
+    if (!('fuelType' in value) || value['fuelType'] === undefined) return false;
+    if (!('amountTonnes' in value) || value['amountTonnes'] === undefined) return false;
     return true;
 }
 
@@ -63,8 +85,9 @@ export function QuantityByMass12FromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'amountMass': QuantityByMass12AmountMassFromJSON(json['amountMass']),
-        'customEmissionsFactor': QuantityByMass12CustomEmissionsFactorFromJSON(json['customEmissionsFactor']),
+        'fuelClass': json['fuelClass'],
+        'fuelType': json['fuelType'],
+        'amountTonnes': SolidFuels1AmountTonnesFromJSON(json['amountTonnes']),
     };
 }
 
@@ -79,8 +102,9 @@ export function QuantityByMass12ToJSONTyped(value?: QuantityByMass12 | null, ign
 
     return {
         
-        'amountMass': QuantityByMass12AmountMassToJSON(value['amountMass']),
-        'customEmissionsFactor': QuantityByMass12CustomEmissionsFactorToJSON(value['customEmissionsFactor']),
+        'fuelClass': value['fuelClass'],
+        'fuelType': value['fuelType'],
+        'amountTonnes': SolidFuels1AmountTonnesToJSON(value['amountTonnes']),
     };
 }
 

@@ -3,7 +3,7 @@
 # flake8: noqa
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -29,15 +29,13 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "Alpacas",
-    "AlpacasHead",
     "AquacultureFeed",
     "Aviation",
     "Aviation1",
-    "Aviation2",
     "BasicProductionSystemScope1Method1",
+    "BasicProductionSystemScope1Method1Inorganic",
+    "BasicProductionSystemScope1Method1InorganicApplicationsInner",
     "Beef",
-    "Beef1",
     "BeefClassMonthlyInput",
     "BeefClassPeriodInput",
     "BeefClassSeasonalInput",
@@ -153,53 +151,60 @@ __all__ = [
     "BeefClassesWithSeasonalInputBullsLt1WinterProportionCalvesBornThisSeason",
     "BeefScope1Output",
     "BeefScope1OutputPlusLULUCF",
+    "BeefScope1OutputPlusLULUCFBiomassBurningCH4",
+    "BeefScope1OutputPlusLULUCFBiomassBurningN2O",
+    "BeefScope1OutputPlusLULUCFEntericCH4",
+    "BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O",
+    "BeefScope1OutputPlusLULUCFFuelStationaryCH4",
+    "BeefScope1OutputPlusLULUCFFuelStationaryCO2",
+    "BeefScope1OutputPlusLULUCFFuelStationaryN2O",
+    "BeefScope1OutputPlusLULUCFFuelTransportCH4",
+    "BeefScope1OutputPlusLULUCFFuelTransportCO2",
+    "BeefScope1OutputPlusLULUCFFuelTransportN2O",
+    "BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2",
+    "BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O",
+    "BeefScope1OutputPlusLULUCFInorganicFertiliserCO2",
+    "BeefScope1OutputPlusLULUCFInorganicFertiliserN2O",
+    "BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O",
+    "BeefScope1OutputPlusLULUCFLimeCO2",
+    "BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O",
+    "BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O",
+    "BeefScope1OutputPlusLULUCFManureManagementCH4",
     "BeefScope1OutputPlusLULUCFManureSoilDirectN2O",
-    "Buffalo",
+    "BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O",
+    "BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O",
+    "BeefScope1OutputPlusLULUCFOrganicFertiliserN2O",
+    "BeefScope1OutputPlusLULUCFPastureResidueN2O",
+    "BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2",
+    "BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2",
+    "BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O",
+    "BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e",
+    "BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e",
+    "BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2",
+    "BeefScope1OutputPlusLULUCFSolidWasteCH4",
+    "BeefScope1OutputPlusLULUCFSolidWasteCO2",
+    "BeefScope1OutputPlusLULUCFSolidWasteN2O",
+    "BeefScope1OutputPlusLULUCFTotal",
+    "BeefScope1OutputPlusLULUCFTotalCH4",
+    "BeefScope1OutputPlusLULUCFTotalCO2",
+    "BeefScope1OutputPlusLULUCFTotalN2O",
+    "BeefScope1OutputPlusLULUCFTotalOtherGases",
+    "BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2",
     "BurningInput",
     "BurningInputCarbonStockChangeHighRainfallZone",
     "BurningInputCarbonStockChangeLowRainfallZone",
     "BurningInputEmissionsFromBurningHighRainfallZone",
     "BurningInputEmissionsFromBurningLowRainfallZone",
-    "CalfSale",
-    "CalfSaleAverageLiveweight",
-    "CalfSaleNumberSold",
-    "Camels",
-    "Camels1",
-    "CamelsHead",
     "CarsAndLightCommercialVehicles",
     "CarsAndLightCommercialVehicles1",
-    "CarsAndLightCommercialVehicles2",
-    "CarsAndLightCommercialVehicles2AmountKilolitres",
-    "CarsAndLightCommercialVehicles3",
-    "CarsAndLightCommercialVehicles3AmountKilolitres",
+    "CarsAndLightCommercialVehicles1AmountKilolitres",
     "CarsAndLightCommercialVehiclesAmountKilolitres",
     "CarsAndLightCommercialVehiclesPre2004",
     "CarsAndLightCommercialVehiclesPre20041",
-    "CarsAndLightCommercialVehiclesPre20042",
-    "CarsAndLightCommercialVehiclesPre2004AmountKilolitres",
-    "ClearableAreaExistingTrees",
-    "ClearableAreaExistingTreesClearingEvent",
-    "ClearableAreaExistingTreesInitialTrees",
-    "ClearableAreaExistingTreesPlantingEventsInner",
-    "ClearableAreaExistingTreesPrescribedBurnEventsInner",
-    "ClearableAreaExistingTreesWildfireEventsInner",
-    "ClearedToCrops",
-    "ClearedToPasture",
-    "ClearedToSettlements",
     "CompressedNaturalGasCNG",
     "CompressedNaturalGasCNG1",
-    "CompressedNaturalGasCNG2",
-    "Crop",
-    "CropCrop",
-    "CroppingScope1Output",
-    "CroppingScope1OutputPlusLULUCF",
-    "CroppingScope3Output",
-    "Dairy",
     "DairyManure",
     "DairyManureHerdsInner",
-    "Deer",
-    "EmusOstriches",
-    "EnvironmentalPlantings",
     "FarmForestry",
     "FarmForestryCarbonMassOfWoodProducts",
     "FeedlotManure",
@@ -214,9 +219,6 @@ __all__ = [
     "FeedlotManureGroupsInnerMethod2DryMatterIntake",
     "FeedlotManureGroupsInnerMethod2NitrogenRetentionRate",
     "FertiliserInput",
-    "ForestryPlantation",
-    "ForestryScope1Output",
-    "ForestryScope3Output",
     "FromFarmRecords",
     "FromFarmRecordsCarbonMassPerHectareFromRecords",
     "FromFullCAMSimulation",
@@ -228,27 +230,12 @@ __all__ = [
     "GaseousFuelsNaturalGas1",
     "GaseousFuelsNaturalGas1AmountKilolitres",
     "GaseousFuelsNaturalGasAmountKilolitres",
-    "Goats",
-    "GrainsScope1Output",
-    "GrainsScope1OutputPlusLULUCF",
-    "GrainsScope3Output",
-    "GrainsScope3OutputAgrichemicals",
-    "GrainsScope3OutputFertiliser",
     "GypsumApplication",
     "GypsumApplicationCustomScope3EmissionsFactor",
     "GypsumApplicationMassAppliedKg",
     "HeavyDutyVehicles",
     "HeavyDutyVehicles1",
-    "HeavyDutyVehicles2",
-    "Horses",
-    "HorticultureScope1OutputPlusLULUCF",
     "HumanInducedNaturalRegeneration",
-    "InorganicFertiliserScope1Method1",
-    "InorganicFertiliserScope1Method1Inorganic",
-    "InorganicFertiliserScope1Method1InorganicApplicationsInner",
-    "InorganicFertiliserScope1Method2",
-    "InorganicFertiliserScope1Method2Inorganic",
-    "InorganicFertiliserScope1Method2InorganicApplicationsInner",
     "KnownComponent",
     "LandClearingForestToCropland",
     "LandClearingForestToCroplandActivityAreaHectares",
@@ -265,10 +252,7 @@ __all__ = [
     "LandUseInputActivitiesInner",
     "LightDutyVehicles",
     "LightDutyVehicles1",
-    "LightDutyVehicles2",
     "LimestoneOrDolomiteApplication",
-    "LimestoneOrDolomiteApplication1",
-    "LimestoneOrDolomiteApplication1LimestoneFraction",
     "LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor",
     "LimestoneOrDolomiteApplicationLimestoneFraction",
     "LimestoneOrDolomiteApplicationMassAppliedKg",
@@ -276,27 +260,17 @@ __all__ = [
     "LiquidFuels1",
     "LitresBasedFuel",
     "LitresBasedFuel1",
-    "LitresBasedFuel2",
-    "LitresBasedFuel3",
     "LivestockFeed",
     "LivestockManuresInput",
     "LocationBased",
-    "LocationBased1",
     "LocationBasedElectricityPurchasedKWh",
-    "MalleeEucalyptSpecies",
     "MarketBased",
-    "MarketBased1",
-    "MarketBased1RecsOnsite",
-    "MarketBased1RecsSurrendered",
     "MarketBasedElectricityPurchasedKWh",
     "MarketBasedRecsOnsite",
     "MarketBasedRecsSurrendered",
-    "MatureCattleSale",
-    "MatureCattleSale1",
-    "MatureCattleSaleAverageLiveweight",
-    "MatureCattleSaleNumberSold",
     "Method1",
     "Method11",
+    "Method11Amount",
     "Method12",
     "Method12AnaerobicDigestion",
     "Method12Composting",
@@ -305,83 +279,20 @@ __all__ = [
     "Method12UnmanagedDeep",
     "Method12UnmanagedShallow",
     "Method13",
-    "Method13Amount",
-    "Method14",
-    "Method14AnaerobicDigestion",
-    "Method14Composting",
-    "Method14Incineration",
-    "Method14UnmanagedBurial",
-    "Method15",
-    "Method16",
-    "Method16ClearingsInner",
-    "Method16ClearingsInnerAreaCleared",
-    "Method16Method2ActualStemDensity",
-    "Method16Method2BiomassAtMaturity",
-    "Method16PlantingsInner",
-    "Method16PlantingsInnerAreaPlanted",
-    "Method16PlantingsInnerYearsSincePlanting",
+    "Method13ClearingsInner",
+    "Method13ClearingsInnerAreaCleared",
+    "Method13Method2ActualStemDensity",
+    "Method13Method2BiomassAtMaturity",
+    "Method13PlantingsInner",
+    "Method13PlantingsInnerAreaPlanted",
+    "Method13PlantingsInnerYearsSincePlanting",
     "Method1ByFeedType",
-    "Method1ByPackagingType",
-    "Method1ByPackagingType1",
-    "Method1DistanceAndWeight",
-    "Method1DistanceAndWeight1",
-    "Method1DistanceAndWeight1Distance",
-    "Method1DistanceAndWeight1Weight",
-    "Method1DistanceAndWeightDistance",
-    "Method1DistanceAndWeightWeight",
     "Method1EmissionFactorMethod1Liveweight",
-    "Method1EmissionFactorMethod1Liveweight1",
-    "Method1EmissionFactorMethod1Liveweight2",
-    "Method1EmissionFactorMethod1Liveweight3",
-    "Method1EmissionFactorMethod1Liveweight4",
-    "Method1EmissionFactorMethod1Liveweight5",
-    "Method1EmissionFactorMethod1Liveweight6",
     "Method1EmissionFactorMethod1LiveweightHeadPurchased",
     "Method1EmissionFactorMethod2Liveweight",
-    "Method1EmissionFactorMethod2Liveweight1",
-    "Method1EmissionFactorMethod2Liveweight2",
-    "Method1EmissionFactorMethod2Liveweight3",
-    "Method1EmissionFactorMethod2Liveweight4",
-    "Method1EmissionFactorMethod2Liveweight5",
-    "Method1EmissionFactorMethod2Liveweight6",
     "Method1EmissionFactorMethod2LiveweightHeadPurchased",
     "Method1EmissionFactorMethod2LiveweightLiveweightMethod2",
     "Method1SolidsSeparationFlag",
-    "Method1SolidsSeparationFlag1",
-    "Method1SolidsSeparationFlag1AnaerobicLagoon",
-    "Method1SolidsSeparationFlag1AnaerobicLagoonManureAllocated",
-    "Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2Allocations",
-    "Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsDigester",
-    "Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsDirectApplication",
-    "Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsPitStorage",
-    "Method1SolidsSeparationFlag1DeepLitter",
-    "Method1SolidsSeparationFlag1DeepLitterManureAllocated",
-    "Method1SolidsSeparationFlag1DeepLitterTreatmentStage2Allocations",
-    "Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsAnaerobicLagoon",
-    "Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsDigester",
-    "Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsDirectApplication",
-    "Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsPitStorage",
-    "Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsSolidStorage",
-    "Method1SolidsSeparationFlag1Digester",
-    "Method1SolidsSeparationFlag1DigesterManureAllocated",
-    "Method1SolidsSeparationFlag1DigesterTreatmentStage2Allocations",
-    "Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsAnaerobicLagoon",
-    "Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsDirectApplication",
-    "Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsPitStorage",
-    "Method1SolidsSeparationFlag1OutdoorAndFreeRange",
-    "Method1SolidsSeparationFlag1PitStorage",
-    "Method1SolidsSeparationFlag1PitStorageManureAllocated",
-    "Method1SolidsSeparationFlag1PitStorageTreatmentStage2Allocations",
-    "Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsAnaerobicLagoon",
-    "Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsDigester",
-    "Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsDirectApplication",
-    "Method1SolidsSeparationFlag1SolidStorage",
-    "Method1SolidsSeparationFlag1SolidStorageManureAllocated",
-    "Method1SolidsSeparationFlag1SolidStorageTreatmentStage2Allocations",
-    "Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsAnaerobicLagoon",
-    "Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsDigester",
-    "Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsDirectApplication",
-    "Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsPitStorage",
     "Method1SolidsSeparationFlagAnaerobicLagoon",
     "Method1SolidsSeparationFlagAnaerobicLagoonManureAllocated",
     "Method1SolidsSeparationFlagAnaerobicLagoonTreatmentStage2Allocations",
@@ -418,99 +329,43 @@ __all__ = [
     "Method1SolidsSeparationFlagSolidStorageTreatmentStage2AllocationsPitStorage",
     "Method2",
     "Method21",
-    "Method21AnaerobicDigestionInner",
-    "Method21CompostingInner",
-    "Method21IncinerationInner",
-    "Method21UnmanagedBurialInner",
-    "Method21UnmanagedDeepInner",
-    "Method21UnmanagedShallowInner",
+    "Method21Amount",
+    "Method21CustomEmissionsFactor",
     "Method22",
-    "Method22Amount",
-    "Method22CustomEmissionsFactor",
-    "Method23",
-    "Method23AnaerobicDigestionInner",
-    "Method23CompostingInner",
-    "Method23IncinerationInner",
-    "Method23UnmanagedBurialInner",
-    "Method23UnmanagedDeepInner",
-    "Method23UnmanagedShallowInner",
-    "Method24",
-    "Method24AverageYieldPerHectare",
-    "Method25",
-    "Method25CustomEmissionsFactor",
+    "Method22AnaerobicDigestionInner",
+    "Method22CompostingInner",
+    "Method22IncinerationInner",
+    "Method22UnmanagedBurialInner",
+    "Method22UnmanagedDeepInner",
+    "Method22UnmanagedShallowInner",
     "Method2AverageYieldPerHectare",
     "Method2BiomassAtMaturity",
-    "Method2ByFraction",
-    "Method2ByFraction1",
-    "Method2ByFraction1FractionCropResidueRemoved",
-    "Method2ByFractionFractionCropResidueRemoved",
-    "Method2ByMass",
-    "Method2ByMass1",
-    "Method2ByMass1MassCropResidueRemoved",
-    "Method2ByMassMassCropResidueRemoved",
     "Method2CustomEmissionsFactor",
-    "Method2CustomEmissionsFactor1",
-    "Method2CustomEmissionsFactor2",
-    "Method2CustomEmissionsFactor2CustomEmissionsFactor",
+    "Method2CustomEmissionsFactorCustomEmissionsFactor",
     "Method2EmissionFactorMethod1Liveweight",
-    "Method2EmissionFactorMethod1Liveweight1",
-    "Method2EmissionFactorMethod1Liveweight2",
-    "Method2EmissionFactorMethod1Liveweight3",
-    "Method2EmissionFactorMethod1Liveweight4",
-    "Method2EmissionFactorMethod1Liveweight5",
-    "Method2EmissionFactorMethod1Liveweight6",
     "Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2",
     "Method2EmissionFactorMethod2Liveweight",
-    "Method2EmissionFactorMethod2Liveweight1",
-    "Method2EmissionFactorMethod2Liveweight2",
-    "Method2EmissionFactorMethod2Liveweight3",
-    "Method2EmissionFactorMethod2Liveweight4",
-    "Method2EmissionFactorMethod2Liveweight5",
     "Method2EmissionFactorMethod2LiveweightEmissionFactorMethod2",
     "Method2EmissionFactorMethod2LiveweightLiveweightMethod2",
-    "Method2Fuel",
-    "Method2Fuel1",
-    "Method2Fuel1Fuel",
-    "Method2FuelFuel",
     "Method2MeasuredFractions",
-    "Method2MeasuredFractions1",
-    "Method2MeasuredFractions1AnaerobicLagoon",
-    "Method2MeasuredFractions1AnaerobicLagoonFractionNitrogenSeparatedPreTreatment",
-    "Method2MeasuredFractions1Digester",
-    "Method2MeasuredFractions1PitStorage",
     "Method2MeasuredFractionsAnaerobicLagoon",
     "Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment",
-    "Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment",
     "Method2MeasuredFractionsDigester",
     "Method2MeasuredFractionsPitStorage",
     "Method2StemDensity",
     "Method2StemDensityClearingsInner",
     "Method2StemDensityClearingsInnerMethod2AgeAtClearing",
-    "MulesAsses",
-    "NativeSpeciesRegeneration500mmRainfall",
     "OffRoadAgricultureAndForestryEquipment",
     "OffRoadAgricultureAndForestryEquipment1",
-    "OffRoadAgricultureAndForestryEquipment2",
     "OrganicFertiliserInput",
     "OrganicFertiliserInputOrigin",
     "OrganicFertilisersInput",
-    "Other",
     "OutputConstant",
     "OutputInput",
     "OutputInputValue",
     "OutputMethod1",
     "OutputMethod2",
-    "Pasture",
     "PerennialCropsInputInner",
-    "Pig",
-    "PigsHerdClassesInput",
-    "PigsHerdClassesInputBoars",
-    "PigsHerdClassesInputBoarsDays",
-    "PigsHerdClassesInputBoarsHead",
-    "PigsHerdClassesInputBoarsManureAllocations",
-    "PigsHerdClassesInputBoarsMethod2AverageFeedIntake",
-    "PigsHerdClassesInputBoarsMethod2NitrogenWasteProductionRate",
-    "PigsHerdClassesInputBoarsMethod2VolatileSolidProductionRate",
     "PigsManure",
     "PigsManureHerdsInner",
     "PigsManureHerdsInnerClasses",
@@ -521,253 +376,6 @@ __all__ = [
     "PigsManureHerdsInnerClassesBoarsMethod2NitrogenWasteProductionRate",
     "PigsManureHerdsInnerFractionAppliedToSoils",
     "PlantationForestry",
-    "PostAllModules200Response",
-    "PostAllModules200ResponseNet",
-    "PostAllModules200ResponseNetLulucf",
-    "PostAllModules200ResponseNetTotal",
-    "PostAllModules200ResponseScope1",
-    "PostAllModules200ResponseScope1AquaticN2O",
-    "PostAllModules200ResponseScope1BiomassBurningCH4",
-    "PostAllModules200ResponseScope1BiomassBurningN2O",
-    "PostAllModules200ResponseScope1CropResidueN2O",
-    "PostAllModules200ResponseScope1EntericBeefCH4",
-    "PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O",
-    "PostAllModules200ResponseScope1FieldBurningCH4",
-    "PostAllModules200ResponseScope1FieldBurningN2O",
-    "PostAllModules200ResponseScope1FuelStationaryCH4",
-    "PostAllModules200ResponseScope1FuelStationaryCO2",
-    "PostAllModules200ResponseScope1FuelStationaryN2O",
-    "PostAllModules200ResponseScope1FuelTransportCH4",
-    "PostAllModules200ResponseScope1FuelTransportCO2",
-    "PostAllModules200ResponseScope1FuelTransportN2O",
-    "PostAllModules200ResponseScope1HarvestedWoodProductsCO2",
-    "PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O",
-    "PostAllModules200ResponseScope1InorganicFertiliserCO2",
-    "PostAllModules200ResponseScope1InorganicFertiliserN2O",
-    "PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O",
-    "PostAllModules200ResponseScope1LimeCO2",
-    "PostAllModules200ResponseScope1ManureAtmosphericDepositionBeefN2O",
-    "PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O",
-    "PostAllModules200ResponseScope1ManureDirectFeedlotN2O",
-    "PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O",
-    "PostAllModules200ResponseScope1ManureManagementBeefCH4",
-    "PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O",
-    "PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O",
-    "PostAllModules200ResponseScope1OrganicFertiliserN2O",
-    "PostAllModules200ResponseScope1PastureResidueN2O",
-    "PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2",
-    "PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2",
-    "PostAllModules200ResponseScope1RefrigerantHFCs",
-    "PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O",
-    "PostAllModules200ResponseScope1RiceCultivationCH4",
-    "PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e",
-    "PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e",
-    "PostAllModules200ResponseScope1SoilOrganicStockLossesCO2",
-    "PostAllModules200ResponseScope1SolidWasteCH4",
-    "PostAllModules200ResponseScope1SolidWasteCO2",
-    "PostAllModules200ResponseScope1SolidWasteN2O",
-    "PostAllModules200ResponseScope1SupplementaryCO2",
-    "PostAllModules200ResponseScope1Total",
-    "PostAllModules200ResponseScope1TotalCH4",
-    "PostAllModules200ResponseScope1TotalCO2",
-    "PostAllModules200ResponseScope1TotalN2O",
-    "PostAllModules200ResponseScope1TotalOtherGases",
-    "PostAllModules200ResponseScope1WastewaterCH4",
-    "PostAllModules200ResponseScope1WastewaterN2O",
-    "PostAllModules200ResponseScope1WoodyCarbonStocksCO2",
-    "PostAllModules200ResponseScope3",
-    "PostAllModules200ResponseScope3Agrichemicals",
-    "PostAllModules200ResponseScope3Electricity",
-    "PostAllModules200ResponseScope3Fertiliser",
-    "PostAllModules200ResponseScope3Freight",
-    "PostAllModules200ResponseScope3Fuel",
-    "PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices",
-    "PostAllModules200ResponseScope3PurchasedFeed",
-    "PostAllModules200ResponseScope3PurchasedLivestock",
-    "PostAllModules200ResponseScope3PurchasedMineralSupplements",
-    "PostAllModules200ResponseScope3PurchasedPackaging",
-    "PostAllModules200ResponseScope3Services",
-    "PostAllModules200ResponseScope3SoilAmeliorants",
-    "PostAllModules200ResponseScope3SolidWaste",
-    "PostAllModules200ResponseScope3Total",
-    "PostAllModulesRequest",
-    "PostAllModulesRequestBeef",
-    "PostAllModulesRequestChemicalsInner",
-    "PostAllModulesRequestChemicalsInnerAmountKg",
-    "PostAllModulesRequestChemicalsInnerCustomEmissionsFactor",
-    "PostAllModulesRequestCrop",
-    "PostAllModulesRequestCropCrop",
-    "PostAllModulesRequestCropCropFractionOfAnnualCropBurnt",
-    "PostAllModulesRequestCropCropResidues",
-    "PostAllModulesRequestCropCropTotalYieldKg",
-    "PostAllModulesRequestDairy",
-    "PostAllModulesRequestElectricity",
-    "PostAllModulesRequestFeedlot",
-    "PostAllModulesRequestFeedlotGroupsInner",
-    "PostAllModulesRequestFeedlotGroupsInnerAverageLengthOfStayDays",
-    "PostAllModulesRequestFeedlotGroupsInnerHead",
-    "PostAllModulesRequestFeedlotGroupsInnerManureAllocations",
-    "PostAllModulesRequestFeedlotGroupsInnerManureAllocationsComposting",
-    "PostAllModulesRequestFeedlotGroupsInnerManureAllocationsDirectApplication",
-    "PostAllModulesRequestFeedlotGroupsInnerManureAllocationsSolidStorage",
-    "PostAllModulesRequestFeedlotGroupsInnerMethod2AverageNeutralDetergentFibrePercentage",
-    "PostAllModulesRequestFeedlotGroupsInnerMethod2CrudeProtein",
-    "PostAllModulesRequestFeedlotGroupsInnerMethod2DryMatterDigestibility",
-    "PostAllModulesRequestFeedlotGroupsInnerMethod2DryMatterIntake",
-    "PostAllModulesRequestFeedlotGroupsInnerMethod2NitrogenRetentionRate",
-    "PostAllModulesRequestFertiliser",
-    "PostAllModulesRequestFishery",
-    "PostAllModulesRequestFisheryAmountProduced",
-    "PostAllModulesRequestFreightInner",
-    "PostAllModulesRequestFuel",
-    "PostAllModulesRequestLime",
-    "PostAllModulesRequestLimeApplicationsInner",
-    "PostAllModulesRequestOtherLivestock",
-    "PostAllModulesRequestOtherLivestockLivestockInner",
-    "PostAllModulesRequestOtherPurchasedGoodsAndServicesInner",
-    "PostAllModulesRequestOtherPurchasedGoodsAndServicesInnerEmissionsFactor",
-    "PostAllModulesRequestOtherPurchasedGoodsAndServicesInnerQuantity",
-    "PostAllModulesRequestPasture",
-    "PostAllModulesRequestPasturePasture",
-    "PostAllModulesRequestPasturePastureAreaManaged",
-    "PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt",
-    "PostAllModulesRequestPasturePastureResidues",
-    "PostAllModulesRequestPigs",
-    "PostAllModulesRequestPoultry",
-    "PostAllModulesRequestPoultryClasses",
-    "PostAllModulesRequestPoultryClassesLayers",
-    "PostAllModulesRequestPoultryClassesLayersDays",
-    "PostAllModulesRequestPoultryClassesLayersHead",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocations",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemoval",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalManureAllocated",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2Allocations",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsComposting",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDigester",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectApplication",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectProcessing",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsSolidStorage",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouse",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseManureAllocated",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2Allocations",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsComposting",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDigester",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectApplication",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectProcessing",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsSolidStorage",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitter",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterManureAllocated",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2Allocations",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsComposting",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDigester",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectApplication",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectProcessing",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsSolidStorage",
-    "PostAllModulesRequestPoultryClassesLayersManureAllocationsPastureRangeAndPaddock",
-    "PostAllModulesRequestPoultryClassesLayersMethod2CrudeProtein",
-    "PostAllModulesRequestPoultryClassesLayersMethod2DryMatterDigestibility",
-    "PostAllModulesRequestPoultryClassesLayersMethod2DryMatterIntake",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowers",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersDays",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersHead",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocations",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemoval",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalManureAllocated",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2Allocations",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsComposting",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDigester",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectApplication",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectProcessing",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsSolidStorage",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouse",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseManureAllocated",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2Allocations",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsComposting",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDigester",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectApplication",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectProcessing",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsSolidStorage",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitter",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterManureAllocated",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2Allocations",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsComposting",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDigester",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectApplication",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectProcessing",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsSolidStorage",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsPastureRangeAndPaddock",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2CrudeProtein",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2DryMatterDigestibility",
-    "PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2DryMatterIntake",
-    "PostAllModulesRequestPurchasedLivestockInner",
-    "PostAllModulesRequestPurchasedMineralSupplementsInner",
-    "PostAllModulesRequestPurchasedPackagingInner",
-    "PostAllModulesRequestRefrigerantsInner",
-    "PostAllModulesRequestRefrigerantsInnerChargeSize",
-    "PostAllModulesRequestRice",
-    "PostAllModulesRequestRiceCrop",
-    "PostAllModulesRequestRiceCropAreaSown",
-    "PostAllModulesRequestRiceCropCultivationPeriodDays",
-    "PostAllModulesRequestRiceCropOrganicAmendmentsInner",
-    "PostAllModulesRequestRiceCropOrganicAmendmentsInnerRateOfApplication",
-    "PostAllModulesRequestRiceCropResidues",
-    "PostAllModulesRequestRiceCropTotalYieldKg",
-    "PostAllModulesRequestServices",
-    "PostAllModulesRequestSheep",
-    "PostAllModulesRequestSupplementaryCO2Kg",
-    "PostAllModulesRequestWaste",
-    "PostAllModulesRequestWasteTreatedOffsite",
-    "PostAllModulesRequestWasteTreatedOffsiteAnaerobicDigestionInner",
-    "PostAllModulesRequestWasteTreatedOffsiteCompostingInner",
-    "PostAllModulesRequestWasteTreatedOffsiteIncinerationInner",
-    "PostAllModulesRequestWasteTreatedOffsiteLandfillWithGasRecoveryInner",
-    "PostAllModulesRequestWasteTreatedOffsiteLandfillWithoutGasRecoveryInner",
-    "PostAllModulesRequestWasteTreatedOnsite",
-    "PostAllModulesRequestWastewater",
-    "PostAquaculture200Response",
-    "PostAquaculture200ResponseIntensities",
-    "PostAquaculture200ResponseIntensitiesEmissionsIntensity",
-    "PostAquaculture200ResponseIntensitiesFishHarvestedKg",
-    "PostAquaculture200ResponseIntermediateInner",
-    "PostAquaculture200ResponseIntermediateInnerIntensities",
-    "PostAquaculture200ResponseIntermediateInnerIntensitiesEmissionsIntensity",
-    "PostAquaculture200ResponseIntermediateInnerIntensitiesFishHarvestedKg",
-    "PostAquaculture200ResponseIntermediateInnerNet",
-    "PostAquaculture200ResponseNet",
-    "PostAquaculture200ResponseScope1",
-    "PostAquaculture200ResponseScope1FuelStationaryCH4",
-    "PostAquaculture200ResponseScope1FuelStationaryCO2",
-    "PostAquaculture200ResponseScope1FuelStationaryN2O",
-    "PostAquaculture200ResponseScope1FuelTransportCH4",
-    "PostAquaculture200ResponseScope1FuelTransportCO2",
-    "PostAquaculture200ResponseScope1FuelTransportN2O",
-    "PostAquaculture200ResponseScope1Total",
-    "PostAquaculture200ResponseScope1TotalCH4",
-    "PostAquaculture200ResponseScope1TotalCO2",
-    "PostAquaculture200ResponseScope1TotalN2O",
-    "PostAquaculture200ResponseScope1TotalOtherGases",
-    "PostAquaculture200ResponseScope3",
-    "PostAquaculture200ResponseScope3Electricity",
-    "PostAquaculture200ResponseScope3Fuel",
-    "PostAquaculture200ResponseScope3Total",
-    "PostAquacultureRequest",
-    "PostAquacultureRequestElectricity",
-    "PostAquacultureRequestFisheriesInner",
-    "PostAquacultureRequestFisheriesInnerElectricityAllocation",
-    "PostAquacultureRequestFisheriesInnerFishery",
-    "PostAquacultureRequestFisheriesInnerFisheryAmountProduced",
-    "PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner",
-    "PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerEmissionsFactor",
-    "PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerQuantity",
-    "PostAquacultureRequestFisheriesInnerRefrigerantsInner",
-    "PostAquacultureRequestFisheriesInnerRefrigerantsInnerChargeSize",
-    "PostAquacultureRequestFisheriesInnerWaste",
-    "PostAquacultureRequestFisheriesInnerWasteTreatedOffsite",
-    "PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteAnaerobicDigestionInner",
-    "PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteCompostingInner",
-    "PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteIncinerationInner",
-    "PostAquacultureRequestFisheriesInnerWasteTreatedOnsite",
-    "PostAquacultureRequestFisheriesInnerWastewater",
     "PostBeef200Response",
     "PostBeef200ResponseIntensities",
     "PostBeef200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
@@ -777,8 +385,27 @@ __all__ = [
     "PostBeef200ResponseIntermediateInnerIntensities",
     "PostBeef200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
     "PostBeef200ResponseIntermediateInnerIntensitiesLiveweightProducedKg",
+    "PostBeef200ResponseIntermediateInnerNet",
+    "PostBeef200ResponseIntermediateInnerNetTotal",
+    "PostBeef200ResponseIntermediateInnerScope3",
+    "PostBeef200ResponseIntermediateInnerScope3Total",
+    "PostBeef200ResponseNet",
+    "PostBeef200ResponseNetTotal",
     "PostBeef200ResponseScope3",
+    "PostBeef200ResponseScope3Agrichemicals",
+    "PostBeef200ResponseScope3Electricity",
+    "PostBeef200ResponseScope3Fertiliser",
+    "PostBeef200ResponseScope3Fuel",
+    "PostBeef200ResponseScope3OtherPurchasedGoodsAndServices",
+    "PostBeef200ResponseScope3PurchasedFeed",
+    "PostBeef200ResponseScope3PurchasedLivestock",
+    "PostBeef200ResponseScope3PurchasedMineralSupplements",
+    "PostBeef200ResponseScope3Services",
+    "PostBeef200ResponseScope3SoilAmeliorants",
+    "PostBeef200ResponseScope3SolidWaste",
+    "PostBeef200ResponseScope3Total",
     "PostBeefRequest",
+    "PostBeefRequestElectricity",
     "PostBeefRequestHerdsInner",
     "PostBeefRequestHerdsInnerChemicalsInner",
     "PostBeefRequestHerdsInnerChemicalsInnerAmountKg",
@@ -787,257 +414,23 @@ __all__ = [
     "PostBeefRequestHerdsInnerLime",
     "PostBeefRequestHerdsInnerLimeApplicationsInner",
     "PostBeefRequestHerdsInnerLiveweightSoldKg",
+    "PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner",
+    "PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerEmissionsFactor",
+    "PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerQuantity",
     "PostBeefRequestHerdsInnerPasture",
     "PostBeefRequestHerdsInnerPastureAreaManaged",
+    "PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt",
     "PostBeefRequestHerdsInnerPastureResidues",
     "PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner",
     "PostBeefRequestHerdsInnerServices",
-    "PostCotton200Response",
-    "PostCotton200ResponseIntensities",
-    "PostCotton200ResponseIntensitiesCottonExcludingLULUCF",
-    "PostCotton200ResponseIntensitiesCottonHarvestedKg",
-    "PostCotton200ResponseIntensitiesCottonIncludingLULUCF",
-    "PostCotton200ResponseIntensitiesCottonLintHarvestedKg",
-    "PostCotton200ResponseIntensitiesCottonSeedHarvestedKg",
-    "PostCotton200ResponseIntensitiesEconomicIntensities",
-    "PostCotton200ResponseIntensitiesEconomicIntensitiesCottonLintExcludingLULUCF",
-    "PostCotton200ResponseIntensitiesEconomicIntensitiesCottonLintIncludingLULUCF",
-    "PostCotton200ResponseIntensitiesEconomicIntensitiesCottonSeedExcludingLULUCF",
-    "PostCotton200ResponseIntensitiesEconomicIntensitiesCottonSeedIncludingLULUCF",
-    "PostCotton200ResponseIntensitiesMassIntensities",
-    "PostCotton200ResponseIntensitiesMassIntensitiesCottonLintExcludingLULUCF",
-    "PostCotton200ResponseIntensitiesMassIntensitiesCottonLintIncludingLULUCF",
-    "PostCotton200ResponseIntensitiesMassIntensitiesCottonSeedExcludingLULUCF",
-    "PostCotton200ResponseIntensitiesMassIntensitiesCottonSeedIncludingLULUCF",
-    "PostCotton200ResponseIntermediateInner",
-    "PostCotton200ResponseIntermediateInnerIntensities",
-    "PostCotton200ResponseIntermediateInnerIntensitiesCottonHarvestedKg",
-    "PostCotton200ResponseIntermediateInnerIntensitiesCottonIntensity",
-    "PostCotton200ResponseIntermediateInnerIntensitiesCottonLintHarvestedKg",
-    "PostCotton200ResponseIntermediateInnerIntensitiesCottonSeedHarvestedKg",
-    "PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensities",
-    "PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensitiesCottonLint",
-    "PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensitiesCottonSeed",
-    "PostCotton200ResponseIntermediateInnerIntensitiesMassIntensities",
-    "PostCotton200ResponseIntermediateInnerIntensitiesMassIntensitiesCottonLint",
-    "PostCotton200ResponseIntermediateInnerIntensitiesMassIntensitiesCottonSeed",
-    "PostCottonRequest",
-    "PostCottonRequestCropsInner",
-    "PostCottonRequestCropsInnerCrop",
-    "PostCottonRequestCropsInnerCropFractionSeedCottonLint",
-    "PostCottonRequestCropsInnerFertiliser",
-    "PostCottonRequestCropsInnerServices",
-    "PostCropping200Response",
-    "PostCropping200ResponseIntensities",
-    "PostCropping200ResponseIntensitiesCropHarvestedKg",
-    "PostCropping200ResponseIntensitiesCropIntensityExcludingLULUCF",
-    "PostCropping200ResponseIntensitiesCropIntensityIncludingLULUCF",
-    "PostCropping200ResponseIntermediateInner",
-    "PostCropping200ResponseIntermediateInnerIntensities",
-    "PostCropping200ResponseIntermediateInnerIntensitiesCropHarvestedKg",
-    "PostCropping200ResponseIntermediateInnerIntensitiesCropIntensity",
-    "PostCroppingRequest",
-    "PostCroppingRequestCropsInner",
-    "PostDairy200Response",
-    "PostDairy200ResponseIntensities",
-    "PostDairy200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
-    "PostDairy200ResponseIntensitiesLiveweightIntensityIncludingLULUCF",
-    "PostDairy200ResponseIntensitiesMilkIntensityExcludingLULUCF",
-    "PostDairy200ResponseIntensitiesMilkIntensityIncludingLULUCF",
-    "PostDairy200ResponseIntensitiesMilkProducedKg",
-    "PostDairy200ResponseIntermediateInner",
-    "PostDairy200ResponseIntermediateInnerIntensities",
-    "PostDairy200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
-    "PostDairy200ResponseIntermediateInnerIntensitiesMilkIntensity",
-    "PostDairy200ResponseIntermediateInnerIntensitiesMilkProducedKg",
-    "PostDairy200ResponseIntermediateInnerScope1",
-    "PostDairy200ResponseScope1",
-    "PostDairy200ResponseScope1RefrigerantCO2e",
-    "PostDairyRequest",
-    "PostDairyRequestHerdsInner",
-    "PostFeedlot200Response",
-    "PostFeedlot200ResponseIntensities",
-    "PostFeedlot200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
-    "PostFeedlot200ResponseIntensitiesLiveweightIntensityIncludingLULUCF",
-    "PostFeedlot200ResponseIntermediateInner",
-    "PostFeedlot200ResponseIntermediateInnerIntensities",
-    "PostFeedlot200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
-    "PostFeedlot200ResponseIntermediateInnerScope1",
-    "PostFeedlot200ResponseScope1",
-    "PostFeedlot200ResponseScope3",
-    "PostFeedlotRequest",
-    "PostFeedlotRequestLotsInner",
-    "PostFeedlotRequestLotsInnerGroupsInner",
-    "PostFeedlotRequestLotsInnerGroupsInnerAverageLengthOfStayDays",
-    "PostFeedlotRequestLotsInnerGroupsInnerHead",
-    "PostFeedlotRequestLotsInnerGroupsInnerManureAllocations",
-    "PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsComposting",
-    "PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsDirectApplication",
-    "PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsSolidStorage",
-    "PostFeedlotRequestLotsInnerGroupsInnerMethod2AverageNeutralDetergentFibrePercentage",
-    "PostFeedlotRequestLotsInnerGroupsInnerMethod2CrudeProtein",
-    "PostFeedlotRequestLotsInnerGroupsInnerMethod2DryMatterDigestibility",
-    "PostFeedlotRequestLotsInnerGroupsInnerMethod2DryMatterIntake",
-    "PostFeedlotRequestLotsInnerGroupsInnerMethod2NitrogenRetentionRate",
-    "PostFeedlotRequestLotsInnerLiveweightSoldKg",
-    "PostForestry200Response",
-    "PostForestry200ResponseIntermediateInner",
-    "PostForestryRequest",
-    "PostFullcamRequest",
-    "PostFullcamRequestAreasInner",
-    "PostGrains200Response",
-    "PostGrains200ResponseIntensities",
-    "PostGrains200ResponseIntensitiesGrainHarvestedKg",
-    "PostGrains200ResponseIntensitiesGrainsExcludingLULUCF",
-    "PostGrains200ResponseIntensitiesGrainsIncludingLULUCF",
-    "PostGrains200ResponseIntermediateInner",
-    "PostGrains200ResponseIntermediateInnerIntensities",
-    "PostGrains200ResponseIntermediateInnerIntensitiesGrainHarvestedKg",
-    "PostGrains200ResponseIntermediateInnerIntensitiesGrainsIntensity",
-    "PostGrainsRequest",
-    "PostGrainsRequestCropsInner",
-    "PostGrainsRequestCropsInnerCrop",
-    "PostHorticulture200Response",
-    "PostHorticulture200ResponseIntensities",
-    "PostHorticulture200ResponseIntensitiesCropExcludingLULUCF",
-    "PostHorticulture200ResponseIntensitiesCropHarvestedKg",
-    "PostHorticulture200ResponseIntensitiesCropIncludingLULUCF",
-    "PostHorticulture200ResponseIntermediateInner",
-    "PostHorticulture200ResponseIntermediateInnerIntensities",
-    "PostHorticulture200ResponseIntermediateInnerIntensitiesCropHarvestedKg",
-    "PostHorticulture200ResponseIntermediateInnerIntensitiesCropIntensity",
-    "PostHorticulture200ResponseIntermediateInnerScope1",
-    "PostHorticulture200ResponseIntermediateInnerScope1FertiliserLeachingAndRunoffN2O",
-    "PostHorticulture200ResponseIntermediateInnerScope1InorganicFertiliserAtmosphericDepositionN2O",
-    "PostHorticultureRequest",
-    "PostHorticultureRequestCropsInner",
-    "PostHorticultureRequestCropsInnerCrop",
-    "PostHorticultureRequestCropsInnerFertiliser",
-    "PostOtherLivestock200Response",
-    "PostOtherLivestock200ResponseIntensities",
-    "PostOtherLivestock200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
-    "PostOtherLivestock200ResponseIntensitiesLiveweightIntensityIncludingLULUCF",
-    "PostOtherLivestock200ResponseIntermediateInner",
-    "PostOtherLivestock200ResponseIntermediateInnerIntensities",
-    "PostOtherLivestock200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
-    "PostOtherLivestock200ResponseIntermediateInnerScope1",
-    "PostOtherLivestock200ResponseScope1",
-    "PostOtherLivestockRequest",
-    "PostOtherLivestockRequestHerdsInner",
-    "PostOtherLivestockRequestHerdsInnerLivestockInner",
-    "PostPigs200Response",
-    "PostPigs200ResponseIntensities",
-    "PostPigs200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
-    "PostPigs200ResponseIntensitiesLiveweightIntensityIncludingLULUCF",
-    "PostPigs200ResponseIntermediateInner",
-    "PostPigs200ResponseIntermediateInnerIntensities",
-    "PostPigs200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
-    "PostPigs200ResponseScope3",
-    "PostPigsRequest",
-    "PostPigsRequestHerdsInner",
-    "PostPostProduction200Response",
-    "PostPostProduction200ResponseIntensities",
-    "PostPostProduction200ResponseIntensitiesCombinedIntensityKgCO2ePerUnit",
-    "PostPostProduction200ResponseIntensitiesPostProductionAllocation",
-    "PostPostProduction200ResponseIntensitiesPostProductionEmissionsKgCO2e",
-    "PostPostProduction200ResponseIntensitiesPostProductionIntensityKgCO2ePerUnit",
-    "PostPostProduction200ResponseIntensitiesProductionEmissionsKgCO2e",
-    "PostPostProduction200ResponseIntensitiesProductionIntensityKgCO2ePerUnit",
-    "PostPostProduction200ResponseIntensitiesUnitsProduced",
-    "PostPostProduction200ResponseScope1",
-    "PostPostProduction200ResponseScope3",
-    "PostPostProductionRequest",
-    "PostPostProductionRequestFreightInner",
-    "PostPostProductionRequestIntensities",
-    "PostPostProductionRequestIntensitiesPostProductionAllocation",
-    "PostPostProductionRequestIntensitiesProductionEmissionsKgCO2e",
-    "PostPostProductionRequestIntensitiesUnitsProduced",
-    "PostPostProductionRequestPurchasedPackagingInner",
-    "PostPostProductionRequestSupplementaryCO2Kg",
-    "PostPoultry200Response",
-    "PostPoultry200ResponseIntensities",
-    "PostPoultry200ResponseIntensitiesEggsIntensityExcludingLULUCF",
-    "PostPoultry200ResponseIntensitiesEggsIntensityIncludingLULUCF",
-    "PostPoultry200ResponseIntensitiesEggsProducedKg",
-    "PostPoultry200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
-    "PostPoultry200ResponseIntensitiesLiveweightIntensityIncludingLULUCF",
-    "PostPoultry200ResponseIntermediateInner",
-    "PostPoultry200ResponseIntermediateInnerIntensities",
-    "PostPoultry200ResponseIntermediateInnerIntensitiesEggsIntensity",
-    "PostPoultry200ResponseIntermediateInnerIntensitiesEggsProducedKg",
-    "PostPoultry200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
-    "PostPoultryRequest",
-    "PostPoultryRequestFlocksInner",
-    "PostPoultryRequestFlocksInnerClasses",
-    "PostPoultryRequestFlocksInnerEggsSoldKg",
-    "PostRice200Response",
-    "PostRice200ResponseIntensities",
-    "PostRice200ResponseIntensitiesRiceExcludingLULUCF",
-    "PostRice200ResponseIntensitiesRiceHarvestedKg",
-    "PostRice200ResponseIntensitiesRiceIncludingLULUCF",
-    "PostRice200ResponseIntermediateInner",
-    "PostRice200ResponseIntermediateInnerIntensities",
-    "PostRice200ResponseIntermediateInnerIntensitiesRiceHarvestedKg",
-    "PostRice200ResponseIntermediateInnerIntensitiesRiceIntensity",
-    "PostRiceRequest",
-    "PostRiceRequestCropsInner",
-    "PostRiceRequestCropsInnerCrop",
-    "PostRiceRequestCropsInnerCropAreaSown",
-    "PostRiceRequestCropsInnerCropCultivationPeriodDays",
-    "PostRiceRequestCropsInnerCropOrganicAmendmentsInner",
-    "PostRiceRequestCropsInnerCropOrganicAmendmentsInnerRateOfApplication",
-    "PostRiceRequestCropsInnerFertiliser",
-    "PostSheep200Response",
-    "PostSheep200ResponseIntensities",
-    "PostSheep200ResponseIntensitiesLiveweightIntensityExcludingLULUCF",
-    "PostSheep200ResponseIntensitiesLiveweightIntensityIncludingLULUCF",
-    "PostSheep200ResponseIntensitiesWoolIntensityExcludingLULUCF",
-    "PostSheep200ResponseIntensitiesWoolIntensityIncludingLULUCF",
-    "PostSheep200ResponseIntensitiesWoolProducedKg",
-    "PostSheep200ResponseIntermediateInner",
-    "PostSheep200ResponseIntermediateInnerIntensities",
-    "PostSheep200ResponseIntermediateInnerIntensitiesLiveweightIntensity",
-    "PostSheep200ResponseIntermediateInnerIntensitiesWoolIntensity",
-    "PostSheep200ResponseIntermediateInnerIntensitiesWoolProducedKg",
-    "PostSheep200ResponseIntermediateInnerScope1",
-    "PostSheep200ResponseScope1",
-    "PostSheepRequest",
-    "PostSheepRequestFlocksInner",
-    "PostSugar200Response",
-    "PostSugar200ResponseIntensities",
-    "PostSugar200ResponseIntensitiesSugarCaneExcludingLULUCF",
-    "PostSugar200ResponseIntensitiesSugarCaneHarvestedKg",
-    "PostSugar200ResponseIntensitiesSugarCaneIncludingLULUCF",
-    "PostSugar200ResponseIntermediateInner",
-    "PostSugar200ResponseIntermediateInnerIntensities",
-    "PostSugar200ResponseIntermediateInnerIntensitiesSugarCaneHarvestedKg",
-    "PostSugar200ResponseIntermediateInnerIntensitiesSugarCaneIntensity",
-    "PostSugarRequest",
-    "PostSugarRequestCropsInner",
-    "PostSugarRequestCropsInnerCrop",
-    "PostViticulture200Response",
-    "PostViticulture200ResponseIntensities",
-    "PostViticulture200ResponseIntensitiesGrapesExcludingLULUCF",
-    "PostViticulture200ResponseIntensitiesGrapesHarvestedKg",
-    "PostViticulture200ResponseIntensitiesGrapesIncludingLULUCF",
-    "PostViticulture200ResponseIntermediateInner",
-    "PostViticulture200ResponseIntermediateInnerIntensities",
-    "PostViticulture200ResponseIntermediateInnerIntensitiesGrapesHarvestedKg",
-    "PostViticulture200ResponseIntermediateInnerIntensitiesGrapesIntensity",
-    "PostViticultureRequest",
-    "PostViticultureRequestCropsInner",
-    "PostViticultureRequestCropsInnerFertiliser",
-    "PostWildCatchFisheries200Response",
-    "PostWildCatchFisheries200ResponseIntensities",
-    "PostWildCatchFisheries200ResponseIntensitiesEmissionsIntensity",
-    "PostWildCatchFisheries200ResponseIntermediateInner",
-    "PostWildCatchFisheries200ResponseIntermediateInnerIntensities",
-    "PostWildCatchFisheries200ResponseIntermediateInnerIntensitiesEmissionsIntensity",
-    "PostWildCatchFisheries200ResponseScope1",
-    "PostWildCatchFisheriesRequest",
-    "PostWildCatchFisheriesRequestFisheriesInner",
-    "PostWildCatchFisheriesRequestFisheriesInnerAmountHarvested",
-    "Poultry",
+    "PostBeefRequestHerdsInnerWaste",
+    "PostBeefRequestHerdsInnerWasteTreatedOffsite",
+    "PostBeefRequestHerdsInnerWasteTreatedOffsiteAnaerobicDigestionInner",
+    "PostBeefRequestHerdsInnerWasteTreatedOffsiteCompostingInner",
+    "PostBeefRequestHerdsInnerWasteTreatedOffsiteIncinerationInner",
+    "PostBeefRequestHerdsInnerWasteTreatedOffsiteLandfillWithGasRecoveryInner",
+    "PostBeefRequestHerdsInnerWasteTreatedOffsiteLandfillWithoutGasRecoveryInner",
+    "PostBeefRequestHerdsInnerWasteTreatedOnsite",
     "PoultryManure",
     "PoultryManureFlocksInner",
     "PoultryManureFlocksInnerClasses",
@@ -1072,8 +465,6 @@ __all__ = [
     "PoultryManureFlocksInnerClassesLayersManureAllocationsPastureRangeAndPaddock",
     "PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein",
     "PoultryManureFlocksInnerClassesLayersMethod2DryMatterIntake",
-    "PoultryScope1Output",
-    "PoultryScope1OutputPlusLULUCF",
     "PurchasedFeedListInputInner",
     "PurchasedFromAustralia",
     "PurchasedFromBrazil",
@@ -1091,31 +482,9 @@ __all__ = [
     "QuantityByMass10",
     "QuantityByMass10MassWasteTonnes",
     "QuantityByMass11",
-    "QuantityByMass11AmountMass",
     "QuantityByMass12",
-    "QuantityByMass12AmountMass",
-    "QuantityByMass12CustomEmissionsFactor",
-    "QuantityByMass13",
-    "QuantityByMass13MassWasteTonnes",
-    "QuantityByMass14",
-    "QuantityByMass14MassWasteTonnes",
-    "QuantityByMass15",
-    "QuantityByMass15MassWasteTonnes",
-    "QuantityByMass16",
-    "QuantityByMass16MassWasteTonnes",
-    "QuantityByMass17",
-    "QuantityByMass17MassWasteTonnes",
-    "QuantityByMass18",
-    "QuantityByMass18MassWasteTonnes",
-    "QuantityByMass19",
-    "QuantityByMass19MassWasteTonnes",
     "QuantityByMass1MassWasteTonnes",
     "QuantityByMass2",
-    "QuantityByMass20",
-    "QuantityByMass21",
-    "QuantityByMass21CustomEmissionsFactor",
-    "QuantityByMass22",
-    "QuantityByMass23",
     "QuantityByMass2MassWasteTonnes",
     "QuantityByMass3",
     "QuantityByMass3MassWasteTonnes",
@@ -1132,41 +501,15 @@ __all__ = [
     "QuantityByMass9",
     "QuantityByMass9MassWasteTonnes",
     "QuantityByMassMassWasteTonnes",
-    "QuantityByUnits",
-    "QuantityByUnits1",
-    "QuantityByUnits1AmountUnits",
-    "QuantityByUnits1CustomEmissionsFactor",
-    "QuantityByUnits2",
-    "QuantityByUnits3",
-    "QuantityByUnits3CustomEmissionsFactor",
-    "QuantityByUnitsAmountUnits",
     "QuantityByVolume",
     "QuantityByVolume1",
     "QuantityByVolume10",
     "QuantityByVolume10VolumeWasteCubicMetres",
     "QuantityByVolume11",
-    "QuantityByVolume11VolumeWasteCubicMetres",
+    "QuantityByVolume11AmountKilolitres",
     "QuantityByVolume12",
-    "QuantityByVolume12VolumeWasteCubicMetres",
-    "QuantityByVolume13",
-    "QuantityByVolume13VolumeWasteCubicMetres",
-    "QuantityByVolume14",
-    "QuantityByVolume14VolumeWasteCubicMetres",
-    "QuantityByVolume15",
-    "QuantityByVolume15VolumeWasteCubicMetres",
-    "QuantityByVolume16",
-    "QuantityByVolume16VolumeWasteCubicMetres",
-    "QuantityByVolume17",
-    "QuantityByVolume17VolumeWasteCubicMetres",
-    "QuantityByVolume18",
-    "QuantityByVolume18VolumeWasteCubicMetres",
-    "QuantityByVolume19",
-    "QuantityByVolume19VolumeWasteCubicMetres",
     "QuantityByVolume1VolumeWasteCubicMetres",
     "QuantityByVolume2",
-    "QuantityByVolume20",
-    "QuantityByVolume20AmountKilolitres",
-    "QuantityByVolume21",
     "QuantityByVolume2VolumeWasteCubicMetres",
     "QuantityByVolume3",
     "QuantityByVolume3VolumeWasteCubicMetres",
@@ -1187,9 +530,8 @@ __all__ = [
     "RegionlessFeedType",
     "RegionlessFeedTypeAmount",
     "RevegetationByPlanting",
-    "RiceScope1Output",
-    "RiceScope1OutputPlusLULUCF",
     "Scope2Output",
+    "Scope2OutputElectricity",
     "Scope2OutputTotal",
     "Scope3Method1",
     "Scope3Method11",
@@ -1208,85 +550,15 @@ __all__ = [
     "ServicesFuelInput",
     "ServicesFuelInputStationaryInner",
     "ServicesFuelInputTransportInner",
-    "Sheep",
-    "SheepClassMonthlyInput",
-    "SheepClassPeriodInput",
-    "SheepClassSeasonalInput",
-    "SheepClassesInput",
-    "SheepClassesMonthlyInput",
-    "SheepClassesMonthlyInputBreedingEwes",
-    "SheepClassesMonthlyInputLambsHoggets",
-    "SheepClassesSeasonalInput",
-    "SheepClassesSeasonalInputBreedingEwes",
-    "SheepClassesSeasonalInputBreedingEwesCleanWoolYieldProportion",
-    "SheepClassesSeasonalInputBreedingEwesGreasyWoolProduction",
-    "SheepClassesSeasonalInputBreedingEwesSpring",
-    "SheepClassesSeasonalInputBreedingEwesSpringHead",
-    "SheepClassesSeasonalInputBreedingEwesSpringMethod2AverageDurationDays",
-    "SheepClassesSeasonalInputBreedingEwesSpringMethod2CrudeProteinContent",
-    "SheepClassesSeasonalInputBreedingEwesSpringMethod2DryMatterAvailability",
-    "SheepClassesSeasonalInputBreedingEwesSpringMethod2DryMatterDigestibility",
-    "SheepClassesSeasonalInputBreedingEwesSpringMethod2Liveweight",
-    "SheepClassesSeasonalInputBreedingEwesSpringMethod2LiveweightGain",
-    "SheepClassesSeasonalInputBreedingEwesSpringPercentLambMarking",
-    "SheepClassesSeasonalInputBreedingEwesSpringPercentLambing",
-    "SheepClassesSeasonalInputLambsHoggets",
-    "SheepClassesSeasonalInputLambsHoggetsSpring",
-    "SheepClassesSeasonalInputLambsHoggetsSpringProportionOfLambsBorn",
     "SolidFuels",
     "SolidFuels1",
     "SolidFuels1AmountTonnes",
     "SolidFuelsAmountTonnes",
-    "SolidsSeparationMethod1",
-    "SolidsSeparationMethod11",
-    "SolidsSeparationMethod1FeedPadMMSAllocation",
-    "SolidsSeparationMethod1FeedPadMMSAllocationAnaerobicLagoon",
-    "SolidsSeparationMethod1FeedPadMMSAllocationDrainToPaddock",
-    "SolidsSeparationMethod1FeedPadMMSAllocationSolidStorage",
-    "SolidsSeparationMethod1FeedPadMMSAllocationSumpDispersal",
-    "SolidsSeparationMethod1MilkingShedMMSAllocation",
-    "SolidsSeparationMethod1MilkingShedMMSAllocationAnaerobicLagoon",
-    "SolidsSeparationMethod1MilkingShedMMSAllocationDrainToPaddock",
-    "SolidsSeparationMethod1MilkingShedMMSAllocationSolidStorage",
-    "SolidsSeparationMethod1MilkingShedMMSAllocationSumpDispersal",
-    "SolidsSeparationMethod2",
-    "SolidsSeparationMethod21",
-    "SolidsSeparationMethod21FractionSolidsSeparatedPreTreatment",
-    "SolidsSeparationMethod2FractionSolidsSeparatedPreTreatment",
     "SpecificProductionSystemScope1Method2",
+    "SpecificProductionSystemScope1Method2Inorganic",
+    "SpecificProductionSystemScope1Method2InorganicApplicationsInner",
     "TimeInLocationsMethod1ProductionSystem",
-    "TimeInLocationsMethod1ProductionSystem1",
-    "TimeInLocationsMethod1ProductionSystem1LivestockSalesInner",
-    "TimeInLocationsMethod1ProductionSystem2",
-    "TimeInLocationsMethod1ProductionSystem2Classes",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCows",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsHead",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2CrudeProtein",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2DryMatterDigestibility",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2DurationDays",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2Liveweight",
-    "TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2LiveweightGain",
-    "TimeInLocationsMethod1ProductionSystem2ManureAllocations",
-    "TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocation",
-    "TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationAnaerobicLagoon",
-    "TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationDrainToPaddock",
-    "TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationSolidStorage",
-    "TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationSumpDispersal",
-    "TimeInLocationsMethod1ProductionSystem2MilkProduction",
-    "TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf",
-    "TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1",
-    "TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1FatContent",
-    "TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1KgSolidsPerHeadPerDay",
-    "TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1ProteinContent",
-    "TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOfLitresPerHeadPerDay",
     "TimeInLocationsMethod1ProductionSystemClasses",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Head",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2CrudeProtein",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2DryMatterDigestibility",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2DurationDays",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2Liveweight",
-    "TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2LiveweightGain",
     "TimeInLocationsMethod1ProductionSystemClassesMilkingCows",
     "TimeInLocationsMethod1ProductionSystemClassesMilkingCowsHead",
     "TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2CrudeProtein",
@@ -1295,6 +567,11 @@ __all__ = [
     "TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight",
     "TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2LiveweightGain",
     "TimeInLocationsMethod1ProductionSystemManureAllocations",
+    "TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation",
+    "TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationAnaerobicLagoon",
+    "TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationDrainToPaddock",
+    "TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationSolidStorage",
+    "TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationSumpDispersal",
     "TimeInLocationsMethod1ProductionSystemMilkProduction",
     "TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf",
     "TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1",
@@ -1303,35 +580,11 @@ __all__ = [
     "TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1ProteinContent",
     "TimeInLocationsMethod1ProductionSystemMilkProductionAnyOfLitresPerHeadPerDay",
     "TimeInLocationsMethod2MeasuredProportions",
-    "TimeInLocationsMethod2MeasuredProportions1",
-    "TimeInLocationsMethod2MeasuredProportions1LivestockSalesInner",
-    "TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocations",
-    "TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnFeedpad",
-    "TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnMilkingShed",
-    "TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnPasture",
-    "TimeInLocationsMethod2MeasuredProportions2",
-    "TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocations",
-    "TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnFeedpad",
-    "TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnMilkingShed",
-    "TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnPasture",
-    "TimeInLocationsMethod2MeasuredProportionsClasses",
-    "TimeInLocationsMethod2MeasuredProportionsManureAllocations",
     "TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations",
     "TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnFeedpad",
     "TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnMilkingShed",
     "TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnPasture",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProduction",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1FatContent",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1KgSolidsPerHeadPerDay",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1ProteinContent",
-    "TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOfLitresPerHeadPerDay",
     "TracedManure",
-    "UnclearableAreaNoExistingTrees",
-    "UnclearableAreaNoExistingTreesPlantingEventsInner",
-    "UnclearableAreaNoExistingTreesPrescribedBurnEventsInner",
-    "UnclearableAreaNoExistingTreesWildfireEventsInner",
     "UnknownComponentCustomEmissionFactor",
     "UnknownComponentCustomEmissionFactorEmissionFactor",
     "UnknownComponentCustomEmissionFactorFractionOfFertiliser",
@@ -1340,28 +593,6 @@ __all__ = [
     "UntracedManureMassAppliedKg",
     "Vessel",
     "Vessel1",
-    "Vessel2",
-    "ViticultureScope1OutputPlusLULUCF",
-    "WastewaterTreatmentMethod1",
-    "WastewaterTreatmentMethod11",
-    "WastewaterTreatmentMethod1FractionRemoved",
-    "WastewaterTreatmentMethod1WastewaterVolume",
-    "WastewaterTreatmentMethod2",
-    "WastewaterTreatmentMethod21",
-    "WastewaterTreatmentMethod21FractionSludge",
-    "WastewaterTreatmentMethod21InletCOD",
-    "WastewaterTreatmentMethod21MethaneCaptured",
-    "WastewaterTreatmentMethod21MethaneFlared",
-    "WastewaterTreatmentMethod21MethaneOut",
-    "WastewaterTreatmentMethod21OutletCOD",
-    "WastewaterTreatmentMethod2FractionRemoved",
-    "WastewaterTreatmentMethod2FractionSludge",
-    "WastewaterTreatmentMethod2InletCOD",
-    "WastewaterTreatmentMethod2MethaneCaptured",
-    "WastewaterTreatmentMethod2MethaneFlared",
-    "WastewaterTreatmentMethod2MethaneOut",
-    "WastewaterTreatmentMethod2OutletCOD",
-    "WastewaterTreatmentMethod2WastewaterVolume",
     "WithOriginRegion",
     "WithOriginRegionFractionOfFertiliser",
     "WithoutOriginRegion",
@@ -1382,15 +613,13 @@ from openapi_client.exceptions import ApiAttributeError as ApiAttributeError
 from openapi_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from openapi_client.models.alpacas import Alpacas as Alpacas
-from openapi_client.models.alpacas_head import AlpacasHead as AlpacasHead
 from openapi_client.models.aquaculture_feed import AquacultureFeed as AquacultureFeed
 from openapi_client.models.aviation import Aviation as Aviation
 from openapi_client.models.aviation1 import Aviation1 as Aviation1
-from openapi_client.models.aviation2 import Aviation2 as Aviation2
 from openapi_client.models.basic_production_system_scope1_method1 import BasicProductionSystemScope1Method1 as BasicProductionSystemScope1Method1
+from openapi_client.models.basic_production_system_scope1_method1_inorganic import BasicProductionSystemScope1Method1Inorganic as BasicProductionSystemScope1Method1Inorganic
+from openapi_client.models.basic_production_system_scope1_method1_inorganic_applications_inner import BasicProductionSystemScope1Method1InorganicApplicationsInner as BasicProductionSystemScope1Method1InorganicApplicationsInner
 from openapi_client.models.beef import Beef as Beef
-from openapi_client.models.beef1 import Beef1 as Beef1
 from openapi_client.models.beef_class_monthly_input import BeefClassMonthlyInput as BeefClassMonthlyInput
 from openapi_client.models.beef_class_period_input import BeefClassPeriodInput as BeefClassPeriodInput
 from openapi_client.models.beef_class_seasonal_input import BeefClassSeasonalInput as BeefClassSeasonalInput
@@ -1506,53 +735,60 @@ from openapi_client.models.beef_classes_with_seasonal_input_bulls_lt1_winter_pro
 from openapi_client.models.beef_classes_with_seasonal_input_bulls_lt1_winter_proportion_calves_born_this_season import BeefClassesWithSeasonalInputBullsLt1WinterProportionCalvesBornThisSeason as BeefClassesWithSeasonalInputBullsLt1WinterProportionCalvesBornThisSeason
 from openapi_client.models.beef_scope1_output import BeefScope1Output as BeefScope1Output
 from openapi_client.models.beef_scope1_output_plus_lulucf import BeefScope1OutputPlusLULUCF as BeefScope1OutputPlusLULUCF
+from openapi_client.models.beef_scope1_output_plus_lulucf_biomass_burning_ch4 import BeefScope1OutputPlusLULUCFBiomassBurningCH4 as BeefScope1OutputPlusLULUCFBiomassBurningCH4
+from openapi_client.models.beef_scope1_output_plus_lulucf_biomass_burning_n2_o import BeefScope1OutputPlusLULUCFBiomassBurningN2O as BeefScope1OutputPlusLULUCFBiomassBurningN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_enteric_ch4 import BeefScope1OutputPlusLULUCFEntericCH4 as BeefScope1OutputPlusLULUCFEntericCH4
+from openapi_client.models.beef_scope1_output_plus_lulucf_fertiliser_leaching_and_runoff_n2_o import BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O as BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_fuel_stationary_ch4 import BeefScope1OutputPlusLULUCFFuelStationaryCH4 as BeefScope1OutputPlusLULUCFFuelStationaryCH4
+from openapi_client.models.beef_scope1_output_plus_lulucf_fuel_stationary_co2 import BeefScope1OutputPlusLULUCFFuelStationaryCO2 as BeefScope1OutputPlusLULUCFFuelStationaryCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_fuel_stationary_n2_o import BeefScope1OutputPlusLULUCFFuelStationaryN2O as BeefScope1OutputPlusLULUCFFuelStationaryN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_fuel_transport_ch4 import BeefScope1OutputPlusLULUCFFuelTransportCH4 as BeefScope1OutputPlusLULUCFFuelTransportCH4
+from openapi_client.models.beef_scope1_output_plus_lulucf_fuel_transport_co2 import BeefScope1OutputPlusLULUCFFuelTransportCO2 as BeefScope1OutputPlusLULUCFFuelTransportCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_fuel_transport_n2_o import BeefScope1OutputPlusLULUCFFuelTransportN2O as BeefScope1OutputPlusLULUCFFuelTransportN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_harvested_wood_products_co2 import BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2 as BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_inorganic_fertiliser_atmospheric_deposition_n2_o import BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O as BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_inorganic_fertiliser_co2 import BeefScope1OutputPlusLULUCFInorganicFertiliserCO2 as BeefScope1OutputPlusLULUCFInorganicFertiliserCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_inorganic_fertiliser_n2_o import BeefScope1OutputPlusLULUCFInorganicFertiliserN2O as BeefScope1OutputPlusLULUCFInorganicFertiliserN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_leaching_and_runoff_soil_losses_n2_o import BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O as BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_lime_co2 import BeefScope1OutputPlusLULUCFLimeCO2 as BeefScope1OutputPlusLULUCFLimeCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_manure_atmospheric_deposition_n2_o import BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O as BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_manure_leaching_runoff_n2_o import BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O as BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_manure_management_ch4 import BeefScope1OutputPlusLULUCFManureManagementCH4 as BeefScope1OutputPlusLULUCFManureManagementCH4
 from openapi_client.models.beef_scope1_output_plus_lulucf_manure_soil_direct_n2_o import BeefScope1OutputPlusLULUCFManureSoilDirectN2O as BeefScope1OutputPlusLULUCFManureSoilDirectN2O
-from openapi_client.models.buffalo import Buffalo as Buffalo
+from openapi_client.models.beef_scope1_output_plus_lulucf_nitrogen_mineralisation_soil_losses_n2_o import BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O as BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_organic_fertiliser_atmospheric_deposition_n2_o import BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O as BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_organic_fertiliser_n2_o import BeefScope1OutputPlusLULUCFOrganicFertiliserN2O as BeefScope1OutputPlusLULUCFOrganicFertiliserN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_pasture_residue_n2_o import BeefScope1OutputPlusLULUCFPastureResidueN2O as BeefScope1OutputPlusLULUCFPastureResidueN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_perennial_woody_crops_emissions_co2 import BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2 as BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_perennial_woody_crops_removals_co2 import BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2 as BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_residue_leaching_and_runoff_n2_o import BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O as BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_savanna_fire_biomass_burning_co2e import BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e as BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e
+from openapi_client.models.beef_scope1_output_plus_lulucf_savanna_fire_woody_carbon_stocks_co2e import BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e as BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e
+from openapi_client.models.beef_scope1_output_plus_lulucf_soil_organic_stock_losses_co2 import BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2 as BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_solid_waste_ch4 import BeefScope1OutputPlusLULUCFSolidWasteCH4 as BeefScope1OutputPlusLULUCFSolidWasteCH4
+from openapi_client.models.beef_scope1_output_plus_lulucf_solid_waste_co2 import BeefScope1OutputPlusLULUCFSolidWasteCO2 as BeefScope1OutputPlusLULUCFSolidWasteCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_solid_waste_n2_o import BeefScope1OutputPlusLULUCFSolidWasteN2O as BeefScope1OutputPlusLULUCFSolidWasteN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_total import BeefScope1OutputPlusLULUCFTotal as BeefScope1OutputPlusLULUCFTotal
+from openapi_client.models.beef_scope1_output_plus_lulucf_total_ch4 import BeefScope1OutputPlusLULUCFTotalCH4 as BeefScope1OutputPlusLULUCFTotalCH4
+from openapi_client.models.beef_scope1_output_plus_lulucf_total_co2 import BeefScope1OutputPlusLULUCFTotalCO2 as BeefScope1OutputPlusLULUCFTotalCO2
+from openapi_client.models.beef_scope1_output_plus_lulucf_total_n2_o import BeefScope1OutputPlusLULUCFTotalN2O as BeefScope1OutputPlusLULUCFTotalN2O
+from openapi_client.models.beef_scope1_output_plus_lulucf_total_other_gases import BeefScope1OutputPlusLULUCFTotalOtherGases as BeefScope1OutputPlusLULUCFTotalOtherGases
+from openapi_client.models.beef_scope1_output_plus_lulucf_woody_carbon_stocks_co2 import BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2 as BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2
 from openapi_client.models.burning_input import BurningInput as BurningInput
 from openapi_client.models.burning_input_carbon_stock_change_high_rainfall_zone import BurningInputCarbonStockChangeHighRainfallZone as BurningInputCarbonStockChangeHighRainfallZone
 from openapi_client.models.burning_input_carbon_stock_change_low_rainfall_zone import BurningInputCarbonStockChangeLowRainfallZone as BurningInputCarbonStockChangeLowRainfallZone
 from openapi_client.models.burning_input_emissions_from_burning_high_rainfall_zone import BurningInputEmissionsFromBurningHighRainfallZone as BurningInputEmissionsFromBurningHighRainfallZone
 from openapi_client.models.burning_input_emissions_from_burning_low_rainfall_zone import BurningInputEmissionsFromBurningLowRainfallZone as BurningInputEmissionsFromBurningLowRainfallZone
-from openapi_client.models.calf_sale import CalfSale as CalfSale
-from openapi_client.models.calf_sale_average_liveweight import CalfSaleAverageLiveweight as CalfSaleAverageLiveweight
-from openapi_client.models.calf_sale_number_sold import CalfSaleNumberSold as CalfSaleNumberSold
-from openapi_client.models.camels import Camels as Camels
-from openapi_client.models.camels1 import Camels1 as Camels1
-from openapi_client.models.camels_head import CamelsHead as CamelsHead
 from openapi_client.models.cars_and_light_commercial_vehicles import CarsAndLightCommercialVehicles as CarsAndLightCommercialVehicles
 from openapi_client.models.cars_and_light_commercial_vehicles1 import CarsAndLightCommercialVehicles1 as CarsAndLightCommercialVehicles1
-from openapi_client.models.cars_and_light_commercial_vehicles2 import CarsAndLightCommercialVehicles2 as CarsAndLightCommercialVehicles2
-from openapi_client.models.cars_and_light_commercial_vehicles2_amount_kilolitres import CarsAndLightCommercialVehicles2AmountKilolitres as CarsAndLightCommercialVehicles2AmountKilolitres
-from openapi_client.models.cars_and_light_commercial_vehicles3 import CarsAndLightCommercialVehicles3 as CarsAndLightCommercialVehicles3
-from openapi_client.models.cars_and_light_commercial_vehicles3_amount_kilolitres import CarsAndLightCommercialVehicles3AmountKilolitres as CarsAndLightCommercialVehicles3AmountKilolitres
+from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres as CarsAndLightCommercialVehicles1AmountKilolitres
 from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres as CarsAndLightCommercialVehiclesAmountKilolitres
 from openapi_client.models.cars_and_light_commercial_vehicles_pre2004 import CarsAndLightCommercialVehiclesPre2004 as CarsAndLightCommercialVehiclesPre2004
 from openapi_client.models.cars_and_light_commercial_vehicles_pre20041 import CarsAndLightCommercialVehiclesPre20041 as CarsAndLightCommercialVehiclesPre20041
-from openapi_client.models.cars_and_light_commercial_vehicles_pre20042 import CarsAndLightCommercialVehiclesPre20042 as CarsAndLightCommercialVehiclesPre20042
-from openapi_client.models.cars_and_light_commercial_vehicles_pre2004_amount_kilolitres import CarsAndLightCommercialVehiclesPre2004AmountKilolitres as CarsAndLightCommercialVehiclesPre2004AmountKilolitres
-from openapi_client.models.clearable_area_existing_trees import ClearableAreaExistingTrees as ClearableAreaExistingTrees
-from openapi_client.models.clearable_area_existing_trees_clearing_event import ClearableAreaExistingTreesClearingEvent as ClearableAreaExistingTreesClearingEvent
-from openapi_client.models.clearable_area_existing_trees_initial_trees import ClearableAreaExistingTreesInitialTrees as ClearableAreaExistingTreesInitialTrees
-from openapi_client.models.clearable_area_existing_trees_planting_events_inner import ClearableAreaExistingTreesPlantingEventsInner as ClearableAreaExistingTreesPlantingEventsInner
-from openapi_client.models.clearable_area_existing_trees_prescribed_burn_events_inner import ClearableAreaExistingTreesPrescribedBurnEventsInner as ClearableAreaExistingTreesPrescribedBurnEventsInner
-from openapi_client.models.clearable_area_existing_trees_wildfire_events_inner import ClearableAreaExistingTreesWildfireEventsInner as ClearableAreaExistingTreesWildfireEventsInner
-from openapi_client.models.cleared_to_crops import ClearedToCrops as ClearedToCrops
-from openapi_client.models.cleared_to_pasture import ClearedToPasture as ClearedToPasture
-from openapi_client.models.cleared_to_settlements import ClearedToSettlements as ClearedToSettlements
 from openapi_client.models.compressed_natural_gas_cng import CompressedNaturalGasCNG as CompressedNaturalGasCNG
 from openapi_client.models.compressed_natural_gas_cng1 import CompressedNaturalGasCNG1 as CompressedNaturalGasCNG1
-from openapi_client.models.compressed_natural_gas_cng2 import CompressedNaturalGasCNG2 as CompressedNaturalGasCNG2
-from openapi_client.models.crop import Crop as Crop
-from openapi_client.models.crop_crop import CropCrop as CropCrop
-from openapi_client.models.cropping_scope1_output import CroppingScope1Output as CroppingScope1Output
-from openapi_client.models.cropping_scope1_output_plus_lulucf import CroppingScope1OutputPlusLULUCF as CroppingScope1OutputPlusLULUCF
-from openapi_client.models.cropping_scope3_output import CroppingScope3Output as CroppingScope3Output
-from openapi_client.models.dairy import Dairy as Dairy
 from openapi_client.models.dairy_manure import DairyManure as DairyManure
 from openapi_client.models.dairy_manure_herds_inner import DairyManureHerdsInner as DairyManureHerdsInner
-from openapi_client.models.deer import Deer as Deer
-from openapi_client.models.emus_ostriches import EmusOstriches as EmusOstriches
-from openapi_client.models.environmental_plantings import EnvironmentalPlantings as EnvironmentalPlantings
 from openapi_client.models.farm_forestry import FarmForestry as FarmForestry
 from openapi_client.models.farm_forestry_carbon_mass_of_wood_products import FarmForestryCarbonMassOfWoodProducts as FarmForestryCarbonMassOfWoodProducts
 from openapi_client.models.feedlot_manure import FeedlotManure as FeedlotManure
@@ -1567,9 +803,6 @@ from openapi_client.models.feedlot_manure_groups_inner_method2_crude_protein imp
 from openapi_client.models.feedlot_manure_groups_inner_method2_dry_matter_intake import FeedlotManureGroupsInnerMethod2DryMatterIntake as FeedlotManureGroupsInnerMethod2DryMatterIntake
 from openapi_client.models.feedlot_manure_groups_inner_method2_nitrogen_retention_rate import FeedlotManureGroupsInnerMethod2NitrogenRetentionRate as FeedlotManureGroupsInnerMethod2NitrogenRetentionRate
 from openapi_client.models.fertiliser_input import FertiliserInput as FertiliserInput
-from openapi_client.models.forestry_plantation import ForestryPlantation as ForestryPlantation
-from openapi_client.models.forestry_scope1_output import ForestryScope1Output as ForestryScope1Output
-from openapi_client.models.forestry_scope3_output import ForestryScope3Output as ForestryScope3Output
 from openapi_client.models.from_farm_records import FromFarmRecords as FromFarmRecords
 from openapi_client.models.from_farm_records_carbon_mass_per_hectare_from_records import FromFarmRecordsCarbonMassPerHectareFromRecords as FromFarmRecordsCarbonMassPerHectareFromRecords
 from openapi_client.models.from_full_cam_simulation import FromFullCAMSimulation as FromFullCAMSimulation
@@ -1581,27 +814,12 @@ from openapi_client.models.gaseous_fuels_natural_gas import GaseousFuelsNaturalG
 from openapi_client.models.gaseous_fuels_natural_gas1 import GaseousFuelsNaturalGas1 as GaseousFuelsNaturalGas1
 from openapi_client.models.gaseous_fuels_natural_gas1_amount_kilolitres import GaseousFuelsNaturalGas1AmountKilolitres as GaseousFuelsNaturalGas1AmountKilolitres
 from openapi_client.models.gaseous_fuels_natural_gas_amount_kilolitres import GaseousFuelsNaturalGasAmountKilolitres as GaseousFuelsNaturalGasAmountKilolitres
-from openapi_client.models.goats import Goats as Goats
-from openapi_client.models.grains_scope1_output import GrainsScope1Output as GrainsScope1Output
-from openapi_client.models.grains_scope1_output_plus_lulucf import GrainsScope1OutputPlusLULUCF as GrainsScope1OutputPlusLULUCF
-from openapi_client.models.grains_scope3_output import GrainsScope3Output as GrainsScope3Output
-from openapi_client.models.grains_scope3_output_agrichemicals import GrainsScope3OutputAgrichemicals as GrainsScope3OutputAgrichemicals
-from openapi_client.models.grains_scope3_output_fertiliser import GrainsScope3OutputFertiliser as GrainsScope3OutputFertiliser
 from openapi_client.models.gypsum_application import GypsumApplication as GypsumApplication
 from openapi_client.models.gypsum_application_custom_scope3_emissions_factor import GypsumApplicationCustomScope3EmissionsFactor as GypsumApplicationCustomScope3EmissionsFactor
 from openapi_client.models.gypsum_application_mass_applied_kg import GypsumApplicationMassAppliedKg as GypsumApplicationMassAppliedKg
 from openapi_client.models.heavy_duty_vehicles import HeavyDutyVehicles as HeavyDutyVehicles
 from openapi_client.models.heavy_duty_vehicles1 import HeavyDutyVehicles1 as HeavyDutyVehicles1
-from openapi_client.models.heavy_duty_vehicles2 import HeavyDutyVehicles2 as HeavyDutyVehicles2
-from openapi_client.models.horses import Horses as Horses
-from openapi_client.models.horticulture_scope1_output_plus_lulucf import HorticultureScope1OutputPlusLULUCF as HorticultureScope1OutputPlusLULUCF
 from openapi_client.models.human_induced_natural_regeneration import HumanInducedNaturalRegeneration as HumanInducedNaturalRegeneration
-from openapi_client.models.inorganic_fertiliser_scope1_method1 import InorganicFertiliserScope1Method1 as InorganicFertiliserScope1Method1
-from openapi_client.models.inorganic_fertiliser_scope1_method1_inorganic import InorganicFertiliserScope1Method1Inorganic as InorganicFertiliserScope1Method1Inorganic
-from openapi_client.models.inorganic_fertiliser_scope1_method1_inorganic_applications_inner import InorganicFertiliserScope1Method1InorganicApplicationsInner as InorganicFertiliserScope1Method1InorganicApplicationsInner
-from openapi_client.models.inorganic_fertiliser_scope1_method2 import InorganicFertiliserScope1Method2 as InorganicFertiliserScope1Method2
-from openapi_client.models.inorganic_fertiliser_scope1_method2_inorganic import InorganicFertiliserScope1Method2Inorganic as InorganicFertiliserScope1Method2Inorganic
-from openapi_client.models.inorganic_fertiliser_scope1_method2_inorganic_applications_inner import InorganicFertiliserScope1Method2InorganicApplicationsInner as InorganicFertiliserScope1Method2InorganicApplicationsInner
 from openapi_client.models.known_component import KnownComponent as KnownComponent
 from openapi_client.models.land_clearing_forest_to_cropland import LandClearingForestToCropland as LandClearingForestToCropland
 from openapi_client.models.land_clearing_forest_to_cropland_activity_area_hectares import LandClearingForestToCroplandActivityAreaHectares as LandClearingForestToCroplandActivityAreaHectares
@@ -1618,10 +836,7 @@ from openapi_client.models.land_use_input import LandUseInput as LandUseInput
 from openapi_client.models.land_use_input_activities_inner import LandUseInputActivitiesInner as LandUseInputActivitiesInner
 from openapi_client.models.light_duty_vehicles import LightDutyVehicles as LightDutyVehicles
 from openapi_client.models.light_duty_vehicles1 import LightDutyVehicles1 as LightDutyVehicles1
-from openapi_client.models.light_duty_vehicles2 import LightDutyVehicles2 as LightDutyVehicles2
 from openapi_client.models.limestone_or_dolomite_application import LimestoneOrDolomiteApplication as LimestoneOrDolomiteApplication
-from openapi_client.models.limestone_or_dolomite_application1 import LimestoneOrDolomiteApplication1 as LimestoneOrDolomiteApplication1
-from openapi_client.models.limestone_or_dolomite_application1_limestone_fraction import LimestoneOrDolomiteApplication1LimestoneFraction as LimestoneOrDolomiteApplication1LimestoneFraction
 from openapi_client.models.limestone_or_dolomite_application_custom_scope3_emissions_factor import LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor as LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor
 from openapi_client.models.limestone_or_dolomite_application_limestone_fraction import LimestoneOrDolomiteApplicationLimestoneFraction as LimestoneOrDolomiteApplicationLimestoneFraction
 from openapi_client.models.limestone_or_dolomite_application_mass_applied_kg import LimestoneOrDolomiteApplicationMassAppliedKg as LimestoneOrDolomiteApplicationMassAppliedKg
@@ -1629,27 +844,17 @@ from openapi_client.models.liquid_fuels import LiquidFuels as LiquidFuels
 from openapi_client.models.liquid_fuels1 import LiquidFuels1 as LiquidFuels1
 from openapi_client.models.litres_based_fuel import LitresBasedFuel as LitresBasedFuel
 from openapi_client.models.litres_based_fuel1 import LitresBasedFuel1 as LitresBasedFuel1
-from openapi_client.models.litres_based_fuel2 import LitresBasedFuel2 as LitresBasedFuel2
-from openapi_client.models.litres_based_fuel3 import LitresBasedFuel3 as LitresBasedFuel3
 from openapi_client.models.livestock_feed import LivestockFeed as LivestockFeed
 from openapi_client.models.livestock_manures_input import LivestockManuresInput as LivestockManuresInput
 from openapi_client.models.location_based import LocationBased as LocationBased
-from openapi_client.models.location_based1 import LocationBased1 as LocationBased1
 from openapi_client.models.location_based_electricity_purchased_kwh import LocationBasedElectricityPurchasedKWh as LocationBasedElectricityPurchasedKWh
-from openapi_client.models.mallee_eucalypt_species import MalleeEucalyptSpecies as MalleeEucalyptSpecies
 from openapi_client.models.market_based import MarketBased as MarketBased
-from openapi_client.models.market_based1 import MarketBased1 as MarketBased1
-from openapi_client.models.market_based1_recs_onsite import MarketBased1RecsOnsite as MarketBased1RecsOnsite
-from openapi_client.models.market_based1_recs_surrendered import MarketBased1RecsSurrendered as MarketBased1RecsSurrendered
 from openapi_client.models.market_based_electricity_purchased_kwh import MarketBasedElectricityPurchasedKWh as MarketBasedElectricityPurchasedKWh
 from openapi_client.models.market_based_recs_onsite import MarketBasedRecsOnsite as MarketBasedRecsOnsite
 from openapi_client.models.market_based_recs_surrendered import MarketBasedRecsSurrendered as MarketBasedRecsSurrendered
-from openapi_client.models.mature_cattle_sale import MatureCattleSale as MatureCattleSale
-from openapi_client.models.mature_cattle_sale1 import MatureCattleSale1 as MatureCattleSale1
-from openapi_client.models.mature_cattle_sale_average_liveweight import MatureCattleSaleAverageLiveweight as MatureCattleSaleAverageLiveweight
-from openapi_client.models.mature_cattle_sale_number_sold import MatureCattleSaleNumberSold as MatureCattleSaleNumberSold
 from openapi_client.models.method1 import Method1 as Method1
 from openapi_client.models.method11 import Method11 as Method11
+from openapi_client.models.method11_amount import Method11Amount as Method11Amount
 from openapi_client.models.method12 import Method12 as Method12
 from openapi_client.models.method12_anaerobic_digestion import Method12AnaerobicDigestion as Method12AnaerobicDigestion
 from openapi_client.models.method12_composting import Method12Composting as Method12Composting
@@ -1658,83 +863,20 @@ from openapi_client.models.method12_unmanaged_burial import Method12UnmanagedBur
 from openapi_client.models.method12_unmanaged_deep import Method12UnmanagedDeep as Method12UnmanagedDeep
 from openapi_client.models.method12_unmanaged_shallow import Method12UnmanagedShallow as Method12UnmanagedShallow
 from openapi_client.models.method13 import Method13 as Method13
-from openapi_client.models.method13_amount import Method13Amount as Method13Amount
-from openapi_client.models.method14 import Method14 as Method14
-from openapi_client.models.method14_anaerobic_digestion import Method14AnaerobicDigestion as Method14AnaerobicDigestion
-from openapi_client.models.method14_composting import Method14Composting as Method14Composting
-from openapi_client.models.method14_incineration import Method14Incineration as Method14Incineration
-from openapi_client.models.method14_unmanaged_burial import Method14UnmanagedBurial as Method14UnmanagedBurial
-from openapi_client.models.method15 import Method15 as Method15
-from openapi_client.models.method16 import Method16 as Method16
-from openapi_client.models.method16_clearings_inner import Method16ClearingsInner as Method16ClearingsInner
-from openapi_client.models.method16_clearings_inner_area_cleared import Method16ClearingsInnerAreaCleared as Method16ClearingsInnerAreaCleared
-from openapi_client.models.method16_method2_actual_stem_density import Method16Method2ActualStemDensity as Method16Method2ActualStemDensity
-from openapi_client.models.method16_method2_biomass_at_maturity import Method16Method2BiomassAtMaturity as Method16Method2BiomassAtMaturity
-from openapi_client.models.method16_plantings_inner import Method16PlantingsInner as Method16PlantingsInner
-from openapi_client.models.method16_plantings_inner_area_planted import Method16PlantingsInnerAreaPlanted as Method16PlantingsInnerAreaPlanted
-from openapi_client.models.method16_plantings_inner_years_since_planting import Method16PlantingsInnerYearsSincePlanting as Method16PlantingsInnerYearsSincePlanting
+from openapi_client.models.method13_clearings_inner import Method13ClearingsInner as Method13ClearingsInner
+from openapi_client.models.method13_clearings_inner_area_cleared import Method13ClearingsInnerAreaCleared as Method13ClearingsInnerAreaCleared
+from openapi_client.models.method13_method2_actual_stem_density import Method13Method2ActualStemDensity as Method13Method2ActualStemDensity
+from openapi_client.models.method13_method2_biomass_at_maturity import Method13Method2BiomassAtMaturity as Method13Method2BiomassAtMaturity
+from openapi_client.models.method13_plantings_inner import Method13PlantingsInner as Method13PlantingsInner
+from openapi_client.models.method13_plantings_inner_area_planted import Method13PlantingsInnerAreaPlanted as Method13PlantingsInnerAreaPlanted
+from openapi_client.models.method13_plantings_inner_years_since_planting import Method13PlantingsInnerYearsSincePlanting as Method13PlantingsInnerYearsSincePlanting
 from openapi_client.models.method1_by_feed_type import Method1ByFeedType as Method1ByFeedType
-from openapi_client.models.method1_by_packaging_type import Method1ByPackagingType as Method1ByPackagingType
-from openapi_client.models.method1_by_packaging_type1 import Method1ByPackagingType1 as Method1ByPackagingType1
-from openapi_client.models.method1_distance_and_weight import Method1DistanceAndWeight as Method1DistanceAndWeight
-from openapi_client.models.method1_distance_and_weight1 import Method1DistanceAndWeight1 as Method1DistanceAndWeight1
-from openapi_client.models.method1_distance_and_weight1_distance import Method1DistanceAndWeight1Distance as Method1DistanceAndWeight1Distance
-from openapi_client.models.method1_distance_and_weight1_weight import Method1DistanceAndWeight1Weight as Method1DistanceAndWeight1Weight
-from openapi_client.models.method1_distance_and_weight_distance import Method1DistanceAndWeightDistance as Method1DistanceAndWeightDistance
-from openapi_client.models.method1_distance_and_weight_weight import Method1DistanceAndWeightWeight as Method1DistanceAndWeightWeight
 from openapi_client.models.method1_emission_factor_method1_liveweight import Method1EmissionFactorMethod1Liveweight as Method1EmissionFactorMethod1Liveweight
-from openapi_client.models.method1_emission_factor_method1_liveweight1 import Method1EmissionFactorMethod1Liveweight1 as Method1EmissionFactorMethod1Liveweight1
-from openapi_client.models.method1_emission_factor_method1_liveweight2 import Method1EmissionFactorMethod1Liveweight2 as Method1EmissionFactorMethod1Liveweight2
-from openapi_client.models.method1_emission_factor_method1_liveweight3 import Method1EmissionFactorMethod1Liveweight3 as Method1EmissionFactorMethod1Liveweight3
-from openapi_client.models.method1_emission_factor_method1_liveweight4 import Method1EmissionFactorMethod1Liveweight4 as Method1EmissionFactorMethod1Liveweight4
-from openapi_client.models.method1_emission_factor_method1_liveweight5 import Method1EmissionFactorMethod1Liveweight5 as Method1EmissionFactorMethod1Liveweight5
-from openapi_client.models.method1_emission_factor_method1_liveweight6 import Method1EmissionFactorMethod1Liveweight6 as Method1EmissionFactorMethod1Liveweight6
 from openapi_client.models.method1_emission_factor_method1_liveweight_head_purchased import Method1EmissionFactorMethod1LiveweightHeadPurchased as Method1EmissionFactorMethod1LiveweightHeadPurchased
 from openapi_client.models.method1_emission_factor_method2_liveweight import Method1EmissionFactorMethod2Liveweight as Method1EmissionFactorMethod2Liveweight
-from openapi_client.models.method1_emission_factor_method2_liveweight1 import Method1EmissionFactorMethod2Liveweight1 as Method1EmissionFactorMethod2Liveweight1
-from openapi_client.models.method1_emission_factor_method2_liveweight2 import Method1EmissionFactorMethod2Liveweight2 as Method1EmissionFactorMethod2Liveweight2
-from openapi_client.models.method1_emission_factor_method2_liveweight3 import Method1EmissionFactorMethod2Liveweight3 as Method1EmissionFactorMethod2Liveweight3
-from openapi_client.models.method1_emission_factor_method2_liveweight4 import Method1EmissionFactorMethod2Liveweight4 as Method1EmissionFactorMethod2Liveweight4
-from openapi_client.models.method1_emission_factor_method2_liveweight5 import Method1EmissionFactorMethod2Liveweight5 as Method1EmissionFactorMethod2Liveweight5
-from openapi_client.models.method1_emission_factor_method2_liveweight6 import Method1EmissionFactorMethod2Liveweight6 as Method1EmissionFactorMethod2Liveweight6
 from openapi_client.models.method1_emission_factor_method2_liveweight_head_purchased import Method1EmissionFactorMethod2LiveweightHeadPurchased as Method1EmissionFactorMethod2LiveweightHeadPurchased
 from openapi_client.models.method1_emission_factor_method2_liveweight_liveweight_method2 import Method1EmissionFactorMethod2LiveweightLiveweightMethod2 as Method1EmissionFactorMethod2LiveweightLiveweightMethod2
 from openapi_client.models.method1_solids_separation_flag import Method1SolidsSeparationFlag as Method1SolidsSeparationFlag
-from openapi_client.models.method1_solids_separation_flag1 import Method1SolidsSeparationFlag1 as Method1SolidsSeparationFlag1
-from openapi_client.models.method1_solids_separation_flag1_anaerobic_lagoon import Method1SolidsSeparationFlag1AnaerobicLagoon as Method1SolidsSeparationFlag1AnaerobicLagoon
-from openapi_client.models.method1_solids_separation_flag1_anaerobic_lagoon_manure_allocated import Method1SolidsSeparationFlag1AnaerobicLagoonManureAllocated as Method1SolidsSeparationFlag1AnaerobicLagoonManureAllocated
-from openapi_client.models.method1_solids_separation_flag1_anaerobic_lagoon_treatment_stage2_allocations import Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2Allocations as Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2Allocations
-from openapi_client.models.method1_solids_separation_flag1_anaerobic_lagoon_treatment_stage2_allocations_digester import Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsDigester as Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsDigester
-from openapi_client.models.method1_solids_separation_flag1_anaerobic_lagoon_treatment_stage2_allocations_direct_application import Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsDirectApplication as Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.method1_solids_separation_flag1_anaerobic_lagoon_treatment_stage2_allocations_pit_storage import Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsPitStorage as Method1SolidsSeparationFlag1AnaerobicLagoonTreatmentStage2AllocationsPitStorage
-from openapi_client.models.method1_solids_separation_flag1_deep_litter import Method1SolidsSeparationFlag1DeepLitter as Method1SolidsSeparationFlag1DeepLitter
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_manure_allocated import Method1SolidsSeparationFlag1DeepLitterManureAllocated as Method1SolidsSeparationFlag1DeepLitterManureAllocated
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_treatment_stage2_allocations import Method1SolidsSeparationFlag1DeepLitterTreatmentStage2Allocations as Method1SolidsSeparationFlag1DeepLitterTreatmentStage2Allocations
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_treatment_stage2_allocations_anaerobic_lagoon import Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsAnaerobicLagoon as Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsAnaerobicLagoon
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_treatment_stage2_allocations_digester import Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsDigester as Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsDigester
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_treatment_stage2_allocations_direct_application import Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsDirectApplication as Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_treatment_stage2_allocations_pit_storage import Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsPitStorage as Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsPitStorage
-from openapi_client.models.method1_solids_separation_flag1_deep_litter_treatment_stage2_allocations_solid_storage import Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsSolidStorage as Method1SolidsSeparationFlag1DeepLitterTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.method1_solids_separation_flag1_digester import Method1SolidsSeparationFlag1Digester as Method1SolidsSeparationFlag1Digester
-from openapi_client.models.method1_solids_separation_flag1_digester_manure_allocated import Method1SolidsSeparationFlag1DigesterManureAllocated as Method1SolidsSeparationFlag1DigesterManureAllocated
-from openapi_client.models.method1_solids_separation_flag1_digester_treatment_stage2_allocations import Method1SolidsSeparationFlag1DigesterTreatmentStage2Allocations as Method1SolidsSeparationFlag1DigesterTreatmentStage2Allocations
-from openapi_client.models.method1_solids_separation_flag1_digester_treatment_stage2_allocations_anaerobic_lagoon import Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsAnaerobicLagoon as Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsAnaerobicLagoon
-from openapi_client.models.method1_solids_separation_flag1_digester_treatment_stage2_allocations_direct_application import Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsDirectApplication as Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.method1_solids_separation_flag1_digester_treatment_stage2_allocations_pit_storage import Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsPitStorage as Method1SolidsSeparationFlag1DigesterTreatmentStage2AllocationsPitStorage
-from openapi_client.models.method1_solids_separation_flag1_outdoor_and_free_range import Method1SolidsSeparationFlag1OutdoorAndFreeRange as Method1SolidsSeparationFlag1OutdoorAndFreeRange
-from openapi_client.models.method1_solids_separation_flag1_pit_storage import Method1SolidsSeparationFlag1PitStorage as Method1SolidsSeparationFlag1PitStorage
-from openapi_client.models.method1_solids_separation_flag1_pit_storage_manure_allocated import Method1SolidsSeparationFlag1PitStorageManureAllocated as Method1SolidsSeparationFlag1PitStorageManureAllocated
-from openapi_client.models.method1_solids_separation_flag1_pit_storage_treatment_stage2_allocations import Method1SolidsSeparationFlag1PitStorageTreatmentStage2Allocations as Method1SolidsSeparationFlag1PitStorageTreatmentStage2Allocations
-from openapi_client.models.method1_solids_separation_flag1_pit_storage_treatment_stage2_allocations_anaerobic_lagoon import Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsAnaerobicLagoon as Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsAnaerobicLagoon
-from openapi_client.models.method1_solids_separation_flag1_pit_storage_treatment_stage2_allocations_digester import Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsDigester as Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsDigester
-from openapi_client.models.method1_solids_separation_flag1_pit_storage_treatment_stage2_allocations_direct_application import Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsDirectApplication as Method1SolidsSeparationFlag1PitStorageTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.method1_solids_separation_flag1_solid_storage import Method1SolidsSeparationFlag1SolidStorage as Method1SolidsSeparationFlag1SolidStorage
-from openapi_client.models.method1_solids_separation_flag1_solid_storage_manure_allocated import Method1SolidsSeparationFlag1SolidStorageManureAllocated as Method1SolidsSeparationFlag1SolidStorageManureAllocated
-from openapi_client.models.method1_solids_separation_flag1_solid_storage_treatment_stage2_allocations import Method1SolidsSeparationFlag1SolidStorageTreatmentStage2Allocations as Method1SolidsSeparationFlag1SolidStorageTreatmentStage2Allocations
-from openapi_client.models.method1_solids_separation_flag1_solid_storage_treatment_stage2_allocations_anaerobic_lagoon import Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsAnaerobicLagoon as Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsAnaerobicLagoon
-from openapi_client.models.method1_solids_separation_flag1_solid_storage_treatment_stage2_allocations_digester import Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsDigester as Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsDigester
-from openapi_client.models.method1_solids_separation_flag1_solid_storage_treatment_stage2_allocations_direct_application import Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsDirectApplication as Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.method1_solids_separation_flag1_solid_storage_treatment_stage2_allocations_pit_storage import Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsPitStorage as Method1SolidsSeparationFlag1SolidStorageTreatmentStage2AllocationsPitStorage
 from openapi_client.models.method1_solids_separation_flag_anaerobic_lagoon import Method1SolidsSeparationFlagAnaerobicLagoon as Method1SolidsSeparationFlagAnaerobicLagoon
 from openapi_client.models.method1_solids_separation_flag_anaerobic_lagoon_manure_allocated import Method1SolidsSeparationFlagAnaerobicLagoonManureAllocated as Method1SolidsSeparationFlagAnaerobicLagoonManureAllocated
 from openapi_client.models.method1_solids_separation_flag_anaerobic_lagoon_treatment_stage2_allocations import Method1SolidsSeparationFlagAnaerobicLagoonTreatmentStage2Allocations as Method1SolidsSeparationFlagAnaerobicLagoonTreatmentStage2Allocations
@@ -1771,99 +913,43 @@ from openapi_client.models.method1_solids_separation_flag_solid_storage_treatmen
 from openapi_client.models.method1_solids_separation_flag_solid_storage_treatment_stage2_allocations_pit_storage import Method1SolidsSeparationFlagSolidStorageTreatmentStage2AllocationsPitStorage as Method1SolidsSeparationFlagSolidStorageTreatmentStage2AllocationsPitStorage
 from openapi_client.models.method2 import Method2 as Method2
 from openapi_client.models.method21 import Method21 as Method21
-from openapi_client.models.method21_anaerobic_digestion_inner import Method21AnaerobicDigestionInner as Method21AnaerobicDigestionInner
-from openapi_client.models.method21_composting_inner import Method21CompostingInner as Method21CompostingInner
-from openapi_client.models.method21_incineration_inner import Method21IncinerationInner as Method21IncinerationInner
-from openapi_client.models.method21_unmanaged_burial_inner import Method21UnmanagedBurialInner as Method21UnmanagedBurialInner
-from openapi_client.models.method21_unmanaged_deep_inner import Method21UnmanagedDeepInner as Method21UnmanagedDeepInner
-from openapi_client.models.method21_unmanaged_shallow_inner import Method21UnmanagedShallowInner as Method21UnmanagedShallowInner
+from openapi_client.models.method21_amount import Method21Amount as Method21Amount
+from openapi_client.models.method21_custom_emissions_factor import Method21CustomEmissionsFactor as Method21CustomEmissionsFactor
 from openapi_client.models.method22 import Method22 as Method22
-from openapi_client.models.method22_amount import Method22Amount as Method22Amount
-from openapi_client.models.method22_custom_emissions_factor import Method22CustomEmissionsFactor as Method22CustomEmissionsFactor
-from openapi_client.models.method23 import Method23 as Method23
-from openapi_client.models.method23_anaerobic_digestion_inner import Method23AnaerobicDigestionInner as Method23AnaerobicDigestionInner
-from openapi_client.models.method23_composting_inner import Method23CompostingInner as Method23CompostingInner
-from openapi_client.models.method23_incineration_inner import Method23IncinerationInner as Method23IncinerationInner
-from openapi_client.models.method23_unmanaged_burial_inner import Method23UnmanagedBurialInner as Method23UnmanagedBurialInner
-from openapi_client.models.method23_unmanaged_deep_inner import Method23UnmanagedDeepInner as Method23UnmanagedDeepInner
-from openapi_client.models.method23_unmanaged_shallow_inner import Method23UnmanagedShallowInner as Method23UnmanagedShallowInner
-from openapi_client.models.method24 import Method24 as Method24
-from openapi_client.models.method24_average_yield_per_hectare import Method24AverageYieldPerHectare as Method24AverageYieldPerHectare
-from openapi_client.models.method25 import Method25 as Method25
-from openapi_client.models.method25_custom_emissions_factor import Method25CustomEmissionsFactor as Method25CustomEmissionsFactor
+from openapi_client.models.method22_anaerobic_digestion_inner import Method22AnaerobicDigestionInner as Method22AnaerobicDigestionInner
+from openapi_client.models.method22_composting_inner import Method22CompostingInner as Method22CompostingInner
+from openapi_client.models.method22_incineration_inner import Method22IncinerationInner as Method22IncinerationInner
+from openapi_client.models.method22_unmanaged_burial_inner import Method22UnmanagedBurialInner as Method22UnmanagedBurialInner
+from openapi_client.models.method22_unmanaged_deep_inner import Method22UnmanagedDeepInner as Method22UnmanagedDeepInner
+from openapi_client.models.method22_unmanaged_shallow_inner import Method22UnmanagedShallowInner as Method22UnmanagedShallowInner
 from openapi_client.models.method2_average_yield_per_hectare import Method2AverageYieldPerHectare as Method2AverageYieldPerHectare
 from openapi_client.models.method2_biomass_at_maturity import Method2BiomassAtMaturity as Method2BiomassAtMaturity
-from openapi_client.models.method2_by_fraction import Method2ByFraction as Method2ByFraction
-from openapi_client.models.method2_by_fraction1 import Method2ByFraction1 as Method2ByFraction1
-from openapi_client.models.method2_by_fraction1_fraction_crop_residue_removed import Method2ByFraction1FractionCropResidueRemoved as Method2ByFraction1FractionCropResidueRemoved
-from openapi_client.models.method2_by_fraction_fraction_crop_residue_removed import Method2ByFractionFractionCropResidueRemoved as Method2ByFractionFractionCropResidueRemoved
-from openapi_client.models.method2_by_mass import Method2ByMass as Method2ByMass
-from openapi_client.models.method2_by_mass1 import Method2ByMass1 as Method2ByMass1
-from openapi_client.models.method2_by_mass1_mass_crop_residue_removed import Method2ByMass1MassCropResidueRemoved as Method2ByMass1MassCropResidueRemoved
-from openapi_client.models.method2_by_mass_mass_crop_residue_removed import Method2ByMassMassCropResidueRemoved as Method2ByMassMassCropResidueRemoved
 from openapi_client.models.method2_custom_emissions_factor import Method2CustomEmissionsFactor as Method2CustomEmissionsFactor
-from openapi_client.models.method2_custom_emissions_factor1 import Method2CustomEmissionsFactor1 as Method2CustomEmissionsFactor1
-from openapi_client.models.method2_custom_emissions_factor2 import Method2CustomEmissionsFactor2 as Method2CustomEmissionsFactor2
-from openapi_client.models.method2_custom_emissions_factor2_custom_emissions_factor import Method2CustomEmissionsFactor2CustomEmissionsFactor as Method2CustomEmissionsFactor2CustomEmissionsFactor
+from openapi_client.models.method2_custom_emissions_factor_custom_emissions_factor import Method2CustomEmissionsFactorCustomEmissionsFactor as Method2CustomEmissionsFactorCustomEmissionsFactor
 from openapi_client.models.method2_emission_factor_method1_liveweight import Method2EmissionFactorMethod1Liveweight as Method2EmissionFactorMethod1Liveweight
-from openapi_client.models.method2_emission_factor_method1_liveweight1 import Method2EmissionFactorMethod1Liveweight1 as Method2EmissionFactorMethod1Liveweight1
-from openapi_client.models.method2_emission_factor_method1_liveweight2 import Method2EmissionFactorMethod1Liveweight2 as Method2EmissionFactorMethod1Liveweight2
-from openapi_client.models.method2_emission_factor_method1_liveweight3 import Method2EmissionFactorMethod1Liveweight3 as Method2EmissionFactorMethod1Liveweight3
-from openapi_client.models.method2_emission_factor_method1_liveweight4 import Method2EmissionFactorMethod1Liveweight4 as Method2EmissionFactorMethod1Liveweight4
-from openapi_client.models.method2_emission_factor_method1_liveweight5 import Method2EmissionFactorMethod1Liveweight5 as Method2EmissionFactorMethod1Liveweight5
-from openapi_client.models.method2_emission_factor_method1_liveweight6 import Method2EmissionFactorMethod1Liveweight6 as Method2EmissionFactorMethod1Liveweight6
 from openapi_client.models.method2_emission_factor_method1_liveweight_emission_factor_method2 import Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2 as Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2
 from openapi_client.models.method2_emission_factor_method2_liveweight import Method2EmissionFactorMethod2Liveweight as Method2EmissionFactorMethod2Liveweight
-from openapi_client.models.method2_emission_factor_method2_liveweight1 import Method2EmissionFactorMethod2Liveweight1 as Method2EmissionFactorMethod2Liveweight1
-from openapi_client.models.method2_emission_factor_method2_liveweight2 import Method2EmissionFactorMethod2Liveweight2 as Method2EmissionFactorMethod2Liveweight2
-from openapi_client.models.method2_emission_factor_method2_liveweight3 import Method2EmissionFactorMethod2Liveweight3 as Method2EmissionFactorMethod2Liveweight3
-from openapi_client.models.method2_emission_factor_method2_liveweight4 import Method2EmissionFactorMethod2Liveweight4 as Method2EmissionFactorMethod2Liveweight4
-from openapi_client.models.method2_emission_factor_method2_liveweight5 import Method2EmissionFactorMethod2Liveweight5 as Method2EmissionFactorMethod2Liveweight5
 from openapi_client.models.method2_emission_factor_method2_liveweight_emission_factor_method2 import Method2EmissionFactorMethod2LiveweightEmissionFactorMethod2 as Method2EmissionFactorMethod2LiveweightEmissionFactorMethod2
 from openapi_client.models.method2_emission_factor_method2_liveweight_liveweight_method2 import Method2EmissionFactorMethod2LiveweightLiveweightMethod2 as Method2EmissionFactorMethod2LiveweightLiveweightMethod2
-from openapi_client.models.method2_fuel import Method2Fuel as Method2Fuel
-from openapi_client.models.method2_fuel1 import Method2Fuel1 as Method2Fuel1
-from openapi_client.models.method2_fuel1_fuel import Method2Fuel1Fuel as Method2Fuel1Fuel
-from openapi_client.models.method2_fuel_fuel import Method2FuelFuel as Method2FuelFuel
 from openapi_client.models.method2_measured_fractions import Method2MeasuredFractions as Method2MeasuredFractions
-from openapi_client.models.method2_measured_fractions1 import Method2MeasuredFractions1 as Method2MeasuredFractions1
-from openapi_client.models.method2_measured_fractions1_anaerobic_lagoon import Method2MeasuredFractions1AnaerobicLagoon as Method2MeasuredFractions1AnaerobicLagoon
-from openapi_client.models.method2_measured_fractions1_anaerobic_lagoon_fraction_nitrogen_separated_pre_treatment import Method2MeasuredFractions1AnaerobicLagoonFractionNitrogenSeparatedPreTreatment as Method2MeasuredFractions1AnaerobicLagoonFractionNitrogenSeparatedPreTreatment
-from openapi_client.models.method2_measured_fractions1_digester import Method2MeasuredFractions1Digester as Method2MeasuredFractions1Digester
-from openapi_client.models.method2_measured_fractions1_pit_storage import Method2MeasuredFractions1PitStorage as Method2MeasuredFractions1PitStorage
 from openapi_client.models.method2_measured_fractions_anaerobic_lagoon import Method2MeasuredFractionsAnaerobicLagoon as Method2MeasuredFractionsAnaerobicLagoon
 from openapi_client.models.method2_measured_fractions_anaerobic_lagoon_fraction_nitrogen_separated_pre_treatment import Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment as Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment
-from openapi_client.models.method2_measured_fractions_anaerobic_lagoon_fraction_solids_separated_pre_treatment import Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment as Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment
 from openapi_client.models.method2_measured_fractions_digester import Method2MeasuredFractionsDigester as Method2MeasuredFractionsDigester
 from openapi_client.models.method2_measured_fractions_pit_storage import Method2MeasuredFractionsPitStorage as Method2MeasuredFractionsPitStorage
 from openapi_client.models.method2_stem_density import Method2StemDensity as Method2StemDensity
 from openapi_client.models.method2_stem_density_clearings_inner import Method2StemDensityClearingsInner as Method2StemDensityClearingsInner
 from openapi_client.models.method2_stem_density_clearings_inner_method2_age_at_clearing import Method2StemDensityClearingsInnerMethod2AgeAtClearing as Method2StemDensityClearingsInnerMethod2AgeAtClearing
-from openapi_client.models.mules_asses import MulesAsses as MulesAsses
-from openapi_client.models.native_species_regeneration500mm_rainfall import NativeSpeciesRegeneration500mmRainfall as NativeSpeciesRegeneration500mmRainfall
 from openapi_client.models.off_road_agriculture_and_forestry_equipment import OffRoadAgricultureAndForestryEquipment as OffRoadAgricultureAndForestryEquipment
 from openapi_client.models.off_road_agriculture_and_forestry_equipment1 import OffRoadAgricultureAndForestryEquipment1 as OffRoadAgricultureAndForestryEquipment1
-from openapi_client.models.off_road_agriculture_and_forestry_equipment2 import OffRoadAgricultureAndForestryEquipment2 as OffRoadAgricultureAndForestryEquipment2
 from openapi_client.models.organic_fertiliser_input import OrganicFertiliserInput as OrganicFertiliserInput
 from openapi_client.models.organic_fertiliser_input_origin import OrganicFertiliserInputOrigin as OrganicFertiliserInputOrigin
 from openapi_client.models.organic_fertilisers_input import OrganicFertilisersInput as OrganicFertilisersInput
-from openapi_client.models.other import Other as Other
 from openapi_client.models.output_constant import OutputConstant as OutputConstant
 from openapi_client.models.output_input import OutputInput as OutputInput
 from openapi_client.models.output_input_value import OutputInputValue as OutputInputValue
 from openapi_client.models.output_method1 import OutputMethod1 as OutputMethod1
 from openapi_client.models.output_method2 import OutputMethod2 as OutputMethod2
-from openapi_client.models.pasture import Pasture as Pasture
 from openapi_client.models.perennial_crops_input_inner import PerennialCropsInputInner as PerennialCropsInputInner
-from openapi_client.models.pig import Pig as Pig
-from openapi_client.models.pigs_herd_classes_input import PigsHerdClassesInput as PigsHerdClassesInput
-from openapi_client.models.pigs_herd_classes_input_boars import PigsHerdClassesInputBoars as PigsHerdClassesInputBoars
-from openapi_client.models.pigs_herd_classes_input_boars_days import PigsHerdClassesInputBoarsDays as PigsHerdClassesInputBoarsDays
-from openapi_client.models.pigs_herd_classes_input_boars_head import PigsHerdClassesInputBoarsHead as PigsHerdClassesInputBoarsHead
-from openapi_client.models.pigs_herd_classes_input_boars_manure_allocations import PigsHerdClassesInputBoarsManureAllocations as PigsHerdClassesInputBoarsManureAllocations
-from openapi_client.models.pigs_herd_classes_input_boars_method2_average_feed_intake import PigsHerdClassesInputBoarsMethod2AverageFeedIntake as PigsHerdClassesInputBoarsMethod2AverageFeedIntake
-from openapi_client.models.pigs_herd_classes_input_boars_method2_nitrogen_waste_production_rate import PigsHerdClassesInputBoarsMethod2NitrogenWasteProductionRate as PigsHerdClassesInputBoarsMethod2NitrogenWasteProductionRate
-from openapi_client.models.pigs_herd_classes_input_boars_method2_volatile_solid_production_rate import PigsHerdClassesInputBoarsMethod2VolatileSolidProductionRate as PigsHerdClassesInputBoarsMethod2VolatileSolidProductionRate
 from openapi_client.models.pigs_manure import PigsManure as PigsManure
 from openapi_client.models.pigs_manure_herds_inner import PigsManureHerdsInner as PigsManureHerdsInner
 from openapi_client.models.pigs_manure_herds_inner_classes import PigsManureHerdsInnerClasses as PigsManureHerdsInnerClasses
@@ -1874,253 +960,6 @@ from openapi_client.models.pigs_manure_herds_inner_classes_boars_manure_allocati
 from openapi_client.models.pigs_manure_herds_inner_classes_boars_method2_nitrogen_waste_production_rate import PigsManureHerdsInnerClassesBoarsMethod2NitrogenWasteProductionRate as PigsManureHerdsInnerClassesBoarsMethod2NitrogenWasteProductionRate
 from openapi_client.models.pigs_manure_herds_inner_fraction_applied_to_soils import PigsManureHerdsInnerFractionAppliedToSoils as PigsManureHerdsInnerFractionAppliedToSoils
 from openapi_client.models.plantation_forestry import PlantationForestry as PlantationForestry
-from openapi_client.models.post_all_modules200_response import PostAllModules200Response as PostAllModules200Response
-from openapi_client.models.post_all_modules200_response_net import PostAllModules200ResponseNet as PostAllModules200ResponseNet
-from openapi_client.models.post_all_modules200_response_net_lulucf import PostAllModules200ResponseNetLulucf as PostAllModules200ResponseNetLulucf
-from openapi_client.models.post_all_modules200_response_net_total import PostAllModules200ResponseNetTotal as PostAllModules200ResponseNetTotal
-from openapi_client.models.post_all_modules200_response_scope1 import PostAllModules200ResponseScope1 as PostAllModules200ResponseScope1
-from openapi_client.models.post_all_modules200_response_scope1_aquatic_n2_o import PostAllModules200ResponseScope1AquaticN2O as PostAllModules200ResponseScope1AquaticN2O
-from openapi_client.models.post_all_modules200_response_scope1_biomass_burning_ch4 import PostAllModules200ResponseScope1BiomassBurningCH4 as PostAllModules200ResponseScope1BiomassBurningCH4
-from openapi_client.models.post_all_modules200_response_scope1_biomass_burning_n2_o import PostAllModules200ResponseScope1BiomassBurningN2O as PostAllModules200ResponseScope1BiomassBurningN2O
-from openapi_client.models.post_all_modules200_response_scope1_crop_residue_n2_o import PostAllModules200ResponseScope1CropResidueN2O as PostAllModules200ResponseScope1CropResidueN2O
-from openapi_client.models.post_all_modules200_response_scope1_enteric_beef_ch4 import PostAllModules200ResponseScope1EntericBeefCH4 as PostAllModules200ResponseScope1EntericBeefCH4
-from openapi_client.models.post_all_modules200_response_scope1_fertiliser_leaching_and_runoff_n2_o import PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O as PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O
-from openapi_client.models.post_all_modules200_response_scope1_field_burning_ch4 import PostAllModules200ResponseScope1FieldBurningCH4 as PostAllModules200ResponseScope1FieldBurningCH4
-from openapi_client.models.post_all_modules200_response_scope1_field_burning_n2_o import PostAllModules200ResponseScope1FieldBurningN2O as PostAllModules200ResponseScope1FieldBurningN2O
-from openapi_client.models.post_all_modules200_response_scope1_fuel_stationary_ch4 import PostAllModules200ResponseScope1FuelStationaryCH4 as PostAllModules200ResponseScope1FuelStationaryCH4
-from openapi_client.models.post_all_modules200_response_scope1_fuel_stationary_co2 import PostAllModules200ResponseScope1FuelStationaryCO2 as PostAllModules200ResponseScope1FuelStationaryCO2
-from openapi_client.models.post_all_modules200_response_scope1_fuel_stationary_n2_o import PostAllModules200ResponseScope1FuelStationaryN2O as PostAllModules200ResponseScope1FuelStationaryN2O
-from openapi_client.models.post_all_modules200_response_scope1_fuel_transport_ch4 import PostAllModules200ResponseScope1FuelTransportCH4 as PostAllModules200ResponseScope1FuelTransportCH4
-from openapi_client.models.post_all_modules200_response_scope1_fuel_transport_co2 import PostAllModules200ResponseScope1FuelTransportCO2 as PostAllModules200ResponseScope1FuelTransportCO2
-from openapi_client.models.post_all_modules200_response_scope1_fuel_transport_n2_o import PostAllModules200ResponseScope1FuelTransportN2O as PostAllModules200ResponseScope1FuelTransportN2O
-from openapi_client.models.post_all_modules200_response_scope1_harvested_wood_products_co2 import PostAllModules200ResponseScope1HarvestedWoodProductsCO2 as PostAllModules200ResponseScope1HarvestedWoodProductsCO2
-from openapi_client.models.post_all_modules200_response_scope1_inorganic_fertiliser_atmospheric_deposition_n2_o import PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O as PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O
-from openapi_client.models.post_all_modules200_response_scope1_inorganic_fertiliser_co2 import PostAllModules200ResponseScope1InorganicFertiliserCO2 as PostAllModules200ResponseScope1InorganicFertiliserCO2
-from openapi_client.models.post_all_modules200_response_scope1_inorganic_fertiliser_n2_o import PostAllModules200ResponseScope1InorganicFertiliserN2O as PostAllModules200ResponseScope1InorganicFertiliserN2O
-from openapi_client.models.post_all_modules200_response_scope1_leaching_and_runoff_soil_losses_n2_o import PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O as PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O
-from openapi_client.models.post_all_modules200_response_scope1_lime_co2 import PostAllModules200ResponseScope1LimeCO2 as PostAllModules200ResponseScope1LimeCO2
-from openapi_client.models.post_all_modules200_response_scope1_manure_atmospheric_deposition_beef_n2_o import PostAllModules200ResponseScope1ManureAtmosphericDepositionBeefN2O as PostAllModules200ResponseScope1ManureAtmosphericDepositionBeefN2O
-from openapi_client.models.post_all_modules200_response_scope1_manure_atmospheric_deposition_feedlot_n2_o import PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O as PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O
-from openapi_client.models.post_all_modules200_response_scope1_manure_direct_feedlot_n2_o import PostAllModules200ResponseScope1ManureDirectFeedlotN2O as PostAllModules200ResponseScope1ManureDirectFeedlotN2O
-from openapi_client.models.post_all_modules200_response_scope1_manure_leaching_runoff_feedlot_n2_o import PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O as PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O
-from openapi_client.models.post_all_modules200_response_scope1_manure_management_beef_ch4 import PostAllModules200ResponseScope1ManureManagementBeefCH4 as PostAllModules200ResponseScope1ManureManagementBeefCH4
-from openapi_client.models.post_all_modules200_response_scope1_nitrogen_mineralisation_soil_losses_n2_o import PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O as PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O
-from openapi_client.models.post_all_modules200_response_scope1_organic_fertiliser_atmospheric_deposition_n2_o import PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O as PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O
-from openapi_client.models.post_all_modules200_response_scope1_organic_fertiliser_n2_o import PostAllModules200ResponseScope1OrganicFertiliserN2O as PostAllModules200ResponseScope1OrganicFertiliserN2O
-from openapi_client.models.post_all_modules200_response_scope1_pasture_residue_n2_o import PostAllModules200ResponseScope1PastureResidueN2O as PostAllModules200ResponseScope1PastureResidueN2O
-from openapi_client.models.post_all_modules200_response_scope1_perennial_woody_crops_emissions_co2 import PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2 as PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2
-from openapi_client.models.post_all_modules200_response_scope1_perennial_woody_crops_removals_co2 import PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2 as PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2
-from openapi_client.models.post_all_modules200_response_scope1_refrigerant_hfcs import PostAllModules200ResponseScope1RefrigerantHFCs as PostAllModules200ResponseScope1RefrigerantHFCs
-from openapi_client.models.post_all_modules200_response_scope1_residue_leaching_and_runoff_n2_o import PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O as PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O
-from openapi_client.models.post_all_modules200_response_scope1_rice_cultivation_ch4 import PostAllModules200ResponseScope1RiceCultivationCH4 as PostAllModules200ResponseScope1RiceCultivationCH4
-from openapi_client.models.post_all_modules200_response_scope1_savanna_fire_biomass_burning_co2e import PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e as PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e
-from openapi_client.models.post_all_modules200_response_scope1_savanna_fire_woody_carbon_stocks_co2e import PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e as PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e
-from openapi_client.models.post_all_modules200_response_scope1_soil_organic_stock_losses_co2 import PostAllModules200ResponseScope1SoilOrganicStockLossesCO2 as PostAllModules200ResponseScope1SoilOrganicStockLossesCO2
-from openapi_client.models.post_all_modules200_response_scope1_solid_waste_ch4 import PostAllModules200ResponseScope1SolidWasteCH4 as PostAllModules200ResponseScope1SolidWasteCH4
-from openapi_client.models.post_all_modules200_response_scope1_solid_waste_co2 import PostAllModules200ResponseScope1SolidWasteCO2 as PostAllModules200ResponseScope1SolidWasteCO2
-from openapi_client.models.post_all_modules200_response_scope1_solid_waste_n2_o import PostAllModules200ResponseScope1SolidWasteN2O as PostAllModules200ResponseScope1SolidWasteN2O
-from openapi_client.models.post_all_modules200_response_scope1_supplementary_co2 import PostAllModules200ResponseScope1SupplementaryCO2 as PostAllModules200ResponseScope1SupplementaryCO2
-from openapi_client.models.post_all_modules200_response_scope1_total import PostAllModules200ResponseScope1Total as PostAllModules200ResponseScope1Total
-from openapi_client.models.post_all_modules200_response_scope1_total_ch4 import PostAllModules200ResponseScope1TotalCH4 as PostAllModules200ResponseScope1TotalCH4
-from openapi_client.models.post_all_modules200_response_scope1_total_co2 import PostAllModules200ResponseScope1TotalCO2 as PostAllModules200ResponseScope1TotalCO2
-from openapi_client.models.post_all_modules200_response_scope1_total_n2_o import PostAllModules200ResponseScope1TotalN2O as PostAllModules200ResponseScope1TotalN2O
-from openapi_client.models.post_all_modules200_response_scope1_total_other_gases import PostAllModules200ResponseScope1TotalOtherGases as PostAllModules200ResponseScope1TotalOtherGases
-from openapi_client.models.post_all_modules200_response_scope1_wastewater_ch4 import PostAllModules200ResponseScope1WastewaterCH4 as PostAllModules200ResponseScope1WastewaterCH4
-from openapi_client.models.post_all_modules200_response_scope1_wastewater_n2_o import PostAllModules200ResponseScope1WastewaterN2O as PostAllModules200ResponseScope1WastewaterN2O
-from openapi_client.models.post_all_modules200_response_scope1_woody_carbon_stocks_co2 import PostAllModules200ResponseScope1WoodyCarbonStocksCO2 as PostAllModules200ResponseScope1WoodyCarbonStocksCO2
-from openapi_client.models.post_all_modules200_response_scope3 import PostAllModules200ResponseScope3 as PostAllModules200ResponseScope3
-from openapi_client.models.post_all_modules200_response_scope3_agrichemicals import PostAllModules200ResponseScope3Agrichemicals as PostAllModules200ResponseScope3Agrichemicals
-from openapi_client.models.post_all_modules200_response_scope3_electricity import PostAllModules200ResponseScope3Electricity as PostAllModules200ResponseScope3Electricity
-from openapi_client.models.post_all_modules200_response_scope3_fertiliser import PostAllModules200ResponseScope3Fertiliser as PostAllModules200ResponseScope3Fertiliser
-from openapi_client.models.post_all_modules200_response_scope3_freight import PostAllModules200ResponseScope3Freight as PostAllModules200ResponseScope3Freight
-from openapi_client.models.post_all_modules200_response_scope3_fuel import PostAllModules200ResponseScope3Fuel as PostAllModules200ResponseScope3Fuel
-from openapi_client.models.post_all_modules200_response_scope3_other_purchased_goods_and_services import PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices as PostAllModules200ResponseScope3OtherPurchasedGoodsAndServices
-from openapi_client.models.post_all_modules200_response_scope3_purchased_feed import PostAllModules200ResponseScope3PurchasedFeed as PostAllModules200ResponseScope3PurchasedFeed
-from openapi_client.models.post_all_modules200_response_scope3_purchased_livestock import PostAllModules200ResponseScope3PurchasedLivestock as PostAllModules200ResponseScope3PurchasedLivestock
-from openapi_client.models.post_all_modules200_response_scope3_purchased_mineral_supplements import PostAllModules200ResponseScope3PurchasedMineralSupplements as PostAllModules200ResponseScope3PurchasedMineralSupplements
-from openapi_client.models.post_all_modules200_response_scope3_purchased_packaging import PostAllModules200ResponseScope3PurchasedPackaging as PostAllModules200ResponseScope3PurchasedPackaging
-from openapi_client.models.post_all_modules200_response_scope3_services import PostAllModules200ResponseScope3Services as PostAllModules200ResponseScope3Services
-from openapi_client.models.post_all_modules200_response_scope3_soil_ameliorants import PostAllModules200ResponseScope3SoilAmeliorants as PostAllModules200ResponseScope3SoilAmeliorants
-from openapi_client.models.post_all_modules200_response_scope3_solid_waste import PostAllModules200ResponseScope3SolidWaste as PostAllModules200ResponseScope3SolidWaste
-from openapi_client.models.post_all_modules200_response_scope3_total import PostAllModules200ResponseScope3Total as PostAllModules200ResponseScope3Total
-from openapi_client.models.post_all_modules_request import PostAllModulesRequest as PostAllModulesRequest
-from openapi_client.models.post_all_modules_request_beef import PostAllModulesRequestBeef as PostAllModulesRequestBeef
-from openapi_client.models.post_all_modules_request_chemicals_inner import PostAllModulesRequestChemicalsInner as PostAllModulesRequestChemicalsInner
-from openapi_client.models.post_all_modules_request_chemicals_inner_amount_kg import PostAllModulesRequestChemicalsInnerAmountKg as PostAllModulesRequestChemicalsInnerAmountKg
-from openapi_client.models.post_all_modules_request_chemicals_inner_custom_emissions_factor import PostAllModulesRequestChemicalsInnerCustomEmissionsFactor as PostAllModulesRequestChemicalsInnerCustomEmissionsFactor
-from openapi_client.models.post_all_modules_request_crop import PostAllModulesRequestCrop as PostAllModulesRequestCrop
-from openapi_client.models.post_all_modules_request_crop_crop import PostAllModulesRequestCropCrop as PostAllModulesRequestCropCrop
-from openapi_client.models.post_all_modules_request_crop_crop_fraction_of_annual_crop_burnt import PostAllModulesRequestCropCropFractionOfAnnualCropBurnt as PostAllModulesRequestCropCropFractionOfAnnualCropBurnt
-from openapi_client.models.post_all_modules_request_crop_crop_residues import PostAllModulesRequestCropCropResidues as PostAllModulesRequestCropCropResidues
-from openapi_client.models.post_all_modules_request_crop_crop_total_yield_kg import PostAllModulesRequestCropCropTotalYieldKg as PostAllModulesRequestCropCropTotalYieldKg
-from openapi_client.models.post_all_modules_request_dairy import PostAllModulesRequestDairy as PostAllModulesRequestDairy
-from openapi_client.models.post_all_modules_request_electricity import PostAllModulesRequestElectricity as PostAllModulesRequestElectricity
-from openapi_client.models.post_all_modules_request_feedlot import PostAllModulesRequestFeedlot as PostAllModulesRequestFeedlot
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner import PostAllModulesRequestFeedlotGroupsInner as PostAllModulesRequestFeedlotGroupsInner
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_average_length_of_stay_days import PostAllModulesRequestFeedlotGroupsInnerAverageLengthOfStayDays as PostAllModulesRequestFeedlotGroupsInnerAverageLengthOfStayDays
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_head import PostAllModulesRequestFeedlotGroupsInnerHead as PostAllModulesRequestFeedlotGroupsInnerHead
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_manure_allocations import PostAllModulesRequestFeedlotGroupsInnerManureAllocations as PostAllModulesRequestFeedlotGroupsInnerManureAllocations
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_manure_allocations_composting import PostAllModulesRequestFeedlotGroupsInnerManureAllocationsComposting as PostAllModulesRequestFeedlotGroupsInnerManureAllocationsComposting
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_manure_allocations_direct_application import PostAllModulesRequestFeedlotGroupsInnerManureAllocationsDirectApplication as PostAllModulesRequestFeedlotGroupsInnerManureAllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_manure_allocations_solid_storage import PostAllModulesRequestFeedlotGroupsInnerManureAllocationsSolidStorage as PostAllModulesRequestFeedlotGroupsInnerManureAllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_method2_average_neutral_detergent_fibre_percentage import PostAllModulesRequestFeedlotGroupsInnerMethod2AverageNeutralDetergentFibrePercentage as PostAllModulesRequestFeedlotGroupsInnerMethod2AverageNeutralDetergentFibrePercentage
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_method2_crude_protein import PostAllModulesRequestFeedlotGroupsInnerMethod2CrudeProtein as PostAllModulesRequestFeedlotGroupsInnerMethod2CrudeProtein
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_method2_dry_matter_digestibility import PostAllModulesRequestFeedlotGroupsInnerMethod2DryMatterDigestibility as PostAllModulesRequestFeedlotGroupsInnerMethod2DryMatterDigestibility
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_method2_dry_matter_intake import PostAllModulesRequestFeedlotGroupsInnerMethod2DryMatterIntake as PostAllModulesRequestFeedlotGroupsInnerMethod2DryMatterIntake
-from openapi_client.models.post_all_modules_request_feedlot_groups_inner_method2_nitrogen_retention_rate import PostAllModulesRequestFeedlotGroupsInnerMethod2NitrogenRetentionRate as PostAllModulesRequestFeedlotGroupsInnerMethod2NitrogenRetentionRate
-from openapi_client.models.post_all_modules_request_fertiliser import PostAllModulesRequestFertiliser as PostAllModulesRequestFertiliser
-from openapi_client.models.post_all_modules_request_fishery import PostAllModulesRequestFishery as PostAllModulesRequestFishery
-from openapi_client.models.post_all_modules_request_fishery_amount_produced import PostAllModulesRequestFisheryAmountProduced as PostAllModulesRequestFisheryAmountProduced
-from openapi_client.models.post_all_modules_request_freight_inner import PostAllModulesRequestFreightInner as PostAllModulesRequestFreightInner
-from openapi_client.models.post_all_modules_request_fuel import PostAllModulesRequestFuel as PostAllModulesRequestFuel
-from openapi_client.models.post_all_modules_request_lime import PostAllModulesRequestLime as PostAllModulesRequestLime
-from openapi_client.models.post_all_modules_request_lime_applications_inner import PostAllModulesRequestLimeApplicationsInner as PostAllModulesRequestLimeApplicationsInner
-from openapi_client.models.post_all_modules_request_other_livestock import PostAllModulesRequestOtherLivestock as PostAllModulesRequestOtherLivestock
-from openapi_client.models.post_all_modules_request_other_livestock_livestock_inner import PostAllModulesRequestOtherLivestockLivestockInner as PostAllModulesRequestOtherLivestockLivestockInner
-from openapi_client.models.post_all_modules_request_other_purchased_goods_and_services_inner import PostAllModulesRequestOtherPurchasedGoodsAndServicesInner as PostAllModulesRequestOtherPurchasedGoodsAndServicesInner
-from openapi_client.models.post_all_modules_request_other_purchased_goods_and_services_inner_emissions_factor import PostAllModulesRequestOtherPurchasedGoodsAndServicesInnerEmissionsFactor as PostAllModulesRequestOtherPurchasedGoodsAndServicesInnerEmissionsFactor
-from openapi_client.models.post_all_modules_request_other_purchased_goods_and_services_inner_quantity import PostAllModulesRequestOtherPurchasedGoodsAndServicesInnerQuantity as PostAllModulesRequestOtherPurchasedGoodsAndServicesInnerQuantity
-from openapi_client.models.post_all_modules_request_pasture import PostAllModulesRequestPasture as PostAllModulesRequestPasture
-from openapi_client.models.post_all_modules_request_pasture_pasture import PostAllModulesRequestPasturePasture as PostAllModulesRequestPasturePasture
-from openapi_client.models.post_all_modules_request_pasture_pasture_area_managed import PostAllModulesRequestPasturePastureAreaManaged as PostAllModulesRequestPasturePastureAreaManaged
-from openapi_client.models.post_all_modules_request_pasture_pasture_fraction_of_annual_crop_burnt import PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt as PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt
-from openapi_client.models.post_all_modules_request_pasture_pasture_residues import PostAllModulesRequestPasturePastureResidues as PostAllModulesRequestPasturePastureResidues
-from openapi_client.models.post_all_modules_request_pigs import PostAllModulesRequestPigs as PostAllModulesRequestPigs
-from openapi_client.models.post_all_modules_request_poultry import PostAllModulesRequestPoultry as PostAllModulesRequestPoultry
-from openapi_client.models.post_all_modules_request_poultry_classes import PostAllModulesRequestPoultryClasses as PostAllModulesRequestPoultryClasses
-from openapi_client.models.post_all_modules_request_poultry_classes_layers import PostAllModulesRequestPoultryClassesLayers as PostAllModulesRequestPoultryClassesLayers
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_days import PostAllModulesRequestPoultryClassesLayersDays as PostAllModulesRequestPoultryClassesLayersDays
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_head import PostAllModulesRequestPoultryClassesLayersHead as PostAllModulesRequestPoultryClassesLayersHead
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations import PostAllModulesRequestPoultryClassesLayersManureAllocations as PostAllModulesRequestPoultryClassesLayersManureAllocations
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemoval as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemoval
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_manure_allocated import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalManureAllocated as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalManureAllocated
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_treatment_stage2_allocations import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2Allocations as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2Allocations
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_composting import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsComposting as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsComposting
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_digester import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDigester as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDigester
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_direct_application import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectApplication as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_direct_processing import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectProcessing as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectProcessing
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_solid_storage import PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsSolidStorage as PostAllModulesRequestPoultryClassesLayersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouse as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouse
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_manure_allocated import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseManureAllocated as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseManureAllocated
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2Allocations as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2Allocations
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_composting import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsComposting as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsComposting
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_digester import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDigester as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDigester
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_direct_application import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectApplication as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_direct_processing import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectProcessing as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectProcessing
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_solid_storage import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsSolidStorage as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitter as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitter
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_manure_allocated import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterManureAllocated as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterManureAllocated
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_treatment_stage2_allocations import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2Allocations as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2Allocations
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_treatment_stage2_allocations_composting import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsComposting as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsComposting
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_treatment_stage2_allocations_digester import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDigester as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDigester
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_treatment_stage2_allocations_direct_application import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectApplication as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_treatment_stage2_allocations_direct_processing import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectProcessing as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectProcessing
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_manure_with_litter_treatment_stage2_allocations_solid_storage import PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsSolidStorage as PostAllModulesRequestPoultryClassesLayersManureAllocationsManureWithLitterTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_manure_allocations_pasture_range_and_paddock import PostAllModulesRequestPoultryClassesLayersManureAllocationsPastureRangeAndPaddock as PostAllModulesRequestPoultryClassesLayersManureAllocationsPastureRangeAndPaddock
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_method2_crude_protein import PostAllModulesRequestPoultryClassesLayersMethod2CrudeProtein as PostAllModulesRequestPoultryClassesLayersMethod2CrudeProtein
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_method2_dry_matter_digestibility import PostAllModulesRequestPoultryClassesLayersMethod2DryMatterDigestibility as PostAllModulesRequestPoultryClassesLayersMethod2DryMatterDigestibility
-from openapi_client.models.post_all_modules_request_poultry_classes_layers_method2_dry_matter_intake import PostAllModulesRequestPoultryClassesLayersMethod2DryMatterIntake as PostAllModulesRequestPoultryClassesLayersMethod2DryMatterIntake
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers import PostAllModulesRequestPoultryClassesMeatChickenGrowers as PostAllModulesRequestPoultryClassesMeatChickenGrowers
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_days import PostAllModulesRequestPoultryClassesMeatChickenGrowersDays as PostAllModulesRequestPoultryClassesMeatChickenGrowersDays
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_head import PostAllModulesRequestPoultryClassesMeatChickenGrowersHead as PostAllModulesRequestPoultryClassesMeatChickenGrowersHead
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocations as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocations
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemoval as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemoval
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_manure_allocated import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalManureAllocated as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalManureAllocated
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_treatment_stage2_allocations import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2Allocations as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2Allocations
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_composting import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsComposting as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsComposting
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_digester import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDigester as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDigester
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_direct_application import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectApplication as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_direct_processing import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectProcessing as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsDirectProcessing
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_belt_manure_removal_treatment_stage2_allocations_solid_storage import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsSolidStorage as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsBeltManureRemovalTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouse as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouse
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_manure_allocated import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseManureAllocated as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseManureAllocated
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2Allocations as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2Allocations
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_composting import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsComposting as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsComposting
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_digester import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDigester as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDigester
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_direct_application import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectApplication as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_direct_processing import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectProcessing as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsDirectProcessing
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_stored_in_house_treatment_stage2_allocations_solid_storage import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsSolidStorage as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureStoredInHouseTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitter as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitter
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_manure_allocated import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterManureAllocated as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterManureAllocated
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_treatment_stage2_allocations import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2Allocations as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2Allocations
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_treatment_stage2_allocations_composting import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsComposting as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsComposting
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_treatment_stage2_allocations_digester import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDigester as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDigester
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_treatment_stage2_allocations_direct_application import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectApplication as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectApplication
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_treatment_stage2_allocations_direct_processing import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectProcessing as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsDirectProcessing
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_manure_with_litter_treatment_stage2_allocations_solid_storage import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsSolidStorage as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsManureWithLitterTreatmentStage2AllocationsSolidStorage
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_manure_allocations_pasture_range_and_paddock import PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsPastureRangeAndPaddock as PostAllModulesRequestPoultryClassesMeatChickenGrowersManureAllocationsPastureRangeAndPaddock
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_method2_crude_protein import PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2CrudeProtein as PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2CrudeProtein
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_method2_dry_matter_digestibility import PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2DryMatterDigestibility as PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2DryMatterDigestibility
-from openapi_client.models.post_all_modules_request_poultry_classes_meat_chicken_growers_method2_dry_matter_intake import PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2DryMatterIntake as PostAllModulesRequestPoultryClassesMeatChickenGrowersMethod2DryMatterIntake
-from openapi_client.models.post_all_modules_request_purchased_livestock_inner import PostAllModulesRequestPurchasedLivestockInner as PostAllModulesRequestPurchasedLivestockInner
-from openapi_client.models.post_all_modules_request_purchased_mineral_supplements_inner import PostAllModulesRequestPurchasedMineralSupplementsInner as PostAllModulesRequestPurchasedMineralSupplementsInner
-from openapi_client.models.post_all_modules_request_purchased_packaging_inner import PostAllModulesRequestPurchasedPackagingInner as PostAllModulesRequestPurchasedPackagingInner
-from openapi_client.models.post_all_modules_request_refrigerants_inner import PostAllModulesRequestRefrigerantsInner as PostAllModulesRequestRefrigerantsInner
-from openapi_client.models.post_all_modules_request_refrigerants_inner_charge_size import PostAllModulesRequestRefrigerantsInnerChargeSize as PostAllModulesRequestRefrigerantsInnerChargeSize
-from openapi_client.models.post_all_modules_request_rice import PostAllModulesRequestRice as PostAllModulesRequestRice
-from openapi_client.models.post_all_modules_request_rice_crop import PostAllModulesRequestRiceCrop as PostAllModulesRequestRiceCrop
-from openapi_client.models.post_all_modules_request_rice_crop_area_sown import PostAllModulesRequestRiceCropAreaSown as PostAllModulesRequestRiceCropAreaSown
-from openapi_client.models.post_all_modules_request_rice_crop_cultivation_period_days import PostAllModulesRequestRiceCropCultivationPeriodDays as PostAllModulesRequestRiceCropCultivationPeriodDays
-from openapi_client.models.post_all_modules_request_rice_crop_organic_amendments_inner import PostAllModulesRequestRiceCropOrganicAmendmentsInner as PostAllModulesRequestRiceCropOrganicAmendmentsInner
-from openapi_client.models.post_all_modules_request_rice_crop_organic_amendments_inner_rate_of_application import PostAllModulesRequestRiceCropOrganicAmendmentsInnerRateOfApplication as PostAllModulesRequestRiceCropOrganicAmendmentsInnerRateOfApplication
-from openapi_client.models.post_all_modules_request_rice_crop_residues import PostAllModulesRequestRiceCropResidues as PostAllModulesRequestRiceCropResidues
-from openapi_client.models.post_all_modules_request_rice_crop_total_yield_kg import PostAllModulesRequestRiceCropTotalYieldKg as PostAllModulesRequestRiceCropTotalYieldKg
-from openapi_client.models.post_all_modules_request_services import PostAllModulesRequestServices as PostAllModulesRequestServices
-from openapi_client.models.post_all_modules_request_sheep import PostAllModulesRequestSheep as PostAllModulesRequestSheep
-from openapi_client.models.post_all_modules_request_supplementary_co2_kg import PostAllModulesRequestSupplementaryCO2Kg as PostAllModulesRequestSupplementaryCO2Kg
-from openapi_client.models.post_all_modules_request_waste import PostAllModulesRequestWaste as PostAllModulesRequestWaste
-from openapi_client.models.post_all_modules_request_waste_treated_offsite import PostAllModulesRequestWasteTreatedOffsite as PostAllModulesRequestWasteTreatedOffsite
-from openapi_client.models.post_all_modules_request_waste_treated_offsite_anaerobic_digestion_inner import PostAllModulesRequestWasteTreatedOffsiteAnaerobicDigestionInner as PostAllModulesRequestWasteTreatedOffsiteAnaerobicDigestionInner
-from openapi_client.models.post_all_modules_request_waste_treated_offsite_composting_inner import PostAllModulesRequestWasteTreatedOffsiteCompostingInner as PostAllModulesRequestWasteTreatedOffsiteCompostingInner
-from openapi_client.models.post_all_modules_request_waste_treated_offsite_incineration_inner import PostAllModulesRequestWasteTreatedOffsiteIncinerationInner as PostAllModulesRequestWasteTreatedOffsiteIncinerationInner
-from openapi_client.models.post_all_modules_request_waste_treated_offsite_landfill_with_gas_recovery_inner import PostAllModulesRequestWasteTreatedOffsiteLandfillWithGasRecoveryInner as PostAllModulesRequestWasteTreatedOffsiteLandfillWithGasRecoveryInner
-from openapi_client.models.post_all_modules_request_waste_treated_offsite_landfill_without_gas_recovery_inner import PostAllModulesRequestWasteTreatedOffsiteLandfillWithoutGasRecoveryInner as PostAllModulesRequestWasteTreatedOffsiteLandfillWithoutGasRecoveryInner
-from openapi_client.models.post_all_modules_request_waste_treated_onsite import PostAllModulesRequestWasteTreatedOnsite as PostAllModulesRequestWasteTreatedOnsite
-from openapi_client.models.post_all_modules_request_wastewater import PostAllModulesRequestWastewater as PostAllModulesRequestWastewater
-from openapi_client.models.post_aquaculture200_response import PostAquaculture200Response as PostAquaculture200Response
-from openapi_client.models.post_aquaculture200_response_intensities import PostAquaculture200ResponseIntensities as PostAquaculture200ResponseIntensities
-from openapi_client.models.post_aquaculture200_response_intensities_emissions_intensity import PostAquaculture200ResponseIntensitiesEmissionsIntensity as PostAquaculture200ResponseIntensitiesEmissionsIntensity
-from openapi_client.models.post_aquaculture200_response_intensities_fish_harvested_kg import PostAquaculture200ResponseIntensitiesFishHarvestedKg as PostAquaculture200ResponseIntensitiesFishHarvestedKg
-from openapi_client.models.post_aquaculture200_response_intermediate_inner import PostAquaculture200ResponseIntermediateInner as PostAquaculture200ResponseIntermediateInner
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_intensities import PostAquaculture200ResponseIntermediateInnerIntensities as PostAquaculture200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_intensities_emissions_intensity import PostAquaculture200ResponseIntermediateInnerIntensitiesEmissionsIntensity as PostAquaculture200ResponseIntermediateInnerIntensitiesEmissionsIntensity
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_intensities_fish_harvested_kg import PostAquaculture200ResponseIntermediateInnerIntensitiesFishHarvestedKg as PostAquaculture200ResponseIntermediateInnerIntensitiesFishHarvestedKg
-from openapi_client.models.post_aquaculture200_response_intermediate_inner_net import PostAquaculture200ResponseIntermediateInnerNet as PostAquaculture200ResponseIntermediateInnerNet
-from openapi_client.models.post_aquaculture200_response_net import PostAquaculture200ResponseNet as PostAquaculture200ResponseNet
-from openapi_client.models.post_aquaculture200_response_scope1 import PostAquaculture200ResponseScope1 as PostAquaculture200ResponseScope1
-from openapi_client.models.post_aquaculture200_response_scope1_fuel_stationary_ch4 import PostAquaculture200ResponseScope1FuelStationaryCH4 as PostAquaculture200ResponseScope1FuelStationaryCH4
-from openapi_client.models.post_aquaculture200_response_scope1_fuel_stationary_co2 import PostAquaculture200ResponseScope1FuelStationaryCO2 as PostAquaculture200ResponseScope1FuelStationaryCO2
-from openapi_client.models.post_aquaculture200_response_scope1_fuel_stationary_n2_o import PostAquaculture200ResponseScope1FuelStationaryN2O as PostAquaculture200ResponseScope1FuelStationaryN2O
-from openapi_client.models.post_aquaculture200_response_scope1_fuel_transport_ch4 import PostAquaculture200ResponseScope1FuelTransportCH4 as PostAquaculture200ResponseScope1FuelTransportCH4
-from openapi_client.models.post_aquaculture200_response_scope1_fuel_transport_co2 import PostAquaculture200ResponseScope1FuelTransportCO2 as PostAquaculture200ResponseScope1FuelTransportCO2
-from openapi_client.models.post_aquaculture200_response_scope1_fuel_transport_n2_o import PostAquaculture200ResponseScope1FuelTransportN2O as PostAquaculture200ResponseScope1FuelTransportN2O
-from openapi_client.models.post_aquaculture200_response_scope1_total import PostAquaculture200ResponseScope1Total as PostAquaculture200ResponseScope1Total
-from openapi_client.models.post_aquaculture200_response_scope1_total_ch4 import PostAquaculture200ResponseScope1TotalCH4 as PostAquaculture200ResponseScope1TotalCH4
-from openapi_client.models.post_aquaculture200_response_scope1_total_co2 import PostAquaculture200ResponseScope1TotalCO2 as PostAquaculture200ResponseScope1TotalCO2
-from openapi_client.models.post_aquaculture200_response_scope1_total_n2_o import PostAquaculture200ResponseScope1TotalN2O as PostAquaculture200ResponseScope1TotalN2O
-from openapi_client.models.post_aquaculture200_response_scope1_total_other_gases import PostAquaculture200ResponseScope1TotalOtherGases as PostAquaculture200ResponseScope1TotalOtherGases
-from openapi_client.models.post_aquaculture200_response_scope3 import PostAquaculture200ResponseScope3 as PostAquaculture200ResponseScope3
-from openapi_client.models.post_aquaculture200_response_scope3_electricity import PostAquaculture200ResponseScope3Electricity as PostAquaculture200ResponseScope3Electricity
-from openapi_client.models.post_aquaculture200_response_scope3_fuel import PostAquaculture200ResponseScope3Fuel as PostAquaculture200ResponseScope3Fuel
-from openapi_client.models.post_aquaculture200_response_scope3_total import PostAquaculture200ResponseScope3Total as PostAquaculture200ResponseScope3Total
-from openapi_client.models.post_aquaculture_request import PostAquacultureRequest as PostAquacultureRequest
-from openapi_client.models.post_aquaculture_request_electricity import PostAquacultureRequestElectricity as PostAquacultureRequestElectricity
-from openapi_client.models.post_aquaculture_request_fisheries_inner import PostAquacultureRequestFisheriesInner as PostAquacultureRequestFisheriesInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_electricity_allocation import PostAquacultureRequestFisheriesInnerElectricityAllocation as PostAquacultureRequestFisheriesInnerElectricityAllocation
-from openapi_client.models.post_aquaculture_request_fisheries_inner_fishery import PostAquacultureRequestFisheriesInnerFishery as PostAquacultureRequestFisheriesInnerFishery
-from openapi_client.models.post_aquaculture_request_fisheries_inner_fishery_amount_produced import PostAquacultureRequestFisheriesInnerFisheryAmountProduced as PostAquacultureRequestFisheriesInnerFisheryAmountProduced
-from openapi_client.models.post_aquaculture_request_fisheries_inner_other_purchased_goods_and_services_inner import PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner as PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_other_purchased_goods_and_services_inner_emissions_factor import PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerEmissionsFactor as PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerEmissionsFactor
-from openapi_client.models.post_aquaculture_request_fisheries_inner_other_purchased_goods_and_services_inner_quantity import PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerQuantity as PostAquacultureRequestFisheriesInnerOtherPurchasedGoodsAndServicesInnerQuantity
-from openapi_client.models.post_aquaculture_request_fisheries_inner_refrigerants_inner import PostAquacultureRequestFisheriesInnerRefrigerantsInner as PostAquacultureRequestFisheriesInnerRefrigerantsInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_refrigerants_inner_charge_size import PostAquacultureRequestFisheriesInnerRefrigerantsInnerChargeSize as PostAquacultureRequestFisheriesInnerRefrigerantsInnerChargeSize
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste import PostAquacultureRequestFisheriesInnerWaste as PostAquacultureRequestFisheriesInnerWaste
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste_treated_offsite import PostAquacultureRequestFisheriesInnerWasteTreatedOffsite as PostAquacultureRequestFisheriesInnerWasteTreatedOffsite
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste_treated_offsite_anaerobic_digestion_inner import PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteAnaerobicDigestionInner as PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteAnaerobicDigestionInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste_treated_offsite_composting_inner import PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteCompostingInner as PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteCompostingInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste_treated_offsite_incineration_inner import PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteIncinerationInner as PostAquacultureRequestFisheriesInnerWasteTreatedOffsiteIncinerationInner
-from openapi_client.models.post_aquaculture_request_fisheries_inner_waste_treated_onsite import PostAquacultureRequestFisheriesInnerWasteTreatedOnsite as PostAquacultureRequestFisheriesInnerWasteTreatedOnsite
-from openapi_client.models.post_aquaculture_request_fisheries_inner_wastewater import PostAquacultureRequestFisheriesInnerWastewater as PostAquacultureRequestFisheriesInnerWastewater
 from openapi_client.models.post_beef200_response import PostBeef200Response as PostBeef200Response
 from openapi_client.models.post_beef200_response_intensities import PostBeef200ResponseIntensities as PostBeef200ResponseIntensities
 from openapi_client.models.post_beef200_response_intensities_liveweight_intensity_excluding_lulucf import PostBeef200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostBeef200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
@@ -2130,8 +969,27 @@ from openapi_client.models.post_beef200_response_intermediate_inner import PostB
 from openapi_client.models.post_beef200_response_intermediate_inner_intensities import PostBeef200ResponseIntermediateInnerIntensities as PostBeef200ResponseIntermediateInnerIntensities
 from openapi_client.models.post_beef200_response_intermediate_inner_intensities_liveweight_intensity import PostBeef200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostBeef200ResponseIntermediateInnerIntensitiesLiveweightIntensity
 from openapi_client.models.post_beef200_response_intermediate_inner_intensities_liveweight_produced_kg import PostBeef200ResponseIntermediateInnerIntensitiesLiveweightProducedKg as PostBeef200ResponseIntermediateInnerIntensitiesLiveweightProducedKg
+from openapi_client.models.post_beef200_response_intermediate_inner_net import PostBeef200ResponseIntermediateInnerNet as PostBeef200ResponseIntermediateInnerNet
+from openapi_client.models.post_beef200_response_intermediate_inner_net_total import PostBeef200ResponseIntermediateInnerNetTotal as PostBeef200ResponseIntermediateInnerNetTotal
+from openapi_client.models.post_beef200_response_intermediate_inner_scope3 import PostBeef200ResponseIntermediateInnerScope3 as PostBeef200ResponseIntermediateInnerScope3
+from openapi_client.models.post_beef200_response_intermediate_inner_scope3_total import PostBeef200ResponseIntermediateInnerScope3Total as PostBeef200ResponseIntermediateInnerScope3Total
+from openapi_client.models.post_beef200_response_net import PostBeef200ResponseNet as PostBeef200ResponseNet
+from openapi_client.models.post_beef200_response_net_total import PostBeef200ResponseNetTotal as PostBeef200ResponseNetTotal
 from openapi_client.models.post_beef200_response_scope3 import PostBeef200ResponseScope3 as PostBeef200ResponseScope3
+from openapi_client.models.post_beef200_response_scope3_agrichemicals import PostBeef200ResponseScope3Agrichemicals as PostBeef200ResponseScope3Agrichemicals
+from openapi_client.models.post_beef200_response_scope3_electricity import PostBeef200ResponseScope3Electricity as PostBeef200ResponseScope3Electricity
+from openapi_client.models.post_beef200_response_scope3_fertiliser import PostBeef200ResponseScope3Fertiliser as PostBeef200ResponseScope3Fertiliser
+from openapi_client.models.post_beef200_response_scope3_fuel import PostBeef200ResponseScope3Fuel as PostBeef200ResponseScope3Fuel
+from openapi_client.models.post_beef200_response_scope3_other_purchased_goods_and_services import PostBeef200ResponseScope3OtherPurchasedGoodsAndServices as PostBeef200ResponseScope3OtherPurchasedGoodsAndServices
+from openapi_client.models.post_beef200_response_scope3_purchased_feed import PostBeef200ResponseScope3PurchasedFeed as PostBeef200ResponseScope3PurchasedFeed
+from openapi_client.models.post_beef200_response_scope3_purchased_livestock import PostBeef200ResponseScope3PurchasedLivestock as PostBeef200ResponseScope3PurchasedLivestock
+from openapi_client.models.post_beef200_response_scope3_purchased_mineral_supplements import PostBeef200ResponseScope3PurchasedMineralSupplements as PostBeef200ResponseScope3PurchasedMineralSupplements
+from openapi_client.models.post_beef200_response_scope3_services import PostBeef200ResponseScope3Services as PostBeef200ResponseScope3Services
+from openapi_client.models.post_beef200_response_scope3_soil_ameliorants import PostBeef200ResponseScope3SoilAmeliorants as PostBeef200ResponseScope3SoilAmeliorants
+from openapi_client.models.post_beef200_response_scope3_solid_waste import PostBeef200ResponseScope3SolidWaste as PostBeef200ResponseScope3SolidWaste
+from openapi_client.models.post_beef200_response_scope3_total import PostBeef200ResponseScope3Total as PostBeef200ResponseScope3Total
 from openapi_client.models.post_beef_request import PostBeefRequest as PostBeefRequest
+from openapi_client.models.post_beef_request_electricity import PostBeefRequestElectricity as PostBeefRequestElectricity
 from openapi_client.models.post_beef_request_herds_inner import PostBeefRequestHerdsInner as PostBeefRequestHerdsInner
 from openapi_client.models.post_beef_request_herds_inner_chemicals_inner import PostBeefRequestHerdsInnerChemicalsInner as PostBeefRequestHerdsInnerChemicalsInner
 from openapi_client.models.post_beef_request_herds_inner_chemicals_inner_amount_kg import PostBeefRequestHerdsInnerChemicalsInnerAmountKg as PostBeefRequestHerdsInnerChemicalsInnerAmountKg
@@ -2140,257 +998,23 @@ from openapi_client.models.post_beef_request_herds_inner_electricity_allocation 
 from openapi_client.models.post_beef_request_herds_inner_lime import PostBeefRequestHerdsInnerLime as PostBeefRequestHerdsInnerLime
 from openapi_client.models.post_beef_request_herds_inner_lime_applications_inner import PostBeefRequestHerdsInnerLimeApplicationsInner as PostBeefRequestHerdsInnerLimeApplicationsInner
 from openapi_client.models.post_beef_request_herds_inner_liveweight_sold_kg import PostBeefRequestHerdsInnerLiveweightSoldKg as PostBeefRequestHerdsInnerLiveweightSoldKg
+from openapi_client.models.post_beef_request_herds_inner_other_purchased_goods_and_services_inner import PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner as PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner
+from openapi_client.models.post_beef_request_herds_inner_other_purchased_goods_and_services_inner_emissions_factor import PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerEmissionsFactor as PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerEmissionsFactor
+from openapi_client.models.post_beef_request_herds_inner_other_purchased_goods_and_services_inner_quantity import PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerQuantity as PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInnerQuantity
 from openapi_client.models.post_beef_request_herds_inner_pasture import PostBeefRequestHerdsInnerPasture as PostBeefRequestHerdsInnerPasture
 from openapi_client.models.post_beef_request_herds_inner_pasture_area_managed import PostBeefRequestHerdsInnerPastureAreaManaged as PostBeefRequestHerdsInnerPastureAreaManaged
+from openapi_client.models.post_beef_request_herds_inner_pasture_fraction_of_annual_crop_burnt import PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt as PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt
 from openapi_client.models.post_beef_request_herds_inner_pasture_residues import PostBeefRequestHerdsInnerPastureResidues as PostBeefRequestHerdsInnerPastureResidues
 from openapi_client.models.post_beef_request_herds_inner_purchased_mineral_supplements_inner import PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner as PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner
 from openapi_client.models.post_beef_request_herds_inner_services import PostBeefRequestHerdsInnerServices as PostBeefRequestHerdsInnerServices
-from openapi_client.models.post_cotton200_response import PostCotton200Response as PostCotton200Response
-from openapi_client.models.post_cotton200_response_intensities import PostCotton200ResponseIntensities as PostCotton200ResponseIntensities
-from openapi_client.models.post_cotton200_response_intensities_cotton_excluding_lulucf import PostCotton200ResponseIntensitiesCottonExcludingLULUCF as PostCotton200ResponseIntensitiesCottonExcludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_cotton_harvested_kg import PostCotton200ResponseIntensitiesCottonHarvestedKg as PostCotton200ResponseIntensitiesCottonHarvestedKg
-from openapi_client.models.post_cotton200_response_intensities_cotton_including_lulucf import PostCotton200ResponseIntensitiesCottonIncludingLULUCF as PostCotton200ResponseIntensitiesCottonIncludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_cotton_lint_harvested_kg import PostCotton200ResponseIntensitiesCottonLintHarvestedKg as PostCotton200ResponseIntensitiesCottonLintHarvestedKg
-from openapi_client.models.post_cotton200_response_intensities_cotton_seed_harvested_kg import PostCotton200ResponseIntensitiesCottonSeedHarvestedKg as PostCotton200ResponseIntensitiesCottonSeedHarvestedKg
-from openapi_client.models.post_cotton200_response_intensities_economic_intensities import PostCotton200ResponseIntensitiesEconomicIntensities as PostCotton200ResponseIntensitiesEconomicIntensities
-from openapi_client.models.post_cotton200_response_intensities_economic_intensities_cotton_lint_excluding_lulucf import PostCotton200ResponseIntensitiesEconomicIntensitiesCottonLintExcludingLULUCF as PostCotton200ResponseIntensitiesEconomicIntensitiesCottonLintExcludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_economic_intensities_cotton_lint_including_lulucf import PostCotton200ResponseIntensitiesEconomicIntensitiesCottonLintIncludingLULUCF as PostCotton200ResponseIntensitiesEconomicIntensitiesCottonLintIncludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_economic_intensities_cotton_seed_excluding_lulucf import PostCotton200ResponseIntensitiesEconomicIntensitiesCottonSeedExcludingLULUCF as PostCotton200ResponseIntensitiesEconomicIntensitiesCottonSeedExcludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_economic_intensities_cotton_seed_including_lulucf import PostCotton200ResponseIntensitiesEconomicIntensitiesCottonSeedIncludingLULUCF as PostCotton200ResponseIntensitiesEconomicIntensitiesCottonSeedIncludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_mass_intensities import PostCotton200ResponseIntensitiesMassIntensities as PostCotton200ResponseIntensitiesMassIntensities
-from openapi_client.models.post_cotton200_response_intensities_mass_intensities_cotton_lint_excluding_lulucf import PostCotton200ResponseIntensitiesMassIntensitiesCottonLintExcludingLULUCF as PostCotton200ResponseIntensitiesMassIntensitiesCottonLintExcludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_mass_intensities_cotton_lint_including_lulucf import PostCotton200ResponseIntensitiesMassIntensitiesCottonLintIncludingLULUCF as PostCotton200ResponseIntensitiesMassIntensitiesCottonLintIncludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_mass_intensities_cotton_seed_excluding_lulucf import PostCotton200ResponseIntensitiesMassIntensitiesCottonSeedExcludingLULUCF as PostCotton200ResponseIntensitiesMassIntensitiesCottonSeedExcludingLULUCF
-from openapi_client.models.post_cotton200_response_intensities_mass_intensities_cotton_seed_including_lulucf import PostCotton200ResponseIntensitiesMassIntensitiesCottonSeedIncludingLULUCF as PostCotton200ResponseIntensitiesMassIntensitiesCottonSeedIncludingLULUCF
-from openapi_client.models.post_cotton200_response_intermediate_inner import PostCotton200ResponseIntermediateInner as PostCotton200ResponseIntermediateInner
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities import PostCotton200ResponseIntermediateInnerIntensities as PostCotton200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_cotton_harvested_kg import PostCotton200ResponseIntermediateInnerIntensitiesCottonHarvestedKg as PostCotton200ResponseIntermediateInnerIntensitiesCottonHarvestedKg
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_cotton_intensity import PostCotton200ResponseIntermediateInnerIntensitiesCottonIntensity as PostCotton200ResponseIntermediateInnerIntensitiesCottonIntensity
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_cotton_lint_harvested_kg import PostCotton200ResponseIntermediateInnerIntensitiesCottonLintHarvestedKg as PostCotton200ResponseIntermediateInnerIntensitiesCottonLintHarvestedKg
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_cotton_seed_harvested_kg import PostCotton200ResponseIntermediateInnerIntensitiesCottonSeedHarvestedKg as PostCotton200ResponseIntermediateInnerIntensitiesCottonSeedHarvestedKg
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_economic_intensities import PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensities as PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensities
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_economic_intensities_cotton_lint import PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensitiesCottonLint as PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensitiesCottonLint
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_economic_intensities_cotton_seed import PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensitiesCottonSeed as PostCotton200ResponseIntermediateInnerIntensitiesEconomicIntensitiesCottonSeed
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_mass_intensities import PostCotton200ResponseIntermediateInnerIntensitiesMassIntensities as PostCotton200ResponseIntermediateInnerIntensitiesMassIntensities
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_mass_intensities_cotton_lint import PostCotton200ResponseIntermediateInnerIntensitiesMassIntensitiesCottonLint as PostCotton200ResponseIntermediateInnerIntensitiesMassIntensitiesCottonLint
-from openapi_client.models.post_cotton200_response_intermediate_inner_intensities_mass_intensities_cotton_seed import PostCotton200ResponseIntermediateInnerIntensitiesMassIntensitiesCottonSeed as PostCotton200ResponseIntermediateInnerIntensitiesMassIntensitiesCottonSeed
-from openapi_client.models.post_cotton_request import PostCottonRequest as PostCottonRequest
-from openapi_client.models.post_cotton_request_crops_inner import PostCottonRequestCropsInner as PostCottonRequestCropsInner
-from openapi_client.models.post_cotton_request_crops_inner_crop import PostCottonRequestCropsInnerCrop as PostCottonRequestCropsInnerCrop
-from openapi_client.models.post_cotton_request_crops_inner_crop_fraction_seed_cotton_lint import PostCottonRequestCropsInnerCropFractionSeedCottonLint as PostCottonRequestCropsInnerCropFractionSeedCottonLint
-from openapi_client.models.post_cotton_request_crops_inner_fertiliser import PostCottonRequestCropsInnerFertiliser as PostCottonRequestCropsInnerFertiliser
-from openapi_client.models.post_cotton_request_crops_inner_services import PostCottonRequestCropsInnerServices as PostCottonRequestCropsInnerServices
-from openapi_client.models.post_cropping200_response import PostCropping200Response as PostCropping200Response
-from openapi_client.models.post_cropping200_response_intensities import PostCropping200ResponseIntensities as PostCropping200ResponseIntensities
-from openapi_client.models.post_cropping200_response_intensities_crop_harvested_kg import PostCropping200ResponseIntensitiesCropHarvestedKg as PostCropping200ResponseIntensitiesCropHarvestedKg
-from openapi_client.models.post_cropping200_response_intensities_crop_intensity_excluding_lulucf import PostCropping200ResponseIntensitiesCropIntensityExcludingLULUCF as PostCropping200ResponseIntensitiesCropIntensityExcludingLULUCF
-from openapi_client.models.post_cropping200_response_intensities_crop_intensity_including_lulucf import PostCropping200ResponseIntensitiesCropIntensityIncludingLULUCF as PostCropping200ResponseIntensitiesCropIntensityIncludingLULUCF
-from openapi_client.models.post_cropping200_response_intermediate_inner import PostCropping200ResponseIntermediateInner as PostCropping200ResponseIntermediateInner
-from openapi_client.models.post_cropping200_response_intermediate_inner_intensities import PostCropping200ResponseIntermediateInnerIntensities as PostCropping200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_cropping200_response_intermediate_inner_intensities_crop_harvested_kg import PostCropping200ResponseIntermediateInnerIntensitiesCropHarvestedKg as PostCropping200ResponseIntermediateInnerIntensitiesCropHarvestedKg
-from openapi_client.models.post_cropping200_response_intermediate_inner_intensities_crop_intensity import PostCropping200ResponseIntermediateInnerIntensitiesCropIntensity as PostCropping200ResponseIntermediateInnerIntensitiesCropIntensity
-from openapi_client.models.post_cropping_request import PostCroppingRequest as PostCroppingRequest
-from openapi_client.models.post_cropping_request_crops_inner import PostCroppingRequestCropsInner as PostCroppingRequestCropsInner
-from openapi_client.models.post_dairy200_response import PostDairy200Response as PostDairy200Response
-from openapi_client.models.post_dairy200_response_intensities import PostDairy200ResponseIntensities as PostDairy200ResponseIntensities
-from openapi_client.models.post_dairy200_response_intensities_liveweight_intensity_excluding_lulucf import PostDairy200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostDairy200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
-from openapi_client.models.post_dairy200_response_intensities_liveweight_intensity_including_lulucf import PostDairy200ResponseIntensitiesLiveweightIntensityIncludingLULUCF as PostDairy200ResponseIntensitiesLiveweightIntensityIncludingLULUCF
-from openapi_client.models.post_dairy200_response_intensities_milk_intensity_excluding_lulucf import PostDairy200ResponseIntensitiesMilkIntensityExcludingLULUCF as PostDairy200ResponseIntensitiesMilkIntensityExcludingLULUCF
-from openapi_client.models.post_dairy200_response_intensities_milk_intensity_including_lulucf import PostDairy200ResponseIntensitiesMilkIntensityIncludingLULUCF as PostDairy200ResponseIntensitiesMilkIntensityIncludingLULUCF
-from openapi_client.models.post_dairy200_response_intensities_milk_produced_kg import PostDairy200ResponseIntensitiesMilkProducedKg as PostDairy200ResponseIntensitiesMilkProducedKg
-from openapi_client.models.post_dairy200_response_intermediate_inner import PostDairy200ResponseIntermediateInner as PostDairy200ResponseIntermediateInner
-from openapi_client.models.post_dairy200_response_intermediate_inner_intensities import PostDairy200ResponseIntermediateInnerIntensities as PostDairy200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_dairy200_response_intermediate_inner_intensities_liveweight_intensity import PostDairy200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostDairy200ResponseIntermediateInnerIntensitiesLiveweightIntensity
-from openapi_client.models.post_dairy200_response_intermediate_inner_intensities_milk_intensity import PostDairy200ResponseIntermediateInnerIntensitiesMilkIntensity as PostDairy200ResponseIntermediateInnerIntensitiesMilkIntensity
-from openapi_client.models.post_dairy200_response_intermediate_inner_intensities_milk_produced_kg import PostDairy200ResponseIntermediateInnerIntensitiesMilkProducedKg as PostDairy200ResponseIntermediateInnerIntensitiesMilkProducedKg
-from openapi_client.models.post_dairy200_response_intermediate_inner_scope1 import PostDairy200ResponseIntermediateInnerScope1 as PostDairy200ResponseIntermediateInnerScope1
-from openapi_client.models.post_dairy200_response_scope1 import PostDairy200ResponseScope1 as PostDairy200ResponseScope1
-from openapi_client.models.post_dairy200_response_scope1_refrigerant_co2e import PostDairy200ResponseScope1RefrigerantCO2e as PostDairy200ResponseScope1RefrigerantCO2e
-from openapi_client.models.post_dairy_request import PostDairyRequest as PostDairyRequest
-from openapi_client.models.post_dairy_request_herds_inner import PostDairyRequestHerdsInner as PostDairyRequestHerdsInner
-from openapi_client.models.post_feedlot200_response import PostFeedlot200Response as PostFeedlot200Response
-from openapi_client.models.post_feedlot200_response_intensities import PostFeedlot200ResponseIntensities as PostFeedlot200ResponseIntensities
-from openapi_client.models.post_feedlot200_response_intensities_liveweight_intensity_excluding_lulucf import PostFeedlot200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostFeedlot200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
-from openapi_client.models.post_feedlot200_response_intensities_liveweight_intensity_including_lulucf import PostFeedlot200ResponseIntensitiesLiveweightIntensityIncludingLULUCF as PostFeedlot200ResponseIntensitiesLiveweightIntensityIncludingLULUCF
-from openapi_client.models.post_feedlot200_response_intermediate_inner import PostFeedlot200ResponseIntermediateInner as PostFeedlot200ResponseIntermediateInner
-from openapi_client.models.post_feedlot200_response_intermediate_inner_intensities import PostFeedlot200ResponseIntermediateInnerIntensities as PostFeedlot200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_feedlot200_response_intermediate_inner_intensities_liveweight_intensity import PostFeedlot200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostFeedlot200ResponseIntermediateInnerIntensitiesLiveweightIntensity
-from openapi_client.models.post_feedlot200_response_intermediate_inner_scope1 import PostFeedlot200ResponseIntermediateInnerScope1 as PostFeedlot200ResponseIntermediateInnerScope1
-from openapi_client.models.post_feedlot200_response_scope1 import PostFeedlot200ResponseScope1 as PostFeedlot200ResponseScope1
-from openapi_client.models.post_feedlot200_response_scope3 import PostFeedlot200ResponseScope3 as PostFeedlot200ResponseScope3
-from openapi_client.models.post_feedlot_request import PostFeedlotRequest as PostFeedlotRequest
-from openapi_client.models.post_feedlot_request_lots_inner import PostFeedlotRequestLotsInner as PostFeedlotRequestLotsInner
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner import PostFeedlotRequestLotsInnerGroupsInner as PostFeedlotRequestLotsInnerGroupsInner
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_average_length_of_stay_days import PostFeedlotRequestLotsInnerGroupsInnerAverageLengthOfStayDays as PostFeedlotRequestLotsInnerGroupsInnerAverageLengthOfStayDays
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_head import PostFeedlotRequestLotsInnerGroupsInnerHead as PostFeedlotRequestLotsInnerGroupsInnerHead
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_manure_allocations import PostFeedlotRequestLotsInnerGroupsInnerManureAllocations as PostFeedlotRequestLotsInnerGroupsInnerManureAllocations
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_manure_allocations_composting import PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsComposting as PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsComposting
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_manure_allocations_direct_application import PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsDirectApplication as PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsDirectApplication
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_manure_allocations_solid_storage import PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsSolidStorage as PostFeedlotRequestLotsInnerGroupsInnerManureAllocationsSolidStorage
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_method2_average_neutral_detergent_fibre_percentage import PostFeedlotRequestLotsInnerGroupsInnerMethod2AverageNeutralDetergentFibrePercentage as PostFeedlotRequestLotsInnerGroupsInnerMethod2AverageNeutralDetergentFibrePercentage
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_method2_crude_protein import PostFeedlotRequestLotsInnerGroupsInnerMethod2CrudeProtein as PostFeedlotRequestLotsInnerGroupsInnerMethod2CrudeProtein
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_method2_dry_matter_digestibility import PostFeedlotRequestLotsInnerGroupsInnerMethod2DryMatterDigestibility as PostFeedlotRequestLotsInnerGroupsInnerMethod2DryMatterDigestibility
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_method2_dry_matter_intake import PostFeedlotRequestLotsInnerGroupsInnerMethod2DryMatterIntake as PostFeedlotRequestLotsInnerGroupsInnerMethod2DryMatterIntake
-from openapi_client.models.post_feedlot_request_lots_inner_groups_inner_method2_nitrogen_retention_rate import PostFeedlotRequestLotsInnerGroupsInnerMethod2NitrogenRetentionRate as PostFeedlotRequestLotsInnerGroupsInnerMethod2NitrogenRetentionRate
-from openapi_client.models.post_feedlot_request_lots_inner_liveweight_sold_kg import PostFeedlotRequestLotsInnerLiveweightSoldKg as PostFeedlotRequestLotsInnerLiveweightSoldKg
-from openapi_client.models.post_forestry200_response import PostForestry200Response as PostForestry200Response
-from openapi_client.models.post_forestry200_response_intermediate_inner import PostForestry200ResponseIntermediateInner as PostForestry200ResponseIntermediateInner
-from openapi_client.models.post_forestry_request import PostForestryRequest as PostForestryRequest
-from openapi_client.models.post_fullcam_request import PostFullcamRequest as PostFullcamRequest
-from openapi_client.models.post_fullcam_request_areas_inner import PostFullcamRequestAreasInner as PostFullcamRequestAreasInner
-from openapi_client.models.post_grains200_response import PostGrains200Response as PostGrains200Response
-from openapi_client.models.post_grains200_response_intensities import PostGrains200ResponseIntensities as PostGrains200ResponseIntensities
-from openapi_client.models.post_grains200_response_intensities_grain_harvested_kg import PostGrains200ResponseIntensitiesGrainHarvestedKg as PostGrains200ResponseIntensitiesGrainHarvestedKg
-from openapi_client.models.post_grains200_response_intensities_grains_excluding_lulucf import PostGrains200ResponseIntensitiesGrainsExcludingLULUCF as PostGrains200ResponseIntensitiesGrainsExcludingLULUCF
-from openapi_client.models.post_grains200_response_intensities_grains_including_lulucf import PostGrains200ResponseIntensitiesGrainsIncludingLULUCF as PostGrains200ResponseIntensitiesGrainsIncludingLULUCF
-from openapi_client.models.post_grains200_response_intermediate_inner import PostGrains200ResponseIntermediateInner as PostGrains200ResponseIntermediateInner
-from openapi_client.models.post_grains200_response_intermediate_inner_intensities import PostGrains200ResponseIntermediateInnerIntensities as PostGrains200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_grains200_response_intermediate_inner_intensities_grain_harvested_kg import PostGrains200ResponseIntermediateInnerIntensitiesGrainHarvestedKg as PostGrains200ResponseIntermediateInnerIntensitiesGrainHarvestedKg
-from openapi_client.models.post_grains200_response_intermediate_inner_intensities_grains_intensity import PostGrains200ResponseIntermediateInnerIntensitiesGrainsIntensity as PostGrains200ResponseIntermediateInnerIntensitiesGrainsIntensity
-from openapi_client.models.post_grains_request import PostGrainsRequest as PostGrainsRequest
-from openapi_client.models.post_grains_request_crops_inner import PostGrainsRequestCropsInner as PostGrainsRequestCropsInner
-from openapi_client.models.post_grains_request_crops_inner_crop import PostGrainsRequestCropsInnerCrop as PostGrainsRequestCropsInnerCrop
-from openapi_client.models.post_horticulture200_response import PostHorticulture200Response as PostHorticulture200Response
-from openapi_client.models.post_horticulture200_response_intensities import PostHorticulture200ResponseIntensities as PostHorticulture200ResponseIntensities
-from openapi_client.models.post_horticulture200_response_intensities_crop_excluding_lulucf import PostHorticulture200ResponseIntensitiesCropExcludingLULUCF as PostHorticulture200ResponseIntensitiesCropExcludingLULUCF
-from openapi_client.models.post_horticulture200_response_intensities_crop_harvested_kg import PostHorticulture200ResponseIntensitiesCropHarvestedKg as PostHorticulture200ResponseIntensitiesCropHarvestedKg
-from openapi_client.models.post_horticulture200_response_intensities_crop_including_lulucf import PostHorticulture200ResponseIntensitiesCropIncludingLULUCF as PostHorticulture200ResponseIntensitiesCropIncludingLULUCF
-from openapi_client.models.post_horticulture200_response_intermediate_inner import PostHorticulture200ResponseIntermediateInner as PostHorticulture200ResponseIntermediateInner
-from openapi_client.models.post_horticulture200_response_intermediate_inner_intensities import PostHorticulture200ResponseIntermediateInnerIntensities as PostHorticulture200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_horticulture200_response_intermediate_inner_intensities_crop_harvested_kg import PostHorticulture200ResponseIntermediateInnerIntensitiesCropHarvestedKg as PostHorticulture200ResponseIntermediateInnerIntensitiesCropHarvestedKg
-from openapi_client.models.post_horticulture200_response_intermediate_inner_intensities_crop_intensity import PostHorticulture200ResponseIntermediateInnerIntensitiesCropIntensity as PostHorticulture200ResponseIntermediateInnerIntensitiesCropIntensity
-from openapi_client.models.post_horticulture200_response_intermediate_inner_scope1 import PostHorticulture200ResponseIntermediateInnerScope1 as PostHorticulture200ResponseIntermediateInnerScope1
-from openapi_client.models.post_horticulture200_response_intermediate_inner_scope1_fertiliser_leaching_and_runoff_n2_o import PostHorticulture200ResponseIntermediateInnerScope1FertiliserLeachingAndRunoffN2O as PostHorticulture200ResponseIntermediateInnerScope1FertiliserLeachingAndRunoffN2O
-from openapi_client.models.post_horticulture200_response_intermediate_inner_scope1_inorganic_fertiliser_atmospheric_deposition_n2_o import PostHorticulture200ResponseIntermediateInnerScope1InorganicFertiliserAtmosphericDepositionN2O as PostHorticulture200ResponseIntermediateInnerScope1InorganicFertiliserAtmosphericDepositionN2O
-from openapi_client.models.post_horticulture_request import PostHorticultureRequest as PostHorticultureRequest
-from openapi_client.models.post_horticulture_request_crops_inner import PostHorticultureRequestCropsInner as PostHorticultureRequestCropsInner
-from openapi_client.models.post_horticulture_request_crops_inner_crop import PostHorticultureRequestCropsInnerCrop as PostHorticultureRequestCropsInnerCrop
-from openapi_client.models.post_horticulture_request_crops_inner_fertiliser import PostHorticultureRequestCropsInnerFertiliser as PostHorticultureRequestCropsInnerFertiliser
-from openapi_client.models.post_other_livestock200_response import PostOtherLivestock200Response as PostOtherLivestock200Response
-from openapi_client.models.post_other_livestock200_response_intensities import PostOtherLivestock200ResponseIntensities as PostOtherLivestock200ResponseIntensities
-from openapi_client.models.post_other_livestock200_response_intensities_liveweight_intensity_excluding_lulucf import PostOtherLivestock200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostOtherLivestock200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
-from openapi_client.models.post_other_livestock200_response_intensities_liveweight_intensity_including_lulucf import PostOtherLivestock200ResponseIntensitiesLiveweightIntensityIncludingLULUCF as PostOtherLivestock200ResponseIntensitiesLiveweightIntensityIncludingLULUCF
-from openapi_client.models.post_other_livestock200_response_intermediate_inner import PostOtherLivestock200ResponseIntermediateInner as PostOtherLivestock200ResponseIntermediateInner
-from openapi_client.models.post_other_livestock200_response_intermediate_inner_intensities import PostOtherLivestock200ResponseIntermediateInnerIntensities as PostOtherLivestock200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_other_livestock200_response_intermediate_inner_intensities_liveweight_intensity import PostOtherLivestock200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostOtherLivestock200ResponseIntermediateInnerIntensitiesLiveweightIntensity
-from openapi_client.models.post_other_livestock200_response_intermediate_inner_scope1 import PostOtherLivestock200ResponseIntermediateInnerScope1 as PostOtherLivestock200ResponseIntermediateInnerScope1
-from openapi_client.models.post_other_livestock200_response_scope1 import PostOtherLivestock200ResponseScope1 as PostOtherLivestock200ResponseScope1
-from openapi_client.models.post_other_livestock_request import PostOtherLivestockRequest as PostOtherLivestockRequest
-from openapi_client.models.post_other_livestock_request_herds_inner import PostOtherLivestockRequestHerdsInner as PostOtherLivestockRequestHerdsInner
-from openapi_client.models.post_other_livestock_request_herds_inner_livestock_inner import PostOtherLivestockRequestHerdsInnerLivestockInner as PostOtherLivestockRequestHerdsInnerLivestockInner
-from openapi_client.models.post_pigs200_response import PostPigs200Response as PostPigs200Response
-from openapi_client.models.post_pigs200_response_intensities import PostPigs200ResponseIntensities as PostPigs200ResponseIntensities
-from openapi_client.models.post_pigs200_response_intensities_liveweight_intensity_excluding_lulucf import PostPigs200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostPigs200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
-from openapi_client.models.post_pigs200_response_intensities_liveweight_intensity_including_lulucf import PostPigs200ResponseIntensitiesLiveweightIntensityIncludingLULUCF as PostPigs200ResponseIntensitiesLiveweightIntensityIncludingLULUCF
-from openapi_client.models.post_pigs200_response_intermediate_inner import PostPigs200ResponseIntermediateInner as PostPigs200ResponseIntermediateInner
-from openapi_client.models.post_pigs200_response_intermediate_inner_intensities import PostPigs200ResponseIntermediateInnerIntensities as PostPigs200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_pigs200_response_intermediate_inner_intensities_liveweight_intensity import PostPigs200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostPigs200ResponseIntermediateInnerIntensitiesLiveweightIntensity
-from openapi_client.models.post_pigs200_response_scope3 import PostPigs200ResponseScope3 as PostPigs200ResponseScope3
-from openapi_client.models.post_pigs_request import PostPigsRequest as PostPigsRequest
-from openapi_client.models.post_pigs_request_herds_inner import PostPigsRequestHerdsInner as PostPigsRequestHerdsInner
-from openapi_client.models.post_post_production200_response import PostPostProduction200Response as PostPostProduction200Response
-from openapi_client.models.post_post_production200_response_intensities import PostPostProduction200ResponseIntensities as PostPostProduction200ResponseIntensities
-from openapi_client.models.post_post_production200_response_intensities_combined_intensity_kg_co2e_per_unit import PostPostProduction200ResponseIntensitiesCombinedIntensityKgCO2ePerUnit as PostPostProduction200ResponseIntensitiesCombinedIntensityKgCO2ePerUnit
-from openapi_client.models.post_post_production200_response_intensities_post_production_allocation import PostPostProduction200ResponseIntensitiesPostProductionAllocation as PostPostProduction200ResponseIntensitiesPostProductionAllocation
-from openapi_client.models.post_post_production200_response_intensities_post_production_emissions_kg_co2e import PostPostProduction200ResponseIntensitiesPostProductionEmissionsKgCO2e as PostPostProduction200ResponseIntensitiesPostProductionEmissionsKgCO2e
-from openapi_client.models.post_post_production200_response_intensities_post_production_intensity_kg_co2e_per_unit import PostPostProduction200ResponseIntensitiesPostProductionIntensityKgCO2ePerUnit as PostPostProduction200ResponseIntensitiesPostProductionIntensityKgCO2ePerUnit
-from openapi_client.models.post_post_production200_response_intensities_production_emissions_kg_co2e import PostPostProduction200ResponseIntensitiesProductionEmissionsKgCO2e as PostPostProduction200ResponseIntensitiesProductionEmissionsKgCO2e
-from openapi_client.models.post_post_production200_response_intensities_production_intensity_kg_co2e_per_unit import PostPostProduction200ResponseIntensitiesProductionIntensityKgCO2ePerUnit as PostPostProduction200ResponseIntensitiesProductionIntensityKgCO2ePerUnit
-from openapi_client.models.post_post_production200_response_intensities_units_produced import PostPostProduction200ResponseIntensitiesUnitsProduced as PostPostProduction200ResponseIntensitiesUnitsProduced
-from openapi_client.models.post_post_production200_response_scope1 import PostPostProduction200ResponseScope1 as PostPostProduction200ResponseScope1
-from openapi_client.models.post_post_production200_response_scope3 import PostPostProduction200ResponseScope3 as PostPostProduction200ResponseScope3
-from openapi_client.models.post_post_production_request import PostPostProductionRequest as PostPostProductionRequest
-from openapi_client.models.post_post_production_request_freight_inner import PostPostProductionRequestFreightInner as PostPostProductionRequestFreightInner
-from openapi_client.models.post_post_production_request_intensities import PostPostProductionRequestIntensities as PostPostProductionRequestIntensities
-from openapi_client.models.post_post_production_request_intensities_post_production_allocation import PostPostProductionRequestIntensitiesPostProductionAllocation as PostPostProductionRequestIntensitiesPostProductionAllocation
-from openapi_client.models.post_post_production_request_intensities_production_emissions_kg_co2e import PostPostProductionRequestIntensitiesProductionEmissionsKgCO2e as PostPostProductionRequestIntensitiesProductionEmissionsKgCO2e
-from openapi_client.models.post_post_production_request_intensities_units_produced import PostPostProductionRequestIntensitiesUnitsProduced as PostPostProductionRequestIntensitiesUnitsProduced
-from openapi_client.models.post_post_production_request_purchased_packaging_inner import PostPostProductionRequestPurchasedPackagingInner as PostPostProductionRequestPurchasedPackagingInner
-from openapi_client.models.post_post_production_request_supplementary_co2_kg import PostPostProductionRequestSupplementaryCO2Kg as PostPostProductionRequestSupplementaryCO2Kg
-from openapi_client.models.post_poultry200_response import PostPoultry200Response as PostPoultry200Response
-from openapi_client.models.post_poultry200_response_intensities import PostPoultry200ResponseIntensities as PostPoultry200ResponseIntensities
-from openapi_client.models.post_poultry200_response_intensities_eggs_intensity_excluding_lulucf import PostPoultry200ResponseIntensitiesEggsIntensityExcludingLULUCF as PostPoultry200ResponseIntensitiesEggsIntensityExcludingLULUCF
-from openapi_client.models.post_poultry200_response_intensities_eggs_intensity_including_lulucf import PostPoultry200ResponseIntensitiesEggsIntensityIncludingLULUCF as PostPoultry200ResponseIntensitiesEggsIntensityIncludingLULUCF
-from openapi_client.models.post_poultry200_response_intensities_eggs_produced_kg import PostPoultry200ResponseIntensitiesEggsProducedKg as PostPoultry200ResponseIntensitiesEggsProducedKg
-from openapi_client.models.post_poultry200_response_intensities_liveweight_intensity_excluding_lulucf import PostPoultry200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostPoultry200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
-from openapi_client.models.post_poultry200_response_intensities_liveweight_intensity_including_lulucf import PostPoultry200ResponseIntensitiesLiveweightIntensityIncludingLULUCF as PostPoultry200ResponseIntensitiesLiveweightIntensityIncludingLULUCF
-from openapi_client.models.post_poultry200_response_intermediate_inner import PostPoultry200ResponseIntermediateInner as PostPoultry200ResponseIntermediateInner
-from openapi_client.models.post_poultry200_response_intermediate_inner_intensities import PostPoultry200ResponseIntermediateInnerIntensities as PostPoultry200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_poultry200_response_intermediate_inner_intensities_eggs_intensity import PostPoultry200ResponseIntermediateInnerIntensitiesEggsIntensity as PostPoultry200ResponseIntermediateInnerIntensitiesEggsIntensity
-from openapi_client.models.post_poultry200_response_intermediate_inner_intensities_eggs_produced_kg import PostPoultry200ResponseIntermediateInnerIntensitiesEggsProducedKg as PostPoultry200ResponseIntermediateInnerIntensitiesEggsProducedKg
-from openapi_client.models.post_poultry200_response_intermediate_inner_intensities_liveweight_intensity import PostPoultry200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostPoultry200ResponseIntermediateInnerIntensitiesLiveweightIntensity
-from openapi_client.models.post_poultry_request import PostPoultryRequest as PostPoultryRequest
-from openapi_client.models.post_poultry_request_flocks_inner import PostPoultryRequestFlocksInner as PostPoultryRequestFlocksInner
-from openapi_client.models.post_poultry_request_flocks_inner_classes import PostPoultryRequestFlocksInnerClasses as PostPoultryRequestFlocksInnerClasses
-from openapi_client.models.post_poultry_request_flocks_inner_eggs_sold_kg import PostPoultryRequestFlocksInnerEggsSoldKg as PostPoultryRequestFlocksInnerEggsSoldKg
-from openapi_client.models.post_rice200_response import PostRice200Response as PostRice200Response
-from openapi_client.models.post_rice200_response_intensities import PostRice200ResponseIntensities as PostRice200ResponseIntensities
-from openapi_client.models.post_rice200_response_intensities_rice_excluding_lulucf import PostRice200ResponseIntensitiesRiceExcludingLULUCF as PostRice200ResponseIntensitiesRiceExcludingLULUCF
-from openapi_client.models.post_rice200_response_intensities_rice_harvested_kg import PostRice200ResponseIntensitiesRiceHarvestedKg as PostRice200ResponseIntensitiesRiceHarvestedKg
-from openapi_client.models.post_rice200_response_intensities_rice_including_lulucf import PostRice200ResponseIntensitiesRiceIncludingLULUCF as PostRice200ResponseIntensitiesRiceIncludingLULUCF
-from openapi_client.models.post_rice200_response_intermediate_inner import PostRice200ResponseIntermediateInner as PostRice200ResponseIntermediateInner
-from openapi_client.models.post_rice200_response_intermediate_inner_intensities import PostRice200ResponseIntermediateInnerIntensities as PostRice200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_rice200_response_intermediate_inner_intensities_rice_harvested_kg import PostRice200ResponseIntermediateInnerIntensitiesRiceHarvestedKg as PostRice200ResponseIntermediateInnerIntensitiesRiceHarvestedKg
-from openapi_client.models.post_rice200_response_intermediate_inner_intensities_rice_intensity import PostRice200ResponseIntermediateInnerIntensitiesRiceIntensity as PostRice200ResponseIntermediateInnerIntensitiesRiceIntensity
-from openapi_client.models.post_rice_request import PostRiceRequest as PostRiceRequest
-from openapi_client.models.post_rice_request_crops_inner import PostRiceRequestCropsInner as PostRiceRequestCropsInner
-from openapi_client.models.post_rice_request_crops_inner_crop import PostRiceRequestCropsInnerCrop as PostRiceRequestCropsInnerCrop
-from openapi_client.models.post_rice_request_crops_inner_crop_area_sown import PostRiceRequestCropsInnerCropAreaSown as PostRiceRequestCropsInnerCropAreaSown
-from openapi_client.models.post_rice_request_crops_inner_crop_cultivation_period_days import PostRiceRequestCropsInnerCropCultivationPeriodDays as PostRiceRequestCropsInnerCropCultivationPeriodDays
-from openapi_client.models.post_rice_request_crops_inner_crop_organic_amendments_inner import PostRiceRequestCropsInnerCropOrganicAmendmentsInner as PostRiceRequestCropsInnerCropOrganicAmendmentsInner
-from openapi_client.models.post_rice_request_crops_inner_crop_organic_amendments_inner_rate_of_application import PostRiceRequestCropsInnerCropOrganicAmendmentsInnerRateOfApplication as PostRiceRequestCropsInnerCropOrganicAmendmentsInnerRateOfApplication
-from openapi_client.models.post_rice_request_crops_inner_fertiliser import PostRiceRequestCropsInnerFertiliser as PostRiceRequestCropsInnerFertiliser
-from openapi_client.models.post_sheep200_response import PostSheep200Response as PostSheep200Response
-from openapi_client.models.post_sheep200_response_intensities import PostSheep200ResponseIntensities as PostSheep200ResponseIntensities
-from openapi_client.models.post_sheep200_response_intensities_liveweight_intensity_excluding_lulucf import PostSheep200ResponseIntensitiesLiveweightIntensityExcludingLULUCF as PostSheep200ResponseIntensitiesLiveweightIntensityExcludingLULUCF
-from openapi_client.models.post_sheep200_response_intensities_liveweight_intensity_including_lulucf import PostSheep200ResponseIntensitiesLiveweightIntensityIncludingLULUCF as PostSheep200ResponseIntensitiesLiveweightIntensityIncludingLULUCF
-from openapi_client.models.post_sheep200_response_intensities_wool_intensity_excluding_lulucf import PostSheep200ResponseIntensitiesWoolIntensityExcludingLULUCF as PostSheep200ResponseIntensitiesWoolIntensityExcludingLULUCF
-from openapi_client.models.post_sheep200_response_intensities_wool_intensity_including_lulucf import PostSheep200ResponseIntensitiesWoolIntensityIncludingLULUCF as PostSheep200ResponseIntensitiesWoolIntensityIncludingLULUCF
-from openapi_client.models.post_sheep200_response_intensities_wool_produced_kg import PostSheep200ResponseIntensitiesWoolProducedKg as PostSheep200ResponseIntensitiesWoolProducedKg
-from openapi_client.models.post_sheep200_response_intermediate_inner import PostSheep200ResponseIntermediateInner as PostSheep200ResponseIntermediateInner
-from openapi_client.models.post_sheep200_response_intermediate_inner_intensities import PostSheep200ResponseIntermediateInnerIntensities as PostSheep200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_sheep200_response_intermediate_inner_intensities_liveweight_intensity import PostSheep200ResponseIntermediateInnerIntensitiesLiveweightIntensity as PostSheep200ResponseIntermediateInnerIntensitiesLiveweightIntensity
-from openapi_client.models.post_sheep200_response_intermediate_inner_intensities_wool_intensity import PostSheep200ResponseIntermediateInnerIntensitiesWoolIntensity as PostSheep200ResponseIntermediateInnerIntensitiesWoolIntensity
-from openapi_client.models.post_sheep200_response_intermediate_inner_intensities_wool_produced_kg import PostSheep200ResponseIntermediateInnerIntensitiesWoolProducedKg as PostSheep200ResponseIntermediateInnerIntensitiesWoolProducedKg
-from openapi_client.models.post_sheep200_response_intermediate_inner_scope1 import PostSheep200ResponseIntermediateInnerScope1 as PostSheep200ResponseIntermediateInnerScope1
-from openapi_client.models.post_sheep200_response_scope1 import PostSheep200ResponseScope1 as PostSheep200ResponseScope1
-from openapi_client.models.post_sheep_request import PostSheepRequest as PostSheepRequest
-from openapi_client.models.post_sheep_request_flocks_inner import PostSheepRequestFlocksInner as PostSheepRequestFlocksInner
-from openapi_client.models.post_sugar200_response import PostSugar200Response as PostSugar200Response
-from openapi_client.models.post_sugar200_response_intensities import PostSugar200ResponseIntensities as PostSugar200ResponseIntensities
-from openapi_client.models.post_sugar200_response_intensities_sugar_cane_excluding_lulucf import PostSugar200ResponseIntensitiesSugarCaneExcludingLULUCF as PostSugar200ResponseIntensitiesSugarCaneExcludingLULUCF
-from openapi_client.models.post_sugar200_response_intensities_sugar_cane_harvested_kg import PostSugar200ResponseIntensitiesSugarCaneHarvestedKg as PostSugar200ResponseIntensitiesSugarCaneHarvestedKg
-from openapi_client.models.post_sugar200_response_intensities_sugar_cane_including_lulucf import PostSugar200ResponseIntensitiesSugarCaneIncludingLULUCF as PostSugar200ResponseIntensitiesSugarCaneIncludingLULUCF
-from openapi_client.models.post_sugar200_response_intermediate_inner import PostSugar200ResponseIntermediateInner as PostSugar200ResponseIntermediateInner
-from openapi_client.models.post_sugar200_response_intermediate_inner_intensities import PostSugar200ResponseIntermediateInnerIntensities as PostSugar200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_sugar200_response_intermediate_inner_intensities_sugar_cane_harvested_kg import PostSugar200ResponseIntermediateInnerIntensitiesSugarCaneHarvestedKg as PostSugar200ResponseIntermediateInnerIntensitiesSugarCaneHarvestedKg
-from openapi_client.models.post_sugar200_response_intermediate_inner_intensities_sugar_cane_intensity import PostSugar200ResponseIntermediateInnerIntensitiesSugarCaneIntensity as PostSugar200ResponseIntermediateInnerIntensitiesSugarCaneIntensity
-from openapi_client.models.post_sugar_request import PostSugarRequest as PostSugarRequest
-from openapi_client.models.post_sugar_request_crops_inner import PostSugarRequestCropsInner as PostSugarRequestCropsInner
-from openapi_client.models.post_sugar_request_crops_inner_crop import PostSugarRequestCropsInnerCrop as PostSugarRequestCropsInnerCrop
-from openapi_client.models.post_viticulture200_response import PostViticulture200Response as PostViticulture200Response
-from openapi_client.models.post_viticulture200_response_intensities import PostViticulture200ResponseIntensities as PostViticulture200ResponseIntensities
-from openapi_client.models.post_viticulture200_response_intensities_grapes_excluding_lulucf import PostViticulture200ResponseIntensitiesGrapesExcludingLULUCF as PostViticulture200ResponseIntensitiesGrapesExcludingLULUCF
-from openapi_client.models.post_viticulture200_response_intensities_grapes_harvested_kg import PostViticulture200ResponseIntensitiesGrapesHarvestedKg as PostViticulture200ResponseIntensitiesGrapesHarvestedKg
-from openapi_client.models.post_viticulture200_response_intensities_grapes_including_lulucf import PostViticulture200ResponseIntensitiesGrapesIncludingLULUCF as PostViticulture200ResponseIntensitiesGrapesIncludingLULUCF
-from openapi_client.models.post_viticulture200_response_intermediate_inner import PostViticulture200ResponseIntermediateInner as PostViticulture200ResponseIntermediateInner
-from openapi_client.models.post_viticulture200_response_intermediate_inner_intensities import PostViticulture200ResponseIntermediateInnerIntensities as PostViticulture200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_viticulture200_response_intermediate_inner_intensities_grapes_harvested_kg import PostViticulture200ResponseIntermediateInnerIntensitiesGrapesHarvestedKg as PostViticulture200ResponseIntermediateInnerIntensitiesGrapesHarvestedKg
-from openapi_client.models.post_viticulture200_response_intermediate_inner_intensities_grapes_intensity import PostViticulture200ResponseIntermediateInnerIntensitiesGrapesIntensity as PostViticulture200ResponseIntermediateInnerIntensitiesGrapesIntensity
-from openapi_client.models.post_viticulture_request import PostViticultureRequest as PostViticultureRequest
-from openapi_client.models.post_viticulture_request_crops_inner import PostViticultureRequestCropsInner as PostViticultureRequestCropsInner
-from openapi_client.models.post_viticulture_request_crops_inner_fertiliser import PostViticultureRequestCropsInnerFertiliser as PostViticultureRequestCropsInnerFertiliser
-from openapi_client.models.post_wild_catch_fisheries200_response import PostWildCatchFisheries200Response as PostWildCatchFisheries200Response
-from openapi_client.models.post_wild_catch_fisheries200_response_intensities import PostWildCatchFisheries200ResponseIntensities as PostWildCatchFisheries200ResponseIntensities
-from openapi_client.models.post_wild_catch_fisheries200_response_intensities_emissions_intensity import PostWildCatchFisheries200ResponseIntensitiesEmissionsIntensity as PostWildCatchFisheries200ResponseIntensitiesEmissionsIntensity
-from openapi_client.models.post_wild_catch_fisheries200_response_intermediate_inner import PostWildCatchFisheries200ResponseIntermediateInner as PostWildCatchFisheries200ResponseIntermediateInner
-from openapi_client.models.post_wild_catch_fisheries200_response_intermediate_inner_intensities import PostWildCatchFisheries200ResponseIntermediateInnerIntensities as PostWildCatchFisheries200ResponseIntermediateInnerIntensities
-from openapi_client.models.post_wild_catch_fisheries200_response_intermediate_inner_intensities_emissions_intensity import PostWildCatchFisheries200ResponseIntermediateInnerIntensitiesEmissionsIntensity as PostWildCatchFisheries200ResponseIntermediateInnerIntensitiesEmissionsIntensity
-from openapi_client.models.post_wild_catch_fisheries200_response_scope1 import PostWildCatchFisheries200ResponseScope1 as PostWildCatchFisheries200ResponseScope1
-from openapi_client.models.post_wild_catch_fisheries_request import PostWildCatchFisheriesRequest as PostWildCatchFisheriesRequest
-from openapi_client.models.post_wild_catch_fisheries_request_fisheries_inner import PostWildCatchFisheriesRequestFisheriesInner as PostWildCatchFisheriesRequestFisheriesInner
-from openapi_client.models.post_wild_catch_fisheries_request_fisheries_inner_amount_harvested import PostWildCatchFisheriesRequestFisheriesInnerAmountHarvested as PostWildCatchFisheriesRequestFisheriesInnerAmountHarvested
-from openapi_client.models.poultry import Poultry as Poultry
+from openapi_client.models.post_beef_request_herds_inner_waste import PostBeefRequestHerdsInnerWaste as PostBeefRequestHerdsInnerWaste
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_offsite import PostBeefRequestHerdsInnerWasteTreatedOffsite as PostBeefRequestHerdsInnerWasteTreatedOffsite
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_offsite_anaerobic_digestion_inner import PostBeefRequestHerdsInnerWasteTreatedOffsiteAnaerobicDigestionInner as PostBeefRequestHerdsInnerWasteTreatedOffsiteAnaerobicDigestionInner
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_offsite_composting_inner import PostBeefRequestHerdsInnerWasteTreatedOffsiteCompostingInner as PostBeefRequestHerdsInnerWasteTreatedOffsiteCompostingInner
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_offsite_incineration_inner import PostBeefRequestHerdsInnerWasteTreatedOffsiteIncinerationInner as PostBeefRequestHerdsInnerWasteTreatedOffsiteIncinerationInner
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_offsite_landfill_with_gas_recovery_inner import PostBeefRequestHerdsInnerWasteTreatedOffsiteLandfillWithGasRecoveryInner as PostBeefRequestHerdsInnerWasteTreatedOffsiteLandfillWithGasRecoveryInner
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_offsite_landfill_without_gas_recovery_inner import PostBeefRequestHerdsInnerWasteTreatedOffsiteLandfillWithoutGasRecoveryInner as PostBeefRequestHerdsInnerWasteTreatedOffsiteLandfillWithoutGasRecoveryInner
+from openapi_client.models.post_beef_request_herds_inner_waste_treated_onsite import PostBeefRequestHerdsInnerWasteTreatedOnsite as PostBeefRequestHerdsInnerWasteTreatedOnsite
 from openapi_client.models.poultry_manure import PoultryManure as PoultryManure
 from openapi_client.models.poultry_manure_flocks_inner import PoultryManureFlocksInner as PoultryManureFlocksInner
 from openapi_client.models.poultry_manure_flocks_inner_classes import PoultryManureFlocksInnerClasses as PoultryManureFlocksInnerClasses
@@ -2425,8 +1049,6 @@ from openapi_client.models.poultry_manure_flocks_inner_classes_layers_manure_all
 from openapi_client.models.poultry_manure_flocks_inner_classes_layers_manure_allocations_pasture_range_and_paddock import PoultryManureFlocksInnerClassesLayersManureAllocationsPastureRangeAndPaddock as PoultryManureFlocksInnerClassesLayersManureAllocationsPastureRangeAndPaddock
 from openapi_client.models.poultry_manure_flocks_inner_classes_layers_method2_crude_protein import PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein as PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein
 from openapi_client.models.poultry_manure_flocks_inner_classes_layers_method2_dry_matter_intake import PoultryManureFlocksInnerClassesLayersMethod2DryMatterIntake as PoultryManureFlocksInnerClassesLayersMethod2DryMatterIntake
-from openapi_client.models.poultry_scope1_output import PoultryScope1Output as PoultryScope1Output
-from openapi_client.models.poultry_scope1_output_plus_lulucf import PoultryScope1OutputPlusLULUCF as PoultryScope1OutputPlusLULUCF
 from openapi_client.models.purchased_feed_list_input_inner import PurchasedFeedListInputInner as PurchasedFeedListInputInner
 from openapi_client.models.purchased_from_australia import PurchasedFromAustralia as PurchasedFromAustralia
 from openapi_client.models.purchased_from_brazil import PurchasedFromBrazil as PurchasedFromBrazil
@@ -2444,31 +1066,9 @@ from openapi_client.models.quantity_by_mass1 import QuantityByMass1 as QuantityB
 from openapi_client.models.quantity_by_mass10 import QuantityByMass10 as QuantityByMass10
 from openapi_client.models.quantity_by_mass10_mass_waste_tonnes import QuantityByMass10MassWasteTonnes as QuantityByMass10MassWasteTonnes
 from openapi_client.models.quantity_by_mass11 import QuantityByMass11 as QuantityByMass11
-from openapi_client.models.quantity_by_mass11_amount_mass import QuantityByMass11AmountMass as QuantityByMass11AmountMass
 from openapi_client.models.quantity_by_mass12 import QuantityByMass12 as QuantityByMass12
-from openapi_client.models.quantity_by_mass12_amount_mass import QuantityByMass12AmountMass as QuantityByMass12AmountMass
-from openapi_client.models.quantity_by_mass12_custom_emissions_factor import QuantityByMass12CustomEmissionsFactor as QuantityByMass12CustomEmissionsFactor
-from openapi_client.models.quantity_by_mass13 import QuantityByMass13 as QuantityByMass13
-from openapi_client.models.quantity_by_mass13_mass_waste_tonnes import QuantityByMass13MassWasteTonnes as QuantityByMass13MassWasteTonnes
-from openapi_client.models.quantity_by_mass14 import QuantityByMass14 as QuantityByMass14
-from openapi_client.models.quantity_by_mass14_mass_waste_tonnes import QuantityByMass14MassWasteTonnes as QuantityByMass14MassWasteTonnes
-from openapi_client.models.quantity_by_mass15 import QuantityByMass15 as QuantityByMass15
-from openapi_client.models.quantity_by_mass15_mass_waste_tonnes import QuantityByMass15MassWasteTonnes as QuantityByMass15MassWasteTonnes
-from openapi_client.models.quantity_by_mass16 import QuantityByMass16 as QuantityByMass16
-from openapi_client.models.quantity_by_mass16_mass_waste_tonnes import QuantityByMass16MassWasteTonnes as QuantityByMass16MassWasteTonnes
-from openapi_client.models.quantity_by_mass17 import QuantityByMass17 as QuantityByMass17
-from openapi_client.models.quantity_by_mass17_mass_waste_tonnes import QuantityByMass17MassWasteTonnes as QuantityByMass17MassWasteTonnes
-from openapi_client.models.quantity_by_mass18 import QuantityByMass18 as QuantityByMass18
-from openapi_client.models.quantity_by_mass18_mass_waste_tonnes import QuantityByMass18MassWasteTonnes as QuantityByMass18MassWasteTonnes
-from openapi_client.models.quantity_by_mass19 import QuantityByMass19 as QuantityByMass19
-from openapi_client.models.quantity_by_mass19_mass_waste_tonnes import QuantityByMass19MassWasteTonnes as QuantityByMass19MassWasteTonnes
 from openapi_client.models.quantity_by_mass1_mass_waste_tonnes import QuantityByMass1MassWasteTonnes as QuantityByMass1MassWasteTonnes
 from openapi_client.models.quantity_by_mass2 import QuantityByMass2 as QuantityByMass2
-from openapi_client.models.quantity_by_mass20 import QuantityByMass20 as QuantityByMass20
-from openapi_client.models.quantity_by_mass21 import QuantityByMass21 as QuantityByMass21
-from openapi_client.models.quantity_by_mass21_custom_emissions_factor import QuantityByMass21CustomEmissionsFactor as QuantityByMass21CustomEmissionsFactor
-from openapi_client.models.quantity_by_mass22 import QuantityByMass22 as QuantityByMass22
-from openapi_client.models.quantity_by_mass23 import QuantityByMass23 as QuantityByMass23
 from openapi_client.models.quantity_by_mass2_mass_waste_tonnes import QuantityByMass2MassWasteTonnes as QuantityByMass2MassWasteTonnes
 from openapi_client.models.quantity_by_mass3 import QuantityByMass3 as QuantityByMass3
 from openapi_client.models.quantity_by_mass3_mass_waste_tonnes import QuantityByMass3MassWasteTonnes as QuantityByMass3MassWasteTonnes
@@ -2485,41 +1085,15 @@ from openapi_client.models.quantity_by_mass8_mass_waste_tonnes import QuantityBy
 from openapi_client.models.quantity_by_mass9 import QuantityByMass9 as QuantityByMass9
 from openapi_client.models.quantity_by_mass9_mass_waste_tonnes import QuantityByMass9MassWasteTonnes as QuantityByMass9MassWasteTonnes
 from openapi_client.models.quantity_by_mass_mass_waste_tonnes import QuantityByMassMassWasteTonnes as QuantityByMassMassWasteTonnes
-from openapi_client.models.quantity_by_units import QuantityByUnits as QuantityByUnits
-from openapi_client.models.quantity_by_units1 import QuantityByUnits1 as QuantityByUnits1
-from openapi_client.models.quantity_by_units1_amount_units import QuantityByUnits1AmountUnits as QuantityByUnits1AmountUnits
-from openapi_client.models.quantity_by_units1_custom_emissions_factor import QuantityByUnits1CustomEmissionsFactor as QuantityByUnits1CustomEmissionsFactor
-from openapi_client.models.quantity_by_units2 import QuantityByUnits2 as QuantityByUnits2
-from openapi_client.models.quantity_by_units3 import QuantityByUnits3 as QuantityByUnits3
-from openapi_client.models.quantity_by_units3_custom_emissions_factor import QuantityByUnits3CustomEmissionsFactor as QuantityByUnits3CustomEmissionsFactor
-from openapi_client.models.quantity_by_units_amount_units import QuantityByUnitsAmountUnits as QuantityByUnitsAmountUnits
 from openapi_client.models.quantity_by_volume import QuantityByVolume as QuantityByVolume
 from openapi_client.models.quantity_by_volume1 import QuantityByVolume1 as QuantityByVolume1
 from openapi_client.models.quantity_by_volume10 import QuantityByVolume10 as QuantityByVolume10
 from openapi_client.models.quantity_by_volume10_volume_waste_cubic_metres import QuantityByVolume10VolumeWasteCubicMetres as QuantityByVolume10VolumeWasteCubicMetres
 from openapi_client.models.quantity_by_volume11 import QuantityByVolume11 as QuantityByVolume11
-from openapi_client.models.quantity_by_volume11_volume_waste_cubic_metres import QuantityByVolume11VolumeWasteCubicMetres as QuantityByVolume11VolumeWasteCubicMetres
+from openapi_client.models.quantity_by_volume11_amount_kilolitres import QuantityByVolume11AmountKilolitres as QuantityByVolume11AmountKilolitres
 from openapi_client.models.quantity_by_volume12 import QuantityByVolume12 as QuantityByVolume12
-from openapi_client.models.quantity_by_volume12_volume_waste_cubic_metres import QuantityByVolume12VolumeWasteCubicMetres as QuantityByVolume12VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume13 import QuantityByVolume13 as QuantityByVolume13
-from openapi_client.models.quantity_by_volume13_volume_waste_cubic_metres import QuantityByVolume13VolumeWasteCubicMetres as QuantityByVolume13VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume14 import QuantityByVolume14 as QuantityByVolume14
-from openapi_client.models.quantity_by_volume14_volume_waste_cubic_metres import QuantityByVolume14VolumeWasteCubicMetres as QuantityByVolume14VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume15 import QuantityByVolume15 as QuantityByVolume15
-from openapi_client.models.quantity_by_volume15_volume_waste_cubic_metres import QuantityByVolume15VolumeWasteCubicMetres as QuantityByVolume15VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume16 import QuantityByVolume16 as QuantityByVolume16
-from openapi_client.models.quantity_by_volume16_volume_waste_cubic_metres import QuantityByVolume16VolumeWasteCubicMetres as QuantityByVolume16VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume17 import QuantityByVolume17 as QuantityByVolume17
-from openapi_client.models.quantity_by_volume17_volume_waste_cubic_metres import QuantityByVolume17VolumeWasteCubicMetres as QuantityByVolume17VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume18 import QuantityByVolume18 as QuantityByVolume18
-from openapi_client.models.quantity_by_volume18_volume_waste_cubic_metres import QuantityByVolume18VolumeWasteCubicMetres as QuantityByVolume18VolumeWasteCubicMetres
-from openapi_client.models.quantity_by_volume19 import QuantityByVolume19 as QuantityByVolume19
-from openapi_client.models.quantity_by_volume19_volume_waste_cubic_metres import QuantityByVolume19VolumeWasteCubicMetres as QuantityByVolume19VolumeWasteCubicMetres
 from openapi_client.models.quantity_by_volume1_volume_waste_cubic_metres import QuantityByVolume1VolumeWasteCubicMetres as QuantityByVolume1VolumeWasteCubicMetres
 from openapi_client.models.quantity_by_volume2 import QuantityByVolume2 as QuantityByVolume2
-from openapi_client.models.quantity_by_volume20 import QuantityByVolume20 as QuantityByVolume20
-from openapi_client.models.quantity_by_volume20_amount_kilolitres import QuantityByVolume20AmountKilolitres as QuantityByVolume20AmountKilolitres
-from openapi_client.models.quantity_by_volume21 import QuantityByVolume21 as QuantityByVolume21
 from openapi_client.models.quantity_by_volume2_volume_waste_cubic_metres import QuantityByVolume2VolumeWasteCubicMetres as QuantityByVolume2VolumeWasteCubicMetres
 from openapi_client.models.quantity_by_volume3 import QuantityByVolume3 as QuantityByVolume3
 from openapi_client.models.quantity_by_volume3_volume_waste_cubic_metres import QuantityByVolume3VolumeWasteCubicMetres as QuantityByVolume3VolumeWasteCubicMetres
@@ -2540,9 +1114,8 @@ from openapi_client.models.regional_feed_type import RegionalFeedType as Regiona
 from openapi_client.models.regionless_feed_type import RegionlessFeedType as RegionlessFeedType
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount as RegionlessFeedTypeAmount
 from openapi_client.models.revegetation_by_planting import RevegetationByPlanting as RevegetationByPlanting
-from openapi_client.models.rice_scope1_output import RiceScope1Output as RiceScope1Output
-from openapi_client.models.rice_scope1_output_plus_lulucf import RiceScope1OutputPlusLULUCF as RiceScope1OutputPlusLULUCF
 from openapi_client.models.scope2_output import Scope2Output as Scope2Output
+from openapi_client.models.scope2_output_electricity import Scope2OutputElectricity as Scope2OutputElectricity
 from openapi_client.models.scope2_output_total import Scope2OutputTotal as Scope2OutputTotal
 from openapi_client.models.scope3_method1 import Scope3Method1 as Scope3Method1
 from openapi_client.models.scope3_method11 import Scope3Method11 as Scope3Method11
@@ -2561,85 +1134,15 @@ from openapi_client.models.scope3_method2_other_fertiliser_type_custom_urea_frac
 from openapi_client.models.services_fuel_input import ServicesFuelInput as ServicesFuelInput
 from openapi_client.models.services_fuel_input_stationary_inner import ServicesFuelInputStationaryInner as ServicesFuelInputStationaryInner
 from openapi_client.models.services_fuel_input_transport_inner import ServicesFuelInputTransportInner as ServicesFuelInputTransportInner
-from openapi_client.models.sheep import Sheep as Sheep
-from openapi_client.models.sheep_class_monthly_input import SheepClassMonthlyInput as SheepClassMonthlyInput
-from openapi_client.models.sheep_class_period_input import SheepClassPeriodInput as SheepClassPeriodInput
-from openapi_client.models.sheep_class_seasonal_input import SheepClassSeasonalInput as SheepClassSeasonalInput
-from openapi_client.models.sheep_classes_input import SheepClassesInput as SheepClassesInput
-from openapi_client.models.sheep_classes_monthly_input import SheepClassesMonthlyInput as SheepClassesMonthlyInput
-from openapi_client.models.sheep_classes_monthly_input_breeding_ewes import SheepClassesMonthlyInputBreedingEwes as SheepClassesMonthlyInputBreedingEwes
-from openapi_client.models.sheep_classes_monthly_input_lambs_hoggets import SheepClassesMonthlyInputLambsHoggets as SheepClassesMonthlyInputLambsHoggets
-from openapi_client.models.sheep_classes_seasonal_input import SheepClassesSeasonalInput as SheepClassesSeasonalInput
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes import SheepClassesSeasonalInputBreedingEwes as SheepClassesSeasonalInputBreedingEwes
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_clean_wool_yield_proportion import SheepClassesSeasonalInputBreedingEwesCleanWoolYieldProportion as SheepClassesSeasonalInputBreedingEwesCleanWoolYieldProportion
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_greasy_wool_production import SheepClassesSeasonalInputBreedingEwesGreasyWoolProduction as SheepClassesSeasonalInputBreedingEwesGreasyWoolProduction
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring import SheepClassesSeasonalInputBreedingEwesSpring as SheepClassesSeasonalInputBreedingEwesSpring
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_head import SheepClassesSeasonalInputBreedingEwesSpringHead as SheepClassesSeasonalInputBreedingEwesSpringHead
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_method2_average_duration_days import SheepClassesSeasonalInputBreedingEwesSpringMethod2AverageDurationDays as SheepClassesSeasonalInputBreedingEwesSpringMethod2AverageDurationDays
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_method2_crude_protein_content import SheepClassesSeasonalInputBreedingEwesSpringMethod2CrudeProteinContent as SheepClassesSeasonalInputBreedingEwesSpringMethod2CrudeProteinContent
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_method2_dry_matter_availability import SheepClassesSeasonalInputBreedingEwesSpringMethod2DryMatterAvailability as SheepClassesSeasonalInputBreedingEwesSpringMethod2DryMatterAvailability
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_method2_dry_matter_digestibility import SheepClassesSeasonalInputBreedingEwesSpringMethod2DryMatterDigestibility as SheepClassesSeasonalInputBreedingEwesSpringMethod2DryMatterDigestibility
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_method2_liveweight import SheepClassesSeasonalInputBreedingEwesSpringMethod2Liveweight as SheepClassesSeasonalInputBreedingEwesSpringMethod2Liveweight
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_method2_liveweight_gain import SheepClassesSeasonalInputBreedingEwesSpringMethod2LiveweightGain as SheepClassesSeasonalInputBreedingEwesSpringMethod2LiveweightGain
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_percent_lamb_marking import SheepClassesSeasonalInputBreedingEwesSpringPercentLambMarking as SheepClassesSeasonalInputBreedingEwesSpringPercentLambMarking
-from openapi_client.models.sheep_classes_seasonal_input_breeding_ewes_spring_percent_lambing import SheepClassesSeasonalInputBreedingEwesSpringPercentLambing as SheepClassesSeasonalInputBreedingEwesSpringPercentLambing
-from openapi_client.models.sheep_classes_seasonal_input_lambs_hoggets import SheepClassesSeasonalInputLambsHoggets as SheepClassesSeasonalInputLambsHoggets
-from openapi_client.models.sheep_classes_seasonal_input_lambs_hoggets_spring import SheepClassesSeasonalInputLambsHoggetsSpring as SheepClassesSeasonalInputLambsHoggetsSpring
-from openapi_client.models.sheep_classes_seasonal_input_lambs_hoggets_spring_proportion_of_lambs_born import SheepClassesSeasonalInputLambsHoggetsSpringProportionOfLambsBorn as SheepClassesSeasonalInputLambsHoggetsSpringProportionOfLambsBorn
 from openapi_client.models.solid_fuels import SolidFuels as SolidFuels
 from openapi_client.models.solid_fuels1 import SolidFuels1 as SolidFuels1
 from openapi_client.models.solid_fuels1_amount_tonnes import SolidFuels1AmountTonnes as SolidFuels1AmountTonnes
 from openapi_client.models.solid_fuels_amount_tonnes import SolidFuelsAmountTonnes as SolidFuelsAmountTonnes
-from openapi_client.models.solids_separation_method1 import SolidsSeparationMethod1 as SolidsSeparationMethod1
-from openapi_client.models.solids_separation_method11 import SolidsSeparationMethod11 as SolidsSeparationMethod11
-from openapi_client.models.solids_separation_method1_feed_pad_mms_allocation import SolidsSeparationMethod1FeedPadMMSAllocation as SolidsSeparationMethod1FeedPadMMSAllocation
-from openapi_client.models.solids_separation_method1_feed_pad_mms_allocation_anaerobic_lagoon import SolidsSeparationMethod1FeedPadMMSAllocationAnaerobicLagoon as SolidsSeparationMethod1FeedPadMMSAllocationAnaerobicLagoon
-from openapi_client.models.solids_separation_method1_feed_pad_mms_allocation_drain_to_paddock import SolidsSeparationMethod1FeedPadMMSAllocationDrainToPaddock as SolidsSeparationMethod1FeedPadMMSAllocationDrainToPaddock
-from openapi_client.models.solids_separation_method1_feed_pad_mms_allocation_solid_storage import SolidsSeparationMethod1FeedPadMMSAllocationSolidStorage as SolidsSeparationMethod1FeedPadMMSAllocationSolidStorage
-from openapi_client.models.solids_separation_method1_feed_pad_mms_allocation_sump_dispersal import SolidsSeparationMethod1FeedPadMMSAllocationSumpDispersal as SolidsSeparationMethod1FeedPadMMSAllocationSumpDispersal
-from openapi_client.models.solids_separation_method1_milking_shed_mms_allocation import SolidsSeparationMethod1MilkingShedMMSAllocation as SolidsSeparationMethod1MilkingShedMMSAllocation
-from openapi_client.models.solids_separation_method1_milking_shed_mms_allocation_anaerobic_lagoon import SolidsSeparationMethod1MilkingShedMMSAllocationAnaerobicLagoon as SolidsSeparationMethod1MilkingShedMMSAllocationAnaerobicLagoon
-from openapi_client.models.solids_separation_method1_milking_shed_mms_allocation_drain_to_paddock import SolidsSeparationMethod1MilkingShedMMSAllocationDrainToPaddock as SolidsSeparationMethod1MilkingShedMMSAllocationDrainToPaddock
-from openapi_client.models.solids_separation_method1_milking_shed_mms_allocation_solid_storage import SolidsSeparationMethod1MilkingShedMMSAllocationSolidStorage as SolidsSeparationMethod1MilkingShedMMSAllocationSolidStorage
-from openapi_client.models.solids_separation_method1_milking_shed_mms_allocation_sump_dispersal import SolidsSeparationMethod1MilkingShedMMSAllocationSumpDispersal as SolidsSeparationMethod1MilkingShedMMSAllocationSumpDispersal
-from openapi_client.models.solids_separation_method2 import SolidsSeparationMethod2 as SolidsSeparationMethod2
-from openapi_client.models.solids_separation_method21 import SolidsSeparationMethod21 as SolidsSeparationMethod21
-from openapi_client.models.solids_separation_method21_fraction_solids_separated_pre_treatment import SolidsSeparationMethod21FractionSolidsSeparatedPreTreatment as SolidsSeparationMethod21FractionSolidsSeparatedPreTreatment
-from openapi_client.models.solids_separation_method2_fraction_solids_separated_pre_treatment import SolidsSeparationMethod2FractionSolidsSeparatedPreTreatment as SolidsSeparationMethod2FractionSolidsSeparatedPreTreatment
 from openapi_client.models.specific_production_system_scope1_method2 import SpecificProductionSystemScope1Method2 as SpecificProductionSystemScope1Method2
+from openapi_client.models.specific_production_system_scope1_method2_inorganic import SpecificProductionSystemScope1Method2Inorganic as SpecificProductionSystemScope1Method2Inorganic
+from openapi_client.models.specific_production_system_scope1_method2_inorganic_applications_inner import SpecificProductionSystemScope1Method2InorganicApplicationsInner as SpecificProductionSystemScope1Method2InorganicApplicationsInner
 from openapi_client.models.time_in_locations_method1_production_system import TimeInLocationsMethod1ProductionSystem as TimeInLocationsMethod1ProductionSystem
-from openapi_client.models.time_in_locations_method1_production_system1 import TimeInLocationsMethod1ProductionSystem1 as TimeInLocationsMethod1ProductionSystem1
-from openapi_client.models.time_in_locations_method1_production_system1_livestock_sales_inner import TimeInLocationsMethod1ProductionSystem1LivestockSalesInner as TimeInLocationsMethod1ProductionSystem1LivestockSalesInner
-from openapi_client.models.time_in_locations_method1_production_system2 import TimeInLocationsMethod1ProductionSystem2 as TimeInLocationsMethod1ProductionSystem2
-from openapi_client.models.time_in_locations_method1_production_system2_classes import TimeInLocationsMethod1ProductionSystem2Classes as TimeInLocationsMethod1ProductionSystem2Classes
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCows as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCows
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows_head import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsHead as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsHead
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows_method2_crude_protein import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2CrudeProtein as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2CrudeProtein
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows_method2_dry_matter_digestibility import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2DryMatterDigestibility as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2DryMatterDigestibility
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows_method2_duration_days import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2DurationDays as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2DurationDays
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows_method2_liveweight import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2Liveweight as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2Liveweight
-from openapi_client.models.time_in_locations_method1_production_system2_classes_milking_cows_method2_liveweight_gain import TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2LiveweightGain as TimeInLocationsMethod1ProductionSystem2ClassesMilkingCowsMethod2LiveweightGain
-from openapi_client.models.time_in_locations_method1_production_system2_manure_allocations import TimeInLocationsMethod1ProductionSystem2ManureAllocations as TimeInLocationsMethod1ProductionSystem2ManureAllocations
-from openapi_client.models.time_in_locations_method1_production_system2_manure_allocations_milking_shed_mms_allocation import TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocation as TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocation
-from openapi_client.models.time_in_locations_method1_production_system2_manure_allocations_milking_shed_mms_allocation_anaerobic_lagoon import TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationAnaerobicLagoon as TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationAnaerobicLagoon
-from openapi_client.models.time_in_locations_method1_production_system2_manure_allocations_milking_shed_mms_allocation_drain_to_paddock import TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationDrainToPaddock as TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationDrainToPaddock
-from openapi_client.models.time_in_locations_method1_production_system2_manure_allocations_milking_shed_mms_allocation_solid_storage import TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationSolidStorage as TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationSolidStorage
-from openapi_client.models.time_in_locations_method1_production_system2_manure_allocations_milking_shed_mms_allocation_sump_dispersal import TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationSumpDispersal as TimeInLocationsMethod1ProductionSystem2ManureAllocationsMilkingShedMMSAllocationSumpDispersal
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production import TimeInLocationsMethod1ProductionSystem2MilkProduction as TimeInLocationsMethod1ProductionSystem2MilkProduction
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production_any_of import TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf as TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production_any_of1 import TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1 as TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production_any_of1_fat_content import TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1FatContent as TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1FatContent
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production_any_of1_kg_solids_per_head_per_day import TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1KgSolidsPerHeadPerDay as TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1KgSolidsPerHeadPerDay
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production_any_of1_protein_content import TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1ProteinContent as TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOf1ProteinContent
-from openapi_client.models.time_in_locations_method1_production_system2_milk_production_any_of_litres_per_head_per_day import TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOfLitresPerHeadPerDay as TimeInLocationsMethod1ProductionSystem2MilkProductionAnyOfLitresPerHeadPerDay
 from openapi_client.models.time_in_locations_method1_production_system_classes import TimeInLocationsMethod1ProductionSystemClasses as TimeInLocationsMethod1ProductionSystemClasses
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1 import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1 as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1_head import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Head as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Head
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1_method2_crude_protein import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2CrudeProtein as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2CrudeProtein
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1_method2_dry_matter_digestibility import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2DryMatterDigestibility as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2DryMatterDigestibility
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1_method2_duration_days import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2DurationDays as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2DurationDays
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1_method2_liveweight import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2Liveweight as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2Liveweight
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1_method2_liveweight_gain import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2LiveweightGain as TimeInLocationsMethod1ProductionSystemClassesHeifersGt1Method2LiveweightGain
 from openapi_client.models.time_in_locations_method1_production_system_classes_milking_cows import TimeInLocationsMethod1ProductionSystemClassesMilkingCows as TimeInLocationsMethod1ProductionSystemClassesMilkingCows
 from openapi_client.models.time_in_locations_method1_production_system_classes_milking_cows_head import TimeInLocationsMethod1ProductionSystemClassesMilkingCowsHead as TimeInLocationsMethod1ProductionSystemClassesMilkingCowsHead
 from openapi_client.models.time_in_locations_method1_production_system_classes_milking_cows_method2_crude_protein import TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2CrudeProtein as TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2CrudeProtein
@@ -2648,6 +1151,11 @@ from openapi_client.models.time_in_locations_method1_production_system_classes_m
 from openapi_client.models.time_in_locations_method1_production_system_classes_milking_cows_method2_liveweight import TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight as TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight
 from openapi_client.models.time_in_locations_method1_production_system_classes_milking_cows_method2_liveweight_gain import TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2LiveweightGain as TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2LiveweightGain
 from openapi_client.models.time_in_locations_method1_production_system_manure_allocations import TimeInLocationsMethod1ProductionSystemManureAllocations as TimeInLocationsMethod1ProductionSystemManureAllocations
+from openapi_client.models.time_in_locations_method1_production_system_manure_allocations_milking_shed_mms_allocation import TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation as TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation
+from openapi_client.models.time_in_locations_method1_production_system_manure_allocations_milking_shed_mms_allocation_anaerobic_lagoon import TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationAnaerobicLagoon as TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationAnaerobicLagoon
+from openapi_client.models.time_in_locations_method1_production_system_manure_allocations_milking_shed_mms_allocation_drain_to_paddock import TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationDrainToPaddock as TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationDrainToPaddock
+from openapi_client.models.time_in_locations_method1_production_system_manure_allocations_milking_shed_mms_allocation_solid_storage import TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationSolidStorage as TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationSolidStorage
+from openapi_client.models.time_in_locations_method1_production_system_manure_allocations_milking_shed_mms_allocation_sump_dispersal import TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationSumpDispersal as TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationSumpDispersal
 from openapi_client.models.time_in_locations_method1_production_system_milk_production import TimeInLocationsMethod1ProductionSystemMilkProduction as TimeInLocationsMethod1ProductionSystemMilkProduction
 from openapi_client.models.time_in_locations_method1_production_system_milk_production_any_of import TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf as TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf
 from openapi_client.models.time_in_locations_method1_production_system_milk_production_any_of1 import TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1 as TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1
@@ -2656,35 +1164,11 @@ from openapi_client.models.time_in_locations_method1_production_system_milk_prod
 from openapi_client.models.time_in_locations_method1_production_system_milk_production_any_of1_protein_content import TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1ProteinContent as TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1ProteinContent
 from openapi_client.models.time_in_locations_method1_production_system_milk_production_any_of_litres_per_head_per_day import TimeInLocationsMethod1ProductionSystemMilkProductionAnyOfLitresPerHeadPerDay as TimeInLocationsMethod1ProductionSystemMilkProductionAnyOfLitresPerHeadPerDay
 from openapi_client.models.time_in_locations_method2_measured_proportions import TimeInLocationsMethod2MeasuredProportions as TimeInLocationsMethod2MeasuredProportions
-from openapi_client.models.time_in_locations_method2_measured_proportions1 import TimeInLocationsMethod2MeasuredProportions1 as TimeInLocationsMethod2MeasuredProportions1
-from openapi_client.models.time_in_locations_method2_measured_proportions1_livestock_sales_inner import TimeInLocationsMethod2MeasuredProportions1LivestockSalesInner as TimeInLocationsMethod2MeasuredProportions1LivestockSalesInner
-from openapi_client.models.time_in_locations_method2_measured_proportions1_method2_time_spent_in_locations import TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocations as TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocations
-from openapi_client.models.time_in_locations_method2_measured_proportions1_method2_time_spent_in_locations_time_spent_on_feedpad import TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnFeedpad as TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnFeedpad
-from openapi_client.models.time_in_locations_method2_measured_proportions1_method2_time_spent_in_locations_time_spent_on_milking_shed import TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnMilkingShed as TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnMilkingShed
-from openapi_client.models.time_in_locations_method2_measured_proportions1_method2_time_spent_in_locations_time_spent_on_pasture import TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnPasture as TimeInLocationsMethod2MeasuredProportions1Method2TimeSpentInLocationsTimeSpentOnPasture
-from openapi_client.models.time_in_locations_method2_measured_proportions2 import TimeInLocationsMethod2MeasuredProportions2 as TimeInLocationsMethod2MeasuredProportions2
-from openapi_client.models.time_in_locations_method2_measured_proportions2_method2_time_spent_in_locations import TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocations as TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocations
-from openapi_client.models.time_in_locations_method2_measured_proportions2_method2_time_spent_in_locations_time_spent_on_feedpad import TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnFeedpad as TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnFeedpad
-from openapi_client.models.time_in_locations_method2_measured_proportions2_method2_time_spent_in_locations_time_spent_on_milking_shed import TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnMilkingShed as TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnMilkingShed
-from openapi_client.models.time_in_locations_method2_measured_proportions2_method2_time_spent_in_locations_time_spent_on_pasture import TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnPasture as TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocationsTimeSpentOnPasture
-from openapi_client.models.time_in_locations_method2_measured_proportions_classes import TimeInLocationsMethod2MeasuredProportionsClasses as TimeInLocationsMethod2MeasuredProportionsClasses
-from openapi_client.models.time_in_locations_method2_measured_proportions_manure_allocations import TimeInLocationsMethod2MeasuredProportionsManureAllocations as TimeInLocationsMethod2MeasuredProportionsManureAllocations
 from openapi_client.models.time_in_locations_method2_measured_proportions_method2_time_spent_in_locations import TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations as TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations
 from openapi_client.models.time_in_locations_method2_measured_proportions_method2_time_spent_in_locations_time_spent_on_feedpad import TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnFeedpad as TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnFeedpad
 from openapi_client.models.time_in_locations_method2_measured_proportions_method2_time_spent_in_locations_time_spent_on_milking_shed import TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnMilkingShed as TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnMilkingShed
 from openapi_client.models.time_in_locations_method2_measured_proportions_method2_time_spent_in_locations_time_spent_on_pasture import TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnPasture as TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnPasture
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production import TimeInLocationsMethod2MeasuredProportionsMilkProduction as TimeInLocationsMethod2MeasuredProportionsMilkProduction
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production_any_of import TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf as TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production_any_of1 import TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1 as TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production_any_of1_fat_content import TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1FatContent as TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1FatContent
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production_any_of1_kg_solids_per_head_per_day import TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1KgSolidsPerHeadPerDay as TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1KgSolidsPerHeadPerDay
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production_any_of1_protein_content import TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1ProteinContent as TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOf1ProteinContent
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production_any_of_litres_per_head_per_day import TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOfLitresPerHeadPerDay as TimeInLocationsMethod2MeasuredProportionsMilkProductionAnyOfLitresPerHeadPerDay
 from openapi_client.models.traced_manure import TracedManure as TracedManure
-from openapi_client.models.unclearable_area_no_existing_trees import UnclearableAreaNoExistingTrees as UnclearableAreaNoExistingTrees
-from openapi_client.models.unclearable_area_no_existing_trees_planting_events_inner import UnclearableAreaNoExistingTreesPlantingEventsInner as UnclearableAreaNoExistingTreesPlantingEventsInner
-from openapi_client.models.unclearable_area_no_existing_trees_prescribed_burn_events_inner import UnclearableAreaNoExistingTreesPrescribedBurnEventsInner as UnclearableAreaNoExistingTreesPrescribedBurnEventsInner
-from openapi_client.models.unclearable_area_no_existing_trees_wildfire_events_inner import UnclearableAreaNoExistingTreesWildfireEventsInner as UnclearableAreaNoExistingTreesWildfireEventsInner
 from openapi_client.models.unknown_component_custom_emission_factor import UnknownComponentCustomEmissionFactor as UnknownComponentCustomEmissionFactor
 from openapi_client.models.unknown_component_custom_emission_factor_emission_factor import UnknownComponentCustomEmissionFactorEmissionFactor as UnknownComponentCustomEmissionFactorEmissionFactor
 from openapi_client.models.unknown_component_custom_emission_factor_fraction_of_fertiliser import UnknownComponentCustomEmissionFactorFractionOfFertiliser as UnknownComponentCustomEmissionFactorFractionOfFertiliser
@@ -2693,28 +1177,6 @@ from openapi_client.models.untraced_manure_custom_nitrogen_fraction import Untra
 from openapi_client.models.untraced_manure_mass_applied_kg import UntracedManureMassAppliedKg as UntracedManureMassAppliedKg
 from openapi_client.models.vessel import Vessel as Vessel
 from openapi_client.models.vessel1 import Vessel1 as Vessel1
-from openapi_client.models.vessel2 import Vessel2 as Vessel2
-from openapi_client.models.viticulture_scope1_output_plus_lulucf import ViticultureScope1OutputPlusLULUCF as ViticultureScope1OutputPlusLULUCF
-from openapi_client.models.wastewater_treatment_method1 import WastewaterTreatmentMethod1 as WastewaterTreatmentMethod1
-from openapi_client.models.wastewater_treatment_method11 import WastewaterTreatmentMethod11 as WastewaterTreatmentMethod11
-from openapi_client.models.wastewater_treatment_method1_fraction_removed import WastewaterTreatmentMethod1FractionRemoved as WastewaterTreatmentMethod1FractionRemoved
-from openapi_client.models.wastewater_treatment_method1_wastewater_volume import WastewaterTreatmentMethod1WastewaterVolume as WastewaterTreatmentMethod1WastewaterVolume
-from openapi_client.models.wastewater_treatment_method2 import WastewaterTreatmentMethod2 as WastewaterTreatmentMethod2
-from openapi_client.models.wastewater_treatment_method21 import WastewaterTreatmentMethod21 as WastewaterTreatmentMethod21
-from openapi_client.models.wastewater_treatment_method21_fraction_sludge import WastewaterTreatmentMethod21FractionSludge as WastewaterTreatmentMethod21FractionSludge
-from openapi_client.models.wastewater_treatment_method21_inlet_cod import WastewaterTreatmentMethod21InletCOD as WastewaterTreatmentMethod21InletCOD
-from openapi_client.models.wastewater_treatment_method21_methane_captured import WastewaterTreatmentMethod21MethaneCaptured as WastewaterTreatmentMethod21MethaneCaptured
-from openapi_client.models.wastewater_treatment_method21_methane_flared import WastewaterTreatmentMethod21MethaneFlared as WastewaterTreatmentMethod21MethaneFlared
-from openapi_client.models.wastewater_treatment_method21_methane_out import WastewaterTreatmentMethod21MethaneOut as WastewaterTreatmentMethod21MethaneOut
-from openapi_client.models.wastewater_treatment_method21_outlet_cod import WastewaterTreatmentMethod21OutletCOD as WastewaterTreatmentMethod21OutletCOD
-from openapi_client.models.wastewater_treatment_method2_fraction_removed import WastewaterTreatmentMethod2FractionRemoved as WastewaterTreatmentMethod2FractionRemoved
-from openapi_client.models.wastewater_treatment_method2_fraction_sludge import WastewaterTreatmentMethod2FractionSludge as WastewaterTreatmentMethod2FractionSludge
-from openapi_client.models.wastewater_treatment_method2_inlet_cod import WastewaterTreatmentMethod2InletCOD as WastewaterTreatmentMethod2InletCOD
-from openapi_client.models.wastewater_treatment_method2_methane_captured import WastewaterTreatmentMethod2MethaneCaptured as WastewaterTreatmentMethod2MethaneCaptured
-from openapi_client.models.wastewater_treatment_method2_methane_flared import WastewaterTreatmentMethod2MethaneFlared as WastewaterTreatmentMethod2MethaneFlared
-from openapi_client.models.wastewater_treatment_method2_methane_out import WastewaterTreatmentMethod2MethaneOut as WastewaterTreatmentMethod2MethaneOut
-from openapi_client.models.wastewater_treatment_method2_outlet_cod import WastewaterTreatmentMethod2OutletCOD as WastewaterTreatmentMethod2OutletCOD
-from openapi_client.models.wastewater_treatment_method2_wastewater_volume import WastewaterTreatmentMethod2WastewaterVolume as WastewaterTreatmentMethod2WastewaterVolume
 from openapi_client.models.with_origin_region import WithOriginRegion as WithOriginRegion
 from openapi_client.models.with_origin_region_fraction_of_fertiliser import WithOriginRegionFractionOfFertiliser as WithOriginRegionFractionOfFertiliser
 from openapi_client.models.without_origin_region import WithoutOriginRegion as WithoutOriginRegion

@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,10 +58,10 @@ class ServicesFuelInputTransportInner implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $openAPITypes = [
-        'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehicles3AmountKilolitres',
+        'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres',
         'vehicle_type' => '\OpenAPI\Client\Model\CompressedNaturalGasCNGVehicleType',
         'fuel_type' => 'string',
-        'amount_cubic_metres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehicles3AmountKilolitres'
+        'amount_cubic_metres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ServicesFuelInputTransportInner implements ModelInterface, ArrayAccess, \J
     /**
      * Gets amount_kilolitres
      *
-     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehicles3AmountKilolitres
+     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres
      */
     public function getAmountKilolitres()
     {
@@ -336,7 +336,7 @@ class ServicesFuelInputTransportInner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets amount_kilolitres
      *
-     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehicles3AmountKilolitres $amount_kilolitres amount_kilolitres
+     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres $amount_kilolitres amount_kilolitres
      *
      * @return self
      */
@@ -407,7 +407,7 @@ class ServicesFuelInputTransportInner implements ModelInterface, ArrayAccess, \J
     /**
      * Gets amount_cubic_metres
      *
-     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehicles3AmountKilolitres
+     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres
      */
     public function getAmountCubicMetres()
     {
@@ -417,7 +417,7 @@ class ServicesFuelInputTransportInner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets amount_cubic_metres
      *
-     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehicles3AmountKilolitres $amount_cubic_metres amount_cubic_metres
+     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres $amount_cubic_metres amount_cubic_metres
      *
      * @return self
      */

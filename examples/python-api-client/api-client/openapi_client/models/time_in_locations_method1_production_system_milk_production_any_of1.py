@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -34,7 +34,6 @@ class TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1(BaseModel):
     kg_solids_per_head_per_day: TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1KgSolidsPerHeadPerDay = Field(alias="kgSolidsPerHeadPerDay")
     fat_content: Optional[TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1FatContent] = Field(default=None, alias="fatContent")
     protein_content: Optional[TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1ProteinContent] = Field(default=None, alias="proteinContent")
-    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["kgSolidsPerHeadPerDay", "fatContent", "proteinContent"]
 
     model_config = ConfigDict(
@@ -67,10 +66,8 @@ class TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -87,11 +84,6 @@ class TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of protein_content
         if self.protein_content:
             _dict['proteinContent'] = self.protein_content.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -108,11 +100,6 @@ class TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1(BaseModel):
             "fatContent": TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1FatContent.from_dict(obj["fatContent"]) if obj.get("fatContent") is not None else None,
             "proteinContent": TimeInLocationsMethod1ProductionSystemMilkProductionAnyOf1ProteinContent.from_dict(obj["proteinContent"]) if obj.get("proteinContent") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,34 +13,34 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Method16ClearingsInner } from './Method16ClearingsInner';
+import type { Method13ClearingsInner } from './Method13ClearingsInner';
 import {
-    Method16ClearingsInnerFromJSON,
-    Method16ClearingsInnerFromJSONTyped,
-    Method16ClearingsInnerToJSON,
-    Method16ClearingsInnerToJSONTyped,
-} from './Method16ClearingsInner';
-import type { Method16PlantingsInner } from './Method16PlantingsInner';
+    Method13ClearingsInnerFromJSON,
+    Method13ClearingsInnerFromJSONTyped,
+    Method13ClearingsInnerToJSON,
+    Method13ClearingsInnerToJSONTyped,
+} from './Method13ClearingsInner';
+import type { Method13Method2BiomassAtMaturity } from './Method13Method2BiomassAtMaturity';
 import {
-    Method16PlantingsInnerFromJSON,
-    Method16PlantingsInnerFromJSONTyped,
-    Method16PlantingsInnerToJSON,
-    Method16PlantingsInnerToJSONTyped,
-} from './Method16PlantingsInner';
-import type { Method16Method2ActualStemDensity } from './Method16Method2ActualStemDensity';
+    Method13Method2BiomassAtMaturityFromJSON,
+    Method13Method2BiomassAtMaturityFromJSONTyped,
+    Method13Method2BiomassAtMaturityToJSON,
+    Method13Method2BiomassAtMaturityToJSONTyped,
+} from './Method13Method2BiomassAtMaturity';
+import type { Method13PlantingsInner } from './Method13PlantingsInner';
 import {
-    Method16Method2ActualStemDensityFromJSON,
-    Method16Method2ActualStemDensityFromJSONTyped,
-    Method16Method2ActualStemDensityToJSON,
-    Method16Method2ActualStemDensityToJSONTyped,
-} from './Method16Method2ActualStemDensity';
-import type { Method16Method2BiomassAtMaturity } from './Method16Method2BiomassAtMaturity';
+    Method13PlantingsInnerFromJSON,
+    Method13PlantingsInnerFromJSONTyped,
+    Method13PlantingsInnerToJSON,
+    Method13PlantingsInnerToJSONTyped,
+} from './Method13PlantingsInner';
+import type { Method13Method2ActualStemDensity } from './Method13Method2ActualStemDensity';
 import {
-    Method16Method2BiomassAtMaturityFromJSON,
-    Method16Method2BiomassAtMaturityFromJSONTyped,
-    Method16Method2BiomassAtMaturityToJSON,
-    Method16Method2BiomassAtMaturityToJSONTyped,
-} from './Method16Method2BiomassAtMaturity';
+    Method13Method2ActualStemDensityFromJSON,
+    Method13Method2ActualStemDensityFromJSONTyped,
+    Method13Method2ActualStemDensityToJSON,
+    Method13Method2ActualStemDensityToJSONTyped,
+} from './Method13Method2ActualStemDensity';
 
 /**
  * 
@@ -51,15 +51,15 @@ export interface Method2BiomassAtMaturity {
     /**
      * 
      */
-    method2ActualStemDensity?: Method16Method2ActualStemDensity;
+    method2ActualStemDensity?: Method13Method2ActualStemDensity;
     /**
      * 
      */
-    method2BiomassAtMaturity: Method16Method2BiomassAtMaturity;
+    method2BiomassAtMaturity: Method13Method2BiomassAtMaturity;
     /**
      * 
      */
-    plantings: Array<Method16PlantingsInner>;
+    plantings: Array<Method13PlantingsInner>;
     /**
      * Type of perennial woody crop planted
      */
@@ -67,7 +67,7 @@ export interface Method2BiomassAtMaturity {
     /**
      * 
      */
-    clearings: Array<Method16ClearingsInner>;
+    clearings: Array<Method13ClearingsInner>;
     /**
      * 
      */
@@ -123,11 +123,11 @@ export function Method2BiomassAtMaturityFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'method2ActualStemDensity': json['method2ActualStemDensity'] == null ? undefined : Method16Method2ActualStemDensityFromJSON(json['method2ActualStemDensity']),
-        'method2BiomassAtMaturity': Method16Method2BiomassAtMaturityFromJSON(json['method2BiomassAtMaturity']),
-        'plantings': ((json['plantings'] as Array<any>).map(Method16PlantingsInnerFromJSON)),
+        'method2ActualStemDensity': json['method2ActualStemDensity'] == null ? undefined : Method13Method2ActualStemDensityFromJSON(json['method2ActualStemDensity']),
+        'method2BiomassAtMaturity': Method13Method2BiomassAtMaturityFromJSON(json['method2BiomassAtMaturity']),
+        'plantings': ((json['plantings'] as Array<any>).map(Method13PlantingsInnerFromJSON)),
         'cropType': json['cropType'],
-        'clearings': ((json['clearings'] as Array<any>).map(Method16ClearingsInnerFromJSON)),
+        'clearings': ((json['clearings'] as Array<any>).map(Method13ClearingsInnerFromJSON)),
         'calculationMethod': json['calculationMethod'],
     };
 }
@@ -143,11 +143,11 @@ export function Method2BiomassAtMaturityToJSONTyped(value?: Method2BiomassAtMatu
 
     return {
         
-        'method2ActualStemDensity': Method16Method2ActualStemDensityToJSON(value['method2ActualStemDensity']),
-        'method2BiomassAtMaturity': Method16Method2BiomassAtMaturityToJSON(value['method2BiomassAtMaturity']),
-        'plantings': ((value['plantings'] as Array<any>).map(Method16PlantingsInnerToJSON)),
+        'method2ActualStemDensity': Method13Method2ActualStemDensityToJSON(value['method2ActualStemDensity']),
+        'method2BiomassAtMaturity': Method13Method2BiomassAtMaturityToJSON(value['method2BiomassAtMaturity']),
+        'plantings': ((value['plantings'] as Array<any>).map(Method13PlantingsInnerToJSON)),
         'cropType': value['cropType'],
-        'clearings': ((value['clearings'] as Array<any>).map(Method16ClearingsInnerToJSON)),
+        'clearings': ((value['clearings'] as Array<any>).map(Method13ClearingsInnerToJSON)),
         'calculationMethod': value['calculationMethod'],
     };
 }

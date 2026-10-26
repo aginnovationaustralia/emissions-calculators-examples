@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -60,7 +60,7 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, \
     protected static $openAPITypes = [
         'type' => 'string',
         'area_managed' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureAreaManaged',
-        'fraction_of_annual_crop_burnt' => '\OpenAPI\Client\Model\PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt',
+        'fraction_of_annual_crop_burnt' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt',
         'residues' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureResidues'
     ];
 
@@ -420,7 +420,7 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, \
     /**
      * Gets fraction_of_annual_crop_burnt
      *
-     * @return \OpenAPI\Client\Model\PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt
+     * @return \OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt
      */
     public function getFractionOfAnnualCropBurnt()
     {
@@ -430,7 +430,7 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, \
     /**
      * Sets fraction_of_annual_crop_burnt
      *
-     * @param \OpenAPI\Client\Model\PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt $fraction_of_annual_crop_burnt fraction_of_annual_crop_burnt
+     * @param \OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt $fraction_of_annual_crop_burnt fraction_of_annual_crop_burnt
      *
      * @return self
      */

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -12,46 +12,46 @@
  * Do not edit the class manually.
  */
 
-import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { QuantityByMass12 } from './QuantityByMass12';
+import { mapValues } from '../runtime';
+import type { Method2CustomEmissionsFactorCustomEmissionsFactor } from './Method2CustomEmissionsFactorCustomEmissionsFactor';
 import {
-    instanceOfQuantityByMass12,
-    QuantityByMass12FromJSON,
-    QuantityByMass12FromJSONTyped,
-    QuantityByMass12ToJSON,
-} from './QuantityByMass12';
-import type { QuantityByUnits1 } from './QuantityByUnits1';
+    Method2CustomEmissionsFactorCustomEmissionsFactorFromJSON,
+    Method2CustomEmissionsFactorCustomEmissionsFactorFromJSONTyped,
+    Method2CustomEmissionsFactorCustomEmissionsFactorToJSON,
+    Method2CustomEmissionsFactorCustomEmissionsFactorToJSONTyped,
+} from './Method2CustomEmissionsFactorCustomEmissionsFactor';
+import type { RegionlessFeedTypeAmount } from './RegionlessFeedTypeAmount';
 import {
-    instanceOfQuantityByUnits1,
-    QuantityByUnits1FromJSON,
-    QuantityByUnits1FromJSONTyped,
-    QuantityByUnits1ToJSON,
-} from './QuantityByUnits1';
+    RegionlessFeedTypeAmountFromJSON,
+    RegionlessFeedTypeAmountFromJSONTyped,
+    RegionlessFeedTypeAmountToJSON,
+    RegionlessFeedTypeAmountToJSONTyped,
+} from './RegionlessFeedTypeAmount';
 
 /**
- * @type Method2CustomEmissionsFactor
  * 
  * @export
+ * @interface Method2CustomEmissionsFactor
  */
-export type Method2CustomEmissionsFactor = QuantityByMass12 | QuantityByUnits1;
-/**
- * Check if a given object matches one of the Method2CustomEmissionsFactor variants.
- * Added via a custom template: the default generator does not emit this for oneOf models,
- * which breaks serialisation when a oneOf is nested inside another oneOf.
- */
-export function instanceOfMethod2CustomEmissionsFactor(value: any): boolean {
-    if (value == null || typeof value !== 'object') {
-        return false;
-    }
-    if (instanceOfQuantityByMass12(value)) {
-        return true;
-    }
-    if (instanceOfQuantityByUnits1(value)) {
-        return true;
-    }
-    return false;
+export interface Method2CustomEmissionsFactor {
+    /**
+     * 
+     */
+    amount: RegionlessFeedTypeAmount;
+    /**
+     * 
+     */
+    customEmissionsFactor: Method2CustomEmissionsFactorCustomEmissionsFactor;
 }
 
+/**
+ * Check if a given object implements the Method2CustomEmissionsFactor interface.
+ */
+export function instanceOfMethod2CustomEmissionsFactor(value: object): value is Method2CustomEmissionsFactor {
+    if (!('amount' in value) || value['amount'] === undefined) return false;
+    if (!('customEmissionsFactor' in value) || value['customEmissionsFactor'] === undefined) return false;
+    return true;
+}
 
 export function Method2CustomEmissionsFactorFromJSON(json: any): Method2CustomEmissionsFactor {
     return Method2CustomEmissionsFactorFromJSONTyped(json, false);
@@ -61,19 +61,14 @@ export function Method2CustomEmissionsFactorFromJSONTyped(json: any, ignoreDiscr
     if (json == null) {
         return json;
     }
-    if (typeof json !== 'object') {
-        return json;
-    }
-    if (instanceOfQuantityByMass12(json)) {
-        return QuantityByMass12FromJSONTyped(json, true);
-    }
-    if (instanceOfQuantityByUnits1(json)) {
-        return QuantityByUnits1FromJSONTyped(json, true);
-    }
-    return {} as any;
+    return {
+        
+        'amount': RegionlessFeedTypeAmountFromJSON(json['amount']),
+        'customEmissionsFactor': Method2CustomEmissionsFactorCustomEmissionsFactorFromJSON(json['customEmissionsFactor']),
+    };
 }
 
-export function Method2CustomEmissionsFactorToJSON(json: any): any {
+export function Method2CustomEmissionsFactorToJSON(json: any): Method2CustomEmissionsFactor {
     return Method2CustomEmissionsFactorToJSONTyped(json, false);
 }
 
@@ -81,15 +76,11 @@ export function Method2CustomEmissionsFactorToJSONTyped(value?: Method2CustomEmi
     if (value == null) {
         return value;
     }
-    if (typeof value !== 'object') {
-        return value;
-    }
-    if (instanceOfQuantityByMass12(value)) {
-        return QuantityByMass12ToJSON(value as QuantityByMass12);
-    }
-    if (instanceOfQuantityByUnits1(value)) {
-        return QuantityByUnits1ToJSON(value as QuantityByUnits1);
-    }
-    return {};
+
+    return {
+        
+        'amount': RegionlessFeedTypeAmountToJSON(value['amount']),
+        'customEmissionsFactor': Method2CustomEmissionsFactorCustomEmissionsFactorToJSON(value['customEmissionsFactor']),
+    };
 }
 

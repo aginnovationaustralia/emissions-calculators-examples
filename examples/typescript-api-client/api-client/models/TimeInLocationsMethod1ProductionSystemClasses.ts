@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { TimeInLocationsMethod1ProductionSystemClassesHeifersGt1 } from './TimeInLocationsMethod1ProductionSystemClassesHeifersGt1';
-import {
-    TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON,
-    TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSONTyped,
-    TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON,
-    TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSONTyped,
-} from './TimeInLocationsMethod1ProductionSystemClassesHeifersGt1';
 import type { TimeInLocationsMethod1ProductionSystemClassesMilkingCows } from './TimeInLocationsMethod1ProductionSystemClassesMilkingCows';
 import {
     TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON,
@@ -41,27 +34,27 @@ export interface TimeInLocationsMethod1ProductionSystemClasses {
     /**
      * 
      */
-    heifersGt1?: TimeInLocationsMethod1ProductionSystemClassesHeifersGt1;
+    heifersGt1?: TimeInLocationsMethod1ProductionSystemClassesMilkingCows;
     /**
      * 
      */
-    heifersLt1PreWeaned?: TimeInLocationsMethod1ProductionSystemClassesHeifersGt1;
+    heifersLt1PreWeaned?: TimeInLocationsMethod1ProductionSystemClassesMilkingCows;
     /**
      * 
      */
-    heifersLt1Weaned?: TimeInLocationsMethod1ProductionSystemClassesHeifersGt1;
+    heifersLt1Weaned?: TimeInLocationsMethod1ProductionSystemClassesMilkingCows;
     /**
      * 
      */
-    bullsGt1?: TimeInLocationsMethod1ProductionSystemClassesHeifersGt1;
+    bullsGt1?: TimeInLocationsMethod1ProductionSystemClassesMilkingCows;
     /**
      * 
      */
-    bullsLt1PreWeaned?: TimeInLocationsMethod1ProductionSystemClassesHeifersGt1;
+    bullsLt1PreWeaned?: TimeInLocationsMethod1ProductionSystemClassesMilkingCows;
     /**
      * 
      */
-    bullsLt1Weaned?: TimeInLocationsMethod1ProductionSystemClassesHeifersGt1;
+    bullsLt1Weaned?: TimeInLocationsMethod1ProductionSystemClassesMilkingCows;
 }
 
 /**
@@ -82,12 +75,12 @@ export function TimeInLocationsMethod1ProductionSystemClassesFromJSONTyped(json:
     return {
         
         'milkingCows': json['milkingCows'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['milkingCows']),
-        'heifersGt1': json['heifersGt1'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON(json['heifersGt1']),
-        'heifersLt1PreWeaned': json['heifersLt1PreWeaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON(json['heifersLt1PreWeaned']),
-        'heifersLt1Weaned': json['heifersLt1Weaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON(json['heifersLt1Weaned']),
-        'bullsGt1': json['bullsGt1'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON(json['bullsGt1']),
-        'bullsLt1PreWeaned': json['bullsLt1PreWeaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON(json['bullsLt1PreWeaned']),
-        'bullsLt1Weaned': json['bullsLt1Weaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesHeifersGt1FromJSON(json['bullsLt1Weaned']),
+        'heifersGt1': json['heifersGt1'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['heifersGt1']),
+        'heifersLt1PreWeaned': json['heifersLt1PreWeaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['heifersLt1PreWeaned']),
+        'heifersLt1Weaned': json['heifersLt1Weaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['heifersLt1Weaned']),
+        'bullsGt1': json['bullsGt1'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['bullsGt1']),
+        'bullsLt1PreWeaned': json['bullsLt1PreWeaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['bullsLt1PreWeaned']),
+        'bullsLt1Weaned': json['bullsLt1Weaned'] == null ? undefined : TimeInLocationsMethod1ProductionSystemClassesMilkingCowsFromJSON(json['bullsLt1Weaned']),
     };
 }
 
@@ -103,12 +96,12 @@ export function TimeInLocationsMethod1ProductionSystemClassesToJSONTyped(value?:
     return {
         
         'milkingCows': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['milkingCows']),
-        'heifersGt1': TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON(value['heifersGt1']),
-        'heifersLt1PreWeaned': TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON(value['heifersLt1PreWeaned']),
-        'heifersLt1Weaned': TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON(value['heifersLt1Weaned']),
-        'bullsGt1': TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON(value['bullsGt1']),
-        'bullsLt1PreWeaned': TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON(value['bullsLt1PreWeaned']),
-        'bullsLt1Weaned': TimeInLocationsMethod1ProductionSystemClassesHeifersGt1ToJSON(value['bullsLt1Weaned']),
+        'heifersGt1': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['heifersGt1']),
+        'heifersLt1PreWeaned': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['heifersLt1PreWeaned']),
+        'heifersLt1Weaned': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['heifersLt1Weaned']),
+        'bullsGt1': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['bullsGt1']),
+        'bullsLt1PreWeaned': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['bullsLt1PreWeaned']),
+        'bullsLt1Weaned': TimeInLocationsMethod1ProductionSystemClassesMilkingCowsToJSON(value['bullsLt1Weaned']),
     };
 }
 

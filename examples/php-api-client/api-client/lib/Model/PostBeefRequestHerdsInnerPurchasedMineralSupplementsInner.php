@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,9 +58,9 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner implements Model
      * @var string[]
      */
     protected static $openAPITypes = [
-        'amount' => '\OpenAPI\Client\Model\Method22Amount',
+        'amount' => '\OpenAPI\Client\Model\Method21Amount',
         'type' => 'string',
-        'custom_emissions_factor' => '\OpenAPI\Client\Model\Method25CustomEmissionsFactor'
+        'custom_emissions_factor' => '\OpenAPI\Client\Model\Method21CustomEmissionsFactor'
     ];
 
     /**
@@ -316,7 +316,7 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner implements Model
     /**
      * Gets amount
      *
-     * @return \OpenAPI\Client\Model\Method22Amount
+     * @return \OpenAPI\Client\Model\Method21Amount
      */
     public function getAmount()
     {
@@ -326,7 +326,7 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner implements Model
     /**
      * Sets amount
      *
-     * @param \OpenAPI\Client\Model\Method22Amount $amount amount
+     * @param \OpenAPI\Client\Model\Method21Amount $amount amount
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner implements Model
     /**
      * Gets custom_emissions_factor
      *
-     * @return \OpenAPI\Client\Model\Method25CustomEmissionsFactor
+     * @return \OpenAPI\Client\Model\Method21CustomEmissionsFactor
      */
     public function getCustomEmissionsFactor()
     {
@@ -380,7 +380,7 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner implements Model
     /**
      * Sets custom_emissions_factor
      *
-     * @param \OpenAPI\Client\Model\Method25CustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
+     * @param \OpenAPI\Client\Model\Method21CustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
      *
      * @return self
      */

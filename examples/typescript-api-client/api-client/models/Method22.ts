@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,20 +13,48 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Method22Amount } from './Method22Amount';
+import type { Method22UnmanagedBurialInner } from './Method22UnmanagedBurialInner';
 import {
-    Method22AmountFromJSON,
-    Method22AmountFromJSONTyped,
-    Method22AmountToJSON,
-    Method22AmountToJSONTyped,
-} from './Method22Amount';
-import type { Method22CustomEmissionsFactor } from './Method22CustomEmissionsFactor';
+    Method22UnmanagedBurialInnerFromJSON,
+    Method22UnmanagedBurialInnerFromJSONTyped,
+    Method22UnmanagedBurialInnerToJSON,
+    Method22UnmanagedBurialInnerToJSONTyped,
+} from './Method22UnmanagedBurialInner';
+import type { Method22UnmanagedShallowInner } from './Method22UnmanagedShallowInner';
 import {
-    Method22CustomEmissionsFactorFromJSON,
-    Method22CustomEmissionsFactorFromJSONTyped,
-    Method22CustomEmissionsFactorToJSON,
-    Method22CustomEmissionsFactorToJSONTyped,
-} from './Method22CustomEmissionsFactor';
+    Method22UnmanagedShallowInnerFromJSON,
+    Method22UnmanagedShallowInnerFromJSONTyped,
+    Method22UnmanagedShallowInnerToJSON,
+    Method22UnmanagedShallowInnerToJSONTyped,
+} from './Method22UnmanagedShallowInner';
+import type { Method22AnaerobicDigestionInner } from './Method22AnaerobicDigestionInner';
+import {
+    Method22AnaerobicDigestionInnerFromJSON,
+    Method22AnaerobicDigestionInnerFromJSONTyped,
+    Method22AnaerobicDigestionInnerToJSON,
+    Method22AnaerobicDigestionInnerToJSONTyped,
+} from './Method22AnaerobicDigestionInner';
+import type { Method22UnmanagedDeepInner } from './Method22UnmanagedDeepInner';
+import {
+    Method22UnmanagedDeepInnerFromJSON,
+    Method22UnmanagedDeepInnerFromJSONTyped,
+    Method22UnmanagedDeepInnerToJSON,
+    Method22UnmanagedDeepInnerToJSONTyped,
+} from './Method22UnmanagedDeepInner';
+import type { Method22CompostingInner } from './Method22CompostingInner';
+import {
+    Method22CompostingInnerFromJSON,
+    Method22CompostingInnerFromJSONTyped,
+    Method22CompostingInnerToJSON,
+    Method22CompostingInnerToJSONTyped,
+} from './Method22CompostingInner';
+import type { Method22IncinerationInner } from './Method22IncinerationInner';
+import {
+    Method22IncinerationInnerFromJSON,
+    Method22IncinerationInnerFromJSONTyped,
+    Method22IncinerationInnerToJSON,
+    Method22IncinerationInnerToJSONTyped,
+} from './Method22IncinerationInner';
 
 /**
  * 
@@ -37,19 +65,50 @@ export interface Method22 {
     /**
      * 
      */
-    amount: Method22Amount;
+    method: Method22MethodEnum;
     /**
      * 
      */
-    customEmissionsFactor: Method22CustomEmissionsFactor;
+    unmanagedBurial?: Array<Method22UnmanagedBurialInner>;
+    /**
+     * 
+     */
+    unmanagedDeep?: Array<Method22UnmanagedDeepInner>;
+    /**
+     * 
+     */
+    unmanagedShallow?: Array<Method22UnmanagedShallowInner>;
+    /**
+     * 
+     */
+    composting?: Array<Method22CompostingInner>;
+    /**
+     * 
+     */
+    anaerobicDigestion?: Array<Method22AnaerobicDigestionInner>;
+    /**
+     * 
+     */
+    incineration?: Array<Method22IncinerationInner>;
 }
+
+
+/**
+ * @export
+ */
+export const Method22MethodEnum = {
+    _2: '2',
+} as const;
+export type Method22MethodEnum = typeof Method22MethodEnum[keyof typeof Method22MethodEnum];
+
 
 /**
  * Check if a given object implements the Method22 interface.
  */
 export function instanceOfMethod22(value: object): value is Method22 {
-    if (!('amount' in value) || value['amount'] === undefined) return false;
-    if (!('customEmissionsFactor' in value) || value['customEmissionsFactor'] === undefined) return false;
+    if (!('method' in value) || value['method'] === undefined) return false;
+    if (value['method'] !== '2') return false;
+    
     return true;
 }
 
@@ -63,8 +122,13 @@ export function Method22FromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'amount': Method22AmountFromJSON(json['amount']),
-        'customEmissionsFactor': Method22CustomEmissionsFactorFromJSON(json['customEmissionsFactor']),
+        'method': json['method'],
+        'unmanagedBurial': json['unmanagedBurial'] == null ? undefined : ((json['unmanagedBurial'] as Array<any>).map(Method22UnmanagedBurialInnerFromJSON)),
+        'unmanagedDeep': json['unmanagedDeep'] == null ? undefined : ((json['unmanagedDeep'] as Array<any>).map(Method22UnmanagedDeepInnerFromJSON)),
+        'unmanagedShallow': json['unmanagedShallow'] == null ? undefined : ((json['unmanagedShallow'] as Array<any>).map(Method22UnmanagedShallowInnerFromJSON)),
+        'composting': json['composting'] == null ? undefined : ((json['composting'] as Array<any>).map(Method22CompostingInnerFromJSON)),
+        'anaerobicDigestion': json['anaerobicDigestion'] == null ? undefined : ((json['anaerobicDigestion'] as Array<any>).map(Method22AnaerobicDigestionInnerFromJSON)),
+        'incineration': json['incineration'] == null ? undefined : ((json['incineration'] as Array<any>).map(Method22IncinerationInnerFromJSON)),
     };
 }
 
@@ -79,8 +143,13 @@ export function Method22ToJSONTyped(value?: Method22 | null, ignoreDiscriminator
 
     return {
         
-        'amount': Method22AmountToJSON(value['amount']),
-        'customEmissionsFactor': Method22CustomEmissionsFactorToJSON(value['customEmissionsFactor']),
+        'method': value['method'],
+        'unmanagedBurial': value['unmanagedBurial'] == null ? undefined : ((value['unmanagedBurial'] as Array<any>).map(Method22UnmanagedBurialInnerToJSON)),
+        'unmanagedDeep': value['unmanagedDeep'] == null ? undefined : ((value['unmanagedDeep'] as Array<any>).map(Method22UnmanagedDeepInnerToJSON)),
+        'unmanagedShallow': value['unmanagedShallow'] == null ? undefined : ((value['unmanagedShallow'] as Array<any>).map(Method22UnmanagedShallowInnerToJSON)),
+        'composting': value['composting'] == null ? undefined : ((value['composting'] as Array<any>).map(Method22CompostingInnerToJSON)),
+        'anaerobicDigestion': value['anaerobicDigestion'] == null ? undefined : ((value['anaerobicDigestion'] as Array<any>).map(Method22AnaerobicDigestionInnerToJSON)),
+        'incineration': value['incineration'] == null ? undefined : ((value['incineration'] as Array<any>).map(Method22IncinerationInnerToJSON)),
     };
 }
 

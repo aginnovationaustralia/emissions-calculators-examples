@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PostBeefRequestElectricity } from './PostBeefRequestElectricity';
+import {
+    PostBeefRequestElectricityFromJSON,
+    PostBeefRequestElectricityFromJSONTyped,
+    PostBeefRequestElectricityToJSON,
+    PostBeefRequestElectricityToJSONTyped,
+} from './PostBeefRequestElectricity';
 import type { PostBeefRequestHerdsInner } from './PostBeefRequestHerdsInner';
 import {
     PostBeefRequestHerdsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     PostBeefRequestHerdsInnerToJSON,
     PostBeefRequestHerdsInnerToJSONTyped,
 } from './PostBeefRequestHerdsInner';
-import type { PostAquacultureRequestElectricity } from './PostAquacultureRequestElectricity';
-import {
-    PostAquacultureRequestElectricityFromJSON,
-    PostAquacultureRequestElectricityFromJSONTyped,
-    PostAquacultureRequestElectricityToJSON,
-    PostAquacultureRequestElectricityToJSONTyped,
-} from './PostAquacultureRequestElectricity';
 import type { LandUseInput } from './LandUseInput';
 import {
     LandUseInputFromJSON,
@@ -48,7 +48,7 @@ export interface PostBeefRequest {
     /**
      * 
      */
-    electricity: PostAquacultureRequestElectricity;
+    electricity: PostBeefRequestElectricity;
     /**
      * 
      */
@@ -80,7 +80,7 @@ export function PostBeefRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'landUse': json['landUse'] == null ? undefined : LandUseInputFromJSON(json['landUse']),
-        'electricity': PostAquacultureRequestElectricityFromJSON(json['electricity']),
+        'electricity': PostBeefRequestElectricityFromJSON(json['electricity']),
         'herds': ((json['herds'] as Array<any>).map(PostBeefRequestHerdsInnerFromJSON)),
         'isFebruaryInLeapYear': json['isFebruaryInLeapYear'],
     };
@@ -98,7 +98,7 @@ export function PostBeefRequestToJSONTyped(value?: PostBeefRequest | null, ignor
     return {
         
         'landUse': LandUseInputToJSON(value['landUse']),
-        'electricity': PostAquacultureRequestElectricityToJSON(value['electricity']),
+        'electricity': PostBeefRequestElectricityToJSON(value['electricity']),
         'herds': ((value['herds'] as Array<any>).map(PostBeefRequestHerdsInnerToJSON)),
         'isFebruaryInLeapYear': value['isFebruaryInLeapYear'],
     };

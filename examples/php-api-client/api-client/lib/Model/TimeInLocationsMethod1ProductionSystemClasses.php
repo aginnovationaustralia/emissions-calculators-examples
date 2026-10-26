@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,12 +59,12 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
      */
     protected static $openAPITypes = [
         'milking_cows' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows',
-        'heifers_gt1' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1',
-        'heifers_lt1_pre_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1',
-        'heifers_lt1_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1',
-        'bulls_gt1' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1',
-        'bulls_lt1_pre_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1',
-        'bulls_lt1_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1'
+        'heifers_gt1' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows',
+        'heifers_lt1_pre_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows',
+        'heifers_lt1_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows',
+        'bulls_gt1' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows',
+        'bulls_lt1_pre_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows',
+        'bulls_lt1_weaned' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows'
     ];
 
     /**
@@ -362,7 +362,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Gets heifers_gt1
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null
      */
     public function getHeifersGt1()
     {
@@ -372,7 +372,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Sets heifers_gt1
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null $heifers_gt1 heifers_gt1
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null $heifers_gt1 heifers_gt1
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Gets heifers_lt1_pre_weaned
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null
      */
     public function getHeifersLt1PreWeaned()
     {
@@ -399,7 +399,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Sets heifers_lt1_pre_weaned
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null $heifers_lt1_pre_weaned heifers_lt1_pre_weaned
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null $heifers_lt1_pre_weaned heifers_lt1_pre_weaned
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Gets heifers_lt1_weaned
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null
      */
     public function getHeifersLt1Weaned()
     {
@@ -426,7 +426,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Sets heifers_lt1_weaned
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null $heifers_lt1_weaned heifers_lt1_weaned
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null $heifers_lt1_weaned heifers_lt1_weaned
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Gets bulls_gt1
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null
      */
     public function getBullsGt1()
     {
@@ -453,7 +453,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Sets bulls_gt1
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null $bulls_gt1 bulls_gt1
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null $bulls_gt1 bulls_gt1
      *
      * @return self
      */
@@ -470,7 +470,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Gets bulls_lt1_pre_weaned
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null
      */
     public function getBullsLt1PreWeaned()
     {
@@ -480,7 +480,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Sets bulls_lt1_pre_weaned
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null $bulls_lt1_pre_weaned bulls_lt1_pre_weaned
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null $bulls_lt1_pre_weaned bulls_lt1_pre_weaned
      *
      * @return self
      */
@@ -497,7 +497,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Gets bulls_lt1_weaned
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null
      */
     public function getBullsLt1Weaned()
     {
@@ -507,7 +507,7 @@ class TimeInLocationsMethod1ProductionSystemClasses implements ModelInterface, A
     /**
      * Sets bulls_lt1_weaned
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesHeifersGt1|null $bulls_lt1_weaned bulls_lt1_weaned
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClassesMilkingCows|null $bulls_lt1_weaned bulls_lt1_weaned
      *
      * @return self
      */

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -19,11 +19,12 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.time_in_locations_method2_measured_proportions_classes import TimeInLocationsMethod2MeasuredProportionsClasses
-from openapi_client.models.time_in_locations_method2_measured_proportions_manure_allocations import TimeInLocationsMethod2MeasuredProportionsManureAllocations
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.pigs_manure_herds_inner_fraction_applied_to_soils import PigsManureHerdsInnerFractionAppliedToSoils
+from openapi_client.models.time_in_locations_method1_production_system_classes import TimeInLocationsMethod1ProductionSystemClasses
+from openapi_client.models.time_in_locations_method1_production_system_manure_allocations import TimeInLocationsMethod1ProductionSystemManureAllocations
+from openapi_client.models.time_in_locations_method1_production_system_milk_production import TimeInLocationsMethod1ProductionSystemMilkProduction
 from openapi_client.models.time_in_locations_method2_measured_proportions_method2_time_spent_in_locations import TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations
-from openapi_client.models.time_in_locations_method2_measured_proportions_milk_production import TimeInLocationsMethod2MeasuredProportionsMilkProduction
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,55 +33,20 @@ class TimeInLocationsMethod2MeasuredProportions(BaseModel):
     """
     TimeInLocationsMethod2MeasuredProportions
     """ # noqa: E501
-    classes: TimeInLocationsMethod2MeasuredProportionsClasses
-    milk_production: TimeInLocationsMethod2MeasuredProportionsMilkProduction = Field(alias="milkProduction")
+    classes: TimeInLocationsMethod1ProductionSystemClasses
+    milk_production: TimeInLocationsMethod1ProductionSystemMilkProduction = Field(alias="milkProduction")
     breed: StrictStr = Field(description="Breed of cattle for this dairy herd")
-    manure_allocations: TimeInLocationsMethod2MeasuredProportionsManureAllocations = Field(alias="manureAllocations")
+    manure_allocations: TimeInLocationsMethod1ProductionSystemManureAllocations = Field(alias="manureAllocations")
     is_in_leaching_zone: StrictBool = Field(description="Is the activity in a leaching zone. See chapter 1.8.2 for more details on leaching zones.", alias="isInLeachingZone")
-    method2_mean_annual_temperature: Optional[StrictStr] = Field(default=None, description="What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.", alias="method2MeanAnnualTemperature")
-    grazing_system: StrictStr = Field(description="The production system which most accurately describes the land used for grazing and feed.", alias="grazingSystem")
-    climate_zone: StrictStr = Field(description="The climate zone the activity is located in (like \"Tropical dry\") or the basic zone type (\"dry\" or \"wet\"). See Chapter 1 section 1.8.2 for more details.", alias="climateZone")
-    state: StrictStr = Field(description="The state or territory the activity is based in")
+    fraction_applied_to_soils: PigsManureHerdsInnerFractionAppliedToSoils = Field(alias="fractionAppliedToSoils")
     method2_time_spent_in_locations: TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations = Field(alias="method2TimeSpentInLocations")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["classes", "milkProduction", "breed", "manureAllocations", "isInLeachingZone", "method2MeanAnnualTemperature", "grazingSystem", "climateZone", "state", "method2TimeSpentInLocations"]
+    __properties: ClassVar[List[str]] = ["classes", "milkProduction", "breed", "manureAllocations", "isInLeachingZone", "fractionAppliedToSoils", "method2TimeSpentInLocations"]
 
     @field_validator('breed')
     def breed_validate_enum(cls, value):
         """Validates the enum"""
         if value not in set(['Medium Friesian', 'Large Friesian', 'Holstein-Friesian', 'Friesian crossbred', 'Jersey', 'Jersey crossbred', 'Ayrshire', 'Guernsey', 'Brown Swiss', 'Illawarra/Aussie Red']):
             raise ValueError("must be one of enum values ('Medium Friesian', 'Large Friesian', 'Holstein-Friesian', 'Friesian crossbred', 'Jersey', 'Jersey crossbred', 'Ayrshire', 'Guernsey', 'Brown Swiss', 'Illawarra/Aussie Red')")
-        return value
-
-    @field_validator('method2_mean_annual_temperature')
-    def method2_mean_annual_temperature_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '10 or below', '28 or above']):
-            raise ValueError("must be one of enum values ('11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '10 or below', '28 or above')")
-        return value
-
-    @field_validator('grazing_system')
-    def grazing_system_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Non-irrigated pasture', 'Irrigated pasture', 'Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)']):
-            raise ValueError("must be one of enum values ('Non-irrigated pasture', 'Irrigated pasture', 'Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)')")
-        return value
-
-    @field_validator('climate_zone')
-    def climate_zone_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Tropical montane', 'Tropical wet', 'Tropical moist', 'Warm temperate moist', 'Cool temperate moist', 'Boreal moist', 'Tropical dry', 'Warm temperate dry', 'Cool temperate dry', 'Boreal dry', 'dry', 'wet']):
-            raise ValueError("must be one of enum values ('Tropical montane', 'Tropical wet', 'Tropical moist', 'Warm temperate moist', 'Cool temperate moist', 'Boreal moist', 'Tropical dry', 'Warm temperate dry', 'Cool temperate dry', 'Boreal dry', 'dry', 'wet')")
-        return value
-
-    @field_validator('state')
-    def state_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['ACT', 'TAS', 'NSW', 'VIC', 'QLD', 'SA', 'WA', 'NT']):
-            raise ValueError("must be one of enum values ('ACT', 'TAS', 'NSW', 'VIC', 'QLD', 'SA', 'WA', 'NT')")
         return value
 
     model_config = ConfigDict(
@@ -113,10 +79,8 @@ class TimeInLocationsMethod2MeasuredProportions(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -133,14 +97,12 @@ class TimeInLocationsMethod2MeasuredProportions(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of manure_allocations
         if self.manure_allocations:
             _dict['manureAllocations'] = self.manure_allocations.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of fraction_applied_to_soils
+        if self.fraction_applied_to_soils:
+            _dict['fractionAppliedToSoils'] = self.fraction_applied_to_soils.to_dict()
         # override the default output from pydantic by calling `to_dict()` of method2_time_spent_in_locations
         if self.method2_time_spent_in_locations:
             _dict['method2TimeSpentInLocations'] = self.method2_time_spent_in_locations.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -153,22 +115,14 @@ class TimeInLocationsMethod2MeasuredProportions(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "classes": TimeInLocationsMethod2MeasuredProportionsClasses.from_dict(obj["classes"]) if obj.get("classes") is not None else None,
-            "milkProduction": TimeInLocationsMethod2MeasuredProportionsMilkProduction.from_dict(obj["milkProduction"]) if obj.get("milkProduction") is not None else None,
+            "classes": TimeInLocationsMethod1ProductionSystemClasses.from_dict(obj["classes"]) if obj.get("classes") is not None else None,
+            "milkProduction": TimeInLocationsMethod1ProductionSystemMilkProduction.from_dict(obj["milkProduction"]) if obj.get("milkProduction") is not None else None,
             "breed": obj.get("breed"),
-            "manureAllocations": TimeInLocationsMethod2MeasuredProportionsManureAllocations.from_dict(obj["manureAllocations"]) if obj.get("manureAllocations") is not None else None,
+            "manureAllocations": TimeInLocationsMethod1ProductionSystemManureAllocations.from_dict(obj["manureAllocations"]) if obj.get("manureAllocations") is not None else None,
             "isInLeachingZone": obj.get("isInLeachingZone"),
-            "method2MeanAnnualTemperature": obj.get("method2MeanAnnualTemperature"),
-            "grazingSystem": obj.get("grazingSystem"),
-            "climateZone": obj.get("climateZone"),
-            "state": obj.get("state"),
+            "fractionAppliedToSoils": PigsManureHerdsInnerFractionAppliedToSoils.from_dict(obj["fractionAppliedToSoils"]) if obj.get("fractionAppliedToSoils") is not None else None,
             "method2TimeSpentInLocations": TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations.from_dict(obj["method2TimeSpentInLocations"]) if obj.get("method2TimeSpentInLocations") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

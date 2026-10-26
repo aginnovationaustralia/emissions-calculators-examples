@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.quantity_by_mass11_amount_mass import QuantityByMass11AmountMass
+from openapi_client.models.solid_fuels_amount_tonnes import SolidFuelsAmountTonnes
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +29,23 @@ class QuantityByMass11(BaseModel):
     """
     QuantityByMass11
     """ # noqa: E501
-    amount_mass: QuantityByMass11AmountMass = Field(alias="amountMass")
-    type: StrictStr = Field(description="The type of packaging purchased.")
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["amountMass", "type"]
+    fuel_class: StrictStr = Field(alias="fuelClass")
+    fuel_type: StrictStr = Field(description="Type of liquid fuel used in stationary equipment", alias="fuelType")
+    amount_tonnes: SolidFuelsAmountTonnes = Field(alias="amountTonnes")
+    __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountTonnes"]
 
-    @field_validator('type')
-    def type_validate_enum(cls, value):
+    @field_validator('fuel_class')
+    def fuel_class_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Corrugated board', 'Plastic film LDPE', 'Plastic sheet HDPE']):
-            raise ValueError("must be one of enum values ('Corrugated board', 'Plastic film LDPE', 'Plastic sheet HDPE')")
+        if value not in set(['Liquid fuels']):
+            raise ValueError("must be one of enum values ('Liquid fuels')")
+        return value
+
+    @field_validator('fuel_type')
+    def fuel_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['Crude oil and condensates', 'Other natural gas liquids', 'Petroleum coke', 'Refinery gas and liquids', 'Refinery coke']):
+            raise ValueError("must be one of enum values ('Crude oil and condensates', 'Other natural gas liquids', 'Petroleum coke', 'Refinery gas and liquids', 'Refinery coke')")
         return value
 
     model_config = ConfigDict(
@@ -71,10 +78,8 @@ class QuantityByMass11(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -82,14 +87,9 @@ class QuantityByMass11(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of amount_mass
-        if self.amount_mass:
-            _dict['amountMass'] = self.amount_mass.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
+        # override the default output from pydantic by calling `to_dict()` of amount_tonnes
+        if self.amount_tonnes:
+            _dict['amountTonnes'] = self.amount_tonnes.to_dict()
         return _dict
 
     @classmethod
@@ -102,14 +102,10 @@ class QuantityByMass11(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "amountMass": QuantityByMass11AmountMass.from_dict(obj["amountMass"]) if obj.get("amountMass") is not None else None,
-            "type": obj.get("type")
+            "fuelClass": obj.get("fuelClass"),
+            "fuelType": obj.get("fuelType"),
+            "amountTonnes": SolidFuelsAmountTonnes.from_dict(obj["amountTonnes"]) if obj.get("amountTonnes") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

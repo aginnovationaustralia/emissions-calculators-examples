@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,7 +58,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'calculation_method' => 'string'
+        'amount' => '\OpenAPI\Client\Model\Method11Amount',
+        'type' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'calculation_method' => null
+        'amount' => null,
+        'type' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'calculation_method' => false
+        'amount' => false,
+        'type' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'calculation_method' => 'calculationMethod'
+        'amount' => 'amount',
+        'type' => 'type'
     ];
 
     /**
@@ -176,7 +180,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'calculation_method' => 'setCalculationMethod'
+        'amount' => 'setAmount',
+        'type' => 'setType'
     ];
 
     /**
@@ -185,7 +190,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'calculation_method' => 'getCalculationMethod'
+        'amount' => 'getAmount',
+        'type' => 'getType'
     ];
 
     /**
@@ -245,7 +251,8 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('calculation_method', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
     }
 
     /**
@@ -275,8 +282,11 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['calculation_method'] === null) {
-            $invalidProperties[] = "'calculation_method' can't be null";
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,28 +304,55 @@ class Method11 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets calculation_method
+     * Gets amount
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Method11Amount
      */
-    public function getCalculationMethod()
+    public function getAmount()
     {
-        return $this->container['calculation_method'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets calculation_method
+     * Sets amount
      *
-     * @param string $calculation_method calculation_method
+     * @param \OpenAPI\Client\Model\Method11Amount $amount amount
      *
      * @return self
      */
-    public function setCalculationMethod($calculation_method)
+    public function setAmount($amount)
     {
-        if (is_null($calculation_method)) {
-            throw new \InvalidArgumentException('non-nullable calculation_method cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['calculation_method'] = $calculation_method;
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The type of mineral supplement purchased.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,24 +18,24 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.method15 import Method15
-from openapi_client.models.method25 import Method25
+from openapi_client.models.method11 import Method11
+from openapi_client.models.method21 import Method21
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-POSTBEEFREQUESTHERDSINNERPURCHASEDMINERALSUPPLEMENTSINNER_ONE_OF_SCHEMAS = ["Method15", "Method25"]
+POSTBEEFREQUESTHERDSINNERPURCHASEDMINERALSUPPLEMENTSINNER_ONE_OF_SCHEMAS = ["Method11", "Method21"]
 
 class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner(BaseModel):
     """
     PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner
     """
-    # data type: Method15
-    oneof_schema_1_validator: Optional[Method15] = None
-    # data type: Method25
-    oneof_schema_2_validator: Optional[Method25] = None
-    actual_instance: Optional[Union[Method15, Method25]] = None
-    one_of_schemas: Set[str] = { "Method15", "Method25" }
+    # data type: Method11
+    oneof_schema_1_validator: Optional[Method11] = None
+    # data type: Method21
+    oneof_schema_2_validator: Optional[Method21] = None
+    actual_instance: Optional[Union[Method11, Method21]] = None
+    one_of_schemas: Set[str] = { "Method11", "Method21" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,22 +58,22 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner(BaseModel):
         instance = PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner.model_construct()
         error_messages = []
         match = 0
-        # validate data type: Method15
-        if not isinstance(v, Method15):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Method15`")
+        # validate data type: Method11
+        if not isinstance(v, Method11):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Method11`")
         else:
             match += 1
-        # validate data type: Method25
-        if not isinstance(v, Method25):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Method25`")
+        # validate data type: Method21
+        if not isinstance(v, Method21):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Method21`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method15, Method25. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method11, Method21. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method15, Method25. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method11, Method21. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,25 +88,25 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into Method15
+        # deserialize data into Method11
         try:
-            instance.actual_instance = Method15.from_json(json_str)
+            instance.actual_instance = Method11.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Method25
+        # deserialize data into Method21
         try:
-            instance.actual_instance = Method25.from_json(json_str)
+            instance.actual_instance = Method21.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method15, Method25. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method11, Method21. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method15, Method25. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner with oneOf schemas: Method11, Method21. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Method15, Method25]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Method11, Method21]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

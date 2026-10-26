@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_all_modules_request_pasture_pasture_fraction_of_annual_crop_burnt import PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt
 from openapi_client.models.post_beef_request_herds_inner_pasture_area_managed import PostBeefRequestHerdsInnerPastureAreaManaged
+from openapi_client.models.post_beef_request_herds_inner_pasture_fraction_of_annual_crop_burnt import PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt
 from openapi_client.models.post_beef_request_herds_inner_pasture_residues import PostBeefRequestHerdsInnerPastureResidues
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +33,7 @@ class PostBeefRequestHerdsInnerPasture(BaseModel):
     """ # noqa: E501
     type: StrictStr = Field(description="Type of pasture managed in this activity")
     area_managed: PostBeefRequestHerdsInnerPastureAreaManaged = Field(alias="areaManaged")
-    fraction_of_annual_crop_burnt: PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt = Field(alias="fractionOfAnnualCropBurnt")
+    fraction_of_annual_crop_burnt: PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt = Field(alias="fractionOfAnnualCropBurnt")
     residues: PostBeefRequestHerdsInnerPastureResidues
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "areaManaged", "fractionOfAnnualCropBurnt", "residues"]
@@ -114,7 +114,7 @@ class PostBeefRequestHerdsInnerPasture(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "areaManaged": PostBeefRequestHerdsInnerPastureAreaManaged.from_dict(obj["areaManaged"]) if obj.get("areaManaged") is not None else None,
-            "fractionOfAnnualCropBurnt": PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt.from_dict(obj["fractionOfAnnualCropBurnt"]) if obj.get("fractionOfAnnualCropBurnt") is not None else None,
+            "fractionOfAnnualCropBurnt": PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt.from_dict(obj["fractionOfAnnualCropBurnt"]) if obj.get("fractionOfAnnualCropBurnt") is not None else None,
             "residues": PostBeefRequestHerdsInnerPastureResidues.from_dict(obj["residues"]) if obj.get("residues") is not None else None
         })
         # store additional fields in additional_properties

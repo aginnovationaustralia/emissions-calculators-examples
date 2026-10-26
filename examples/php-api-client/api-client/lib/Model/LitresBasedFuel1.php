@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,7 +58,7 @@ class LitresBasedFuel1 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesPre2004AmountKilolitres',
+        'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres',
         'vehicle_type' => 'string',
         'fuel_type' => 'string'
     ];
@@ -316,7 +316,7 @@ class LitresBasedFuel1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount_kilolitres
      *
-     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehiclesPre2004AmountKilolitres
+     * @return \OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres
      */
     public function getAmountKilolitres()
     {
@@ -326,7 +326,7 @@ class LitresBasedFuel1 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount_kilolitres
      *
-     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehiclesPre2004AmountKilolitres $amount_kilolitres amount_kilolitres
+     * @param \OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres $amount_kilolitres amount_kilolitres
      *
      * @return self
      */

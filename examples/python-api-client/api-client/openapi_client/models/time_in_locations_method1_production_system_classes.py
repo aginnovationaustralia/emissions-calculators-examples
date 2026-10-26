@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.time_in_locations_method1_production_system_classes_heifers_gt1 import TimeInLocationsMethod1ProductionSystemClassesHeifersGt1
 from openapi_client.models.time_in_locations_method1_production_system_classes_milking_cows import TimeInLocationsMethod1ProductionSystemClassesMilkingCows
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,13 +30,12 @@ class TimeInLocationsMethod1ProductionSystemClasses(BaseModel):
     TimeInLocationsMethod1ProductionSystemClasses
     """ # noqa: E501
     milking_cows: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="milkingCows")
-    heifers_gt1: Optional[TimeInLocationsMethod1ProductionSystemClassesHeifersGt1] = Field(default=None, alias="heifersGt1")
-    heifers_lt1_pre_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesHeifersGt1] = Field(default=None, alias="heifersLt1PreWeaned")
-    heifers_lt1_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesHeifersGt1] = Field(default=None, alias="heifersLt1Weaned")
-    bulls_gt1: Optional[TimeInLocationsMethod1ProductionSystemClassesHeifersGt1] = Field(default=None, alias="bullsGt1")
-    bulls_lt1_pre_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesHeifersGt1] = Field(default=None, alias="bullsLt1PreWeaned")
-    bulls_lt1_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesHeifersGt1] = Field(default=None, alias="bullsLt1Weaned")
-    additional_properties: Dict[str, Any] = {}
+    heifers_gt1: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="heifersGt1")
+    heifers_lt1_pre_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="heifersLt1PreWeaned")
+    heifers_lt1_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="heifersLt1Weaned")
+    bulls_gt1: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="bullsGt1")
+    bulls_lt1_pre_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="bullsLt1PreWeaned")
+    bulls_lt1_weaned: Optional[TimeInLocationsMethod1ProductionSystemClassesMilkingCows] = Field(default=None, alias="bullsLt1Weaned")
     __properties: ClassVar[List[str]] = ["milkingCows", "heifersGt1", "heifersLt1PreWeaned", "heifersLt1Weaned", "bullsGt1", "bullsLt1PreWeaned", "bullsLt1Weaned"]
 
     model_config = ConfigDict(
@@ -70,10 +68,8 @@ class TimeInLocationsMethod1ProductionSystemClasses(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -102,11 +98,6 @@ class TimeInLocationsMethod1ProductionSystemClasses(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of bulls_lt1_weaned
         if self.bulls_lt1_weaned:
             _dict['bullsLt1Weaned'] = self.bulls_lt1_weaned.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -120,18 +111,13 @@ class TimeInLocationsMethod1ProductionSystemClasses(BaseModel):
 
         _obj = cls.model_validate({
             "milkingCows": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["milkingCows"]) if obj.get("milkingCows") is not None else None,
-            "heifersGt1": TimeInLocationsMethod1ProductionSystemClassesHeifersGt1.from_dict(obj["heifersGt1"]) if obj.get("heifersGt1") is not None else None,
-            "heifersLt1PreWeaned": TimeInLocationsMethod1ProductionSystemClassesHeifersGt1.from_dict(obj["heifersLt1PreWeaned"]) if obj.get("heifersLt1PreWeaned") is not None else None,
-            "heifersLt1Weaned": TimeInLocationsMethod1ProductionSystemClassesHeifersGt1.from_dict(obj["heifersLt1Weaned"]) if obj.get("heifersLt1Weaned") is not None else None,
-            "bullsGt1": TimeInLocationsMethod1ProductionSystemClassesHeifersGt1.from_dict(obj["bullsGt1"]) if obj.get("bullsGt1") is not None else None,
-            "bullsLt1PreWeaned": TimeInLocationsMethod1ProductionSystemClassesHeifersGt1.from_dict(obj["bullsLt1PreWeaned"]) if obj.get("bullsLt1PreWeaned") is not None else None,
-            "bullsLt1Weaned": TimeInLocationsMethod1ProductionSystemClassesHeifersGt1.from_dict(obj["bullsLt1Weaned"]) if obj.get("bullsLt1Weaned") is not None else None
+            "heifersGt1": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["heifersGt1"]) if obj.get("heifersGt1") is not None else None,
+            "heifersLt1PreWeaned": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["heifersLt1PreWeaned"]) if obj.get("heifersLt1PreWeaned") is not None else None,
+            "heifersLt1Weaned": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["heifersLt1Weaned"]) if obj.get("heifersLt1Weaned") is not None else None,
+            "bullsGt1": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["bullsGt1"]) if obj.get("bullsGt1") is not None else None,
+            "bullsLt1PreWeaned": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["bullsLt1PreWeaned"]) if obj.get("bullsLt1PreWeaned") is not None else None,
+            "bullsLt1Weaned": TimeInLocationsMethod1ProductionSystemClassesMilkingCows.from_dict(obj["bullsLt1Weaned"]) if obj.get("bullsLt1Weaned") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

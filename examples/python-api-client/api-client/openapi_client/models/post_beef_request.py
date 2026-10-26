@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.land_use_input import LandUseInput
-from openapi_client.models.post_aquaculture_request_electricity import PostAquacultureRequestElectricity
+from openapi_client.models.post_beef_request_electricity import PostBeefRequestElectricity
 from openapi_client.models.post_beef_request_herds_inner import PostBeefRequestHerdsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +32,7 @@ class PostBeefRequest(BaseModel):
     PostBeefRequest
     """ # noqa: E501
     land_use: Optional[LandUseInput] = Field(default=None, alias="landUse")
-    electricity: PostAquacultureRequestElectricity
+    electricity: PostBeefRequestElectricity
     herds: List[PostBeefRequestHerdsInner]
     is_february_in_leap_year: StrictBool = Field(description="For the 12 month period covered by the calculation, is the month of February within a leap year?", alias="isFebruaryInLeapYear")
     additional_properties: Dict[str, Any] = {}
@@ -109,7 +109,7 @@ class PostBeefRequest(BaseModel):
 
         _obj = cls.model_validate({
             "landUse": LandUseInput.from_dict(obj["landUse"]) if obj.get("landUse") is not None else None,
-            "electricity": PostAquacultureRequestElectricity.from_dict(obj["electricity"]) if obj.get("electricity") is not None else None,
+            "electricity": PostBeefRequestElectricity.from_dict(obj["electricity"]) if obj.get("electricity") is not None else None,
             "herds": [PostBeefRequestHerdsInner.from_dict(_item) for _item in obj["herds"]] if obj.get("herds") is not None else None,
             "isFebruaryInLeapYear": obj.get("isFebruaryInLeapYear")
         })

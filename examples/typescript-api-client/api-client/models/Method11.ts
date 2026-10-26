@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Method11Amount } from './Method11Amount';
+import {
+    Method11AmountFromJSON,
+    Method11AmountFromJSONTyped,
+    Method11AmountToJSON,
+    Method11AmountToJSONTyped,
+} from './Method11Amount';
+
 /**
  * 
  * @export
@@ -22,26 +30,31 @@ export interface Method11 {
     /**
      * 
      */
-    calculationMethod: Method11CalculationMethodEnum;
+    amount: Method11Amount;
+    /**
+     * The type of mineral supplement purchased.
+     */
+    type: Method11TypeEnum;
 }
 
 
 /**
  * @export
  */
-export const Method11CalculationMethodEnum = {
-    _1: '1',
+export const Method11TypeEnum = {
+    LickBlockDrySeasonMix: 'Lick block, dry season mix',
+    LickBlockWeaner: 'Lick block, weaner',
+    LickBlockMineral: 'Lick block, mineral',
 } as const;
-export type Method11CalculationMethodEnum = typeof Method11CalculationMethodEnum[keyof typeof Method11CalculationMethodEnum];
+export type Method11TypeEnum = typeof Method11TypeEnum[keyof typeof Method11TypeEnum];
 
 
 /**
  * Check if a given object implements the Method11 interface.
  */
 export function instanceOfMethod11(value: object): value is Method11 {
-    if (!('calculationMethod' in value) || value['calculationMethod'] === undefined) return false;
-    if (value['calculationMethod'] !== '1') return false;
-    
+    if (!('amount' in value) || value['amount'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
     return true;
 }
 
@@ -55,7 +68,8 @@ export function Method11FromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'calculationMethod': json['calculationMethod'],
+        'amount': Method11AmountFromJSON(json['amount']),
+        'type': json['type'],
     };
 }
 
@@ -70,7 +84,8 @@ export function Method11ToJSONTyped(value?: Method11 | null, ignoreDiscriminator
 
     return {
         
-        'calculationMethod': value['calculationMethod'],
+        'amount': Method11AmountToJSON(value['amount']),
+        'type': value['type'],
     };
 }
 

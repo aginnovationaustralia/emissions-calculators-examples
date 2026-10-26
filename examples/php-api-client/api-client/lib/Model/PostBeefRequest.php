@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,7 +59,7 @@ class PostBeefRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'land_use' => '\OpenAPI\Client\Model\LandUseInput',
-        'electricity' => '\OpenAPI\Client\Model\PostAquacultureRequestElectricity',
+        'electricity' => '\OpenAPI\Client\Model\PostBeefRequestElectricity',
         'herds' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInner[]',
         'is_february_in_leap_year' => 'bool'
     ];
@@ -350,7 +350,7 @@ class PostBeefRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets electricity
      *
-     * @return \OpenAPI\Client\Model\PostAquacultureRequestElectricity
+     * @return \OpenAPI\Client\Model\PostBeefRequestElectricity
      */
     public function getElectricity()
     {
@@ -360,7 +360,7 @@ class PostBeefRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets electricity
      *
-     * @param \OpenAPI\Client\Model\PostAquacultureRequestElectricity $electricity electricity
+     * @param \OpenAPI\Client\Model\PostBeefRequestElectricity $electricity electricity
      *
      * @return self
      */

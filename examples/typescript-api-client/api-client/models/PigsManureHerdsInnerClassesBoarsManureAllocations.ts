@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { Method1SolidsSeparationFlag1 } from './Method1SolidsSeparationFlag1';
+import type { Method1SolidsSeparationFlag } from './Method1SolidsSeparationFlag';
 import {
-    instanceOfMethod1SolidsSeparationFlag1,
-    Method1SolidsSeparationFlag1FromJSON,
-    Method1SolidsSeparationFlag1FromJSONTyped,
-    Method1SolidsSeparationFlag1ToJSON,
-} from './Method1SolidsSeparationFlag1';
-import type { Method2MeasuredFractions1 } from './Method2MeasuredFractions1';
+    instanceOfMethod1SolidsSeparationFlag,
+    Method1SolidsSeparationFlagFromJSON,
+    Method1SolidsSeparationFlagFromJSONTyped,
+    Method1SolidsSeparationFlagToJSON,
+} from './Method1SolidsSeparationFlag';
+import type { Method2MeasuredFractions } from './Method2MeasuredFractions';
 import {
-    instanceOfMethod2MeasuredFractions1,
-    Method2MeasuredFractions1FromJSON,
-    Method2MeasuredFractions1FromJSONTyped,
-    Method2MeasuredFractions1ToJSON,
-} from './Method2MeasuredFractions1';
+    instanceOfMethod2MeasuredFractions,
+    Method2MeasuredFractionsFromJSON,
+    Method2MeasuredFractionsFromJSONTyped,
+    Method2MeasuredFractionsToJSON,
+} from './Method2MeasuredFractions';
 
 /**
  * @type PigsManureHerdsInnerClassesBoarsManureAllocations
  * 
  * @export
  */
-export type PigsManureHerdsInnerClassesBoarsManureAllocations = Method1SolidsSeparationFlag1 | Method2MeasuredFractions1;
+export type PigsManureHerdsInnerClassesBoarsManureAllocations = Method1SolidsSeparationFlag | Method2MeasuredFractions;
 /**
  * Check if a given object matches one of the PigsManureHerdsInnerClassesBoarsManureAllocations variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -43,10 +43,10 @@ export function instanceOfPigsManureHerdsInnerClassesBoarsManureAllocations(valu
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfMethod1SolidsSeparationFlag1(value)) {
+    if (instanceOfMethod1SolidsSeparationFlag(value)) {
         return true;
     }
-    if (instanceOfMethod2MeasuredFractions1(value)) {
+    if (instanceOfMethod2MeasuredFractions(value)) {
         return true;
     }
     return false;
@@ -64,11 +64,11 @@ export function PigsManureHerdsInnerClassesBoarsManureAllocationsFromJSONTyped(j
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfMethod1SolidsSeparationFlag1(json)) {
-        return Method1SolidsSeparationFlag1FromJSONTyped(json, true);
+    if (instanceOfMethod1SolidsSeparationFlag(json)) {
+        return Method1SolidsSeparationFlagFromJSONTyped(json, true);
     }
-    if (instanceOfMethod2MeasuredFractions1(json)) {
-        return Method2MeasuredFractions1FromJSONTyped(json, true);
+    if (instanceOfMethod2MeasuredFractions(json)) {
+        return Method2MeasuredFractionsFromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -84,11 +84,11 @@ export function PigsManureHerdsInnerClassesBoarsManureAllocationsToJSONTyped(val
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfMethod1SolidsSeparationFlag1(value)) {
-        return Method1SolidsSeparationFlag1ToJSON(value as Method1SolidsSeparationFlag1);
+    if (instanceOfMethod1SolidsSeparationFlag(value)) {
+        return Method1SolidsSeparationFlagToJSON(value as Method1SolidsSeparationFlag);
     }
-    if (instanceOfMethod2MeasuredFractions1(value)) {
-        return Method2MeasuredFractions1ToJSON(value as Method2MeasuredFractions1);
+    if (instanceOfMethod2MeasuredFractions(value)) {
+        return Method2MeasuredFractionsToJSON(value as Method2MeasuredFractions);
     }
     return {};
 }

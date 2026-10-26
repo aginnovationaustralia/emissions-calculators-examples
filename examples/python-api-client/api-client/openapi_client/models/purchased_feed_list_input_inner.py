@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -19,12 +19,12 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from openapi_client.models.method1_by_feed_type import Method1ByFeedType
-from openapi_client.models.method2_custom_emissions_factor2 import Method2CustomEmissionsFactor2
+from openapi_client.models.method2_custom_emissions_factor import Method2CustomEmissionsFactor
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-PURCHASEDFEEDLISTINPUTINNER_ONE_OF_SCHEMAS = ["Method1ByFeedType", "Method2CustomEmissionsFactor2"]
+PURCHASEDFEEDLISTINPUTINNER_ONE_OF_SCHEMAS = ["Method1ByFeedType", "Method2CustomEmissionsFactor"]
 
 class PurchasedFeedListInputInner(BaseModel):
     """
@@ -32,10 +32,10 @@ class PurchasedFeedListInputInner(BaseModel):
     """
     # data type: Method1ByFeedType
     oneof_schema_1_validator: Optional[Method1ByFeedType] = None
-    # data type: Method2CustomEmissionsFactor2
-    oneof_schema_2_validator: Optional[Method2CustomEmissionsFactor2] = None
-    actual_instance: Optional[Union[Method1ByFeedType, Method2CustomEmissionsFactor2]] = None
-    one_of_schemas: Set[str] = { "Method1ByFeedType", "Method2CustomEmissionsFactor2" }
+    # data type: Method2CustomEmissionsFactor
+    oneof_schema_2_validator: Optional[Method2CustomEmissionsFactor] = None
+    actual_instance: Optional[Union[Method1ByFeedType, Method2CustomEmissionsFactor]] = None
+    one_of_schemas: Set[str] = { "Method1ByFeedType", "Method2CustomEmissionsFactor" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -63,17 +63,17 @@ class PurchasedFeedListInputInner(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `Method1ByFeedType`")
         else:
             match += 1
-        # validate data type: Method2CustomEmissionsFactor2
-        if not isinstance(v, Method2CustomEmissionsFactor2):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Method2CustomEmissionsFactor2`")
+        # validate data type: Method2CustomEmissionsFactor
+        if not isinstance(v, Method2CustomEmissionsFactor):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Method2CustomEmissionsFactor`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor2. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor2. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -94,19 +94,19 @@ class PurchasedFeedListInputInner(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Method2CustomEmissionsFactor2
+        # deserialize data into Method2CustomEmissionsFactor
         try:
-            instance.actual_instance = Method2CustomEmissionsFactor2.from_json(json_str)
+            instance.actual_instance = Method2CustomEmissionsFactor.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor2. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor2. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PurchasedFeedListInputInner with oneOf schemas: Method1ByFeedType, Method2CustomEmissionsFactor. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class PurchasedFeedListInputInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Method1ByFeedType, Method2CustomEmissionsFactor2]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Method1ByFeedType, Method2CustomEmissionsFactor]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

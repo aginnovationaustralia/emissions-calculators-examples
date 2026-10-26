@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,45 +59,45 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'total_co2' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalCO2',
-        'total_ch4' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalCH4',
-        'total_n2_o' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalN2O',
-        'total_other_gases' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalOtherGases',
-        'total' => '\OpenAPI\Client\Model\PostAquaculture200ResponseScope1Total',
-        'enteric_ch4' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1EntericBeefCH4',
-        'manure_management_ch4' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureManagementBeefCH4',
-        'manure_atmospheric_deposition_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O',
-        'manure_leaching_runoff_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O',
+        'total_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalCO2',
+        'total_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalCH4',
+        'total_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalN2O',
+        'total_other_gases' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalOtherGases',
+        'total' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotal',
+        'enteric_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFEntericCH4',
+        'manure_management_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureManagementCH4',
+        'manure_atmospheric_deposition_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O',
+        'manure_leaching_runoff_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O',
         'manure_soil_direct_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureSoilDirectN2O',
-        'fuel_transport_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportCO2',
-        'fuel_transport_ch4' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportCH4',
-        'fuel_transport_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportN2O',
-        'fuel_stationary_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryCO2',
-        'fuel_stationary_ch4' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryCH4',
-        'fuel_stationary_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryN2O',
-        'lime_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1LimeCO2',
-        'inorganic_fertiliser_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserN2O',
-        'inorganic_fertiliser_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserCO2',
-        'organic_fertiliser_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1OrganicFertiliserN2O',
-        'inorganic_fertiliser_atmospheric_deposition_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O',
-        'organic_fertiliser_atmospheric_deposition_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O',
-        'fertiliser_leaching_and_runoff_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O',
-        'residue_leaching_and_runoff_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O',
-        'pasture_residue_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1PastureResidueN2O',
-        'solid_waste_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteCO2',
-        'solid_waste_ch4' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteCH4',
-        'solid_waste_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteN2O',
-        'woody_carbon_stocks_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1WoodyCarbonStocksCO2',
-        'biomass_burning_ch4' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1BiomassBurningCH4',
-        'biomass_burning_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1BiomassBurningN2O',
-        'soil_organic_stock_losses_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1SoilOrganicStockLossesCO2',
-        'harvested_wood_products_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1HarvestedWoodProductsCO2',
-        'nitrogen_mineralisation_soil_losses_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O',
-        'leaching_and_runoff_soil_losses_n2_o' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O',
-        'savanna_fire_woody_carbon_stocks_co2e' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e',
-        'savanna_fire_biomass_burning_co2e' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e',
-        'perennial_woody_crops_removals_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2',
-        'perennial_woody_crops_emissions_co2' => '\OpenAPI\Client\Model\PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2'
+        'fuel_transport_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportCO2',
+        'fuel_transport_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportCH4',
+        'fuel_transport_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportN2O',
+        'fuel_stationary_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryCO2',
+        'fuel_stationary_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryCH4',
+        'fuel_stationary_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryN2O',
+        'lime_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFLimeCO2',
+        'inorganic_fertiliser_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserN2O',
+        'inorganic_fertiliser_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserCO2',
+        'organic_fertiliser_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFOrganicFertiliserN2O',
+        'inorganic_fertiliser_atmospheric_deposition_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O',
+        'organic_fertiliser_atmospheric_deposition_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O',
+        'fertiliser_leaching_and_runoff_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O',
+        'residue_leaching_and_runoff_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O',
+        'pasture_residue_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPastureResidueN2O',
+        'solid_waste_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteCO2',
+        'solid_waste_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteCH4',
+        'solid_waste_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteN2O',
+        'woody_carbon_stocks_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2',
+        'biomass_burning_ch4' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFBiomassBurningCH4',
+        'biomass_burning_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFBiomassBurningN2O',
+        'soil_organic_stock_losses_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2',
+        'harvested_wood_products_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2',
+        'nitrogen_mineralisation_soil_losses_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O',
+        'leaching_and_runoff_soil_losses_n2_o' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O',
+        'savanna_fire_woody_carbon_stocks_co2e' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e',
+        'savanna_fire_biomass_burning_co2e' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e',
+        'perennial_woody_crops_removals_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2',
+        'perennial_woody_crops_emissions_co2' => '\OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2'
     ];
 
     /**
@@ -677,7 +677,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_co2
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalCO2
      */
     public function getTotalCo2()
     {
@@ -687,7 +687,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_co2
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalCO2 $total_co2 total_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalCO2 $total_co2 total_co2
      *
      * @return self
      */
@@ -704,7 +704,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalCH4
      */
     public function getTotalCh4()
     {
@@ -714,7 +714,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalCH4 $total_ch4 total_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalCH4 $total_ch4 total_ch4
      *
      * @return self
      */
@@ -731,7 +731,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalN2O
      */
     public function getTotalN2O()
     {
@@ -741,7 +741,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalN2O $total_n2_o total_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalN2O $total_n2_o total_n2_o
      *
      * @return self
      */
@@ -758,7 +758,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total_other_gases
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalOtherGases
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalOtherGases
      */
     public function getTotalOtherGases()
     {
@@ -768,7 +768,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total_other_gases
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope1TotalOtherGases $total_other_gases total_other_gases
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotalOtherGases $total_other_gases total_other_gases
      *
      * @return self
      */
@@ -785,7 +785,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets total
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseScope1Total
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotal
      */
     public function getTotal()
     {
@@ -795,7 +795,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets total
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseScope1Total $total total
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFTotal $total total
      *
      * @return self
      */
@@ -812,7 +812,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets enteric_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1EntericBeefCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFEntericCH4
      */
     public function getEntericCh4()
     {
@@ -822,7 +822,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets enteric_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1EntericBeefCH4 $enteric_ch4 enteric_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFEntericCH4 $enteric_ch4 enteric_ch4
      *
      * @return self
      */
@@ -839,7 +839,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets manure_management_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureManagementBeefCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureManagementCH4
      */
     public function getManureManagementCh4()
     {
@@ -849,7 +849,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets manure_management_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureManagementBeefCH4 $manure_management_ch4 manure_management_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureManagementCH4 $manure_management_ch4 manure_management_ch4
      *
      * @return self
      */
@@ -866,7 +866,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets manure_atmospheric_deposition_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O
      */
     public function getManureAtmosphericDepositionN2O()
     {
@@ -876,7 +876,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets manure_atmospheric_deposition_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O $manure_atmospheric_deposition_n2_o manure_atmospheric_deposition_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O $manure_atmospheric_deposition_n2_o manure_atmospheric_deposition_n2_o
      *
      * @return self
      */
@@ -893,7 +893,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets manure_leaching_runoff_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O
      */
     public function getManureLeachingRunoffN2O()
     {
@@ -903,7 +903,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets manure_leaching_runoff_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O $manure_leaching_runoff_n2_o manure_leaching_runoff_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O $manure_leaching_runoff_n2_o manure_leaching_runoff_n2_o
      *
      * @return self
      */
@@ -947,7 +947,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fuel_transport_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportCO2
      */
     public function getFuelTransportCo2()
     {
@@ -957,7 +957,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fuel_transport_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportCO2 $fuel_transport_co2 fuel_transport_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportCO2 $fuel_transport_co2 fuel_transport_co2
      *
      * @return self
      */
@@ -974,7 +974,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fuel_transport_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportCH4
      */
     public function getFuelTransportCh4()
     {
@@ -984,7 +984,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fuel_transport_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportCH4 $fuel_transport_ch4 fuel_transport_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportCH4 $fuel_transport_ch4 fuel_transport_ch4
      *
      * @return self
      */
@@ -1001,7 +1001,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fuel_transport_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportN2O
      */
     public function getFuelTransportN2O()
     {
@@ -1011,7 +1011,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fuel_transport_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelTransportN2O $fuel_transport_n2_o fuel_transport_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelTransportN2O $fuel_transport_n2_o fuel_transport_n2_o
      *
      * @return self
      */
@@ -1028,7 +1028,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fuel_stationary_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryCO2
      */
     public function getFuelStationaryCo2()
     {
@@ -1038,7 +1038,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fuel_stationary_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryCO2 $fuel_stationary_co2 fuel_stationary_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryCO2 $fuel_stationary_co2 fuel_stationary_co2
      *
      * @return self
      */
@@ -1055,7 +1055,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fuel_stationary_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryCH4
      */
     public function getFuelStationaryCh4()
     {
@@ -1065,7 +1065,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fuel_stationary_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryCH4 $fuel_stationary_ch4 fuel_stationary_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryCH4 $fuel_stationary_ch4 fuel_stationary_ch4
      *
      * @return self
      */
@@ -1082,7 +1082,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fuel_stationary_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryN2O
      */
     public function getFuelStationaryN2O()
     {
@@ -1092,7 +1092,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fuel_stationary_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FuelStationaryN2O $fuel_stationary_n2_o fuel_stationary_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFuelStationaryN2O $fuel_stationary_n2_o fuel_stationary_n2_o
      *
      * @return self
      */
@@ -1109,7 +1109,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets lime_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1LimeCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFLimeCO2
      */
     public function getLimeCo2()
     {
@@ -1119,7 +1119,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets lime_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1LimeCO2 $lime_co2 lime_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFLimeCO2 $lime_co2 lime_co2
      *
      * @return self
      */
@@ -1136,7 +1136,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets inorganic_fertiliser_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserN2O
      */
     public function getInorganicFertiliserN2O()
     {
@@ -1146,7 +1146,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets inorganic_fertiliser_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserN2O $inorganic_fertiliser_n2_o inorganic_fertiliser_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserN2O $inorganic_fertiliser_n2_o inorganic_fertiliser_n2_o
      *
      * @return self
      */
@@ -1163,7 +1163,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets inorganic_fertiliser_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserCO2
      */
     public function getInorganicFertiliserCo2()
     {
@@ -1173,7 +1173,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets inorganic_fertiliser_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserCO2 $inorganic_fertiliser_co2 inorganic_fertiliser_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserCO2 $inorganic_fertiliser_co2 inorganic_fertiliser_co2
      *
      * @return self
      */
@@ -1190,7 +1190,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets organic_fertiliser_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1OrganicFertiliserN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFOrganicFertiliserN2O
      */
     public function getOrganicFertiliserN2O()
     {
@@ -1200,7 +1200,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets organic_fertiliser_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1OrganicFertiliserN2O $organic_fertiliser_n2_o organic_fertiliser_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFOrganicFertiliserN2O $organic_fertiliser_n2_o organic_fertiliser_n2_o
      *
      * @return self
      */
@@ -1217,7 +1217,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets inorganic_fertiliser_atmospheric_deposition_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O
      */
     public function getInorganicFertiliserAtmosphericDepositionN2O()
     {
@@ -1227,7 +1227,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets inorganic_fertiliser_atmospheric_deposition_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O $inorganic_fertiliser_atmospheric_deposition_n2_o inorganic_fertiliser_atmospheric_deposition_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O $inorganic_fertiliser_atmospheric_deposition_n2_o inorganic_fertiliser_atmospheric_deposition_n2_o
      *
      * @return self
      */
@@ -1244,7 +1244,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets organic_fertiliser_atmospheric_deposition_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O
      */
     public function getOrganicFertiliserAtmosphericDepositionN2O()
     {
@@ -1254,7 +1254,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets organic_fertiliser_atmospheric_deposition_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O $organic_fertiliser_atmospheric_deposition_n2_o organic_fertiliser_atmospheric_deposition_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O $organic_fertiliser_atmospheric_deposition_n2_o organic_fertiliser_atmospheric_deposition_n2_o
      *
      * @return self
      */
@@ -1271,7 +1271,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets fertiliser_leaching_and_runoff_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O
      */
     public function getFertiliserLeachingAndRunoffN2O()
     {
@@ -1281,7 +1281,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets fertiliser_leaching_and_runoff_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O $fertiliser_leaching_and_runoff_n2_o fertiliser_leaching_and_runoff_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O $fertiliser_leaching_and_runoff_n2_o fertiliser_leaching_and_runoff_n2_o
      *
      * @return self
      */
@@ -1298,7 +1298,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets residue_leaching_and_runoff_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O
      */
     public function getResidueLeachingAndRunoffN2O()
     {
@@ -1308,7 +1308,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets residue_leaching_and_runoff_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O $residue_leaching_and_runoff_n2_o residue_leaching_and_runoff_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O $residue_leaching_and_runoff_n2_o residue_leaching_and_runoff_n2_o
      *
      * @return self
      */
@@ -1325,7 +1325,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets pasture_residue_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1PastureResidueN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPastureResidueN2O
      */
     public function getPastureResidueN2O()
     {
@@ -1335,7 +1335,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets pasture_residue_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1PastureResidueN2O $pasture_residue_n2_o pasture_residue_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPastureResidueN2O $pasture_residue_n2_o pasture_residue_n2_o
      *
      * @return self
      */
@@ -1352,7 +1352,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets solid_waste_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteCO2
      */
     public function getSolidWasteCo2()
     {
@@ -1362,7 +1362,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets solid_waste_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteCO2 $solid_waste_co2 solid_waste_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteCO2 $solid_waste_co2 solid_waste_co2
      *
      * @return self
      */
@@ -1379,7 +1379,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets solid_waste_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteCH4
      */
     public function getSolidWasteCh4()
     {
@@ -1389,7 +1389,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets solid_waste_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteCH4 $solid_waste_ch4 solid_waste_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteCH4 $solid_waste_ch4 solid_waste_ch4
      *
      * @return self
      */
@@ -1406,7 +1406,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets solid_waste_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteN2O
      */
     public function getSolidWasteN2O()
     {
@@ -1416,7 +1416,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets solid_waste_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1SolidWasteN2O $solid_waste_n2_o solid_waste_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSolidWasteN2O $solid_waste_n2_o solid_waste_n2_o
      *
      * @return self
      */
@@ -1433,7 +1433,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets woody_carbon_stocks_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1WoodyCarbonStocksCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2
      */
     public function getWoodyCarbonStocksCo2()
     {
@@ -1443,7 +1443,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets woody_carbon_stocks_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1WoodyCarbonStocksCO2 $woody_carbon_stocks_co2 woody_carbon_stocks_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2 $woody_carbon_stocks_co2 woody_carbon_stocks_co2
      *
      * @return self
      */
@@ -1460,7 +1460,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets biomass_burning_ch4
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1BiomassBurningCH4
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFBiomassBurningCH4
      */
     public function getBiomassBurningCh4()
     {
@@ -1470,7 +1470,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets biomass_burning_ch4
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1BiomassBurningCH4 $biomass_burning_ch4 biomass_burning_ch4
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFBiomassBurningCH4 $biomass_burning_ch4 biomass_burning_ch4
      *
      * @return self
      */
@@ -1487,7 +1487,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets biomass_burning_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1BiomassBurningN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFBiomassBurningN2O
      */
     public function getBiomassBurningN2O()
     {
@@ -1497,7 +1497,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets biomass_burning_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1BiomassBurningN2O $biomass_burning_n2_o biomass_burning_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFBiomassBurningN2O $biomass_burning_n2_o biomass_burning_n2_o
      *
      * @return self
      */
@@ -1514,7 +1514,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets soil_organic_stock_losses_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1SoilOrganicStockLossesCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2
      */
     public function getSoilOrganicStockLossesCo2()
     {
@@ -1524,7 +1524,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets soil_organic_stock_losses_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1SoilOrganicStockLossesCO2 $soil_organic_stock_losses_co2 soil_organic_stock_losses_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2 $soil_organic_stock_losses_co2 soil_organic_stock_losses_co2
      *
      * @return self
      */
@@ -1541,7 +1541,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets harvested_wood_products_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1HarvestedWoodProductsCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2
      */
     public function getHarvestedWoodProductsCo2()
     {
@@ -1551,7 +1551,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets harvested_wood_products_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1HarvestedWoodProductsCO2 $harvested_wood_products_co2 harvested_wood_products_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2 $harvested_wood_products_co2 harvested_wood_products_co2
      *
      * @return self
      */
@@ -1568,7 +1568,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets nitrogen_mineralisation_soil_losses_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O
      */
     public function getNitrogenMineralisationSoilLossesN2O()
     {
@@ -1578,7 +1578,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets nitrogen_mineralisation_soil_losses_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O $nitrogen_mineralisation_soil_losses_n2_o nitrogen_mineralisation_soil_losses_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O $nitrogen_mineralisation_soil_losses_n2_o nitrogen_mineralisation_soil_losses_n2_o
      *
      * @return self
      */
@@ -1595,7 +1595,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets leaching_and_runoff_soil_losses_n2_o
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O
      */
     public function getLeachingAndRunoffSoilLossesN2O()
     {
@@ -1605,7 +1605,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets leaching_and_runoff_soil_losses_n2_o
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O $leaching_and_runoff_soil_losses_n2_o leaching_and_runoff_soil_losses_n2_o
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O $leaching_and_runoff_soil_losses_n2_o leaching_and_runoff_soil_losses_n2_o
      *
      * @return self
      */
@@ -1622,7 +1622,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets savanna_fire_woody_carbon_stocks_co2e
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e
      */
     public function getSavannaFireWoodyCarbonStocksCo2e()
     {
@@ -1632,7 +1632,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets savanna_fire_woody_carbon_stocks_co2e
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e $savanna_fire_woody_carbon_stocks_co2e savanna_fire_woody_carbon_stocks_co2e
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e $savanna_fire_woody_carbon_stocks_co2e savanna_fire_woody_carbon_stocks_co2e
      *
      * @return self
      */
@@ -1649,7 +1649,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets savanna_fire_biomass_burning_co2e
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e
      */
     public function getSavannaFireBiomassBurningCo2e()
     {
@@ -1659,7 +1659,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets savanna_fire_biomass_burning_co2e
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e $savanna_fire_biomass_burning_co2e savanna_fire_biomass_burning_co2e
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e $savanna_fire_biomass_burning_co2e savanna_fire_biomass_burning_co2e
      *
      * @return self
      */
@@ -1676,7 +1676,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets perennial_woody_crops_removals_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2
      */
     public function getPerennialWoodyCropsRemovalsCo2()
     {
@@ -1686,7 +1686,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets perennial_woody_crops_removals_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2 $perennial_woody_crops_removals_co2 perennial_woody_crops_removals_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2 $perennial_woody_crops_removals_co2 perennial_woody_crops_removals_co2
      *
      * @return self
      */
@@ -1703,7 +1703,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets perennial_woody_crops_emissions_co2
      *
-     * @return \OpenAPI\Client\Model\PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2
+     * @return \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2
      */
     public function getPerennialWoodyCropsEmissionsCo2()
     {
@@ -1713,7 +1713,7 @@ class BeefScope1OutputPlusLULUCF implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets perennial_woody_crops_emissions_co2
      *
-     * @param \OpenAPI\Client\Model\PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2 $perennial_woody_crops_emissions_co2 perennial_woody_crops_emissions_co2
+     * @param \OpenAPI\Client\Model\BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2 $perennial_woody_crops_emissions_co2 perennial_woody_crops_emissions_co2
      *
      * @return self
      */

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -34,7 +34,6 @@ class TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations(BaseM
     time_spent_on_pasture: TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnPasture = Field(alias="timeSpentOnPasture")
     time_spent_on_feedpad: TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnFeedpad = Field(alias="timeSpentOnFeedpad")
     time_spent_on_milking_shed: TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnMilkingShed = Field(alias="timeSpentOnMilkingShed")
-    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["timeSpentOnPasture", "timeSpentOnFeedpad", "timeSpentOnMilkingShed"]
 
     model_config = ConfigDict(
@@ -67,10 +66,8 @@ class TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations(BaseM
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -87,11 +84,6 @@ class TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations(BaseM
         # override the default output from pydantic by calling `to_dict()` of time_spent_on_milking_shed
         if self.time_spent_on_milking_shed:
             _dict['timeSpentOnMilkingShed'] = self.time_spent_on_milking_shed.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -108,11 +100,6 @@ class TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations(BaseM
             "timeSpentOnFeedpad": TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnFeedpad.from_dict(obj["timeSpentOnFeedpad"]) if obj.get("timeSpentOnFeedpad") is not None else None,
             "timeSpentOnMilkingShed": TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocationsTimeSpentOnMilkingShed.from_dict(obj["timeSpentOnMilkingShed"]) if obj.get("timeSpentOnMilkingShed") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

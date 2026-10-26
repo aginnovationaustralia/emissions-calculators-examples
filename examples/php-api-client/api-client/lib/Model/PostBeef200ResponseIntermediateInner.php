@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -62,8 +62,8 @@ class PostBeef200ResponseIntermediateInner implements ModelInterface, ArrayAcces
         'id' => 'string',
         'scope1' => '\OpenAPI\Client\Model\BeefScope1Output',
         'scope2' => '\OpenAPI\Client\Model\Scope2Output',
-        'scope3' => '\OpenAPI\Client\Model\PostBeef200ResponseScope3',
-        'net' => '\OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerNet',
+        'scope3' => '\OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerScope3',
+        'net' => '\OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerNet',
         'intensities' => '\OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerIntensities'
     ];
 
@@ -428,7 +428,7 @@ class PostBeef200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Gets scope3
      *
-     * @return \OpenAPI\Client\Model\PostBeef200ResponseScope3
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerScope3
      */
     public function getScope3()
     {
@@ -438,7 +438,7 @@ class PostBeef200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Sets scope3
      *
-     * @param \OpenAPI\Client\Model\PostBeef200ResponseScope3 $scope3 scope3
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerScope3 $scope3 scope3
      *
      * @return self
      */
@@ -455,7 +455,7 @@ class PostBeef200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Gets net
      *
-     * @return \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerNet
+     * @return \OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerNet
      */
     public function getNet()
     {
@@ -465,7 +465,7 @@ class PostBeef200ResponseIntermediateInner implements ModelInterface, ArrayAcces
     /**
      * Sets net
      *
-     * @param \OpenAPI\Client\Model\PostAquaculture200ResponseIntermediateInnerNet $net net
+     * @param \OpenAPI\Client\Model\PostBeef200ResponseIntermediateInnerNet $net net
      *
      * @return self
      */

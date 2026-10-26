@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,14 +58,14 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'classes' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2Classes',
-        'milk_production' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2MilkProduction',
+        'classes' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClasses',
+        'milk_production' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemMilkProduction',
         'breed' => 'string',
-        'manure_allocations' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2ManureAllocations',
+        'manure_allocations' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocations',
         'is_in_leaching_zone' => 'bool',
         'fraction_applied_to_soils' => '\OpenAPI\Client\Model\PigsManureHerdsInnerFractionAppliedToSoils',
         'system' => 'string',
-        'method2_time_spent_in_locations' => '\OpenAPI\Client\Model\TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocations'
+        'method2_time_spent_in_locations' => '\OpenAPI\Client\Model\TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations'
     ];
 
     /**
@@ -366,7 +366,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets classes
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2Classes
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClasses
      */
     public function getClasses()
     {
@@ -376,7 +376,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets classes
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2Classes $classes classes
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClasses $classes classes
      *
      * @return self
      */
@@ -393,7 +393,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets milk_production
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2MilkProduction
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemMilkProduction
      */
     public function getMilkProduction()
     {
@@ -403,7 +403,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets milk_production
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2MilkProduction $milk_production milk_production
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemMilkProduction $milk_production milk_production
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets manure_allocations
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2ManureAllocations
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocations
      */
     public function getManureAllocations()
     {
@@ -457,7 +457,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets manure_allocations
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystem2ManureAllocations $manure_allocations manure_allocations
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocations $manure_allocations manure_allocations
      *
      * @return self
      */
@@ -555,7 +555,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets method2_time_spent_in_locations
      *
-     * @return \OpenAPI\Client\Model\TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocations
+     * @return \OpenAPI\Client\Model\TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations
      */
     public function getMethod2TimeSpentInLocations()
     {
@@ -565,7 +565,7 @@ class DairyManureHerdsInner implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets method2_time_spent_in_locations
      *
-     * @param \OpenAPI\Client\Model\TimeInLocationsMethod2MeasuredProportions2Method2TimeSpentInLocations $method2_time_spent_in_locations method2_time_spent_in_locations
+     * @param \OpenAPI\Client\Model\TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations $method2_time_spent_in_locations method2_time_spent_in_locations
      *
      * @return self
      */

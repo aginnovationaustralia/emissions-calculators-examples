@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,24 +18,24 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.compressed_natural_gas_cng2 import CompressedNaturalGasCNG2
-from openapi_client.models.litres_based_fuel3 import LitresBasedFuel3
+from openapi_client.models.compressed_natural_gas_cng1 import CompressedNaturalGasCNG1
+from openapi_client.models.litres_based_fuel1 import LitresBasedFuel1
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-SERVICESFUELINPUTTRANSPORTINNER_ONE_OF_SCHEMAS = ["CompressedNaturalGasCNG2", "LitresBasedFuel3"]
+SERVICESFUELINPUTTRANSPORTINNER_ONE_OF_SCHEMAS = ["CompressedNaturalGasCNG1", "LitresBasedFuel1"]
 
 class ServicesFuelInputTransportInner(BaseModel):
     """
     ServicesFuelInputTransportInner
     """
-    # data type: LitresBasedFuel3
-    oneof_schema_1_validator: Optional[LitresBasedFuel3] = None
-    # data type: CompressedNaturalGasCNG2
-    oneof_schema_2_validator: Optional[CompressedNaturalGasCNG2] = None
-    actual_instance: Optional[Union[CompressedNaturalGasCNG2, LitresBasedFuel3]] = None
-    one_of_schemas: Set[str] = { "CompressedNaturalGasCNG2", "LitresBasedFuel3" }
+    # data type: LitresBasedFuel1
+    oneof_schema_1_validator: Optional[LitresBasedFuel1] = None
+    # data type: CompressedNaturalGasCNG1
+    oneof_schema_2_validator: Optional[CompressedNaturalGasCNG1] = None
+    actual_instance: Optional[Union[CompressedNaturalGasCNG1, LitresBasedFuel1]] = None
+    one_of_schemas: Set[str] = { "CompressedNaturalGasCNG1", "LitresBasedFuel1" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -58,22 +58,22 @@ class ServicesFuelInputTransportInner(BaseModel):
         instance = ServicesFuelInputTransportInner.model_construct()
         error_messages = []
         match = 0
-        # validate data type: LitresBasedFuel3
-        if not isinstance(v, LitresBasedFuel3):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `LitresBasedFuel3`")
+        # validate data type: LitresBasedFuel1
+        if not isinstance(v, LitresBasedFuel1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `LitresBasedFuel1`")
         else:
             match += 1
-        # validate data type: CompressedNaturalGasCNG2
-        if not isinstance(v, CompressedNaturalGasCNG2):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `CompressedNaturalGasCNG2`")
+        # validate data type: CompressedNaturalGasCNG1
+        if not isinstance(v, CompressedNaturalGasCNG1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `CompressedNaturalGasCNG1`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG2, LitresBasedFuel3. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG1, LitresBasedFuel1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG2, LitresBasedFuel3. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG1, LitresBasedFuel1. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,25 +88,25 @@ class ServicesFuelInputTransportInner(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into LitresBasedFuel3
+        # deserialize data into LitresBasedFuel1
         try:
-            instance.actual_instance = LitresBasedFuel3.from_json(json_str)
+            instance.actual_instance = LitresBasedFuel1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into CompressedNaturalGasCNG2
+        # deserialize data into CompressedNaturalGasCNG1
         try:
-            instance.actual_instance = CompressedNaturalGasCNG2.from_json(json_str)
+            instance.actual_instance = CompressedNaturalGasCNG1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG2, LitresBasedFuel3. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG1, LitresBasedFuel1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG2, LitresBasedFuel3. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ServicesFuelInputTransportInner with oneOf schemas: CompressedNaturalGasCNG1, LitresBasedFuel1. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -120,7 +120,7 @@ class ServicesFuelInputTransportInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], CompressedNaturalGasCNG2, LitresBasedFuel3]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], CompressedNaturalGasCNG1, LitresBasedFuel1]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

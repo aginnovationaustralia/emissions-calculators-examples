@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt } from './PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt';
+import type { PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt } from './PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt';
 import {
-    PostAllModulesRequestPasturePastureFractionOfAnnualCropBurntFromJSON,
-    PostAllModulesRequestPasturePastureFractionOfAnnualCropBurntFromJSONTyped,
-    PostAllModulesRequestPasturePastureFractionOfAnnualCropBurntToJSON,
-    PostAllModulesRequestPasturePastureFractionOfAnnualCropBurntToJSONTyped,
-} from './PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt';
+    PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntFromJSON,
+    PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntFromJSONTyped,
+    PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntToJSON,
+    PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntToJSONTyped,
+} from './PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt';
 import type { PostBeefRequestHerdsInnerPastureResidues } from './PostBeefRequestHerdsInnerPastureResidues';
 import {
     PostBeefRequestHerdsInnerPastureResiduesFromJSON,
@@ -52,7 +52,7 @@ export interface PostBeefRequestHerdsInnerPasture {
     /**
      * 
      */
-    fractionOfAnnualCropBurnt: PostAllModulesRequestPasturePastureFractionOfAnnualCropBurnt;
+    fractionOfAnnualCropBurnt: PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt;
     /**
      * 
      */
@@ -96,7 +96,7 @@ export function PostBeefRequestHerdsInnerPastureFromJSONTyped(json: any, ignoreD
         
         'type': json['type'],
         'areaManaged': PostBeefRequestHerdsInnerPastureAreaManagedFromJSON(json['areaManaged']),
-        'fractionOfAnnualCropBurnt': PostAllModulesRequestPasturePastureFractionOfAnnualCropBurntFromJSON(json['fractionOfAnnualCropBurnt']),
+        'fractionOfAnnualCropBurnt': PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntFromJSON(json['fractionOfAnnualCropBurnt']),
         'residues': PostBeefRequestHerdsInnerPastureResiduesFromJSON(json['residues']),
     };
 }
@@ -114,7 +114,7 @@ export function PostBeefRequestHerdsInnerPastureToJSONTyped(value?: PostBeefRequ
         
         'type': value['type'],
         'areaManaged': PostBeefRequestHerdsInnerPastureAreaManagedToJSON(value['areaManaged']),
-        'fractionOfAnnualCropBurnt': PostAllModulesRequestPasturePastureFractionOfAnnualCropBurntToJSON(value['fractionOfAnnualCropBurnt']),
+        'fractionOfAnnualCropBurnt': PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntToJSON(value['fractionOfAnnualCropBurnt']),
         'residues': PostBeefRequestHerdsInnerPastureResiduesToJSON(value['residues']),
     };
 }

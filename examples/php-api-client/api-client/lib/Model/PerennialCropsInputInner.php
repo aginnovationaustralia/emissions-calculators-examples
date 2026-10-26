@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,11 +58,11 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $openAPITypes = [
-        'method2_actual_stem_density' => '\OpenAPI\Client\Model\Method16Method2ActualStemDensity',
-        'method2_biomass_at_maturity' => '\OpenAPI\Client\Model\Method16Method2BiomassAtMaturity',
-        'plantings' => '\OpenAPI\Client\Model\Method16PlantingsInner[]',
+        'method2_actual_stem_density' => '\OpenAPI\Client\Model\Method13Method2ActualStemDensity',
+        'method2_biomass_at_maturity' => '\OpenAPI\Client\Model\Method13Method2BiomassAtMaturity',
+        'plantings' => '\OpenAPI\Client\Model\Method13PlantingsInner[]',
         'crop_type' => 'string',
-        'clearings' => '\OpenAPI\Client\Model\Method16ClearingsInner[]',
+        'clearings' => '\OpenAPI\Client\Model\Method13ClearingsInner[]',
         'calculation_method' => 'string'
     ];
 
@@ -346,7 +346,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets method2_actual_stem_density
      *
-     * @return \OpenAPI\Client\Model\Method16Method2ActualStemDensity
+     * @return \OpenAPI\Client\Model\Method13Method2ActualStemDensity
      */
     public function getMethod2ActualStemDensity()
     {
@@ -356,7 +356,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets method2_actual_stem_density
      *
-     * @param \OpenAPI\Client\Model\Method16Method2ActualStemDensity $method2_actual_stem_density method2_actual_stem_density
+     * @param \OpenAPI\Client\Model\Method13Method2ActualStemDensity $method2_actual_stem_density method2_actual_stem_density
      *
      * @return self
      */
@@ -373,7 +373,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets method2_biomass_at_maturity
      *
-     * @return \OpenAPI\Client\Model\Method16Method2BiomassAtMaturity
+     * @return \OpenAPI\Client\Model\Method13Method2BiomassAtMaturity
      */
     public function getMethod2BiomassAtMaturity()
     {
@@ -383,7 +383,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets method2_biomass_at_maturity
      *
-     * @param \OpenAPI\Client\Model\Method16Method2BiomassAtMaturity $method2_biomass_at_maturity method2_biomass_at_maturity
+     * @param \OpenAPI\Client\Model\Method13Method2BiomassAtMaturity $method2_biomass_at_maturity method2_biomass_at_maturity
      *
      * @return self
      */
@@ -400,7 +400,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets plantings
      *
-     * @return \OpenAPI\Client\Model\Method16PlantingsInner[]
+     * @return \OpenAPI\Client\Model\Method13PlantingsInner[]
      */
     public function getPlantings()
     {
@@ -410,7 +410,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets plantings
      *
-     * @param \OpenAPI\Client\Model\Method16PlantingsInner[] $plantings plantings
+     * @param \OpenAPI\Client\Model\Method13PlantingsInner[] $plantings plantings
      *
      * @return self
      */
@@ -454,7 +454,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets clearings
      *
-     * @return \OpenAPI\Client\Model\Method16ClearingsInner[]
+     * @return \OpenAPI\Client\Model\Method13ClearingsInner[]
      */
     public function getClearings()
     {
@@ -464,7 +464,7 @@ class PerennialCropsInputInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets clearings
      *
-     * @param \OpenAPI\Client\Model\Method16ClearingsInner[] $clearings clearings
+     * @param \OpenAPI\Client\Model\Method13ClearingsInner[] $clearings clearings
      *
      * @return self
      */

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -32,7 +32,6 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight(
     """ # noqa: E501
     value: Union[Annotated[float, Field(strict=True, gt=0)], Annotated[int, Field(strict=True, gt=0)]]
     quality: Optional[QualityTable] = None
-    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["value", "quality"]
 
     model_config = ConfigDict(
@@ -65,10 +64,8 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight(
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -79,11 +76,6 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight(
         # override the default output from pydantic by calling `to_dict()` of quality
         if self.quality:
             _dict['quality'] = self.quality.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -99,11 +91,6 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2Liveweight(
             "value": obj.get("value"),
             "quality": QualityTable.from_dict(obj["quality"]) if obj.get("quality") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

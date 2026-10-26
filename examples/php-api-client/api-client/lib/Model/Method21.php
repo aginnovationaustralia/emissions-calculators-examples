@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,13 +58,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'method' => 'string',
-        'unmanaged_burial' => '\OpenAPI\Client\Model\Method21UnmanagedBurialInner[]',
-        'unmanaged_deep' => '\OpenAPI\Client\Model\Method21UnmanagedDeepInner[]',
-        'unmanaged_shallow' => '\OpenAPI\Client\Model\Method21UnmanagedShallowInner[]',
-        'composting' => '\OpenAPI\Client\Model\Method21CompostingInner[]',
-        'anaerobic_digestion' => '\OpenAPI\Client\Model\Method21AnaerobicDigestionInner[]',
-        'incineration' => '\OpenAPI\Client\Model\Method21IncinerationInner[]'
+        'amount' => '\OpenAPI\Client\Model\Method21Amount',
+        'custom_emissions_factor' => '\OpenAPI\Client\Model\Method21CustomEmissionsFactor'
     ];
 
     /**
@@ -75,13 +70,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'method' => null,
-        'unmanaged_burial' => null,
-        'unmanaged_deep' => null,
-        'unmanaged_shallow' => null,
-        'composting' => null,
-        'anaerobic_digestion' => null,
-        'incineration' => null
+        'amount' => null,
+        'custom_emissions_factor' => null
     ];
 
     /**
@@ -90,13 +80,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'method' => false,
-        'unmanaged_burial' => false,
-        'unmanaged_deep' => false,
-        'unmanaged_shallow' => false,
-        'composting' => false,
-        'anaerobic_digestion' => false,
-        'incineration' => false
+        'amount' => false,
+        'custom_emissions_factor' => false
     ];
 
     /**
@@ -185,13 +170,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'method' => 'method',
-        'unmanaged_burial' => 'unmanagedBurial',
-        'unmanaged_deep' => 'unmanagedDeep',
-        'unmanaged_shallow' => 'unmanagedShallow',
-        'composting' => 'composting',
-        'anaerobic_digestion' => 'anaerobicDigestion',
-        'incineration' => 'incineration'
+        'amount' => 'amount',
+        'custom_emissions_factor' => 'customEmissionsFactor'
     ];
 
     /**
@@ -200,13 +180,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'method' => 'setMethod',
-        'unmanaged_burial' => 'setUnmanagedBurial',
-        'unmanaged_deep' => 'setUnmanagedDeep',
-        'unmanaged_shallow' => 'setUnmanagedShallow',
-        'composting' => 'setComposting',
-        'anaerobic_digestion' => 'setAnaerobicDigestion',
-        'incineration' => 'setIncineration'
+        'amount' => 'setAmount',
+        'custom_emissions_factor' => 'setCustomEmissionsFactor'
     ];
 
     /**
@@ -215,13 +190,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'method' => 'getMethod',
-        'unmanaged_burial' => 'getUnmanagedBurial',
-        'unmanaged_deep' => 'getUnmanagedDeep',
-        'unmanaged_shallow' => 'getUnmanagedShallow',
-        'composting' => 'getComposting',
-        'anaerobic_digestion' => 'getAnaerobicDigestion',
-        'incineration' => 'getIncineration'
+        'amount' => 'getAmount',
+        'custom_emissions_factor' => 'getCustomEmissionsFactor'
     ];
 
     /**
@@ -281,13 +251,8 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('method', $data ?? [], null);
-        $this->setIfExists('unmanaged_burial', $data ?? [], null);
-        $this->setIfExists('unmanaged_deep', $data ?? [], null);
-        $this->setIfExists('unmanaged_shallow', $data ?? [], null);
-        $this->setIfExists('composting', $data ?? [], null);
-        $this->setIfExists('anaerobic_digestion', $data ?? [], null);
-        $this->setIfExists('incineration', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('custom_emissions_factor', $data ?? [], null);
     }
 
     /**
@@ -317,8 +282,11 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['method'] === null) {
-            $invalidProperties[] = "'method' can't be null";
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if ($this->container['custom_emissions_factor'] === null) {
+            $invalidProperties[] = "'custom_emissions_factor' can't be null";
         }
         return $invalidProperties;
     }
@@ -336,190 +304,55 @@ class Method21 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets method
+     * Gets amount
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Method21Amount
      */
-    public function getMethod()
+    public function getAmount()
     {
-        return $this->container['method'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets method
+     * Sets amount
      *
-     * @param string $method method
+     * @param \OpenAPI\Client\Model\Method21Amount $amount amount
      *
      * @return self
      */
-    public function setMethod($method)
+    public function setAmount($amount)
     {
-        if (is_null($method)) {
-            throw new \InvalidArgumentException('non-nullable method cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['method'] = $method;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets unmanaged_burial
+     * Gets custom_emissions_factor
      *
-     * @return \OpenAPI\Client\Model\Method21UnmanagedBurialInner[]|null
+     * @return \OpenAPI\Client\Model\Method21CustomEmissionsFactor
      */
-    public function getUnmanagedBurial()
+    public function getCustomEmissionsFactor()
     {
-        return $this->container['unmanaged_burial'];
+        return $this->container['custom_emissions_factor'];
     }
 
     /**
-     * Sets unmanaged_burial
+     * Sets custom_emissions_factor
      *
-     * @param \OpenAPI\Client\Model\Method21UnmanagedBurialInner[]|null $unmanaged_burial unmanaged_burial
+     * @param \OpenAPI\Client\Model\Method21CustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
      *
      * @return self
      */
-    public function setUnmanagedBurial($unmanaged_burial)
+    public function setCustomEmissionsFactor($custom_emissions_factor)
     {
-        if (is_null($unmanaged_burial)) {
-            throw new \InvalidArgumentException('non-nullable unmanaged_burial cannot be null');
+        if (is_null($custom_emissions_factor)) {
+            throw new \InvalidArgumentException('non-nullable custom_emissions_factor cannot be null');
         }
-        $this->container['unmanaged_burial'] = $unmanaged_burial;
-
-        return $this;
-    }
-
-    /**
-     * Gets unmanaged_deep
-     *
-     * @return \OpenAPI\Client\Model\Method21UnmanagedDeepInner[]|null
-     */
-    public function getUnmanagedDeep()
-    {
-        return $this->container['unmanaged_deep'];
-    }
-
-    /**
-     * Sets unmanaged_deep
-     *
-     * @param \OpenAPI\Client\Model\Method21UnmanagedDeepInner[]|null $unmanaged_deep unmanaged_deep
-     *
-     * @return self
-     */
-    public function setUnmanagedDeep($unmanaged_deep)
-    {
-        if (is_null($unmanaged_deep)) {
-            throw new \InvalidArgumentException('non-nullable unmanaged_deep cannot be null');
-        }
-        $this->container['unmanaged_deep'] = $unmanaged_deep;
-
-        return $this;
-    }
-
-    /**
-     * Gets unmanaged_shallow
-     *
-     * @return \OpenAPI\Client\Model\Method21UnmanagedShallowInner[]|null
-     */
-    public function getUnmanagedShallow()
-    {
-        return $this->container['unmanaged_shallow'];
-    }
-
-    /**
-     * Sets unmanaged_shallow
-     *
-     * @param \OpenAPI\Client\Model\Method21UnmanagedShallowInner[]|null $unmanaged_shallow unmanaged_shallow
-     *
-     * @return self
-     */
-    public function setUnmanagedShallow($unmanaged_shallow)
-    {
-        if (is_null($unmanaged_shallow)) {
-            throw new \InvalidArgumentException('non-nullable unmanaged_shallow cannot be null');
-        }
-        $this->container['unmanaged_shallow'] = $unmanaged_shallow;
-
-        return $this;
-    }
-
-    /**
-     * Gets composting
-     *
-     * @return \OpenAPI\Client\Model\Method21CompostingInner[]|null
-     */
-    public function getComposting()
-    {
-        return $this->container['composting'];
-    }
-
-    /**
-     * Sets composting
-     *
-     * @param \OpenAPI\Client\Model\Method21CompostingInner[]|null $composting composting
-     *
-     * @return self
-     */
-    public function setComposting($composting)
-    {
-        if (is_null($composting)) {
-            throw new \InvalidArgumentException('non-nullable composting cannot be null');
-        }
-        $this->container['composting'] = $composting;
-
-        return $this;
-    }
-
-    /**
-     * Gets anaerobic_digestion
-     *
-     * @return \OpenAPI\Client\Model\Method21AnaerobicDigestionInner[]|null
-     */
-    public function getAnaerobicDigestion()
-    {
-        return $this->container['anaerobic_digestion'];
-    }
-
-    /**
-     * Sets anaerobic_digestion
-     *
-     * @param \OpenAPI\Client\Model\Method21AnaerobicDigestionInner[]|null $anaerobic_digestion anaerobic_digestion
-     *
-     * @return self
-     */
-    public function setAnaerobicDigestion($anaerobic_digestion)
-    {
-        if (is_null($anaerobic_digestion)) {
-            throw new \InvalidArgumentException('non-nullable anaerobic_digestion cannot be null');
-        }
-        $this->container['anaerobic_digestion'] = $anaerobic_digestion;
-
-        return $this;
-    }
-
-    /**
-     * Gets incineration
-     *
-     * @return \OpenAPI\Client\Model\Method21IncinerationInner[]|null
-     */
-    public function getIncineration()
-    {
-        return $this->container['incineration'];
-    }
-
-    /**
-     * Sets incineration
-     *
-     * @param \OpenAPI\Client\Model\Method21IncinerationInner[]|null $incineration incineration
-     *
-     * @return self
-     */
-    public function setIncineration($incineration)
-    {
-        if (is_null($incineration)) {
-            throw new \InvalidArgumentException('non-nullable incineration cannot be null');
-        }
-        $this->container['incineration'] = $incineration;
+        $this->container['custom_emissions_factor'] = $custom_emissions_factor;
 
         return $this;
     }

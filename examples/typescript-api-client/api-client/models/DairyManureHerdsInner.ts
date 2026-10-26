@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { TimeInLocationsMethod1ProductionSystem2 } from './TimeInLocationsMethod1ProductionSystem2';
+import type { TimeInLocationsMethod1ProductionSystem } from './TimeInLocationsMethod1ProductionSystem';
 import {
-    instanceOfTimeInLocationsMethod1ProductionSystem2,
-    TimeInLocationsMethod1ProductionSystem2FromJSON,
-    TimeInLocationsMethod1ProductionSystem2FromJSONTyped,
-    TimeInLocationsMethod1ProductionSystem2ToJSON,
-} from './TimeInLocationsMethod1ProductionSystem2';
-import type { TimeInLocationsMethod2MeasuredProportions2 } from './TimeInLocationsMethod2MeasuredProportions2';
+    instanceOfTimeInLocationsMethod1ProductionSystem,
+    TimeInLocationsMethod1ProductionSystemFromJSON,
+    TimeInLocationsMethod1ProductionSystemFromJSONTyped,
+    TimeInLocationsMethod1ProductionSystemToJSON,
+} from './TimeInLocationsMethod1ProductionSystem';
+import type { TimeInLocationsMethod2MeasuredProportions } from './TimeInLocationsMethod2MeasuredProportions';
 import {
-    instanceOfTimeInLocationsMethod2MeasuredProportions2,
-    TimeInLocationsMethod2MeasuredProportions2FromJSON,
-    TimeInLocationsMethod2MeasuredProportions2FromJSONTyped,
-    TimeInLocationsMethod2MeasuredProportions2ToJSON,
-} from './TimeInLocationsMethod2MeasuredProportions2';
+    instanceOfTimeInLocationsMethod2MeasuredProportions,
+    TimeInLocationsMethod2MeasuredProportionsFromJSON,
+    TimeInLocationsMethod2MeasuredProportionsFromJSONTyped,
+    TimeInLocationsMethod2MeasuredProportionsToJSON,
+} from './TimeInLocationsMethod2MeasuredProportions';
 
 /**
  * @type DairyManureHerdsInner
  * 
  * @export
  */
-export type DairyManureHerdsInner = TimeInLocationsMethod1ProductionSystem2 | TimeInLocationsMethod2MeasuredProportions2;
+export type DairyManureHerdsInner = TimeInLocationsMethod1ProductionSystem | TimeInLocationsMethod2MeasuredProportions;
 /**
  * Check if a given object matches one of the DairyManureHerdsInner variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -43,10 +43,10 @@ export function instanceOfDairyManureHerdsInner(value: any): boolean {
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfTimeInLocationsMethod1ProductionSystem2(value)) {
+    if (instanceOfTimeInLocationsMethod1ProductionSystem(value)) {
         return true;
     }
-    if (instanceOfTimeInLocationsMethod2MeasuredProportions2(value)) {
+    if (instanceOfTimeInLocationsMethod2MeasuredProportions(value)) {
         return true;
     }
     return false;
@@ -64,11 +64,11 @@ export function DairyManureHerdsInnerFromJSONTyped(json: any, ignoreDiscriminato
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfTimeInLocationsMethod1ProductionSystem2(json)) {
-        return TimeInLocationsMethod1ProductionSystem2FromJSONTyped(json, true);
+    if (instanceOfTimeInLocationsMethod1ProductionSystem(json)) {
+        return TimeInLocationsMethod1ProductionSystemFromJSONTyped(json, true);
     }
-    if (instanceOfTimeInLocationsMethod2MeasuredProportions2(json)) {
-        return TimeInLocationsMethod2MeasuredProportions2FromJSONTyped(json, true);
+    if (instanceOfTimeInLocationsMethod2MeasuredProportions(json)) {
+        return TimeInLocationsMethod2MeasuredProportionsFromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -84,11 +84,11 @@ export function DairyManureHerdsInnerToJSONTyped(value?: DairyManureHerdsInner |
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfTimeInLocationsMethod1ProductionSystem2(value)) {
-        return TimeInLocationsMethod1ProductionSystem2ToJSON(value as TimeInLocationsMethod1ProductionSystem2);
+    if (instanceOfTimeInLocationsMethod1ProductionSystem(value)) {
+        return TimeInLocationsMethod1ProductionSystemToJSON(value as TimeInLocationsMethod1ProductionSystem);
     }
-    if (instanceOfTimeInLocationsMethod2MeasuredProportions2(value)) {
-        return TimeInLocationsMethod2MeasuredProportions2ToJSON(value as TimeInLocationsMethod2MeasuredProportions2);
+    if (instanceOfTimeInLocationsMethod2MeasuredProportions(value)) {
+        return TimeInLocationsMethod2MeasuredProportionsToJSON(value as TimeInLocationsMethod2MeasuredProportions);
     }
     return {};
 }

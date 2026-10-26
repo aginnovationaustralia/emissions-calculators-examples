@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -34,13 +34,6 @@ import {
     Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentToJSON,
     Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentToJSONTyped,
 } from './Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment';
-import type { Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment } from './Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment';
-import {
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentFromJSON,
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentFromJSONTyped,
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentToJSON,
-    Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentToJSONTyped,
-} from './Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment';
 
 /**
  * 
@@ -48,10 +41,6 @@ import {
  * @interface Method2MeasuredFractionsDigester
  */
 export interface Method2MeasuredFractionsDigester {
-    /**
-     * 
-     */
-    fractionSolidsSeparatedPreTreatment: Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment;
     /**
      * 
      */
@@ -70,7 +59,6 @@ export interface Method2MeasuredFractionsDigester {
  * Check if a given object implements the Method2MeasuredFractionsDigester interface.
  */
 export function instanceOfMethod2MeasuredFractionsDigester(value: object): value is Method2MeasuredFractionsDigester {
-    if (!('fractionSolidsSeparatedPreTreatment' in value) || value['fractionSolidsSeparatedPreTreatment'] === undefined) return false;
     if (!('manureAllocated' in value) || value['manureAllocated'] === undefined) return false;
     if (!('treatmentStage2Allocations' in value) || value['treatmentStage2Allocations'] === undefined) return false;
     if (!('fractionNitrogenSeparatedPreTreatment' in value) || value['fractionNitrogenSeparatedPreTreatment'] === undefined) return false;
@@ -87,7 +75,6 @@ export function Method2MeasuredFractionsDigesterFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'fractionSolidsSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentFromJSON(json['fractionSolidsSeparatedPreTreatment']),
         'manureAllocated': Method1SolidsSeparationFlagDigesterManureAllocatedFromJSON(json['manureAllocated']),
         'treatmentStage2Allocations': Method1SolidsSeparationFlagDigesterTreatmentStage2AllocationsFromJSON(json['treatmentStage2Allocations']),
         'fractionNitrogenSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentFromJSON(json['fractionNitrogenSeparatedPreTreatment']),
@@ -105,7 +92,6 @@ export function Method2MeasuredFractionsDigesterToJSONTyped(value?: Method2Measu
 
     return {
         
-        'fractionSolidsSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatmentToJSON(value['fractionSolidsSeparatedPreTreatment']),
         'manureAllocated': Method1SolidsSeparationFlagDigesterManureAllocatedToJSON(value['manureAllocated']),
         'treatmentStage2Allocations': Method1SolidsSeparationFlagDigesterTreatmentStage2AllocationsToJSON(value['treatmentStage2Allocations']),
         'fractionNitrogenSeparatedPreTreatment': Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatmentToJSON(value['fractionNitrogenSeparatedPreTreatment']),

@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -59,7 +59,7 @@ class PostBeefRequestHerdsInnerPastureResidues implements ModelInterface, ArrayA
      */
     protected static $openAPITypes = [
         'calculation_method' => 'string',
-        'average_yield_per_hectare' => '\OpenAPI\Client\Model\Method24AverageYieldPerHectare'
+        'average_yield_per_hectare' => '\OpenAPI\Client\Model\Method2AverageYieldPerHectare'
     ];
 
     /**
@@ -333,7 +333,7 @@ class PostBeefRequestHerdsInnerPastureResidues implements ModelInterface, ArrayA
     /**
      * Gets average_yield_per_hectare
      *
-     * @return \OpenAPI\Client\Model\Method24AverageYieldPerHectare
+     * @return \OpenAPI\Client\Model\Method2AverageYieldPerHectare
      */
     public function getAverageYieldPerHectare()
     {
@@ -343,7 +343,7 @@ class PostBeefRequestHerdsInnerPastureResidues implements ModelInterface, ArrayA
     /**
      * Sets average_yield_per_hectare
      *
-     * @param \OpenAPI\Client\Model\Method24AverageYieldPerHectare $average_yield_per_hectare average_yield_per_hectare
+     * @param \OpenAPI\Client\Model\Method2AverageYieldPerHectare $average_yield_per_hectare average_yield_per_hectare
      *
      * @return self
      */

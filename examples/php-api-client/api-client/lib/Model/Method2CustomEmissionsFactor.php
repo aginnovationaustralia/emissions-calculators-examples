@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,9 +58,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $openAPITypes = [
-        'amount_units' => '\OpenAPI\Client\Model\QuantityByUnits1AmountUnits',
-        'custom_emissions_factor' => '\OpenAPI\Client\Model\QuantityByMass12CustomEmissionsFactor',
-        'amount_mass' => '\OpenAPI\Client\Model\QuantityByMass12AmountMass'
+        'amount' => '\OpenAPI\Client\Model\RegionlessFeedTypeAmount',
+        'custom_emissions_factor' => '\OpenAPI\Client\Model\Method2CustomEmissionsFactorCustomEmissionsFactor'
     ];
 
     /**
@@ -71,9 +70,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'amount_units' => null,
-        'custom_emissions_factor' => null,
-        'amount_mass' => null
+        'amount' => null,
+        'custom_emissions_factor' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'amount_units' => false,
-        'custom_emissions_factor' => false,
-        'amount_mass' => false
+        'amount' => false,
+        'custom_emissions_factor' => false
     ];
 
     /**
@@ -173,9 +170,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount_units' => 'amountUnits',
-        'custom_emissions_factor' => 'customEmissionsFactor',
-        'amount_mass' => 'amountMass'
+        'amount' => 'amount',
+        'custom_emissions_factor' => 'customEmissionsFactor'
     ];
 
     /**
@@ -184,9 +180,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'amount_units' => 'setAmountUnits',
-        'custom_emissions_factor' => 'setCustomEmissionsFactor',
-        'amount_mass' => 'setAmountMass'
+        'amount' => 'setAmount',
+        'custom_emissions_factor' => 'setCustomEmissionsFactor'
     ];
 
     /**
@@ -195,9 +190,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'amount_units' => 'getAmountUnits',
-        'custom_emissions_factor' => 'getCustomEmissionsFactor',
-        'amount_mass' => 'getAmountMass'
+        'amount' => 'getAmount',
+        'custom_emissions_factor' => 'getCustomEmissionsFactor'
     ];
 
     /**
@@ -257,9 +251,8 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('amount_units', $data ?? [], null);
+        $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('custom_emissions_factor', $data ?? [], null);
-        $this->setIfExists('amount_mass', $data ?? [], null);
     }
 
     /**
@@ -289,14 +282,11 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['amount_units'] === null) {
-            $invalidProperties[] = "'amount_units' can't be null";
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
         }
         if ($this->container['custom_emissions_factor'] === null) {
             $invalidProperties[] = "'custom_emissions_factor' can't be null";
-        }
-        if ($this->container['amount_mass'] === null) {
-            $invalidProperties[] = "'amount_mass' can't be null";
         }
         return $invalidProperties;
     }
@@ -314,28 +304,28 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets amount_units
+     * Gets amount
      *
-     * @return \OpenAPI\Client\Model\QuantityByUnits1AmountUnits
+     * @return \OpenAPI\Client\Model\RegionlessFeedTypeAmount
      */
-    public function getAmountUnits()
+    public function getAmount()
     {
-        return $this->container['amount_units'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets amount_units
+     * Sets amount
      *
-     * @param \OpenAPI\Client\Model\QuantityByUnits1AmountUnits $amount_units amount_units
+     * @param \OpenAPI\Client\Model\RegionlessFeedTypeAmount $amount amount
      *
      * @return self
      */
-    public function setAmountUnits($amount_units)
+    public function setAmount($amount)
     {
-        if (is_null($amount_units)) {
-            throw new \InvalidArgumentException('non-nullable amount_units cannot be null');
+        if (is_null($amount)) {
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
-        $this->container['amount_units'] = $amount_units;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
@@ -343,7 +333,7 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets custom_emissions_factor
      *
-     * @return \OpenAPI\Client\Model\QuantityByMass12CustomEmissionsFactor
+     * @return \OpenAPI\Client\Model\Method2CustomEmissionsFactorCustomEmissionsFactor
      */
     public function getCustomEmissionsFactor()
     {
@@ -353,7 +343,7 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets custom_emissions_factor
      *
-     * @param \OpenAPI\Client\Model\QuantityByMass12CustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
+     * @param \OpenAPI\Client\Model\Method2CustomEmissionsFactorCustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
      *
      * @return self
      */
@@ -363,33 +353,6 @@ class Method2CustomEmissionsFactor implements ModelInterface, ArrayAccess, \Json
             throw new \InvalidArgumentException('non-nullable custom_emissions_factor cannot be null');
         }
         $this->container['custom_emissions_factor'] = $custom_emissions_factor;
-
-        return $this;
-    }
-
-    /**
-     * Gets amount_mass
-     *
-     * @return \OpenAPI\Client\Model\QuantityByMass12AmountMass
-     */
-    public function getAmountMass()
-    {
-        return $this->container['amount_mass'];
-    }
-
-    /**
-     * Sets amount_mass
-     *
-     * @param \OpenAPI\Client\Model\QuantityByMass12AmountMass $amount_mass amount_mass
-     *
-     * @return self
-     */
-    public function setAmountMass($amount_mass)
-    {
-        if (is_null($amount_mass)) {
-            throw new \InvalidArgumentException('non-nullable amount_mass cannot be null');
-        }
-        $this->container['amount_mass'] = $amount_mass;
 
         return $this;
     }

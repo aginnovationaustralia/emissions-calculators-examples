@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -18,18 +18,18 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from openapi_client.models.aviation import Aviation
+from openapi_client.models.aviation1 import Aviation1
 from openapi_client.models.cars_and_light_commercial_vehicles1 import CarsAndLightCommercialVehicles1
-from openapi_client.models.cars_and_light_commercial_vehicles_pre2004 import CarsAndLightCommercialVehiclesPre2004
-from openapi_client.models.heavy_duty_vehicles import HeavyDutyVehicles
-from openapi_client.models.light_duty_vehicles import LightDutyVehicles
-from openapi_client.models.off_road_agriculture_and_forestry_equipment import OffRoadAgricultureAndForestryEquipment
-from openapi_client.models.vessel import Vessel
+from openapi_client.models.cars_and_light_commercial_vehicles_pre20041 import CarsAndLightCommercialVehiclesPre20041
+from openapi_client.models.heavy_duty_vehicles1 import HeavyDutyVehicles1
+from openapi_client.models.light_duty_vehicles1 import LightDutyVehicles1
+from openapi_client.models.off_road_agriculture_and_forestry_equipment1 import OffRoadAgricultureAndForestryEquipment1
+from openapi_client.models.vessel1 import Vessel1
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-LITRESBASEDFUEL1_ONE_OF_SCHEMAS = ["Aviation", "CarsAndLightCommercialVehicles1", "CarsAndLightCommercialVehiclesPre2004", "HeavyDutyVehicles", "LightDutyVehicles", "OffRoadAgricultureAndForestryEquipment", "Vessel"]
+LITRESBASEDFUEL1_ONE_OF_SCHEMAS = ["Aviation1", "CarsAndLightCommercialVehicles1", "CarsAndLightCommercialVehiclesPre20041", "HeavyDutyVehicles1", "LightDutyVehicles1", "OffRoadAgricultureAndForestryEquipment1", "Vessel1"]
 
 class LitresBasedFuel1(BaseModel):
     """
@@ -37,20 +37,20 @@ class LitresBasedFuel1(BaseModel):
     """
     # data type: CarsAndLightCommercialVehicles1
     oneof_schema_1_validator: Optional[CarsAndLightCommercialVehicles1] = None
-    # data type: CarsAndLightCommercialVehiclesPre2004
-    oneof_schema_2_validator: Optional[CarsAndLightCommercialVehiclesPre2004] = None
-    # data type: LightDutyVehicles
-    oneof_schema_3_validator: Optional[LightDutyVehicles] = None
-    # data type: HeavyDutyVehicles
-    oneof_schema_4_validator: Optional[HeavyDutyVehicles] = None
-    # data type: Aviation
-    oneof_schema_5_validator: Optional[Aviation] = None
-    # data type: Vessel
-    oneof_schema_6_validator: Optional[Vessel] = None
-    # data type: OffRoadAgricultureAndForestryEquipment
-    oneof_schema_7_validator: Optional[OffRoadAgricultureAndForestryEquipment] = None
-    actual_instance: Optional[Union[Aviation, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre2004, HeavyDutyVehicles, LightDutyVehicles, OffRoadAgricultureAndForestryEquipment, Vessel]] = None
-    one_of_schemas: Set[str] = { "Aviation", "CarsAndLightCommercialVehicles1", "CarsAndLightCommercialVehiclesPre2004", "HeavyDutyVehicles", "LightDutyVehicles", "OffRoadAgricultureAndForestryEquipment", "Vessel" }
+    # data type: CarsAndLightCommercialVehiclesPre20041
+    oneof_schema_2_validator: Optional[CarsAndLightCommercialVehiclesPre20041] = None
+    # data type: LightDutyVehicles1
+    oneof_schema_3_validator: Optional[LightDutyVehicles1] = None
+    # data type: HeavyDutyVehicles1
+    oneof_schema_4_validator: Optional[HeavyDutyVehicles1] = None
+    # data type: Aviation1
+    oneof_schema_5_validator: Optional[Aviation1] = None
+    # data type: Vessel1
+    oneof_schema_6_validator: Optional[Vessel1] = None
+    # data type: OffRoadAgricultureAndForestryEquipment1
+    oneof_schema_7_validator: Optional[OffRoadAgricultureAndForestryEquipment1] = None
+    actual_instance: Optional[Union[Aviation1, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre20041, HeavyDutyVehicles1, LightDutyVehicles1, OffRoadAgricultureAndForestryEquipment1, Vessel1]] = None
+    one_of_schemas: Set[str] = { "Aviation1", "CarsAndLightCommercialVehicles1", "CarsAndLightCommercialVehiclesPre20041", "HeavyDutyVehicles1", "LightDutyVehicles1", "OffRoadAgricultureAndForestryEquipment1", "Vessel1" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -78,42 +78,42 @@ class LitresBasedFuel1(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `CarsAndLightCommercialVehicles1`")
         else:
             match += 1
-        # validate data type: CarsAndLightCommercialVehiclesPre2004
-        if not isinstance(v, CarsAndLightCommercialVehiclesPre2004):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `CarsAndLightCommercialVehiclesPre2004`")
+        # validate data type: CarsAndLightCommercialVehiclesPre20041
+        if not isinstance(v, CarsAndLightCommercialVehiclesPre20041):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `CarsAndLightCommercialVehiclesPre20041`")
         else:
             match += 1
-        # validate data type: LightDutyVehicles
-        if not isinstance(v, LightDutyVehicles):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `LightDutyVehicles`")
+        # validate data type: LightDutyVehicles1
+        if not isinstance(v, LightDutyVehicles1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `LightDutyVehicles1`")
         else:
             match += 1
-        # validate data type: HeavyDutyVehicles
-        if not isinstance(v, HeavyDutyVehicles):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `HeavyDutyVehicles`")
+        # validate data type: HeavyDutyVehicles1
+        if not isinstance(v, HeavyDutyVehicles1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `HeavyDutyVehicles1`")
         else:
             match += 1
-        # validate data type: Aviation
-        if not isinstance(v, Aviation):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Aviation`")
+        # validate data type: Aviation1
+        if not isinstance(v, Aviation1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Aviation1`")
         else:
             match += 1
-        # validate data type: Vessel
-        if not isinstance(v, Vessel):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Vessel`")
+        # validate data type: Vessel1
+        if not isinstance(v, Vessel1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `Vessel1`")
         else:
             match += 1
-        # validate data type: OffRoadAgricultureAndForestryEquipment
-        if not isinstance(v, OffRoadAgricultureAndForestryEquipment):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `OffRoadAgricultureAndForestryEquipment`")
+        # validate data type: OffRoadAgricultureAndForestryEquipment1
+        if not isinstance(v, OffRoadAgricultureAndForestryEquipment1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `OffRoadAgricultureAndForestryEquipment1`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in LitresBasedFuel1 with oneOf schemas: Aviation, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre2004, HeavyDutyVehicles, LightDutyVehicles, OffRoadAgricultureAndForestryEquipment, Vessel. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in LitresBasedFuel1 with oneOf schemas: Aviation1, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre20041, HeavyDutyVehicles1, LightDutyVehicles1, OffRoadAgricultureAndForestryEquipment1, Vessel1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in LitresBasedFuel1 with oneOf schemas: Aviation, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre2004, HeavyDutyVehicles, LightDutyVehicles, OffRoadAgricultureAndForestryEquipment, Vessel. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in LitresBasedFuel1 with oneOf schemas: Aviation1, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre20041, HeavyDutyVehicles1, LightDutyVehicles1, OffRoadAgricultureAndForestryEquipment1, Vessel1. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -134,49 +134,49 @@ class LitresBasedFuel1(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into CarsAndLightCommercialVehiclesPre2004
+        # deserialize data into CarsAndLightCommercialVehiclesPre20041
         try:
-            instance.actual_instance = CarsAndLightCommercialVehiclesPre2004.from_json(json_str)
+            instance.actual_instance = CarsAndLightCommercialVehiclesPre20041.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into LightDutyVehicles
+        # deserialize data into LightDutyVehicles1
         try:
-            instance.actual_instance = LightDutyVehicles.from_json(json_str)
+            instance.actual_instance = LightDutyVehicles1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into HeavyDutyVehicles
+        # deserialize data into HeavyDutyVehicles1
         try:
-            instance.actual_instance = HeavyDutyVehicles.from_json(json_str)
+            instance.actual_instance = HeavyDutyVehicles1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Aviation
+        # deserialize data into Aviation1
         try:
-            instance.actual_instance = Aviation.from_json(json_str)
+            instance.actual_instance = Aviation1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Vessel
+        # deserialize data into Vessel1
         try:
-            instance.actual_instance = Vessel.from_json(json_str)
+            instance.actual_instance = Vessel1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into OffRoadAgricultureAndForestryEquipment
+        # deserialize data into OffRoadAgricultureAndForestryEquipment1
         try:
-            instance.actual_instance = OffRoadAgricultureAndForestryEquipment.from_json(json_str)
+            instance.actual_instance = OffRoadAgricultureAndForestryEquipment1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into LitresBasedFuel1 with oneOf schemas: Aviation, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre2004, HeavyDutyVehicles, LightDutyVehicles, OffRoadAgricultureAndForestryEquipment, Vessel. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into LitresBasedFuel1 with oneOf schemas: Aviation1, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre20041, HeavyDutyVehicles1, LightDutyVehicles1, OffRoadAgricultureAndForestryEquipment1, Vessel1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into LitresBasedFuel1 with oneOf schemas: Aviation, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre2004, HeavyDutyVehicles, LightDutyVehicles, OffRoadAgricultureAndForestryEquipment, Vessel. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into LitresBasedFuel1 with oneOf schemas: Aviation1, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre20041, HeavyDutyVehicles1, LightDutyVehicles1, OffRoadAgricultureAndForestryEquipment1, Vessel1. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -190,7 +190,7 @@ class LitresBasedFuel1(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Aviation, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre2004, HeavyDutyVehicles, LightDutyVehicles, OffRoadAgricultureAndForestryEquipment, Vessel]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Aviation1, CarsAndLightCommercialVehicles1, CarsAndLightCommercialVehiclesPre20041, HeavyDutyVehicles1, LightDutyVehicles1, OffRoadAgricultureAndForestryEquipment1, Vessel1]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

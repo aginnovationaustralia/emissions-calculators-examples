@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -12,46 +12,39 @@
  * Do not edit the class manually.
  */
 
-import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { SolidsSeparationMethod1 } from './SolidsSeparationMethod1';
+import { mapValues } from '../runtime';
+import type { TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation } from './TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation';
 import {
-    instanceOfSolidsSeparationMethod1,
-    SolidsSeparationMethod1FromJSON,
-    SolidsSeparationMethod1FromJSONTyped,
-    SolidsSeparationMethod1ToJSON,
-} from './SolidsSeparationMethod1';
-import type { SolidsSeparationMethod2 } from './SolidsSeparationMethod2';
-import {
-    instanceOfSolidsSeparationMethod2,
-    SolidsSeparationMethod2FromJSON,
-    SolidsSeparationMethod2FromJSONTyped,
-    SolidsSeparationMethod2ToJSON,
-} from './SolidsSeparationMethod2';
+    TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationFromJSON,
+    TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationFromJSONTyped,
+    TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationToJSON,
+    TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationToJSONTyped,
+} from './TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation';
 
 /**
- * @type TimeInLocationsMethod1ProductionSystemManureAllocations
  * 
  * @export
+ * @interface TimeInLocationsMethod1ProductionSystemManureAllocations
  */
-export type TimeInLocationsMethod1ProductionSystemManureAllocations = SolidsSeparationMethod1 | SolidsSeparationMethod2;
-/**
- * Check if a given object matches one of the TimeInLocationsMethod1ProductionSystemManureAllocations variants.
- * Added via a custom template: the default generator does not emit this for oneOf models,
- * which breaks serialisation when a oneOf is nested inside another oneOf.
- */
-export function instanceOfTimeInLocationsMethod1ProductionSystemManureAllocations(value: any): boolean {
-    if (value == null || typeof value !== 'object') {
-        return false;
-    }
-    if (instanceOfSolidsSeparationMethod1(value)) {
-        return true;
-    }
-    if (instanceOfSolidsSeparationMethod2(value)) {
-        return true;
-    }
-    return false;
+export interface TimeInLocationsMethod1ProductionSystemManureAllocations {
+    /**
+     * 
+     */
+    milkingShedMMSAllocation: TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation;
+    /**
+     * 
+     */
+    feedPadMMSAllocation: TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocation;
 }
 
+/**
+ * Check if a given object implements the TimeInLocationsMethod1ProductionSystemManureAllocations interface.
+ */
+export function instanceOfTimeInLocationsMethod1ProductionSystemManureAllocations(value: object): value is TimeInLocationsMethod1ProductionSystemManureAllocations {
+    if (!('milkingShedMMSAllocation' in value) || value['milkingShedMMSAllocation'] === undefined) return false;
+    if (!('feedPadMMSAllocation' in value) || value['feedPadMMSAllocation'] === undefined) return false;
+    return true;
+}
 
 export function TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSON(json: any): TimeInLocationsMethod1ProductionSystemManureAllocations {
     return TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSONTyped(json, false);
@@ -61,19 +54,14 @@ export function TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSONT
     if (json == null) {
         return json;
     }
-    if (typeof json !== 'object') {
-        return json;
-    }
-    if (instanceOfSolidsSeparationMethod1(json)) {
-        return SolidsSeparationMethod1FromJSONTyped(json, true);
-    }
-    if (instanceOfSolidsSeparationMethod2(json)) {
-        return SolidsSeparationMethod2FromJSONTyped(json, true);
-    }
-    return {} as any;
+    return {
+        
+        'milkingShedMMSAllocation': TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationFromJSON(json['milkingShedMMSAllocation']),
+        'feedPadMMSAllocation': TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationFromJSON(json['feedPadMMSAllocation']),
+    };
 }
 
-export function TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON(json: any): any {
+export function TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON(json: any): TimeInLocationsMethod1ProductionSystemManureAllocations {
     return TimeInLocationsMethod1ProductionSystemManureAllocationsToJSONTyped(json, false);
 }
 
@@ -81,15 +69,11 @@ export function TimeInLocationsMethod1ProductionSystemManureAllocationsToJSONTyp
     if (value == null) {
         return value;
     }
-    if (typeof value !== 'object') {
-        return value;
-    }
-    if (instanceOfSolidsSeparationMethod1(value)) {
-        return SolidsSeparationMethod1ToJSON(value as SolidsSeparationMethod1);
-    }
-    if (instanceOfSolidsSeparationMethod2(value)) {
-        return SolidsSeparationMethod2ToJSON(value as SolidsSeparationMethod2);
-    }
-    return {};
+
+    return {
+        
+        'milkingShedMMSAllocation': TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationToJSON(value['milkingShedMMSAllocation']),
+        'feedPadMMSAllocation': TimeInLocationsMethod1ProductionSystemManureAllocationsMilkingShedMMSAllocationToJSON(value['feedPadMMSAllocation']),
+    };
 }
 

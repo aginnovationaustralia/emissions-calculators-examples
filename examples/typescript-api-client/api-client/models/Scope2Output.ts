@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PostAquaculture200ResponseScope3Electricity } from './PostAquaculture200ResponseScope3Electricity';
+import type { Scope2OutputElectricity } from './Scope2OutputElectricity';
 import {
-    PostAquaculture200ResponseScope3ElectricityFromJSON,
-    PostAquaculture200ResponseScope3ElectricityFromJSONTyped,
-    PostAquaculture200ResponseScope3ElectricityToJSON,
-    PostAquaculture200ResponseScope3ElectricityToJSONTyped,
-} from './PostAquaculture200ResponseScope3Electricity';
+    Scope2OutputElectricityFromJSON,
+    Scope2OutputElectricityFromJSONTyped,
+    Scope2OutputElectricityToJSON,
+    Scope2OutputElectricityToJSONTyped,
+} from './Scope2OutputElectricity';
 import type { Scope2OutputTotal } from './Scope2OutputTotal';
 import {
     Scope2OutputTotalFromJSON,
@@ -37,7 +37,7 @@ export interface Scope2Output {
     /**
      * 
      */
-    electricity: PostAquaculture200ResponseScope3Electricity;
+    electricity: Scope2OutputElectricity;
     /**
      * 
      */
@@ -63,7 +63,7 @@ export function Scope2OutputFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'electricity': PostAquaculture200ResponseScope3ElectricityFromJSON(json['electricity']),
+        'electricity': Scope2OutputElectricityFromJSON(json['electricity']),
         'total': Scope2OutputTotalFromJSON(json['total']),
     };
 }
@@ -79,7 +79,7 @@ export function Scope2OutputToJSONTyped(value?: Scope2Output | null, ignoreDiscr
 
     return {
         
-        'electricity': PostAquaculture200ResponseScope3ElectricityToJSON(value['electricity']),
+        'electricity': Scope2OutputElectricityToJSON(value['electricity']),
         'total': Scope2OutputTotalToJSON(value['total']),
     };
 }

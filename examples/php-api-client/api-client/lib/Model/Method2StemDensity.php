@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,9 +58,9 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $openAPITypes = [
-        'method2_actual_stem_density' => '\OpenAPI\Client\Model\Method16Method2ActualStemDensity',
-        'method2_biomass_at_maturity' => '\OpenAPI\Client\Model\Method16Method2BiomassAtMaturity',
-        'plantings' => '\OpenAPI\Client\Model\Method16PlantingsInner[]',
+        'method2_actual_stem_density' => '\OpenAPI\Client\Model\Method13Method2ActualStemDensity',
+        'method2_biomass_at_maturity' => '\OpenAPI\Client\Model\Method13Method2BiomassAtMaturity',
+        'plantings' => '\OpenAPI\Client\Model\Method13PlantingsInner[]',
         'crop_type' => 'string',
         'calculation_method' => 'string',
         'clearings' => '\OpenAPI\Client\Model\Method2StemDensityClearingsInner[]'
@@ -343,7 +343,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets method2_actual_stem_density
      *
-     * @return \OpenAPI\Client\Model\Method16Method2ActualStemDensity
+     * @return \OpenAPI\Client\Model\Method13Method2ActualStemDensity
      */
     public function getMethod2ActualStemDensity()
     {
@@ -353,7 +353,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets method2_actual_stem_density
      *
-     * @param \OpenAPI\Client\Model\Method16Method2ActualStemDensity $method2_actual_stem_density method2_actual_stem_density
+     * @param \OpenAPI\Client\Model\Method13Method2ActualStemDensity $method2_actual_stem_density method2_actual_stem_density
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets method2_biomass_at_maturity
      *
-     * @return \OpenAPI\Client\Model\Method16Method2BiomassAtMaturity|null
+     * @return \OpenAPI\Client\Model\Method13Method2BiomassAtMaturity|null
      */
     public function getMethod2BiomassAtMaturity()
     {
@@ -380,7 +380,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets method2_biomass_at_maturity
      *
-     * @param \OpenAPI\Client\Model\Method16Method2BiomassAtMaturity|null $method2_biomass_at_maturity method2_biomass_at_maturity
+     * @param \OpenAPI\Client\Model\Method13Method2BiomassAtMaturity|null $method2_biomass_at_maturity method2_biomass_at_maturity
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets plantings
      *
-     * @return \OpenAPI\Client\Model\Method16PlantingsInner[]
+     * @return \OpenAPI\Client\Model\Method13PlantingsInner[]
      */
     public function getPlantings()
     {
@@ -407,7 +407,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets plantings
      *
-     * @param \OpenAPI\Client\Model\Method16PlantingsInner[] $plantings plantings
+     * @param \OpenAPI\Client\Model\Method13PlantingsInner[] $plantings plantings
      *
      * @return self
      */

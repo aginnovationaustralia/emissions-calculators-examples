@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,69 +13,104 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PostAllModules200ResponseScope1FuelTransportCO2 } from './PostAllModules200ResponseScope1FuelTransportCO2';
+import type { BeefScope1OutputPlusLULUCFTotal } from './BeefScope1OutputPlusLULUCFTotal';
 import {
-    PostAllModules200ResponseScope1FuelTransportCO2FromJSON,
-    PostAllModules200ResponseScope1FuelTransportCO2FromJSONTyped,
-    PostAllModules200ResponseScope1FuelTransportCO2ToJSON,
-    PostAllModules200ResponseScope1FuelTransportCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1FuelTransportCO2';
-import type { PostAllModules200ResponseScope1InorganicFertiliserN2O } from './PostAllModules200ResponseScope1InorganicFertiliserN2O';
+    BeefScope1OutputPlusLULUCFTotalFromJSON,
+    BeefScope1OutputPlusLULUCFTotalFromJSONTyped,
+    BeefScope1OutputPlusLULUCFTotalToJSON,
+    BeefScope1OutputPlusLULUCFTotalToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFTotal';
+import type { BeefScope1OutputPlusLULUCFLimeCO2 } from './BeefScope1OutputPlusLULUCFLimeCO2';
 import {
-    PostAllModules200ResponseScope1InorganicFertiliserN2OFromJSON,
-    PostAllModules200ResponseScope1InorganicFertiliserN2OFromJSONTyped,
-    PostAllModules200ResponseScope1InorganicFertiliserN2OToJSON,
-    PostAllModules200ResponseScope1InorganicFertiliserN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1InorganicFertiliserN2O';
-import type { PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O } from './PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O';
+    BeefScope1OutputPlusLULUCFLimeCO2FromJSON,
+    BeefScope1OutputPlusLULUCFLimeCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFLimeCO2ToJSON,
+    BeefScope1OutputPlusLULUCFLimeCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFLimeCO2';
+import type { BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2 } from './BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2';
 import {
-    PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2OFromJSON,
-    PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2OFromJSONTyped,
-    PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2OToJSON,
-    PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O';
-import type { PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O } from './PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O';
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2FromJSON,
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2ToJSON,
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2';
+import type { BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O } from './BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O';
 import {
-    PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2OFromJSON,
-    PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2OFromJSONTyped,
-    PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2OToJSON,
-    PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O';
-import type { PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O } from './PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O';
+    BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2OFromJSON,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2OToJSON,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O';
+import type { BeefScope1OutputPlusLULUCFFuelStationaryCO2 } from './BeefScope1OutputPlusLULUCFFuelStationaryCO2';
 import {
-    PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2OFromJSON,
-    PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2OFromJSONTyped,
-    PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2OToJSON,
-    PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O';
-import type { PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O } from './PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O';
+    BeefScope1OutputPlusLULUCFFuelStationaryCO2FromJSON,
+    BeefScope1OutputPlusLULUCFFuelStationaryCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFFuelStationaryCO2ToJSON,
+    BeefScope1OutputPlusLULUCFFuelStationaryCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFuelStationaryCO2';
+import type { BeefScope1OutputPlusLULUCFPastureResidueN2O } from './BeefScope1OutputPlusLULUCFPastureResidueN2O';
 import {
-    PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2OFromJSON,
-    PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2OFromJSONTyped,
-    PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2OToJSON,
-    PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O';
-import type { PostAllModules200ResponseScope1FuelStationaryCO2 } from './PostAllModules200ResponseScope1FuelStationaryCO2';
+    BeefScope1OutputPlusLULUCFPastureResidueN2OFromJSON,
+    BeefScope1OutputPlusLULUCFPastureResidueN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFPastureResidueN2OToJSON,
+    BeefScope1OutputPlusLULUCFPastureResidueN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFPastureResidueN2O';
+import type { BeefScope1OutputPlusLULUCFOrganicFertiliserN2O } from './BeefScope1OutputPlusLULUCFOrganicFertiliserN2O';
 import {
-    PostAllModules200ResponseScope1FuelStationaryCO2FromJSON,
-    PostAllModules200ResponseScope1FuelStationaryCO2FromJSONTyped,
-    PostAllModules200ResponseScope1FuelStationaryCO2ToJSON,
-    PostAllModules200ResponseScope1FuelStationaryCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1FuelStationaryCO2';
-import type { PostAquaculture200ResponseScope1TotalCH4 } from './PostAquaculture200ResponseScope1TotalCH4';
+    BeefScope1OutputPlusLULUCFOrganicFertiliserN2OFromJSON,
+    BeefScope1OutputPlusLULUCFOrganicFertiliserN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFOrganicFertiliserN2OToJSON,
+    BeefScope1OutputPlusLULUCFOrganicFertiliserN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFOrganicFertiliserN2O';
+import type { BeefScope1OutputPlusLULUCFSolidWasteN2O } from './BeefScope1OutputPlusLULUCFSolidWasteN2O';
 import {
-    PostAquaculture200ResponseScope1TotalCH4FromJSON,
-    PostAquaculture200ResponseScope1TotalCH4FromJSONTyped,
-    PostAquaculture200ResponseScope1TotalCH4ToJSON,
-    PostAquaculture200ResponseScope1TotalCH4ToJSONTyped,
-} from './PostAquaculture200ResponseScope1TotalCH4';
-import type { PostAllModules200ResponseScope1LimeCO2 } from './PostAllModules200ResponseScope1LimeCO2';
+    BeefScope1OutputPlusLULUCFSolidWasteN2OFromJSON,
+    BeefScope1OutputPlusLULUCFSolidWasteN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFSolidWasteN2OToJSON,
+    BeefScope1OutputPlusLULUCFSolidWasteN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFSolidWasteN2O';
+import type { BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2 } from './BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2';
 import {
-    PostAllModules200ResponseScope1LimeCO2FromJSON,
-    PostAllModules200ResponseScope1LimeCO2FromJSONTyped,
-    PostAllModules200ResponseScope1LimeCO2ToJSON,
-    PostAllModules200ResponseScope1LimeCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1LimeCO2';
+    BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2FromJSON,
+    BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2ToJSON,
+    BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2';
+import type { BeefScope1OutputPlusLULUCFSolidWasteCH4 } from './BeefScope1OutputPlusLULUCFSolidWasteCH4';
+import {
+    BeefScope1OutputPlusLULUCFSolidWasteCH4FromJSON,
+    BeefScope1OutputPlusLULUCFSolidWasteCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFSolidWasteCH4ToJSON,
+    BeefScope1OutputPlusLULUCFSolidWasteCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFSolidWasteCH4';
+import type { BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2 } from './BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2';
+import {
+    BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2FromJSON,
+    BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2ToJSON,
+    BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2';
+import type { BeefScope1OutputPlusLULUCFInorganicFertiliserCO2 } from './BeefScope1OutputPlusLULUCFInorganicFertiliserCO2';
+import {
+    BeefScope1OutputPlusLULUCFInorganicFertiliserCO2FromJSON,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserCO2ToJSON,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFInorganicFertiliserCO2';
+import type { BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O } from './BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O';
+import {
+    BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2OFromJSON,
+    BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2OToJSON,
+    BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O';
+import type { BeefScope1OutputPlusLULUCFFuelTransportCO2 } from './BeefScope1OutputPlusLULUCFFuelTransportCO2';
+import {
+    BeefScope1OutputPlusLULUCFFuelTransportCO2FromJSON,
+    BeefScope1OutputPlusLULUCFFuelTransportCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFFuelTransportCO2ToJSON,
+    BeefScope1OutputPlusLULUCFFuelTransportCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFuelTransportCO2';
 import type { BeefScope1OutputPlusLULUCFManureSoilDirectN2O } from './BeefScope1OutputPlusLULUCFManureSoilDirectN2O';
 import {
     BeefScope1OutputPlusLULUCFManureSoilDirectN2OFromJSON,
@@ -83,209 +118,174 @@ import {
     BeefScope1OutputPlusLULUCFManureSoilDirectN2OToJSON,
     BeefScope1OutputPlusLULUCFManureSoilDirectN2OToJSONTyped,
 } from './BeefScope1OutputPlusLULUCFManureSoilDirectN2O';
-import type { PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O } from './PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O';
+import type { BeefScope1OutputPlusLULUCFTotalCH4 } from './BeefScope1OutputPlusLULUCFTotalCH4';
 import {
-    PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2OFromJSON,
-    PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2OFromJSONTyped,
-    PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2OToJSON,
-    PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O';
-import type { PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2 } from './PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2';
+    BeefScope1OutputPlusLULUCFTotalCH4FromJSON,
+    BeefScope1OutputPlusLULUCFTotalCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFTotalCH4ToJSON,
+    BeefScope1OutputPlusLULUCFTotalCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFTotalCH4';
+import type { BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O } from './BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O';
 import {
-    PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2FromJSON,
-    PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2FromJSONTyped,
-    PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2ToJSON,
-    PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2';
-import type { PostAllModules200ResponseScope1SolidWasteN2O } from './PostAllModules200ResponseScope1SolidWasteN2O';
+    BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2OFromJSON,
+    BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2OToJSON,
+    BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O';
+import type { BeefScope1OutputPlusLULUCFTotalN2O } from './BeefScope1OutputPlusLULUCFTotalN2O';
 import {
-    PostAllModules200ResponseScope1SolidWasteN2OFromJSON,
-    PostAllModules200ResponseScope1SolidWasteN2OFromJSONTyped,
-    PostAllModules200ResponseScope1SolidWasteN2OToJSON,
-    PostAllModules200ResponseScope1SolidWasteN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1SolidWasteN2O';
-import type { PostAllModules200ResponseScope1OrganicFertiliserN2O } from './PostAllModules200ResponseScope1OrganicFertiliserN2O';
+    BeefScope1OutputPlusLULUCFTotalN2OFromJSON,
+    BeefScope1OutputPlusLULUCFTotalN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFTotalN2OToJSON,
+    BeefScope1OutputPlusLULUCFTotalN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFTotalN2O';
+import type { BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O } from './BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O';
 import {
-    PostAllModules200ResponseScope1OrganicFertiliserN2OFromJSON,
-    PostAllModules200ResponseScope1OrganicFertiliserN2OFromJSONTyped,
-    PostAllModules200ResponseScope1OrganicFertiliserN2OToJSON,
-    PostAllModules200ResponseScope1OrganicFertiliserN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1OrganicFertiliserN2O';
-import type { PostAllModules200ResponseScope1FuelTransportCH4 } from './PostAllModules200ResponseScope1FuelTransportCH4';
+    BeefScope1OutputPlusLULUCFManureLeachingRunoffN2OFromJSON,
+    BeefScope1OutputPlusLULUCFManureLeachingRunoffN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFManureLeachingRunoffN2OToJSON,
+    BeefScope1OutputPlusLULUCFManureLeachingRunoffN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O';
+import type { BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2 } from './BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2';
 import {
-    PostAllModules200ResponseScope1FuelTransportCH4FromJSON,
-    PostAllModules200ResponseScope1FuelTransportCH4FromJSONTyped,
-    PostAllModules200ResponseScope1FuelTransportCH4ToJSON,
-    PostAllModules200ResponseScope1FuelTransportCH4ToJSONTyped,
-} from './PostAllModules200ResponseScope1FuelTransportCH4';
-import type { PostAquaculture200ResponseScope1Total } from './PostAquaculture200ResponseScope1Total';
+    BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2FromJSON,
+    BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2ToJSON,
+    BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2';
+import type { BeefScope1OutputPlusLULUCFSolidWasteCO2 } from './BeefScope1OutputPlusLULUCFSolidWasteCO2';
 import {
-    PostAquaculture200ResponseScope1TotalFromJSON,
-    PostAquaculture200ResponseScope1TotalFromJSONTyped,
-    PostAquaculture200ResponseScope1TotalToJSON,
-    PostAquaculture200ResponseScope1TotalToJSONTyped,
-} from './PostAquaculture200ResponseScope1Total';
-import type { PostAllModules200ResponseScope1SolidWasteCH4 } from './PostAllModules200ResponseScope1SolidWasteCH4';
+    BeefScope1OutputPlusLULUCFSolidWasteCO2FromJSON,
+    BeefScope1OutputPlusLULUCFSolidWasteCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFSolidWasteCO2ToJSON,
+    BeefScope1OutputPlusLULUCFSolidWasteCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFSolidWasteCO2';
+import type { BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O } from './BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O';
 import {
-    PostAllModules200ResponseScope1SolidWasteCH4FromJSON,
-    PostAllModules200ResponseScope1SolidWasteCH4FromJSONTyped,
-    PostAllModules200ResponseScope1SolidWasteCH4ToJSON,
-    PostAllModules200ResponseScope1SolidWasteCH4ToJSONTyped,
-} from './PostAllModules200ResponseScope1SolidWasteCH4';
-import type { PostAquaculture200ResponseScope1TotalN2O } from './PostAquaculture200ResponseScope1TotalN2O';
+    BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2OFromJSON,
+    BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2OToJSON,
+    BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O';
+import type { BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O } from './BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O';
 import {
-    PostAquaculture200ResponseScope1TotalN2OFromJSON,
-    PostAquaculture200ResponseScope1TotalN2OFromJSONTyped,
-    PostAquaculture200ResponseScope1TotalN2OToJSON,
-    PostAquaculture200ResponseScope1TotalN2OToJSONTyped,
-} from './PostAquaculture200ResponseScope1TotalN2O';
-import type { PostAllModules200ResponseScope1FuelTransportN2O } from './PostAllModules200ResponseScope1FuelTransportN2O';
+    BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2OFromJSON,
+    BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2OToJSON,
+    BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O';
+import type { BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O } from './BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O';
 import {
-    PostAllModules200ResponseScope1FuelTransportN2OFromJSON,
-    PostAllModules200ResponseScope1FuelTransportN2OFromJSONTyped,
-    PostAllModules200ResponseScope1FuelTransportN2OToJSON,
-    PostAllModules200ResponseScope1FuelTransportN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1FuelTransportN2O';
-import type { PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2 } from './PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2';
+    BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2OFromJSON,
+    BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2OToJSON,
+    BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O';
+import type { BeefScope1OutputPlusLULUCFEntericCH4 } from './BeefScope1OutputPlusLULUCFEntericCH4';
 import {
-    PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2FromJSON,
-    PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2FromJSONTyped,
-    PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2ToJSON,
-    PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2';
-import type { PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O } from './PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O';
+    BeefScope1OutputPlusLULUCFEntericCH4FromJSON,
+    BeefScope1OutputPlusLULUCFEntericCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFEntericCH4ToJSON,
+    BeefScope1OutputPlusLULUCFEntericCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFEntericCH4';
+import type { BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e } from './BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e';
 import {
-    PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2OFromJSON,
-    PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2OFromJSONTyped,
-    PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2OToJSON,
-    PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O';
-import type { PostAllModules200ResponseScope1BiomassBurningN2O } from './PostAllModules200ResponseScope1BiomassBurningN2O';
+    BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2eFromJSON,
+    BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2eFromJSONTyped,
+    BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2eToJSON,
+    BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2eToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e';
+import type { BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e } from './BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e';
 import {
-    PostAllModules200ResponseScope1BiomassBurningN2OFromJSON,
-    PostAllModules200ResponseScope1BiomassBurningN2OFromJSONTyped,
-    PostAllModules200ResponseScope1BiomassBurningN2OToJSON,
-    PostAllModules200ResponseScope1BiomassBurningN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1BiomassBurningN2O';
-import type { PostAllModules200ResponseScope1SoilOrganicStockLossesCO2 } from './PostAllModules200ResponseScope1SoilOrganicStockLossesCO2';
+    BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2eFromJSON,
+    BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2eFromJSONTyped,
+    BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2eToJSON,
+    BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2eToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e';
+import type { BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O } from './BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O';
 import {
-    PostAllModules200ResponseScope1SoilOrganicStockLossesCO2FromJSON,
-    PostAllModules200ResponseScope1SoilOrganicStockLossesCO2FromJSONTyped,
-    PostAllModules200ResponseScope1SoilOrganicStockLossesCO2ToJSON,
-    PostAllModules200ResponseScope1SoilOrganicStockLossesCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1SoilOrganicStockLossesCO2';
-import type { PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O } from './PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O';
+    BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2OFromJSON,
+    BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2OToJSON,
+    BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O';
+import type { BeefScope1OutputPlusLULUCFBiomassBurningCH4 } from './BeefScope1OutputPlusLULUCFBiomassBurningCH4';
 import {
-    PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2OFromJSON,
-    PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2OFromJSONTyped,
-    PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2OToJSON,
-    PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O';
-import type { PostAllModules200ResponseScope1EntericBeefCH4 } from './PostAllModules200ResponseScope1EntericBeefCH4';
+    BeefScope1OutputPlusLULUCFBiomassBurningCH4FromJSON,
+    BeefScope1OutputPlusLULUCFBiomassBurningCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFBiomassBurningCH4ToJSON,
+    BeefScope1OutputPlusLULUCFBiomassBurningCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFBiomassBurningCH4';
+import type { BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2 } from './BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2';
 import {
-    PostAllModules200ResponseScope1EntericBeefCH4FromJSON,
-    PostAllModules200ResponseScope1EntericBeefCH4FromJSONTyped,
-    PostAllModules200ResponseScope1EntericBeefCH4ToJSON,
-    PostAllModules200ResponseScope1EntericBeefCH4ToJSONTyped,
-} from './PostAllModules200ResponseScope1EntericBeefCH4';
-import type { PostAllModules200ResponseScope1BiomassBurningCH4 } from './PostAllModules200ResponseScope1BiomassBurningCH4';
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2FromJSON,
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2ToJSON,
+    BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2';
+import type { BeefScope1OutputPlusLULUCFTotalOtherGases } from './BeefScope1OutputPlusLULUCFTotalOtherGases';
 import {
-    PostAllModules200ResponseScope1BiomassBurningCH4FromJSON,
-    PostAllModules200ResponseScope1BiomassBurningCH4FromJSONTyped,
-    PostAllModules200ResponseScope1BiomassBurningCH4ToJSON,
-    PostAllModules200ResponseScope1BiomassBurningCH4ToJSONTyped,
-} from './PostAllModules200ResponseScope1BiomassBurningCH4';
-import type { PostAquaculture200ResponseScope1TotalOtherGases } from './PostAquaculture200ResponseScope1TotalOtherGases';
+    BeefScope1OutputPlusLULUCFTotalOtherGasesFromJSON,
+    BeefScope1OutputPlusLULUCFTotalOtherGasesFromJSONTyped,
+    BeefScope1OutputPlusLULUCFTotalOtherGasesToJSON,
+    BeefScope1OutputPlusLULUCFTotalOtherGasesToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFTotalOtherGases';
+import type { BeefScope1OutputPlusLULUCFBiomassBurningN2O } from './BeefScope1OutputPlusLULUCFBiomassBurningN2O';
 import {
-    PostAquaculture200ResponseScope1TotalOtherGasesFromJSON,
-    PostAquaculture200ResponseScope1TotalOtherGasesFromJSONTyped,
-    PostAquaculture200ResponseScope1TotalOtherGasesToJSON,
-    PostAquaculture200ResponseScope1TotalOtherGasesToJSONTyped,
-} from './PostAquaculture200ResponseScope1TotalOtherGases';
-import type { PostAllModules200ResponseScope1SolidWasteCO2 } from './PostAllModules200ResponseScope1SolidWasteCO2';
+    BeefScope1OutputPlusLULUCFBiomassBurningN2OFromJSON,
+    BeefScope1OutputPlusLULUCFBiomassBurningN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFBiomassBurningN2OToJSON,
+    BeefScope1OutputPlusLULUCFBiomassBurningN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFBiomassBurningN2O';
+import type { BeefScope1OutputPlusLULUCFTotalCO2 } from './BeefScope1OutputPlusLULUCFTotalCO2';
 import {
-    PostAllModules200ResponseScope1SolidWasteCO2FromJSON,
-    PostAllModules200ResponseScope1SolidWasteCO2FromJSONTyped,
-    PostAllModules200ResponseScope1SolidWasteCO2ToJSON,
-    PostAllModules200ResponseScope1SolidWasteCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1SolidWasteCO2';
-import type { PostAllModules200ResponseScope1ManureManagementBeefCH4 } from './PostAllModules200ResponseScope1ManureManagementBeefCH4';
+    BeefScope1OutputPlusLULUCFTotalCO2FromJSON,
+    BeefScope1OutputPlusLULUCFTotalCO2FromJSONTyped,
+    BeefScope1OutputPlusLULUCFTotalCO2ToJSON,
+    BeefScope1OutputPlusLULUCFTotalCO2ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFTotalCO2';
+import type { BeefScope1OutputPlusLULUCFManureManagementCH4 } from './BeefScope1OutputPlusLULUCFManureManagementCH4';
 import {
-    PostAllModules200ResponseScope1ManureManagementBeefCH4FromJSON,
-    PostAllModules200ResponseScope1ManureManagementBeefCH4FromJSONTyped,
-    PostAllModules200ResponseScope1ManureManagementBeefCH4ToJSON,
-    PostAllModules200ResponseScope1ManureManagementBeefCH4ToJSONTyped,
-} from './PostAllModules200ResponseScope1ManureManagementBeefCH4';
-import type { PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O } from './PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O';
+    BeefScope1OutputPlusLULUCFManureManagementCH4FromJSON,
+    BeefScope1OutputPlusLULUCFManureManagementCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFManureManagementCH4ToJSON,
+    BeefScope1OutputPlusLULUCFManureManagementCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFManureManagementCH4';
+import type { BeefScope1OutputPlusLULUCFFuelStationaryCH4 } from './BeefScope1OutputPlusLULUCFFuelStationaryCH4';
 import {
-    PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2OFromJSON,
-    PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2OFromJSONTyped,
-    PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2OToJSON,
-    PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O';
-import type { PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e } from './PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e';
+    BeefScope1OutputPlusLULUCFFuelStationaryCH4FromJSON,
+    BeefScope1OutputPlusLULUCFFuelStationaryCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFFuelStationaryCH4ToJSON,
+    BeefScope1OutputPlusLULUCFFuelStationaryCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFuelStationaryCH4';
+import type { BeefScope1OutputPlusLULUCFFuelTransportN2O } from './BeefScope1OutputPlusLULUCFFuelTransportN2O';
 import {
-    PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2eFromJSON,
-    PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2eFromJSONTyped,
-    PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2eToJSON,
-    PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2eToJSONTyped,
-} from './PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e';
-import type { PostAllModules200ResponseScope1FuelStationaryN2O } from './PostAllModules200ResponseScope1FuelStationaryN2O';
+    BeefScope1OutputPlusLULUCFFuelTransportN2OFromJSON,
+    BeefScope1OutputPlusLULUCFFuelTransportN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFFuelTransportN2OToJSON,
+    BeefScope1OutputPlusLULUCFFuelTransportN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFuelTransportN2O';
+import type { BeefScope1OutputPlusLULUCFInorganicFertiliserN2O } from './BeefScope1OutputPlusLULUCFInorganicFertiliserN2O';
 import {
-    PostAllModules200ResponseScope1FuelStationaryN2OFromJSON,
-    PostAllModules200ResponseScope1FuelStationaryN2OFromJSONTyped,
-    PostAllModules200ResponseScope1FuelStationaryN2OToJSON,
-    PostAllModules200ResponseScope1FuelStationaryN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1FuelStationaryN2O';
-import type { PostAllModules200ResponseScope1FuelStationaryCH4 } from './PostAllModules200ResponseScope1FuelStationaryCH4';
+    BeefScope1OutputPlusLULUCFInorganicFertiliserN2OFromJSON,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserN2OToJSON,
+    BeefScope1OutputPlusLULUCFInorganicFertiliserN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFInorganicFertiliserN2O';
+import type { BeefScope1OutputPlusLULUCFFuelStationaryN2O } from './BeefScope1OutputPlusLULUCFFuelStationaryN2O';
 import {
-    PostAllModules200ResponseScope1FuelStationaryCH4FromJSON,
-    PostAllModules200ResponseScope1FuelStationaryCH4FromJSONTyped,
-    PostAllModules200ResponseScope1FuelStationaryCH4ToJSON,
-    PostAllModules200ResponseScope1FuelStationaryCH4ToJSONTyped,
-} from './PostAllModules200ResponseScope1FuelStationaryCH4';
-import type { PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e } from './PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e';
+    BeefScope1OutputPlusLULUCFFuelStationaryN2OFromJSON,
+    BeefScope1OutputPlusLULUCFFuelStationaryN2OFromJSONTyped,
+    BeefScope1OutputPlusLULUCFFuelStationaryN2OToJSON,
+    BeefScope1OutputPlusLULUCFFuelStationaryN2OToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFuelStationaryN2O';
+import type { BeefScope1OutputPlusLULUCFFuelTransportCH4 } from './BeefScope1OutputPlusLULUCFFuelTransportCH4';
 import {
-    PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2eFromJSON,
-    PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2eFromJSONTyped,
-    PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2eToJSON,
-    PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2eToJSONTyped,
-} from './PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e';
-import type { PostAquaculture200ResponseScope1TotalCO2 } from './PostAquaculture200ResponseScope1TotalCO2';
-import {
-    PostAquaculture200ResponseScope1TotalCO2FromJSON,
-    PostAquaculture200ResponseScope1TotalCO2FromJSONTyped,
-    PostAquaculture200ResponseScope1TotalCO2ToJSON,
-    PostAquaculture200ResponseScope1TotalCO2ToJSONTyped,
-} from './PostAquaculture200ResponseScope1TotalCO2';
-import type { PostAllModules200ResponseScope1InorganicFertiliserCO2 } from './PostAllModules200ResponseScope1InorganicFertiliserCO2';
-import {
-    PostAllModules200ResponseScope1InorganicFertiliserCO2FromJSON,
-    PostAllModules200ResponseScope1InorganicFertiliserCO2FromJSONTyped,
-    PostAllModules200ResponseScope1InorganicFertiliserCO2ToJSON,
-    PostAllModules200ResponseScope1InorganicFertiliserCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1InorganicFertiliserCO2';
-import type { PostAllModules200ResponseScope1PastureResidueN2O } from './PostAllModules200ResponseScope1PastureResidueN2O';
-import {
-    PostAllModules200ResponseScope1PastureResidueN2OFromJSON,
-    PostAllModules200ResponseScope1PastureResidueN2OFromJSONTyped,
-    PostAllModules200ResponseScope1PastureResidueN2OToJSON,
-    PostAllModules200ResponseScope1PastureResidueN2OToJSONTyped,
-} from './PostAllModules200ResponseScope1PastureResidueN2O';
-import type { PostAllModules200ResponseScope1WoodyCarbonStocksCO2 } from './PostAllModules200ResponseScope1WoodyCarbonStocksCO2';
-import {
-    PostAllModules200ResponseScope1WoodyCarbonStocksCO2FromJSON,
-    PostAllModules200ResponseScope1WoodyCarbonStocksCO2FromJSONTyped,
-    PostAllModules200ResponseScope1WoodyCarbonStocksCO2ToJSON,
-    PostAllModules200ResponseScope1WoodyCarbonStocksCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1WoodyCarbonStocksCO2';
-import type { PostAllModules200ResponseScope1HarvestedWoodProductsCO2 } from './PostAllModules200ResponseScope1HarvestedWoodProductsCO2';
-import {
-    PostAllModules200ResponseScope1HarvestedWoodProductsCO2FromJSON,
-    PostAllModules200ResponseScope1HarvestedWoodProductsCO2FromJSONTyped,
-    PostAllModules200ResponseScope1HarvestedWoodProductsCO2ToJSON,
-    PostAllModules200ResponseScope1HarvestedWoodProductsCO2ToJSONTyped,
-} from './PostAllModules200ResponseScope1HarvestedWoodProductsCO2';
+    BeefScope1OutputPlusLULUCFFuelTransportCH4FromJSON,
+    BeefScope1OutputPlusLULUCFFuelTransportCH4FromJSONTyped,
+    BeefScope1OutputPlusLULUCFFuelTransportCH4ToJSON,
+    BeefScope1OutputPlusLULUCFFuelTransportCH4ToJSONTyped,
+} from './BeefScope1OutputPlusLULUCFFuelTransportCH4';
 
 /**
  * Scope 1 greenhouse gas emissions are the emissions released to the atmosphere as a direct result of an activity, in tonnes-CO2e (tonnes of carbon dioxide equivalent)
@@ -296,39 +296,39 @@ export interface BeefScope1OutputPlusLULUCF {
     /**
      * 
      */
-    totalCO2: PostAquaculture200ResponseScope1TotalCO2;
+    totalCO2: BeefScope1OutputPlusLULUCFTotalCO2;
     /**
      * 
      */
-    totalCH4: PostAquaculture200ResponseScope1TotalCH4;
+    totalCH4: BeefScope1OutputPlusLULUCFTotalCH4;
     /**
      * 
      */
-    totalN2O: PostAquaculture200ResponseScope1TotalN2O;
+    totalN2O: BeefScope1OutputPlusLULUCFTotalN2O;
     /**
      * 
      */
-    totalOtherGases: PostAquaculture200ResponseScope1TotalOtherGases;
+    totalOtherGases: BeefScope1OutputPlusLULUCFTotalOtherGases;
     /**
      * 
      */
-    total: PostAquaculture200ResponseScope1Total;
+    total: BeefScope1OutputPlusLULUCFTotal;
     /**
      * 
      */
-    entericCH4: PostAllModules200ResponseScope1EntericBeefCH4;
+    entericCH4: BeefScope1OutputPlusLULUCFEntericCH4;
     /**
      * 
      */
-    manureManagementCH4: PostAllModules200ResponseScope1ManureManagementBeefCH4;
+    manureManagementCH4: BeefScope1OutputPlusLULUCFManureManagementCH4;
     /**
      * 
      */
-    manureAtmosphericDepositionN2O: PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2O;
+    manureAtmosphericDepositionN2O: BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2O;
     /**
      * 
      */
-    manureLeachingRunoffN2O: PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2O;
+    manureLeachingRunoffN2O: BeefScope1OutputPlusLULUCFManureLeachingRunoffN2O;
     /**
      * 
      */
@@ -336,119 +336,119 @@ export interface BeefScope1OutputPlusLULUCF {
     /**
      * 
      */
-    fuelTransportCO2: PostAllModules200ResponseScope1FuelTransportCO2;
+    fuelTransportCO2: BeefScope1OutputPlusLULUCFFuelTransportCO2;
     /**
      * 
      */
-    fuelTransportCH4: PostAllModules200ResponseScope1FuelTransportCH4;
+    fuelTransportCH4: BeefScope1OutputPlusLULUCFFuelTransportCH4;
     /**
      * 
      */
-    fuelTransportN2O: PostAllModules200ResponseScope1FuelTransportN2O;
+    fuelTransportN2O: BeefScope1OutputPlusLULUCFFuelTransportN2O;
     /**
      * 
      */
-    fuelStationaryCO2: PostAllModules200ResponseScope1FuelStationaryCO2;
+    fuelStationaryCO2: BeefScope1OutputPlusLULUCFFuelStationaryCO2;
     /**
      * 
      */
-    fuelStationaryCH4: PostAllModules200ResponseScope1FuelStationaryCH4;
+    fuelStationaryCH4: BeefScope1OutputPlusLULUCFFuelStationaryCH4;
     /**
      * 
      */
-    fuelStationaryN2O: PostAllModules200ResponseScope1FuelStationaryN2O;
+    fuelStationaryN2O: BeefScope1OutputPlusLULUCFFuelStationaryN2O;
     /**
      * 
      */
-    limeCO2: PostAllModules200ResponseScope1LimeCO2;
+    limeCO2: BeefScope1OutputPlusLULUCFLimeCO2;
     /**
      * 
      */
-    inorganicFertiliserN2O: PostAllModules200ResponseScope1InorganicFertiliserN2O;
+    inorganicFertiliserN2O: BeefScope1OutputPlusLULUCFInorganicFertiliserN2O;
     /**
      * 
      */
-    inorganicFertiliserCO2: PostAllModules200ResponseScope1InorganicFertiliserCO2;
+    inorganicFertiliserCO2: BeefScope1OutputPlusLULUCFInorganicFertiliserCO2;
     /**
      * 
      */
-    organicFertiliserN2O: PostAllModules200ResponseScope1OrganicFertiliserN2O;
+    organicFertiliserN2O: BeefScope1OutputPlusLULUCFOrganicFertiliserN2O;
     /**
      * 
      */
-    inorganicFertiliserAtmosphericDepositionN2O: PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2O;
+    inorganicFertiliserAtmosphericDepositionN2O: BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2O;
     /**
      * 
      */
-    organicFertiliserAtmosphericDepositionN2O: PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2O;
+    organicFertiliserAtmosphericDepositionN2O: BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2O;
     /**
      * 
      */
-    fertiliserLeachingAndRunoffN2O: PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2O;
+    fertiliserLeachingAndRunoffN2O: BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2O;
     /**
      * 
      */
-    residueLeachingAndRunoffN2O: PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2O;
+    residueLeachingAndRunoffN2O: BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2O;
     /**
      * 
      */
-    pastureResidueN2O: PostAllModules200ResponseScope1PastureResidueN2O;
+    pastureResidueN2O: BeefScope1OutputPlusLULUCFPastureResidueN2O;
     /**
      * 
      */
-    solidWasteCO2: PostAllModules200ResponseScope1SolidWasteCO2;
+    solidWasteCO2: BeefScope1OutputPlusLULUCFSolidWasteCO2;
     /**
      * 
      */
-    solidWasteCH4: PostAllModules200ResponseScope1SolidWasteCH4;
+    solidWasteCH4: BeefScope1OutputPlusLULUCFSolidWasteCH4;
     /**
      * 
      */
-    solidWasteN2O: PostAllModules200ResponseScope1SolidWasteN2O;
+    solidWasteN2O: BeefScope1OutputPlusLULUCFSolidWasteN2O;
     /**
      * 
      */
-    woodyCarbonStocksCO2: PostAllModules200ResponseScope1WoodyCarbonStocksCO2;
+    woodyCarbonStocksCO2: BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2;
     /**
      * 
      */
-    biomassBurningCH4: PostAllModules200ResponseScope1BiomassBurningCH4;
+    biomassBurningCH4: BeefScope1OutputPlusLULUCFBiomassBurningCH4;
     /**
      * 
      */
-    biomassBurningN2O: PostAllModules200ResponseScope1BiomassBurningN2O;
+    biomassBurningN2O: BeefScope1OutputPlusLULUCFBiomassBurningN2O;
     /**
      * 
      */
-    soilOrganicStockLossesCO2: PostAllModules200ResponseScope1SoilOrganicStockLossesCO2;
+    soilOrganicStockLossesCO2: BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2;
     /**
      * 
      */
-    harvestedWoodProductsCO2: PostAllModules200ResponseScope1HarvestedWoodProductsCO2;
+    harvestedWoodProductsCO2: BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2;
     /**
      * 
      */
-    nitrogenMineralisationSoilLossesN2O: PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2O;
+    nitrogenMineralisationSoilLossesN2O: BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2O;
     /**
      * 
      */
-    leachingAndRunoffSoilLossesN2O: PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2O;
+    leachingAndRunoffSoilLossesN2O: BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2O;
     /**
      * 
      */
-    savannaFireWoodyCarbonStocksCO2e: PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2e;
+    savannaFireWoodyCarbonStocksCO2e: BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2e;
     /**
      * 
      */
-    savannaFireBiomassBurningCO2e: PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2e;
+    savannaFireBiomassBurningCO2e: BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2e;
     /**
      * 
      */
-    perennialWoodyCropsRemovalsCO2: PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2;
+    perennialWoodyCropsRemovalsCO2: BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2;
     /**
      * 
      */
-    perennialWoodyCropsEmissionsCO2: PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2;
+    perennialWoodyCropsEmissionsCO2: BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2;
 }
 
 /**
@@ -507,45 +507,45 @@ export function BeefScope1OutputPlusLULUCFFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'totalCO2': PostAquaculture200ResponseScope1TotalCO2FromJSON(json['totalCO2']),
-        'totalCH4': PostAquaculture200ResponseScope1TotalCH4FromJSON(json['totalCH4']),
-        'totalN2O': PostAquaculture200ResponseScope1TotalN2OFromJSON(json['totalN2O']),
-        'totalOtherGases': PostAquaculture200ResponseScope1TotalOtherGasesFromJSON(json['totalOtherGases']),
-        'total': PostAquaculture200ResponseScope1TotalFromJSON(json['total']),
-        'entericCH4': PostAllModules200ResponseScope1EntericBeefCH4FromJSON(json['entericCH4']),
-        'manureManagementCH4': PostAllModules200ResponseScope1ManureManagementBeefCH4FromJSON(json['manureManagementCH4']),
-        'manureAtmosphericDepositionN2O': PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2OFromJSON(json['manureAtmosphericDepositionN2O']),
-        'manureLeachingRunoffN2O': PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2OFromJSON(json['manureLeachingRunoffN2O']),
+        'totalCO2': BeefScope1OutputPlusLULUCFTotalCO2FromJSON(json['totalCO2']),
+        'totalCH4': BeefScope1OutputPlusLULUCFTotalCH4FromJSON(json['totalCH4']),
+        'totalN2O': BeefScope1OutputPlusLULUCFTotalN2OFromJSON(json['totalN2O']),
+        'totalOtherGases': BeefScope1OutputPlusLULUCFTotalOtherGasesFromJSON(json['totalOtherGases']),
+        'total': BeefScope1OutputPlusLULUCFTotalFromJSON(json['total']),
+        'entericCH4': BeefScope1OutputPlusLULUCFEntericCH4FromJSON(json['entericCH4']),
+        'manureManagementCH4': BeefScope1OutputPlusLULUCFManureManagementCH4FromJSON(json['manureManagementCH4']),
+        'manureAtmosphericDepositionN2O': BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2OFromJSON(json['manureAtmosphericDepositionN2O']),
+        'manureLeachingRunoffN2O': BeefScope1OutputPlusLULUCFManureLeachingRunoffN2OFromJSON(json['manureLeachingRunoffN2O']),
         'manureSoilDirectN2O': BeefScope1OutputPlusLULUCFManureSoilDirectN2OFromJSON(json['manureSoilDirectN2O']),
-        'fuelTransportCO2': PostAllModules200ResponseScope1FuelTransportCO2FromJSON(json['fuelTransportCO2']),
-        'fuelTransportCH4': PostAllModules200ResponseScope1FuelTransportCH4FromJSON(json['fuelTransportCH4']),
-        'fuelTransportN2O': PostAllModules200ResponseScope1FuelTransportN2OFromJSON(json['fuelTransportN2O']),
-        'fuelStationaryCO2': PostAllModules200ResponseScope1FuelStationaryCO2FromJSON(json['fuelStationaryCO2']),
-        'fuelStationaryCH4': PostAllModules200ResponseScope1FuelStationaryCH4FromJSON(json['fuelStationaryCH4']),
-        'fuelStationaryN2O': PostAllModules200ResponseScope1FuelStationaryN2OFromJSON(json['fuelStationaryN2O']),
-        'limeCO2': PostAllModules200ResponseScope1LimeCO2FromJSON(json['limeCO2']),
-        'inorganicFertiliserN2O': PostAllModules200ResponseScope1InorganicFertiliserN2OFromJSON(json['inorganicFertiliserN2O']),
-        'inorganicFertiliserCO2': PostAllModules200ResponseScope1InorganicFertiliserCO2FromJSON(json['inorganicFertiliserCO2']),
-        'organicFertiliserN2O': PostAllModules200ResponseScope1OrganicFertiliserN2OFromJSON(json['organicFertiliserN2O']),
-        'inorganicFertiliserAtmosphericDepositionN2O': PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2OFromJSON(json['inorganicFertiliserAtmosphericDepositionN2O']),
-        'organicFertiliserAtmosphericDepositionN2O': PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2OFromJSON(json['organicFertiliserAtmosphericDepositionN2O']),
-        'fertiliserLeachingAndRunoffN2O': PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2OFromJSON(json['fertiliserLeachingAndRunoffN2O']),
-        'residueLeachingAndRunoffN2O': PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2OFromJSON(json['residueLeachingAndRunoffN2O']),
-        'pastureResidueN2O': PostAllModules200ResponseScope1PastureResidueN2OFromJSON(json['pastureResidueN2O']),
-        'solidWasteCO2': PostAllModules200ResponseScope1SolidWasteCO2FromJSON(json['solidWasteCO2']),
-        'solidWasteCH4': PostAllModules200ResponseScope1SolidWasteCH4FromJSON(json['solidWasteCH4']),
-        'solidWasteN2O': PostAllModules200ResponseScope1SolidWasteN2OFromJSON(json['solidWasteN2O']),
-        'woodyCarbonStocksCO2': PostAllModules200ResponseScope1WoodyCarbonStocksCO2FromJSON(json['woodyCarbonStocksCO2']),
-        'biomassBurningCH4': PostAllModules200ResponseScope1BiomassBurningCH4FromJSON(json['biomassBurningCH4']),
-        'biomassBurningN2O': PostAllModules200ResponseScope1BiomassBurningN2OFromJSON(json['biomassBurningN2O']),
-        'soilOrganicStockLossesCO2': PostAllModules200ResponseScope1SoilOrganicStockLossesCO2FromJSON(json['soilOrganicStockLossesCO2']),
-        'harvestedWoodProductsCO2': PostAllModules200ResponseScope1HarvestedWoodProductsCO2FromJSON(json['harvestedWoodProductsCO2']),
-        'nitrogenMineralisationSoilLossesN2O': PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2OFromJSON(json['nitrogenMineralisationSoilLossesN2O']),
-        'leachingAndRunoffSoilLossesN2O': PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2OFromJSON(json['leachingAndRunoffSoilLossesN2O']),
-        'savannaFireWoodyCarbonStocksCO2e': PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2eFromJSON(json['savannaFireWoodyCarbonStocksCO2e']),
-        'savannaFireBiomassBurningCO2e': PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2eFromJSON(json['savannaFireBiomassBurningCO2e']),
-        'perennialWoodyCropsRemovalsCO2': PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2FromJSON(json['perennialWoodyCropsRemovalsCO2']),
-        'perennialWoodyCropsEmissionsCO2': PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2FromJSON(json['perennialWoodyCropsEmissionsCO2']),
+        'fuelTransportCO2': BeefScope1OutputPlusLULUCFFuelTransportCO2FromJSON(json['fuelTransportCO2']),
+        'fuelTransportCH4': BeefScope1OutputPlusLULUCFFuelTransportCH4FromJSON(json['fuelTransportCH4']),
+        'fuelTransportN2O': BeefScope1OutputPlusLULUCFFuelTransportN2OFromJSON(json['fuelTransportN2O']),
+        'fuelStationaryCO2': BeefScope1OutputPlusLULUCFFuelStationaryCO2FromJSON(json['fuelStationaryCO2']),
+        'fuelStationaryCH4': BeefScope1OutputPlusLULUCFFuelStationaryCH4FromJSON(json['fuelStationaryCH4']),
+        'fuelStationaryN2O': BeefScope1OutputPlusLULUCFFuelStationaryN2OFromJSON(json['fuelStationaryN2O']),
+        'limeCO2': BeefScope1OutputPlusLULUCFLimeCO2FromJSON(json['limeCO2']),
+        'inorganicFertiliserN2O': BeefScope1OutputPlusLULUCFInorganicFertiliserN2OFromJSON(json['inorganicFertiliserN2O']),
+        'inorganicFertiliserCO2': BeefScope1OutputPlusLULUCFInorganicFertiliserCO2FromJSON(json['inorganicFertiliserCO2']),
+        'organicFertiliserN2O': BeefScope1OutputPlusLULUCFOrganicFertiliserN2OFromJSON(json['organicFertiliserN2O']),
+        'inorganicFertiliserAtmosphericDepositionN2O': BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2OFromJSON(json['inorganicFertiliserAtmosphericDepositionN2O']),
+        'organicFertiliserAtmosphericDepositionN2O': BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2OFromJSON(json['organicFertiliserAtmosphericDepositionN2O']),
+        'fertiliserLeachingAndRunoffN2O': BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2OFromJSON(json['fertiliserLeachingAndRunoffN2O']),
+        'residueLeachingAndRunoffN2O': BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2OFromJSON(json['residueLeachingAndRunoffN2O']),
+        'pastureResidueN2O': BeefScope1OutputPlusLULUCFPastureResidueN2OFromJSON(json['pastureResidueN2O']),
+        'solidWasteCO2': BeefScope1OutputPlusLULUCFSolidWasteCO2FromJSON(json['solidWasteCO2']),
+        'solidWasteCH4': BeefScope1OutputPlusLULUCFSolidWasteCH4FromJSON(json['solidWasteCH4']),
+        'solidWasteN2O': BeefScope1OutputPlusLULUCFSolidWasteN2OFromJSON(json['solidWasteN2O']),
+        'woodyCarbonStocksCO2': BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2FromJSON(json['woodyCarbonStocksCO2']),
+        'biomassBurningCH4': BeefScope1OutputPlusLULUCFBiomassBurningCH4FromJSON(json['biomassBurningCH4']),
+        'biomassBurningN2O': BeefScope1OutputPlusLULUCFBiomassBurningN2OFromJSON(json['biomassBurningN2O']),
+        'soilOrganicStockLossesCO2': BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2FromJSON(json['soilOrganicStockLossesCO2']),
+        'harvestedWoodProductsCO2': BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2FromJSON(json['harvestedWoodProductsCO2']),
+        'nitrogenMineralisationSoilLossesN2O': BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2OFromJSON(json['nitrogenMineralisationSoilLossesN2O']),
+        'leachingAndRunoffSoilLossesN2O': BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2OFromJSON(json['leachingAndRunoffSoilLossesN2O']),
+        'savannaFireWoodyCarbonStocksCO2e': BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2eFromJSON(json['savannaFireWoodyCarbonStocksCO2e']),
+        'savannaFireBiomassBurningCO2e': BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2eFromJSON(json['savannaFireBiomassBurningCO2e']),
+        'perennialWoodyCropsRemovalsCO2': BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2FromJSON(json['perennialWoodyCropsRemovalsCO2']),
+        'perennialWoodyCropsEmissionsCO2': BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2FromJSON(json['perennialWoodyCropsEmissionsCO2']),
     };
 }
 
@@ -560,45 +560,45 @@ export function BeefScope1OutputPlusLULUCFToJSONTyped(value?: BeefScope1OutputPl
 
     return {
         
-        'totalCO2': PostAquaculture200ResponseScope1TotalCO2ToJSON(value['totalCO2']),
-        'totalCH4': PostAquaculture200ResponseScope1TotalCH4ToJSON(value['totalCH4']),
-        'totalN2O': PostAquaculture200ResponseScope1TotalN2OToJSON(value['totalN2O']),
-        'totalOtherGases': PostAquaculture200ResponseScope1TotalOtherGasesToJSON(value['totalOtherGases']),
-        'total': PostAquaculture200ResponseScope1TotalToJSON(value['total']),
-        'entericCH4': PostAllModules200ResponseScope1EntericBeefCH4ToJSON(value['entericCH4']),
-        'manureManagementCH4': PostAllModules200ResponseScope1ManureManagementBeefCH4ToJSON(value['manureManagementCH4']),
-        'manureAtmosphericDepositionN2O': PostAllModules200ResponseScope1ManureAtmosphericDepositionFeedlotN2OToJSON(value['manureAtmosphericDepositionN2O']),
-        'manureLeachingRunoffN2O': PostAllModules200ResponseScope1ManureLeachingRunoffFeedlotN2OToJSON(value['manureLeachingRunoffN2O']),
+        'totalCO2': BeefScope1OutputPlusLULUCFTotalCO2ToJSON(value['totalCO2']),
+        'totalCH4': BeefScope1OutputPlusLULUCFTotalCH4ToJSON(value['totalCH4']),
+        'totalN2O': BeefScope1OutputPlusLULUCFTotalN2OToJSON(value['totalN2O']),
+        'totalOtherGases': BeefScope1OutputPlusLULUCFTotalOtherGasesToJSON(value['totalOtherGases']),
+        'total': BeefScope1OutputPlusLULUCFTotalToJSON(value['total']),
+        'entericCH4': BeefScope1OutputPlusLULUCFEntericCH4ToJSON(value['entericCH4']),
+        'manureManagementCH4': BeefScope1OutputPlusLULUCFManureManagementCH4ToJSON(value['manureManagementCH4']),
+        'manureAtmosphericDepositionN2O': BeefScope1OutputPlusLULUCFManureAtmosphericDepositionN2OToJSON(value['manureAtmosphericDepositionN2O']),
+        'manureLeachingRunoffN2O': BeefScope1OutputPlusLULUCFManureLeachingRunoffN2OToJSON(value['manureLeachingRunoffN2O']),
         'manureSoilDirectN2O': BeefScope1OutputPlusLULUCFManureSoilDirectN2OToJSON(value['manureSoilDirectN2O']),
-        'fuelTransportCO2': PostAllModules200ResponseScope1FuelTransportCO2ToJSON(value['fuelTransportCO2']),
-        'fuelTransportCH4': PostAllModules200ResponseScope1FuelTransportCH4ToJSON(value['fuelTransportCH4']),
-        'fuelTransportN2O': PostAllModules200ResponseScope1FuelTransportN2OToJSON(value['fuelTransportN2O']),
-        'fuelStationaryCO2': PostAllModules200ResponseScope1FuelStationaryCO2ToJSON(value['fuelStationaryCO2']),
-        'fuelStationaryCH4': PostAllModules200ResponseScope1FuelStationaryCH4ToJSON(value['fuelStationaryCH4']),
-        'fuelStationaryN2O': PostAllModules200ResponseScope1FuelStationaryN2OToJSON(value['fuelStationaryN2O']),
-        'limeCO2': PostAllModules200ResponseScope1LimeCO2ToJSON(value['limeCO2']),
-        'inorganicFertiliserN2O': PostAllModules200ResponseScope1InorganicFertiliserN2OToJSON(value['inorganicFertiliserN2O']),
-        'inorganicFertiliserCO2': PostAllModules200ResponseScope1InorganicFertiliserCO2ToJSON(value['inorganicFertiliserCO2']),
-        'organicFertiliserN2O': PostAllModules200ResponseScope1OrganicFertiliserN2OToJSON(value['organicFertiliserN2O']),
-        'inorganicFertiliserAtmosphericDepositionN2O': PostAllModules200ResponseScope1InorganicFertiliserAtmosphericDepositionN2OToJSON(value['inorganicFertiliserAtmosphericDepositionN2O']),
-        'organicFertiliserAtmosphericDepositionN2O': PostAllModules200ResponseScope1OrganicFertiliserAtmosphericDepositionN2OToJSON(value['organicFertiliserAtmosphericDepositionN2O']),
-        'fertiliserLeachingAndRunoffN2O': PostAllModules200ResponseScope1FertiliserLeachingAndRunoffN2OToJSON(value['fertiliserLeachingAndRunoffN2O']),
-        'residueLeachingAndRunoffN2O': PostAllModules200ResponseScope1ResidueLeachingAndRunoffN2OToJSON(value['residueLeachingAndRunoffN2O']),
-        'pastureResidueN2O': PostAllModules200ResponseScope1PastureResidueN2OToJSON(value['pastureResidueN2O']),
-        'solidWasteCO2': PostAllModules200ResponseScope1SolidWasteCO2ToJSON(value['solidWasteCO2']),
-        'solidWasteCH4': PostAllModules200ResponseScope1SolidWasteCH4ToJSON(value['solidWasteCH4']),
-        'solidWasteN2O': PostAllModules200ResponseScope1SolidWasteN2OToJSON(value['solidWasteN2O']),
-        'woodyCarbonStocksCO2': PostAllModules200ResponseScope1WoodyCarbonStocksCO2ToJSON(value['woodyCarbonStocksCO2']),
-        'biomassBurningCH4': PostAllModules200ResponseScope1BiomassBurningCH4ToJSON(value['biomassBurningCH4']),
-        'biomassBurningN2O': PostAllModules200ResponseScope1BiomassBurningN2OToJSON(value['biomassBurningN2O']),
-        'soilOrganicStockLossesCO2': PostAllModules200ResponseScope1SoilOrganicStockLossesCO2ToJSON(value['soilOrganicStockLossesCO2']),
-        'harvestedWoodProductsCO2': PostAllModules200ResponseScope1HarvestedWoodProductsCO2ToJSON(value['harvestedWoodProductsCO2']),
-        'nitrogenMineralisationSoilLossesN2O': PostAllModules200ResponseScope1NitrogenMineralisationSoilLossesN2OToJSON(value['nitrogenMineralisationSoilLossesN2O']),
-        'leachingAndRunoffSoilLossesN2O': PostAllModules200ResponseScope1LeachingAndRunoffSoilLossesN2OToJSON(value['leachingAndRunoffSoilLossesN2O']),
-        'savannaFireWoodyCarbonStocksCO2e': PostAllModules200ResponseScope1SavannaFireWoodyCarbonStocksCO2eToJSON(value['savannaFireWoodyCarbonStocksCO2e']),
-        'savannaFireBiomassBurningCO2e': PostAllModules200ResponseScope1SavannaFireBiomassBurningCO2eToJSON(value['savannaFireBiomassBurningCO2e']),
-        'perennialWoodyCropsRemovalsCO2': PostAllModules200ResponseScope1PerennialWoodyCropsRemovalsCO2ToJSON(value['perennialWoodyCropsRemovalsCO2']),
-        'perennialWoodyCropsEmissionsCO2': PostAllModules200ResponseScope1PerennialWoodyCropsEmissionsCO2ToJSON(value['perennialWoodyCropsEmissionsCO2']),
+        'fuelTransportCO2': BeefScope1OutputPlusLULUCFFuelTransportCO2ToJSON(value['fuelTransportCO2']),
+        'fuelTransportCH4': BeefScope1OutputPlusLULUCFFuelTransportCH4ToJSON(value['fuelTransportCH4']),
+        'fuelTransportN2O': BeefScope1OutputPlusLULUCFFuelTransportN2OToJSON(value['fuelTransportN2O']),
+        'fuelStationaryCO2': BeefScope1OutputPlusLULUCFFuelStationaryCO2ToJSON(value['fuelStationaryCO2']),
+        'fuelStationaryCH4': BeefScope1OutputPlusLULUCFFuelStationaryCH4ToJSON(value['fuelStationaryCH4']),
+        'fuelStationaryN2O': BeefScope1OutputPlusLULUCFFuelStationaryN2OToJSON(value['fuelStationaryN2O']),
+        'limeCO2': BeefScope1OutputPlusLULUCFLimeCO2ToJSON(value['limeCO2']),
+        'inorganicFertiliserN2O': BeefScope1OutputPlusLULUCFInorganicFertiliserN2OToJSON(value['inorganicFertiliserN2O']),
+        'inorganicFertiliserCO2': BeefScope1OutputPlusLULUCFInorganicFertiliserCO2ToJSON(value['inorganicFertiliserCO2']),
+        'organicFertiliserN2O': BeefScope1OutputPlusLULUCFOrganicFertiliserN2OToJSON(value['organicFertiliserN2O']),
+        'inorganicFertiliserAtmosphericDepositionN2O': BeefScope1OutputPlusLULUCFInorganicFertiliserAtmosphericDepositionN2OToJSON(value['inorganicFertiliserAtmosphericDepositionN2O']),
+        'organicFertiliserAtmosphericDepositionN2O': BeefScope1OutputPlusLULUCFOrganicFertiliserAtmosphericDepositionN2OToJSON(value['organicFertiliserAtmosphericDepositionN2O']),
+        'fertiliserLeachingAndRunoffN2O': BeefScope1OutputPlusLULUCFFertiliserLeachingAndRunoffN2OToJSON(value['fertiliserLeachingAndRunoffN2O']),
+        'residueLeachingAndRunoffN2O': BeefScope1OutputPlusLULUCFResidueLeachingAndRunoffN2OToJSON(value['residueLeachingAndRunoffN2O']),
+        'pastureResidueN2O': BeefScope1OutputPlusLULUCFPastureResidueN2OToJSON(value['pastureResidueN2O']),
+        'solidWasteCO2': BeefScope1OutputPlusLULUCFSolidWasteCO2ToJSON(value['solidWasteCO2']),
+        'solidWasteCH4': BeefScope1OutputPlusLULUCFSolidWasteCH4ToJSON(value['solidWasteCH4']),
+        'solidWasteN2O': BeefScope1OutputPlusLULUCFSolidWasteN2OToJSON(value['solidWasteN2O']),
+        'woodyCarbonStocksCO2': BeefScope1OutputPlusLULUCFWoodyCarbonStocksCO2ToJSON(value['woodyCarbonStocksCO2']),
+        'biomassBurningCH4': BeefScope1OutputPlusLULUCFBiomassBurningCH4ToJSON(value['biomassBurningCH4']),
+        'biomassBurningN2O': BeefScope1OutputPlusLULUCFBiomassBurningN2OToJSON(value['biomassBurningN2O']),
+        'soilOrganicStockLossesCO2': BeefScope1OutputPlusLULUCFSoilOrganicStockLossesCO2ToJSON(value['soilOrganicStockLossesCO2']),
+        'harvestedWoodProductsCO2': BeefScope1OutputPlusLULUCFHarvestedWoodProductsCO2ToJSON(value['harvestedWoodProductsCO2']),
+        'nitrogenMineralisationSoilLossesN2O': BeefScope1OutputPlusLULUCFNitrogenMineralisationSoilLossesN2OToJSON(value['nitrogenMineralisationSoilLossesN2O']),
+        'leachingAndRunoffSoilLossesN2O': BeefScope1OutputPlusLULUCFLeachingAndRunoffSoilLossesN2OToJSON(value['leachingAndRunoffSoilLossesN2O']),
+        'savannaFireWoodyCarbonStocksCO2e': BeefScope1OutputPlusLULUCFSavannaFireWoodyCarbonStocksCO2eToJSON(value['savannaFireWoodyCarbonStocksCO2e']),
+        'savannaFireBiomassBurningCO2e': BeefScope1OutputPlusLULUCFSavannaFireBiomassBurningCO2eToJSON(value['savannaFireBiomassBurningCO2e']),
+        'perennialWoodyCropsRemovalsCO2': BeefScope1OutputPlusLULUCFPerennialWoodyCropsRemovalsCO2ToJSON(value['perennialWoodyCropsRemovalsCO2']),
+        'perennialWoodyCropsEmissionsCO2': BeefScope1OutputPlusLULUCFPerennialWoodyCropsEmissionsCO2ToJSON(value['perennialWoodyCropsEmissionsCO2']),
     };
 }
 

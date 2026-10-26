@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CarsAndLightCommercialVehiclesPre2004AmountKilolitres } from './CarsAndLightCommercialVehiclesPre2004AmountKilolitres';
+import type { CarsAndLightCommercialVehicles1AmountKilolitres } from './CarsAndLightCommercialVehicles1AmountKilolitres';
 import {
-    CarsAndLightCommercialVehiclesPre2004AmountKilolitresFromJSON,
-    CarsAndLightCommercialVehiclesPre2004AmountKilolitresFromJSONTyped,
-    CarsAndLightCommercialVehiclesPre2004AmountKilolitresToJSON,
-    CarsAndLightCommercialVehiclesPre2004AmountKilolitresToJSONTyped,
-} from './CarsAndLightCommercialVehiclesPre2004AmountKilolitres';
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSONTyped,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSONTyped,
+} from './CarsAndLightCommercialVehicles1AmountKilolitres';
 
 /**
  * 
@@ -30,7 +30,7 @@ export interface CarsAndLightCommercialVehicles1 {
     /**
      * 
      */
-    amountKilolitres: CarsAndLightCommercialVehiclesPre2004AmountKilolitres;
+    amountKilolitres: CarsAndLightCommercialVehicles1AmountKilolitres;
     /**
      * 
      */
@@ -88,7 +88,7 @@ export function CarsAndLightCommercialVehicles1FromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'amountKilolitres': CarsAndLightCommercialVehiclesPre2004AmountKilolitresFromJSON(json['amountKilolitres']),
+        'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
         'fuelType': json['fuelType'],
     };
@@ -105,7 +105,7 @@ export function CarsAndLightCommercialVehicles1ToJSONTyped(value?: CarsAndLightC
 
     return {
         
-        'amountKilolitres': CarsAndLightCommercialVehiclesPre2004AmountKilolitresToJSON(value['amountKilolitres']),
+        'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
         'fuelType': value['fuelType'],
     };

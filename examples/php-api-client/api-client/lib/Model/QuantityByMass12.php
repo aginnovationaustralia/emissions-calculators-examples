@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,8 +58,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'amount_mass' => '\OpenAPI\Client\Model\QuantityByMass12AmountMass',
-        'custom_emissions_factor' => '\OpenAPI\Client\Model\QuantityByMass12CustomEmissionsFactor'
+        'fuel_class' => 'string',
+        'fuel_type' => 'string',
+        'amount_tonnes' => '\OpenAPI\Client\Model\SolidFuels1AmountTonnes'
     ];
 
     /**
@@ -70,8 +71,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'amount_mass' => null,
-        'custom_emissions_factor' => null
+        'fuel_class' => null,
+        'fuel_type' => null,
+        'amount_tonnes' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'amount_mass' => false,
-        'custom_emissions_factor' => false
+        'fuel_class' => false,
+        'fuel_type' => false,
+        'amount_tonnes' => false
     ];
 
     /**
@@ -170,8 +173,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount_mass' => 'amountMass',
-        'custom_emissions_factor' => 'customEmissionsFactor'
+        'fuel_class' => 'fuelClass',
+        'fuel_type' => 'fuelType',
+        'amount_tonnes' => 'amountTonnes'
     ];
 
     /**
@@ -180,8 +184,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'amount_mass' => 'setAmountMass',
-        'custom_emissions_factor' => 'setCustomEmissionsFactor'
+        'fuel_class' => 'setFuelClass',
+        'fuel_type' => 'setFuelType',
+        'amount_tonnes' => 'setAmountTonnes'
     ];
 
     /**
@@ -190,8 +195,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'amount_mass' => 'getAmountMass',
-        'custom_emissions_factor' => 'getCustomEmissionsFactor'
+        'fuel_class' => 'getFuelClass',
+        'fuel_type' => 'getFuelType',
+        'amount_tonnes' => 'getAmountTonnes'
     ];
 
     /**
@@ -251,8 +257,9 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('amount_mass', $data ?? [], null);
-        $this->setIfExists('custom_emissions_factor', $data ?? [], null);
+        $this->setIfExists('fuel_class', $data ?? [], null);
+        $this->setIfExists('fuel_type', $data ?? [], null);
+        $this->setIfExists('amount_tonnes', $data ?? [], null);
     }
 
     /**
@@ -282,11 +289,14 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['amount_mass'] === null) {
-            $invalidProperties[] = "'amount_mass' can't be null";
+        if ($this->container['fuel_class'] === null) {
+            $invalidProperties[] = "'fuel_class' can't be null";
         }
-        if ($this->container['custom_emissions_factor'] === null) {
-            $invalidProperties[] = "'custom_emissions_factor' can't be null";
+        if ($this->container['fuel_type'] === null) {
+            $invalidProperties[] = "'fuel_type' can't be null";
+        }
+        if ($this->container['amount_tonnes'] === null) {
+            $invalidProperties[] = "'amount_tonnes' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +314,82 @@ class QuantityByMass12 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets amount_mass
+     * Gets fuel_class
      *
-     * @return \OpenAPI\Client\Model\QuantityByMass12AmountMass
+     * @return string
      */
-    public function getAmountMass()
+    public function getFuelClass()
     {
-        return $this->container['amount_mass'];
+        return $this->container['fuel_class'];
     }
 
     /**
-     * Sets amount_mass
+     * Sets fuel_class
      *
-     * @param \OpenAPI\Client\Model\QuantityByMass12AmountMass $amount_mass amount_mass
+     * @param string $fuel_class fuel_class
      *
      * @return self
      */
-    public function setAmountMass($amount_mass)
+    public function setFuelClass($fuel_class)
     {
-        if (is_null($amount_mass)) {
-            throw new \InvalidArgumentException('non-nullable amount_mass cannot be null');
+        if (is_null($fuel_class)) {
+            throw new \InvalidArgumentException('non-nullable fuel_class cannot be null');
         }
-        $this->container['amount_mass'] = $amount_mass;
+        $this->container['fuel_class'] = $fuel_class;
 
         return $this;
     }
 
     /**
-     * Gets custom_emissions_factor
+     * Gets fuel_type
      *
-     * @return \OpenAPI\Client\Model\QuantityByMass12CustomEmissionsFactor
+     * @return string
      */
-    public function getCustomEmissionsFactor()
+    public function getFuelType()
     {
-        return $this->container['custom_emissions_factor'];
+        return $this->container['fuel_type'];
     }
 
     /**
-     * Sets custom_emissions_factor
+     * Sets fuel_type
      *
-     * @param \OpenAPI\Client\Model\QuantityByMass12CustomEmissionsFactor $custom_emissions_factor custom_emissions_factor
+     * @param string $fuel_type Type of liquid fuel used in stationary equipment
      *
      * @return self
      */
-    public function setCustomEmissionsFactor($custom_emissions_factor)
+    public function setFuelType($fuel_type)
     {
-        if (is_null($custom_emissions_factor)) {
-            throw new \InvalidArgumentException('non-nullable custom_emissions_factor cannot be null');
+        if (is_null($fuel_type)) {
+            throw new \InvalidArgumentException('non-nullable fuel_type cannot be null');
         }
-        $this->container['custom_emissions_factor'] = $custom_emissions_factor;
+        $this->container['fuel_type'] = $fuel_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_tonnes
+     *
+     * @return \OpenAPI\Client\Model\SolidFuels1AmountTonnes
+     */
+    public function getAmountTonnes()
+    {
+        return $this->container['amount_tonnes'];
+    }
+
+    /**
+     * Sets amount_tonnes
+     *
+     * @param \OpenAPI\Client\Model\SolidFuels1AmountTonnes $amount_tonnes amount_tonnes
+     *
+     * @return self
+     */
+    public function setAmountTonnes($amount_tonnes)
+    {
+        if (is_null($amount_tonnes)) {
+            throw new \InvalidArgumentException('non-nullable amount_tonnes cannot be null');
+        }
+        $this->container['amount_tonnes'] = $amount_tonnes;
 
         return $this;
     }

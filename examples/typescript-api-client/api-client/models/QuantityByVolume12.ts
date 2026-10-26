@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { QuantityByVolume12VolumeWasteCubicMetres } from './QuantityByVolume12VolumeWasteCubicMetres';
+import type { CarsAndLightCommercialVehicles1AmountKilolitres } from './CarsAndLightCommercialVehicles1AmountKilolitres';
 import {
-    QuantityByVolume12VolumeWasteCubicMetresFromJSON,
-    QuantityByVolume12VolumeWasteCubicMetresFromJSONTyped,
-    QuantityByVolume12VolumeWasteCubicMetresToJSON,
-    QuantityByVolume12VolumeWasteCubicMetresToJSONTyped,
-} from './QuantityByVolume12VolumeWasteCubicMetres';
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSONTyped,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSONTyped,
+} from './CarsAndLightCommercialVehicles1AmountKilolitres';
 
 /**
  * 
@@ -28,40 +28,59 @@ import {
  */
 export interface QuantityByVolume12 {
     /**
-     * Type of solid waste treated at this facility (Unmanaged - deep)
+     * 
      */
-    wasteType: QuantityByVolume12WasteTypeEnum;
+    fuelClass: QuantityByVolume12FuelClassEnum;
+    /**
+     * Type of liquid fuel used in stationary equipment
+     */
+    fuelType: QuantityByVolume12FuelTypeEnum;
     /**
      * 
      */
-    volumeWasteCubicMetres: QuantityByVolume12VolumeWasteCubicMetres;
+    amountKilolitres: CarsAndLightCommercialVehicles1AmountKilolitres;
 }
 
 
 /**
  * @export
  */
-export const QuantityByVolume12WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    Nappies: 'Nappies',
+export const QuantityByVolume12FuelClassEnum = {
+    LiquidFuels: 'Liquid fuels',
 } as const;
-export type QuantityByVolume12WasteTypeEnum = typeof QuantityByVolume12WasteTypeEnum[keyof typeof QuantityByVolume12WasteTypeEnum];
+export type QuantityByVolume12FuelClassEnum = typeof QuantityByVolume12FuelClassEnum[keyof typeof QuantityByVolume12FuelClassEnum];
+
+/**
+ * @export
+ */
+export const QuantityByVolume12FuelTypeEnum = {
+    PetroleumBasedOilsOtherThanFuels: 'Petroleum based oils other than fuels',
+    PetroleumBasedGreases: 'Petroleum based greases',
+    AutomotiveGasolinePetrol: 'Automotive gasoline/petrol',
+    AviationGasoline: 'Aviation gasoline',
+    Kerosene: 'Kerosene',
+    AviationTurbineFuelKerosene: 'Aviation turbine fuel/kerosene',
+    HeatingOil: 'Heating oil',
+    DieselOil: 'Diesel oil',
+    FuelOil: 'Fuel oil',
+    LiquefiedAromaticHydrocarbons: 'Liquefied aromatic hydrocarbons',
+    SolventsMineralTurpentineOrWhiteSpirits: 'Solvents: mineral turpentine or white spirits',
+    LiquefiedPetroleumGas: 'Liquefied petroleum gas',
+    Naphtha: 'Naphtha',
+    OtherPetroleumProducts: 'Other petroleum products',
+} as const;
+export type QuantityByVolume12FuelTypeEnum = typeof QuantityByVolume12FuelTypeEnum[keyof typeof QuantityByVolume12FuelTypeEnum];
 
 
 /**
  * Check if a given object implements the QuantityByVolume12 interface.
  */
 export function instanceOfQuantityByVolume12(value: object): value is QuantityByVolume12 {
-    if (!('wasteType' in value) || value['wasteType'] === undefined) return false;
-    if (!('volumeWasteCubicMetres' in value) || value['volumeWasteCubicMetres'] === undefined) return false;
+    if (!('fuelClass' in value) || value['fuelClass'] === undefined) return false;
+    if (value['fuelClass'] !== 'Liquid fuels') return false;
+    
+    if (!('fuelType' in value) || value['fuelType'] === undefined) return false;
+    if (!('amountKilolitres' in value) || value['amountKilolitres'] === undefined) return false;
     return true;
 }
 
@@ -75,8 +94,9 @@ export function QuantityByVolume12FromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'wasteType': json['wasteType'],
-        'volumeWasteCubicMetres': QuantityByVolume12VolumeWasteCubicMetresFromJSON(json['volumeWasteCubicMetres']),
+        'fuelClass': json['fuelClass'],
+        'fuelType': json['fuelType'],
+        'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
     };
 }
 
@@ -91,8 +111,9 @@ export function QuantityByVolume12ToJSONTyped(value?: QuantityByVolume12 | null,
 
     return {
         
-        'wasteType': value['wasteType'],
-        'volumeWasteCubicMetres': QuantityByVolume12VolumeWasteCubicMetresToJSON(value['volumeWasteCubicMetres']),
+        'fuelClass': value['fuelClass'],
+        'fuelType': value['fuelType'],
+        'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
     };
 }
 

@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,8 +58,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'amount' => '\OpenAPI\Client\Model\Method13Amount',
-        'type' => 'string'
+        'method2_actual_stem_density' => '\OpenAPI\Client\Model\Method13Method2ActualStemDensity',
+        'method2_biomass_at_maturity' => '\OpenAPI\Client\Model\Method13Method2BiomassAtMaturity',
+        'plantings' => '\OpenAPI\Client\Model\Method13PlantingsInner[]',
+        'crop_type' => 'string',
+        'clearings' => '\OpenAPI\Client\Model\Method13ClearingsInner[]',
+        'calculation_method' => 'string'
     ];
 
     /**
@@ -70,8 +74,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'amount' => null,
-        'type' => null
+        'method2_actual_stem_density' => null,
+        'method2_biomass_at_maturity' => null,
+        'plantings' => null,
+        'crop_type' => null,
+        'clearings' => null,
+        'calculation_method' => null
     ];
 
     /**
@@ -80,8 +88,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'amount' => false,
-        'type' => false
+        'method2_actual_stem_density' => false,
+        'method2_biomass_at_maturity' => false,
+        'plantings' => false,
+        'crop_type' => false,
+        'clearings' => false,
+        'calculation_method' => false
     ];
 
     /**
@@ -170,8 +182,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount',
-        'type' => 'type'
+        'method2_actual_stem_density' => 'method2ActualStemDensity',
+        'method2_biomass_at_maturity' => 'method2BiomassAtMaturity',
+        'plantings' => 'plantings',
+        'crop_type' => 'cropType',
+        'clearings' => 'clearings',
+        'calculation_method' => 'calculationMethod'
     ];
 
     /**
@@ -180,8 +196,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount',
-        'type' => 'setType'
+        'method2_actual_stem_density' => 'setMethod2ActualStemDensity',
+        'method2_biomass_at_maturity' => 'setMethod2BiomassAtMaturity',
+        'plantings' => 'setPlantings',
+        'crop_type' => 'setCropType',
+        'clearings' => 'setClearings',
+        'calculation_method' => 'setCalculationMethod'
     ];
 
     /**
@@ -190,8 +210,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount',
-        'type' => 'getType'
+        'method2_actual_stem_density' => 'getMethod2ActualStemDensity',
+        'method2_biomass_at_maturity' => 'getMethod2BiomassAtMaturity',
+        'plantings' => 'getPlantings',
+        'crop_type' => 'getCropType',
+        'clearings' => 'getClearings',
+        'calculation_method' => 'getCalculationMethod'
     ];
 
     /**
@@ -235,6 +259,37 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const CROP_TYPE_ORANGES = 'Oranges';
+    public const CROP_TYPE_MACADAMIAS = 'Macadamias';
+    public const CROP_TYPE_ALMONDS = 'Almonds';
+    public const CROP_TYPE_APPLES = 'Apples';
+    public const CROP_TYPE_PEACHES = 'Peaches';
+    public const CROP_TYPE_OLIVES = 'Olives';
+    public const CROP_TYPE_AVOCADOS = 'Avocados';
+    public const CROP_TYPE_MANGOES = 'Mangoes';
+    public const CROP_TYPE_GRAPES = 'Grapes';
+    public const CROP_TYPE_KIWIFRUITS = 'Kiwifruits';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCropTypeAllowableValues()
+    {
+        return [
+            self::CROP_TYPE_ORANGES,
+            self::CROP_TYPE_MACADAMIAS,
+            self::CROP_TYPE_ALMONDS,
+            self::CROP_TYPE_APPLES,
+            self::CROP_TYPE_PEACHES,
+            self::CROP_TYPE_OLIVES,
+            self::CROP_TYPE_AVOCADOS,
+            self::CROP_TYPE_MANGOES,
+            self::CROP_TYPE_GRAPES,
+            self::CROP_TYPE_KIWIFRUITS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +306,12 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('method2_actual_stem_density', $data ?? [], null);
+        $this->setIfExists('method2_biomass_at_maturity', $data ?? [], null);
+        $this->setIfExists('plantings', $data ?? [], null);
+        $this->setIfExists('crop_type', $data ?? [], null);
+        $this->setIfExists('clearings', $data ?? [], null);
+        $this->setIfExists('calculation_method', $data ?? [], null);
     }
 
     /**
@@ -282,11 +341,26 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['amount'] === null) {
-            $invalidProperties[] = "'amount' can't be null";
+        if ($this->container['plantings'] === null) {
+            $invalidProperties[] = "'plantings' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['crop_type'] === null) {
+            $invalidProperties[] = "'crop_type' can't be null";
+        }
+        $allowedValues = $this->getCropTypeAllowableValues();
+        if (!is_null($this->container['crop_type']) && !in_array($this->container['crop_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'crop_type', must be one of '%s'",
+                $this->container['crop_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['clearings'] === null) {
+            $invalidProperties[] = "'clearings' can't be null";
+        }
+        if ($this->container['calculation_method'] === null) {
+            $invalidProperties[] = "'calculation_method' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +378,173 @@ class Method13 implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets amount
+     * Gets method2_actual_stem_density
      *
-     * @return \OpenAPI\Client\Model\Method13Amount
+     * @return \OpenAPI\Client\Model\Method13Method2ActualStemDensity|null
      */
-    public function getAmount()
+    public function getMethod2ActualStemDensity()
     {
-        return $this->container['amount'];
+        return $this->container['method2_actual_stem_density'];
     }
 
     /**
-     * Sets amount
+     * Sets method2_actual_stem_density
      *
-     * @param \OpenAPI\Client\Model\Method13Amount $amount amount
+     * @param \OpenAPI\Client\Model\Method13Method2ActualStemDensity|null $method2_actual_stem_density method2_actual_stem_density
      *
      * @return self
      */
-    public function setAmount($amount)
+    public function setMethod2ActualStemDensity($method2_actual_stem_density)
     {
-        if (is_null($amount)) {
-            throw new \InvalidArgumentException('non-nullable amount cannot be null');
+        if (is_null($method2_actual_stem_density)) {
+            throw new \InvalidArgumentException('non-nullable method2_actual_stem_density cannot be null');
         }
-        $this->container['amount'] = $amount;
+        $this->container['method2_actual_stem_density'] = $method2_actual_stem_density;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets method2_biomass_at_maturity
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Method13Method2BiomassAtMaturity|null
      */
-    public function getType()
+    public function getMethod2BiomassAtMaturity()
     {
-        return $this->container['type'];
+        return $this->container['method2_biomass_at_maturity'];
     }
 
     /**
-     * Sets type
+     * Sets method2_biomass_at_maturity
      *
-     * @param string $type The type of mineral supplement purchased.
+     * @param \OpenAPI\Client\Model\Method13Method2BiomassAtMaturity|null $method2_biomass_at_maturity method2_biomass_at_maturity
      *
      * @return self
      */
-    public function setType($type)
+    public function setMethod2BiomassAtMaturity($method2_biomass_at_maturity)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($method2_biomass_at_maturity)) {
+            throw new \InvalidArgumentException('non-nullable method2_biomass_at_maturity cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['method2_biomass_at_maturity'] = $method2_biomass_at_maturity;
+
+        return $this;
+    }
+
+    /**
+     * Gets plantings
+     *
+     * @return \OpenAPI\Client\Model\Method13PlantingsInner[]
+     */
+    public function getPlantings()
+    {
+        return $this->container['plantings'];
+    }
+
+    /**
+     * Sets plantings
+     *
+     * @param \OpenAPI\Client\Model\Method13PlantingsInner[] $plantings plantings
+     *
+     * @return self
+     */
+    public function setPlantings($plantings)
+    {
+        if (is_null($plantings)) {
+            throw new \InvalidArgumentException('non-nullable plantings cannot be null');
+        }
+        $this->container['plantings'] = $plantings;
+
+        return $this;
+    }
+
+    /**
+     * Gets crop_type
+     *
+     * @return string
+     */
+    public function getCropType()
+    {
+        return $this->container['crop_type'];
+    }
+
+    /**
+     * Sets crop_type
+     *
+     * @param string $crop_type crop_type
+     *
+     * @return self
+     */
+    public function setCropType($crop_type)
+    {
+        if (is_null($crop_type)) {
+            throw new \InvalidArgumentException('non-nullable crop_type cannot be null');
+        }
+        $allowedValues = $this->getCropTypeAllowableValues();
+        if (!in_array($crop_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'crop_type', must be one of '%s'",
+                    $crop_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['crop_type'] = $crop_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets clearings
+     *
+     * @return \OpenAPI\Client\Model\Method13ClearingsInner[]
+     */
+    public function getClearings()
+    {
+        return $this->container['clearings'];
+    }
+
+    /**
+     * Sets clearings
+     *
+     * @param \OpenAPI\Client\Model\Method13ClearingsInner[] $clearings clearings
+     *
+     * @return self
+     */
+    public function setClearings($clearings)
+    {
+        if (is_null($clearings)) {
+            throw new \InvalidArgumentException('non-nullable clearings cannot be null');
+        }
+        $this->container['clearings'] = $clearings;
+
+        return $this;
+    }
+
+    /**
+     * Gets calculation_method
+     *
+     * @return string
+     */
+    public function getCalculationMethod()
+    {
+        return $this->container['calculation_method'];
+    }
+
+    /**
+     * Sets calculation_method
+     *
+     * @param string $calculation_method calculation_method
+     *
+     * @return self
+     */
+    public function setCalculationMethod($calculation_method)
+    {
+        if (is_null($calculation_method)) {
+            throw new \InvalidArgumentException('non-nullable calculation_method cannot be null');
+        }
+        $this->container['calculation_method'] = $calculation_method;
 
         return $this;
     }

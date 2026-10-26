@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -27,13 +27,13 @@ import {
     PostBeef200ResponseIntensitiesToJSON,
     PostBeef200ResponseIntensitiesToJSONTyped,
 } from './PostBeef200ResponseIntensities';
-import type { PostAquaculture200ResponseNet } from './PostAquaculture200ResponseNet';
+import type { PostBeef200ResponseNet } from './PostBeef200ResponseNet';
 import {
-    PostAquaculture200ResponseNetFromJSON,
-    PostAquaculture200ResponseNetFromJSONTyped,
-    PostAquaculture200ResponseNetToJSON,
-    PostAquaculture200ResponseNetToJSONTyped,
-} from './PostAquaculture200ResponseNet';
+    PostBeef200ResponseNetFromJSON,
+    PostBeef200ResponseNetFromJSONTyped,
+    PostBeef200ResponseNetToJSON,
+    PostBeef200ResponseNetToJSONTyped,
+} from './PostBeef200ResponseNet';
 import type { Scope2Output } from './Scope2Output';
 import {
     Scope2OutputFromJSON,
@@ -81,7 +81,7 @@ export interface PostBeef200Response {
     /**
      * 
      */
-    net: PostAquaculture200ResponseNet;
+    net: PostBeef200ResponseNet;
     /**
      * 
      */
@@ -115,7 +115,7 @@ export function PostBeef200ResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'scope2': Scope2OutputFromJSON(json['scope2']),
         'scope3': PostBeef200ResponseScope3FromJSON(json['scope3']),
         'intermediate': ((json['intermediate'] as Array<any>).map(PostBeef200ResponseIntermediateInnerFromJSON)),
-        'net': PostAquaculture200ResponseNetFromJSON(json['net']),
+        'net': PostBeef200ResponseNetFromJSON(json['net']),
         'intensities': PostBeef200ResponseIntensitiesFromJSON(json['intensities']),
     };
 }
@@ -135,7 +135,7 @@ export function PostBeef200ResponseToJSONTyped(value?: PostBeef200Response | nul
         'scope2': Scope2OutputToJSON(value['scope2']),
         'scope3': PostBeef200ResponseScope3ToJSON(value['scope3']),
         'intermediate': ((value['intermediate'] as Array<any>).map(PostBeef200ResponseIntermediateInnerToJSON)),
-        'net': PostAquaculture200ResponseNetToJSON(value['net']),
+        'net': PostBeef200ResponseNetToJSON(value['net']),
         'intensities': PostBeef200ResponseIntensitiesToJSON(value['intensities']),
     };
 }

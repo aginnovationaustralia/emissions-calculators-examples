@@ -1,13 +1,13 @@
 [project]
 name = "openapi_client"
 version = "1.0.0"
-description = "AIA Calculator API"
+description = "AIA Calculator API - beef"
 authors = [
   {name = "AIA",email = "contact@aginnovationaustralia.com.au"},
 ]
 license = { text = "CC-BY-4.0" }
 readme = "README.md"
-keywords = ["OpenAPI", "OpenAPI-Generator", "AIA Calculator API"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "AIA Calculator API - beef"]
 requires-python = ">=3.10"
 
 dependencies = [

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CarsAndLightCommercialVehicles2AmountKilolitres } from './CarsAndLightCommercialVehicles2AmountKilolitres';
+import type { CarsAndLightCommercialVehicles1AmountKilolitres } from './CarsAndLightCommercialVehicles1AmountKilolitres';
 import {
-    CarsAndLightCommercialVehicles2AmountKilolitresFromJSON,
-    CarsAndLightCommercialVehicles2AmountKilolitresFromJSONTyped,
-    CarsAndLightCommercialVehicles2AmountKilolitresToJSON,
-    CarsAndLightCommercialVehicles2AmountKilolitresToJSONTyped,
-} from './CarsAndLightCommercialVehicles2AmountKilolitres';
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSONTyped,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSONTyped,
+} from './CarsAndLightCommercialVehicles1AmountKilolitres';
 
 /**
  * 
@@ -38,7 +38,7 @@ export interface CompressedNaturalGasCNG1 {
     /**
      * 
      */
-    amountCubicMetres: CarsAndLightCommercialVehicles2AmountKilolitres;
+    amountCubicMetres: CarsAndLightCommercialVehicles1AmountKilolitres;
 }
 
 
@@ -84,7 +84,7 @@ export function CompressedNaturalGasCNG1FromJSONTyped(json: any, ignoreDiscrimin
         
         'vehicleType': json['vehicleType'],
         'fuelType': json['fuelType'],
-        'amountCubicMetres': CarsAndLightCommercialVehicles2AmountKilolitresFromJSON(json['amountCubicMetres']),
+        'amountCubicMetres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountCubicMetres']),
     };
 }
 
@@ -101,7 +101,7 @@ export function CompressedNaturalGasCNG1ToJSONTyped(value?: CompressedNaturalGas
         
         'vehicleType': value['vehicleType'],
         'fuelType': value['fuelType'],
-        'amountCubicMetres': CarsAndLightCommercialVehicles2AmountKilolitresToJSON(value['amountCubicMetres']),
+        'amountCubicMetres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountCubicMetres']),
     };
 }
 

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -20,20 +20,20 @@ import {
     Method1ByFeedTypeFromJSONTyped,
     Method1ByFeedTypeToJSON,
 } from './Method1ByFeedType';
-import type { Method2CustomEmissionsFactor2 } from './Method2CustomEmissionsFactor2';
+import type { Method2CustomEmissionsFactor } from './Method2CustomEmissionsFactor';
 import {
-    instanceOfMethod2CustomEmissionsFactor2,
-    Method2CustomEmissionsFactor2FromJSON,
-    Method2CustomEmissionsFactor2FromJSONTyped,
-    Method2CustomEmissionsFactor2ToJSON,
-} from './Method2CustomEmissionsFactor2';
+    instanceOfMethod2CustomEmissionsFactor,
+    Method2CustomEmissionsFactorFromJSON,
+    Method2CustomEmissionsFactorFromJSONTyped,
+    Method2CustomEmissionsFactorToJSON,
+} from './Method2CustomEmissionsFactor';
 
 /**
  * @type PurchasedFeedListInputInner
  * 
  * @export
  */
-export type PurchasedFeedListInputInner = Method1ByFeedType | Method2CustomEmissionsFactor2;
+export type PurchasedFeedListInputInner = Method1ByFeedType | Method2CustomEmissionsFactor;
 /**
  * Check if a given object matches one of the PurchasedFeedListInputInner variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -46,7 +46,7 @@ export function instanceOfPurchasedFeedListInputInner(value: any): boolean {
     if (instanceOfMethod1ByFeedType(value)) {
         return true;
     }
-    if (instanceOfMethod2CustomEmissionsFactor2(value)) {
+    if (instanceOfMethod2CustomEmissionsFactor(value)) {
         return true;
     }
     return false;
@@ -67,8 +67,8 @@ export function PurchasedFeedListInputInnerFromJSONTyped(json: any, ignoreDiscri
     if (instanceOfMethod1ByFeedType(json)) {
         return Method1ByFeedTypeFromJSONTyped(json, true);
     }
-    if (instanceOfMethod2CustomEmissionsFactor2(json)) {
-        return Method2CustomEmissionsFactor2FromJSONTyped(json, true);
+    if (instanceOfMethod2CustomEmissionsFactor(json)) {
+        return Method2CustomEmissionsFactorFromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -87,8 +87,8 @@ export function PurchasedFeedListInputInnerToJSONTyped(value?: PurchasedFeedList
     if (instanceOfMethod1ByFeedType(value)) {
         return Method1ByFeedTypeToJSON(value as Method1ByFeedType);
     }
-    if (instanceOfMethod2CustomEmissionsFactor2(value)) {
-        return Method2CustomEmissionsFactor2ToJSON(value as Method2CustomEmissionsFactor2);
+    if (instanceOfMethod2CustomEmissionsFactor(value)) {
+        return Method2CustomEmissionsFactorToJSON(value as Method2CustomEmissionsFactor);
     }
     return {};
 }

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -14,125 +14,86 @@
 
 
 from __future__ import annotations
-import json
 import pprint
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
-from typing import Any, List, Optional
-from openapi_client.models.quantity_by_mass12 import QuantityByMass12
-from openapi_client.models.quantity_by_units1 import QuantityByUnits1
-from pydantic import StrictStr, Field
-from typing import Union, List, Set, Optional, Dict
-from typing_extensions import Literal, Self
+import re  # noqa: F401
+import json
 
-METHOD2CUSTOMEMISSIONSFACTOR_ONE_OF_SCHEMAS = ["QuantityByMass12", "QuantityByUnits1"]
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.method2_custom_emissions_factor_custom_emissions_factor import Method2CustomEmissionsFactorCustomEmissionsFactor
+from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
+from typing import Optional, Set
+from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Method2CustomEmissionsFactor(BaseModel):
     """
     Method2CustomEmissionsFactor
-    """
-    # data type: QuantityByUnits1
-    oneof_schema_1_validator: Optional[QuantityByUnits1] = None
-    # data type: QuantityByMass12
-    oneof_schema_2_validator: Optional[QuantityByMass12] = None
-    actual_instance: Optional[Union[QuantityByMass12, QuantityByUnits1]] = None
-    one_of_schemas: Set[str] = { "QuantityByMass12", "QuantityByUnits1" }
+    """ # noqa: E501
+    amount: RegionlessFeedTypeAmount
+    custom_emissions_factor: Method2CustomEmissionsFactorCustomEmissionsFactor = Field(alias="customEmissionsFactor")
+    __properties: ClassVar[List[str]] = ["amount", "customEmissionsFactor"]
 
     model_config = ConfigDict(
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
 
 
-    def __init__(self, *args, **kwargs) -> None:
-        if args:
-            if len(args) > 1:
-                raise ValueError("If a position argument is used, only 1 is allowed to set `actual_instance`")
-            if kwargs:
-                raise ValueError("If a position argument is used, keyword arguments cannot be used.")
-            super().__init__(actual_instance=args[0])
-        else:
-            super().__init__(**kwargs)
-
-    @field_validator('actual_instance')
-    def actual_instance_must_validate_oneof(cls, v):
-        instance = Method2CustomEmissionsFactor.model_construct()
-        error_messages = []
-        match = 0
-        # validate data type: QuantityByUnits1
-        if not isinstance(v, QuantityByUnits1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `QuantityByUnits1`")
-        else:
-            match += 1
-        # validate data type: QuantityByMass12
-        if not isinstance(v, QuantityByMass12):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `QuantityByMass12`")
-        else:
-            match += 1
-        if match > 1:
-            # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in Method2CustomEmissionsFactor with oneOf schemas: QuantityByMass12, QuantityByUnits1. Details: " + ", ".join(error_messages))
-        elif match == 0:
-            # no match
-            raise ValueError("No match found when setting `actual_instance` in Method2CustomEmissionsFactor with oneOf schemas: QuantityByMass12, QuantityByUnits1. Details: " + ", ".join(error_messages))
-        else:
-            return v
-
-    @classmethod
-    def from_dict(cls, obj: Union[str, Dict[str, Any]]) -> Self:
-        return cls.from_json(json.dumps(obj))
-
-    @classmethod
-    def from_json(cls, json_str: str) -> Self:
-        """Returns the object represented by the json string"""
-        instance = cls.model_construct()
-        error_messages = []
-        match = 0
-
-        # deserialize data into QuantityByUnits1
-        try:
-            instance.actual_instance = QuantityByUnits1.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # deserialize data into QuantityByMass12
-        try:
-            instance.actual_instance = QuantityByMass12.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-
-        if match > 1:
-            # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into Method2CustomEmissionsFactor with oneOf schemas: QuantityByMass12, QuantityByUnits1. Details: " + ", ".join(error_messages))
-        elif match == 0:
-            # no match
-            raise ValueError("No match found when deserializing the JSON string into Method2CustomEmissionsFactor with oneOf schemas: QuantityByMass12, QuantityByUnits1. Details: " + ", ".join(error_messages))
-        else:
-            return instance
+    def to_str(self) -> str:
+        """Returns the string representation of the model using alias"""
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
-        """Returns the JSON representation of the actual instance"""
-        if self.actual_instance is None:
-            return "null"
+        """Returns the JSON representation of the model using alias"""
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
-        if hasattr(self.actual_instance, "to_json") and callable(self.actual_instance.to_json):
-            return self.actual_instance.to_json()
-        else:
-            return json.dumps(self.actual_instance)
+    @classmethod
+    def from_json(cls, json_str: str) -> Optional[Self]:
+        """Create an instance of Method2CustomEmissionsFactor from a JSON string"""
+        return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], QuantityByMass12, QuantityByUnits1]]:
-        """Returns the dict representation of the actual instance"""
-        if self.actual_instance is None:
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
+        # override the default output from pydantic by calling `to_dict()` of amount
+        if self.amount:
+            _dict['amount'] = self.amount.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom_emissions_factor
+        if self.custom_emissions_factor:
+            _dict['customEmissionsFactor'] = self.custom_emissions_factor.to_dict()
+        return _dict
+
+    @classmethod
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+        """Create an instance of Method2CustomEmissionsFactor from a dict"""
+        if obj is None:
             return None
 
-        if hasattr(self.actual_instance, "to_dict") and callable(self.actual_instance.to_dict):
-            return self.actual_instance.to_dict()
-        else:
-            # primitive type
-            return self.actual_instance
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
 
-    def to_str(self) -> str:
-        """Returns the string representation of the actual instance"""
-        return pprint.pformat(self.model_dump())
+        _obj = cls.model_validate({
+            "amount": RegionlessFeedTypeAmount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
+            "customEmissionsFactor": Method2CustomEmissionsFactorCustomEmissionsFactor.from_dict(obj["customEmissionsFactor"]) if obj.get("customEmissionsFactor") is not None else None
+        })
+        return _obj
 
 

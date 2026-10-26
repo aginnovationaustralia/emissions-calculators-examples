@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,8 +58,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $openAPITypes = [
-        'waste_type' => 'string',
-        'volume_waste_cubic_metres' => '\OpenAPI\Client\Model\QuantityByVolume11VolumeWasteCubicMetres'
+        'fuel_class' => 'string',
+        'fuel_type' => 'string',
+        'amount_kilolitres' => '\OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres'
     ];
 
     /**
@@ -70,8 +71,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'waste_type' => null,
-        'volume_waste_cubic_metres' => null
+        'fuel_class' => null,
+        'fuel_type' => null,
+        'amount_kilolitres' => null
     ];
 
     /**
@@ -80,8 +82,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'waste_type' => false,
-        'volume_waste_cubic_metres' => false
+        'fuel_class' => false,
+        'fuel_type' => false,
+        'amount_kilolitres' => false
     ];
 
     /**
@@ -170,8 +173,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'waste_type' => 'wasteType',
-        'volume_waste_cubic_metres' => 'volumeWasteCubicMetres'
+        'fuel_class' => 'fuelClass',
+        'fuel_type' => 'fuelType',
+        'amount_kilolitres' => 'amountKilolitres'
     ];
 
     /**
@@ -180,8 +184,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'waste_type' => 'setWasteType',
-        'volume_waste_cubic_metres' => 'setVolumeWasteCubicMetres'
+        'fuel_class' => 'setFuelClass',
+        'fuel_type' => 'setFuelType',
+        'amount_kilolitres' => 'setAmountKilolitres'
     ];
 
     /**
@@ -190,8 +195,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'waste_type' => 'getWasteType',
-        'volume_waste_cubic_metres' => 'getVolumeWasteCubicMetres'
+        'fuel_class' => 'getFuelClass',
+        'fuel_type' => 'getFuelType',
+        'amount_kilolitres' => 'getAmountKilolitres'
     ];
 
     /**
@@ -251,8 +257,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('waste_type', $data ?? [], null);
-        $this->setIfExists('volume_waste_cubic_metres', $data ?? [], null);
+        $this->setIfExists('fuel_class', $data ?? [], null);
+        $this->setIfExists('fuel_type', $data ?? [], null);
+        $this->setIfExists('amount_kilolitres', $data ?? [], null);
     }
 
     /**
@@ -282,11 +289,14 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['waste_type'] === null) {
-            $invalidProperties[] = "'waste_type' can't be null";
+        if ($this->container['fuel_class'] === null) {
+            $invalidProperties[] = "'fuel_class' can't be null";
         }
-        if ($this->container['volume_waste_cubic_metres'] === null) {
-            $invalidProperties[] = "'volume_waste_cubic_metres' can't be null";
+        if ($this->container['fuel_type'] === null) {
+            $invalidProperties[] = "'fuel_type' can't be null";
+        }
+        if ($this->container['amount_kilolitres'] === null) {
+            $invalidProperties[] = "'amount_kilolitres' can't be null";
         }
         return $invalidProperties;
     }
@@ -304,55 +314,82 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets waste_type
+     * Gets fuel_class
      *
      * @return string
      */
-    public function getWasteType()
+    public function getFuelClass()
     {
-        return $this->container['waste_type'];
+        return $this->container['fuel_class'];
     }
 
     /**
-     * Sets waste_type
+     * Sets fuel_class
      *
-     * @param string $waste_type Type of solid waste treated at this facility (Burial)
+     * @param string $fuel_class fuel_class
      *
      * @return self
      */
-    public function setWasteType($waste_type)
+    public function setFuelClass($fuel_class)
     {
-        if (is_null($waste_type)) {
-            throw new \InvalidArgumentException('non-nullable waste_type cannot be null');
+        if (is_null($fuel_class)) {
+            throw new \InvalidArgumentException('non-nullable fuel_class cannot be null');
         }
-        $this->container['waste_type'] = $waste_type;
+        $this->container['fuel_class'] = $fuel_class;
 
         return $this;
     }
 
     /**
-     * Gets volume_waste_cubic_metres
+     * Gets fuel_type
      *
-     * @return \OpenAPI\Client\Model\QuantityByVolume11VolumeWasteCubicMetres
+     * @return string
      */
-    public function getVolumeWasteCubicMetres()
+    public function getFuelType()
     {
-        return $this->container['volume_waste_cubic_metres'];
+        return $this->container['fuel_type'];
     }
 
     /**
-     * Sets volume_waste_cubic_metres
+     * Sets fuel_type
      *
-     * @param \OpenAPI\Client\Model\QuantityByVolume11VolumeWasteCubicMetres $volume_waste_cubic_metres volume_waste_cubic_metres
+     * @param string $fuel_type Type of liquid fuel used in stationary equipment
      *
      * @return self
      */
-    public function setVolumeWasteCubicMetres($volume_waste_cubic_metres)
+    public function setFuelType($fuel_type)
     {
-        if (is_null($volume_waste_cubic_metres)) {
-            throw new \InvalidArgumentException('non-nullable volume_waste_cubic_metres cannot be null');
+        if (is_null($fuel_type)) {
+            throw new \InvalidArgumentException('non-nullable fuel_type cannot be null');
         }
-        $this->container['volume_waste_cubic_metres'] = $volume_waste_cubic_metres;
+        $this->container['fuel_type'] = $fuel_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_kilolitres
+     *
+     * @return \OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres
+     */
+    public function getAmountKilolitres()
+    {
+        return $this->container['amount_kilolitres'];
+    }
+
+    /**
+     * Sets amount_kilolitres
+     *
+     * @param \OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres $amount_kilolitres amount_kilolitres
+     *
+     * @return self
+     */
+    public function setAmountKilolitres($amount_kilolitres)
+    {
+        if (is_null($amount_kilolitres)) {
+            throw new \InvalidArgumentException('non-nullable amount_kilolitres cannot be null');
+        }
+        $this->container['amount_kilolitres'] = $amount_kilolitres;
 
         return $this;
     }

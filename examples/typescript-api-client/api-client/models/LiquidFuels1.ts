@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,27 +13,27 @@
  */
 
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
-import type { QuantityByMass23 } from './QuantityByMass23';
+import type { QuantityByMass12 } from './QuantityByMass12';
 import {
-    instanceOfQuantityByMass23,
-    QuantityByMass23FromJSON,
-    QuantityByMass23FromJSONTyped,
-    QuantityByMass23ToJSON,
-} from './QuantityByMass23';
-import type { QuantityByVolume21 } from './QuantityByVolume21';
+    instanceOfQuantityByMass12,
+    QuantityByMass12FromJSON,
+    QuantityByMass12FromJSONTyped,
+    QuantityByMass12ToJSON,
+} from './QuantityByMass12';
+import type { QuantityByVolume12 } from './QuantityByVolume12';
 import {
-    instanceOfQuantityByVolume21,
-    QuantityByVolume21FromJSON,
-    QuantityByVolume21FromJSONTyped,
-    QuantityByVolume21ToJSON,
-} from './QuantityByVolume21';
+    instanceOfQuantityByVolume12,
+    QuantityByVolume12FromJSON,
+    QuantityByVolume12FromJSONTyped,
+    QuantityByVolume12ToJSON,
+} from './QuantityByVolume12';
 
 /**
  * @type LiquidFuels1
  * 
  * @export
  */
-export type LiquidFuels1 = QuantityByMass23 | QuantityByVolume21;
+export type LiquidFuels1 = QuantityByMass12 | QuantityByVolume12;
 /**
  * Check if a given object matches one of the LiquidFuels1 variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -43,10 +43,10 @@ export function instanceOfLiquidFuels1(value: any): boolean {
     if (value == null || typeof value !== 'object') {
         return false;
     }
-    if (instanceOfQuantityByMass23(value)) {
+    if (instanceOfQuantityByMass12(value)) {
         return true;
     }
-    if (instanceOfQuantityByVolume21(value)) {
+    if (instanceOfQuantityByVolume12(value)) {
         return true;
     }
     return false;
@@ -64,11 +64,11 @@ export function LiquidFuels1FromJSONTyped(json: any, ignoreDiscriminator: boolea
     if (typeof json !== 'object') {
         return json;
     }
-    if (instanceOfQuantityByMass23(json)) {
-        return QuantityByMass23FromJSONTyped(json, true);
+    if (instanceOfQuantityByMass12(json)) {
+        return QuantityByMass12FromJSONTyped(json, true);
     }
-    if (instanceOfQuantityByVolume21(json)) {
-        return QuantityByVolume21FromJSONTyped(json, true);
+    if (instanceOfQuantityByVolume12(json)) {
+        return QuantityByVolume12FromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -84,11 +84,11 @@ export function LiquidFuels1ToJSONTyped(value?: LiquidFuels1 | null, ignoreDiscr
     if (typeof value !== 'object') {
         return value;
     }
-    if (instanceOfQuantityByMass23(value)) {
-        return QuantityByMass23ToJSON(value as QuantityByMass23);
+    if (instanceOfQuantityByMass12(value)) {
+        return QuantityByMass12ToJSON(value as QuantityByMass12);
     }
-    if (instanceOfQuantityByVolume21(value)) {
-        return QuantityByVolume21ToJSON(value as QuantityByVolume21);
+    if (instanceOfQuantityByVolume12(value)) {
+        return QuantityByVolume12ToJSON(value as QuantityByVolume12);
     }
     return {};
 }

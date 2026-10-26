@@ -11,7 +11,7 @@
  */
 
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  *
  * Emissions Calculators for various farming activities
  *
@@ -58,7 +58,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $openAPITypes = [
-        'fraction_solids_separated_pre_treatment' => '\OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment',
         'manure_allocated' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlagPitStorageManureAllocated',
         'treatment_stage2_allocations' => '\OpenAPI\Client\Model\Method1SolidsSeparationFlagPitStorageTreatmentStage2Allocations',
         'fraction_nitrogen_separated_pre_treatment' => '\OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoonFractionNitrogenSeparatedPreTreatment'
@@ -72,7 +71,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'fraction_solids_separated_pre_treatment' => null,
         'manure_allocated' => null,
         'treatment_stage2_allocations' => null,
         'fraction_nitrogen_separated_pre_treatment' => null
@@ -84,7 +82,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'fraction_solids_separated_pre_treatment' => false,
         'manure_allocated' => false,
         'treatment_stage2_allocations' => false,
         'fraction_nitrogen_separated_pre_treatment' => false
@@ -176,7 +173,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'fraction_solids_separated_pre_treatment' => 'fractionSolidsSeparatedPreTreatment',
         'manure_allocated' => 'manureAllocated',
         'treatment_stage2_allocations' => 'treatmentStage2Allocations',
         'fraction_nitrogen_separated_pre_treatment' => 'fractionNitrogenSeparatedPreTreatment'
@@ -188,7 +184,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'fraction_solids_separated_pre_treatment' => 'setFractionSolidsSeparatedPreTreatment',
         'manure_allocated' => 'setManureAllocated',
         'treatment_stage2_allocations' => 'setTreatmentStage2Allocations',
         'fraction_nitrogen_separated_pre_treatment' => 'setFractionNitrogenSeparatedPreTreatment'
@@ -200,7 +195,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'fraction_solids_separated_pre_treatment' => 'getFractionSolidsSeparatedPreTreatment',
         'manure_allocated' => 'getManureAllocated',
         'treatment_stage2_allocations' => 'getTreatmentStage2Allocations',
         'fraction_nitrogen_separated_pre_treatment' => 'getFractionNitrogenSeparatedPreTreatment'
@@ -263,7 +257,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('fraction_solids_separated_pre_treatment', $data ?? [], null);
         $this->setIfExists('manure_allocated', $data ?? [], null);
         $this->setIfExists('treatment_stage2_allocations', $data ?? [], null);
         $this->setIfExists('fraction_nitrogen_separated_pre_treatment', $data ?? [], null);
@@ -296,9 +289,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['fraction_solids_separated_pre_treatment'] === null) {
-            $invalidProperties[] = "'fraction_solids_separated_pre_treatment' can't be null";
-        }
         if ($this->container['manure_allocated'] === null) {
             $invalidProperties[] = "'manure_allocated' can't be null";
         }
@@ -322,33 +312,6 @@ class Method2MeasuredFractionsPitStorage implements ModelInterface, ArrayAccess,
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets fraction_solids_separated_pre_treatment
-     *
-     * @return \OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment
-     */
-    public function getFractionSolidsSeparatedPreTreatment()
-    {
-        return $this->container['fraction_solids_separated_pre_treatment'];
-    }
-
-    /**
-     * Sets fraction_solids_separated_pre_treatment
-     *
-     * @param \OpenAPI\Client\Model\Method2MeasuredFractionsAnaerobicLagoonFractionSolidsSeparatedPreTreatment $fraction_solids_separated_pre_treatment fraction_solids_separated_pre_treatment
-     *
-     * @return self
-     */
-    public function setFractionSolidsSeparatedPreTreatment($fraction_solids_separated_pre_treatment)
-    {
-        if (is_null($fraction_solids_separated_pre_treatment)) {
-            throw new \InvalidArgumentException('non-nullable fraction_solids_separated_pre_treatment cannot be null');
-        }
-        $this->container['fraction_solids_separated_pre_treatment'] = $fraction_solids_separated_pre_treatment;
-
-        return $this;
-    }
 
     /**
      * Gets manure_allocated

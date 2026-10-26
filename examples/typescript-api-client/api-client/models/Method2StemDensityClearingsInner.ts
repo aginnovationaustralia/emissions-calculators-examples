@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -20,13 +20,13 @@ import {
     Method2StemDensityClearingsInnerMethod2AgeAtClearingToJSON,
     Method2StemDensityClearingsInnerMethod2AgeAtClearingToJSONTyped,
 } from './Method2StemDensityClearingsInnerMethod2AgeAtClearing';
-import type { Method16ClearingsInnerAreaCleared } from './Method16ClearingsInnerAreaCleared';
+import type { Method13ClearingsInnerAreaCleared } from './Method13ClearingsInnerAreaCleared';
 import {
-    Method16ClearingsInnerAreaClearedFromJSON,
-    Method16ClearingsInnerAreaClearedFromJSONTyped,
-    Method16ClearingsInnerAreaClearedToJSON,
-    Method16ClearingsInnerAreaClearedToJSONTyped,
-} from './Method16ClearingsInnerAreaCleared';
+    Method13ClearingsInnerAreaClearedFromJSON,
+    Method13ClearingsInnerAreaClearedFromJSONTyped,
+    Method13ClearingsInnerAreaClearedToJSON,
+    Method13ClearingsInnerAreaClearedToJSONTyped,
+} from './Method13ClearingsInnerAreaCleared';
 
 /**
  * 
@@ -37,7 +37,7 @@ export interface Method2StemDensityClearingsInner {
     /**
      * 
      */
-    areaCleared: Method16ClearingsInnerAreaCleared;
+    areaCleared: Method13ClearingsInnerAreaCleared;
     /**
      * 
      */
@@ -63,7 +63,7 @@ export function Method2StemDensityClearingsInnerFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'areaCleared': Method16ClearingsInnerAreaClearedFromJSON(json['areaCleared']),
+        'areaCleared': Method13ClearingsInnerAreaClearedFromJSON(json['areaCleared']),
         'method2AgeAtClearing': Method2StemDensityClearingsInnerMethod2AgeAtClearingFromJSON(json['method2AgeAtClearing']),
     };
 }
@@ -79,7 +79,7 @@ export function Method2StemDensityClearingsInnerToJSONTyped(value?: Method2StemD
 
     return {
         
-        'areaCleared': Method16ClearingsInnerAreaClearedToJSON(value['areaCleared']),
+        'areaCleared': Method13ClearingsInnerAreaClearedToJSON(value['areaCleared']),
         'method2AgeAtClearing': Method2StemDensityClearingsInnerMethod2AgeAtClearingToJSON(value['method2AgeAtClearing']),
     };
 }

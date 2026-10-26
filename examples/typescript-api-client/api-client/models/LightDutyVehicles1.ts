@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CarsAndLightCommercialVehicles2AmountKilolitres } from './CarsAndLightCommercialVehicles2AmountKilolitres';
+import type { CarsAndLightCommercialVehicles1AmountKilolitres } from './CarsAndLightCommercialVehicles1AmountKilolitres';
 import {
-    CarsAndLightCommercialVehicles2AmountKilolitresFromJSON,
-    CarsAndLightCommercialVehicles2AmountKilolitresFromJSONTyped,
-    CarsAndLightCommercialVehicles2AmountKilolitresToJSON,
-    CarsAndLightCommercialVehicles2AmountKilolitresToJSONTyped,
-} from './CarsAndLightCommercialVehicles2AmountKilolitres';
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresFromJSONTyped,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSON,
+    CarsAndLightCommercialVehicles1AmountKilolitresToJSONTyped,
+} from './CarsAndLightCommercialVehicles1AmountKilolitres';
 
 /**
  * 
@@ -30,7 +30,7 @@ export interface LightDutyVehicles1 {
     /**
      * 
      */
-    amountKilolitres: CarsAndLightCommercialVehicles2AmountKilolitres;
+    amountKilolitres: CarsAndLightCommercialVehicles1AmountKilolitres;
     /**
      * 
      */
@@ -82,7 +82,7 @@ export function LightDutyVehicles1FromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'amountKilolitres': CarsAndLightCommercialVehicles2AmountKilolitresFromJSON(json['amountKilolitres']),
+        'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
         'fuelType': json['fuelType'],
     };
@@ -99,7 +99,7 @@ export function LightDutyVehicles1ToJSONTyped(value?: LightDutyVehicles1 | null,
 
     return {
         
-        'amountKilolitres': CarsAndLightCommercialVehicles2AmountKilolitresToJSON(value['amountKilolitres']),
+        'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
         'fuelType': value['fuelType'],
     };

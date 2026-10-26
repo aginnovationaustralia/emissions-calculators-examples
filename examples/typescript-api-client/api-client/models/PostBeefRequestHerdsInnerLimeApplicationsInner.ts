@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * AIA Calculator API
+ * AIA Calculator API - beef
  * Emissions Calculators for various farming activities
  *
  * The version of the OpenAPI document: 4.0.2
@@ -20,20 +20,20 @@ import {
     GypsumApplicationFromJSONTyped,
     GypsumApplicationToJSON,
 } from './GypsumApplication';
-import type { LimestoneOrDolomiteApplication1 } from './LimestoneOrDolomiteApplication1';
+import type { LimestoneOrDolomiteApplication } from './LimestoneOrDolomiteApplication';
 import {
-    instanceOfLimestoneOrDolomiteApplication1,
-    LimestoneOrDolomiteApplication1FromJSON,
-    LimestoneOrDolomiteApplication1FromJSONTyped,
-    LimestoneOrDolomiteApplication1ToJSON,
-} from './LimestoneOrDolomiteApplication1';
+    instanceOfLimestoneOrDolomiteApplication,
+    LimestoneOrDolomiteApplicationFromJSON,
+    LimestoneOrDolomiteApplicationFromJSONTyped,
+    LimestoneOrDolomiteApplicationToJSON,
+} from './LimestoneOrDolomiteApplication';
 
 /**
  * @type PostBeefRequestHerdsInnerLimeApplicationsInner
  * 
  * @export
  */
-export type PostBeefRequestHerdsInnerLimeApplicationsInner = GypsumApplication | LimestoneOrDolomiteApplication1;
+export type PostBeefRequestHerdsInnerLimeApplicationsInner = GypsumApplication | LimestoneOrDolomiteApplication;
 /**
  * Check if a given object matches one of the PostBeefRequestHerdsInnerLimeApplicationsInner variants.
  * Added via a custom template: the default generator does not emit this for oneOf models,
@@ -46,7 +46,7 @@ export function instanceOfPostBeefRequestHerdsInnerLimeApplicationsInner(value: 
     if (instanceOfGypsumApplication(value)) {
         return true;
     }
-    if (instanceOfLimestoneOrDolomiteApplication1(value)) {
+    if (instanceOfLimestoneOrDolomiteApplication(value)) {
         return true;
     }
     return false;
@@ -67,8 +67,8 @@ export function PostBeefRequestHerdsInnerLimeApplicationsInnerFromJSONTyped(json
     if (instanceOfGypsumApplication(json)) {
         return GypsumApplicationFromJSONTyped(json, true);
     }
-    if (instanceOfLimestoneOrDolomiteApplication1(json)) {
-        return LimestoneOrDolomiteApplication1FromJSONTyped(json, true);
+    if (instanceOfLimestoneOrDolomiteApplication(json)) {
+        return LimestoneOrDolomiteApplicationFromJSONTyped(json, true);
     }
     return {} as any;
 }
@@ -87,8 +87,8 @@ export function PostBeefRequestHerdsInnerLimeApplicationsInnerToJSONTyped(value?
     if (instanceOfGypsumApplication(value)) {
         return GypsumApplicationToJSON(value as GypsumApplication);
     }
-    if (instanceOfLimestoneOrDolomiteApplication1(value)) {
-        return LimestoneOrDolomiteApplication1ToJSON(value as LimestoneOrDolomiteApplication1);
+    if (instanceOfLimestoneOrDolomiteApplication(value)) {
+        return LimestoneOrDolomiteApplicationToJSON(value as LimestoneOrDolomiteApplication);
     }
     return {};
 }

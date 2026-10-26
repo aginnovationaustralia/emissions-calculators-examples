@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    AIA Calculator API
+    AIA Calculator API - beef
 
     Emissions Calculators for various farming activities
 
@@ -20,10 +20,10 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.method16_clearings_inner import Method16ClearingsInner
-from openapi_client.models.method16_method2_actual_stem_density import Method16Method2ActualStemDensity
-from openapi_client.models.method16_method2_biomass_at_maturity import Method16Method2BiomassAtMaturity
-from openapi_client.models.method16_plantings_inner import Method16PlantingsInner
+from openapi_client.models.method13_clearings_inner import Method13ClearingsInner
+from openapi_client.models.method13_method2_actual_stem_density import Method13Method2ActualStemDensity
+from openapi_client.models.method13_method2_biomass_at_maturity import Method13Method2BiomassAtMaturity
+from openapi_client.models.method13_plantings_inner import Method13PlantingsInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,11 +32,11 @@ class Method2BiomassAtMaturity(BaseModel):
     """
     Method2BiomassAtMaturity
     """ # noqa: E501
-    method2_actual_stem_density: Optional[Method16Method2ActualStemDensity] = Field(default=None, alias="method2ActualStemDensity")
-    method2_biomass_at_maturity: Method16Method2BiomassAtMaturity = Field(alias="method2BiomassAtMaturity")
-    plantings: List[Method16PlantingsInner]
+    method2_actual_stem_density: Optional[Method13Method2ActualStemDensity] = Field(default=None, alias="method2ActualStemDensity")
+    method2_biomass_at_maturity: Method13Method2BiomassAtMaturity = Field(alias="method2BiomassAtMaturity")
+    plantings: List[Method13PlantingsInner]
     crop_type: StrictStr = Field(description="Type of perennial woody crop planted", alias="cropType")
-    clearings: List[Method16ClearingsInner]
+    clearings: List[Method13ClearingsInner]
     calculation_method: StrictStr = Field(alias="calculationMethod")
     __properties: ClassVar[List[str]] = ["method2ActualStemDensity", "method2BiomassAtMaturity", "plantings", "cropType", "clearings", "calculationMethod"]
 
@@ -123,11 +123,11 @@ class Method2BiomassAtMaturity(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "method2ActualStemDensity": Method16Method2ActualStemDensity.from_dict(obj["method2ActualStemDensity"]) if obj.get("method2ActualStemDensity") is not None else None,
-            "method2BiomassAtMaturity": Method16Method2BiomassAtMaturity.from_dict(obj["method2BiomassAtMaturity"]) if obj.get("method2BiomassAtMaturity") is not None else None,
-            "plantings": [Method16PlantingsInner.from_dict(_item) for _item in obj["plantings"]] if obj.get("plantings") is not None else None,
+            "method2ActualStemDensity": Method13Method2ActualStemDensity.from_dict(obj["method2ActualStemDensity"]) if obj.get("method2ActualStemDensity") is not None else None,
+            "method2BiomassAtMaturity": Method13Method2BiomassAtMaturity.from_dict(obj["method2BiomassAtMaturity"]) if obj.get("method2BiomassAtMaturity") is not None else None,
+            "plantings": [Method13PlantingsInner.from_dict(_item) for _item in obj["plantings"]] if obj.get("plantings") is not None else None,
             "cropType": obj.get("cropType"),
-            "clearings": [Method16ClearingsInner.from_dict(_item) for _item in obj["clearings"]] if obj.get("clearings") is not None else None,
+            "clearings": [Method13ClearingsInner.from_dict(_item) for _item in obj["clearings"]] if obj.get("clearings") is not None else None,
             "calculationMethod": obj.get("calculationMethod")
         })
         return _obj
