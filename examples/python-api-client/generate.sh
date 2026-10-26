@@ -2,12 +2,13 @@
 set -e
 API_CLIENT_DIR=api-client
 API_VERSION=${1:-4.0.2}
+SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
 # Download the spec and drop "Empty object" oneOf branches: the Python generator maps them to a
 # plain object that matches any input, so every value would match more than one oneOf branch.
 SPEC_FILE=$(mktemp -d)/openapi.json
-curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/openapi.json -o $SPEC_FILE
+curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
 node -e '
 const fs = require("fs");
 const file = process.argv[1];

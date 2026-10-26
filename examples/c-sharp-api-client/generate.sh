@@ -2,6 +2,7 @@
 set -e
 API_CLIENT_DIR=api-client
 API_VERSION=${1:-4.0.2}
+SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
 # Download the spec and adjust constructs the C# generator emits broken code for:
@@ -13,7 +14,7 @@ rm -rf $API_CLIENT_DIR
 # - a multi-type value such as `type: ["number", "string", "boolean"]` becomes an object wrapper
 #   that cannot read a primitive, so leave it untyped
 SPEC_FILE=$(mktemp -d)/openapi.json
-curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/openapi.json -o $SPEC_FILE
+curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
 node -e '
 const fs = require("fs");
 const file = process.argv[1];

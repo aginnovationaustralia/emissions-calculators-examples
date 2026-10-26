@@ -26,7 +26,7 @@ run_test.sh
 
 The Python API client has been generated using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) tool. The generation can be reproduced by running [generate.sh](./generate.sh). If you supply your mTLS certificate files correctly (you can place them in the resources folder and they will be copied in) the generation script should be able to execute the sample test successfully.
 
-The generation script takes the API version as an argument, e.g. `./generate.sh 4.0.2` (the default).
+The generation script takes the API version and the spec name as arguments, e.g. `./generate.sh 4.0.2 beef` (the defaults). The spec is downloaded from `https://docs.aiaplatform.com.au/api/<version>/<name>.json`, so `openapi` generates a client for every endpoint.
 
 Before generating, [generate.sh](./generate.sh) removes "Empty object" `oneOf` branches from the downloaded spec, because the Python generator maps them to a plain object that matches any input.
 

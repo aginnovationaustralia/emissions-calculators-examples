@@ -2,6 +2,7 @@
 set -e
 API_CLIENT_DIR=api-client
 API_VERSION=${1:-4.0.2}
+SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
 # Download the spec and adjust constructs the PHP generator handles badly. PHP flattens each
@@ -11,7 +12,7 @@ rm -rf $API_CLIENT_DIR
 # - an "Empty object" oneOf branch adds nothing, so drop it
 # - a `pattern` on a `format: date` field is checked against a DateTime, so drop it
 SPEC_FILE=$(mktemp -d)/openapi.json
-curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/openapi.json -o $SPEC_FILE
+curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
 node -e '
 const fs = require("fs");
 const file = process.argv[1];
