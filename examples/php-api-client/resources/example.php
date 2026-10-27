@@ -5,12 +5,12 @@ use OpenAPI\Client\Api\EmissionsCalculatorsApi;
 use OpenAPI\Client\ObjectSerializer;
 use GuzzleHttp\Client;
 use OpenAPI\Client\Configuration;
+use OpenAPI\Client\Model\PostBeefRequest;
 
 try {
-    // Sample data for a single beef herd, matching the PostBeefRequest schema.
-    // The PHP generator flattens oneOf types into a single model, which cannot represent
-    // alternatives such as seasonal vs monthly cattle classes. So the request is described as JSON
-    // and sent as-is; the generated client still handles mTLS, transport and the typed response.
+    // Sample data for a single beef herd, matching the PostBeefRequest schema. It is written as
+    // JSON for readability and deserialized into the generated models below, which resolves each
+    // oneOf (e.g. seasonal vs monthly cattle classes) to its concrete type.
     // Most numeric inputs are wrapped as { "value": number }.
     $beefJson = <<<'JSON'
 {
@@ -170,16 +170,21 @@ try {
 }
 JSON;
 
-    $request = json_decode($beefJson, false, 512, JSON_THROW_ON_ERROR);
+    $request = ObjectSerializer::deserialize(
+        json_decode($beefJson, false, 512, JSON_THROW_ON_ERROR),
+        PostBeefRequest::class
+    );
 
     // Configure API
     $config = Configuration::getDefaultConfiguration();
     $config->setHost('https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta');
-    $config->setCertFile(__DIR__ . '/cert.pem');
-    $config->setKeyFile(__DIR__ . '/key.pem');
 
-    // Initialize API
-    $api = new EmissionsCalculatorsApi(new Client(), $config);
+    // Initialize API, authenticating via mTLS with the client certificate and key
+    $client = new Client([
+        'cert' => __DIR__ . '/cert.pem',
+        'ssl_key' => __DIR__ . '/key.pem',
+    ]);
+    $api = new EmissionsCalculatorsApi($client, $config);
 
     echo "Calling beef API...\n";
     echo "================================\n";

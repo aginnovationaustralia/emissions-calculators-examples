@@ -14,7 +14,7 @@ This provides PHP 8.5 (the client requires PHP 8.1+) and Composer. `node` and `o
 
 ## Running the example
 
-You can execute a simple request to the `beef` endpoint using the example provided. You just need to update the calls `$config->setCertFile` and `$config->setKeyFile` in [example.php](./api-client/example.php) so they point to your client certificate and key files. This allows the client to authenticate with the endpoint via mTLS. Once that has been done you just need to run:
+You can execute a simple request to the `beef` endpoint using the example provided. You just need to update the `cert` and `ssl_key` options passed to the Guzzle `Client` in [example.php](./api-client/example.php) so they point to your client certificate and key files. This allows the client to authenticate with the endpoint via mTLS. Once that has been done you just need to run:
 
 ```
 cd api-client
@@ -28,4 +28,6 @@ The PHP API client has been generated using the [openapi-generator-cli](https://
 
 The generation script takes the API version and the spec name as arguments, e.g. `./generate.sh 4.0.2 beef` (the defaults). The spec is downloaded from `https://docs.aiaplatform.com.au/api/<version>/<name>.json`, so `openapi` generates a client for every endpoint.
 
-The PHP generator flattens each `oneOf` into a single model, so [generate.sh](./generate.sh) adjusts the downloaded spec before generating: `const` values, `enum`s on `oneOf` variant properties, `pattern`s on date fields and "Empty object" `oneOf` branches are removed. The flattened models cannot represent alternatives such as seasonal vs monthly cattle classes, so the example request is written as JSON and sent as-is. The generated client still handles mTLS, transport and the typed response.
+The client is generated with the `php-nextgen` generator, which represents each `oneOf` as a union of its concrete types. Before generating, [generate.sh](./generate.sh) removes "Empty object" `oneOf` branches from the downloaded spec, because the generator maps them to `object`, which PHP rejects in a union type alongside a class. The example request is written as JSON for readability and deserialized into the generated models with `ObjectSerializer::deserialize`.
+
+Note that (as of late 2026) the `php-nextgen` generator for the `OpenAPI Generator` project is still listed as in beta status, but has better support for advanced openapi rules and edge cases, and uses a much more up to date set of libraries.
