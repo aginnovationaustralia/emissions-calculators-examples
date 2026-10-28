@@ -14,6 +14,7 @@ using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Extensions;
 using Org.OpenAPITools.Model;
 using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace TestApi
 {
@@ -60,111 +61,172 @@ namespace TestApi
             Console.WriteLine("proper credentials for the API endpoint.");
         }
 
-        static PostBeefRequest CreateValidBeefInput()
+        static PostBeefRequest CreateValidBeefInput(JsonSerializerOptions jsonOptions)
         {
-            // Create sample data for a beef cattle operation
-            // This structure matches PostBeefRequest model requirements
+            // Create sample data for a single beef herd.
+            // The request contains deeply nested oneOf types, so it is easiest to describe it as JSON
+            // and deserialise it into the generated PostBeefRequest model using the client's serializer options.
+            // Most numeric inputs are wrapped as { "value": number }.
+            var beefJson = """
+            {
+              "isFebruaryInLeapYear": false,
+              "electricity": {
+                "method": "location",
+                "electricityPurchasedKWh": {
+                  "value": 5000
+                },
+                "region": "QLD"
+              },
+              "herds": [
+                {
+                  "id": "beef_cattle_001",
+                  "electricityAllocation": {
+                    "value": 1
+                  },
+                  "region": "QLD - Moderate/High",
+                  "classes": {
+                    "period": "seasonal",
+                    "cowsGt3Years": {
+                      "spring": {
+                        "head": {
+                          "value": 50
+                        },
+                        "proportionCowsThisSeasonInCalf": {
+                          "value": 0.2
+                        },
+                        "proportionCowsPreviousSeasonInCalf": {
+                          "value": 0.2
+                        }
+                      },
+                      "summer": {
+                        "head": {
+                          "value": 50
+                        },
+                        "proportionCowsThisSeasonInCalf": {
+                          "value": 0.1
+                        },
+                        "proportionCowsPreviousSeasonInCalf": {
+                          "value": 0.2
+                        }
+                      },
+                      "autumn": {
+                        "head": {
+                          "value": 50
+                        },
+                        "proportionCowsThisSeasonInCalf": {
+                          "value": 0.5
+                        },
+                        "proportionCowsPreviousSeasonInCalf": {
+                          "value": 0.1
+                        }
+                      },
+                      "winter": {
+                        "head": {
+                          "value": 50
+                        },
+                        "proportionCowsThisSeasonInCalf": {
+                          "value": 0.2
+                        },
+                        "proportionCowsPreviousSeasonInCalf": {
+                          "value": 0.5
+                        }
+                      }
+                    }
+                  },
+                  "breed": "Northern Brahman cross breed",
+                  "grazingSystem": "Non-irrigated pasture",
+                  "climateZone": "Tropical dry",
+                  "isInLeachingZone": false,
+                  "excludedFromNaturalWater": false,
+                  "liveweightSoldKg": {
+                    "value": 12500
+                  },
+                  "fuel": {
+                    "transport": [
+                      {
+                        "vehicleType": "Cars and light commercial vehicles",
+                        "fuelType": "Diesel oil",
+                        "amountKilolitres": {
+                          "value": 1
+                        }
+                      }
+                    ],
+                    "stationary": []
+                  },
+                  "lime": {
+                    "applications": [
+                      {
+                        "type": "Limestone",
+                        "massAppliedKg": {
+                          "value": 10000
+                        },
+                        "limestoneFraction": {
+                          "value": 0.8
+                        }
+                      }
+                    ]
+                  },
+                  "pasture": {
+                    "type": "Perennial pasture",
+                    "areaManaged": {
+                      "value": 500
+                    },
+                    "fractionOfAnnualCropBurnt": {
+                      "value": 0
+                    },
+                    "residues": {
+                      "calculationMethod": "1"
+                    }
+                  },
+                  "purchasedLivestock": [],
+                  "purchasedFeed": [],
+                  "purchasedMineralSupplements": [
+                    {
+                      "type": "Lick block, dry season mix",
+                      "amount": {
+                        "value": 2
+                      }
+                    }
+                  ],
+                  "chemicals": [
+                    {
+                      "type": "Herbicide (paraquat, diquat, glyphosate)",
+                      "amountKg": {
+                        "value": 50
+                      }
+                    }
+                  ],
+                  "services": {
+                    "fuel": {
+                      "transport": [],
+                      "stationary": []
+                    }
+                  },
+                  "fertiliser": {
+                    "productionSystem": "Non-irrigated pasture",
+                    "inorganic": {
+                      "calculationMethodScope1": "1",
+                      "applications": [
+                        {
+                          "fertiliserType": "Urea",
+                          "massAppliedKg": {
+                            "value": 2000
+                          },
+                          "calculationMethodScope3": "1"
+                        }
+                      ]
+                    },
+                    "organic": {
+                      "applications": []
+                    }
+                  }
+                }
+              ]
+            }
+            """;
 
-            // Create seasonal data for cowsGt2
-            var spring = new PostBeefRequestBeefInnerClassesBullsGt1Autumn(
-                head: 50,
-                liveweight: 450,
-                liveweightGain: 0.5m
-            );
-
-            var summer = new PostBeefRequestBeefInnerClassesBullsGt1Autumn(
-                head: 50,
-                liveweight: 440,
-                liveweightGain: 0.3m
-            );
-
-            var autumn = new PostBeefRequestBeefInnerClassesBullsGt1Autumn(
-                head: 50,
-                liveweight: 460,
-                liveweightGain: 0.4m
-            );
-
-            var winter = new PostBeefRequestBeefInnerClassesBullsGt1Autumn(
-                head: 50,
-                liveweight: 450,
-                liveweightGain: 0.4m
-            );
-
-            // Create cowsGt2 class
-            var cowsGt2 = new PostBeefRequestBeefInnerClassesCowsGt2(
-                autumn: autumn,
-                winter: winter,
-                spring: spring,
-                summer: summer,
-                headSold: 25,
-                saleWeight: 500
-            );
-
-            // Create classes object
-            var classes = new PostBeefRequestBeefInnerClasses(
-                cowsGt2: new Option<PostBeefRequestBeefInnerClassesCowsGt2?>(cowsGt2)
-            );
-
-            // Create fertiliser
-            var fertiliser = new PostBeefRequestBeefInnerFertiliser(
-                singleSuperphosphate: 5.0m,
-                pastureDryland: 10.0m,
-                pastureIrrigated: 2.0m,
-                cropsDryland: 8.0m,
-                cropsIrrigated: 1.0m
-            );
-
-            // Create mineral supplementation
-            var mineralSupplementation = new PostBeefRequestBeefInnerMineralSupplementation(
-                mineralBlock: 2.0m,
-                mineralBlockUrea: 0.3m,
-                weanerBlock: 1.0m,
-                weanerBlockUrea: 0.2m,
-                drySeasonMix: 1.5m,
-                drySeasonMixUrea: 0.25m
-            );
-
-            // Create cows calving
-            var cowsCalving = new PostBeefRequestBeefInnerCowsCalving(
-                spring: 0.2m,
-                summer: 0.1m,
-                autumn: 0.5m,
-                winter: 0.2m
-            );
-
-            // Create beef inner
-            var beefInner = new PostBeefRequestBeefInner(
-                classes: classes,
-                limestone: 10.0m,
-                limestoneFraction: 0.8m,
-                fertiliser: fertiliser,
-                diesel: 1000m,
-                petrol: 200m,
-                lpg: 100m,
-                mineralSupplementation: mineralSupplementation,
-                electricitySource: PostBeefRequestBeefInner.ElectricitySourceEnum.StateGrid,
-                electricityRenewable: 0.2m,
-                electricityUse: 5000m,
-                grainFeed: 10.0m,
-                hayFeed: 5.0m,
-                cottonseedFeed: 2.0m,
-                herbicide: 50.0m,
-                herbicideOther: 20.0m,
-                cowsCalving: cowsCalving,
-                id: new Option<string?>("beef_cattle_001")
-            );
-
-            // Create the main request
-            var beefRequest = new PostBeefRequest(
-                state: PostBeefRequest.StateEnum.Qld,
-                northOfTropicOfCapricorn: true,
-                rainfallAbove600: true,
-                beef: new List<PostBeefRequestBeefInner> { beefInner },
-                burning: new List<PostBeefRequestBurningInner>(),
-                vegetation: new List<PostBeefRequestVegetationInner>()
-            );
-
-            return beefRequest;
+            return JsonSerializer.Deserialize<PostBeefRequest>(beefJson, jsonOptions)
+                ?? throw new InvalidOperationException("Could not create beef input");
         }
 
         static async Task TestBeefApi()
@@ -172,16 +234,25 @@ namespace TestApi
             // Load client certificate for mTLS
             var certPath = "./cert.pem";
             var keyPath = "./key.pem";
-            var clientCertificate = Utils.GetCertificateFromPEMPaths(certPath, keyPath);
+            X509Certificate2? clientCertificate = null;
+            try
+            {
+                clientCertificate = Utils.GetCertificateFromPEMPaths(certPath, keyPath);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error reading certificate files: {e.Message}");
+                Console.WriteLine("Continuing without certificates - authentication will fail");
+            }
 
             // Create host builder with API configuration
-            Action<HostBuilderContext, IServiceCollection, HostConfiguration> configureApi = (context, services, options) =>
+            Action<HostBuilderContext, HostConfiguration> configureApi = (context, options) =>
             {
                 options.AddApiHttpClients(
                     client =>
                     {
                         // Set base address
-                        client.BaseAddress = new Uri("https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0");
+                        client.BaseAddress = new Uri("https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta");
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         client.DefaultRequestHeaders.Add("User-Agent", "EAP Integration Tester 1.0");
                     },
@@ -256,14 +327,15 @@ namespace TestApi
                 .ConfigureApi(configureApi);
 
             var host = hostBuilder.Build();
-            var api = host.Services.GetRequiredService<IGAFApi>();
+            var api = host.Services.GetRequiredService<IEmissionsCalculatorsApi>();
 
             // Create a valid beef input
-            var beefInput = CreateValidBeefInput();
+            var jsonOptions = host.Services.GetRequiredService<JsonSerializerOptionsProvider>().Options;
+            var beefInput = CreateValidBeefInput(jsonOptions);
 
             Console.WriteLine("Created beef input:");
             Console.WriteLine("=".PadRight(50, '='));
-            Console.WriteLine(beefInput.ToString());
+            Console.WriteLine(JsonSerializer.Serialize(beefInput, jsonOptions));
             Console.WriteLine("=".PadRight(50, '='));
             Console.WriteLine();
 
@@ -272,7 +344,7 @@ namespace TestApi
                 Console.WriteLine("Calling beef API...");
                 var apiResponse = await api.PostBeefAsync(beefInput);
                 
-                Console.WriteLine("The response of GAFApi->PostBeefAsync:");
+                Console.WriteLine("The response of EmissionsCalculatorsApi->PostBeefAsync:");
                 Console.WriteLine();
                 
                 if (apiResponse.Ok() != null)
@@ -289,7 +361,7 @@ namespace TestApi
             }
             catch (ApiException e)
             {
-                Console.WriteLine($"Exception when calling GAFApi->PostBeefAsync: {e.Message}");
+                Console.WriteLine($"Exception when calling EmissionsCalculatorsApi->PostBeefAsync: {e.Message}");
                 Console.WriteLine("This is expected if you don't have proper authentication configured");
             }
             catch (Exception e)
