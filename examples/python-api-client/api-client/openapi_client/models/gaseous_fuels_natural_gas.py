@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.gaseous_fuels_natural_gas_amount_kilolitres import GaseousFuelsNaturalGasAmountKilolitres
+from openapi_client.models.gaseous_fuels_natural_gas_fuel_class import GaseousFuelsNaturalGasFuelClass
+from openapi_client.models.gaseous_fuels_natural_gas_fuel_type import GaseousFuelsNaturalGasFuelType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,24 +31,10 @@ class GaseousFuelsNaturalGas(BaseModel):
     """
     GaseousFuelsNaturalGas
     """ # noqa: E501
-    fuel_class: StrictStr = Field(alias="fuelClass")
-    fuel_type: StrictStr = Field(alias="fuelType")
+    fuel_class: GaseousFuelsNaturalGasFuelClass = Field(alias="fuelClass")
+    fuel_type: GaseousFuelsNaturalGasFuelType = Field(alias="fuelType")
     amount_kilolitres: GaseousFuelsNaturalGasAmountKilolitres = Field(alias="amountKilolitres")
     __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountKilolitres"]
-
-    @field_validator('fuel_class')
-    def fuel_class_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Gaseous fuels']):
-            raise ValueError("must be one of enum values ('Gaseous fuels')")
-        return value
-
-    @field_validator('fuel_type')
-    def fuel_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Natural gas']):
-            raise ValueError("must be one of enum values ('Natural gas')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

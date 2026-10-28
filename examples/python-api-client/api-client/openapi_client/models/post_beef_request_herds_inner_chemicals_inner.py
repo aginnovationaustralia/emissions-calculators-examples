@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.agrochemical_type import AgrochemicalType
 from openapi_client.models.post_beef_request_herds_inner_chemicals_inner_amount_kg import PostBeefRequestHerdsInnerChemicalsInnerAmountKg
 from openapi_client.models.post_beef_request_herds_inner_chemicals_inner_custom_emissions_factor import PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor
 from typing import Optional, Set
@@ -30,18 +31,11 @@ class PostBeefRequestHerdsInnerChemicalsInner(BaseModel):
     """
     PostBeefRequestHerdsInnerChemicalsInner
     """ # noqa: E501
-    type: StrictStr
+    type: AgrochemicalType
     amount_kg: PostBeefRequestHerdsInnerChemicalsInnerAmountKg = Field(alias="amountKg")
     custom_emissions_factor: Optional[PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor] = Field(default=None, alias="customEmissionsFactor")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "amountKg", "customEmissionsFactor"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Herbicide (paraquat, diquat, glyphosate)', 'Other herbicide', 'Insecticide', 'Fungicide', 'Plant growth regulator', '2,4-D', 'Atrazine', 'Diuron', 'Mancozeb', 'MCPA', 'Metolachlor', 'Metsulfuron-methyl', 'Pesticides (generic)', 'Tri-allate', 'Tribenuron methyl', 'Trifluralin']):
-            raise ValueError("must be one of enum values ('Herbicide (paraquat, diquat, glyphosate)', 'Other herbicide', 'Insecticide', 'Fungicide', 'Plant growth regulator', '2,4-D', 'Atrazine', 'Diuron', 'Mancozeb', 'MCPA', 'Metolachlor', 'Metsulfuron-methyl', 'Pesticides (generic)', 'Tri-allate', 'Tribenuron methyl', 'Trifluralin')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

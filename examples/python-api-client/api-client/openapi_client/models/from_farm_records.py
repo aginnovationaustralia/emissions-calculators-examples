@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.from_farm_records_carbon_mass_per_hectare_from_records import FromFarmRecordsCarbonMassPerHectareFromRecords
+from openapi_client.models.method2_calculation_method import Method2CalculationMethod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,15 +31,8 @@ class FromFarmRecords(BaseModel):
     FromFarmRecords
     """ # noqa: E501
     carbon_mass_per_hectare_from_records: FromFarmRecordsCarbonMassPerHectareFromRecords = Field(alias="carbonMassPerHectareFromRecords")
-    calculation_method: StrictStr = Field(alias="calculationMethod")
+    calculation_method: Method2CalculationMethod = Field(alias="calculationMethod")
     __properties: ClassVar[List[str]] = ["carbonMassPerHectareFromRecords", "calculationMethod"]
-
-    @field_validator('calculation_method')
-    def calculation_method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['2']):
-            raise ValueError("must be one of enum values ('2')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

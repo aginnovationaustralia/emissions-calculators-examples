@@ -28,9 +28,9 @@ from pydantic_core import to_jsonable_python
 
 class WithOriginRegionFractionOfFertiliser(BaseModel):
     """
-    Fraction of inorganic fertiliser that is applied (number)
+    Fraction of this component of the inorganic fertiliser that is being applied, by weight (0-1)
     """ # noqa: E501
-    value: Union[Annotated[float, Field(le=100, strict=True, ge=0)], Annotated[int, Field(le=100, strict=True, ge=0)]]
+    value: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     quality: Optional[QualityTable] = None
     __properties: ClassVar[List[str]] = ["value", "quality"]
 

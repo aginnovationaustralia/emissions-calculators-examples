@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.pasture_type import PastureType
 from openapi_client.models.post_beef_request_herds_inner_pasture_area_managed import PostBeefRequestHerdsInnerPastureAreaManaged
 from openapi_client.models.post_beef_request_herds_inner_pasture_fraction_of_annual_crop_burnt import PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt
 from openapi_client.models.post_beef_request_herds_inner_pasture_residues import PostBeefRequestHerdsInnerPastureResidues
@@ -31,19 +32,12 @@ class PostBeefRequestHerdsInnerPasture(BaseModel):
     """
     PostBeefRequestHerdsInnerPasture
     """ # noqa: E501
-    type: StrictStr = Field(description="Type of pasture managed in this activity")
+    type: PastureType = Field(description="Type of pasture managed in this activity")
     area_managed: PostBeefRequestHerdsInnerPastureAreaManaged = Field(alias="areaManaged")
     fraction_of_annual_crop_burnt: PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt = Field(alias="fractionOfAnnualCropBurnt")
     residues: PostBeefRequestHerdsInnerPastureResidues
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "areaManaged", "fractionOfAnnualCropBurnt", "residues"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Annual grass', 'Grass clover mixture', 'Lucerne', 'Other legume', 'Perennial pasture']):
-            raise ValueError("must be one of enum values ('Annual grass', 'Grass clover mixture', 'Lucerne', 'Other legume', 'Perennial pasture')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

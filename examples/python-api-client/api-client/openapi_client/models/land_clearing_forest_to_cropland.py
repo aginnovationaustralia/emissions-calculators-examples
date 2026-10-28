@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.crop_only_production_system import CropOnlyProductionSystem
+from openapi_client.models.ibra7_region import IBRA7Region
 from openapi_client.models.land_clearing_forest_to_cropland_activity_area_hectares import LandClearingForestToCroplandActivityAreaHectares
 from openapi_client.models.land_clearing_forest_to_cropland_area_burnt import LandClearingForestToCroplandAreaBurnt
 from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_debris_current_year import LandClearingForestToCroplandCarbonMassInDebrisCurrentYear
@@ -28,6 +30,7 @@ from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_trees
 from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_trees_previous_year import LandClearingForestToCroplandCarbonMassInTreesPreviousYear
 from openapi_client.models.land_clearing_forest_to_cropland_mass_ch4_from_biomass_burning_per_hectare import LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare
 from openapi_client.models.land_clearing_forest_to_cropland_mass_n2_o_from_biomass_burning_per_hectare import LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectare
+from openapi_client.models.land_clearing_forest_to_cropland_type import LandClearingForestToCroplandType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -42,34 +45,13 @@ class LandClearingForestToCropland(BaseModel):
     carbon_mass_in_debris_current_year: LandClearingForestToCroplandCarbonMassInDebrisCurrentYear = Field(alias="carbonMassInDebrisCurrentYear")
     carbon_mass_in_debris_previous_year: LandClearingForestToCroplandCarbonMassInDebrisPreviousYear = Field(alias="carbonMassInDebrisPreviousYear")
     is_in_leaching_zone: StrictBool = Field(description="Is the activity in a leaching zone. See chapter 1.8.2 for more details on leaching zones.", alias="isInLeachingZone")
-    region: StrictStr = Field(description="IBRA7 region of the activity area")
+    region: IBRA7Region = Field(description="IBRA7 region of the activity area")
     mass_ch4_from_biomass_burning_per_hectare: LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare = Field(alias="massCH4FromBiomassBurningPerHectare")
     mass_n2_o_from_biomass_burning_per_hectare: LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectare = Field(alias="massN2OFromBiomassBurningPerHectare")
     area_burnt: LandClearingForestToCroplandAreaBurnt = Field(alias="areaBurnt")
-    type: StrictStr
-    crop_production_system: StrictStr = Field(description="Crop production", alias="cropProductionSystem")
+    type: LandClearingForestToCroplandType
+    crop_production_system: CropOnlyProductionSystem = Field(description="Crop production", alias="cropProductionSystem")
     __properties: ClassVar[List[str]] = ["activityAreaHectares", "carbonMassInTreesCurrentYear", "carbonMassInTreesPreviousYear", "carbonMassInDebrisCurrentYear", "carbonMassInDebrisPreviousYear", "isInLeachingZone", "region", "massCH4FromBiomassBurningPerHectare", "massN2OFromBiomassBurningPerHectare", "areaBurnt", "type", "cropProductionSystem"]
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Arnhem Coast', 'Arnhem Plateau', 'Australian Alps', 'Avon Wheatbelt', 'Brigalow Belt North', 'Brigalow Belt South', 'Ben Lomond', 'Broken Hill Complex', 'Burt Plain', 'Carnarvon', 'Central Arnhem', 'Central Kimberley', 'Central Ranges', 'Channel Country', 'Central Mackay Coast', 'Coolgardie', 'Cobar Peneplain', 'Cape York Peninsula', 'Daly Basin', 'Darwin Coastal', 'Dampierland', 'Desert Uplands', 'Davenport Murchison Ranges', 'Darling Riverine Plains', 'Einasleigh Uplands', 'Esperance Plains', 'Eyre Yorke Block', 'Finke', 'Flinders Lofty Block', 'Furneaux', 'Gascoyne', 'Gawler', 'Geraldton Sandplains', 'Gulf Fall and Uplands', 'Gibson Desert', 'Great Sandy Desert', 'Gulf Coastal', 'Gulf Plains', 'Great Victoria Desert', 'Hampton', 'Jarrah Forest', 'Kanmantoo', 'King', 'Little Sandy Desert', 'MacDonnell Ranges', 'Mallee', 'Murray Darling Depression', 'Mitchell Grass Downs', 'Mount Isa Inlier', 'Mulga Lands', 'Murchison', 'Nandewar', 'Naracoorte Coastal Plain', 'New England Tablelands', 'NSW North Coast', 'Northern Kimberley', 'NSW South Western Slopes', 'Nullarbor', 'Ord Victoria Plain', 'Pine Creek', 'Pilbara', 'Riverina', 'South East Coastal Plain', 'South East Corner', 'South Eastern Highlands', 'South Eastern Queensland', 'Simpson Strzelecki Dunefields', 'Stony Plains', 'Sturt Plateau', 'Southern Volcanic Plain', 'Swan Coastal Plain', 'Sydney Basin', 'Tanami', 'Tasmanian Central Highlands', 'Tiwi Cobourg', 'Tasmanian Northern Midlands', 'Tasmanian Northern Slopes', 'Tasmanian South East', 'Tasmanian Southern Ranges', 'Tasmanian West', 'Victoria Bonaparte', 'Victorian Midlands', 'Warren', 'Wet Tropics', 'Yalgoo']):
-            raise ValueError("must be one of enum values ('Arnhem Coast', 'Arnhem Plateau', 'Australian Alps', 'Avon Wheatbelt', 'Brigalow Belt North', 'Brigalow Belt South', 'Ben Lomond', 'Broken Hill Complex', 'Burt Plain', 'Carnarvon', 'Central Arnhem', 'Central Kimberley', 'Central Ranges', 'Channel Country', 'Central Mackay Coast', 'Coolgardie', 'Cobar Peneplain', 'Cape York Peninsula', 'Daly Basin', 'Darwin Coastal', 'Dampierland', 'Desert Uplands', 'Davenport Murchison Ranges', 'Darling Riverine Plains', 'Einasleigh Uplands', 'Esperance Plains', 'Eyre Yorke Block', 'Finke', 'Flinders Lofty Block', 'Furneaux', 'Gascoyne', 'Gawler', 'Geraldton Sandplains', 'Gulf Fall and Uplands', 'Gibson Desert', 'Great Sandy Desert', 'Gulf Coastal', 'Gulf Plains', 'Great Victoria Desert', 'Hampton', 'Jarrah Forest', 'Kanmantoo', 'King', 'Little Sandy Desert', 'MacDonnell Ranges', 'Mallee', 'Murray Darling Depression', 'Mitchell Grass Downs', 'Mount Isa Inlier', 'Mulga Lands', 'Murchison', 'Nandewar', 'Naracoorte Coastal Plain', 'New England Tablelands', 'NSW North Coast', 'Northern Kimberley', 'NSW South Western Slopes', 'Nullarbor', 'Ord Victoria Plain', 'Pine Creek', 'Pilbara', 'Riverina', 'South East Coastal Plain', 'South East Corner', 'South Eastern Highlands', 'South Eastern Queensland', 'Simpson Strzelecki Dunefields', 'Stony Plains', 'Sturt Plateau', 'Southern Volcanic Plain', 'Swan Coastal Plain', 'Sydney Basin', 'Tanami', 'Tasmanian Central Highlands', 'Tiwi Cobourg', 'Tasmanian Northern Midlands', 'Tasmanian Northern Slopes', 'Tasmanian South East', 'Tasmanian Southern Ranges', 'Tasmanian West', 'Victoria Bonaparte', 'Victorian Midlands', 'Warren', 'Wet Tropics', 'Yalgoo')")
-        return value
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['landClearingForestToCropland']):
-            raise ValueError("must be one of enum values ('landClearingForestToCropland')")
-        return value
-
-    @field_validator('crop_production_system')
-    def crop_production_system_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)']):
-            raise ValueError("must be one of enum values ('Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

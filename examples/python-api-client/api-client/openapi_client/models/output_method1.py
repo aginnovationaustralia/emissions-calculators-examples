@@ -18,10 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from openapi_client.models.output_constant import OutputConstant
 from openapi_client.models.output_input import OutputInput
+from openapi_client.models.output_method1_gas import OutputMethod1Gas
+from openapi_client.models.output_method1_method import OutputMethod1Method
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,31 +33,14 @@ class OutputMethod1(BaseModel):
     OutputMethod1
     """ # noqa: E501
     amount_gas_kg: Union[StrictFloat, StrictInt] = Field(description="Amount of the gas emitted, in kg of that gas. Uses the method 2 value when one is available, otherwise method 1", alias="amountGasKg")
-    gas: Optional[StrictStr] = Field(default=None, description="The gas this amount is measured in. CO2e is used for amounts already expressed as carbon dioxide equivalent")
+    gas: Optional[OutputMethod1Gas] = None
     amount_tonnes_co2e: Union[StrictFloat, StrictInt] = Field(description="Amount of the gas emitted, converted to tonnes of carbon dioxide equivalent (CO2e)", alias="amountTonnesCO2e")
     references: List[StrictStr] = Field(description="References to the equations used to calculate this result")
     constants: List[OutputConstant] = Field(description="Constants used in this calculation")
     inputs: List[OutputInput] = Field(description="Inputs used in this calculation")
-    method: StrictStr = Field(description="The calculation method used to produce amountGasKg. Method 2 uses more specific, optional inputs")
+    method: OutputMethod1Method
     amount_gas_kg_method1: Union[StrictFloat, StrictInt] = Field(description="Amount of the gas emitted using method 1, in kg of that gas", alias="amountGasKgMethod1")
     __properties: ClassVar[List[str]] = ["amountGasKg", "gas", "amountTonnesCO2e", "references", "constants", "inputs", "method", "amountGasKgMethod1"]
-
-    @field_validator('gas')
-    def gas_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['CO2', 'CH4', 'N2O', 'CO2e']):
-            raise ValueError("must be one of enum values ('CO2', 'CH4', 'N2O', 'CO2e')")
-        return value
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['1']):
-            raise ValueError("must be one of enum values ('1')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

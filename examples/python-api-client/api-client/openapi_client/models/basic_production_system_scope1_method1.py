@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.basic_crop_production_system import BasicCropProductionSystem
 from openapi_client.models.basic_production_system_scope1_method1_inorganic import BasicProductionSystemScope1Method1Inorganic
 from openapi_client.models.organic_fertilisers_input import OrganicFertilisersInput
 from typing import Optional, Set
@@ -30,17 +31,10 @@ class BasicProductionSystemScope1Method1(BaseModel):
     """
     BasicProductionSystemScope1Method1
     """ # noqa: E501
-    production_system: StrictStr = Field(description="Production system of the crop", alias="productionSystem")
+    production_system: BasicCropProductionSystem = Field(description="Production system of the crop", alias="productionSystem")
     inorganic: BasicProductionSystemScope1Method1Inorganic
     organic: OrganicFertilisersInput
     __properties: ClassVar[List[str]] = ["productionSystem", "inorganic", "organic"]
-
-    @field_validator('production_system')
-    def production_system_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Rice (continuous flooding)', 'Rice (single and multiple drainage, or alternate wetting and drying)', 'Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)', 'Irrigated pasture', 'Non-irrigated pasture', 'Sugar', 'Cotton', 'Horticultural crops', 'Aquaculture', 'Forestry']):
-            raise ValueError("must be one of enum values ('Rice (continuous flooding)', 'Rice (single and multiple drainage, or alternate wetting and drying)', 'Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)', 'Irrigated pasture', 'Non-irrigated pasture', 'Sugar', 'Cotton', 'Horticultural crops', 'Aquaculture', 'Forestry')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

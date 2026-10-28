@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.method2_average_yield_per_hectare import Method2AverageYieldPerHectare
+from openapi_client.models.method2_calculation_method import Method2CalculationMethod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,17 +30,10 @@ class Method2(BaseModel):
     """
     Method2
     """ # noqa: E501
-    calculation_method: StrictStr = Field(alias="calculationMethod")
+    calculation_method: Method2CalculationMethod = Field(alias="calculationMethod")
     average_yield_per_hectare: Method2AverageYieldPerHectare = Field(alias="averageYieldPerHectare")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["calculationMethod", "averageYieldPerHectare"]
-
-    @field_validator('calculation_method')
-    def calculation_method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['2']):
-            raise ValueError("must be one of enum values ('2')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

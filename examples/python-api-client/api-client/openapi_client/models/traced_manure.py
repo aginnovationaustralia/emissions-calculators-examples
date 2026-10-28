@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.livestock_manures_input import LivestockManuresInput
+from openapi_client.models.traced_manure_origin import TracedManureOrigin
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +30,9 @@ class TracedManure(BaseModel):
     """
     TracedManure
     """ # noqa: E501
-    origin: StrictStr
+    origin: TracedManureOrigin
     details: LivestockManuresInput
     __properties: ClassVar[List[str]] = ["origin", "details"]
-
-    @field_validator('origin')
-    def origin_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Traced']):
-            raise ValueError("must be one of enum values ('Traced')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

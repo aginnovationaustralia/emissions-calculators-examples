@@ -18,10 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.gypsum_application_custom_scope3_emissions_factor import GypsumApplicationCustomScope3EmissionsFactor
 from openapi_client.models.gypsum_application_mass_applied_kg import GypsumApplicationMassAppliedKg
+from openapi_client.models.gypsum_application_type import GypsumApplicationType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -32,16 +33,9 @@ class GypsumApplication(BaseModel):
     """ # noqa: E501
     mass_applied_kg: GypsumApplicationMassAppliedKg = Field(alias="massAppliedKg")
     custom_scope3_emissions_factor: Optional[GypsumApplicationCustomScope3EmissionsFactor] = Field(default=None, alias="customScope3EmissionsFactor")
-    type: StrictStr
+    type: GypsumApplicationType
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["massAppliedKg", "customScope3EmissionsFactor", "type"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Gypsum']):
-            raise ValueError("must be one of enum values ('Gypsum')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

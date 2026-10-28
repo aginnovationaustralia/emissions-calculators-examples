@@ -18,11 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.beef_class_seasonal_input import BeefClassSeasonalInput
 from openapi_client.models.beef_class_with_calves_seasonal_input import BeefClassWithCalvesSeasonalInput
 from openapi_client.models.beef_classes_with_seasonal_input_bulls_lt1 import BeefClassesWithSeasonalInputBullsLt1
+from openapi_client.models.beef_classes_with_seasonal_input_period import BeefClassesWithSeasonalInputPeriod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,7 +32,7 @@ class BeefClassesWithSeasonalInput(BaseModel):
     """
     BeefClassesWithSeasonalInput
     """ # noqa: E501
-    period: StrictStr
+    period: BeefClassesWithSeasonalInputPeriod
     bulls_lt1: Optional[BeefClassesWithSeasonalInputBullsLt1] = Field(default=None, alias="bullsLt1")
     bulls_gt1: Optional[BeefClassSeasonalInput] = Field(default=None, alias="bullsGt1")
     cows_lt1: Optional[BeefClassesWithSeasonalInputBullsLt1] = Field(default=None, alias="cowsLt1")
@@ -43,13 +44,6 @@ class BeefClassesWithSeasonalInput(BaseModel):
     steers2_to3_years: Optional[BeefClassSeasonalInput] = Field(default=None, alias="steers2To3Years")
     steers_gt3_years: Optional[BeefClassSeasonalInput] = Field(default=None, alias="steersGt3Years")
     __properties: ClassVar[List[str]] = ["period", "bullsLt1", "bullsGt1", "cowsLt1", "cows1To2Years", "cows2To3Years", "cowsGt3Years", "steersLt1", "steers1To2Years", "steers2To3Years", "steersGt3Years"]
-
-    @field_validator('period')
-    def period_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['seasonal']):
-            raise ValueError("must be one of enum values ('seasonal')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

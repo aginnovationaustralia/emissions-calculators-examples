@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.purchased_feed_livestock_regionless_type import PurchasedFeedLivestockRegionlessType
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,15 +31,8 @@ class RegionlessFeedType(BaseModel):
     RegionlessFeedType
     """ # noqa: E501
     amount: RegionlessFeedTypeAmount
-    type: StrictStr = Field(description="The type of feed purchased.")
+    type: PurchasedFeedLivestockRegionlessType = Field(description="The type of feed purchased.")
     __properties: ClassVar[List[str]] = ["amount", "type"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Bentonite', 'Meat Meal', 'Blood Meal', 'Millrun']):
-            raise ValueError("must be one of enum values ('Bentonite', 'Meat Meal', 'Blood Meal', 'Millrun')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres
+from openapi_client.models.compressed_natural_gas_cng1_fuel_type import CompressedNaturalGasCNG1FuelType
+from openapi_client.models.compressed_natural_gas_cng_vehicle_type import CompressedNaturalGasCNGVehicleType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,24 +31,10 @@ class CompressedNaturalGasCNG1(BaseModel):
     """
     CompressedNaturalGasCNG1
     """ # noqa: E501
-    vehicle_type: StrictStr = Field(alias="vehicleType")
-    fuel_type: StrictStr = Field(description="Type of compressed natural gas fuel used by this vehicle", alias="fuelType")
+    vehicle_type: CompressedNaturalGasCNGVehicleType = Field(alias="vehicleType")
+    fuel_type: CompressedNaturalGasCNG1FuelType = Field(alias="fuelType")
     amount_cubic_metres: CarsAndLightCommercialVehicles1AmountKilolitres = Field(alias="amountCubicMetres")
     __properties: ClassVar[List[str]] = ["vehicleType", "fuelType", "amountCubicMetres"]
-
-    @field_validator('vehicle_type')
-    def vehicle_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Light duty vehicles', 'Heavy duty vehicles']):
-            raise ValueError("must be one of enum values ('Light duty vehicles', 'Heavy duty vehicles')")
-        return value
-
-    @field_validator('fuel_type')
-    def fuel_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Compressed natural gas']):
-            raise ValueError("must be one of enum values ('Compressed natural gas')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,12 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.beef import Beef
+from openapi_client.models.beef_breed import BeefBreed
 from openapi_client.models.beef_classes_input import BeefClassesInput
+from openapi_client.models.climate_zone_or_zone_type import ClimateZoneOrZoneType
 from openapi_client.models.fertiliser_input import FertiliserInput
 from openapi_client.models.fuel_input import FuelInput
+from openapi_client.models.grazing_production_system_with_rainfall import GrazingProductionSystemWithRainfall
+from openapi_client.models.mean_annual_temperature import MeanAnnualTemperature
 from openapi_client.models.post_beef_request_herds_inner_chemicals_inner import PostBeefRequestHerdsInnerChemicalsInner
 from openapi_client.models.post_beef_request_herds_inner_electricity_allocation import PostBeefRequestHerdsInnerElectricityAllocation
 from openapi_client.models.post_beef_request_herds_inner_lime import PostBeefRequestHerdsInnerLime
@@ -34,6 +38,7 @@ from openapi_client.models.post_beef_request_herds_inner_purchased_mineral_suppl
 from openapi_client.models.post_beef_request_herds_inner_services import PostBeefRequestHerdsInnerServices
 from openapi_client.models.post_beef_request_herds_inner_waste import PostBeefRequestHerdsInnerWaste
 from openapi_client.models.purchased_feed_list_input_inner import PurchasedFeedListInputInner
+from openapi_client.models.state_or_region import StateOrRegion
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -44,12 +49,12 @@ class PostBeefRequestHerdsInner(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Unique identifier for this activity")
     electricity_allocation: PostBeefRequestHerdsInnerElectricityAllocation = Field(alias="electricityAllocation")
-    region: StrictStr = Field(description="The state or region the herd is located in")
+    region: StateOrRegion = Field(description="The state or region the herd is located in")
     classes: BeefClassesInput
-    breed: StrictStr = Field(description="The basic breed type of the herd")
-    grazing_system: StrictStr = Field(description="The production system which most accurately describes the land used for grazing and feed.", alias="grazingSystem")
-    method2_mean_annual_temperature: Optional[StrictStr] = Field(default=None, description="What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.", alias="method2MeanAnnualTemperature")
-    climate_zone: StrictStr = Field(description="The climate zone the activity is located in (like \"Tropical dry\") or the basic zone type (\"dry\" or \"wet\"). See Chapter 1 section 1.8.2 for more details.", alias="climateZone")
+    breed: BeefBreed = Field(description="The basic breed type of the herd")
+    grazing_system: GrazingProductionSystemWithRainfall = Field(description="The production system which most accurately describes the land used for grazing and feed.", alias="grazingSystem")
+    method2_mean_annual_temperature: Optional[MeanAnnualTemperature] = Field(default=None, description="What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.", alias="method2MeanAnnualTemperature")
+    climate_zone: ClimateZoneOrZoneType = Field(description="The climate zone the activity is located in (like \"Tropical dry\") or the basic zone type (\"dry\" or \"wet\"). See Chapter 1 section 1.8.2 for more details.", alias="climateZone")
     is_in_leaching_zone: StrictBool = Field(description="Is the activity in a leaching zone. See chapter 1.8.2 for more details on leaching zones.", alias="isInLeachingZone")
     excluded_from_natural_water: StrictBool = Field(description="Whether the herd is excluded from natural water use. If animals are on bore or reticulated water systems where water is provided in troughs (i.e. no unfenced natural water sources) then set to true", alias="excludedFromNaturalWater")
     liveweight_sold_kg: PostBeefRequestHerdsInnerLiveweightSoldKg = Field(alias="liveweightSoldKg")
@@ -66,44 +71,6 @@ class PostBeefRequestHerdsInner(BaseModel):
     fertiliser: FertiliserInput
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "electricityAllocation", "region", "classes", "breed", "grazingSystem", "method2MeanAnnualTemperature", "climateZone", "isInLeachingZone", "excludedFromNaturalWater", "liveweightSoldKg", "fuel", "lime", "pasture", "purchasedLivestock", "purchasedFeed", "purchasedMineralSupplements", "chemicals", "services", "otherPurchasedGoodsAndServices", "waste", "fertiliser"]
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['ACT', 'NSW', 'SA', 'TAS', 'VIC', 'WA - South West', 'WA - Pilbara', 'WA - Kimberley', 'NT - Alice Springs', 'NT - Barkly', 'NT - Northern', 'QLD - High', 'QLD - Moderate/High', 'QLD - Moderate/Low', 'QLD - Low']):
-            raise ValueError("must be one of enum values ('ACT', 'NSW', 'SA', 'TAS', 'VIC', 'WA - South West', 'WA - Pilbara', 'WA - Kimberley', 'NT - Alice Springs', 'NT - Barkly', 'NT - Northern', 'QLD - High', 'QLD - Moderate/High', 'QLD - Moderate/Low', 'QLD - Low')")
-        return value
-
-    @field_validator('breed')
-    def breed_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Hereford or Shorthorn', 'Northern Brahman cross breed']):
-            raise ValueError("must be one of enum values ('Hereford or Shorthorn', 'Northern Brahman cross breed')")
-        return value
-
-    @field_validator('grazing_system')
-    def grazing_system_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Non-irrigated pasture', 'Irrigated pasture', 'Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)']):
-            raise ValueError("must be one of enum values ('Non-irrigated pasture', 'Irrigated pasture', 'Irrigated crop', 'Non-irrigated crop (low rainfall)', 'Non-irrigated crop (high rainfall)')")
-        return value
-
-    @field_validator('method2_mean_annual_temperature')
-    def method2_mean_annual_temperature_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '10 or below', '28 or above']):
-            raise ValueError("must be one of enum values ('11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '10 or below', '28 or above')")
-        return value
-
-    @field_validator('climate_zone')
-    def climate_zone_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Tropical montane', 'Tropical wet', 'Tropical moist', 'Warm temperate moist', 'Cool temperate moist', 'Boreal moist', 'Tropical dry', 'Warm temperate dry', 'Cool temperate dry', 'Boreal dry', 'dry', 'wet']):
-            raise ValueError("must be one of enum values ('Tropical montane', 'Tropical wet', 'Tropical moist', 'Warm temperate moist', 'Cool temperate moist', 'Boreal moist', 'Tropical dry', 'Warm temperate dry', 'Cool temperate dry', 'Boreal dry', 'dry', 'wet')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

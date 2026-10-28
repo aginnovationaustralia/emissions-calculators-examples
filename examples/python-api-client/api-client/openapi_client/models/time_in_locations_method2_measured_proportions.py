@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.dairy_cattle_breed import DairyCattleBreed
 from openapi_client.models.pigs_manure_herds_inner_fraction_applied_to_soils import PigsManureHerdsInnerFractionAppliedToSoils
 from openapi_client.models.time_in_locations_method1_production_system_classes import TimeInLocationsMethod1ProductionSystemClasses
 from openapi_client.models.time_in_locations_method1_production_system_manure_allocations import TimeInLocationsMethod1ProductionSystemManureAllocations
@@ -35,19 +36,12 @@ class TimeInLocationsMethod2MeasuredProportions(BaseModel):
     """ # noqa: E501
     classes: TimeInLocationsMethod1ProductionSystemClasses
     milk_production: TimeInLocationsMethod1ProductionSystemMilkProduction = Field(alias="milkProduction")
-    breed: StrictStr = Field(description="Breed of cattle for this dairy herd")
+    breed: DairyCattleBreed = Field(description="Breed of cattle for this dairy herd")
     manure_allocations: TimeInLocationsMethod1ProductionSystemManureAllocations = Field(alias="manureAllocations")
     is_in_leaching_zone: StrictBool = Field(description="Is the activity in a leaching zone. See chapter 1.8.2 for more details on leaching zones.", alias="isInLeachingZone")
     fraction_applied_to_soils: PigsManureHerdsInnerFractionAppliedToSoils = Field(alias="fractionAppliedToSoils")
     method2_time_spent_in_locations: TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations = Field(alias="method2TimeSpentInLocations")
     __properties: ClassVar[List[str]] = ["classes", "milkProduction", "breed", "manureAllocations", "isInLeachingZone", "fractionAppliedToSoils", "method2TimeSpentInLocations"]
-
-    @field_validator('breed')
-    def breed_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Medium Friesian', 'Large Friesian', 'Holstein-Friesian', 'Friesian crossbred', 'Jersey', 'Jersey crossbred', 'Ayrshire', 'Guernsey', 'Brown Swiss', 'Illawarra/Aussie Red']):
-            raise ValueError("must be one of enum values ('Medium Friesian', 'Large Friesian', 'Holstein-Friesian', 'Friesian crossbred', 'Jersey', 'Jersey crossbred', 'Ayrshire', 'Guernsey', 'Brown Swiss', 'Illawarra/Aussie Red')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

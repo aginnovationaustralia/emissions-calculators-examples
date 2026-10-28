@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.inorganic_fertiliser_production_system import InorganicFertiliserProductionSystem
 from openapi_client.models.organic_fertilisers_input import OrganicFertilisersInput
 from openapi_client.models.specific_production_system_scope1_method2_inorganic import SpecificProductionSystemScope1Method2Inorganic
 from typing import Optional, Set
@@ -30,17 +31,10 @@ class SpecificProductionSystemScope1Method2(BaseModel):
     """
     SpecificProductionSystemScope1Method2
     """ # noqa: E501
-    production_system: StrictStr = Field(description="Production system for specific crop types", alias="productionSystem")
+    production_system: InorganicFertiliserProductionSystem = Field(description="Production system for specific crop types", alias="productionSystem")
     inorganic: SpecificProductionSystemScope1Method2Inorganic
     organic: OrganicFertilisersInput
     __properties: ClassVar[List[str]] = ["productionSystem", "inorganic", "organic"]
-
-    @field_validator('production_system')
-    def production_system_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Irrigated crop (maize)', 'Non-irrigated crop (high rainfall)', 'Cotton']):
-            raise ValueError("must be one of enum values ('Irrigated crop (maize)', 'Non-irrigated crop (high rainfall)', 'Cotton')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,10 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.organic_fertiliser_type import OrganicFertiliserType
 from openapi_client.models.untraced_manure_custom_nitrogen_fraction import UntracedManureCustomNitrogenFraction
 from openapi_client.models.untraced_manure_mass_applied_kg import UntracedManureMassAppliedKg
+from openapi_client.models.untraced_manure_origin import UntracedManureOrigin
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,25 +32,11 @@ class UntracedManure(BaseModel):
     """
     UntracedManure
     """ # noqa: E501
-    origin: StrictStr
+    origin: UntracedManureOrigin
     mass_applied_kg: UntracedManureMassAppliedKg = Field(alias="massAppliedKg")
-    organic_fertiliser_type: StrictStr = Field(description="Type of organic fertiliser", alias="organicFertiliserType")
+    organic_fertiliser_type: OrganicFertiliserType = Field(description="Type of organic fertiliser", alias="organicFertiliserType")
     custom_nitrogen_fraction: Optional[UntracedManureCustomNitrogenFraction] = Field(default=None, alias="customNitrogenFraction")
     __properties: ClassVar[List[str]] = ["origin", "massAppliedKg", "organicFertiliserType", "customNitrogenFraction"]
-
-    @field_validator('origin')
-    def origin_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Untraced']):
-            raise ValueError("must be one of enum values ('Untraced')")
-        return value
-
-    @field_validator('organic_fertiliser_type')
-    def organic_fertiliser_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Dairy cattle', 'Beef cattle', 'Poultry', 'Pigs', 'Sheep', 'Horses/Mules']):
-            raise ValueError("must be one of enum values ('Dairy cattle', 'Beef cattle', 'Poultry', 'Pigs', 'Sheep', 'Horses/Mules')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

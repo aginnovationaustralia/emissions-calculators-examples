@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.lime_ameliorant import LimeAmeliorant
 from openapi_client.models.limestone_or_dolomite_application_custom_scope3_emissions_factor import LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor
 from openapi_client.models.limestone_or_dolomite_application_limestone_fraction import LimestoneOrDolomiteApplicationLimestoneFraction
 from openapi_client.models.limestone_or_dolomite_application_mass_applied_kg import LimestoneOrDolomiteApplicationMassAppliedKg
@@ -34,16 +35,9 @@ class LimestoneOrDolomiteApplication(BaseModel):
     mass_applied_kg: LimestoneOrDolomiteApplicationMassAppliedKg = Field(alias="massAppliedKg")
     custom_scope3_emissions_factor: Optional[LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor] = Field(default=None, alias="customScope3EmissionsFactor")
     limestone_fraction: LimestoneOrDolomiteApplicationLimestoneFraction = Field(alias="limestoneFraction")
-    type: StrictStr = Field(description="Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3")
+    type: LimeAmeliorant = Field(description="Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["massAppliedKg", "customScope3EmissionsFactor", "limestoneFraction", "type"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Limestone', 'Dolomite']):
-            raise ValueError("must be one of enum values ('Limestone', 'Dolomite')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

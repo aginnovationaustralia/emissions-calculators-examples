@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.quantity_by_mass9_mass_waste_tonnes import QuantityByMass9MassWasteTonnes
+from openapi_client.models.solid_waste_organic_type import SolidWasteOrganicType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +30,9 @@ class QuantityByMass9(BaseModel):
     """
     QuantityByMass9
     """ # noqa: E501
-    waste_type: StrictStr = Field(description="Type of solid waste treated at this facility (Composting)", alias="wasteType")
+    waste_type: SolidWasteOrganicType = Field(description="Type of solid waste treated at this facility (Composting)", alias="wasteType")
     mass_waste_tonnes: QuantityByMass9MassWasteTonnes = Field(alias="massWasteTonnes")
     __properties: ClassVar[List[str]] = ["wasteType", "massWasteTonnes"]
-
-    @field_validator('waste_type')
-    def waste_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Food waste', 'Green waste', 'Wood products (at time of harvest)', 'Wood products (at end of life)', 'Sludge']):
-            raise ValueError("must be one of enum values ('Food waste', 'Green waste', 'Wood products (at time of harvest)', 'Wood products (at end of life)', 'Sludge')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

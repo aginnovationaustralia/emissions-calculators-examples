@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.beef_purchase_category import BeefPurchaseCategory
+from openapi_client.models.method1_emission_factor_method1_liveweight_type import Method1EmissionFactorMethod1LiveweightType
 from openapi_client.models.method1_emission_factor_method2_liveweight_head_purchased import Method1EmissionFactorMethod2LiveweightHeadPurchased
 from openapi_client.models.method1_emission_factor_method2_liveweight_liveweight_method2 import Method1EmissionFactorMethod2LiveweightLiveweightMethod2
 from typing import Optional, Set
@@ -30,26 +32,12 @@ class Method1EmissionFactorMethod2Liveweight(BaseModel):
     """
     Method1EmissionFactorMethod2Liveweight
     """ # noqa: E501
-    type: StrictStr
+    type: Method1EmissionFactorMethod1LiveweightType
     head_purchased: Method1EmissionFactorMethod2LiveweightHeadPurchased = Field(alias="headPurchased")
-    category: StrictStr = Field(description="The category of the purchased animals")
+    category: BeefPurchaseCategory = Field(description="The category of the purchased animals")
     liveweight_method2: Method1EmissionFactorMethod2LiveweightLiveweightMethod2 = Field(alias="liveweightMethod2")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "headPurchased", "category", "liveweightMethod2"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Beef']):
-            raise ValueError("must be one of enum values ('Beef')")
-        return value
-
-    @field_validator('category')
-    def category_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['beefPrime', 'beefWeaned']):
-            raise ValueError("must be one of enum values ('beefPrime', 'beefWeaned')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

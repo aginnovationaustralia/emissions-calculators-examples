@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.unknown_component_custom_emission_factor_emission_factor import UnknownComponentCustomEmissionFactorEmissionFactor
-from openapi_client.models.unknown_component_custom_emission_factor_fraction_of_fertiliser import UnknownComponentCustomEmissionFactorFractionOfFertiliser
+from openapi_client.models.with_origin_region_fraction_of_fertiliser import WithOriginRegionFractionOfFertiliser
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +30,7 @@ class UnknownComponentCustomEmissionFactor(BaseModel):
     """
     UnknownComponentCustomEmissionFactor
     """ # noqa: E501
-    fraction_of_fertiliser: UnknownComponentCustomEmissionFactorFractionOfFertiliser = Field(alias="fractionOfFertiliser")
+    fraction_of_fertiliser: WithOriginRegionFractionOfFertiliser = Field(alias="fractionOfFertiliser")
     emission_factor: UnknownComponentCustomEmissionFactorEmissionFactor = Field(alias="emissionFactor")
     __properties: ClassVar[List[str]] = ["fractionOfFertiliser", "emissionFactor"]
 
@@ -91,7 +91,7 @@ class UnknownComponentCustomEmissionFactor(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fractionOfFertiliser": UnknownComponentCustomEmissionFactorFractionOfFertiliser.from_dict(obj["fractionOfFertiliser"]) if obj.get("fractionOfFertiliser") is not None else None,
+            "fractionOfFertiliser": WithOriginRegionFractionOfFertiliser.from_dict(obj["fractionOfFertiliser"]) if obj.get("fractionOfFertiliser") is not None else None,
             "emissionFactor": UnknownComponentCustomEmissionFactorEmissionFactor.from_dict(obj["emissionFactor"]) if obj.get("emissionFactor") is not None else None
         })
         return _obj

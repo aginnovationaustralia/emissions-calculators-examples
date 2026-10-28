@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.method11_amount import Method11Amount
+from openapi_client.models.purchased_mineral_supplement_type import PurchasedMineralSupplementType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,16 +31,9 @@ class Method11(BaseModel):
     Method11
     """ # noqa: E501
     amount: Method11Amount
-    type: StrictStr = Field(description="The type of mineral supplement purchased.")
+    type: PurchasedMineralSupplementType = Field(description="The type of mineral supplement purchased.")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["amount", "type"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Lick block, dry season mix', 'Lick block, weaner', 'Lick block, mineral']):
-            raise ValueError("must be one of enum values ('Lick block, dry season mix', 'Lick block, weaner', 'Lick block, mineral')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.human_induced_natural_regeneration_type import HumanInducedNaturalRegenerationType
 from openapi_client.models.land_clearing_forest_to_cropland_activity_area_hectares import LandClearingForestToCroplandActivityAreaHectares
 from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_debris_current_year import LandClearingForestToCroplandCarbonMassInDebrisCurrentYear
 from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_debris_previous_year import LandClearingForestToCroplandCarbonMassInDebrisPreviousYear
@@ -38,15 +39,8 @@ class HumanInducedNaturalRegeneration(BaseModel):
     carbon_mass_in_trees_previous_year: LandClearingForestToCroplandCarbonMassInTreesPreviousYear = Field(alias="carbonMassInTreesPreviousYear")
     carbon_mass_in_debris_current_year: LandClearingForestToCroplandCarbonMassInDebrisCurrentYear = Field(alias="carbonMassInDebrisCurrentYear")
     carbon_mass_in_debris_previous_year: LandClearingForestToCroplandCarbonMassInDebrisPreviousYear = Field(alias="carbonMassInDebrisPreviousYear")
-    type: StrictStr
+    type: HumanInducedNaturalRegenerationType
     __properties: ClassVar[List[str]] = ["activityAreaHectares", "carbonMassInTreesCurrentYear", "carbonMassInTreesPreviousYear", "carbonMassInDebrisCurrentYear", "carbonMassInDebrisPreviousYear", "type"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['humanInducedNaturalRegeneration']):
-            raise ValueError("must be one of enum values ('humanInducedNaturalRegeneration')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

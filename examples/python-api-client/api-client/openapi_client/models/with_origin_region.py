@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.inorganic_fertiliser_component_origin import InorganicFertiliserComponentOrigin
+from openapi_client.models.inorganic_fertiliser_component_type_regional import InorganicFertiliserComponentTypeRegional
 from openapi_client.models.with_origin_region_fraction_of_fertiliser import WithOriginRegionFractionOfFertiliser
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,23 +32,9 @@ class WithOriginRegion(BaseModel):
     WithOriginRegion
     """ # noqa: E501
     fraction_of_fertiliser: WithOriginRegionFractionOfFertiliser = Field(alias="fractionOfFertiliser")
-    component_type: StrictStr = Field(description="Type of inorganic fertiliser component", alias="componentType")
-    component_origin: StrictStr = Field(description="Origin of inorganic fertiliser component", alias="componentOrigin")
+    component_type: InorganicFertiliserComponentTypeRegional = Field(description="Type of inorganic fertiliser component", alias="componentType")
+    component_origin: InorganicFertiliserComponentOrigin = Field(description="Origin of inorganic fertiliser component", alias="componentOrigin")
     __properties: ClassVar[List[str]] = ["fractionOfFertiliser", "componentType", "componentOrigin"]
-
-    @field_validator('component_type')
-    def component_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Ammonia', 'Urea']):
-            raise ValueError("must be one of enum values ('Ammonia', 'Urea')")
-        return value
-
-    @field_validator('component_origin')
-    def component_origin_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Unspecified', 'China', 'Yemen', 'Canada']):
-            raise ValueError("must be one of enum values ('Unspecified', 'China', 'Yemen', 'Canada')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

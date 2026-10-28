@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.fuel_stationary_volume_based_liquid_type import FuelStationaryVolumeBasedLiquidType
 from openapi_client.models.quantity_by_volume11_amount_kilolitres import QuantityByVolume11AmountKilolitres
+from openapi_client.models.quantity_by_volume11_fuel_class import QuantityByVolume11FuelClass
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,24 +31,10 @@ class QuantityByVolume11(BaseModel):
     """
     QuantityByVolume11
     """ # noqa: E501
-    fuel_class: StrictStr = Field(alias="fuelClass")
-    fuel_type: StrictStr = Field(description="Type of liquid fuel used in stationary equipment", alias="fuelType")
+    fuel_class: QuantityByVolume11FuelClass = Field(alias="fuelClass")
+    fuel_type: FuelStationaryVolumeBasedLiquidType = Field(description="Type of liquid fuel used in stationary equipment", alias="fuelType")
     amount_kilolitres: QuantityByVolume11AmountKilolitres = Field(alias="amountKilolitres")
     __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountKilolitres"]
-
-    @field_validator('fuel_class')
-    def fuel_class_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Liquid fuels']):
-            raise ValueError("must be one of enum values ('Liquid fuels')")
-        return value
-
-    @field_validator('fuel_type')
-    def fuel_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Petroleum based oils other than fuels', 'Petroleum based greases', 'Automotive gasoline/petrol', 'Aviation gasoline', 'Kerosene', 'Aviation turbine fuel/kerosene', 'Heating oil', 'Diesel oil', 'Fuel oil', 'Liquefied aromatic hydrocarbons', 'Solvents: mineral turpentine or white spirits', 'Liquefied petroleum gas', 'Naphtha', 'Other petroleum products']):
-            raise ValueError("must be one of enum values ('Petroleum based oils other than fuels', 'Petroleum based greases', 'Automotive gasoline/petrol', 'Aviation gasoline', 'Kerosene', 'Aviation turbine fuel/kerosene', 'Heating oil', 'Diesel oil', 'Fuel oil', 'Liquefied aromatic hydrocarbons', 'Solvents: mineral turpentine or white spirits', 'Liquefied petroleum gas', 'Naphtha', 'Other petroleum products')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

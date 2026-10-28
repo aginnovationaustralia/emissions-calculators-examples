@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.dairy_manure_herds_inner import DairyManureHerdsInner
+from openapi_client.models.dairy_manure_type import DairyManureType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,16 +30,9 @@ class DairyManure(BaseModel):
     """
     DairyManure
     """ # noqa: E501
-    type: StrictStr
+    type: DairyManureType
     herds: List[DairyManureHerdsInner]
     __properties: ClassVar[List[str]] = ["type", "herds"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['dairy']):
-            raise ValueError("must be one of enum values ('dairy')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

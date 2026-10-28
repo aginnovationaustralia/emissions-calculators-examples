@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.inorganic_fertiliser_component_type_non_regional import InorganicFertiliserComponentTypeNonRegional
 from openapi_client.models.with_origin_region_fraction_of_fertiliser import WithOriginRegionFractionOfFertiliser
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,15 +31,8 @@ class WithoutOriginRegion(BaseModel):
     WithoutOriginRegion
     """ # noqa: E501
     fraction_of_fertiliser: WithOriginRegionFractionOfFertiliser = Field(alias="fractionOfFertiliser")
-    component_type: StrictStr = Field(description="Type of inorganic fertiliser component", alias="componentType")
+    component_type: InorganicFertiliserComponentTypeNonRegional = Field(description="Type of inorganic fertiliser component", alias="componentType")
     __properties: ClassVar[List[str]] = ["fractionOfFertiliser", "componentType"]
-
-    @field_validator('component_type')
-    def component_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Monoammonium phosphate', 'Diammonium Phosphate', 'Urea-Ammonium Nitrate', 'Ammonium Nitrate', 'Calcium Ammonium Nitrate', 'Sulphate of Ammonia', 'Nitrogen - Generic', 'Nitrogen - Nitrate', 'Nitrogen - Ammonia', 'Muriate of Potash', 'Single superphosphate', 'Double Superphosphate', 'Phosphorus - Generic', 'Potassium - Generic', 'Sulfur - Generic', 'Zinc - Generic']):
-            raise ValueError("must be one of enum values ('Monoammonium phosphate', 'Diammonium Phosphate', 'Urea-Ammonium Nitrate', 'Ammonium Nitrate', 'Calcium Ammonium Nitrate', 'Sulphate of Ammonia', 'Nitrogen - Generic', 'Nitrogen - Nitrate', 'Nitrogen - Ammonia', 'Muriate of Potash', 'Single superphosphate', 'Double Superphosphate', 'Phosphorus - Generic', 'Potassium - Generic', 'Sulfur - Generic', 'Zinc - Generic')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

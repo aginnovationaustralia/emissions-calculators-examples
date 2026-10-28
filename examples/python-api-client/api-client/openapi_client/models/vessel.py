@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres
+from openapi_client.models.vessel_fuel_type import VesselFuelType
+from openapi_client.models.vessel_vehicle_type import VesselVehicleType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,23 +32,9 @@ class Vessel(BaseModel):
     Vessel
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehiclesAmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: StrictStr = Field(alias="vehicleType")
-    fuel_type: StrictStr = Field(description="Type of fuel used by this vessel", alias="fuelType")
+    vehicle_type: VesselVehicleType = Field(alias="vehicleType")
+    fuel_type: VesselFuelType = Field(description="Type of fuel used by this vessel", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
-
-    @field_validator('vehicle_type')
-    def vehicle_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Vessel']):
-            raise ValueError("must be one of enum values ('Vessel')")
-        return value
-
-    @field_validator('fuel_type')
-    def fuel_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Petrol', 'Diesel', 'Fuel Oil']):
-            raise ValueError("must be one of enum values ('Petrol', 'Diesel', 'Fuel Oil')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

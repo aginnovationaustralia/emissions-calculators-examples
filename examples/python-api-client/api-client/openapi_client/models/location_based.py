@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.electricity_region import ElectricityRegion
 from openapi_client.models.location_based_electricity_purchased_kwh import LocationBasedElectricityPurchasedKWh
+from openapi_client.models.location_based_method import LocationBasedMethod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,25 +31,11 @@ class LocationBased(BaseModel):
     """
     LocationBased
     """ # noqa: E501
-    method: StrictStr
+    method: LocationBasedMethod
     electricity_purchased_kwh: LocationBasedElectricityPurchasedKWh = Field(alias="electricityPurchasedKWh")
-    region: StrictStr = Field(description="The state, territory or electricity grid the electricity is purchased in")
+    region: ElectricityRegion = Field(description="The state, territory or electricity grid the electricity is purchased in")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["method", "electricityPurchasedKWh", "region"]
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['location']):
-            raise ValueError("must be one of enum values ('location')")
-        return value
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['NSW', 'VIC', 'QLD', 'SA', 'WA_NW', 'WA_SW', 'TAS', 'NT', 'ACT', 'National']):
-            raise ValueError("must be one of enum values ('NSW', 'VIC', 'QLD', 'SA', 'WA_NW', 'WA_SW', 'TAS', 'NT', 'ACT', 'National')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

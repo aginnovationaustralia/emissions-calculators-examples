@@ -18,12 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.scope3_method1_mass_applied_kg import Scope3Method1MassAppliedKg
+from openapi_client.models.scope3_method2_known_fertiliser_type_calculation_method_scope3 import Scope3Method2KnownFertiliserTypeCalculationMethodScope3
 from openapi_client.models.scope3_method2_known_fertiliser_type_custom_nitrogen_fraction import Scope3Method2KnownFertiliserTypeCustomNitrogenFraction
 from openapi_client.models.scope3_method2_known_fertiliser_type_custom_scope3_emission_factor import Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor
 from openapi_client.models.scope3_method2_other_fertiliser_type_custom_urea_fraction import Scope3Method2OtherFertiliserTypeCustomUreaFraction
+from openapi_client.models.scope3_method2_other_fertiliser_type_fertiliser_type import Scope3Method2OtherFertiliserTypeFertiliserType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,25 +36,11 @@ class Scope3Method2OtherFertiliserType(BaseModel):
     """ # noqa: E501
     mass_applied_kg: Scope3Method1MassAppliedKg = Field(alias="massAppliedKg")
     custom_scope3_emission_factor: Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor = Field(alias="customScope3EmissionFactor")
-    calculation_method_scope3: StrictStr = Field(description="Choosing method 2 for calculating scope 3 emissions for this fertiliser", alias="calculationMethodScope3")
-    fertiliser_type: StrictStr = Field(description="Type of inorganic fertiliser applied", alias="fertiliserType")
+    calculation_method_scope3: Scope3Method2KnownFertiliserTypeCalculationMethodScope3 = Field(alias="calculationMethodScope3")
+    fertiliser_type: Scope3Method2OtherFertiliserTypeFertiliserType = Field(alias="fertiliserType")
     custom_nitrogen_fraction: Scope3Method2KnownFertiliserTypeCustomNitrogenFraction = Field(alias="customNitrogenFraction")
     custom_urea_fraction: Scope3Method2OtherFertiliserTypeCustomUreaFraction = Field(alias="customUreaFraction")
     __properties: ClassVar[List[str]] = ["massAppliedKg", "customScope3EmissionFactor", "calculationMethodScope3", "fertiliserType", "customNitrogenFraction", "customUreaFraction"]
-
-    @field_validator('calculation_method_scope3')
-    def calculation_method_scope3_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['2']):
-            raise ValueError("must be one of enum values ('2')")
-        return value
-
-    @field_validator('fertiliser_type')
-    def fertiliser_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Other Fertilisers']):
-            raise ValueError("must be one of enum values ('Other Fertilisers')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

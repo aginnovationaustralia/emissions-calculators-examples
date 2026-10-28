@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.output_input_method import OutputInputMethod
 from openapi_client.models.output_input_value import OutputInputValue
 from openapi_client.models.quality_table import QualityTable
 from typing import Optional, Set
@@ -32,17 +33,10 @@ class OutputInput(BaseModel):
     """ # noqa: E501
     name: StrictStr = Field(description="Name of the input")
     value: OutputInputValue
-    method: StrictStr = Field(description="The calculation method this input contributes to")
+    method: OutputInputMethod
     modules: List[StrictStr] = Field(description="Modules this input is relevant to")
     quality: Optional[QualityTable] = Field(default=None, description="Data quality ratings for this input, where provided")
     __properties: ClassVar[List[str]] = ["name", "value", "method", "modules", "quality"]
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['1', '2']):
-            raise ValueError("must be one of enum values ('1', '2')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,10 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.beef_class import BeefClass
+from openapi_client.models.extended_region import ExtendedRegion
+from openapi_client.models.method1_emission_factor_method1_liveweight_type import Method1EmissionFactorMethod1LiveweightType
 from openapi_client.models.method1_emission_factor_method2_liveweight_head_purchased import Method1EmissionFactorMethod2LiveweightHeadPurchased
 from openapi_client.models.method2_emission_factor_method1_liveweight_emission_factor_method2 import Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2
+from openapi_client.models.season import Season
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,42 +34,14 @@ class Method2EmissionFactorMethod1Liveweight(BaseModel):
     """
     Method2EmissionFactorMethod1Liveweight
     """ # noqa: E501
-    type: StrictStr
+    type: Method1EmissionFactorMethod1LiveweightType
     head_purchased: Method1EmissionFactorMethod2LiveweightHeadPurchased = Field(alias="headPurchased")
     emission_factor_method2: Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2 = Field(alias="emissionFactorMethod2")
-    region: StrictStr = Field(description=" The origin of the purchased livestock")
-    var_class: StrictStr = Field(description="The class of the purchased livestock", alias="class")
-    season: StrictStr = Field(description="Season of the livestock purchase")
+    region: ExtendedRegion = Field(description=" The origin of the purchased livestock")
+    var_class: BeefClass = Field(description="The class of the purchased livestock", alias="class")
+    season: Season = Field(description="Season of the livestock purchase")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["type", "headPurchased", "emissionFactorMethod2", "region", "class", "season"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Beef']):
-            raise ValueError("must be one of enum values ('Beef')")
-        return value
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['ACT/NSW', 'SA', 'TAS', 'VIC', 'WA - South West', 'WA - Pilbara', 'WA - Kimberley', 'NT - Alice Springs', 'NT - Barkly', 'NT - Northern', 'QLD - High', 'QLD - Moderate/High', 'QLD - Moderate/Low', 'QLD - Low']):
-            raise ValueError("must be one of enum values ('ACT/NSW', 'SA', 'TAS', 'VIC', 'WA - South West', 'WA - Pilbara', 'WA - Kimberley', 'NT - Alice Springs', 'NT - Barkly', 'NT - Northern', 'QLD - High', 'QLD - Moderate/High', 'QLD - Moderate/Low', 'QLD - Low')")
-        return value
-
-    @field_validator('var_class')
-    def var_class_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['bullsLt1', 'bullsGt1', 'cowsLt1', 'cows1To2Years', 'cows2To3Years', 'cowsGt3Years', 'steersLt1', 'steers1To2Years', 'steers2To3Years', 'steersGt3Years']):
-            raise ValueError("must be one of enum values ('bullsLt1', 'bullsGt1', 'cowsLt1', 'cows1To2Years', 'cows2To3Years', 'cowsGt3Years', 'steersLt1', 'steers1To2Years', 'steers2To3Years', 'steersGt3Years')")
-        return value
-
-    @field_validator('season')
-    def season_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['spring', 'summer', 'autumn', 'winter']):
-            raise ValueError("must be one of enum values ('spring', 'summer', 'autumn', 'winter')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.purchased_from_nsw_type import PurchasedFromNSWType
+from openapi_client.models.purchased_from_sa_region import PurchasedFromSARegion
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,23 +32,9 @@ class PurchasedFromSA(BaseModel):
     PurchasedFromSA
     """ # noqa: E501
     amount: RegionlessFeedTypeAmount
-    type: StrictStr = Field(description="The type of feed purchased.")
-    region: StrictStr = Field(description="The region of origin of the purchased feed")
+    type: PurchasedFromNSWType
+    region: PurchasedFromSARegion
     __properties: ClassVar[List[str]] = ["amount", "type", "region"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Barley grain', 'Maize grain', 'Sorghum grain', 'Wheat grain', 'Cereal hay', 'Cereal silage', 'Lucerne hay', 'Oaten hay', 'Pasture hay']):
-            raise ValueError("must be one of enum values ('Barley grain', 'Maize grain', 'Sorghum grain', 'Wheat grain', 'Cereal hay', 'Cereal silage', 'Lucerne hay', 'Oaten hay', 'Pasture hay')")
-        return value
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['SA']):
-            raise ValueError("must be one of enum values ('SA')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

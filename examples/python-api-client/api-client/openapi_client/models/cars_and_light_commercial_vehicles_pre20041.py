@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres
+from openapi_client.models.cars_and_light_commercial_vehicles_pre2004_vehicle_type import CarsAndLightCommercialVehiclesPre2004VehicleType
+from openapi_client.models.cars_light_commercial_pre2004_fuel_type import CarsLightCommercialPre2004FuelType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,23 +32,9 @@ class CarsAndLightCommercialVehiclesPre20041(BaseModel):
     CarsAndLightCommercialVehiclesPre20041
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehicles1AmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: StrictStr = Field(alias="vehicleType")
-    fuel_type: StrictStr = Field(description="Type of fuel used by cars and light commercial vehicles manufactured before 2004", alias="fuelType")
+    vehicle_type: CarsAndLightCommercialVehiclesPre2004VehicleType = Field(alias="vehicleType")
+    fuel_type: CarsLightCommercialPre2004FuelType = Field(description="Type of fuel used by cars and light commercial vehicles manufactured before 2004", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
-
-    @field_validator('vehicle_type')
-    def vehicle_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Cars and light commercial vehicles (pre 2004)']):
-            raise ValueError("must be one of enum values ('Cars and light commercial vehicles (pre 2004)')")
-        return value
-
-    @field_validator('fuel_type')
-    def fuel_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Gasoline', 'Diesel oil', 'Liquefied petroleum gas (LPG)', 'Ethanol', 'Renewable diesel']):
-            raise ValueError("must be one of enum values ('Gasoline', 'Diesel oil', 'Liquefied petroleum gas (LPG)', 'Ethanol', 'Renewable diesel')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

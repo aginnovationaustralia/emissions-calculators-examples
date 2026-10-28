@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.feedlot_manure_groups_inner import FeedlotManureGroupsInner
+from openapi_client.models.feedlot_manure_type import FeedlotManureType
 from openapi_client.models.pigs_manure_herds_inner_fraction_applied_to_soils import PigsManureHerdsInnerFractionAppliedToSoils
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,15 +33,8 @@ class FeedlotManure(BaseModel):
     """ # noqa: E501
     groups: List[FeedlotManureGroupsInner]
     fraction_applied_to_soils: PigsManureHerdsInnerFractionAppliedToSoils = Field(alias="fractionAppliedToSoils")
-    type: StrictStr
+    type: FeedlotManureType
     __properties: ClassVar[List[str]] = ["groups", "fractionAppliedToSoils", "type"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['feedlot']):
-            raise ValueError("must be one of enum values ('feedlot')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

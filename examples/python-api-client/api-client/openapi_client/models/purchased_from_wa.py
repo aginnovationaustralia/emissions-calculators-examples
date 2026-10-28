@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.purchased_from_wa_region import PurchasedFromWARegion
+from openapi_client.models.purchased_from_wa_type import PurchasedFromWAType
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,23 +32,9 @@ class PurchasedFromWA(BaseModel):
     PurchasedFromWA
     """ # noqa: E501
     amount: RegionlessFeedTypeAmount
-    type: StrictStr = Field(description="The type of feed purchased.")
-    region: StrictStr = Field(description="The region of origin of the purchased feed")
+    type: PurchasedFromWAType
+    region: PurchasedFromWARegion
     __properties: ClassVar[List[str]] = ["amount", "type", "region"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Barley grain', 'Maize grain', 'Wheat grain', 'Cereal hay', 'Oaten hay', 'Pasture hay']):
-            raise ValueError("must be one of enum values ('Barley grain', 'Maize grain', 'Wheat grain', 'Cereal hay', 'Oaten hay', 'Pasture hay')")
-        return value
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['WA']):
-            raise ValueError("must be one of enum values ('WA')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

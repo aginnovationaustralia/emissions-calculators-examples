@@ -30,7 +30,7 @@ class TimeInLocationsMethod1ProductionSystemClassesMilkingCowsMethod2CrudeProtei
     """
     Method 2: supply an exact value for the crude protein content of the diet for this class based on farm records (kilograms crude protein per kilogram dry matter)
     """ # noqa: E501
-    value: Union[Annotated[float, Field(strict=True, ge=0)], Annotated[int, Field(strict=True, ge=0)]]
+    value: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     quality: Optional[QualityTable] = None
     __properties: ClassVar[List[str]] = ["value", "quality"]
 

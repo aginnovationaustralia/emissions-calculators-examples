@@ -18,12 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method13_clearings_inner import Method13ClearingsInner
+from openapi_client.models.method13_crop_type import Method13CropType
 from openapi_client.models.method13_method2_actual_stem_density import Method13Method2ActualStemDensity
 from openapi_client.models.method13_method2_biomass_at_maturity import Method13Method2BiomassAtMaturity
 from openapi_client.models.method13_plantings_inner import Method13PlantingsInner
+from openapi_client.models.method1_calculation_method import Method1CalculationMethod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,24 +37,10 @@ class Method13(BaseModel):
     method2_actual_stem_density: Optional[Method13Method2ActualStemDensity] = Field(default=None, alias="method2ActualStemDensity")
     method2_biomass_at_maturity: Optional[Method13Method2BiomassAtMaturity] = Field(default=None, alias="method2BiomassAtMaturity")
     plantings: List[Method13PlantingsInner]
-    crop_type: StrictStr = Field(alias="cropType")
+    crop_type: Method13CropType = Field(alias="cropType")
     clearings: List[Method13ClearingsInner]
-    calculation_method: StrictStr = Field(alias="calculationMethod")
+    calculation_method: Method1CalculationMethod = Field(alias="calculationMethod")
     __properties: ClassVar[List[str]] = ["method2ActualStemDensity", "method2BiomassAtMaturity", "plantings", "cropType", "clearings", "calculationMethod"]
-
-    @field_validator('crop_type')
-    def crop_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Oranges', 'Macadamias', 'Almonds', 'Apples', 'Peaches', 'Olives', 'Avocados', 'Mangoes', 'Grapes', 'Kiwifruits']):
-            raise ValueError("must be one of enum values ('Oranges', 'Macadamias', 'Almonds', 'Apples', 'Peaches', 'Olives', 'Avocados', 'Mangoes', 'Grapes', 'Kiwifruits')")
-        return value
-
-    @field_validator('calculation_method')
-    def calculation_method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['1']):
-            raise ValueError("must be one of enum values ('1')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -105,6 +93,9 @@ class Method13(BaseModel):
             for _item_plantings in self.plantings:
                 _items.append(_item_plantings.to_dict() if _item_plantings is not None else None)
             _dict['plantings'] = _items
+        # override the default output from pydantic by calling `to_dict()` of crop_type
+        if self.crop_type:
+            _dict['cropType'] = self.crop_type.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in clearings (list)
         _items = []
         if self.clearings:
@@ -126,7 +117,7 @@ class Method13(BaseModel):
             "method2ActualStemDensity": Method13Method2ActualStemDensity.from_dict(obj["method2ActualStemDensity"]) if obj.get("method2ActualStemDensity") is not None else None,
             "method2BiomassAtMaturity": Method13Method2BiomassAtMaturity.from_dict(obj["method2BiomassAtMaturity"]) if obj.get("method2BiomassAtMaturity") is not None else None,
             "plantings": [Method13PlantingsInner.from_dict(_item) for _item in obj["plantings"]] if obj.get("plantings") is not None else None,
-            "cropType": obj.get("cropType"),
+            "cropType": Method13CropType.from_dict(obj["cropType"]) if obj.get("cropType") is not None else None,
             "clearings": [Method13ClearingsInner.from_dict(_item) for _item in obj["clearings"]] if obj.get("clearings") is not None else None,
             "calculationMethod": obj.get("calculationMethod")
         })

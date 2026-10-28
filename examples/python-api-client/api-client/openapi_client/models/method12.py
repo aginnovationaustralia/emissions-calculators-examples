@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method12_anaerobic_digestion import Method12AnaerobicDigestion
 from openapi_client.models.method12_composting import Method12Composting
@@ -26,6 +26,7 @@ from openapi_client.models.method12_incineration import Method12Incineration
 from openapi_client.models.method12_unmanaged_burial import Method12UnmanagedBurial
 from openapi_client.models.method12_unmanaged_deep import Method12UnmanagedDeep
 from openapi_client.models.method12_unmanaged_shallow import Method12UnmanagedShallow
+from openapi_client.models.method1_calculation_method import Method1CalculationMethod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,7 +35,7 @@ class Method12(BaseModel):
     """
     Method12
     """ # noqa: E501
-    method: StrictStr
+    method: Method1CalculationMethod
     unmanaged_burial: Optional[Method12UnmanagedBurial] = Field(default=None, alias="unmanagedBurial")
     unmanaged_deep: Optional[Method12UnmanagedDeep] = Field(default=None, alias="unmanagedDeep")
     unmanaged_shallow: Optional[Method12UnmanagedShallow] = Field(default=None, alias="unmanagedShallow")
@@ -43,13 +44,6 @@ class Method12(BaseModel):
     incineration: Optional[Method12Incineration] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["method", "unmanagedBurial", "unmanagedDeep", "unmanagedShallow", "composting", "anaerobicDigestion", "incineration"]
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['1']):
-            raise ValueError("must be one of enum values ('1')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

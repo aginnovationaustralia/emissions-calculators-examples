@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.electricity_region import ElectricityRegion
 from openapi_client.models.market_based_electricity_purchased_kwh import MarketBasedElectricityPurchasedKWh
+from openapi_client.models.market_based_method import MarketBasedMethod
 from openapi_client.models.market_based_recs_onsite import MarketBasedRecsOnsite
 from openapi_client.models.market_based_recs_surrendered import MarketBasedRecsSurrendered
 from typing import Optional, Set
@@ -31,27 +33,13 @@ class MarketBased(BaseModel):
     """
     MarketBased
     """ # noqa: E501
-    method: StrictStr
+    method: MarketBasedMethod
     electricity_purchased_kwh: MarketBasedElectricityPurchasedKWh = Field(alias="electricityPurchasedKWh")
     recs_surrendered: MarketBasedRecsSurrendered = Field(alias="recsSurrendered")
     recs_onsite: MarketBasedRecsOnsite = Field(alias="recsOnsite")
-    region: StrictStr = Field(description="The state, territory or electricity grid the electricity is purchased in")
+    region: ElectricityRegion = Field(description="The state, territory or electricity grid the electricity is purchased in")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["method", "electricityPurchasedKWh", "recsSurrendered", "recsOnsite", "region"]
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['market']):
-            raise ValueError("must be one of enum values ('market')")
-        return value
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['NSW', 'VIC', 'QLD', 'SA', 'WA_NW', 'WA_SW', 'TAS', 'NT', 'ACT', 'National']):
-            raise ValueError("must be one of enum values ('NSW', 'VIC', 'QLD', 'SA', 'WA_NW', 'WA_SW', 'TAS', 'NT', 'ACT', 'National')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

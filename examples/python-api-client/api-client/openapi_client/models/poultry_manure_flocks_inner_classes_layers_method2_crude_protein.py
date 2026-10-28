@@ -30,7 +30,7 @@ class PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein(BaseModel):
     """
     Crude protein content of the diet for this class (kilograms crude protein per kilogram dry matter)
     """ # noqa: E501
-    value: Union[Annotated[float, Field(strict=True, gt=0)], Annotated[int, Field(strict=True, gt=0)]]
+    value: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]]
     quality: Optional[QualityTable] = None
     __properties: ClassVar[List[str]] = ["value", "quality"]
 

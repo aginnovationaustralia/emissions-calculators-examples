@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method22_anaerobic_digestion_inner import Method22AnaerobicDigestionInner
 from openapi_client.models.method22_composting_inner import Method22CompostingInner
@@ -26,6 +26,7 @@ from openapi_client.models.method22_incineration_inner import Method22Incinerati
 from openapi_client.models.method22_unmanaged_burial_inner import Method22UnmanagedBurialInner
 from openapi_client.models.method22_unmanaged_deep_inner import Method22UnmanagedDeepInner
 from openapi_client.models.method22_unmanaged_shallow_inner import Method22UnmanagedShallowInner
+from openapi_client.models.method2_calculation_method import Method2CalculationMethod
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -34,7 +35,7 @@ class Method22(BaseModel):
     """
     Method22
     """ # noqa: E501
-    method: StrictStr
+    method: Method2CalculationMethod
     unmanaged_burial: Optional[List[Method22UnmanagedBurialInner]] = Field(default=None, alias="unmanagedBurial")
     unmanaged_deep: Optional[List[Method22UnmanagedDeepInner]] = Field(default=None, alias="unmanagedDeep")
     unmanaged_shallow: Optional[List[Method22UnmanagedShallowInner]] = Field(default=None, alias="unmanagedShallow")
@@ -43,13 +44,6 @@ class Method22(BaseModel):
     incineration: Optional[List[Method22IncinerationInner]] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["method", "unmanagedBurial", "unmanagedDeep", "unmanagedShallow", "composting", "anaerobicDigestion", "incineration"]
-
-    @field_validator('method')
-    def method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['2']):
-            raise ValueError("must be one of enum values ('2')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

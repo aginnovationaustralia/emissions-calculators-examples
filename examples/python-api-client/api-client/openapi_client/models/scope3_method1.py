@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.inorganic_fertiliser_type import InorganicFertiliserType
+from openapi_client.models.scope3_method1_calculation_method_scope3 import Scope3Method1CalculationMethodScope3
 from openapi_client.models.scope3_method1_components_inner import Scope3Method1ComponentsInner
 from openapi_client.models.scope3_method1_mass_applied_kg import Scope3Method1MassAppliedKg
 from typing import Optional, Set
@@ -31,24 +33,10 @@ class Scope3Method1(BaseModel):
     Scope3Method1
     """ # noqa: E501
     mass_applied_kg: Scope3Method1MassAppliedKg = Field(alias="massAppliedKg")
-    fertiliser_type: StrictStr = Field(description="Type of inorganic fertiliser applied", alias="fertiliserType")
+    fertiliser_type: InorganicFertiliserType = Field(description="Type of inorganic fertiliser applied", alias="fertiliserType")
     components: Optional[List[Scope3Method1ComponentsInner]] = Field(default=None, description="Components of the inorganic fertiliser applied.     NOTE: 5.1.2.1 FNinorganic,f data source allows you to supply a custom nitrogen fraction for the fertiliser. This is currently    implemented via the components field. This means you must supply all components if you want this scenario. If you only supply    a custom nitrogen fraction, scope 3 emissions will be under calculated. Do not supply a partial list of components.")
-    calculation_method_scope3: StrictStr = Field(description="Choosing method 1 for calculating scope 3 emissions for this fertiliser", alias="calculationMethodScope3")
+    calculation_method_scope3: Scope3Method1CalculationMethodScope3 = Field(alias="calculationMethodScope3")
     __properties: ClassVar[List[str]] = ["massAppliedKg", "fertiliserType", "components", "calculationMethodScope3"]
-
-    @field_validator('fertiliser_type')
-    def fertiliser_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Monoammonium Phosphate (MAP)', 'Diammonium Phosphate (DAP)', 'Urea', 'Sulphate of Ammonia (SOA)', 'Urea-Ammonium Nitrate (UAN)', 'Ammonium Nitrate (AN)', 'Calcium Ammonium Nitrate (CAN)', 'Calcium Nitrate', 'Single Super Phosphate']):
-            raise ValueError("must be one of enum values ('Monoammonium Phosphate (MAP)', 'Diammonium Phosphate (DAP)', 'Urea', 'Sulphate of Ammonia (SOA)', 'Urea-Ammonium Nitrate (UAN)', 'Ammonium Nitrate (AN)', 'Calcium Ammonium Nitrate (CAN)', 'Calcium Nitrate', 'Single Super Phosphate')")
-        return value
-
-    @field_validator('calculation_method_scope3')
-    def calculation_method_scope3_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['1']):
-            raise ValueError("must be one of enum values ('1')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

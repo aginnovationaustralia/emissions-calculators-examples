@@ -5,10 +5,15 @@ API_VERSION=${1:-4.0.2}
 SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
-# Download the spec and drop "Empty object" oneOf branches: the Python generator maps them to a
-# plain object that matches any input, so every value would match more than one oneOf branch.
+# Download the spec (or copy it, when SPEC_NAME is a path to a local file) and drop "Empty object"
+# oneOf branches: the Python generator maps them to a plain object that matches any input, so every
+# value would match more than one oneOf branch.
 SPEC_FILE=$(mktemp -d)/openapi.json
-curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
+if [[ -f "$SPEC_NAME" ]]; then
+  cp "$SPEC_NAME" $SPEC_FILE
+else
+  curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
+fi
 node -e '
 const fs = require("fs");
 const file = process.argv[1];
@@ -32,12 +37,15 @@ for (const name of ["OutputMethod1", "OutputMethod2"]) {
 fs.writeFileSync(file, JSON.stringify(spec));
 ' $SPEC_FILE
 
+# RESOLVE_INLINE_ENUMS turns any enum defined inline on a property into its own Python Enum class,
+# rather than a plain string checked by a validator.
 npm -g install @openapitools/openapi-generator-cli
 openapi-generator-cli generate \
   -i $SPEC_FILE \
   -g python \
   -o $API_CLIENT_DIR \
-  --global-property apiTests=false,apiDocs=false,modelTests=false,modelDocs=false
+  --global-property apiTests=false,apiDocs=false,modelTests=false,modelDocs=false \
+  --inline-schema-options RESOLVE_INLINE_ENUMS=true
   
 cp resources/* $API_CLIENT_DIR/
 

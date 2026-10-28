@@ -18,8 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.purchased_from_australia_region import PurchasedFromAustraliaRegion
+from openapi_client.models.purchased_from_australia_type import PurchasedFromAustraliaType
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,23 +32,9 @@ class PurchasedFromAustralia(BaseModel):
     PurchasedFromAustralia
     """ # noqa: E501
     amount: RegionlessFeedTypeAmount
-    type: StrictStr = Field(description="The type of feed purchased.")
-    region: StrictStr = Field(description="The region of origin of the purchased feed")
+    type: PurchasedFromAustraliaType
+    region: PurchasedFromAustraliaRegion
     __properties: ClassVar[List[str]] = ["amount", "type", "region"]
-
-    @field_validator('type')
-    def type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Barley grain', 'Maize grain', 'Sorghum grain', 'Wheat grain', 'Cereal hay', 'Cereal silage', 'Lucerne hay', 'Oaten hay', 'Pasture hay', 'Wheat bran', 'Canola meal', 'Feed for chickens', 'Feed for pigs', 'Feed for dairy calves', 'Feed for dairy cows', 'Canola oil', 'Cotton seed']):
-            raise ValueError("must be one of enum values ('Barley grain', 'Maize grain', 'Sorghum grain', 'Wheat grain', 'Cereal hay', 'Cereal silage', 'Lucerne hay', 'Oaten hay', 'Pasture hay', 'Wheat bran', 'Canola meal', 'Feed for chickens', 'Feed for pigs', 'Feed for dairy calves', 'Feed for dairy cows', 'Canola oil', 'Cotton seed')")
-        return value
-
-    @field_validator('region')
-    def region_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Australia']):
-            raise ValueError("must be one of enum values ('Australia')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

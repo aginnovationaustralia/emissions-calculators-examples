@@ -18,12 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method13_clearings_inner import Method13ClearingsInner
 from openapi_client.models.method13_method2_actual_stem_density import Method13Method2ActualStemDensity
 from openapi_client.models.method13_method2_biomass_at_maturity import Method13Method2BiomassAtMaturity
 from openapi_client.models.method13_plantings_inner import Method13PlantingsInner
+from openapi_client.models.method2_biomass_at_maturity_calculation_method import Method2BiomassAtMaturityCalculationMethod
+from openapi_client.models.perennial_woody_crop_full import PerennialWoodyCropFull
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,24 +37,10 @@ class Method2BiomassAtMaturity(BaseModel):
     method2_actual_stem_density: Optional[Method13Method2ActualStemDensity] = Field(default=None, alias="method2ActualStemDensity")
     method2_biomass_at_maturity: Method13Method2BiomassAtMaturity = Field(alias="method2BiomassAtMaturity")
     plantings: List[Method13PlantingsInner]
-    crop_type: StrictStr = Field(description="Type of perennial woody crop planted", alias="cropType")
+    crop_type: PerennialWoodyCropFull = Field(description="Type of perennial woody crop planted", alias="cropType")
     clearings: List[Method13ClearingsInner]
-    calculation_method: StrictStr = Field(alias="calculationMethod")
+    calculation_method: Method2BiomassAtMaturityCalculationMethod = Field(alias="calculationMethod")
     __properties: ClassVar[List[str]] = ["method2ActualStemDensity", "method2BiomassAtMaturity", "plantings", "cropType", "clearings", "calculationMethod"]
-
-    @field_validator('crop_type')
-    def crop_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Oranges', 'Macadamias', 'Almonds', 'Apples', 'Peaches', 'Olives', 'Avocados', 'Mangoes']):
-            raise ValueError("must be one of enum values ('Oranges', 'Macadamias', 'Almonds', 'Apples', 'Peaches', 'Olives', 'Avocados', 'Mangoes')")
-        return value
-
-    @field_validator('calculation_method')
-    def calculation_method_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['2 (BAM)']):
-            raise ValueError("must be one of enum values ('2 (BAM)')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

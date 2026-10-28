@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.specific_production_system_scope1_method2_inorganic_applications_inner import SpecificProductionSystemScope1Method2InorganicApplicationsInner
+from openapi_client.models.specific_production_system_scope1_method2_inorganic_calculation_method_scope1 import SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,15 +31,8 @@ class SpecificProductionSystemScope1Method2Inorganic(BaseModel):
     SpecificProductionSystemScope1Method2Inorganic
     """ # noqa: E501
     applications: List[SpecificProductionSystemScope1Method2InorganicApplicationsInner] = Field(description="Inorganic fertiliser applications")
-    calculation_method_scope1: StrictStr = Field(description="Method of calculating fertiliser emissions", alias="calculationMethodScope1")
+    calculation_method_scope1: SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1 = Field(alias="calculationMethodScope1")
     __properties: ClassVar[List[str]] = ["applications", "calculationMethodScope1"]
-
-    @field_validator('calculation_method_scope1')
-    def calculation_method_scope1_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['2']):
-            raise ValueError("must be one of enum values ('2')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

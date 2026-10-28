@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.fuel_stationary_solid_type import FuelStationarySolidType
 from openapi_client.models.solid_fuels1_amount_tonnes import SolidFuels1AmountTonnes
+from openapi_client.models.solid_fuels_fuel_class import SolidFuelsFuelClass
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,24 +31,10 @@ class SolidFuels1(BaseModel):
     """
     SolidFuels1
     """ # noqa: E501
-    fuel_class: StrictStr = Field(alias="fuelClass")
-    fuel_type: StrictStr = Field(description="Type of solid fuel used in stationary equipment", alias="fuelType")
+    fuel_class: SolidFuelsFuelClass = Field(alias="fuelClass")
+    fuel_type: FuelStationarySolidType = Field(description="Type of solid fuel used in stationary equipment", alias="fuelType")
     amount_tonnes: SolidFuels1AmountTonnes = Field(alias="amountTonnes")
     __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountTonnes"]
-
-    @field_validator('fuel_class')
-    def fuel_class_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Solid fuels']):
-            raise ValueError("must be one of enum values ('Solid fuels')")
-        return value
-
-    @field_validator('fuel_type')
-    def fuel_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['Bituminous coal', 'Sub-bituminous coal', 'Anthracite', 'Brown coal (lignite)', 'Coking coal', 'Coal briquettes', 'Coal coke', 'Coal tar', 'Other solid fossil fuels', 'Industrial materials derived from fossil fuels', 'Passenger car tyres', 'Truck and off-road tyres', 'Non-biomass municipal materials', 'Dry wood', 'Green and air dried wood', 'Sulphite lyes', 'Bagasse', 'Biomass,  municipal and industrial materials', 'Charcoal', 'Other primary solid biomass fuels']):
-            raise ValueError("must be one of enum values ('Bituminous coal', 'Sub-bituminous coal', 'Anthracite', 'Brown coal (lignite)', 'Coking coal', 'Coal briquettes', 'Coal coke', 'Coal tar', 'Other solid fossil fuels', 'Industrial materials derived from fossil fuels', 'Passenger car tyres', 'Truck and off-road tyres', 'Non-biomass municipal materials', 'Dry wood', 'Green and air dried wood', 'Sulphite lyes', 'Bagasse', 'Biomass,  municipal and industrial materials', 'Charcoal', 'Other primary solid biomass fuels')")
-        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
