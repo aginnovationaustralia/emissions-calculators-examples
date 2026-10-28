@@ -1,5 +1,5 @@
 # flake8: noqa
 
 # import apis into api package
-from openapi_client.api.gaf_api import GAFApi
+from openapi_client.api.emissions_calculators_api import EmissionsCalculatorsApi
 

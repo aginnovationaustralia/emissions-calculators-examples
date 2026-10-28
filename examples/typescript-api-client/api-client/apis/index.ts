@@ -1,3 +1,3 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './GAFApi';
+export * from './EmissionsCalculatorsApi';

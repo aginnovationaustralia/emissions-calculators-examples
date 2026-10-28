@@ -1,13 +1,15 @@
 #!/bin/bash
 set -e
 API_CLIENT_DIR=api-client
-API_VERSION=3.0.0
+API_VERSION=${1:-4.0.2}
+SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
 npm -g install @openapitools/openapi-generator-cli
 openapi-generator-cli generate \
-  -i https://docs.aiaplatform.com.au/api/$API_VERSION/openapi.json \
+  -i https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json \
   -g typescript-fetch \
+  -t templates \
   -o $API_CLIENT_DIR \
   --global-property apiTests=false,apiDocs=false,modelTests=false,modelDocs=false
   
