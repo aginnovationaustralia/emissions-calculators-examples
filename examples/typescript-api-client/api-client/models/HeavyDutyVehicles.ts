@@ -20,6 +20,13 @@ import {
     CarsAndLightCommercialVehiclesAmountKilolitresToJSON,
     CarsAndLightCommercialVehiclesAmountKilolitresToJSONTyped,
 } from './CarsAndLightCommercialVehiclesAmountKilolitres';
+import type { HeavyDutyFuelType } from './HeavyDutyFuelType';
+import {
+    HeavyDutyFuelTypeFromJSON,
+    HeavyDutyFuelTypeFromJSONTyped,
+    HeavyDutyFuelTypeToJSON,
+    HeavyDutyFuelTypeToJSONTyped,
+} from './HeavyDutyFuelType';
 
 /**
  * 
@@ -38,7 +45,7 @@ export interface HeavyDutyVehicles {
     /**
      * Type of fuel used by heavy duty vehicles
      */
-    fuelType: HeavyDutyVehiclesFuelTypeEnum;
+    fuelType: HeavyDutyFuelType;
 }
 
 
@@ -49,21 +56,6 @@ export const HeavyDutyVehiclesVehicleTypeEnum = {
     HeavyDutyVehicles: 'Heavy duty vehicles',
 } as const;
 export type HeavyDutyVehiclesVehicleTypeEnum = typeof HeavyDutyVehiclesVehicleTypeEnum[keyof typeof HeavyDutyVehiclesVehicleTypeEnum];
-
-/**
- * @export
- */
-export const HeavyDutyVehiclesFuelTypeEnum = {
-    CompressedNaturalGas: 'Compressed natural gas',
-    LiquefiedNaturalGas: 'Liquefied natural gas',
-    DieselOilEuroIvOrHigher: 'Diesel oil - Euro iv or higher',
-    DieselOilEuroIii: 'Diesel oil - Euro iii',
-    DieselOilEuroI: 'Diesel oil - Euro i',
-    RenewableDieselEuroIvOrHigher: 'Renewable diesel - Euro iv or higher',
-    RenewableDieselEuroIii: 'Renewable diesel - Euro iii',
-    RenewableDieselEuroI: 'Renewable diesel - Euro i',
-} as const;
-export type HeavyDutyVehiclesFuelTypeEnum = typeof HeavyDutyVehiclesFuelTypeEnum[keyof typeof HeavyDutyVehiclesFuelTypeEnum];
 
 
 /**
@@ -90,7 +82,7 @@ export function HeavyDutyVehiclesFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': HeavyDutyFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -107,7 +99,7 @@ export function HeavyDutyVehiclesToJSONTyped(value?: HeavyDutyVehicles | null, i
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': HeavyDutyFuelTypeToJSON(value['fuelType']),
     };
 }
 

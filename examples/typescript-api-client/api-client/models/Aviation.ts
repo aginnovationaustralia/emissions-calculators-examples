@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AviationFuelType } from './AviationFuelType';
+import {
+    AviationFuelTypeFromJSON,
+    AviationFuelTypeFromJSONTyped,
+    AviationFuelTypeToJSON,
+    AviationFuelTypeToJSONTyped,
+} from './AviationFuelType';
 import type { CarsAndLightCommercialVehiclesAmountKilolitres } from './CarsAndLightCommercialVehiclesAmountKilolitres';
 import {
     CarsAndLightCommercialVehiclesAmountKilolitresFromJSON,
@@ -38,7 +45,7 @@ export interface Aviation {
     /**
      * Type of fuel used by aircraft
      */
-    fuelType: AviationFuelTypeEnum;
+    fuelType: AviationFuelType;
 }
 
 
@@ -49,16 +56,6 @@ export const AviationVehicleTypeEnum = {
     Aviation: 'Aviation',
 } as const;
 export type AviationVehicleTypeEnum = typeof AviationVehicleTypeEnum[keyof typeof AviationVehicleTypeEnum];
-
-/**
- * @export
- */
-export const AviationFuelTypeEnum = {
-    GasolineForUseAsFuelInAnAircraft: 'Gasoline for use as fuel in an aircraft',
-    KeroseneForUseAsFuelInAnAircraft: 'Kerosene for use as fuel in an aircraft',
-    RenewableAviationKerosene: 'Renewable aviation kerosene',
-} as const;
-export type AviationFuelTypeEnum = typeof AviationFuelTypeEnum[keyof typeof AviationFuelTypeEnum];
 
 
 /**
@@ -85,7 +82,7 @@ export function AviationFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': AviationFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -102,7 +99,7 @@ export function AviationToJSONTyped(value?: Aviation | null, ignoreDiscriminator
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': AviationFuelTypeToJSON(value['fuelType']),
     };
 }
 

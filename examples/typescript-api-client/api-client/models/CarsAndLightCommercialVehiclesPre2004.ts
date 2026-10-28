@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CarsLightCommercialPre2004FuelType } from './CarsLightCommercialPre2004FuelType';
+import {
+    CarsLightCommercialPre2004FuelTypeFromJSON,
+    CarsLightCommercialPre2004FuelTypeFromJSONTyped,
+    CarsLightCommercialPre2004FuelTypeToJSON,
+    CarsLightCommercialPre2004FuelTypeToJSONTyped,
+} from './CarsLightCommercialPre2004FuelType';
 import type { CarsAndLightCommercialVehiclesAmountKilolitres } from './CarsAndLightCommercialVehiclesAmountKilolitres';
 import {
     CarsAndLightCommercialVehiclesAmountKilolitresFromJSON,
@@ -38,7 +45,7 @@ export interface CarsAndLightCommercialVehiclesPre2004 {
     /**
      * Type of fuel used by cars and light commercial vehicles manufactured before 2004
      */
-    fuelType: CarsAndLightCommercialVehiclesPre2004FuelTypeEnum;
+    fuelType: CarsLightCommercialPre2004FuelType;
 }
 
 
@@ -49,18 +56,6 @@ export const CarsAndLightCommercialVehiclesPre2004VehicleTypeEnum = {
     CarsAndLightCommercialVehiclesPre2004: 'Cars and light commercial vehicles (pre 2004)',
 } as const;
 export type CarsAndLightCommercialVehiclesPre2004VehicleTypeEnum = typeof CarsAndLightCommercialVehiclesPre2004VehicleTypeEnum[keyof typeof CarsAndLightCommercialVehiclesPre2004VehicleTypeEnum];
-
-/**
- * @export
- */
-export const CarsAndLightCommercialVehiclesPre2004FuelTypeEnum = {
-    Gasoline: 'Gasoline',
-    DieselOil: 'Diesel oil',
-    LiquefiedPetroleumGasLpg: 'Liquefied petroleum gas (LPG)',
-    Ethanol: 'Ethanol',
-    RenewableDiesel: 'Renewable diesel',
-} as const;
-export type CarsAndLightCommercialVehiclesPre2004FuelTypeEnum = typeof CarsAndLightCommercialVehiclesPre2004FuelTypeEnum[keyof typeof CarsAndLightCommercialVehiclesPre2004FuelTypeEnum];
 
 
 /**
@@ -87,7 +82,7 @@ export function CarsAndLightCommercialVehiclesPre2004FromJSONTyped(json: any, ig
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': CarsLightCommercialPre2004FuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -104,7 +99,7 @@ export function CarsAndLightCommercialVehiclesPre2004ToJSONTyped(value?: CarsAnd
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': CarsLightCommercialPre2004FuelTypeToJSON(value['fuelType']),
     };
 }
 

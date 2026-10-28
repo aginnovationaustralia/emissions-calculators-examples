@@ -20,13 +20,13 @@ import {
     UnknownComponentCustomEmissionFactorEmissionFactorToJSON,
     UnknownComponentCustomEmissionFactorEmissionFactorToJSONTyped,
 } from './UnknownComponentCustomEmissionFactorEmissionFactor';
-import type { UnknownComponentCustomEmissionFactorFractionOfFertiliser } from './UnknownComponentCustomEmissionFactorFractionOfFertiliser';
+import type { WithOriginRegionFractionOfFertiliser } from './WithOriginRegionFractionOfFertiliser';
 import {
-    UnknownComponentCustomEmissionFactorFractionOfFertiliserFromJSON,
-    UnknownComponentCustomEmissionFactorFractionOfFertiliserFromJSONTyped,
-    UnknownComponentCustomEmissionFactorFractionOfFertiliserToJSON,
-    UnknownComponentCustomEmissionFactorFractionOfFertiliserToJSONTyped,
-} from './UnknownComponentCustomEmissionFactorFractionOfFertiliser';
+    WithOriginRegionFractionOfFertiliserFromJSON,
+    WithOriginRegionFractionOfFertiliserFromJSONTyped,
+    WithOriginRegionFractionOfFertiliserToJSON,
+    WithOriginRegionFractionOfFertiliserToJSONTyped,
+} from './WithOriginRegionFractionOfFertiliser';
 
 /**
  * 
@@ -37,7 +37,7 @@ export interface UnknownComponentCustomEmissionFactor {
     /**
      * 
      */
-    fractionOfFertiliser: UnknownComponentCustomEmissionFactorFractionOfFertiliser;
+    fractionOfFertiliser: WithOriginRegionFractionOfFertiliser;
     /**
      * 
      */
@@ -63,7 +63,7 @@ export function UnknownComponentCustomEmissionFactorFromJSONTyped(json: any, ign
     }
     return {
         
-        'fractionOfFertiliser': UnknownComponentCustomEmissionFactorFractionOfFertiliserFromJSON(json['fractionOfFertiliser']),
+        'fractionOfFertiliser': WithOriginRegionFractionOfFertiliserFromJSON(json['fractionOfFertiliser']),
         'emissionFactor': UnknownComponentCustomEmissionFactorEmissionFactorFromJSON(json['emissionFactor']),
     };
 }
@@ -79,7 +79,7 @@ export function UnknownComponentCustomEmissionFactorToJSONTyped(value?: UnknownC
 
     return {
         
-        'fractionOfFertiliser': UnknownComponentCustomEmissionFactorFractionOfFertiliserToJSON(value['fractionOfFertiliser']),
+        'fractionOfFertiliser': WithOriginRegionFractionOfFertiliserToJSON(value['fractionOfFertiliser']),
         'emissionFactor': UnknownComponentCustomEmissionFactorEmissionFactorToJSON(value['emissionFactor']),
     };
 }

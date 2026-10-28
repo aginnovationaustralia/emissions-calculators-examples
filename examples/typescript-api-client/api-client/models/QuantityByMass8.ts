@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SolidWasteScope3IncinerationType } from './SolidWasteScope3IncinerationType';
+import {
+    SolidWasteScope3IncinerationTypeFromJSON,
+    SolidWasteScope3IncinerationTypeFromJSONTyped,
+    SolidWasteScope3IncinerationTypeToJSON,
+    SolidWasteScope3IncinerationTypeToJSONTyped,
+} from './SolidWasteScope3IncinerationType';
 import type { QuantityByMass8MassWasteTonnes } from './QuantityByMass8MassWasteTonnes';
 import {
     QuantityByMass8MassWasteTonnesFromJSON,
@@ -30,31 +37,13 @@ export interface QuantityByMass8 {
     /**
      * Type of solid waste treated at this facility (Incineration)
      */
-    wasteType: QuantityByMass8WasteTypeEnum;
+    wasteType: SolidWasteScope3IncinerationType;
     /**
      * 
      */
     massWasteTonnes: QuantityByMass8MassWasteTonnes;
 }
 
-
-/**
- * @export
- */
-export const QuantityByMass8WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    MunicipalSolidWaste: 'Municipal solid waste',
-    CommercialAndIndustrialWaste: 'Commercial and industrial waste',
-} as const;
-export type QuantityByMass8WasteTypeEnum = typeof QuantityByMass8WasteTypeEnum[keyof typeof QuantityByMass8WasteTypeEnum];
 
 
 /**
@@ -76,7 +65,7 @@ export function QuantityByMass8FromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteScope3IncinerationTypeFromJSON(json['wasteType']),
         'massWasteTonnes': QuantityByMass8MassWasteTonnesFromJSON(json['massWasteTonnes']),
     };
 }
@@ -92,7 +81,7 @@ export function QuantityByMass8ToJSONTyped(value?: QuantityByMass8 | null, ignor
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteScope3IncinerationTypeToJSON(value['wasteType']),
         'massWasteTonnes': QuantityByMass8MassWasteTonnesToJSON(value['massWasteTonnes']),
     };
 }

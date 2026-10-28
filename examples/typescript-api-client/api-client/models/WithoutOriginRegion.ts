@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { InorganicFertiliserComponentTypeNonRegional } from './InorganicFertiliserComponentTypeNonRegional';
+import {
+    InorganicFertiliserComponentTypeNonRegionalFromJSON,
+    InorganicFertiliserComponentTypeNonRegionalFromJSONTyped,
+    InorganicFertiliserComponentTypeNonRegionalToJSON,
+    InorganicFertiliserComponentTypeNonRegionalToJSONTyped,
+} from './InorganicFertiliserComponentTypeNonRegional';
 import type { WithOriginRegionFractionOfFertiliser } from './WithOriginRegionFractionOfFertiliser';
 import {
     WithOriginRegionFractionOfFertiliserFromJSON,
@@ -34,32 +41,9 @@ export interface WithoutOriginRegion {
     /**
      * Type of inorganic fertiliser component
      */
-    componentType: WithoutOriginRegionComponentTypeEnum;
+    componentType: InorganicFertiliserComponentTypeNonRegional;
 }
 
-
-/**
- * @export
- */
-export const WithoutOriginRegionComponentTypeEnum = {
-    MonoammoniumPhosphate: 'Monoammonium phosphate',
-    DiammoniumPhosphate: 'Diammonium Phosphate',
-    UreaAmmoniumNitrate: 'Urea-Ammonium Nitrate',
-    AmmoniumNitrate: 'Ammonium Nitrate',
-    CalciumAmmoniumNitrate: 'Calcium Ammonium Nitrate',
-    SulphateOfAmmonia: 'Sulphate of Ammonia',
-    NitrogenGeneric: 'Nitrogen - Generic',
-    NitrogenNitrate: 'Nitrogen - Nitrate',
-    NitrogenAmmonia: 'Nitrogen - Ammonia',
-    MuriateOfPotash: 'Muriate of Potash',
-    SingleSuperphosphate: 'Single superphosphate',
-    DoubleSuperphosphate: 'Double Superphosphate',
-    PhosphorusGeneric: 'Phosphorus - Generic',
-    PotassiumGeneric: 'Potassium - Generic',
-    SulfurGeneric: 'Sulfur - Generic',
-    ZincGeneric: 'Zinc - Generic',
-} as const;
-export type WithoutOriginRegionComponentTypeEnum = typeof WithoutOriginRegionComponentTypeEnum[keyof typeof WithoutOriginRegionComponentTypeEnum];
 
 
 /**
@@ -82,7 +66,7 @@ export function WithoutOriginRegionFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'fractionOfFertiliser': WithOriginRegionFractionOfFertiliserFromJSON(json['fractionOfFertiliser']),
-        'componentType': json['componentType'],
+        'componentType': InorganicFertiliserComponentTypeNonRegionalFromJSON(json['componentType']),
     };
 }
 
@@ -98,7 +82,7 @@ export function WithoutOriginRegionToJSONTyped(value?: WithoutOriginRegion | nul
     return {
         
         'fractionOfFertiliser': WithOriginRegionFractionOfFertiliserToJSON(value['fractionOfFertiliser']),
-        'componentType': value['componentType'],
+        'componentType': InorganicFertiliserComponentTypeNonRegionalToJSON(value['componentType']),
     };
 }
 

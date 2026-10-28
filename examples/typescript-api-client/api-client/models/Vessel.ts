@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VesselFuelType } from './VesselFuelType';
+import {
+    VesselFuelTypeFromJSON,
+    VesselFuelTypeFromJSONTyped,
+    VesselFuelTypeToJSON,
+    VesselFuelTypeToJSONTyped,
+} from './VesselFuelType';
 import type { CarsAndLightCommercialVehiclesAmountKilolitres } from './CarsAndLightCommercialVehiclesAmountKilolitres';
 import {
     CarsAndLightCommercialVehiclesAmountKilolitresFromJSON,
@@ -38,7 +45,7 @@ export interface Vessel {
     /**
      * Type of fuel used by this vessel
      */
-    fuelType: VesselFuelTypeEnum;
+    fuelType: VesselFuelType;
 }
 
 
@@ -49,16 +56,6 @@ export const VesselVehicleTypeEnum = {
     Vessel: 'Vessel',
 } as const;
 export type VesselVehicleTypeEnum = typeof VesselVehicleTypeEnum[keyof typeof VesselVehicleTypeEnum];
-
-/**
- * @export
- */
-export const VesselFuelTypeEnum = {
-    Petrol: 'Petrol',
-    Diesel: 'Diesel',
-    FuelOil: 'Fuel Oil',
-} as const;
-export type VesselFuelTypeEnum = typeof VesselFuelTypeEnum[keyof typeof VesselFuelTypeEnum];
 
 
 /**
@@ -85,7 +82,7 @@ export function VesselFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ve
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': VesselFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -102,7 +99,7 @@ export function VesselToJSONTyped(value?: Vessel | null, ignoreDiscriminator: bo
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': VesselFuelTypeToJSON(value['fuelType']),
     };
 }
 

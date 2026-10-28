@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ClimateZoneOrZoneType } from './ClimateZoneOrZoneType';
+import {
+    ClimateZoneOrZoneTypeFromJSON,
+    ClimateZoneOrZoneTypeFromJSONTyped,
+    ClimateZoneOrZoneTypeToJSON,
+    ClimateZoneOrZoneTypeToJSONTyped,
+} from './ClimateZoneOrZoneType';
 import type { FertiliserInput } from './FertiliserInput';
 import {
     FertiliserInputFromJSON,
@@ -34,6 +41,13 @@ import {
     PostBeefRequestHerdsInnerLimeToJSON,
     PostBeefRequestHerdsInnerLimeToJSONTyped,
 } from './PostBeefRequestHerdsInnerLime';
+import type { BeefBreed } from './BeefBreed';
+import {
+    BeefBreedFromJSON,
+    BeefBreedFromJSONTyped,
+    BeefBreedToJSON,
+    BeefBreedToJSONTyped,
+} from './BeefBreed';
 import type { PurchasedFeedListInputInner } from './PurchasedFeedListInputInner';
 import {
     PurchasedFeedListInputInnerFromJSON,
@@ -41,6 +55,13 @@ import {
     PurchasedFeedListInputInnerToJSON,
     PurchasedFeedListInputInnerToJSONTyped,
 } from './PurchasedFeedListInputInner';
+import type { MeanAnnualTemperature } from './MeanAnnualTemperature';
+import {
+    MeanAnnualTemperatureFromJSON,
+    MeanAnnualTemperatureFromJSONTyped,
+    MeanAnnualTemperatureToJSON,
+    MeanAnnualTemperatureToJSONTyped,
+} from './MeanAnnualTemperature';
 import type { FuelInput } from './FuelInput';
 import {
     FuelInputFromJSON,
@@ -62,6 +83,13 @@ import {
     PostBeefRequestHerdsInnerServicesToJSON,
     PostBeefRequestHerdsInnerServicesToJSONTyped,
 } from './PostBeefRequestHerdsInnerServices';
+import type { StateOrRegion } from './StateOrRegion';
+import {
+    StateOrRegionFromJSON,
+    StateOrRegionFromJSONTyped,
+    StateOrRegionToJSON,
+    StateOrRegionToJSONTyped,
+} from './StateOrRegion';
 import type { PostBeefRequestHerdsInnerChemicalsInner } from './PostBeefRequestHerdsInnerChemicalsInner';
 import {
     PostBeefRequestHerdsInnerChemicalsInnerFromJSON,
@@ -76,6 +104,13 @@ import {
     BeefClassesInputToJSON,
     BeefClassesInputToJSONTyped,
 } from './BeefClassesInput';
+import type { GrazingProductionSystemWithRainfall } from './GrazingProductionSystemWithRainfall';
+import {
+    GrazingProductionSystemWithRainfallFromJSON,
+    GrazingProductionSystemWithRainfallFromJSONTyped,
+    GrazingProductionSystemWithRainfallToJSON,
+    GrazingProductionSystemWithRainfallToJSONTyped,
+} from './GrazingProductionSystemWithRainfall';
 import type { PostBeefRequestHerdsInnerPasture } from './PostBeefRequestHerdsInnerPasture';
 import {
     PostBeefRequestHerdsInnerPastureFromJSON,
@@ -129,7 +164,7 @@ export interface PostBeefRequestHerdsInner {
     /**
      * The state or region the herd is located in
      */
-    region: PostBeefRequestHerdsInnerRegionEnum;
+    region: StateOrRegion;
     /**
      * 
      */
@@ -137,19 +172,19 @@ export interface PostBeefRequestHerdsInner {
     /**
      * The basic breed type of the herd
      */
-    breed: PostBeefRequestHerdsInnerBreedEnum;
+    breed: BeefBreed;
     /**
      * The production system which most accurately describes the land used for grazing and feed.
      */
-    grazingSystem: PostBeefRequestHerdsInnerGrazingSystemEnum;
+    grazingSystem: GrazingProductionSystemWithRainfall;
     /**
      * What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.
      */
-    method2MeanAnnualTemperature?: PostBeefRequestHerdsInnerMethod2MeanAnnualTemperatureEnum;
+    method2MeanAnnualTemperature?: MeanAnnualTemperature;
     /**
      * The climate zone the activity is located in (like "Tropical dry") or the basic zone type ("dry" or "wet"). See Chapter 1 section 1.8.2 for more details.
      */
-    climateZone: PostBeefRequestHerdsInnerClimateZoneEnum;
+    climateZone: ClimateZoneOrZoneType;
     /**
      * Is the activity in a leaching zone. See chapter 1.8.2 for more details on leaching zones.
      */
@@ -209,94 +244,6 @@ export interface PostBeefRequestHerdsInner {
 }
 
 
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerRegionEnum = {
-    Act: 'ACT',
-    Nsw: 'NSW',
-    Sa: 'SA',
-    Tas: 'TAS',
-    Vic: 'VIC',
-    WaSouthWest: 'WA - South West',
-    WaPilbara: 'WA - Pilbara',
-    WaKimberley: 'WA - Kimberley',
-    NtAliceSprings: 'NT - Alice Springs',
-    NtBarkly: 'NT - Barkly',
-    NtNorthern: 'NT - Northern',
-    QldHigh: 'QLD - High',
-    QldModerateHigh: 'QLD - Moderate/High',
-    QldModerateLow: 'QLD - Moderate/Low',
-    QldLow: 'QLD - Low',
-} as const;
-export type PostBeefRequestHerdsInnerRegionEnum = typeof PostBeefRequestHerdsInnerRegionEnum[keyof typeof PostBeefRequestHerdsInnerRegionEnum];
-
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerBreedEnum = {
-    HerefordOrShorthorn: 'Hereford or Shorthorn',
-    NorthernBrahmanCrossBreed: 'Northern Brahman cross breed',
-} as const;
-export type PostBeefRequestHerdsInnerBreedEnum = typeof PostBeefRequestHerdsInnerBreedEnum[keyof typeof PostBeefRequestHerdsInnerBreedEnum];
-
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerGrazingSystemEnum = {
-    NonIrrigatedPasture: 'Non-irrigated pasture',
-    IrrigatedPasture: 'Irrigated pasture',
-    IrrigatedCrop: 'Irrigated crop',
-    NonIrrigatedCropLowRainfall: 'Non-irrigated crop (low rainfall)',
-    NonIrrigatedCropHighRainfall: 'Non-irrigated crop (high rainfall)',
-} as const;
-export type PostBeefRequestHerdsInnerGrazingSystemEnum = typeof PostBeefRequestHerdsInnerGrazingSystemEnum[keyof typeof PostBeefRequestHerdsInnerGrazingSystemEnum];
-
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerMethod2MeanAnnualTemperatureEnum = {
-    _11: '11',
-    _12: '12',
-    _13: '13',
-    _14: '14',
-    _15: '15',
-    _16: '16',
-    _17: '17',
-    _18: '18',
-    _19: '19',
-    _20: '20',
-    _21: '21',
-    _22: '22',
-    _23: '23',
-    _24: '24',
-    _25: '25',
-    _26: '26',
-    _27: '27',
-    _10OrBelow: '10 or below',
-    _28OrAbove: '28 or above',
-} as const;
-export type PostBeefRequestHerdsInnerMethod2MeanAnnualTemperatureEnum = typeof PostBeefRequestHerdsInnerMethod2MeanAnnualTemperatureEnum[keyof typeof PostBeefRequestHerdsInnerMethod2MeanAnnualTemperatureEnum];
-
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerClimateZoneEnum = {
-    TropicalMontane: 'Tropical montane',
-    TropicalWet: 'Tropical wet',
-    TropicalMoist: 'Tropical moist',
-    WarmTemperateMoist: 'Warm temperate moist',
-    CoolTemperateMoist: 'Cool temperate moist',
-    BorealMoist: 'Boreal moist',
-    TropicalDry: 'Tropical dry',
-    WarmTemperateDry: 'Warm temperate dry',
-    CoolTemperateDry: 'Cool temperate dry',
-    BorealDry: 'Boreal dry',
-    Dry: 'dry',
-    Wet: 'wet',
-} as const;
-export type PostBeefRequestHerdsInnerClimateZoneEnum = typeof PostBeefRequestHerdsInnerClimateZoneEnum[keyof typeof PostBeefRequestHerdsInnerClimateZoneEnum];
-
 
 /**
  * Check if a given object implements the PostBeefRequestHerdsInner interface.
@@ -335,12 +282,12 @@ export function PostBeefRequestHerdsInnerFromJSONTyped(json: any, ignoreDiscrimi
         
         'id': json['id'] == null ? undefined : json['id'],
         'electricityAllocation': PostBeefRequestHerdsInnerElectricityAllocationFromJSON(json['electricityAllocation']),
-        'region': json['region'],
+        'region': StateOrRegionFromJSON(json['region']),
         'classes': BeefClassesInputFromJSON(json['classes']),
-        'breed': json['breed'],
-        'grazingSystem': json['grazingSystem'],
-        'method2MeanAnnualTemperature': json['method2MeanAnnualTemperature'] == null ? undefined : json['method2MeanAnnualTemperature'],
-        'climateZone': json['climateZone'],
+        'breed': BeefBreedFromJSON(json['breed']),
+        'grazingSystem': GrazingProductionSystemWithRainfallFromJSON(json['grazingSystem']),
+        'method2MeanAnnualTemperature': json['method2MeanAnnualTemperature'] == null ? undefined : MeanAnnualTemperatureFromJSON(json['method2MeanAnnualTemperature']),
+        'climateZone': ClimateZoneOrZoneTypeFromJSON(json['climateZone']),
         'isInLeachingZone': json['isInLeachingZone'],
         'excludedFromNaturalWater': json['excludedFromNaturalWater'],
         'liveweightSoldKg': PostBeefRequestHerdsInnerLiveweightSoldKgFromJSON(json['liveweightSoldKg']),
@@ -371,12 +318,12 @@ export function PostBeefRequestHerdsInnerToJSONTyped(value?: PostBeefRequestHerd
         
         'id': value['id'],
         'electricityAllocation': PostBeefRequestHerdsInnerElectricityAllocationToJSON(value['electricityAllocation']),
-        'region': value['region'],
+        'region': StateOrRegionToJSON(value['region']),
         'classes': BeefClassesInputToJSON(value['classes']),
-        'breed': value['breed'],
-        'grazingSystem': value['grazingSystem'],
-        'method2MeanAnnualTemperature': value['method2MeanAnnualTemperature'],
-        'climateZone': value['climateZone'],
+        'breed': BeefBreedToJSON(value['breed']),
+        'grazingSystem': GrazingProductionSystemWithRainfallToJSON(value['grazingSystem']),
+        'method2MeanAnnualTemperature': MeanAnnualTemperatureToJSON(value['method2MeanAnnualTemperature']),
+        'climateZone': ClimateZoneOrZoneTypeToJSON(value['climateZone']),
         'isInLeachingZone': value['isInLeachingZone'],
         'excludedFromNaturalWater': value['excludedFromNaturalWater'],
         'liveweightSoldKg': PostBeefRequestHerdsInnerLiveweightSoldKgToJSON(value['liveweightSoldKg']),

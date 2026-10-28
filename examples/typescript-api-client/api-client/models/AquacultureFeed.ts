@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PurchasedFeedAquacultureType } from './PurchasedFeedAquacultureType';
+import {
+    PurchasedFeedAquacultureTypeFromJSON,
+    PurchasedFeedAquacultureTypeFromJSONTyped,
+    PurchasedFeedAquacultureTypeToJSON,
+    PurchasedFeedAquacultureTypeToJSONTyped,
+} from './PurchasedFeedAquacultureType';
 import type { RegionlessFeedTypeAmount } from './RegionlessFeedTypeAmount';
 import {
     RegionlessFeedTypeAmountFromJSON,
@@ -34,21 +41,9 @@ export interface AquacultureFeed {
     /**
      * The type of feed purchased.
      */
-    type: AquacultureFeedTypeEnum;
+    type: PurchasedFeedAquacultureType;
 }
 
-
-/**
- * @export
- */
-export const AquacultureFeedTypeEnum = {
-    WholeSardines: 'Whole Sardines',
-    LowAnimalProteinFormulatedFeed: 'Low Animal Protein Formulated Feed',
-    Squid: 'Squid',
-    WholeFish: 'Whole Fish',
-    CustomBait: 'Custom Bait',
-} as const;
-export type AquacultureFeedTypeEnum = typeof AquacultureFeedTypeEnum[keyof typeof AquacultureFeedTypeEnum];
 
 
 /**
@@ -71,7 +66,7 @@ export function AquacultureFeedFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'amount': RegionlessFeedTypeAmountFromJSON(json['amount']),
-        'type': json['type'],
+        'type': PurchasedFeedAquacultureTypeFromJSON(json['type']),
     };
 }
 
@@ -87,7 +82,7 @@ export function AquacultureFeedToJSONTyped(value?: AquacultureFeed | null, ignor
     return {
         
         'amount': RegionlessFeedTypeAmountToJSON(value['amount']),
-        'type': value['type'],
+        'type': PurchasedFeedAquacultureTypeToJSON(value['type']),
     };
 }
 

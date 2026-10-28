@@ -27,6 +27,13 @@ import {
     TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON,
     TimeInLocationsMethod1ProductionSystemManureAllocationsToJSONTyped,
 } from './TimeInLocationsMethod1ProductionSystemManureAllocations';
+import type { DairySystem } from './DairySystem';
+import {
+    DairySystemFromJSON,
+    DairySystemFromJSONTyped,
+    DairySystemToJSON,
+    DairySystemToJSONTyped,
+} from './DairySystem';
 import type { PigsManureHerdsInnerFractionAppliedToSoils } from './PigsManureHerdsInnerFractionAppliedToSoils';
 import {
     PigsManureHerdsInnerFractionAppliedToSoilsFromJSON,
@@ -41,6 +48,13 @@ import {
     TimeInLocationsMethod1ProductionSystemClassesToJSON,
     TimeInLocationsMethod1ProductionSystemClassesToJSONTyped,
 } from './TimeInLocationsMethod1ProductionSystemClasses';
+import type { DairyCattleBreed } from './DairyCattleBreed';
+import {
+    DairyCattleBreedFromJSON,
+    DairyCattleBreedFromJSONTyped,
+    DairyCattleBreedToJSON,
+    DairyCattleBreedToJSONTyped,
+} from './DairyCattleBreed';
 
 /**
  * 
@@ -59,7 +73,7 @@ export interface TimeInLocationsMethod1ProductionSystem {
     /**
      * Breed of cattle for this dairy herd
      */
-    breed: TimeInLocationsMethod1ProductionSystemBreedEnum;
+    breed: DairyCattleBreed;
     /**
      * 
      */
@@ -75,37 +89,9 @@ export interface TimeInLocationsMethod1ProductionSystem {
     /**
      * Production system used to manage this dairy herd
      */
-    system: TimeInLocationsMethod1ProductionSystemSystemEnum;
+    system: DairySystem;
 }
 
-
-/**
- * @export
- */
-export const TimeInLocationsMethod1ProductionSystemBreedEnum = {
-    MediumFriesian: 'Medium Friesian',
-    LargeFriesian: 'Large Friesian',
-    HolsteinFriesian: 'Holstein-Friesian',
-    FriesianCrossbred: 'Friesian crossbred',
-    Jersey: 'Jersey',
-    JerseyCrossbred: 'Jersey crossbred',
-    Ayrshire: 'Ayrshire',
-    Guernsey: 'Guernsey',
-    BrownSwiss: 'Brown Swiss',
-    IllawarraAussieRed: 'Illawarra/Aussie Red',
-} as const;
-export type TimeInLocationsMethod1ProductionSystemBreedEnum = typeof TimeInLocationsMethod1ProductionSystemBreedEnum[keyof typeof TimeInLocationsMethod1ProductionSystemBreedEnum];
-
-/**
- * @export
- */
-export const TimeInLocationsMethod1ProductionSystemSystemEnum = {
-    GrazedOnly: 'Grazed only',
-    LimitedFeedpad: 'Limited feedpad',
-    LimitedGrazing: 'Limited grazing',
-    ZeroGrazing: 'Zero grazing',
-} as const;
-export type TimeInLocationsMethod1ProductionSystemSystemEnum = typeof TimeInLocationsMethod1ProductionSystemSystemEnum[keyof typeof TimeInLocationsMethod1ProductionSystemSystemEnum];
 
 
 /**
@@ -134,11 +120,11 @@ export function TimeInLocationsMethod1ProductionSystemFromJSONTyped(json: any, i
         
         'classes': TimeInLocationsMethod1ProductionSystemClassesFromJSON(json['classes']),
         'milkProduction': TimeInLocationsMethod1ProductionSystemMilkProductionFromJSON(json['milkProduction']),
-        'breed': json['breed'],
+        'breed': DairyCattleBreedFromJSON(json['breed']),
         'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSON(json['manureAllocations']),
         'isInLeachingZone': json['isInLeachingZone'],
         'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsFromJSON(json['fractionAppliedToSoils']),
-        'system': json['system'],
+        'system': DairySystemFromJSON(json['system']),
     };
 }
 
@@ -155,11 +141,11 @@ export function TimeInLocationsMethod1ProductionSystemToJSONTyped(value?: TimeIn
         
         'classes': TimeInLocationsMethod1ProductionSystemClassesToJSON(value['classes']),
         'milkProduction': TimeInLocationsMethod1ProductionSystemMilkProductionToJSON(value['milkProduction']),
-        'breed': value['breed'],
+        'breed': DairyCattleBreedToJSON(value['breed']),
         'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON(value['manureAllocations']),
         'isInLeachingZone': value['isInLeachingZone'],
         'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsToJSON(value['fractionAppliedToSoils']),
-        'system': value['system'],
+        'system': DairySystemToJSON(value['system']),
     };
 }
 

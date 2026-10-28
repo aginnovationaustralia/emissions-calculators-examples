@@ -20,6 +20,13 @@ import {
     QuantityByMass4MassWasteTonnesToJSON,
     QuantityByMass4MassWasteTonnesToJSONTyped,
 } from './QuantityByMass4MassWasteTonnes';
+import type { SolidWasteOrganicType } from './SolidWasteOrganicType';
+import {
+    SolidWasteOrganicTypeFromJSON,
+    SolidWasteOrganicTypeFromJSONTyped,
+    SolidWasteOrganicTypeToJSON,
+    SolidWasteOrganicTypeToJSONTyped,
+} from './SolidWasteOrganicType';
 
 /**
  * 
@@ -30,25 +37,13 @@ export interface QuantityByMass4 {
     /**
      * Type of solid waste treated at this facility (Anaerobic Digestion)
      */
-    wasteType: QuantityByMass4WasteTypeEnum;
+    wasteType: SolidWasteOrganicType;
     /**
      * 
      */
     massWasteTonnes: QuantityByMass4MassWasteTonnes;
 }
 
-
-/**
- * @export
- */
-export const QuantityByMass4WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-} as const;
-export type QuantityByMass4WasteTypeEnum = typeof QuantityByMass4WasteTypeEnum[keyof typeof QuantityByMass4WasteTypeEnum];
 
 
 /**
@@ -70,7 +65,7 @@ export function QuantityByMass4FromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteOrganicTypeFromJSON(json['wasteType']),
         'massWasteTonnes': QuantityByMass4MassWasteTonnesFromJSON(json['massWasteTonnes']),
     };
 }
@@ -86,7 +81,7 @@ export function QuantityByMass4ToJSONTyped(value?: QuantityByMass4 | null, ignor
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteOrganicTypeToJSON(value['wasteType']),
         'massWasteTonnes': QuantityByMass4MassWasteTonnesToJSON(value['massWasteTonnes']),
     };
 }

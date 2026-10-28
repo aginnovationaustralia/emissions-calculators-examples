@@ -20,6 +20,13 @@ import {
     CarsAndLightCommercialVehicles1AmountKilolitresToJSON,
     CarsAndLightCommercialVehicles1AmountKilolitresToJSONTyped,
 } from './CarsAndLightCommercialVehicles1AmountKilolitres';
+import type { OffRoadAgricultureAndForestryEquipmentFuelType } from './OffRoadAgricultureAndForestryEquipmentFuelType';
+import {
+    OffRoadAgricultureAndForestryEquipmentFuelTypeFromJSON,
+    OffRoadAgricultureAndForestryEquipmentFuelTypeFromJSONTyped,
+    OffRoadAgricultureAndForestryEquipmentFuelTypeToJSON,
+    OffRoadAgricultureAndForestryEquipmentFuelTypeToJSONTyped,
+} from './OffRoadAgricultureAndForestryEquipmentFuelType';
 
 /**
  * 
@@ -38,7 +45,7 @@ export interface OffRoadAgricultureAndForestryEquipment1 {
     /**
      * Type of fuel used by off-road agriculture and forestry equipment
      */
-    fuelType: OffRoadAgricultureAndForestryEquipment1FuelTypeEnum;
+    fuelType: OffRoadAgricultureAndForestryEquipmentFuelType;
 }
 
 
@@ -50,14 +57,6 @@ export const OffRoadAgricultureAndForestryEquipment1VehicleTypeEnum = {
 } as const;
 export type OffRoadAgricultureAndForestryEquipment1VehicleTypeEnum = typeof OffRoadAgricultureAndForestryEquipment1VehicleTypeEnum[keyof typeof OffRoadAgricultureAndForestryEquipment1VehicleTypeEnum];
 
-/**
- * @export
- */
-export const OffRoadAgricultureAndForestryEquipment1FuelTypeEnum = {
-    Diesel: 'Diesel',
-} as const;
-export type OffRoadAgricultureAndForestryEquipment1FuelTypeEnum = typeof OffRoadAgricultureAndForestryEquipment1FuelTypeEnum[keyof typeof OffRoadAgricultureAndForestryEquipment1FuelTypeEnum];
-
 
 /**
  * Check if a given object implements the OffRoadAgricultureAndForestryEquipment1 interface.
@@ -68,8 +67,6 @@ export function instanceOfOffRoadAgricultureAndForestryEquipment1(value: object)
     if (value['vehicleType'] !== 'Off-road Agriculture and forestry equipment') return false;
     
     if (!('fuelType' in value) || value['fuelType'] === undefined) return false;
-    if (value['fuelType'] !== 'Diesel') return false;
-    
     return true;
 }
 
@@ -85,7 +82,7 @@ export function OffRoadAgricultureAndForestryEquipment1FromJSONTyped(json: any, 
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': OffRoadAgricultureAndForestryEquipmentFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -102,7 +99,7 @@ export function OffRoadAgricultureAndForestryEquipment1ToJSONTyped(value?: OffRo
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': OffRoadAgricultureAndForestryEquipmentFuelTypeToJSON(value['fuelType']),
     };
 }
 

@@ -20,6 +20,13 @@ import {
     SpecificProductionSystemScope1Method2InorganicToJSON,
     SpecificProductionSystemScope1Method2InorganicToJSONTyped,
 } from './SpecificProductionSystemScope1Method2Inorganic';
+import type { InorganicFertiliserProductionSystem } from './InorganicFertiliserProductionSystem';
+import {
+    InorganicFertiliserProductionSystemFromJSON,
+    InorganicFertiliserProductionSystemFromJSONTyped,
+    InorganicFertiliserProductionSystemToJSON,
+    InorganicFertiliserProductionSystemToJSONTyped,
+} from './InorganicFertiliserProductionSystem';
 import type { OrganicFertilisersInput } from './OrganicFertilisersInput';
 import {
     OrganicFertilisersInputFromJSON,
@@ -37,7 +44,7 @@ export interface SpecificProductionSystemScope1Method2 {
     /**
      * Production system for specific crop types
      */
-    productionSystem: SpecificProductionSystemScope1Method2ProductionSystemEnum;
+    productionSystem: InorganicFertiliserProductionSystem;
     /**
      * 
      */
@@ -48,16 +55,6 @@ export interface SpecificProductionSystemScope1Method2 {
     organic: OrganicFertilisersInput;
 }
 
-
-/**
- * @export
- */
-export const SpecificProductionSystemScope1Method2ProductionSystemEnum = {
-    IrrigatedCropMaize: 'Irrigated crop (maize)',
-    NonIrrigatedCropHighRainfall: 'Non-irrigated crop (high rainfall)',
-    Cotton: 'Cotton',
-} as const;
-export type SpecificProductionSystemScope1Method2ProductionSystemEnum = typeof SpecificProductionSystemScope1Method2ProductionSystemEnum[keyof typeof SpecificProductionSystemScope1Method2ProductionSystemEnum];
 
 
 /**
@@ -80,7 +77,7 @@ export function SpecificProductionSystemScope1Method2FromJSONTyped(json: any, ig
     }
     return {
         
-        'productionSystem': json['productionSystem'],
+        'productionSystem': InorganicFertiliserProductionSystemFromJSON(json['productionSystem']),
         'inorganic': SpecificProductionSystemScope1Method2InorganicFromJSON(json['inorganic']),
         'organic': OrganicFertilisersInputFromJSON(json['organic']),
     };
@@ -97,7 +94,7 @@ export function SpecificProductionSystemScope1Method2ToJSONTyped(value?: Specifi
 
     return {
         
-        'productionSystem': value['productionSystem'],
+        'productionSystem': InorganicFertiliserProductionSystemToJSON(value['productionSystem']),
         'inorganic': SpecificProductionSystemScope1Method2InorganicToJSON(value['inorganic']),
         'organic': OrganicFertilisersInputToJSON(value['organic']),
     };

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ElectricityRegion } from './ElectricityRegion';
+import {
+    ElectricityRegionFromJSON,
+    ElectricityRegionFromJSONTyped,
+    ElectricityRegionToJSON,
+    ElectricityRegionToJSONTyped,
+} from './ElectricityRegion';
 import type { LocationBasedElectricityPurchasedKWh } from './LocationBasedElectricityPurchasedKWh';
 import {
     LocationBasedElectricityPurchasedKWhFromJSON,
@@ -38,7 +45,7 @@ export interface LocationBased {
     /**
      * The state, territory or electricity grid the electricity is purchased in
      */
-    region: LocationBasedRegionEnum;
+    region: ElectricityRegion;
 }
 
 
@@ -49,23 +56,6 @@ export const LocationBasedMethodEnum = {
     Location: 'location',
 } as const;
 export type LocationBasedMethodEnum = typeof LocationBasedMethodEnum[keyof typeof LocationBasedMethodEnum];
-
-/**
- * @export
- */
-export const LocationBasedRegionEnum = {
-    Nsw: 'NSW',
-    Vic: 'VIC',
-    Qld: 'QLD',
-    Sa: 'SA',
-    WaNw: 'WA_NW',
-    WaSw: 'WA_SW',
-    Tas: 'TAS',
-    Nt: 'NT',
-    Act: 'ACT',
-    National: 'National',
-} as const;
-export type LocationBasedRegionEnum = typeof LocationBasedRegionEnum[keyof typeof LocationBasedRegionEnum];
 
 
 /**
@@ -92,7 +82,7 @@ export function LocationBasedFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'method': json['method'],
         'electricityPurchasedKWh': LocationBasedElectricityPurchasedKWhFromJSON(json['electricityPurchasedKWh']),
-        'region': json['region'],
+        'region': ElectricityRegionFromJSON(json['region']),
     };
 }
 
@@ -109,7 +99,7 @@ export function LocationBasedToJSONTyped(value?: LocationBased | null, ignoreDis
         
         'method': value['method'],
         'electricityPurchasedKWh': LocationBasedElectricityPurchasedKWhToJSON(value['electricityPurchasedKWh']),
-        'region': value['region'],
+        'region': ElectricityRegionToJSON(value['region']),
     };
 }
 

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PurchasedFeedLivestockRegionlessType } from './PurchasedFeedLivestockRegionlessType';
+import {
+    PurchasedFeedLivestockRegionlessTypeFromJSON,
+    PurchasedFeedLivestockRegionlessTypeFromJSONTyped,
+    PurchasedFeedLivestockRegionlessTypeToJSON,
+    PurchasedFeedLivestockRegionlessTypeToJSONTyped,
+} from './PurchasedFeedLivestockRegionlessType';
 import type { RegionlessFeedTypeAmount } from './RegionlessFeedTypeAmount';
 import {
     RegionlessFeedTypeAmountFromJSON,
@@ -34,20 +41,9 @@ export interface RegionlessFeedType {
     /**
      * The type of feed purchased.
      */
-    type: RegionlessFeedTypeTypeEnum;
+    type: PurchasedFeedLivestockRegionlessType;
 }
 
-
-/**
- * @export
- */
-export const RegionlessFeedTypeTypeEnum = {
-    Bentonite: 'Bentonite',
-    MeatMeal: 'Meat Meal',
-    BloodMeal: 'Blood Meal',
-    Millrun: 'Millrun',
-} as const;
-export type RegionlessFeedTypeTypeEnum = typeof RegionlessFeedTypeTypeEnum[keyof typeof RegionlessFeedTypeTypeEnum];
 
 
 /**
@@ -70,7 +66,7 @@ export function RegionlessFeedTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'amount': RegionlessFeedTypeAmountFromJSON(json['amount']),
-        'type': json['type'],
+        'type': PurchasedFeedLivestockRegionlessTypeFromJSON(json['type']),
     };
 }
 
@@ -86,7 +82,7 @@ export function RegionlessFeedTypeToJSONTyped(value?: RegionlessFeedType | null,
     return {
         
         'amount': RegionlessFeedTypeAmountToJSON(value['amount']),
-        'type': value['type'],
+        'type': PurchasedFeedLivestockRegionlessTypeToJSON(value['type']),
     };
 }
 

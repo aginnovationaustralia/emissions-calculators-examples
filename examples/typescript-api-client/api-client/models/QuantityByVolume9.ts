@@ -20,6 +20,13 @@ import {
     QuantityByVolume9VolumeWasteCubicMetresToJSON,
     QuantityByVolume9VolumeWasteCubicMetresToJSONTyped,
 } from './QuantityByVolume9VolumeWasteCubicMetres';
+import type { SolidWasteOrganicType } from './SolidWasteOrganicType';
+import {
+    SolidWasteOrganicTypeFromJSON,
+    SolidWasteOrganicTypeFromJSONTyped,
+    SolidWasteOrganicTypeToJSON,
+    SolidWasteOrganicTypeToJSONTyped,
+} from './SolidWasteOrganicType';
 
 /**
  * 
@@ -30,25 +37,13 @@ export interface QuantityByVolume9 {
     /**
      * Type of solid waste treated at this facility (Composting)
      */
-    wasteType: QuantityByVolume9WasteTypeEnum;
+    wasteType: SolidWasteOrganicType;
     /**
      * 
      */
     volumeWasteCubicMetres: QuantityByVolume9VolumeWasteCubicMetres;
 }
 
-
-/**
- * @export
- */
-export const QuantityByVolume9WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-} as const;
-export type QuantityByVolume9WasteTypeEnum = typeof QuantityByVolume9WasteTypeEnum[keyof typeof QuantityByVolume9WasteTypeEnum];
 
 
 /**
@@ -70,7 +65,7 @@ export function QuantityByVolume9FromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteOrganicTypeFromJSON(json['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume9VolumeWasteCubicMetresFromJSON(json['volumeWasteCubicMetres']),
     };
 }
@@ -86,7 +81,7 @@ export function QuantityByVolume9ToJSONTyped(value?: QuantityByVolume9 | null, i
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteOrganicTypeToJSON(value['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume9VolumeWasteCubicMetresToJSON(value['volumeWasteCubicMetres']),
     };
 }

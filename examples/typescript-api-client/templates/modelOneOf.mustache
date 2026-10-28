@@ -1,7 +1,8 @@
 {{^isDateLibraryString}}
 import { parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime{{importFileExtension}}';
 {{/isDateLibraryString}}
-{{#hasImports}}
+{{! Not wrapped in hasImports: the generator does not count enum variants as imports, so a
+    oneOf of enums would otherwise reference variants it never imports. }}
 {{#oneOfArrays}}
 import type { {{{.}}} } from './{{.}}{{importFileExtension}}';
 import {
@@ -21,7 +22,6 @@ import {
 } from './{{.}}{{importFileExtension}}';
 {{/oneOfModels}}
 
-{{/hasImports}}
 {{>modelOneOfInterfaces}}
 
 /**

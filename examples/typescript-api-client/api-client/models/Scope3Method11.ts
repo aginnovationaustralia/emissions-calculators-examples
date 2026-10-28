@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { InorganicFertiliserType } from './InorganicFertiliserType';
+import {
+    InorganicFertiliserTypeFromJSON,
+    InorganicFertiliserTypeFromJSONTyped,
+    InorganicFertiliserTypeToJSON,
+    InorganicFertiliserTypeToJSONTyped,
+} from './InorganicFertiliserType';
 import type { Scope3Method1ComponentsInner } from './Scope3Method1ComponentsInner';
 import {
     Scope3Method1ComponentsInnerFromJSON,
@@ -52,7 +59,7 @@ export interface Scope3Method11 {
     /**
      * Type of inorganic fertiliser applied
      */
-    fertiliserType: Scope3Method11FertiliserTypeEnum;
+    fertiliserType: InorganicFertiliserType;
     /**
      * Components of the inorganic fertiliser applied.
      *     NOTE: 5.1.2.1 FNinorganic,f data source allows you to supply a custom nitrogen fraction for the fertiliser. This is currently
@@ -66,22 +73,6 @@ export interface Scope3Method11 {
     calculationMethodScope3: Scope3Method11CalculationMethodScope3Enum;
 }
 
-
-/**
- * @export
- */
-export const Scope3Method11FertiliserTypeEnum = {
-    MonoammoniumPhosphateMap: 'Monoammonium Phosphate (MAP)',
-    DiammoniumPhosphateDap: 'Diammonium Phosphate (DAP)',
-    Urea: 'Urea',
-    SulphateOfAmmoniaSoa: 'Sulphate of Ammonia (SOA)',
-    UreaAmmoniumNitrateUan: 'Urea-Ammonium Nitrate (UAN)',
-    AmmoniumNitrateAn: 'Ammonium Nitrate (AN)',
-    CalciumAmmoniumNitrateCan: 'Calcium Ammonium Nitrate (CAN)',
-    CalciumNitrate: 'Calcium Nitrate',
-    SingleSuperPhosphate: 'Single Super Phosphate',
-} as const;
-export type Scope3Method11FertiliserTypeEnum = typeof Scope3Method11FertiliserTypeEnum[keyof typeof Scope3Method11FertiliserTypeEnum];
 
 /**
  * @export
@@ -117,7 +108,7 @@ export function Scope3Method11FromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'areaAppliedHectares': Scope3Method11AreaAppliedHectaresFromJSON(json['areaAppliedHectares']),
         'massAppliedKg': Scope3Method1MassAppliedKgFromJSON(json['massAppliedKg']),
-        'fertiliserType': json['fertiliserType'],
+        'fertiliserType': InorganicFertiliserTypeFromJSON(json['fertiliserType']),
         'components': json['components'] == null ? undefined : ((json['components'] as Array<any>).map(Scope3Method1ComponentsInnerFromJSON)),
         'calculationMethodScope3': json['calculationMethodScope3'],
     };
@@ -136,7 +127,7 @@ export function Scope3Method11ToJSONTyped(value?: Scope3Method11 | null, ignoreD
         
         'areaAppliedHectares': Scope3Method11AreaAppliedHectaresToJSON(value['areaAppliedHectares']),
         'massAppliedKg': Scope3Method1MassAppliedKgToJSON(value['massAppliedKg']),
-        'fertiliserType': value['fertiliserType'],
+        'fertiliserType': InorganicFertiliserTypeToJSON(value['fertiliserType']),
         'components': value['components'] == null ? undefined : ((value['components'] as Array<any>).map(Scope3Method1ComponentsInnerToJSON)),
         'calculationMethodScope3': value['calculationMethodScope3'],
     };

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FuelStationaryMassBasedLiquidType } from './FuelStationaryMassBasedLiquidType';
+import {
+    FuelStationaryMassBasedLiquidTypeFromJSON,
+    FuelStationaryMassBasedLiquidTypeFromJSONTyped,
+    FuelStationaryMassBasedLiquidTypeToJSON,
+    FuelStationaryMassBasedLiquidTypeToJSONTyped,
+} from './FuelStationaryMassBasedLiquidType';
 import type { SolidFuels1AmountTonnes } from './SolidFuels1AmountTonnes';
 import {
     SolidFuels1AmountTonnesFromJSON,
@@ -34,7 +41,7 @@ export interface QuantityByMass12 {
     /**
      * Type of liquid fuel used in stationary equipment
      */
-    fuelType: QuantityByMass12FuelTypeEnum;
+    fuelType: FuelStationaryMassBasedLiquidType;
     /**
      * 
      */
@@ -49,18 +56,6 @@ export const QuantityByMass12FuelClassEnum = {
     LiquidFuels: 'Liquid fuels',
 } as const;
 export type QuantityByMass12FuelClassEnum = typeof QuantityByMass12FuelClassEnum[keyof typeof QuantityByMass12FuelClassEnum];
-
-/**
- * @export
- */
-export const QuantityByMass12FuelTypeEnum = {
-    CrudeOilAndCondensates: 'Crude oil and condensates',
-    OtherNaturalGasLiquids: 'Other natural gas liquids',
-    PetroleumCoke: 'Petroleum coke',
-    RefineryGasAndLiquids: 'Refinery gas and liquids',
-    RefineryCoke: 'Refinery coke',
-} as const;
-export type QuantityByMass12FuelTypeEnum = typeof QuantityByMass12FuelTypeEnum[keyof typeof QuantityByMass12FuelTypeEnum];
 
 
 /**
@@ -86,7 +81,7 @@ export function QuantityByMass12FromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'fuelClass': json['fuelClass'],
-        'fuelType': json['fuelType'],
+        'fuelType': FuelStationaryMassBasedLiquidTypeFromJSON(json['fuelType']),
         'amountTonnes': SolidFuels1AmountTonnesFromJSON(json['amountTonnes']),
     };
 }
@@ -103,7 +98,7 @@ export function QuantityByMass12ToJSONTyped(value?: QuantityByMass12 | null, ign
     return {
         
         'fuelClass': value['fuelClass'],
-        'fuelType': value['fuelType'],
+        'fuelType': FuelStationaryMassBasedLiquidTypeToJSON(value['fuelType']),
         'amountTonnes': SolidFuels1AmountTonnesToJSON(value['amountTonnes']),
     };
 }

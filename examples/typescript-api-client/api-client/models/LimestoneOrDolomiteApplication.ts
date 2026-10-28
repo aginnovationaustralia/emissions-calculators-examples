@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { LimeAmeliorant } from './LimeAmeliorant';
+import {
+    LimeAmeliorantFromJSON,
+    LimeAmeliorantFromJSONTyped,
+    LimeAmeliorantToJSON,
+    LimeAmeliorantToJSONTyped,
+} from './LimeAmeliorant';
 import type { LimestoneOrDolomiteApplicationMassAppliedKg } from './LimestoneOrDolomiteApplicationMassAppliedKg';
 import {
     LimestoneOrDolomiteApplicationMassAppliedKgFromJSON,
@@ -56,18 +63,9 @@ export interface LimestoneOrDolomiteApplication {
     /**
      * Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3
      */
-    type: LimestoneOrDolomiteApplicationTypeEnum;
+    type: LimeAmeliorant;
 }
 
-
-/**
- * @export
- */
-export const LimestoneOrDolomiteApplicationTypeEnum = {
-    Limestone: 'Limestone',
-    Dolomite: 'Dolomite',
-} as const;
-export type LimestoneOrDolomiteApplicationTypeEnum = typeof LimestoneOrDolomiteApplicationTypeEnum[keyof typeof LimestoneOrDolomiteApplicationTypeEnum];
 
 
 /**
@@ -93,7 +91,7 @@ export function LimestoneOrDolomiteApplicationFromJSONTyped(json: any, ignoreDis
         'massAppliedKg': LimestoneOrDolomiteApplicationMassAppliedKgFromJSON(json['massAppliedKg']),
         'customScope3EmissionsFactor': json['customScope3EmissionsFactor'] == null ? undefined : LimestoneOrDolomiteApplicationCustomScope3EmissionsFactorFromJSON(json['customScope3EmissionsFactor']),
         'limestoneFraction': LimestoneOrDolomiteApplicationLimestoneFractionFromJSON(json['limestoneFraction']),
-        'type': json['type'],
+        'type': LimeAmeliorantFromJSON(json['type']),
     };
 }
 
@@ -111,7 +109,7 @@ export function LimestoneOrDolomiteApplicationToJSONTyped(value?: LimestoneOrDol
         'massAppliedKg': LimestoneOrDolomiteApplicationMassAppliedKgToJSON(value['massAppliedKg']),
         'customScope3EmissionsFactor': LimestoneOrDolomiteApplicationCustomScope3EmissionsFactorToJSON(value['customScope3EmissionsFactor']),
         'limestoneFraction': LimestoneOrDolomiteApplicationLimestoneFractionToJSON(value['limestoneFraction']),
-        'type': value['type'],
+        'type': LimeAmeliorantToJSON(value['type']),
     };
 }
 

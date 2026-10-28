@@ -34,6 +34,13 @@ import {
     MarketBasedRecsSurrenderedToJSON,
     MarketBasedRecsSurrenderedToJSONTyped,
 } from './MarketBasedRecsSurrendered';
+import type { ElectricityRegion } from './ElectricityRegion';
+import {
+    ElectricityRegionFromJSON,
+    ElectricityRegionFromJSONTyped,
+    ElectricityRegionToJSON,
+    ElectricityRegionToJSONTyped,
+} from './ElectricityRegion';
 
 /**
  * 
@@ -60,7 +67,7 @@ export interface MarketBased {
     /**
      * The state, territory or electricity grid the electricity is purchased in
      */
-    region: MarketBasedRegionEnum;
+    region: ElectricityRegion;
 }
 
 
@@ -71,23 +78,6 @@ export const MarketBasedMethodEnum = {
     Market: 'market',
 } as const;
 export type MarketBasedMethodEnum = typeof MarketBasedMethodEnum[keyof typeof MarketBasedMethodEnum];
-
-/**
- * @export
- */
-export const MarketBasedRegionEnum = {
-    Nsw: 'NSW',
-    Vic: 'VIC',
-    Qld: 'QLD',
-    Sa: 'SA',
-    WaNw: 'WA_NW',
-    WaSw: 'WA_SW',
-    Tas: 'TAS',
-    Nt: 'NT',
-    Act: 'ACT',
-    National: 'National',
-} as const;
-export type MarketBasedRegionEnum = typeof MarketBasedRegionEnum[keyof typeof MarketBasedRegionEnum];
 
 
 /**
@@ -118,7 +108,7 @@ export function MarketBasedFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'electricityPurchasedKWh': MarketBasedElectricityPurchasedKWhFromJSON(json['electricityPurchasedKWh']),
         'recsSurrendered': MarketBasedRecsSurrenderedFromJSON(json['recsSurrendered']),
         'recsOnsite': MarketBasedRecsOnsiteFromJSON(json['recsOnsite']),
-        'region': json['region'],
+        'region': ElectricityRegionFromJSON(json['region']),
     };
 }
 
@@ -137,7 +127,7 @@ export function MarketBasedToJSONTyped(value?: MarketBased | null, ignoreDiscrim
         'electricityPurchasedKWh': MarketBasedElectricityPurchasedKWhToJSON(value['electricityPurchasedKWh']),
         'recsSurrendered': MarketBasedRecsSurrenderedToJSON(value['recsSurrendered']),
         'recsOnsite': MarketBasedRecsOnsiteToJSON(value['recsOnsite']),
-        'region': value['region'],
+        'region': ElectricityRegionToJSON(value['region']),
     };
 }
 

@@ -27,6 +27,13 @@ import {
     PostBeefRequestHerdsInnerChemicalsInnerAmountKgToJSON,
     PostBeefRequestHerdsInnerChemicalsInnerAmountKgToJSONTyped,
 } from './PostBeefRequestHerdsInnerChemicalsInnerAmountKg';
+import type { AgrochemicalType } from './AgrochemicalType';
+import {
+    AgrochemicalTypeFromJSON,
+    AgrochemicalTypeFromJSONTyped,
+    AgrochemicalTypeToJSON,
+    AgrochemicalTypeToJSONTyped,
+} from './AgrochemicalType';
 
 /**
  * 
@@ -37,7 +44,7 @@ export interface PostBeefRequestHerdsInnerChemicalsInner {
     /**
      * 
      */
-    type: PostBeefRequestHerdsInnerChemicalsInnerTypeEnum;
+    type: AgrochemicalType;
     /**
      * 
      */
@@ -48,29 +55,6 @@ export interface PostBeefRequestHerdsInnerChemicalsInner {
     customEmissionsFactor?: PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor;
 }
 
-
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerChemicalsInnerTypeEnum = {
-    HerbicideParaquatDiquatGlyphosate: 'Herbicide (paraquat, diquat, glyphosate)',
-    OtherHerbicide: 'Other herbicide',
-    Insecticide: 'Insecticide',
-    Fungicide: 'Fungicide',
-    PlantGrowthRegulator: 'Plant growth regulator',
-    _24D: '2,4-D',
-    Atrazine: 'Atrazine',
-    Diuron: 'Diuron',
-    Mancozeb: 'Mancozeb',
-    Mcpa: 'MCPA',
-    Metolachlor: 'Metolachlor',
-    MetsulfuronMethyl: 'Metsulfuron-methyl',
-    PesticidesGeneric: 'Pesticides (generic)',
-    TriAllate: 'Tri-allate',
-    TribenuronMethyl: 'Tribenuron methyl',
-    Trifluralin: 'Trifluralin',
-} as const;
-export type PostBeefRequestHerdsInnerChemicalsInnerTypeEnum = typeof PostBeefRequestHerdsInnerChemicalsInnerTypeEnum[keyof typeof PostBeefRequestHerdsInnerChemicalsInnerTypeEnum];
 
 
 /**
@@ -92,7 +76,7 @@ export function PostBeefRequestHerdsInnerChemicalsInnerFromJSONTyped(json: any, 
     }
     return {
         
-        'type': json['type'],
+        'type': AgrochemicalTypeFromJSON(json['type']),
         'amountKg': PostBeefRequestHerdsInnerChemicalsInnerAmountKgFromJSON(json['amountKg']),
         'customEmissionsFactor': json['customEmissionsFactor'] == null ? undefined : PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactorFromJSON(json['customEmissionsFactor']),
     };
@@ -109,7 +93,7 @@ export function PostBeefRequestHerdsInnerChemicalsInnerToJSONTyped(value?: PostB
 
     return {
         
-        'type': value['type'],
+        'type': AgrochemicalTypeToJSON(value['type']),
         'amountKg': PostBeefRequestHerdsInnerChemicalsInnerAmountKgToJSON(value['amountKg']),
         'customEmissionsFactor': PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactorToJSON(value['customEmissionsFactor']),
     };

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { InorganicFertiliserComponentOrigin } from './InorganicFertiliserComponentOrigin';
+import {
+    InorganicFertiliserComponentOriginFromJSON,
+    InorganicFertiliserComponentOriginFromJSONTyped,
+    InorganicFertiliserComponentOriginToJSON,
+    InorganicFertiliserComponentOriginToJSONTyped,
+} from './InorganicFertiliserComponentOrigin';
 import type { WithOriginRegionFractionOfFertiliser } from './WithOriginRegionFractionOfFertiliser';
 import {
     WithOriginRegionFractionOfFertiliserFromJSON,
@@ -20,6 +27,13 @@ import {
     WithOriginRegionFractionOfFertiliserToJSON,
     WithOriginRegionFractionOfFertiliserToJSONTyped,
 } from './WithOriginRegionFractionOfFertiliser';
+import type { InorganicFertiliserComponentTypeRegional } from './InorganicFertiliserComponentTypeRegional';
+import {
+    InorganicFertiliserComponentTypeRegionalFromJSON,
+    InorganicFertiliserComponentTypeRegionalFromJSONTyped,
+    InorganicFertiliserComponentTypeRegionalToJSON,
+    InorganicFertiliserComponentTypeRegionalToJSONTyped,
+} from './InorganicFertiliserComponentTypeRegional';
 
 /**
  * 
@@ -34,33 +48,13 @@ export interface WithOriginRegion {
     /**
      * Type of inorganic fertiliser component
      */
-    componentType: WithOriginRegionComponentTypeEnum;
+    componentType: InorganicFertiliserComponentTypeRegional;
     /**
      * Origin of inorganic fertiliser component
      */
-    componentOrigin: WithOriginRegionComponentOriginEnum;
+    componentOrigin: InorganicFertiliserComponentOrigin;
 }
 
-
-/**
- * @export
- */
-export const WithOriginRegionComponentTypeEnum = {
-    Ammonia: 'Ammonia',
-    Urea: 'Urea',
-} as const;
-export type WithOriginRegionComponentTypeEnum = typeof WithOriginRegionComponentTypeEnum[keyof typeof WithOriginRegionComponentTypeEnum];
-
-/**
- * @export
- */
-export const WithOriginRegionComponentOriginEnum = {
-    Unspecified: 'Unspecified',
-    China: 'China',
-    Yemen: 'Yemen',
-    Canada: 'Canada',
-} as const;
-export type WithOriginRegionComponentOriginEnum = typeof WithOriginRegionComponentOriginEnum[keyof typeof WithOriginRegionComponentOriginEnum];
 
 
 /**
@@ -84,8 +78,8 @@ export function WithOriginRegionFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'fractionOfFertiliser': WithOriginRegionFractionOfFertiliserFromJSON(json['fractionOfFertiliser']),
-        'componentType': json['componentType'],
-        'componentOrigin': json['componentOrigin'],
+        'componentType': InorganicFertiliserComponentTypeRegionalFromJSON(json['componentType']),
+        'componentOrigin': InorganicFertiliserComponentOriginFromJSON(json['componentOrigin']),
     };
 }
 
@@ -101,8 +95,8 @@ export function WithOriginRegionToJSONTyped(value?: WithOriginRegion | null, ign
     return {
         
         'fractionOfFertiliser': WithOriginRegionFractionOfFertiliserToJSON(value['fractionOfFertiliser']),
-        'componentType': value['componentType'],
-        'componentOrigin': value['componentOrigin'],
+        'componentType': InorganicFertiliserComponentTypeRegionalToJSON(value['componentType']),
+        'componentOrigin': InorganicFertiliserComponentOriginToJSON(value['componentOrigin']),
     };
 }
 

@@ -13,6 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BeefClass } from './BeefClass';
+import {
+    BeefClassFromJSON,
+    BeefClassFromJSONTyped,
+    BeefClassToJSON,
+    BeefClassToJSONTyped,
+} from './BeefClass';
+import type { ExtendedRegion } from './ExtendedRegion';
+import {
+    ExtendedRegionFromJSON,
+    ExtendedRegionFromJSONTyped,
+    ExtendedRegionToJSON,
+    ExtendedRegionToJSONTyped,
+} from './ExtendedRegion';
 import type { Method1EmissionFactorMethod1LiveweightHeadPurchased } from './Method1EmissionFactorMethod1LiveweightHeadPurchased';
 import {
     Method1EmissionFactorMethod1LiveweightHeadPurchasedFromJSON,
@@ -20,6 +34,20 @@ import {
     Method1EmissionFactorMethod1LiveweightHeadPurchasedToJSON,
     Method1EmissionFactorMethod1LiveweightHeadPurchasedToJSONTyped,
 } from './Method1EmissionFactorMethod1LiveweightHeadPurchased';
+import type { BeefPurchaseCategory } from './BeefPurchaseCategory';
+import {
+    BeefPurchaseCategoryFromJSON,
+    BeefPurchaseCategoryFromJSONTyped,
+    BeefPurchaseCategoryToJSON,
+    BeefPurchaseCategoryToJSONTyped,
+} from './BeefPurchaseCategory';
+import type { Season } from './Season';
+import {
+    SeasonFromJSON,
+    SeasonFromJSONTyped,
+    SeasonToJSON,
+    SeasonToJSONTyped,
+} from './Season';
 
 /**
  * 
@@ -38,19 +66,19 @@ export interface Method1EmissionFactorMethod1Liveweight {
     /**
      * The category of the purchased animals
      */
-    category: Method1EmissionFactorMethod1LiveweightCategoryEnum;
+    category: BeefPurchaseCategory;
     /**
      *  The origin of the purchased livestock
      */
-    region: Method1EmissionFactorMethod1LiveweightRegionEnum;
+    region: ExtendedRegion;
     /**
      * The class of the purchased livestock
      */
-    _class: Method1EmissionFactorMethod1LiveweightClassEnum;
+    _class: BeefClass;
     /**
      * Season of the livestock purchase
      */
-    season: Method1EmissionFactorMethod1LiveweightSeasonEnum;
+    season: Season;
 }
 
 
@@ -61,64 +89,6 @@ export const Method1EmissionFactorMethod1LiveweightTypeEnum = {
     Beef: 'Beef',
 } as const;
 export type Method1EmissionFactorMethod1LiveweightTypeEnum = typeof Method1EmissionFactorMethod1LiveweightTypeEnum[keyof typeof Method1EmissionFactorMethod1LiveweightTypeEnum];
-
-/**
- * @export
- */
-export const Method1EmissionFactorMethod1LiveweightCategoryEnum = {
-    BeefPrime: 'beefPrime',
-    BeefWeaned: 'beefWeaned',
-} as const;
-export type Method1EmissionFactorMethod1LiveweightCategoryEnum = typeof Method1EmissionFactorMethod1LiveweightCategoryEnum[keyof typeof Method1EmissionFactorMethod1LiveweightCategoryEnum];
-
-/**
- * @export
- */
-export const Method1EmissionFactorMethod1LiveweightRegionEnum = {
-    ActNsw: 'ACT/NSW',
-    Sa: 'SA',
-    Tas: 'TAS',
-    Vic: 'VIC',
-    WaSouthWest: 'WA - South West',
-    WaPilbara: 'WA - Pilbara',
-    WaKimberley: 'WA - Kimberley',
-    NtAliceSprings: 'NT - Alice Springs',
-    NtBarkly: 'NT - Barkly',
-    NtNorthern: 'NT - Northern',
-    QldHigh: 'QLD - High',
-    QldModerateHigh: 'QLD - Moderate/High',
-    QldModerateLow: 'QLD - Moderate/Low',
-    QldLow: 'QLD - Low',
-} as const;
-export type Method1EmissionFactorMethod1LiveweightRegionEnum = typeof Method1EmissionFactorMethod1LiveweightRegionEnum[keyof typeof Method1EmissionFactorMethod1LiveweightRegionEnum];
-
-/**
- * @export
- */
-export const Method1EmissionFactorMethod1LiveweightClassEnum = {
-    BullsLt1: 'bullsLt1',
-    BullsGt1: 'bullsGt1',
-    CowsLt1: 'cowsLt1',
-    Cows1To2Years: 'cows1To2Years',
-    Cows2To3Years: 'cows2To3Years',
-    CowsGt3Years: 'cowsGt3Years',
-    SteersLt1: 'steersLt1',
-    Steers1To2Years: 'steers1To2Years',
-    Steers2To3Years: 'steers2To3Years',
-    SteersGt3Years: 'steersGt3Years',
-} as const;
-export type Method1EmissionFactorMethod1LiveweightClassEnum = typeof Method1EmissionFactorMethod1LiveweightClassEnum[keyof typeof Method1EmissionFactorMethod1LiveweightClassEnum];
-
-/**
- * @export
- */
-export const Method1EmissionFactorMethod1LiveweightSeasonEnum = {
-    Spring: 'spring',
-    Summer: 'summer',
-    Autumn: 'autumn',
-    Winter: 'winter',
-} as const;
-export type Method1EmissionFactorMethod1LiveweightSeasonEnum = typeof Method1EmissionFactorMethod1LiveweightSeasonEnum[keyof typeof Method1EmissionFactorMethod1LiveweightSeasonEnum];
 
 
 /**
@@ -148,10 +118,10 @@ export function Method1EmissionFactorMethod1LiveweightFromJSONTyped(json: any, i
         
         'type': json['type'],
         'headPurchased': Method1EmissionFactorMethod1LiveweightHeadPurchasedFromJSON(json['headPurchased']),
-        'category': json['category'],
-        'region': json['region'],
-        '_class': json['class'],
-        'season': json['season'],
+        'category': BeefPurchaseCategoryFromJSON(json['category']),
+        'region': ExtendedRegionFromJSON(json['region']),
+        '_class': BeefClassFromJSON(json['class']),
+        'season': SeasonFromJSON(json['season']),
     };
 }
 
@@ -168,10 +138,10 @@ export function Method1EmissionFactorMethod1LiveweightToJSONTyped(value?: Method
         
         'type': value['type'],
         'headPurchased': Method1EmissionFactorMethod1LiveweightHeadPurchasedToJSON(value['headPurchased']),
-        'category': value['category'],
-        'region': value['region'],
-        'class': value['_class'],
-        'season': value['season'],
+        'category': BeefPurchaseCategoryToJSON(value['category']),
+        'region': ExtendedRegionToJSON(value['region']),
+        'class': BeefClassToJSON(value['_class']),
+        'season': SeasonToJSON(value['season']),
     };
 }
 

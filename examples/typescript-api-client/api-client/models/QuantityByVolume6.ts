@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SolidWasteScope3LandfillType } from './SolidWasteScope3LandfillType';
+import {
+    SolidWasteScope3LandfillTypeFromJSON,
+    SolidWasteScope3LandfillTypeFromJSONTyped,
+    SolidWasteScope3LandfillTypeToJSON,
+    SolidWasteScope3LandfillTypeToJSONTyped,
+} from './SolidWasteScope3LandfillType';
 import type { QuantityByVolume6VolumeWasteCubicMetres } from './QuantityByVolume6VolumeWasteCubicMetres';
 import {
     QuantityByVolume6VolumeWasteCubicMetresFromJSON,
@@ -30,32 +37,13 @@ export interface QuantityByVolume6 {
     /**
      * Type of solid waste treated at this facility (Landfill (without gas recovery))
      */
-    wasteType: QuantityByVolume6WasteTypeEnum;
+    wasteType: SolidWasteScope3LandfillType;
     /**
      * 
      */
     volumeWasteCubicMetres: QuantityByVolume6VolumeWasteCubicMetres;
 }
 
-
-/**
- * @export
- */
-export const QuantityByVolume6WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    MunicipalSolidWaste: 'Municipal solid waste',
-    CommercialAndIndustrialWaste: 'Commercial and industrial waste',
-    ConstructionAndDemolitionWaste: 'Construction and demolition waste',
-} as const;
-export type QuantityByVolume6WasteTypeEnum = typeof QuantityByVolume6WasteTypeEnum[keyof typeof QuantityByVolume6WasteTypeEnum];
 
 
 /**
@@ -77,7 +65,7 @@ export function QuantityByVolume6FromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteScope3LandfillTypeFromJSON(json['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume6VolumeWasteCubicMetresFromJSON(json['volumeWasteCubicMetres']),
     };
 }
@@ -93,7 +81,7 @@ export function QuantityByVolume6ToJSONTyped(value?: QuantityByVolume6 | null, i
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteScope3LandfillTypeToJSON(value['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume6VolumeWasteCubicMetresToJSON(value['volumeWasteCubicMetres']),
     };
 }

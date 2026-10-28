@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SolidWasteScope3IncinerationType } from './SolidWasteScope3IncinerationType';
+import {
+    SolidWasteScope3IncinerationTypeFromJSON,
+    SolidWasteScope3IncinerationTypeFromJSONTyped,
+    SolidWasteScope3IncinerationTypeToJSON,
+    SolidWasteScope3IncinerationTypeToJSONTyped,
+} from './SolidWasteScope3IncinerationType';
 import type { QuantityByVolume8VolumeWasteCubicMetres } from './QuantityByVolume8VolumeWasteCubicMetres';
 import {
     QuantityByVolume8VolumeWasteCubicMetresFromJSON,
@@ -30,31 +37,13 @@ export interface QuantityByVolume8 {
     /**
      * Type of solid waste treated at this facility (Incineration)
      */
-    wasteType: QuantityByVolume8WasteTypeEnum;
+    wasteType: SolidWasteScope3IncinerationType;
     /**
      * 
      */
     volumeWasteCubicMetres: QuantityByVolume8VolumeWasteCubicMetres;
 }
 
-
-/**
- * @export
- */
-export const QuantityByVolume8WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    MunicipalSolidWaste: 'Municipal solid waste',
-    CommercialAndIndustrialWaste: 'Commercial and industrial waste',
-} as const;
-export type QuantityByVolume8WasteTypeEnum = typeof QuantityByVolume8WasteTypeEnum[keyof typeof QuantityByVolume8WasteTypeEnum];
 
 
 /**
@@ -76,7 +65,7 @@ export function QuantityByVolume8FromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteScope3IncinerationTypeFromJSON(json['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume8VolumeWasteCubicMetresFromJSON(json['volumeWasteCubicMetres']),
     };
 }
@@ -92,7 +81,7 @@ export function QuantityByVolume8ToJSONTyped(value?: QuantityByVolume8 | null, i
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteScope3IncinerationTypeToJSON(value['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume8VolumeWasteCubicMetresToJSON(value['volumeWasteCubicMetres']),
     };
 }

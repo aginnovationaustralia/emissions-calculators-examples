@@ -20,6 +20,13 @@ import {
     QuantityByMass7MassWasteTonnesToJSON,
     QuantityByMass7MassWasteTonnesToJSONTyped,
 } from './QuantityByMass7MassWasteTonnes';
+import type { SolidWasteScope3LandfillType } from './SolidWasteScope3LandfillType';
+import {
+    SolidWasteScope3LandfillTypeFromJSON,
+    SolidWasteScope3LandfillTypeFromJSONTyped,
+    SolidWasteScope3LandfillTypeToJSON,
+    SolidWasteScope3LandfillTypeToJSONTyped,
+} from './SolidWasteScope3LandfillType';
 
 /**
  * 
@@ -30,32 +37,13 @@ export interface QuantityByMass7 {
     /**
      * Type of solid waste treated at this facility (Landfill (with gas recovery))
      */
-    wasteType: QuantityByMass7WasteTypeEnum;
+    wasteType: SolidWasteScope3LandfillType;
     /**
      * 
      */
     massWasteTonnes: QuantityByMass7MassWasteTonnes;
 }
 
-
-/**
- * @export
- */
-export const QuantityByMass7WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    MunicipalSolidWaste: 'Municipal solid waste',
-    CommercialAndIndustrialWaste: 'Commercial and industrial waste',
-    ConstructionAndDemolitionWaste: 'Construction and demolition waste',
-} as const;
-export type QuantityByMass7WasteTypeEnum = typeof QuantityByMass7WasteTypeEnum[keyof typeof QuantityByMass7WasteTypeEnum];
 
 
 /**
@@ -77,7 +65,7 @@ export function QuantityByMass7FromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteScope3LandfillTypeFromJSON(json['wasteType']),
         'massWasteTonnes': QuantityByMass7MassWasteTonnesFromJSON(json['massWasteTonnes']),
     };
 }
@@ -93,7 +81,7 @@ export function QuantityByMass7ToJSONTyped(value?: QuantityByMass7 | null, ignor
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteScope3LandfillTypeToJSON(value['wasteType']),
         'massWasteTonnes': QuantityByMass7MassWasteTonnesToJSON(value['massWasteTonnes']),
     };
 }

@@ -20,6 +20,13 @@ import {
     Method11AmountToJSON,
     Method11AmountToJSONTyped,
 } from './Method11Amount';
+import type { PurchasedMineralSupplementType } from './PurchasedMineralSupplementType';
+import {
+    PurchasedMineralSupplementTypeFromJSON,
+    PurchasedMineralSupplementTypeFromJSONTyped,
+    PurchasedMineralSupplementTypeToJSON,
+    PurchasedMineralSupplementTypeToJSONTyped,
+} from './PurchasedMineralSupplementType';
 
 /**
  * 
@@ -34,19 +41,9 @@ export interface Method11 {
     /**
      * The type of mineral supplement purchased.
      */
-    type: Method11TypeEnum;
+    type: PurchasedMineralSupplementType;
 }
 
-
-/**
- * @export
- */
-export const Method11TypeEnum = {
-    LickBlockDrySeasonMix: 'Lick block, dry season mix',
-    LickBlockWeaner: 'Lick block, weaner',
-    LickBlockMineral: 'Lick block, mineral',
-} as const;
-export type Method11TypeEnum = typeof Method11TypeEnum[keyof typeof Method11TypeEnum];
 
 
 /**
@@ -69,7 +66,7 @@ export function Method11FromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'amount': Method11AmountFromJSON(json['amount']),
-        'type': json['type'],
+        'type': PurchasedMineralSupplementTypeFromJSON(json['type']),
     };
 }
 
@@ -85,7 +82,7 @@ export function Method11ToJSONTyped(value?: Method11 | null, ignoreDiscriminator
     return {
         
         'amount': Method11AmountToJSON(value['amount']),
-        'type': value['type'],
+        'type': PurchasedMineralSupplementTypeToJSON(value['type']),
     };
 }
 

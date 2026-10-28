@@ -20,6 +20,13 @@ import {
     QuantityByMass2MassWasteTonnesToJSON,
     QuantityByMass2MassWasteTonnesToJSONTyped,
 } from './QuantityByMass2MassWasteTonnes';
+import type { SolidWasteNonStreamType } from './SolidWasteNonStreamType';
+import {
+    SolidWasteNonStreamTypeFromJSON,
+    SolidWasteNonStreamTypeFromJSONTyped,
+    SolidWasteNonStreamTypeToJSON,
+    SolidWasteNonStreamTypeToJSONTyped,
+} from './SolidWasteNonStreamType';
 
 /**
  * 
@@ -30,30 +37,13 @@ export interface QuantityByMass2 {
     /**
      * Type of solid waste treated at this facility (Unmanaged - shallow)
      */
-    wasteType: QuantityByMass2WasteTypeEnum;
+    wasteType: SolidWasteNonStreamType;
     /**
      * 
      */
     massWasteTonnes: QuantityByMass2MassWasteTonnes;
 }
 
-
-/**
- * @export
- */
-export const QuantityByMass2WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    Nappies: 'Nappies',
-} as const;
-export type QuantityByMass2WasteTypeEnum = typeof QuantityByMass2WasteTypeEnum[keyof typeof QuantityByMass2WasteTypeEnum];
 
 
 /**
@@ -75,7 +65,7 @@ export function QuantityByMass2FromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeFromJSON(json['wasteType']),
         'massWasteTonnes': QuantityByMass2MassWasteTonnesFromJSON(json['massWasteTonnes']),
     };
 }
@@ -91,7 +81,7 @@ export function QuantityByMass2ToJSONTyped(value?: QuantityByMass2 | null, ignor
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeToJSON(value['wasteType']),
         'massWasteTonnes': QuantityByMass2MassWasteTonnesToJSON(value['massWasteTonnes']),
     };
 }

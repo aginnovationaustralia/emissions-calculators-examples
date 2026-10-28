@@ -20,6 +20,13 @@ import {
     QuantityByMass1MassWasteTonnesToJSON,
     QuantityByMass1MassWasteTonnesToJSONTyped,
 } from './QuantityByMass1MassWasteTonnes';
+import type { SolidWasteNonStreamType } from './SolidWasteNonStreamType';
+import {
+    SolidWasteNonStreamTypeFromJSON,
+    SolidWasteNonStreamTypeFromJSONTyped,
+    SolidWasteNonStreamTypeToJSON,
+    SolidWasteNonStreamTypeToJSONTyped,
+} from './SolidWasteNonStreamType';
 
 /**
  * 
@@ -30,30 +37,13 @@ export interface QuantityByMass1 {
     /**
      * Type of solid waste treated at this facility (Unmanaged - deep)
      */
-    wasteType: QuantityByMass1WasteTypeEnum;
+    wasteType: SolidWasteNonStreamType;
     /**
      * 
      */
     massWasteTonnes: QuantityByMass1MassWasteTonnes;
 }
 
-
-/**
- * @export
- */
-export const QuantityByMass1WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    Nappies: 'Nappies',
-} as const;
-export type QuantityByMass1WasteTypeEnum = typeof QuantityByMass1WasteTypeEnum[keyof typeof QuantityByMass1WasteTypeEnum];
 
 
 /**
@@ -75,7 +65,7 @@ export function QuantityByMass1FromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeFromJSON(json['wasteType']),
         'massWasteTonnes': QuantityByMass1MassWasteTonnesFromJSON(json['massWasteTonnes']),
     };
 }
@@ -91,7 +81,7 @@ export function QuantityByMass1ToJSONTyped(value?: QuantityByMass1 | null, ignor
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeToJSON(value['wasteType']),
         'massWasteTonnes': QuantityByMass1MassWasteTonnesToJSON(value['massWasteTonnes']),
     };
 }

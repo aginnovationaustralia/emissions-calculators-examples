@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { LightDutyFuelType } from './LightDutyFuelType';
+import {
+    LightDutyFuelTypeFromJSON,
+    LightDutyFuelTypeFromJSONTyped,
+    LightDutyFuelTypeToJSON,
+    LightDutyFuelTypeToJSONTyped,
+} from './LightDutyFuelType';
 import type { CarsAndLightCommercialVehicles1AmountKilolitres } from './CarsAndLightCommercialVehicles1AmountKilolitres';
 import {
     CarsAndLightCommercialVehicles1AmountKilolitresFromJSON,
@@ -38,7 +45,7 @@ export interface LightDutyVehicles1 {
     /**
      * Type of fuel used by light duty vehicles
      */
-    fuelType: LightDutyVehicles1FuelTypeEnum;
+    fuelType: LightDutyFuelType;
 }
 
 
@@ -49,15 +56,6 @@ export const LightDutyVehicles1VehicleTypeEnum = {
     LightDutyVehicles: 'Light duty vehicles',
 } as const;
 export type LightDutyVehicles1VehicleTypeEnum = typeof LightDutyVehicles1VehicleTypeEnum[keyof typeof LightDutyVehicles1VehicleTypeEnum];
-
-/**
- * @export
- */
-export const LightDutyVehicles1FuelTypeEnum = {
-    CompressedNaturalGas: 'Compressed natural gas',
-    LiquefiedNaturalGas: 'Liquefied natural gas',
-} as const;
-export type LightDutyVehicles1FuelTypeEnum = typeof LightDutyVehicles1FuelTypeEnum[keyof typeof LightDutyVehicles1FuelTypeEnum];
 
 
 /**
@@ -84,7 +82,7 @@ export function LightDutyVehicles1FromJSONTyped(json: any, ignoreDiscriminator: 
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': LightDutyFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -101,7 +99,7 @@ export function LightDutyVehicles1ToJSONTyped(value?: LightDutyVehicles1 | null,
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': LightDutyFuelTypeToJSON(value['fuelType']),
     };
 }
 

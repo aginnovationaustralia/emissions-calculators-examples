@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SolidWasteNonStreamType } from './SolidWasteNonStreamType';
+import {
+    SolidWasteNonStreamTypeFromJSON,
+    SolidWasteNonStreamTypeFromJSONTyped,
+    SolidWasteNonStreamTypeToJSON,
+    SolidWasteNonStreamTypeToJSONTyped,
+} from './SolidWasteNonStreamType';
 import type { QuantityByVolume1VolumeWasteCubicMetres } from './QuantityByVolume1VolumeWasteCubicMetres';
 import {
     QuantityByVolume1VolumeWasteCubicMetresFromJSON,
@@ -30,30 +37,13 @@ export interface QuantityByVolume1 {
     /**
      * Type of solid waste treated at this facility (Unmanaged - deep)
      */
-    wasteType: QuantityByVolume1WasteTypeEnum;
+    wasteType: SolidWasteNonStreamType;
     /**
      * 
      */
     volumeWasteCubicMetres: QuantityByVolume1VolumeWasteCubicMetres;
 }
 
-
-/**
- * @export
- */
-export const QuantityByVolume1WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    Nappies: 'Nappies',
-} as const;
-export type QuantityByVolume1WasteTypeEnum = typeof QuantityByVolume1WasteTypeEnum[keyof typeof QuantityByVolume1WasteTypeEnum];
 
 
 /**
@@ -75,7 +65,7 @@ export function QuantityByVolume1FromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeFromJSON(json['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume1VolumeWasteCubicMetresFromJSON(json['volumeWasteCubicMetres']),
     };
 }
@@ -91,7 +81,7 @@ export function QuantityByVolume1ToJSONTyped(value?: QuantityByVolume1 | null, i
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeToJSON(value['wasteType']),
         'volumeWasteCubicMetres': QuantityByVolume1VolumeWasteCubicMetresToJSON(value['volumeWasteCubicMetres']),
     };
 }

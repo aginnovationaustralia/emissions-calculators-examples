@@ -27,6 +27,13 @@ import {
     PostBeefRequestHerdsInnerPastureResiduesToJSON,
     PostBeefRequestHerdsInnerPastureResiduesToJSONTyped,
 } from './PostBeefRequestHerdsInnerPastureResidues';
+import type { PastureType } from './PastureType';
+import {
+    PastureTypeFromJSON,
+    PastureTypeFromJSONTyped,
+    PastureTypeToJSON,
+    PastureTypeToJSONTyped,
+} from './PastureType';
 import type { PostBeefRequestHerdsInnerPastureAreaManaged } from './PostBeefRequestHerdsInnerPastureAreaManaged';
 import {
     PostBeefRequestHerdsInnerPastureAreaManagedFromJSON,
@@ -44,7 +51,7 @@ export interface PostBeefRequestHerdsInnerPasture {
     /**
      * Type of pasture managed in this activity
      */
-    type: PostBeefRequestHerdsInnerPastureTypeEnum;
+    type: PastureType;
     /**
      * 
      */
@@ -59,18 +66,6 @@ export interface PostBeefRequestHerdsInnerPasture {
     residues: PostBeefRequestHerdsInnerPastureResidues;
 }
 
-
-/**
- * @export
- */
-export const PostBeefRequestHerdsInnerPastureTypeEnum = {
-    AnnualGrass: 'Annual grass',
-    GrassCloverMixture: 'Grass clover mixture',
-    Lucerne: 'Lucerne',
-    OtherLegume: 'Other legume',
-    PerennialPasture: 'Perennial pasture',
-} as const;
-export type PostBeefRequestHerdsInnerPastureTypeEnum = typeof PostBeefRequestHerdsInnerPastureTypeEnum[keyof typeof PostBeefRequestHerdsInnerPastureTypeEnum];
 
 
 /**
@@ -94,7 +89,7 @@ export function PostBeefRequestHerdsInnerPastureFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'type': json['type'],
+        'type': PastureTypeFromJSON(json['type']),
         'areaManaged': PostBeefRequestHerdsInnerPastureAreaManagedFromJSON(json['areaManaged']),
         'fractionOfAnnualCropBurnt': PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntFromJSON(json['fractionOfAnnualCropBurnt']),
         'residues': PostBeefRequestHerdsInnerPastureResiduesFromJSON(json['residues']),
@@ -112,7 +107,7 @@ export function PostBeefRequestHerdsInnerPastureToJSONTyped(value?: PostBeefRequ
 
     return {
         
-        'type': value['type'],
+        'type': PastureTypeToJSON(value['type']),
         'areaManaged': PostBeefRequestHerdsInnerPastureAreaManagedToJSON(value['areaManaged']),
         'fractionOfAnnualCropBurnt': PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurntToJSON(value['fractionOfAnnualCropBurnt']),
         'residues': PostBeefRequestHerdsInnerPastureResiduesToJSON(value['residues']),

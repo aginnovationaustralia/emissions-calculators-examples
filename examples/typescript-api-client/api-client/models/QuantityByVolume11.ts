@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FuelStationaryVolumeBasedLiquidType } from './FuelStationaryVolumeBasedLiquidType';
+import {
+    FuelStationaryVolumeBasedLiquidTypeFromJSON,
+    FuelStationaryVolumeBasedLiquidTypeFromJSONTyped,
+    FuelStationaryVolumeBasedLiquidTypeToJSON,
+    FuelStationaryVolumeBasedLiquidTypeToJSONTyped,
+} from './FuelStationaryVolumeBasedLiquidType';
 import type { QuantityByVolume11AmountKilolitres } from './QuantityByVolume11AmountKilolitres';
 import {
     QuantityByVolume11AmountKilolitresFromJSON,
@@ -34,7 +41,7 @@ export interface QuantityByVolume11 {
     /**
      * Type of liquid fuel used in stationary equipment
      */
-    fuelType: QuantityByVolume11FuelTypeEnum;
+    fuelType: FuelStationaryVolumeBasedLiquidType;
     /**
      * 
      */
@@ -49,27 +56,6 @@ export const QuantityByVolume11FuelClassEnum = {
     LiquidFuels: 'Liquid fuels',
 } as const;
 export type QuantityByVolume11FuelClassEnum = typeof QuantityByVolume11FuelClassEnum[keyof typeof QuantityByVolume11FuelClassEnum];
-
-/**
- * @export
- */
-export const QuantityByVolume11FuelTypeEnum = {
-    PetroleumBasedOilsOtherThanFuels: 'Petroleum based oils other than fuels',
-    PetroleumBasedGreases: 'Petroleum based greases',
-    AutomotiveGasolinePetrol: 'Automotive gasoline/petrol',
-    AviationGasoline: 'Aviation gasoline',
-    Kerosene: 'Kerosene',
-    AviationTurbineFuelKerosene: 'Aviation turbine fuel/kerosene',
-    HeatingOil: 'Heating oil',
-    DieselOil: 'Diesel oil',
-    FuelOil: 'Fuel oil',
-    LiquefiedAromaticHydrocarbons: 'Liquefied aromatic hydrocarbons',
-    SolventsMineralTurpentineOrWhiteSpirits: 'Solvents: mineral turpentine or white spirits',
-    LiquefiedPetroleumGas: 'Liquefied petroleum gas',
-    Naphtha: 'Naphtha',
-    OtherPetroleumProducts: 'Other petroleum products',
-} as const;
-export type QuantityByVolume11FuelTypeEnum = typeof QuantityByVolume11FuelTypeEnum[keyof typeof QuantityByVolume11FuelTypeEnum];
 
 
 /**
@@ -95,7 +81,7 @@ export function QuantityByVolume11FromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'fuelClass': json['fuelClass'],
-        'fuelType': json['fuelType'],
+        'fuelType': FuelStationaryVolumeBasedLiquidTypeFromJSON(json['fuelType']),
         'amountKilolitres': QuantityByVolume11AmountKilolitresFromJSON(json['amountKilolitres']),
     };
 }
@@ -112,7 +98,7 @@ export function QuantityByVolume11ToJSONTyped(value?: QuantityByVolume11 | null,
     return {
         
         'fuelClass': value['fuelClass'],
-        'fuelType': value['fuelType'],
+        'fuelType': FuelStationaryVolumeBasedLiquidTypeToJSON(value['fuelType']),
         'amountKilolitres': QuantityByVolume11AmountKilolitresToJSON(value['amountKilolitres']),
     };
 }

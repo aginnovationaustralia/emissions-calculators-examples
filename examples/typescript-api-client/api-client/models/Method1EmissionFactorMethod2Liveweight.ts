@@ -27,6 +27,13 @@ import {
     Method1EmissionFactorMethod2LiveweightHeadPurchasedToJSON,
     Method1EmissionFactorMethod2LiveweightHeadPurchasedToJSONTyped,
 } from './Method1EmissionFactorMethod2LiveweightHeadPurchased';
+import type { BeefPurchaseCategory } from './BeefPurchaseCategory';
+import {
+    BeefPurchaseCategoryFromJSON,
+    BeefPurchaseCategoryFromJSONTyped,
+    BeefPurchaseCategoryToJSON,
+    BeefPurchaseCategoryToJSONTyped,
+} from './BeefPurchaseCategory';
 
 /**
  * 
@@ -45,7 +52,7 @@ export interface Method1EmissionFactorMethod2Liveweight {
     /**
      * The category of the purchased animals
      */
-    category: Method1EmissionFactorMethod2LiveweightCategoryEnum;
+    category: BeefPurchaseCategory;
     /**
      * 
      */
@@ -60,15 +67,6 @@ export const Method1EmissionFactorMethod2LiveweightTypeEnum = {
     Beef: 'Beef',
 } as const;
 export type Method1EmissionFactorMethod2LiveweightTypeEnum = typeof Method1EmissionFactorMethod2LiveweightTypeEnum[keyof typeof Method1EmissionFactorMethod2LiveweightTypeEnum];
-
-/**
- * @export
- */
-export const Method1EmissionFactorMethod2LiveweightCategoryEnum = {
-    BeefPrime: 'beefPrime',
-    BeefWeaned: 'beefWeaned',
-} as const;
-export type Method1EmissionFactorMethod2LiveweightCategoryEnum = typeof Method1EmissionFactorMethod2LiveweightCategoryEnum[keyof typeof Method1EmissionFactorMethod2LiveweightCategoryEnum];
 
 
 /**
@@ -96,7 +94,7 @@ export function Method1EmissionFactorMethod2LiveweightFromJSONTyped(json: any, i
         
         'type': json['type'],
         'headPurchased': Method1EmissionFactorMethod2LiveweightHeadPurchasedFromJSON(json['headPurchased']),
-        'category': json['category'],
+        'category': BeefPurchaseCategoryFromJSON(json['category']),
         'liveweightMethod2': Method1EmissionFactorMethod2LiveweightLiveweightMethod2FromJSON(json['liveweightMethod2']),
     };
 }
@@ -114,7 +112,7 @@ export function Method1EmissionFactorMethod2LiveweightToJSONTyped(value?: Method
         
         'type': value['type'],
         'headPurchased': Method1EmissionFactorMethod2LiveweightHeadPurchasedToJSON(value['headPurchased']),
-        'category': value['category'],
+        'category': BeefPurchaseCategoryToJSON(value['category']),
         'liveweightMethod2': Method1EmissionFactorMethod2LiveweightLiveweightMethod2ToJSON(value['liveweightMethod2']),
     };
 }

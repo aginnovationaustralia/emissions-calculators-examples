@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AviationFuelType } from './AviationFuelType';
+import {
+    AviationFuelTypeFromJSON,
+    AviationFuelTypeFromJSONTyped,
+    AviationFuelTypeToJSON,
+    AviationFuelTypeToJSONTyped,
+} from './AviationFuelType';
 import type { CarsAndLightCommercialVehicles1AmountKilolitres } from './CarsAndLightCommercialVehicles1AmountKilolitres';
 import {
     CarsAndLightCommercialVehicles1AmountKilolitresFromJSON,
@@ -38,7 +45,7 @@ export interface Aviation1 {
     /**
      * Type of fuel used by aircraft
      */
-    fuelType: Aviation1FuelTypeEnum;
+    fuelType: AviationFuelType;
 }
 
 
@@ -49,16 +56,6 @@ export const Aviation1VehicleTypeEnum = {
     Aviation: 'Aviation',
 } as const;
 export type Aviation1VehicleTypeEnum = typeof Aviation1VehicleTypeEnum[keyof typeof Aviation1VehicleTypeEnum];
-
-/**
- * @export
- */
-export const Aviation1FuelTypeEnum = {
-    GasolineForUseAsFuelInAnAircraft: 'Gasoline for use as fuel in an aircraft',
-    KeroseneForUseAsFuelInAnAircraft: 'Kerosene for use as fuel in an aircraft',
-    RenewableAviationKerosene: 'Renewable aviation kerosene',
-} as const;
-export type Aviation1FuelTypeEnum = typeof Aviation1FuelTypeEnum[keyof typeof Aviation1FuelTypeEnum];
 
 
 /**
@@ -85,7 +82,7 @@ export function Aviation1FromJSONTyped(json: any, ignoreDiscriminator: boolean):
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': AviationFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -102,7 +99,7 @@ export function Aviation1ToJSONTyped(value?: Aviation1 | null, ignoreDiscriminat
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': AviationFuelTypeToJSON(value['fuelType']),
     };
 }
 

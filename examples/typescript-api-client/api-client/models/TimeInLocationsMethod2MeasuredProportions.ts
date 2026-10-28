@@ -48,6 +48,13 @@ import {
     TimeInLocationsMethod1ProductionSystemClassesToJSON,
     TimeInLocationsMethod1ProductionSystemClassesToJSONTyped,
 } from './TimeInLocationsMethod1ProductionSystemClasses';
+import type { DairyCattleBreed } from './DairyCattleBreed';
+import {
+    DairyCattleBreedFromJSON,
+    DairyCattleBreedFromJSONTyped,
+    DairyCattleBreedToJSON,
+    DairyCattleBreedToJSONTyped,
+} from './DairyCattleBreed';
 
 /**
  * 
@@ -66,7 +73,7 @@ export interface TimeInLocationsMethod2MeasuredProportions {
     /**
      * Breed of cattle for this dairy herd
      */
-    breed: TimeInLocationsMethod2MeasuredProportionsBreedEnum;
+    breed: DairyCattleBreed;
     /**
      * 
      */
@@ -85,23 +92,6 @@ export interface TimeInLocationsMethod2MeasuredProportions {
     method2TimeSpentInLocations: TimeInLocationsMethod2MeasuredProportionsMethod2TimeSpentInLocations;
 }
 
-
-/**
- * @export
- */
-export const TimeInLocationsMethod2MeasuredProportionsBreedEnum = {
-    MediumFriesian: 'Medium Friesian',
-    LargeFriesian: 'Large Friesian',
-    HolsteinFriesian: 'Holstein-Friesian',
-    FriesianCrossbred: 'Friesian crossbred',
-    Jersey: 'Jersey',
-    JerseyCrossbred: 'Jersey crossbred',
-    Ayrshire: 'Ayrshire',
-    Guernsey: 'Guernsey',
-    BrownSwiss: 'Brown Swiss',
-    IllawarraAussieRed: 'Illawarra/Aussie Red',
-} as const;
-export type TimeInLocationsMethod2MeasuredProportionsBreedEnum = typeof TimeInLocationsMethod2MeasuredProportionsBreedEnum[keyof typeof TimeInLocationsMethod2MeasuredProportionsBreedEnum];
 
 
 /**
@@ -130,7 +120,7 @@ export function TimeInLocationsMethod2MeasuredProportionsFromJSONTyped(json: any
         
         'classes': TimeInLocationsMethod1ProductionSystemClassesFromJSON(json['classes']),
         'milkProduction': TimeInLocationsMethod1ProductionSystemMilkProductionFromJSON(json['milkProduction']),
-        'breed': json['breed'],
+        'breed': DairyCattleBreedFromJSON(json['breed']),
         'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsFromJSON(json['manureAllocations']),
         'isInLeachingZone': json['isInLeachingZone'],
         'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsFromJSON(json['fractionAppliedToSoils']),
@@ -151,7 +141,7 @@ export function TimeInLocationsMethod2MeasuredProportionsToJSONTyped(value?: Tim
         
         'classes': TimeInLocationsMethod1ProductionSystemClassesToJSON(value['classes']),
         'milkProduction': TimeInLocationsMethod1ProductionSystemMilkProductionToJSON(value['milkProduction']),
-        'breed': value['breed'],
+        'breed': DairyCattleBreedToJSON(value['breed']),
         'manureAllocations': TimeInLocationsMethod1ProductionSystemManureAllocationsToJSON(value['manureAllocations']),
         'isInLeachingZone': value['isInLeachingZone'],
         'fractionAppliedToSoils': PigsManureHerdsInnerFractionAppliedToSoilsToJSON(value['fractionAppliedToSoils']),

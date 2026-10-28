@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FuelStationarySolidType } from './FuelStationarySolidType';
+import {
+    FuelStationarySolidTypeFromJSON,
+    FuelStationarySolidTypeFromJSONTyped,
+    FuelStationarySolidTypeToJSON,
+    FuelStationarySolidTypeToJSONTyped,
+} from './FuelStationarySolidType';
 import type { SolidFuels1AmountTonnes } from './SolidFuels1AmountTonnes';
 import {
     SolidFuels1AmountTonnesFromJSON,
@@ -34,7 +41,7 @@ export interface SolidFuels1 {
     /**
      * Type of solid fuel used in stationary equipment
      */
-    fuelType: SolidFuels1FuelTypeEnum;
+    fuelType: FuelStationarySolidType;
     /**
      * 
      */
@@ -49,33 +56,6 @@ export const SolidFuels1FuelClassEnum = {
     SolidFuels: 'Solid fuels',
 } as const;
 export type SolidFuels1FuelClassEnum = typeof SolidFuels1FuelClassEnum[keyof typeof SolidFuels1FuelClassEnum];
-
-/**
- * @export
- */
-export const SolidFuels1FuelTypeEnum = {
-    BituminousCoal: 'Bituminous coal',
-    SubBituminousCoal: 'Sub-bituminous coal',
-    Anthracite: 'Anthracite',
-    BrownCoalLignite: 'Brown coal (lignite)',
-    CokingCoal: 'Coking coal',
-    CoalBriquettes: 'Coal briquettes',
-    CoalCoke: 'Coal coke',
-    CoalTar: 'Coal tar',
-    OtherSolidFossilFuels: 'Other solid fossil fuels',
-    IndustrialMaterialsDerivedFromFossilFuels: 'Industrial materials derived from fossil fuels',
-    PassengerCarTyres: 'Passenger car tyres',
-    TruckAndOffRoadTyres: 'Truck and off-road tyres',
-    NonBiomassMunicipalMaterials: 'Non-biomass municipal materials',
-    DryWood: 'Dry wood',
-    GreenAndAirDriedWood: 'Green and air dried wood',
-    SulphiteLyes: 'Sulphite lyes',
-    Bagasse: 'Bagasse',
-    BiomassMunicipalAndIndustrialMaterials: 'Biomass,  municipal and industrial materials',
-    Charcoal: 'Charcoal',
-    OtherPrimarySolidBiomassFuels: 'Other primary solid biomass fuels',
-} as const;
-export type SolidFuels1FuelTypeEnum = typeof SolidFuels1FuelTypeEnum[keyof typeof SolidFuels1FuelTypeEnum];
 
 
 /**
@@ -101,7 +81,7 @@ export function SolidFuels1FromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'fuelClass': json['fuelClass'],
-        'fuelType': json['fuelType'],
+        'fuelType': FuelStationarySolidTypeFromJSON(json['fuelType']),
         'amountTonnes': SolidFuels1AmountTonnesFromJSON(json['amountTonnes']),
     };
 }
@@ -118,7 +98,7 @@ export function SolidFuels1ToJSONTyped(value?: SolidFuels1 | null, ignoreDiscrim
     return {
         
         'fuelClass': value['fuelClass'],
-        'fuelType': value['fuelType'],
+        'fuelType': FuelStationarySolidTypeToJSON(value['fuelType']),
         'amountTonnes': SolidFuels1AmountTonnesToJSON(value['amountTonnes']),
     };
 }

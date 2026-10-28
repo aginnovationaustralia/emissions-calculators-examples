@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { InorganicFertiliserType } from './InorganicFertiliserType';
+import {
+    InorganicFertiliserTypeFromJSON,
+    InorganicFertiliserTypeFromJSONTyped,
+    InorganicFertiliserTypeToJSON,
+    InorganicFertiliserTypeToJSONTyped,
+} from './InorganicFertiliserType';
 import type { Scope3Method1MassAppliedKg } from './Scope3Method1MassAppliedKg';
 import {
     Scope3Method1MassAppliedKgFromJSON,
@@ -56,7 +63,7 @@ export interface Scope3Method2KnownFertiliserType {
     /**
      * Type of inorganic fertiliser applied
      */
-    fertiliserType: Scope3Method2KnownFertiliserTypeFertiliserTypeEnum;
+    fertiliserType: InorganicFertiliserType;
     /**
      * 
      */
@@ -71,22 +78,6 @@ export const Scope3Method2KnownFertiliserTypeCalculationMethodScope3Enum = {
     _2: '2',
 } as const;
 export type Scope3Method2KnownFertiliserTypeCalculationMethodScope3Enum = typeof Scope3Method2KnownFertiliserTypeCalculationMethodScope3Enum[keyof typeof Scope3Method2KnownFertiliserTypeCalculationMethodScope3Enum];
-
-/**
- * @export
- */
-export const Scope3Method2KnownFertiliserTypeFertiliserTypeEnum = {
-    MonoammoniumPhosphateMap: 'Monoammonium Phosphate (MAP)',
-    DiammoniumPhosphateDap: 'Diammonium Phosphate (DAP)',
-    Urea: 'Urea',
-    SulphateOfAmmoniaSoa: 'Sulphate of Ammonia (SOA)',
-    UreaAmmoniumNitrateUan: 'Urea-Ammonium Nitrate (UAN)',
-    AmmoniumNitrateAn: 'Ammonium Nitrate (AN)',
-    CalciumAmmoniumNitrateCan: 'Calcium Ammonium Nitrate (CAN)',
-    CalciumNitrate: 'Calcium Nitrate',
-    SingleSuperPhosphate: 'Single Super Phosphate',
-} as const;
-export type Scope3Method2KnownFertiliserTypeFertiliserTypeEnum = typeof Scope3Method2KnownFertiliserTypeFertiliserTypeEnum[keyof typeof Scope3Method2KnownFertiliserTypeFertiliserTypeEnum];
 
 
 /**
@@ -115,7 +106,7 @@ export function Scope3Method2KnownFertiliserTypeFromJSONTyped(json: any, ignoreD
         'massAppliedKg': Scope3Method1MassAppliedKgFromJSON(json['massAppliedKg']),
         'customScope3EmissionFactor': Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactorFromJSON(json['customScope3EmissionFactor']),
         'calculationMethodScope3': json['calculationMethodScope3'],
-        'fertiliserType': json['fertiliserType'],
+        'fertiliserType': InorganicFertiliserTypeFromJSON(json['fertiliserType']),
         'customNitrogenFraction': json['customNitrogenFraction'] == null ? undefined : Scope3Method2KnownFertiliserTypeCustomNitrogenFractionFromJSON(json['customNitrogenFraction']),
     };
 }
@@ -134,7 +125,7 @@ export function Scope3Method2KnownFertiliserTypeToJSONTyped(value?: Scope3Method
         'massAppliedKg': Scope3Method1MassAppliedKgToJSON(value['massAppliedKg']),
         'customScope3EmissionFactor': Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactorToJSON(value['customScope3EmissionFactor']),
         'calculationMethodScope3': value['calculationMethodScope3'],
-        'fertiliserType': value['fertiliserType'],
+        'fertiliserType': InorganicFertiliserTypeToJSON(value['fertiliserType']),
         'customNitrogenFraction': Scope3Method2KnownFertiliserTypeCustomNitrogenFractionToJSON(value['customNitrogenFraction']),
     };
 }

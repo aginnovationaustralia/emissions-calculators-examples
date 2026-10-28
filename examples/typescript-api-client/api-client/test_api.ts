@@ -7,171 +7,152 @@
 import * as fs from 'fs';
 import * as https from 'https';
 import { Configuration, EmissionsCalculatorsApi } from './index';
-import { PostBeefRequest } from './models';
+import {
+    AgrochemicalType,
+    BasicCropProductionSystem,
+    BasicProductionSystemScope1Method1,
+    BeefBreed,
+    BeefClassesWithSeasonalInput,
+    BeefClassWithCalvesSeasonalInput,
+    CarsAndLightCommercialVehicles,
+    CarsLightCommercialFuelType,
+    ClimateZoneOrZoneType,
+    ElectricityRegion,
+    FuelInput,
+    GrazingProductionSystemWithRainfall,
+    InorganicFertiliserType,
+    LimeAmeliorant,
+    LimestoneOrDolomiteApplication,
+    LocationBased,
+    Method11,
+    PastureType,
+    PostBeefRequest,
+    PostBeefRequestHerdsInner,
+    PostBeefRequestHerdsInnerChemicalsInner,
+    PostBeefRequestHerdsInnerPasture,
+    PurchasedMineralSupplementType,
+    StateOrRegion,
+} from './models';
 
 function createValidBeefInput(): PostBeefRequest {
     /**
-     * Create a valid beef input for a single beef herd.
-     * The object literal is type checked against the generated PostBeefRequest model.
+     * Create a valid beef input for a single beef herd, built up from the generated models.
+     * Each part is typed with its model, so the compiler checks it as it is built. Fields with
+     * a fixed set of values use the generated enums (e.g. StateOrRegion). Fields that only select
+     * a oneOf variant (e.g. period: 'seasonal') are string literals, which are also type checked.
      * Most numeric inputs are wrapped as { value: number }.
      */
-    const beefRequest: PostBeefRequest = {
-      isFebruaryInLeapYear: false,
-      electricity: {
-        method: "location",
-        electricityPurchasedKWh: {
-          value: 5000
+
+    // Cows over 3 years old, with head counts and calving rates for each season
+    const cowsGt3Years: BeefClassWithCalvesSeasonalInput = {
+        spring: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.2 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.2 },
         },
-        region: "QLD"
-      },
-      herds: [
-        {
-          id: "beef_cattle_001",
-          electricityAllocation: {
-            value: 1
-          },
-          region: "QLD - Moderate/High",
-          classes: {
-            period: "seasonal",
-            cowsGt3Years: {
-              spring: {
-                head: {
-                  value: 50
-                },
-                proportionCowsThisSeasonInCalf: {
-                  value: 0.2
-                },
-                proportionCowsPreviousSeasonInCalf: {
-                  value: 0.2
-                }
-              },
-              summer: {
-                head: {
-                  value: 50
-                },
-                proportionCowsThisSeasonInCalf: {
-                  value: 0.1
-                },
-                proportionCowsPreviousSeasonInCalf: {
-                  value: 0.2
-                }
-              },
-              autumn: {
-                head: {
-                  value: 50
-                },
-                proportionCowsThisSeasonInCalf: {
-                  value: 0.5
-                },
-                proportionCowsPreviousSeasonInCalf: {
-                  value: 0.1
-                }
-              },
-              winter: {
-                head: {
-                  value: 50
-                },
-                proportionCowsThisSeasonInCalf: {
-                  value: 0.2
-                },
-                proportionCowsPreviousSeasonInCalf: {
-                  value: 0.5
-                }
-              }
-            }
-          },
-          breed: "Northern Brahman cross breed",
-          grazingSystem: "Non-irrigated pasture",
-          climateZone: "Tropical dry",
-          isInLeachingZone: false,
-          excludedFromNaturalWater: false,
-          liveweightSoldKg: {
-            value: 12500
-          },
-          fuel: {
-            transport: [
-              {
-                vehicleType: "Cars and light commercial vehicles",
-                fuelType: "Diesel oil",
-                amountKilolitres: {
-                  value: 1
-                }
-              }
-            ],
-            stationary: []
-          },
-          lime: {
-            applications: [
-              {
-                type: "Limestone",
-                massAppliedKg: {
-                  value: 10000
-                },
-                limestoneFraction: {
-                  value: 0.8
-                }
-              }
-            ]
-          },
-          pasture: {
-            type: "Perennial pasture",
-            areaManaged: {
-              value: 500
-            },
-            fractionOfAnnualCropBurnt: {
-              value: 0
-            },
-            residues: {
-              calculationMethod: "1"
-            }
-          },
-          purchasedLivestock: [],
-          purchasedFeed: [],
-          purchasedMineralSupplements: [
-            {
-              type: "Lick block, dry season mix",
-              amount: {
-                value: 2
-              }
-            }
-          ],
-          chemicals: [
-            {
-              type: "Herbicide (paraquat, diquat, glyphosate)",
-              amountKg: {
-                value: 50
-              }
-            }
-          ],
-          services: {
-            fuel: {
-              transport: [],
-              stationary: []
-            }
-          },
-          fertiliser: {
-            productionSystem: "Non-irrigated pasture",
-            inorganic: {
-              calculationMethodScope1: "1",
-              applications: [
-                {
-                  fertiliserType: "Urea",
-                  massAppliedKg: {
-                    value: 2000
-                  },
-                  calculationMethodScope3: "1"
-                }
-              ]
-            },
-            organic: {
-              applications: []
-            }
-          }
-        }
-      ]
+        summer: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.1 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.2 },
+        },
+        autumn: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.5 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.1 },
+        },
+        winter: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.2 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.5 },
+        },
     };
 
-    return beefRequest;
+    const classes: BeefClassesWithSeasonalInput = {
+        period: 'seasonal',
+        cowsGt3Years,
+    };
+
+    const dieselCar: CarsAndLightCommercialVehicles = {
+        vehicleType: 'Cars and light commercial vehicles',
+        fuelType: CarsLightCommercialFuelType.DieselOil,
+        amountKilolitres: { value: 1 },
+    };
+    const fuel: FuelInput = {
+        transport: [dieselCar],
+        stationary: [],
+    };
+
+    const limestone: LimestoneOrDolomiteApplication = {
+        type: LimeAmeliorant.Limestone,
+        massAppliedKg: { value: 10000 },
+        limestoneFraction: { value: 0.8 },
+    };
+
+    const pasture: PostBeefRequestHerdsInnerPasture = {
+        type: PastureType.PerennialPasture,
+        areaManaged: { value: 500 },
+        fractionOfAnnualCropBurnt: { value: 0 },
+        residues: { calculationMethod: '1' },
+    };
+
+    const lickBlock: Method11 = {
+        type: PurchasedMineralSupplementType.LickBlockDrySeasonMix,
+        amount: { value: 2 },
+    };
+
+    const herbicide: PostBeefRequestHerdsInnerChemicalsInner = {
+        type: AgrochemicalType.HerbicideParaquatDiquatGlyphosate,
+        amountKg: { value: 50 },
+    };
+
+    const fertiliser: BasicProductionSystemScope1Method1 = {
+        productionSystem: BasicCropProductionSystem.NonIrrigatedPasture,
+        inorganic: {
+            calculationMethodScope1: '1',
+            applications: [
+                {
+                    fertiliserType: InorganicFertiliserType.Urea,
+                    massAppliedKg: { value: 2000 },
+                    calculationMethodScope3: '1',
+                },
+            ],
+        },
+        organic: { applications: [] },
+    };
+
+    const herd: PostBeefRequestHerdsInner = {
+        id: 'beef_cattle_001',
+        electricityAllocation: { value: 1 },
+        region: StateOrRegion.QldModerateHigh,
+        classes,
+        breed: BeefBreed.NorthernBrahmanCrossBreed,
+        grazingSystem: GrazingProductionSystemWithRainfall.NonIrrigatedPasture,
+        climateZone: ClimateZoneOrZoneType.TropicalDry,
+        isInLeachingZone: false,
+        excludedFromNaturalWater: false,
+        liveweightSoldKg: { value: 12500 },
+        fuel,
+        lime: { applications: [limestone] },
+        pasture,
+        purchasedLivestock: [],
+        purchasedFeed: [],
+        purchasedMineralSupplements: [lickBlock],
+        chemicals: [herbicide],
+        services: { fuel: { transport: [], stationary: [] } },
+        fertiliser,
+    };
+
+    const electricity: LocationBased = {
+        method: 'location',
+        electricityPurchasedKWh: { value: 5000 },
+        region: ElectricityRegion.Qld,
+    };
+
+    return {
+        isFebruaryInLeapYear: false,
+        electricity,
+        herds: [herd],
+    };
 }
 
 async function testBeefApi(): Promise<void> {

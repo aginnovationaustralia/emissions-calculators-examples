@@ -20,6 +20,13 @@ import {
     UntracedManureMassAppliedKgToJSON,
     UntracedManureMassAppliedKgToJSONTyped,
 } from './UntracedManureMassAppliedKg';
+import type { OrganicFertiliserType } from './OrganicFertiliserType';
+import {
+    OrganicFertiliserTypeFromJSON,
+    OrganicFertiliserTypeFromJSONTyped,
+    OrganicFertiliserTypeToJSON,
+    OrganicFertiliserTypeToJSONTyped,
+} from './OrganicFertiliserType';
 import type { UntracedManureCustomNitrogenFraction } from './UntracedManureCustomNitrogenFraction';
 import {
     UntracedManureCustomNitrogenFractionFromJSON,
@@ -45,7 +52,7 @@ export interface UntracedManure {
     /**
      * Type of organic fertiliser
      */
-    organicFertiliserType: UntracedManureOrganicFertiliserTypeEnum;
+    organicFertiliserType: OrganicFertiliserType;
     /**
      * 
      */
@@ -60,19 +67,6 @@ export const UntracedManureOriginEnum = {
     Untraced: 'Untraced',
 } as const;
 export type UntracedManureOriginEnum = typeof UntracedManureOriginEnum[keyof typeof UntracedManureOriginEnum];
-
-/**
- * @export
- */
-export const UntracedManureOrganicFertiliserTypeEnum = {
-    DairyCattle: 'Dairy cattle',
-    BeefCattle: 'Beef cattle',
-    Poultry: 'Poultry',
-    Pigs: 'Pigs',
-    Sheep: 'Sheep',
-    HorsesMules: 'Horses/Mules',
-} as const;
-export type UntracedManureOrganicFertiliserTypeEnum = typeof UntracedManureOrganicFertiliserTypeEnum[keyof typeof UntracedManureOrganicFertiliserTypeEnum];
 
 
 /**
@@ -99,7 +93,7 @@ export function UntracedManureFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'origin': json['origin'],
         'massAppliedKg': UntracedManureMassAppliedKgFromJSON(json['massAppliedKg']),
-        'organicFertiliserType': json['organicFertiliserType'],
+        'organicFertiliserType': OrganicFertiliserTypeFromJSON(json['organicFertiliserType']),
         'customNitrogenFraction': json['customNitrogenFraction'] == null ? undefined : UntracedManureCustomNitrogenFractionFromJSON(json['customNitrogenFraction']),
     };
 }
@@ -117,7 +111,7 @@ export function UntracedManureToJSONTyped(value?: UntracedManure | null, ignoreD
         
         'origin': value['origin'],
         'massAppliedKg': UntracedManureMassAppliedKgToJSON(value['massAppliedKg']),
-        'organicFertiliserType': value['organicFertiliserType'],
+        'organicFertiliserType': OrganicFertiliserTypeToJSON(value['organicFertiliserType']),
         'customNitrogenFraction': UntracedManureCustomNitrogenFractionToJSON(value['customNitrogenFraction']),
     };
 }

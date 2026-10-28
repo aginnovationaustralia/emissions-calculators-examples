@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PerennialWoodyCropFull } from './PerennialWoodyCropFull';
+import {
+    PerennialWoodyCropFullFromJSON,
+    PerennialWoodyCropFullFromJSONTyped,
+    PerennialWoodyCropFullToJSON,
+    PerennialWoodyCropFullToJSONTyped,
+} from './PerennialWoodyCropFull';
 import type { Method13Method2BiomassAtMaturity } from './Method13Method2BiomassAtMaturity';
 import {
     Method13Method2BiomassAtMaturityFromJSON,
@@ -63,7 +70,7 @@ export interface Method2StemDensity {
     /**
      * Type of perennial woody crop planted
      */
-    cropType: Method2StemDensityCropTypeEnum;
+    cropType: PerennialWoodyCropFull;
     /**
      * 
      */
@@ -74,21 +81,6 @@ export interface Method2StemDensity {
     clearings: Array<Method2StemDensityClearingsInner>;
 }
 
-
-/**
- * @export
- */
-export const Method2StemDensityCropTypeEnum = {
-    Oranges: 'Oranges',
-    Macadamias: 'Macadamias',
-    Almonds: 'Almonds',
-    Apples: 'Apples',
-    Peaches: 'Peaches',
-    Olives: 'Olives',
-    Avocados: 'Avocados',
-    Mangoes: 'Mangoes',
-} as const;
-export type Method2StemDensityCropTypeEnum = typeof Method2StemDensityCropTypeEnum[keyof typeof Method2StemDensityCropTypeEnum];
 
 /**
  * @export
@@ -126,7 +118,7 @@ export function Method2StemDensityFromJSONTyped(json: any, ignoreDiscriminator: 
         'method2ActualStemDensity': Method13Method2ActualStemDensityFromJSON(json['method2ActualStemDensity']),
         'method2BiomassAtMaturity': json['method2BiomassAtMaturity'] == null ? undefined : Method13Method2BiomassAtMaturityFromJSON(json['method2BiomassAtMaturity']),
         'plantings': ((json['plantings'] as Array<any>).map(Method13PlantingsInnerFromJSON)),
-        'cropType': json['cropType'],
+        'cropType': PerennialWoodyCropFullFromJSON(json['cropType']),
         'calculationMethod': json['calculationMethod'],
         'clearings': ((json['clearings'] as Array<any>).map(Method2StemDensityClearingsInnerFromJSON)),
     };
@@ -146,7 +138,7 @@ export function Method2StemDensityToJSONTyped(value?: Method2StemDensity | null,
         'method2ActualStemDensity': Method13Method2ActualStemDensityToJSON(value['method2ActualStemDensity']),
         'method2BiomassAtMaturity': Method13Method2BiomassAtMaturityToJSON(value['method2BiomassAtMaturity']),
         'plantings': ((value['plantings'] as Array<any>).map(Method13PlantingsInnerToJSON)),
-        'cropType': value['cropType'],
+        'cropType': PerennialWoodyCropFullToJSON(value['cropType']),
         'calculationMethod': value['calculationMethod'],
         'clearings': ((value['clearings'] as Array<any>).map(Method2StemDensityClearingsInnerToJSON)),
     };

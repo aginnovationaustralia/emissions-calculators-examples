@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BasicCropProductionSystem } from './BasicCropProductionSystem';
+import {
+    BasicCropProductionSystemFromJSON,
+    BasicCropProductionSystemFromJSONTyped,
+    BasicCropProductionSystemToJSON,
+    BasicCropProductionSystemToJSONTyped,
+} from './BasicCropProductionSystem';
 import type { BasicProductionSystemScope1Method1Inorganic } from './BasicProductionSystemScope1Method1Inorganic';
 import {
     BasicProductionSystemScope1Method1InorganicFromJSON,
@@ -37,7 +44,7 @@ export interface BasicProductionSystemScope1Method1 {
     /**
      * Production system of the crop
      */
-    productionSystem: BasicProductionSystemScope1Method1ProductionSystemEnum;
+    productionSystem: BasicCropProductionSystem;
     /**
      * 
      */
@@ -48,25 +55,6 @@ export interface BasicProductionSystemScope1Method1 {
     organic: OrganicFertilisersInput;
 }
 
-
-/**
- * @export
- */
-export const BasicProductionSystemScope1Method1ProductionSystemEnum = {
-    RiceContinuousFlooding: 'Rice (continuous flooding)',
-    RiceSingleAndMultipleDrainageOrAlternateWettingAndDrying: 'Rice (single and multiple drainage, or alternate wetting and drying)',
-    IrrigatedCrop: 'Irrigated crop',
-    NonIrrigatedCropLowRainfall: 'Non-irrigated crop (low rainfall)',
-    NonIrrigatedCropHighRainfall: 'Non-irrigated crop (high rainfall)',
-    IrrigatedPasture: 'Irrigated pasture',
-    NonIrrigatedPasture: 'Non-irrigated pasture',
-    Sugar: 'Sugar',
-    Cotton: 'Cotton',
-    HorticulturalCrops: 'Horticultural crops',
-    Aquaculture: 'Aquaculture',
-    Forestry: 'Forestry',
-} as const;
-export type BasicProductionSystemScope1Method1ProductionSystemEnum = typeof BasicProductionSystemScope1Method1ProductionSystemEnum[keyof typeof BasicProductionSystemScope1Method1ProductionSystemEnum];
 
 
 /**
@@ -89,7 +77,7 @@ export function BasicProductionSystemScope1Method1FromJSONTyped(json: any, ignor
     }
     return {
         
-        'productionSystem': json['productionSystem'],
+        'productionSystem': BasicCropProductionSystemFromJSON(json['productionSystem']),
         'inorganic': BasicProductionSystemScope1Method1InorganicFromJSON(json['inorganic']),
         'organic': OrganicFertilisersInputFromJSON(json['organic']),
     };
@@ -106,7 +94,7 @@ export function BasicProductionSystemScope1Method1ToJSONTyped(value?: BasicProdu
 
     return {
         
-        'productionSystem': value['productionSystem'],
+        'productionSystem': BasicCropProductionSystemToJSON(value['productionSystem']),
         'inorganic': BasicProductionSystemScope1Method1InorganicToJSON(value['inorganic']),
         'organic': OrganicFertilisersInputToJSON(value['organic']),
     };

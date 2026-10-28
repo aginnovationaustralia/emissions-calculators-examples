@@ -20,6 +20,13 @@ import {
     CarsAndLightCommercialVehiclesAmountKilolitresToJSON,
     CarsAndLightCommercialVehiclesAmountKilolitresToJSONTyped,
 } from './CarsAndLightCommercialVehiclesAmountKilolitres';
+import type { LightDutyFuelType } from './LightDutyFuelType';
+import {
+    LightDutyFuelTypeFromJSON,
+    LightDutyFuelTypeFromJSONTyped,
+    LightDutyFuelTypeToJSON,
+    LightDutyFuelTypeToJSONTyped,
+} from './LightDutyFuelType';
 
 /**
  * 
@@ -38,7 +45,7 @@ export interface LightDutyVehicles {
     /**
      * Type of fuel used by light duty vehicles
      */
-    fuelType: LightDutyVehiclesFuelTypeEnum;
+    fuelType: LightDutyFuelType;
 }
 
 
@@ -49,15 +56,6 @@ export const LightDutyVehiclesVehicleTypeEnum = {
     LightDutyVehicles: 'Light duty vehicles',
 } as const;
 export type LightDutyVehiclesVehicleTypeEnum = typeof LightDutyVehiclesVehicleTypeEnum[keyof typeof LightDutyVehiclesVehicleTypeEnum];
-
-/**
- * @export
- */
-export const LightDutyVehiclesFuelTypeEnum = {
-    CompressedNaturalGas: 'Compressed natural gas',
-    LiquefiedNaturalGas: 'Liquefied natural gas',
-} as const;
-export type LightDutyVehiclesFuelTypeEnum = typeof LightDutyVehiclesFuelTypeEnum[keyof typeof LightDutyVehiclesFuelTypeEnum];
 
 
 /**
@@ -84,7 +82,7 @@ export function LightDutyVehiclesFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': LightDutyFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -101,7 +99,7 @@ export function LightDutyVehiclesToJSONTyped(value?: LightDutyVehicles | null, i
         
         'amountKilolitres': CarsAndLightCommercialVehiclesAmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': LightDutyFuelTypeToJSON(value['fuelType']),
     };
 }
 

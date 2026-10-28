@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SolidWasteNonStreamType } from './SolidWasteNonStreamType';
+import {
+    SolidWasteNonStreamTypeFromJSON,
+    SolidWasteNonStreamTypeFromJSONTyped,
+    SolidWasteNonStreamTypeToJSON,
+    SolidWasteNonStreamTypeToJSONTyped,
+} from './SolidWasteNonStreamType';
 import type { QuantityByMass5MassWasteTonnes } from './QuantityByMass5MassWasteTonnes';
 import {
     QuantityByMass5MassWasteTonnesFromJSON,
@@ -30,30 +37,13 @@ export interface QuantityByMass5 {
     /**
      * Type of solid waste treated at this facility (Incineration)
      */
-    wasteType: QuantityByMass5WasteTypeEnum;
+    wasteType: SolidWasteNonStreamType;
     /**
      * 
      */
     massWasteTonnes: QuantityByMass5MassWasteTonnes;
 }
 
-
-/**
- * @export
- */
-export const QuantityByMass5WasteTypeEnum = {
-    FoodWaste: 'Food waste',
-    GreenWaste: 'Green waste',
-    WoodProductsAtTimeOfHarvest: 'Wood products (at time of harvest)',
-    WoodProductsAtEndOfLife: 'Wood products (at end of life)',
-    Sludge: 'Sludge',
-    PaperAndCardboard: 'Paper and cardboard',
-    Textiles: 'Textiles',
-    RubberAndLeather: 'Rubber and leather',
-    InertWaste: 'Inert waste',
-    Nappies: 'Nappies',
-} as const;
-export type QuantityByMass5WasteTypeEnum = typeof QuantityByMass5WasteTypeEnum[keyof typeof QuantityByMass5WasteTypeEnum];
 
 
 /**
@@ -75,7 +65,7 @@ export function QuantityByMass5FromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'wasteType': json['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeFromJSON(json['wasteType']),
         'massWasteTonnes': QuantityByMass5MassWasteTonnesFromJSON(json['massWasteTonnes']),
     };
 }
@@ -91,7 +81,7 @@ export function QuantityByMass5ToJSONTyped(value?: QuantityByMass5 | null, ignor
 
     return {
         
-        'wasteType': value['wasteType'],
+        'wasteType': SolidWasteNonStreamTypeToJSON(value['wasteType']),
         'massWasteTonnes': QuantityByMass5MassWasteTonnesToJSON(value['massWasteTonnes']),
     };
 }

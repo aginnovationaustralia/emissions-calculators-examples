@@ -20,6 +20,13 @@ import {
     CarsAndLightCommercialVehicles1AmountKilolitresToJSON,
     CarsAndLightCommercialVehicles1AmountKilolitresToJSONTyped,
 } from './CarsAndLightCommercialVehicles1AmountKilolitres';
+import type { HeavyDutyFuelType } from './HeavyDutyFuelType';
+import {
+    HeavyDutyFuelTypeFromJSON,
+    HeavyDutyFuelTypeFromJSONTyped,
+    HeavyDutyFuelTypeToJSON,
+    HeavyDutyFuelTypeToJSONTyped,
+} from './HeavyDutyFuelType';
 
 /**
  * 
@@ -38,7 +45,7 @@ export interface HeavyDutyVehicles1 {
     /**
      * Type of fuel used by heavy duty vehicles
      */
-    fuelType: HeavyDutyVehicles1FuelTypeEnum;
+    fuelType: HeavyDutyFuelType;
 }
 
 
@@ -49,21 +56,6 @@ export const HeavyDutyVehicles1VehicleTypeEnum = {
     HeavyDutyVehicles: 'Heavy duty vehicles',
 } as const;
 export type HeavyDutyVehicles1VehicleTypeEnum = typeof HeavyDutyVehicles1VehicleTypeEnum[keyof typeof HeavyDutyVehicles1VehicleTypeEnum];
-
-/**
- * @export
- */
-export const HeavyDutyVehicles1FuelTypeEnum = {
-    CompressedNaturalGas: 'Compressed natural gas',
-    LiquefiedNaturalGas: 'Liquefied natural gas',
-    DieselOilEuroIvOrHigher: 'Diesel oil - Euro iv or higher',
-    DieselOilEuroIii: 'Diesel oil - Euro iii',
-    DieselOilEuroI: 'Diesel oil - Euro i',
-    RenewableDieselEuroIvOrHigher: 'Renewable diesel - Euro iv or higher',
-    RenewableDieselEuroIii: 'Renewable diesel - Euro iii',
-    RenewableDieselEuroI: 'Renewable diesel - Euro i',
-} as const;
-export type HeavyDutyVehicles1FuelTypeEnum = typeof HeavyDutyVehicles1FuelTypeEnum[keyof typeof HeavyDutyVehicles1FuelTypeEnum];
 
 
 /**
@@ -90,7 +82,7 @@ export function HeavyDutyVehicles1FromJSONTyped(json: any, ignoreDiscriminator: 
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresFromJSON(json['amountKilolitres']),
         'vehicleType': json['vehicleType'],
-        'fuelType': json['fuelType'],
+        'fuelType': HeavyDutyFuelTypeFromJSON(json['fuelType']),
     };
 }
 
@@ -107,7 +99,7 @@ export function HeavyDutyVehicles1ToJSONTyped(value?: HeavyDutyVehicles1 | null,
         
         'amountKilolitres': CarsAndLightCommercialVehicles1AmountKilolitresToJSON(value['amountKilolitres']),
         'vehicleType': value['vehicleType'],
-        'fuelType': value['fuelType'],
+        'fuelType': HeavyDutyFuelTypeToJSON(value['fuelType']),
     };
 }
 

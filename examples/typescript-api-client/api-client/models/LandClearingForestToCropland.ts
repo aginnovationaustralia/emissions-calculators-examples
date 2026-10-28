@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { IBRA7Region } from './IBRA7Region';
+import {
+    IBRA7RegionFromJSON,
+    IBRA7RegionFromJSONTyped,
+    IBRA7RegionToJSON,
+    IBRA7RegionToJSONTyped,
+} from './IBRA7Region';
 import type { LandClearingForestToCroplandAreaBurnt } from './LandClearingForestToCroplandAreaBurnt';
 import {
     LandClearingForestToCroplandAreaBurntFromJSON,
@@ -34,6 +41,13 @@ import {
     LandClearingForestToCroplandCarbonMassInDebrisCurrentYearToJSON,
     LandClearingForestToCroplandCarbonMassInDebrisCurrentYearToJSONTyped,
 } from './LandClearingForestToCroplandCarbonMassInDebrisCurrentYear';
+import type { CropOnlyProductionSystem } from './CropOnlyProductionSystem';
+import {
+    CropOnlyProductionSystemFromJSON,
+    CropOnlyProductionSystemFromJSONTyped,
+    CropOnlyProductionSystemToJSON,
+    CropOnlyProductionSystemToJSONTyped,
+} from './CropOnlyProductionSystem';
 import type { LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare } from './LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare';
 import {
     LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectareFromJSON,
@@ -103,7 +117,7 @@ export interface LandClearingForestToCropland {
     /**
      * IBRA7 region of the activity area
      */
-    region: LandClearingForestToCroplandRegionEnum;
+    region: IBRA7Region;
     /**
      * 
      */
@@ -123,101 +137,9 @@ export interface LandClearingForestToCropland {
     /**
      * Crop production
      */
-    cropProductionSystem: LandClearingForestToCroplandCropProductionSystemEnum;
+    cropProductionSystem: CropOnlyProductionSystem;
 }
 
-
-/**
- * @export
- */
-export const LandClearingForestToCroplandRegionEnum = {
-    ArnhemCoast: 'Arnhem Coast',
-    ArnhemPlateau: 'Arnhem Plateau',
-    AustralianAlps: 'Australian Alps',
-    AvonWheatbelt: 'Avon Wheatbelt',
-    BrigalowBeltNorth: 'Brigalow Belt North',
-    BrigalowBeltSouth: 'Brigalow Belt South',
-    BenLomond: 'Ben Lomond',
-    BrokenHillComplex: 'Broken Hill Complex',
-    BurtPlain: 'Burt Plain',
-    Carnarvon: 'Carnarvon',
-    CentralArnhem: 'Central Arnhem',
-    CentralKimberley: 'Central Kimberley',
-    CentralRanges: 'Central Ranges',
-    ChannelCountry: 'Channel Country',
-    CentralMackayCoast: 'Central Mackay Coast',
-    Coolgardie: 'Coolgardie',
-    CobarPeneplain: 'Cobar Peneplain',
-    CapeYorkPeninsula: 'Cape York Peninsula',
-    DalyBasin: 'Daly Basin',
-    DarwinCoastal: 'Darwin Coastal',
-    Dampierland: 'Dampierland',
-    DesertUplands: 'Desert Uplands',
-    DavenportMurchisonRanges: 'Davenport Murchison Ranges',
-    DarlingRiverinePlains: 'Darling Riverine Plains',
-    EinasleighUplands: 'Einasleigh Uplands',
-    EsperancePlains: 'Esperance Plains',
-    EyreYorkeBlock: 'Eyre Yorke Block',
-    Finke: 'Finke',
-    FlindersLoftyBlock: 'Flinders Lofty Block',
-    Furneaux: 'Furneaux',
-    Gascoyne: 'Gascoyne',
-    Gawler: 'Gawler',
-    GeraldtonSandplains: 'Geraldton Sandplains',
-    GulfFallAndUplands: 'Gulf Fall and Uplands',
-    GibsonDesert: 'Gibson Desert',
-    GreatSandyDesert: 'Great Sandy Desert',
-    GulfCoastal: 'Gulf Coastal',
-    GulfPlains: 'Gulf Plains',
-    GreatVictoriaDesert: 'Great Victoria Desert',
-    Hampton: 'Hampton',
-    JarrahForest: 'Jarrah Forest',
-    Kanmantoo: 'Kanmantoo',
-    King: 'King',
-    LittleSandyDesert: 'Little Sandy Desert',
-    MacDonnellRanges: 'MacDonnell Ranges',
-    Mallee: 'Mallee',
-    MurrayDarlingDepression: 'Murray Darling Depression',
-    MitchellGrassDowns: 'Mitchell Grass Downs',
-    MountIsaInlier: 'Mount Isa Inlier',
-    MulgaLands: 'Mulga Lands',
-    Murchison: 'Murchison',
-    Nandewar: 'Nandewar',
-    NaracoorteCoastalPlain: 'Naracoorte Coastal Plain',
-    NewEnglandTablelands: 'New England Tablelands',
-    NswNorthCoast: 'NSW North Coast',
-    NorthernKimberley: 'Northern Kimberley',
-    NswSouthWesternSlopes: 'NSW South Western Slopes',
-    Nullarbor: 'Nullarbor',
-    OrdVictoriaPlain: 'Ord Victoria Plain',
-    PineCreek: 'Pine Creek',
-    Pilbara: 'Pilbara',
-    Riverina: 'Riverina',
-    SouthEastCoastalPlain: 'South East Coastal Plain',
-    SouthEastCorner: 'South East Corner',
-    SouthEasternHighlands: 'South Eastern Highlands',
-    SouthEasternQueensland: 'South Eastern Queensland',
-    SimpsonStrzeleckiDunefields: 'Simpson Strzelecki Dunefields',
-    StonyPlains: 'Stony Plains',
-    SturtPlateau: 'Sturt Plateau',
-    SouthernVolcanicPlain: 'Southern Volcanic Plain',
-    SwanCoastalPlain: 'Swan Coastal Plain',
-    SydneyBasin: 'Sydney Basin',
-    Tanami: 'Tanami',
-    TasmanianCentralHighlands: 'Tasmanian Central Highlands',
-    TiwiCobourg: 'Tiwi Cobourg',
-    TasmanianNorthernMidlands: 'Tasmanian Northern Midlands',
-    TasmanianNorthernSlopes: 'Tasmanian Northern Slopes',
-    TasmanianSouthEast: 'Tasmanian South East',
-    TasmanianSouthernRanges: 'Tasmanian Southern Ranges',
-    TasmanianWest: 'Tasmanian West',
-    VictoriaBonaparte: 'Victoria Bonaparte',
-    VictorianMidlands: 'Victorian Midlands',
-    Warren: 'Warren',
-    WetTropics: 'Wet Tropics',
-    Yalgoo: 'Yalgoo',
-} as const;
-export type LandClearingForestToCroplandRegionEnum = typeof LandClearingForestToCroplandRegionEnum[keyof typeof LandClearingForestToCroplandRegionEnum];
 
 /**
  * @export
@@ -226,16 +148,6 @@ export const LandClearingForestToCroplandTypeEnum = {
     LandClearingForestToCropland: 'landClearingForestToCropland',
 } as const;
 export type LandClearingForestToCroplandTypeEnum = typeof LandClearingForestToCroplandTypeEnum[keyof typeof LandClearingForestToCroplandTypeEnum];
-
-/**
- * @export
- */
-export const LandClearingForestToCroplandCropProductionSystemEnum = {
-    IrrigatedCrop: 'Irrigated crop',
-    NonIrrigatedCropLowRainfall: 'Non-irrigated crop (low rainfall)',
-    NonIrrigatedCropHighRainfall: 'Non-irrigated crop (high rainfall)',
-} as const;
-export type LandClearingForestToCroplandCropProductionSystemEnum = typeof LandClearingForestToCroplandCropProductionSystemEnum[keyof typeof LandClearingForestToCroplandCropProductionSystemEnum];
 
 
 /**
@@ -275,12 +187,12 @@ export function LandClearingForestToCroplandFromJSONTyped(json: any, ignoreDiscr
         'carbonMassInDebrisCurrentYear': LandClearingForestToCroplandCarbonMassInDebrisCurrentYearFromJSON(json['carbonMassInDebrisCurrentYear']),
         'carbonMassInDebrisPreviousYear': LandClearingForestToCroplandCarbonMassInDebrisPreviousYearFromJSON(json['carbonMassInDebrisPreviousYear']),
         'isInLeachingZone': json['isInLeachingZone'],
-        'region': json['region'],
+        'region': IBRA7RegionFromJSON(json['region']),
         'massCH4FromBiomassBurningPerHectare': LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectareFromJSON(json['massCH4FromBiomassBurningPerHectare']),
         'massN2OFromBiomassBurningPerHectare': LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectareFromJSON(json['massN2OFromBiomassBurningPerHectare']),
         'areaBurnt': LandClearingForestToCroplandAreaBurntFromJSON(json['areaBurnt']),
         'type': json['type'],
-        'cropProductionSystem': json['cropProductionSystem'],
+        'cropProductionSystem': CropOnlyProductionSystemFromJSON(json['cropProductionSystem']),
     };
 }
 
@@ -301,12 +213,12 @@ export function LandClearingForestToCroplandToJSONTyped(value?: LandClearingFore
         'carbonMassInDebrisCurrentYear': LandClearingForestToCroplandCarbonMassInDebrisCurrentYearToJSON(value['carbonMassInDebrisCurrentYear']),
         'carbonMassInDebrisPreviousYear': LandClearingForestToCroplandCarbonMassInDebrisPreviousYearToJSON(value['carbonMassInDebrisPreviousYear']),
         'isInLeachingZone': value['isInLeachingZone'],
-        'region': value['region'],
+        'region': IBRA7RegionToJSON(value['region']),
         'massCH4FromBiomassBurningPerHectare': LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectareToJSON(value['massCH4FromBiomassBurningPerHectare']),
         'massN2OFromBiomassBurningPerHectare': LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectareToJSON(value['massN2OFromBiomassBurningPerHectare']),
         'areaBurnt': LandClearingForestToCroplandAreaBurntToJSON(value['areaBurnt']),
         'type': value['type'],
-        'cropProductionSystem': value['cropProductionSystem'],
+        'cropProductionSystem': CropOnlyProductionSystemToJSON(value['cropProductionSystem']),
     };
 }
 

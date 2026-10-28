@@ -20,6 +20,13 @@ import {
     Method13ClearingsInnerToJSON,
     Method13ClearingsInnerToJSONTyped,
 } from './Method13ClearingsInner';
+import type { Method13CropType } from './Method13CropType';
+import {
+    Method13CropTypeFromJSON,
+    Method13CropTypeFromJSONTyped,
+    Method13CropTypeToJSON,
+    Method13CropTypeToJSONTyped,
+} from './Method13CropType';
 import type { Method13Method2BiomassAtMaturity } from './Method13Method2BiomassAtMaturity';
 import {
     Method13Method2BiomassAtMaturityFromJSON,
@@ -63,7 +70,7 @@ export interface Method13 {
     /**
      * 
      */
-    cropType: Method13CropTypeEnum;
+    cropType: Method13CropType;
     /**
      * 
      */
@@ -74,23 +81,6 @@ export interface Method13 {
     calculationMethod: Method13CalculationMethodEnum;
 }
 
-
-/**
- * @export
- */
-export const Method13CropTypeEnum = {
-    Oranges: 'Oranges',
-    Macadamias: 'Macadamias',
-    Almonds: 'Almonds',
-    Apples: 'Apples',
-    Peaches: 'Peaches',
-    Olives: 'Olives',
-    Avocados: 'Avocados',
-    Mangoes: 'Mangoes',
-    Grapes: 'Grapes',
-    Kiwifruits: 'Kiwifruits',
-} as const;
-export type Method13CropTypeEnum = typeof Method13CropTypeEnum[keyof typeof Method13CropTypeEnum];
 
 /**
  * @export
@@ -127,7 +117,7 @@ export function Method13FromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'method2ActualStemDensity': json['method2ActualStemDensity'] == null ? undefined : Method13Method2ActualStemDensityFromJSON(json['method2ActualStemDensity']),
         'method2BiomassAtMaturity': json['method2BiomassAtMaturity'] == null ? undefined : Method13Method2BiomassAtMaturityFromJSON(json['method2BiomassAtMaturity']),
         'plantings': ((json['plantings'] as Array<any>).map(Method13PlantingsInnerFromJSON)),
-        'cropType': json['cropType'],
+        'cropType': Method13CropTypeFromJSON(json['cropType']),
         'clearings': ((json['clearings'] as Array<any>).map(Method13ClearingsInnerFromJSON)),
         'calculationMethod': json['calculationMethod'],
     };
@@ -147,7 +137,7 @@ export function Method13ToJSONTyped(value?: Method13 | null, ignoreDiscriminator
         'method2ActualStemDensity': Method13Method2ActualStemDensityToJSON(value['method2ActualStemDensity']),
         'method2BiomassAtMaturity': Method13Method2BiomassAtMaturityToJSON(value['method2BiomassAtMaturity']),
         'plantings': ((value['plantings'] as Array<any>).map(Method13PlantingsInnerToJSON)),
-        'cropType': value['cropType'],
+        'cropType': Method13CropTypeToJSON(value['cropType']),
         'clearings': ((value['clearings'] as Array<any>).map(Method13ClearingsInnerToJSON)),
         'calculationMethod': value['calculationMethod'],
     };

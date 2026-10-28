@@ -22,7 +22,7 @@ import {
 } from './QualityTable';
 
 /**
- * Fraction of inorganic fertiliser that is applied (number)
+ * Fraction of this component of the inorganic fertiliser that is being applied, by weight (0-1)
  * @export
  * @interface WithOriginRegionFractionOfFertiliser
  */
