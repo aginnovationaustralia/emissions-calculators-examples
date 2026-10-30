@@ -36,11 +36,13 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="applications">Inorganic fertiliser applications</param>
         /// <param name="calculationMethodScope1">Method of calculating fertiliser emissions</param>
+        /// <param name="areaAppliedHectares">areaAppliedHectares</param>
         [JsonConstructor]
-        public SpecificProductionSystemScope1Method2Inorganic(List<SpecificProductionSystemScope1Method2InorganicApplicationsInner> applications, CalculationMethodScope1Enum calculationMethodScope1)
+        public SpecificProductionSystemScope1Method2Inorganic(List<BasicProductionSystemScope1Method1InorganicApplicationsInner> applications, CalculationMethodScope1Enum calculationMethodScope1, SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares areaAppliedHectares)
         {
             Applications = applications;
             CalculationMethodScope1 = calculationMethodScope1;
+            AreaAppliedHectares = areaAppliedHectares;
             OnCreated();
         }
 
@@ -111,7 +113,13 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Inorganic fertiliser applications</value>
         [JsonPropertyName("applications")]
-        public List<SpecificProductionSystemScope1Method2InorganicApplicationsInner> Applications { get; set; }
+        public List<BasicProductionSystemScope1Method1InorganicApplicationsInner> Applications { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AreaAppliedHectares
+        /// </summary>
+        [JsonPropertyName("areaAppliedHectares")]
+        public SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares AreaAppliedHectares { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,6 +131,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("class SpecificProductionSystemScope1Method2Inorganic {\n");
             sb.Append("  Applications: ").Append(Applications).Append("\n");
             sb.Append("  CalculationMethodScope1: ").Append(CalculationMethodScope1).Append("\n");
+            sb.Append("  AreaAppliedHectares: ").Append(AreaAppliedHectares).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,8 +179,9 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<List<SpecificProductionSystemScope1Method2InorganicApplicationsInner>?> applications = default;
+            Option<List<BasicProductionSystemScope1Method1InorganicApplicationsInner>?> applications = default;
             Option<SpecificProductionSystemScope1Method2Inorganic.CalculationMethodScope1Enum?> calculationMethodScope1 = default;
+            Option<SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares?> areaAppliedHectares = default;
 
             while (utf8JsonReader.Read())
             {
@@ -189,7 +199,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "applications":
-                            applications = new Option<List<SpecificProductionSystemScope1Method2InorganicApplicationsInner>?>(JsonSerializer.Deserialize<List<SpecificProductionSystemScope1Method2InorganicApplicationsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            applications = new Option<List<BasicProductionSystemScope1Method1InorganicApplicationsInner>?>(JsonSerializer.Deserialize<List<BasicProductionSystemScope1Method1InorganicApplicationsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "calculationMethodScope1":
                             string? calculationMethodScope1RawValue = utf8JsonReader.GetString();
@@ -200,6 +210,9 @@ namespace Org.OpenAPITools.Model
                                     throw new JsonException();
                                 calculationMethodScope1 = new Option<SpecificProductionSystemScope1Method2Inorganic.CalculationMethodScope1Enum?>(calculationMethodScope1Value);
                             }
+                            break;
+                        case "areaAppliedHectares":
+                            areaAppliedHectares = new Option<SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares?>(JsonSerializer.Deserialize<SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -213,13 +226,19 @@ namespace Org.OpenAPITools.Model
             if (!calculationMethodScope1.IsSet)
                 throw new JsonException("Property is required for class SpecificProductionSystemScope1Method2Inorganic: calculationMethodScope1.");
 
+            if (!areaAppliedHectares.IsSet)
+                throw new JsonException("Property is required for class SpecificProductionSystemScope1Method2Inorganic: areaAppliedHectares.");
+
             if (applications.IsSet && applications.Value == null)
                 throw new JsonException("Property is not nullable for class SpecificProductionSystemScope1Method2Inorganic: applications.");
 
             if (calculationMethodScope1.IsSet && calculationMethodScope1.Value == null)
                 throw new JsonException("Property is not nullable for class SpecificProductionSystemScope1Method2Inorganic: calculationMethodScope1.");
 
-            return new SpecificProductionSystemScope1Method2Inorganic(applications.Value!, calculationMethodScope1.Value!.Value!);
+            if (areaAppliedHectares.IsSet && areaAppliedHectares.Value == null)
+                throw new JsonException("Property is not nullable for class SpecificProductionSystemScope1Method2Inorganic: areaAppliedHectares.");
+
+            return new SpecificProductionSystemScope1Method2Inorganic(applications.Value!, calculationMethodScope1.Value!.Value!, areaAppliedHectares.Value!);
         }
 
         /// <summary>
@@ -248,6 +267,8 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, specificProductionSystemScope1Method2Inorganic.Applications, jsonSerializerOptions);
             var calculationMethodScope1RawValue = SpecificProductionSystemScope1Method2Inorganic.CalculationMethodScope1EnumToJsonValue(specificProductionSystemScope1Method2Inorganic.CalculationMethodScope1);
             writer.WriteString("calculationMethodScope1", calculationMethodScope1RawValue);
+            writer.WritePropertyName("areaAppliedHectares");
+            JsonSerializer.Serialize(writer, specificProductionSystemScope1Method2Inorganic.AreaAppliedHectares, jsonSerializerOptions);
         }
     }
 }

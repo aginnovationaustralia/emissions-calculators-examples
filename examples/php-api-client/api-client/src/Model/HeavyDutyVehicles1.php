@@ -61,7 +61,7 @@ class HeavyDutyVehicles1 implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static array $openAPITypes = [
         'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehicles1AmountKilolitres',
         'vehicle_type' => 'string',
-        'fuel_type' => 'string'
+        'fuel_type' => '\OpenAPI\Client\Model\HeavyDutyFuelType'
     ];
 
     /**
@@ -222,14 +222,6 @@ class HeavyDutyVehicles1 implements ModelInterface, ArrayAccess, JsonSerializabl
     }
 
     public const VEHICLE_TYPE_HEAVY_DUTY_VEHICLES = 'Heavy duty vehicles';
-    public const FUEL_TYPE_COMPRESSED_NATURAL_GAS = 'Compressed natural gas';
-    public const FUEL_TYPE_LIQUEFIED_NATURAL_GAS = 'Liquefied natural gas';
-    public const FUEL_TYPE_DIESEL_OIL___EURO_IV_OR_HIGHER = 'Diesel oil - Euro iv or higher';
-    public const FUEL_TYPE_DIESEL_OIL___EURO_III = 'Diesel oil - Euro iii';
-    public const FUEL_TYPE_DIESEL_OIL___EURO_I = 'Diesel oil - Euro i';
-    public const FUEL_TYPE_RENEWABLE_DIESEL___EURO_IV_OR_HIGHER = 'Renewable diesel - Euro iv or higher';
-    public const FUEL_TYPE_RENEWABLE_DIESEL___EURO_III = 'Renewable diesel - Euro iii';
-    public const FUEL_TYPE_RENEWABLE_DIESEL___EURO_I = 'Renewable diesel - Euro i';
 
     /**
      * Gets allowable values of the enum
@@ -240,25 +232,6 @@ class HeavyDutyVehicles1 implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         return [
             self::VEHICLE_TYPE_HEAVY_DUTY_VEHICLES,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_COMPRESSED_NATURAL_GAS,
-            self::FUEL_TYPE_LIQUEFIED_NATURAL_GAS,
-            self::FUEL_TYPE_DIESEL_OIL___EURO_IV_OR_HIGHER,
-            self::FUEL_TYPE_DIESEL_OIL___EURO_III,
-            self::FUEL_TYPE_DIESEL_OIL___EURO_I,
-            self::FUEL_TYPE_RENEWABLE_DIESEL___EURO_IV_OR_HIGHER,
-            self::FUEL_TYPE_RENEWABLE_DIESEL___EURO_III,
-            self::FUEL_TYPE_RENEWABLE_DIESEL___EURO_I,
         ];
     }
 
@@ -324,15 +297,6 @@ class HeavyDutyVehicles1 implements ModelInterface, ArrayAccess, JsonSerializabl
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -412,9 +376,9 @@ class HeavyDutyVehicles1 implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\HeavyDutyFuelType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\HeavyDutyFuelType
     {
         return $this->container['fuel_type'];
     }
@@ -422,24 +386,14 @@ class HeavyDutyVehicles1 implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of fuel used by heavy duty vehicles
+     * @param \OpenAPI\Client\Model\HeavyDutyFuelType $fuel_type Type of fuel used by heavy duty vehicles
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\HeavyDutyFuelType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

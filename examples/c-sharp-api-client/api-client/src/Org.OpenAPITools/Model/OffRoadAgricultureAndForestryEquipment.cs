@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="vehicleType">vehicleType</param>
         /// <param name="fuelType">Type of fuel used by off-road agriculture and forestry equipment</param>
         [JsonConstructor]
-        public OffRoadAgricultureAndForestryEquipment(CarsAndLightCommercialVehiclesAmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, FuelTypeEnum fuelType)
+        public OffRoadAgricultureAndForestryEquipment(CarsAndLightCommercialVehiclesAmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, OffRoadAgricultureAndForestryEquipmentFuelType fuelType)
         {
             AmountKilolitres = amountKilolitres;
             VehicleType = vehicleType;
@@ -110,61 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of fuel used by off-road agriculture and forestry equipment
         /// </summary>
         /// <value>Type of fuel used by off-road agriculture and forestry equipment</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum Diesel for value: Diesel
-            /// </summary>
-            Diesel = 1
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Diesel"))
-                return FuelTypeEnum.Diesel;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Diesel"))
-                return FuelTypeEnum.Diesel;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.Diesel)
-                return "Diesel";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of fuel used by off-road agriculture and forestry equipment
-        /// </summary>
-        /// <value>Type of fuel used by off-road agriculture and forestry equipment</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public OffRoadAgricultureAndForestryEquipmentFuelType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKilolitres
@@ -232,7 +179,7 @@ namespace Org.OpenAPITools.Model
 
             Option<CarsAndLightCommercialVehiclesAmountKilolitres?> amountKilolitres = default;
             Option<OffRoadAgricultureAndForestryEquipment.VehicleTypeEnum?> vehicleType = default;
-            Option<OffRoadAgricultureAndForestryEquipment.FuelTypeEnum?> fuelType = default;
+            Option<OffRoadAgricultureAndForestryEquipmentFuelType?> fuelType = default;
 
             while (utf8JsonReader.Read())
             {
@@ -263,14 +210,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                OffRoadAgricultureAndForestryEquipment.FuelTypeEnum? fuelTypeValue = OffRoadAgricultureAndForestryEquipment.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<OffRoadAgricultureAndForestryEquipment.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<OffRoadAgricultureAndForestryEquipmentFuelType?>(JsonSerializer.Deserialize<OffRoadAgricultureAndForestryEquipmentFuelType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -325,7 +265,7 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, offRoadAgricultureAndForestryEquipment.AmountKilolitres, jsonSerializerOptions);
             var vehicleTypeRawValue = OffRoadAgricultureAndForestryEquipment.VehicleTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipment.VehicleType);
             writer.WriteString("vehicleType", vehicleTypeRawValue);
-            var fuelTypeRawValue = OffRoadAgricultureAndForestryEquipment.FuelTypeEnumToJsonValue(offRoadAgricultureAndForestryEquipment.FuelType);
+            var fuelTypeRawValue = OffRoadAgricultureAndForestryEquipmentFuelTypeValueConverter.ToJsonValue(offRoadAgricultureAndForestryEquipment.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
         }
     }

@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="vehicleType">vehicleType</param>
         /// <param name="fuelType">Type of fuel used by cars and light commercial vehicles</param>
         [JsonConstructor]
-        public CarsAndLightCommercialVehicles(CarsAndLightCommercialVehiclesAmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, FuelTypeEnum fuelType)
+        public CarsAndLightCommercialVehicles(CarsAndLightCommercialVehiclesAmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, CarsLightCommercialFuelType fuelType)
         {
             AmountKilolitres = amountKilolitres;
             VehicleType = vehicleType;
@@ -110,159 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of fuel used by cars and light commercial vehicles
         /// </summary>
         /// <value>Type of fuel used by cars and light commercial vehicles</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum Gasoline for value: Gasoline
-            /// </summary>
-            Gasoline = 1,
-
-            /// <summary>
-            /// Enum DieselOil for value: Diesel oil
-            /// </summary>
-            DieselOil = 2,
-
-            /// <summary>
-            /// Enum LiquefiedPetroleumGasLPG for value: Liquefied petroleum gas (LPG)
-            /// </summary>
-            LiquefiedPetroleumGasLPG = 3,
-
-            /// <summary>
-            /// Enum FuelOil for value: Fuel oil
-            /// </summary>
-            FuelOil = 4,
-
-            /// <summary>
-            /// Enum Ethanol for value: Ethanol
-            /// </summary>
-            Ethanol = 5,
-
-            /// <summary>
-            /// Enum Biodiesel for value: Biodiesel
-            /// </summary>
-            Biodiesel = 6,
-
-            /// <summary>
-            /// Enum RenewableDiesel for value: Renewable diesel
-            /// </summary>
-            RenewableDiesel = 7,
-
-            /// <summary>
-            /// Enum OtherBiofuels for value: Other biofuels
-            /// </summary>
-            OtherBiofuels = 8
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Gasoline"))
-                return FuelTypeEnum.Gasoline;
-
-            if (value.Equals("Diesel oil"))
-                return FuelTypeEnum.DieselOil;
-
-            if (value.Equals("Liquefied petroleum gas (LPG)"))
-                return FuelTypeEnum.LiquefiedPetroleumGasLPG;
-
-            if (value.Equals("Fuel oil"))
-                return FuelTypeEnum.FuelOil;
-
-            if (value.Equals("Ethanol"))
-                return FuelTypeEnum.Ethanol;
-
-            if (value.Equals("Biodiesel"))
-                return FuelTypeEnum.Biodiesel;
-
-            if (value.Equals("Renewable diesel"))
-                return FuelTypeEnum.RenewableDiesel;
-
-            if (value.Equals("Other biofuels"))
-                return FuelTypeEnum.OtherBiofuels;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Gasoline"))
-                return FuelTypeEnum.Gasoline;
-
-            if (value.Equals("Diesel oil"))
-                return FuelTypeEnum.DieselOil;
-
-            if (value.Equals("Liquefied petroleum gas (LPG)"))
-                return FuelTypeEnum.LiquefiedPetroleumGasLPG;
-
-            if (value.Equals("Fuel oil"))
-                return FuelTypeEnum.FuelOil;
-
-            if (value.Equals("Ethanol"))
-                return FuelTypeEnum.Ethanol;
-
-            if (value.Equals("Biodiesel"))
-                return FuelTypeEnum.Biodiesel;
-
-            if (value.Equals("Renewable diesel"))
-                return FuelTypeEnum.RenewableDiesel;
-
-            if (value.Equals("Other biofuels"))
-                return FuelTypeEnum.OtherBiofuels;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.Gasoline)
-                return "Gasoline";
-
-            if (value == FuelTypeEnum.DieselOil)
-                return "Diesel oil";
-
-            if (value == FuelTypeEnum.LiquefiedPetroleumGasLPG)
-                return "Liquefied petroleum gas (LPG)";
-
-            if (value == FuelTypeEnum.FuelOil)
-                return "Fuel oil";
-
-            if (value == FuelTypeEnum.Ethanol)
-                return "Ethanol";
-
-            if (value == FuelTypeEnum.Biodiesel)
-                return "Biodiesel";
-
-            if (value == FuelTypeEnum.RenewableDiesel)
-                return "Renewable diesel";
-
-            if (value == FuelTypeEnum.OtherBiofuels)
-                return "Other biofuels";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of fuel used by cars and light commercial vehicles
-        /// </summary>
-        /// <value>Type of fuel used by cars and light commercial vehicles</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public CarsLightCommercialFuelType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKilolitres
@@ -330,7 +179,7 @@ namespace Org.OpenAPITools.Model
 
             Option<CarsAndLightCommercialVehiclesAmountKilolitres?> amountKilolitres = default;
             Option<CarsAndLightCommercialVehicles.VehicleTypeEnum?> vehicleType = default;
-            Option<CarsAndLightCommercialVehicles.FuelTypeEnum?> fuelType = default;
+            Option<CarsLightCommercialFuelType?> fuelType = default;
 
             while (utf8JsonReader.Read())
             {
@@ -361,14 +210,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                CarsAndLightCommercialVehicles.FuelTypeEnum? fuelTypeValue = CarsAndLightCommercialVehicles.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<CarsAndLightCommercialVehicles.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<CarsLightCommercialFuelType?>(JsonSerializer.Deserialize<CarsLightCommercialFuelType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -423,7 +265,7 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, carsAndLightCommercialVehicles.AmountKilolitres, jsonSerializerOptions);
             var vehicleTypeRawValue = CarsAndLightCommercialVehicles.VehicleTypeEnumToJsonValue(carsAndLightCommercialVehicles.VehicleType);
             writer.WriteString("vehicleType", vehicleTypeRawValue);
-            var fuelTypeRawValue = CarsAndLightCommercialVehicles.FuelTypeEnumToJsonValue(carsAndLightCommercialVehicles.FuelType);
+            var fuelTypeRawValue = CarsLightCommercialFuelTypeValueConverter.ToJsonValue(carsAndLightCommercialVehicles.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
         }
     }

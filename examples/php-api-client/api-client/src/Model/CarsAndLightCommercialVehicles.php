@@ -61,7 +61,7 @@ class CarsAndLightCommercialVehicles implements ModelInterface, ArrayAccess, Jso
     protected static array $openAPITypes = [
         'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres',
         'vehicle_type' => 'string',
-        'fuel_type' => 'string'
+        'fuel_type' => '\OpenAPI\Client\Model\CarsLightCommercialFuelType'
     ];
 
     /**
@@ -222,14 +222,6 @@ class CarsAndLightCommercialVehicles implements ModelInterface, ArrayAccess, Jso
     }
 
     public const VEHICLE_TYPE_CARS_AND_LIGHT_COMMERCIAL_VEHICLES = 'Cars and light commercial vehicles';
-    public const FUEL_TYPE_GASOLINE = 'Gasoline';
-    public const FUEL_TYPE_DIESEL_OIL = 'Diesel oil';
-    public const FUEL_TYPE_LIQUEFIED_PETROLEUM_GAS__LPG = 'Liquefied petroleum gas (LPG)';
-    public const FUEL_TYPE_FUEL_OIL = 'Fuel oil';
-    public const FUEL_TYPE_ETHANOL = 'Ethanol';
-    public const FUEL_TYPE_BIODIESEL = 'Biodiesel';
-    public const FUEL_TYPE_RENEWABLE_DIESEL = 'Renewable diesel';
-    public const FUEL_TYPE_OTHER_BIOFUELS = 'Other biofuels';
 
     /**
      * Gets allowable values of the enum
@@ -240,25 +232,6 @@ class CarsAndLightCommercialVehicles implements ModelInterface, ArrayAccess, Jso
     {
         return [
             self::VEHICLE_TYPE_CARS_AND_LIGHT_COMMERCIAL_VEHICLES,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_GASOLINE,
-            self::FUEL_TYPE_DIESEL_OIL,
-            self::FUEL_TYPE_LIQUEFIED_PETROLEUM_GAS__LPG,
-            self::FUEL_TYPE_FUEL_OIL,
-            self::FUEL_TYPE_ETHANOL,
-            self::FUEL_TYPE_BIODIESEL,
-            self::FUEL_TYPE_RENEWABLE_DIESEL,
-            self::FUEL_TYPE_OTHER_BIOFUELS,
         ];
     }
 
@@ -324,15 +297,6 @@ class CarsAndLightCommercialVehicles implements ModelInterface, ArrayAccess, Jso
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -412,9 +376,9 @@ class CarsAndLightCommercialVehicles implements ModelInterface, ArrayAccess, Jso
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\CarsLightCommercialFuelType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\CarsLightCommercialFuelType
     {
         return $this->container['fuel_type'];
     }
@@ -422,24 +386,14 @@ class CarsAndLightCommercialVehicles implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of fuel used by cars and light commercial vehicles
+     * @param \OpenAPI\Client\Model\CarsLightCommercialFuelType $fuel_type Type of fuel used by cars and light commercial vehicles
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\CarsLightCommercialFuelType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

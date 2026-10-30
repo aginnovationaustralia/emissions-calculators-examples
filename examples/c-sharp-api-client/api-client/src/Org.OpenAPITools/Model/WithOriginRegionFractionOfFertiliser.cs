@@ -27,7 +27,7 @@ using Org.OpenAPITools.Client;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// Fraction of inorganic fertiliser that is applied (number)
+    /// Fraction of this component of the inorganic fertiliser that is being applied, by weight (0-1)
     /// </summary>
     public partial class WithOriginRegionFractionOfFertiliser : IValidatableObject
     {
@@ -87,9 +87,9 @@ namespace Org.OpenAPITools.Model
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Value (decimal) maximum
-            if (this.Value > (decimal)100)
+            if (this.Value > (decimal)1)
             {
-                yield return new ValidationResult("Invalid value for Value, must be a value less than or equal to 100.", new [] { "Value" });
+                yield return new ValidationResult("Invalid value for Value, must be a value less than or equal to 1.", new [] { "Value" });
             }
 
             // Value (decimal) minimum

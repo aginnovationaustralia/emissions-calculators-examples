@@ -60,7 +60,7 @@ class Method11 implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'amount' => '\OpenAPI\Client\Model\Method11Amount',
-        'type' => 'string'
+        'type' => '\OpenAPI\Client\Model\PurchasedMineralSupplementType'
     ];
 
     /**
@@ -215,23 +215,6 @@ class Method11 implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_LICK_BLOCK_DRY_SEASON_MIX = 'Lick block, dry season mix';
-    public const TYPE_LICK_BLOCK_WEANER = 'Lick block, weaner';
-    public const TYPE_LICK_BLOCK_MINERAL = 'Lick block, mineral';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_LICK_BLOCK_DRY_SEASON_MIX,
-            self::TYPE_LICK_BLOCK_WEANER,
-            self::TYPE_LICK_BLOCK_MINERAL,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -282,15 +265,6 @@ class Method11 implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -333,9 +307,9 @@ class Method11 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\PurchasedMineralSupplementType
      */
-    public function getType(): string
+    public function getType(): \OpenAPI\Client\Model\PurchasedMineralSupplementType
     {
         return $this->container['type'];
     }
@@ -343,24 +317,14 @@ class Method11 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type The type of mineral supplement purchased.
+     * @param \OpenAPI\Client\Model\PurchasedMineralSupplementType $type The type of mineral supplement purchased.
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(\OpenAPI\Client\Model\PurchasedMineralSupplementType $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

@@ -40,7 +40,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fertiliserType">Type of inorganic fertiliser applied</param>
         /// <param name="customNitrogenFraction">customNitrogenFraction</param>
         [JsonConstructor]
-        public Scope3Method2KnownFertiliserType(Scope3Method1MassAppliedKg massAppliedKg, Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor customScope3EmissionFactor, CalculationMethodScope3Enum calculationMethodScope3, FertiliserTypeEnum fertiliserType, Option<Scope3Method2KnownFertiliserTypeCustomNitrogenFraction?> customNitrogenFraction = default)
+        public Scope3Method2KnownFertiliserType(Scope3Method1MassAppliedKg massAppliedKg, Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor customScope3EmissionFactor, CalculationMethodScope3Enum calculationMethodScope3, InorganicFertiliserType fertiliserType, Option<Scope3Method2KnownFertiliserTypeCustomNitrogenFraction?> customNitrogenFraction = default)
         {
             MassAppliedKg = massAppliedKg;
             CustomScope3EmissionFactor = customScope3EmissionFactor;
@@ -116,173 +116,8 @@ namespace Org.OpenAPITools.Model
         /// Type of inorganic fertiliser applied
         /// </summary>
         /// <value>Type of inorganic fertiliser applied</value>
-        public enum FertiliserTypeEnum
-        {
-            /// <summary>
-            /// Enum MonoammoniumPhosphateMAP for value: Monoammonium Phosphate (MAP)
-            /// </summary>
-            MonoammoniumPhosphateMAP = 1,
-
-            /// <summary>
-            /// Enum DiammoniumPhosphateDAP for value: Diammonium Phosphate (DAP)
-            /// </summary>
-            DiammoniumPhosphateDAP = 2,
-
-            /// <summary>
-            /// Enum Urea for value: Urea
-            /// </summary>
-            Urea = 3,
-
-            /// <summary>
-            /// Enum SulphateOfAmmoniaSOA for value: Sulphate of Ammonia (SOA)
-            /// </summary>
-            SulphateOfAmmoniaSOA = 4,
-
-            /// <summary>
-            /// Enum UreaAmmoniumNitrateUAN for value: Urea-Ammonium Nitrate (UAN)
-            /// </summary>
-            UreaAmmoniumNitrateUAN = 5,
-
-            /// <summary>
-            /// Enum AmmoniumNitrateAN for value: Ammonium Nitrate (AN)
-            /// </summary>
-            AmmoniumNitrateAN = 6,
-
-            /// <summary>
-            /// Enum CalciumAmmoniumNitrateCAN for value: Calcium Ammonium Nitrate (CAN)
-            /// </summary>
-            CalciumAmmoniumNitrateCAN = 7,
-
-            /// <summary>
-            /// Enum CalciumNitrate for value: Calcium Nitrate
-            /// </summary>
-            CalciumNitrate = 8,
-
-            /// <summary>
-            /// Enum SingleSuperPhosphate for value: Single Super Phosphate
-            /// </summary>
-            SingleSuperPhosphate = 9
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FertiliserTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FertiliserTypeEnum FertiliserTypeEnumFromString(string value)
-        {
-            if (value.Equals("Monoammonium Phosphate (MAP)"))
-                return FertiliserTypeEnum.MonoammoniumPhosphateMAP;
-
-            if (value.Equals("Diammonium Phosphate (DAP)"))
-                return FertiliserTypeEnum.DiammoniumPhosphateDAP;
-
-            if (value.Equals("Urea"))
-                return FertiliserTypeEnum.Urea;
-
-            if (value.Equals("Sulphate of Ammonia (SOA)"))
-                return FertiliserTypeEnum.SulphateOfAmmoniaSOA;
-
-            if (value.Equals("Urea-Ammonium Nitrate (UAN)"))
-                return FertiliserTypeEnum.UreaAmmoniumNitrateUAN;
-
-            if (value.Equals("Ammonium Nitrate (AN)"))
-                return FertiliserTypeEnum.AmmoniumNitrateAN;
-
-            if (value.Equals("Calcium Ammonium Nitrate (CAN)"))
-                return FertiliserTypeEnum.CalciumAmmoniumNitrateCAN;
-
-            if (value.Equals("Calcium Nitrate"))
-                return FertiliserTypeEnum.CalciumNitrate;
-
-            if (value.Equals("Single Super Phosphate"))
-                return FertiliserTypeEnum.SingleSuperPhosphate;
-
-            throw new NotImplementedException($"Could not convert value to type FertiliserTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FertiliserTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FertiliserTypeEnum? FertiliserTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Monoammonium Phosphate (MAP)"))
-                return FertiliserTypeEnum.MonoammoniumPhosphateMAP;
-
-            if (value.Equals("Diammonium Phosphate (DAP)"))
-                return FertiliserTypeEnum.DiammoniumPhosphateDAP;
-
-            if (value.Equals("Urea"))
-                return FertiliserTypeEnum.Urea;
-
-            if (value.Equals("Sulphate of Ammonia (SOA)"))
-                return FertiliserTypeEnum.SulphateOfAmmoniaSOA;
-
-            if (value.Equals("Urea-Ammonium Nitrate (UAN)"))
-                return FertiliserTypeEnum.UreaAmmoniumNitrateUAN;
-
-            if (value.Equals("Ammonium Nitrate (AN)"))
-                return FertiliserTypeEnum.AmmoniumNitrateAN;
-
-            if (value.Equals("Calcium Ammonium Nitrate (CAN)"))
-                return FertiliserTypeEnum.CalciumAmmoniumNitrateCAN;
-
-            if (value.Equals("Calcium Nitrate"))
-                return FertiliserTypeEnum.CalciumNitrate;
-
-            if (value.Equals("Single Super Phosphate"))
-                return FertiliserTypeEnum.SingleSuperPhosphate;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FertiliserTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FertiliserTypeEnumToJsonValue(FertiliserTypeEnum value)
-        {
-            if (value == FertiliserTypeEnum.MonoammoniumPhosphateMAP)
-                return "Monoammonium Phosphate (MAP)";
-
-            if (value == FertiliserTypeEnum.DiammoniumPhosphateDAP)
-                return "Diammonium Phosphate (DAP)";
-
-            if (value == FertiliserTypeEnum.Urea)
-                return "Urea";
-
-            if (value == FertiliserTypeEnum.SulphateOfAmmoniaSOA)
-                return "Sulphate of Ammonia (SOA)";
-
-            if (value == FertiliserTypeEnum.UreaAmmoniumNitrateUAN)
-                return "Urea-Ammonium Nitrate (UAN)";
-
-            if (value == FertiliserTypeEnum.AmmoniumNitrateAN)
-                return "Ammonium Nitrate (AN)";
-
-            if (value == FertiliserTypeEnum.CalciumAmmoniumNitrateCAN)
-                return "Calcium Ammonium Nitrate (CAN)";
-
-            if (value == FertiliserTypeEnum.CalciumNitrate)
-                return "Calcium Nitrate";
-
-            if (value == FertiliserTypeEnum.SingleSuperPhosphate)
-                return "Single Super Phosphate";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of inorganic fertiliser applied
-        /// </summary>
-        /// <value>Type of inorganic fertiliser applied</value>
         [JsonPropertyName("fertiliserType")]
-        public FertiliserTypeEnum FertiliserType { get; set; }
+        public InorganicFertiliserType FertiliserType { get; set; }
 
         /// <summary>
         /// Gets or Sets MassAppliedKg
@@ -372,7 +207,7 @@ namespace Org.OpenAPITools.Model
             Option<Scope3Method1MassAppliedKg?> massAppliedKg = default;
             Option<Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor?> customScope3EmissionFactor = default;
             Option<Scope3Method2KnownFertiliserType.CalculationMethodScope3Enum?> calculationMethodScope3 = default;
-            Option<Scope3Method2KnownFertiliserType.FertiliserTypeEnum?> fertiliserType = default;
+            Option<InorganicFertiliserType?> fertiliserType = default;
             Option<Scope3Method2KnownFertiliserTypeCustomNitrogenFraction?> customNitrogenFraction = default;
 
             while (utf8JsonReader.Read())
@@ -407,14 +242,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fertiliserType":
-                            string? fertiliserTypeRawValue = utf8JsonReader.GetString();
-                            if (fertiliserTypeRawValue != null)
-                            {
-                                Scope3Method2KnownFertiliserType.FertiliserTypeEnum? fertiliserTypeValue = Scope3Method2KnownFertiliserType.FertiliserTypeEnumFromStringOrDefault(fertiliserTypeRawValue);
-                                if (fertiliserTypeValue == null)
-                                    throw new JsonException();
-                                fertiliserType = new Option<Scope3Method2KnownFertiliserType.FertiliserTypeEnum?>(fertiliserTypeValue);
-                            }
+                            fertiliserType = new Option<InorganicFertiliserType?>(JsonSerializer.Deserialize<InorganicFertiliserType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "customNitrogenFraction":
                             customNitrogenFraction = new Option<Scope3Method2KnownFertiliserTypeCustomNitrogenFraction?>(JsonSerializer.Deserialize<Scope3Method2KnownFertiliserTypeCustomNitrogenFraction>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -486,8 +314,9 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, scope3Method2KnownFertiliserType.CustomScope3EmissionFactor, jsonSerializerOptions);
             var calculationMethodScope3RawValue = Scope3Method2KnownFertiliserType.CalculationMethodScope3EnumToJsonValue(scope3Method2KnownFertiliserType.CalculationMethodScope3);
             writer.WriteString("calculationMethodScope3", calculationMethodScope3RawValue);
-            var fertiliserTypeRawValue = Scope3Method2KnownFertiliserType.FertiliserTypeEnumToJsonValue(scope3Method2KnownFertiliserType.FertiliserType);
+            var fertiliserTypeRawValue = InorganicFertiliserTypeValueConverter.ToJsonValue(scope3Method2KnownFertiliserType.FertiliserType);
             writer.WriteString("fertiliserType", fertiliserTypeRawValue);
+
             if (scope3Method2KnownFertiliserType.CustomNitrogenFractionOption.IsSet)
             {
                 writer.WritePropertyName("customNitrogenFraction");

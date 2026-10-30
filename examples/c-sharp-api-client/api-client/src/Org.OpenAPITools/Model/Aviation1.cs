@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="vehicleType">vehicleType</param>
         /// <param name="fuelType">Type of fuel used by aircraft</param>
         [JsonConstructor]
-        public Aviation1(CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, FuelTypeEnum fuelType)
+        public Aviation1(CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, AviationFuelType fuelType)
         {
             AmountKilolitres = amountKilolitres;
             VehicleType = vehicleType;
@@ -110,89 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of fuel used by aircraft
         /// </summary>
         /// <value>Type of fuel used by aircraft</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum GasolineForUseAsFuelInAnAircraft for value: Gasoline for use as fuel in an aircraft
-            /// </summary>
-            GasolineForUseAsFuelInAnAircraft = 1,
-
-            /// <summary>
-            /// Enum KeroseneForUseAsFuelInAnAircraft for value: Kerosene for use as fuel in an aircraft
-            /// </summary>
-            KeroseneForUseAsFuelInAnAircraft = 2,
-
-            /// <summary>
-            /// Enum RenewableAviationKerosene for value: Renewable aviation kerosene
-            /// </summary>
-            RenewableAviationKerosene = 3
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Gasoline for use as fuel in an aircraft"))
-                return FuelTypeEnum.GasolineForUseAsFuelInAnAircraft;
-
-            if (value.Equals("Kerosene for use as fuel in an aircraft"))
-                return FuelTypeEnum.KeroseneForUseAsFuelInAnAircraft;
-
-            if (value.Equals("Renewable aviation kerosene"))
-                return FuelTypeEnum.RenewableAviationKerosene;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Gasoline for use as fuel in an aircraft"))
-                return FuelTypeEnum.GasolineForUseAsFuelInAnAircraft;
-
-            if (value.Equals("Kerosene for use as fuel in an aircraft"))
-                return FuelTypeEnum.KeroseneForUseAsFuelInAnAircraft;
-
-            if (value.Equals("Renewable aviation kerosene"))
-                return FuelTypeEnum.RenewableAviationKerosene;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.GasolineForUseAsFuelInAnAircraft)
-                return "Gasoline for use as fuel in an aircraft";
-
-            if (value == FuelTypeEnum.KeroseneForUseAsFuelInAnAircraft)
-                return "Kerosene for use as fuel in an aircraft";
-
-            if (value == FuelTypeEnum.RenewableAviationKerosene)
-                return "Renewable aviation kerosene";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of fuel used by aircraft
-        /// </summary>
-        /// <value>Type of fuel used by aircraft</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public AviationFuelType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKilolitres
@@ -260,7 +179,7 @@ namespace Org.OpenAPITools.Model
 
             Option<CarsAndLightCommercialVehicles1AmountKilolitres?> amountKilolitres = default;
             Option<Aviation1.VehicleTypeEnum?> vehicleType = default;
-            Option<Aviation1.FuelTypeEnum?> fuelType = default;
+            Option<AviationFuelType?> fuelType = default;
 
             while (utf8JsonReader.Read())
             {
@@ -291,14 +210,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                Aviation1.FuelTypeEnum? fuelTypeValue = Aviation1.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<Aviation1.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<AviationFuelType?>(JsonSerializer.Deserialize<AviationFuelType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -353,7 +265,7 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, aviation1.AmountKilolitres, jsonSerializerOptions);
             var vehicleTypeRawValue = Aviation1.VehicleTypeEnumToJsonValue(aviation1.VehicleType);
             writer.WriteString("vehicleType", vehicleTypeRawValue);
-            var fuelTypeRawValue = Aviation1.FuelTypeEnumToJsonValue(aviation1.FuelType);
+            var fuelTypeRawValue = AviationFuelTypeValueConverter.ToJsonValue(aviation1.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
         }
     }

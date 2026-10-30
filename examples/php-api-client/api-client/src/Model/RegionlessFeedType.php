@@ -60,7 +60,7 @@ class RegionlessFeedType implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     protected static array $openAPITypes = [
         'amount' => '\OpenAPI\Client\Model\RegionlessFeedTypeAmount',
-        'type' => 'string'
+        'type' => '\OpenAPI\Client\Model\PurchasedFeedLivestockRegionlessType'
     ];
 
     /**
@@ -215,25 +215,6 @@ class RegionlessFeedType implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    public const TYPE_BENTONITE = 'Bentonite';
-    public const TYPE_MEAT_MEAL = 'Meat Meal';
-    public const TYPE_BLOOD_MEAL = 'Blood Meal';
-    public const TYPE_MILLRUN = 'Millrun';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_BENTONITE,
-            self::TYPE_MEAT_MEAL,
-            self::TYPE_BLOOD_MEAL,
-            self::TYPE_MILLRUN,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -284,15 +265,6 @@ class RegionlessFeedType implements ModelInterface, ArrayAccess, JsonSerializabl
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -335,9 +307,9 @@ class RegionlessFeedType implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\PurchasedFeedLivestockRegionlessType
      */
-    public function getType(): string
+    public function getType(): \OpenAPI\Client\Model\PurchasedFeedLivestockRegionlessType
     {
         return $this->container['type'];
     }
@@ -345,24 +317,14 @@ class RegionlessFeedType implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets type
      *
-     * @param string $type The type of feed purchased.
+     * @param \OpenAPI\Client\Model\PurchasedFeedLivestockRegionlessType $type The type of feed purchased.
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(\OpenAPI\Client\Model\PurchasedFeedLivestockRegionlessType $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

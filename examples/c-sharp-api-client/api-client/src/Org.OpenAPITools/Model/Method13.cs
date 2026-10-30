@@ -41,7 +41,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="method2ActualStemDensity">method2ActualStemDensity</param>
         /// <param name="method2BiomassAtMaturity">method2BiomassAtMaturity</param>
         [JsonConstructor]
-        public Method13(List<Method13PlantingsInner> plantings, CropTypeEnum cropType, List<Method13ClearingsInner> clearings, CalculationMethodEnum calculationMethod, Option<Method13Method2ActualStemDensity?> method2ActualStemDensity = default, Option<Method13Method2BiomassAtMaturity?> method2BiomassAtMaturity = default)
+        public Method13(List<Method13PlantingsInner> plantings, Method13CropType cropType, List<Method13ClearingsInner> clearings, CalculationMethodEnum calculationMethod, Option<Method13Method2ActualStemDensity?> method2ActualStemDensity = default, Option<Method13Method2BiomassAtMaturity?> method2BiomassAtMaturity = default)
         {
             Plantings = plantings;
             CropType = cropType;
@@ -53,190 +53,6 @@ namespace Org.OpenAPITools.Model
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Defines CropType
-        /// </summary>
-        public enum CropTypeEnum
-        {
-            /// <summary>
-            /// Enum Oranges for value: Oranges
-            /// </summary>
-            Oranges = 1,
-
-            /// <summary>
-            /// Enum Macadamias for value: Macadamias
-            /// </summary>
-            Macadamias = 2,
-
-            /// <summary>
-            /// Enum Almonds for value: Almonds
-            /// </summary>
-            Almonds = 3,
-
-            /// <summary>
-            /// Enum Apples for value: Apples
-            /// </summary>
-            Apples = 4,
-
-            /// <summary>
-            /// Enum Peaches for value: Peaches
-            /// </summary>
-            Peaches = 5,
-
-            /// <summary>
-            /// Enum Olives for value: Olives
-            /// </summary>
-            Olives = 6,
-
-            /// <summary>
-            /// Enum Avocados for value: Avocados
-            /// </summary>
-            Avocados = 7,
-
-            /// <summary>
-            /// Enum Mangoes for value: Mangoes
-            /// </summary>
-            Mangoes = 8,
-
-            /// <summary>
-            /// Enum Grapes for value: Grapes
-            /// </summary>
-            Grapes = 9,
-
-            /// <summary>
-            /// Enum Kiwifruits for value: Kiwifruits
-            /// </summary>
-            Kiwifruits = 10
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CropTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static CropTypeEnum CropTypeEnumFromString(string value)
-        {
-            if (value.Equals("Oranges"))
-                return CropTypeEnum.Oranges;
-
-            if (value.Equals("Macadamias"))
-                return CropTypeEnum.Macadamias;
-
-            if (value.Equals("Almonds"))
-                return CropTypeEnum.Almonds;
-
-            if (value.Equals("Apples"))
-                return CropTypeEnum.Apples;
-
-            if (value.Equals("Peaches"))
-                return CropTypeEnum.Peaches;
-
-            if (value.Equals("Olives"))
-                return CropTypeEnum.Olives;
-
-            if (value.Equals("Avocados"))
-                return CropTypeEnum.Avocados;
-
-            if (value.Equals("Mangoes"))
-                return CropTypeEnum.Mangoes;
-
-            if (value.Equals("Grapes"))
-                return CropTypeEnum.Grapes;
-
-            if (value.Equals("Kiwifruits"))
-                return CropTypeEnum.Kiwifruits;
-
-            throw new NotImplementedException($"Could not convert value to type CropTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CropTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static CropTypeEnum? CropTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Oranges"))
-                return CropTypeEnum.Oranges;
-
-            if (value.Equals("Macadamias"))
-                return CropTypeEnum.Macadamias;
-
-            if (value.Equals("Almonds"))
-                return CropTypeEnum.Almonds;
-
-            if (value.Equals("Apples"))
-                return CropTypeEnum.Apples;
-
-            if (value.Equals("Peaches"))
-                return CropTypeEnum.Peaches;
-
-            if (value.Equals("Olives"))
-                return CropTypeEnum.Olives;
-
-            if (value.Equals("Avocados"))
-                return CropTypeEnum.Avocados;
-
-            if (value.Equals("Mangoes"))
-                return CropTypeEnum.Mangoes;
-
-            if (value.Equals("Grapes"))
-                return CropTypeEnum.Grapes;
-
-            if (value.Equals("Kiwifruits"))
-                return CropTypeEnum.Kiwifruits;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="CropTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string CropTypeEnumToJsonValue(CropTypeEnum value)
-        {
-            if (value == CropTypeEnum.Oranges)
-                return "Oranges";
-
-            if (value == CropTypeEnum.Macadamias)
-                return "Macadamias";
-
-            if (value == CropTypeEnum.Almonds)
-                return "Almonds";
-
-            if (value == CropTypeEnum.Apples)
-                return "Apples";
-
-            if (value == CropTypeEnum.Peaches)
-                return "Peaches";
-
-            if (value == CropTypeEnum.Olives)
-                return "Olives";
-
-            if (value == CropTypeEnum.Avocados)
-                return "Avocados";
-
-            if (value == CropTypeEnum.Mangoes)
-                return "Mangoes";
-
-            if (value == CropTypeEnum.Grapes)
-                return "Grapes";
-
-            if (value == CropTypeEnum.Kiwifruits)
-                return "Kiwifruits";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Gets or Sets CropType
-        /// </summary>
-        [JsonPropertyName("cropType")]
-        public CropTypeEnum CropType { get; set; }
 
         /// <summary>
         /// Defines CalculationMethod
@@ -301,6 +117,12 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         [JsonPropertyName("plantings")]
         public List<Method13PlantingsInner> Plantings { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CropType
+        /// </summary>
+        [JsonPropertyName("cropType")]
+        public Method13CropType CropType { get; set; }
 
         /// <summary>
         /// Gets or Sets Clearings
@@ -396,7 +218,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<List<Method13PlantingsInner>?> plantings = default;
-            Option<Method13.CropTypeEnum?> cropType = default;
+            Option<Method13CropType?> cropType = default;
             Option<List<Method13ClearingsInner>?> clearings = default;
             Option<Method13.CalculationMethodEnum?> calculationMethod = default;
             Option<Method13Method2ActualStemDensity?> method2ActualStemDensity = default;
@@ -421,14 +243,7 @@ namespace Org.OpenAPITools.Model
                             plantings = new Option<List<Method13PlantingsInner>?>(JsonSerializer.Deserialize<List<Method13PlantingsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "cropType":
-                            string? cropTypeRawValue = utf8JsonReader.GetString();
-                            if (cropTypeRawValue != null)
-                            {
-                                Method13.CropTypeEnum? cropTypeValue = Method13.CropTypeEnumFromStringOrDefault(cropTypeRawValue);
-                                if (cropTypeValue == null)
-                                    throw new JsonException();
-                                cropType = new Option<Method13.CropTypeEnum?>(cropTypeValue);
-                            }
+                            cropType = new Option<Method13CropType?>(JsonSerializer.Deserialize<Method13CropType>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "clearings":
                             clearings = new Option<List<Method13ClearingsInner>?>(JsonSerializer.Deserialize<List<Method13ClearingsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -485,7 +300,7 @@ namespace Org.OpenAPITools.Model
             if (method2BiomassAtMaturity.IsSet && method2BiomassAtMaturity.Value == null)
                 throw new JsonException("Property is not nullable for class Method13: method2BiomassAtMaturity.");
 
-            return new Method13(plantings.Value!, cropType.Value!.Value!, clearings.Value!, calculationMethod.Value!.Value!, method2ActualStemDensity, method2BiomassAtMaturity);
+            return new Method13(plantings.Value!, cropType.Value!, clearings.Value!, calculationMethod.Value!.Value!, method2ActualStemDensity, method2BiomassAtMaturity);
         }
 
         /// <summary>
@@ -518,8 +333,8 @@ namespace Org.OpenAPITools.Model
 
             writer.WritePropertyName("plantings");
             JsonSerializer.Serialize(writer, method13.Plantings, jsonSerializerOptions);
-            var cropTypeRawValue = Method13.CropTypeEnumToJsonValue(method13.CropType);
-            writer.WriteString("cropType", cropTypeRawValue);
+            writer.WritePropertyName("cropType");
+            JsonSerializer.Serialize(writer, method13.CropType, jsonSerializerOptions);
             writer.WritePropertyName("clearings");
             JsonSerializer.Serialize(writer, method13.Clearings, jsonSerializerOptions);
             var calculationMethodRawValue = Method13.CalculationMethodEnumToJsonValue(method13.CalculationMethod);

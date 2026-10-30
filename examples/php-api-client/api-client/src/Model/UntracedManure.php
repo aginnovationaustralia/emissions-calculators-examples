@@ -61,7 +61,7 @@ class UntracedManure implements ModelInterface, ArrayAccess, JsonSerializable
     protected static array $openAPITypes = [
         'origin' => 'string',
         'mass_applied_kg' => '\OpenAPI\Client\Model\UntracedManureMassAppliedKg',
-        'organic_fertiliser_type' => 'string',
+        'organic_fertiliser_type' => '\OpenAPI\Client\Model\OrganicFertiliserType',
         'custom_nitrogen_fraction' => '\OpenAPI\Client\Model\UntracedManureCustomNitrogenFraction'
     ];
 
@@ -228,12 +228,6 @@ class UntracedManure implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     public const ORIGIN_UNTRACED = 'Untraced';
-    public const ORGANIC_FERTILISER_TYPE_DAIRY_CATTLE = 'Dairy cattle';
-    public const ORGANIC_FERTILISER_TYPE_BEEF_CATTLE = 'Beef cattle';
-    public const ORGANIC_FERTILISER_TYPE_POULTRY = 'Poultry';
-    public const ORGANIC_FERTILISER_TYPE_PIGS = 'Pigs';
-    public const ORGANIC_FERTILISER_TYPE_SHEEP = 'Sheep';
-    public const ORGANIC_FERTILISER_TYPE_HORSES_MULES = 'Horses/Mules';
 
     /**
      * Gets allowable values of the enum
@@ -244,23 +238,6 @@ class UntracedManure implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::ORIGIN_UNTRACED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getOrganicFertiliserTypeAllowableValues()
-    {
-        return [
-            self::ORGANIC_FERTILISER_TYPE_DAIRY_CATTLE,
-            self::ORGANIC_FERTILISER_TYPE_BEEF_CATTLE,
-            self::ORGANIC_FERTILISER_TYPE_POULTRY,
-            self::ORGANIC_FERTILISER_TYPE_PIGS,
-            self::ORGANIC_FERTILISER_TYPE_SHEEP,
-            self::ORGANIC_FERTILISER_TYPE_HORSES_MULES,
         ];
     }
 
@@ -327,15 +304,6 @@ class UntracedManure implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['organic_fertiliser_type'] === null) {
             $invalidProperties[] = "'organic_fertiliser_type' can't be null";
         }
-        $allowedValues = self::getOrganicFertiliserTypeAllowableValues();
-        if (!is_null($this->container['organic_fertiliser_type']) && !in_array($this->container['organic_fertiliser_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'organic_fertiliser_type', must be one of '%s'",
-                $this->container['organic_fertiliser_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -415,9 +383,9 @@ class UntracedManure implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets organic_fertiliser_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\OrganicFertiliserType
      */
-    public function getOrganicFertiliserType(): string
+    public function getOrganicFertiliserType(): \OpenAPI\Client\Model\OrganicFertiliserType
     {
         return $this->container['organic_fertiliser_type'];
     }
@@ -425,24 +393,14 @@ class UntracedManure implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets organic_fertiliser_type
      *
-     * @param string $organic_fertiliser_type Type of organic fertiliser
+     * @param \OpenAPI\Client\Model\OrganicFertiliserType $organic_fertiliser_type Type of organic fertiliser
      *
      * @return $this
      */
-    public function setOrganicFertiliserType(string $organic_fertiliser_type): static
+    public function setOrganicFertiliserType(\OpenAPI\Client\Model\OrganicFertiliserType $organic_fertiliser_type): static
     {
         if (is_null($organic_fertiliser_type)) {
             throw new InvalidArgumentException('non-nullable organic_fertiliser_type cannot be null');
-        }
-        $allowedValues = self::getOrganicFertiliserTypeAllowableValues();
-        if (!in_array($organic_fertiliser_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'organic_fertiliser_type', must be one of '%s'",
-                    $organic_fertiliser_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['organic_fertiliser_type'] = $organic_fertiliser_type;
 

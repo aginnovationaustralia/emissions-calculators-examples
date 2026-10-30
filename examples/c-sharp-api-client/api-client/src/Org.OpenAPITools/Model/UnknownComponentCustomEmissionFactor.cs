@@ -37,7 +37,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fractionOfFertiliser">fractionOfFertiliser</param>
         /// <param name="emissionFactor">emissionFactor</param>
         [JsonConstructor]
-        public UnknownComponentCustomEmissionFactor(UnknownComponentCustomEmissionFactorFractionOfFertiliser fractionOfFertiliser, UnknownComponentCustomEmissionFactorEmissionFactor emissionFactor)
+        public UnknownComponentCustomEmissionFactor(WithOriginRegionFractionOfFertiliser fractionOfFertiliser, UnknownComponentCustomEmissionFactorEmissionFactor emissionFactor)
         {
             FractionOfFertiliser = fractionOfFertiliser;
             EmissionFactor = emissionFactor;
@@ -50,7 +50,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets FractionOfFertiliser
         /// </summary>
         [JsonPropertyName("fractionOfFertiliser")]
-        public UnknownComponentCustomEmissionFactorFractionOfFertiliser FractionOfFertiliser { get; set; }
+        public WithOriginRegionFractionOfFertiliser FractionOfFertiliser { get; set; }
 
         /// <summary>
         /// Gets or Sets EmissionFactor
@@ -115,7 +115,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<UnknownComponentCustomEmissionFactorFractionOfFertiliser?> fractionOfFertiliser = default;
+            Option<WithOriginRegionFractionOfFertiliser?> fractionOfFertiliser = default;
             Option<UnknownComponentCustomEmissionFactorEmissionFactor?> emissionFactor = default;
 
             while (utf8JsonReader.Read())
@@ -134,7 +134,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "fractionOfFertiliser":
-                            fractionOfFertiliser = new Option<UnknownComponentCustomEmissionFactorFractionOfFertiliser?>(JsonSerializer.Deserialize<UnknownComponentCustomEmissionFactorFractionOfFertiliser>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            fractionOfFertiliser = new Option<WithOriginRegionFractionOfFertiliser?>(JsonSerializer.Deserialize<WithOriginRegionFractionOfFertiliser>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "emissionFactor":
                             emissionFactor = new Option<UnknownComponentCustomEmissionFactorEmissionFactor?>(JsonSerializer.Deserialize<UnknownComponentCustomEmissionFactorEmissionFactor>(ref utf8JsonReader, jsonSerializerOptions)!);

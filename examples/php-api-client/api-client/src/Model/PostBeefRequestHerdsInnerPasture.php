@@ -59,7 +59,7 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, J
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\PastureType',
         'area_managed' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureAreaManaged',
         'fraction_of_annual_crop_burnt' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt',
         'residues' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerPastureResidues'
@@ -227,27 +227,6 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, J
         return self::$openAPIModelName;
     }
 
-    public const TYPE_ANNUAL_GRASS = 'Annual grass';
-    public const TYPE_GRASS_CLOVER_MIXTURE = 'Grass clover mixture';
-    public const TYPE_LUCERNE = 'Lucerne';
-    public const TYPE_OTHER_LEGUME = 'Other legume';
-    public const TYPE_PERENNIAL_PASTURE = 'Perennial pasture';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_ANNUAL_GRASS,
-            self::TYPE_GRASS_CLOVER_MIXTURE,
-            self::TYPE_LUCERNE,
-            self::TYPE_OTHER_LEGUME,
-            self::TYPE_PERENNIAL_PASTURE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -297,15 +276,6 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, J
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['area_managed'] === null) {
             $invalidProperties[] = "'area_managed' can't be null";
         }
@@ -330,9 +300,9 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, J
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\PastureType
      */
-    public function getType(): string
+    public function getType(): \OpenAPI\Client\Model\PastureType
     {
         return $this->container['type'];
     }
@@ -340,24 +310,14 @@ class PostBeefRequestHerdsInnerPasture implements ModelInterface, ArrayAccess, J
     /**
      * Sets type
      *
-     * @param string $type Type of pasture managed in this activity
+     * @param \OpenAPI\Client\Model\PastureType $type Type of pasture managed in this activity
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(\OpenAPI\Client\Model\PastureType $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

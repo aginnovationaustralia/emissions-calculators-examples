@@ -59,7 +59,7 @@ class QuantityByVolume5 implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'waste_type' => 'string',
+        'waste_type' => '\OpenAPI\Client\Model\SolidWasteNonStreamType',
         'volume_waste_cubic_metres' => '\OpenAPI\Client\Model\QuantityByVolume5VolumeWasteCubicMetres'
     ];
 
@@ -215,37 +215,6 @@ class QuantityByVolume5 implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const WASTE_TYPE_FOOD_WASTE = 'Food waste';
-    public const WASTE_TYPE_GREEN_WASTE = 'Green waste';
-    public const WASTE_TYPE_WOOD_PRODUCTS__AT_TIME_OF_HARVEST = 'Wood products (at time of harvest)';
-    public const WASTE_TYPE_WOOD_PRODUCTS__AT_END_OF_LIFE = 'Wood products (at end of life)';
-    public const WASTE_TYPE_SLUDGE = 'Sludge';
-    public const WASTE_TYPE_PAPER_AND_CARDBOARD = 'Paper and cardboard';
-    public const WASTE_TYPE_TEXTILES = 'Textiles';
-    public const WASTE_TYPE_RUBBER_AND_LEATHER = 'Rubber and leather';
-    public const WASTE_TYPE_INERT_WASTE = 'Inert waste';
-    public const WASTE_TYPE_NAPPIES = 'Nappies';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getWasteTypeAllowableValues()
-    {
-        return [
-            self::WASTE_TYPE_FOOD_WASTE,
-            self::WASTE_TYPE_GREEN_WASTE,
-            self::WASTE_TYPE_WOOD_PRODUCTS__AT_TIME_OF_HARVEST,
-            self::WASTE_TYPE_WOOD_PRODUCTS__AT_END_OF_LIFE,
-            self::WASTE_TYPE_SLUDGE,
-            self::WASTE_TYPE_PAPER_AND_CARDBOARD,
-            self::WASTE_TYPE_TEXTILES,
-            self::WASTE_TYPE_RUBBER_AND_LEATHER,
-            self::WASTE_TYPE_INERT_WASTE,
-            self::WASTE_TYPE_NAPPIES,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -293,15 +262,6 @@ class QuantityByVolume5 implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['waste_type'] === null) {
             $invalidProperties[] = "'waste_type' can't be null";
         }
-        $allowedValues = self::getWasteTypeAllowableValues();
-        if (!is_null($this->container['waste_type']) && !in_array($this->container['waste_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'waste_type', must be one of '%s'",
-                $this->container['waste_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['volume_waste_cubic_metres'] === null) {
             $invalidProperties[] = "'volume_waste_cubic_metres' can't be null";
         }
@@ -320,9 +280,9 @@ class QuantityByVolume5 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets waste_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\SolidWasteNonStreamType
      */
-    public function getWasteType(): string
+    public function getWasteType(): \OpenAPI\Client\Model\SolidWasteNonStreamType
     {
         return $this->container['waste_type'];
     }
@@ -330,24 +290,14 @@ class QuantityByVolume5 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets waste_type
      *
-     * @param string $waste_type Type of solid waste treated at this facility (Incineration)
+     * @param \OpenAPI\Client\Model\SolidWasteNonStreamType $waste_type Type of solid waste treated at this facility (Incineration)
      *
      * @return $this
      */
-    public function setWasteType(string $waste_type): static
+    public function setWasteType(\OpenAPI\Client\Model\SolidWasteNonStreamType $waste_type): static
     {
         if (is_null($waste_type)) {
             throw new InvalidArgumentException('non-nullable waste_type cannot be null');
-        }
-        $allowedValues = self::getWasteTypeAllowableValues();
-        if (!in_array($waste_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'waste_type', must be one of '%s'",
-                    $waste_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['waste_type'] = $waste_type;
 

@@ -60,7 +60,7 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     protected static array $openAPITypes = [
         'fuel_class' => 'string',
-        'fuel_type' => 'string',
+        'fuel_type' => '\OpenAPI\Client\Model\FuelStationaryVolumeBasedLiquidType',
         'amount_kilolitres' => '\OpenAPI\Client\Model\QuantityByVolume11AmountKilolitres'
     ];
 
@@ -222,20 +222,6 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, JsonSerializabl
     }
 
     public const FUEL_CLASS_LIQUID_FUELS = 'Liquid fuels';
-    public const FUEL_TYPE_PETROLEUM_BASED_OILS_OTHER_THAN_FUELS = 'Petroleum based oils other than fuels';
-    public const FUEL_TYPE_PETROLEUM_BASED_GREASES = 'Petroleum based greases';
-    public const FUEL_TYPE_AUTOMOTIVE_GASOLINE_PETROL = 'Automotive gasoline/petrol';
-    public const FUEL_TYPE_AVIATION_GASOLINE = 'Aviation gasoline';
-    public const FUEL_TYPE_KEROSENE = 'Kerosene';
-    public const FUEL_TYPE_AVIATION_TURBINE_FUEL_KEROSENE = 'Aviation turbine fuel/kerosene';
-    public const FUEL_TYPE_HEATING_OIL = 'Heating oil';
-    public const FUEL_TYPE_DIESEL_OIL = 'Diesel oil';
-    public const FUEL_TYPE_FUEL_OIL = 'Fuel oil';
-    public const FUEL_TYPE_LIQUEFIED_AROMATIC_HYDROCARBONS = 'Liquefied aromatic hydrocarbons';
-    public const FUEL_TYPE_SOLVENTS__MINERAL_TURPENTINE_OR_WHITE_SPIRITS = 'Solvents: mineral turpentine or white spirits';
-    public const FUEL_TYPE_LIQUEFIED_PETROLEUM_GAS = 'Liquefied petroleum gas';
-    public const FUEL_TYPE_NAPHTHA = 'Naphtha';
-    public const FUEL_TYPE_OTHER_PETROLEUM_PRODUCTS = 'Other petroleum products';
 
     /**
      * Gets allowable values of the enum
@@ -246,31 +232,6 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         return [
             self::FUEL_CLASS_LIQUID_FUELS,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_PETROLEUM_BASED_OILS_OTHER_THAN_FUELS,
-            self::FUEL_TYPE_PETROLEUM_BASED_GREASES,
-            self::FUEL_TYPE_AUTOMOTIVE_GASOLINE_PETROL,
-            self::FUEL_TYPE_AVIATION_GASOLINE,
-            self::FUEL_TYPE_KEROSENE,
-            self::FUEL_TYPE_AVIATION_TURBINE_FUEL_KEROSENE,
-            self::FUEL_TYPE_HEATING_OIL,
-            self::FUEL_TYPE_DIESEL_OIL,
-            self::FUEL_TYPE_FUEL_OIL,
-            self::FUEL_TYPE_LIQUEFIED_AROMATIC_HYDROCARBONS,
-            self::FUEL_TYPE_SOLVENTS__MINERAL_TURPENTINE_OR_WHITE_SPIRITS,
-            self::FUEL_TYPE_LIQUEFIED_PETROLEUM_GAS,
-            self::FUEL_TYPE_NAPHTHA,
-            self::FUEL_TYPE_OTHER_PETROLEUM_PRODUCTS,
         ];
     }
 
@@ -333,15 +294,6 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, JsonSerializabl
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount_kilolitres'] === null) {
             $invalidProperties[] = "'amount_kilolitres' can't be null";
         }
@@ -397,9 +349,9 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\FuelStationaryVolumeBasedLiquidType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\FuelStationaryVolumeBasedLiquidType
     {
         return $this->container['fuel_type'];
     }
@@ -407,24 +359,14 @@ class QuantityByVolume11 implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of liquid fuel used in stationary equipment
+     * @param \OpenAPI\Client\Model\FuelStationaryVolumeBasedLiquidType $fuel_type Type of liquid fuel used in stationary equipment
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\FuelStationaryVolumeBasedLiquidType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

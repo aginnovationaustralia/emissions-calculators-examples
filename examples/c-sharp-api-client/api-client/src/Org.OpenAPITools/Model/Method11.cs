@@ -37,7 +37,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="amount">amount</param>
         /// <param name="type">The type of mineral supplement purchased.</param>
         [JsonConstructor]
-        public Method11(Method11Amount amount, TypeEnum type)
+        public Method11(Method11Amount amount, PurchasedMineralSupplementType type)
         {
             Amount = amount;
             Type = type;
@@ -50,89 +50,8 @@ namespace Org.OpenAPITools.Model
         /// The type of mineral supplement purchased.
         /// </summary>
         /// <value>The type of mineral supplement purchased.</value>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum LickBlockDrySeasonMix for value: Lick block, dry season mix
-            /// </summary>
-            LickBlockDrySeasonMix = 1,
-
-            /// <summary>
-            /// Enum LickBlockWeaner for value: Lick block, weaner
-            /// </summary>
-            LickBlockWeaner = 2,
-
-            /// <summary>
-            /// Enum LickBlockMineral for value: Lick block, mineral
-            /// </summary>
-            LickBlockMineral = 3
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Lick block, dry season mix"))
-                return TypeEnum.LickBlockDrySeasonMix;
-
-            if (value.Equals("Lick block, weaner"))
-                return TypeEnum.LickBlockWeaner;
-
-            if (value.Equals("Lick block, mineral"))
-                return TypeEnum.LickBlockMineral;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Lick block, dry season mix"))
-                return TypeEnum.LickBlockDrySeasonMix;
-
-            if (value.Equals("Lick block, weaner"))
-                return TypeEnum.LickBlockWeaner;
-
-            if (value.Equals("Lick block, mineral"))
-                return TypeEnum.LickBlockMineral;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.LickBlockDrySeasonMix)
-                return "Lick block, dry season mix";
-
-            if (value == TypeEnum.LickBlockWeaner)
-                return "Lick block, weaner";
-
-            if (value == TypeEnum.LickBlockMineral)
-                return "Lick block, mineral";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The type of mineral supplement purchased.
-        /// </summary>
-        /// <value>The type of mineral supplement purchased.</value>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public PurchasedMineralSupplementType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -205,7 +124,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<Method11Amount?> amount = default;
-            Option<Method11.TypeEnum?> type = default;
+            Option<PurchasedMineralSupplementType?> type = default;
 
             while (utf8JsonReader.Read())
             {
@@ -226,14 +145,7 @@ namespace Org.OpenAPITools.Model
                             amount = new Option<Method11Amount?>(JsonSerializer.Deserialize<Method11Amount>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                Method11.TypeEnum? typeValue = Method11.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<Method11.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<PurchasedMineralSupplementType?>(JsonSerializer.Deserialize<PurchasedMineralSupplementType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -280,7 +192,7 @@ namespace Org.OpenAPITools.Model
         {
             writer.WritePropertyName("amount");
             JsonSerializer.Serialize(writer, method11.Amount, jsonSerializerOptions);
-            var typeRawValue = Method11.TypeEnumToJsonValue(method11.Type);
+            var typeRawValue = PurchasedMineralSupplementTypeValueConverter.ToJsonValue(method11.Type);
             writer.WriteString("type", typeRawValue);
         }
     }

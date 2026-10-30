@@ -6,129 +6,153 @@
 
 import * as fs from 'fs';
 import * as https from 'https';
-import { Configuration, GAFApi } from './index';
+import { Configuration, EmissionsCalculatorsApi } from './index';
 import {
+    AgrochemicalType,
+    BasicCropProductionSystem,
+    BasicProductionSystemScope1Method1,
+    BeefBreed,
+    BeefClassesWithSeasonalInput,
+    BeefClassWithCalvesSeasonalInput,
+    CarsAndLightCommercialVehicles,
+    CarsLightCommercialFuelType,
+    ClimateZoneOrZoneType,
+    ElectricityRegion,
+    FuelInput,
+    GrazingProductionSystemWithRainfall,
+    InorganicFertiliserType,
+    LimeAmeliorant,
+    LimestoneOrDolomiteApplication,
+    LocationBased,
+    Method11,
+    PastureType,
     PostBeefRequest,
-    PostBeefRequestBeefInner,
-    PostBeefRequestBeefInnerClasses,
-    PostBeefRequestBeefInnerClassesBullsGt1Autumn,
-    PostBeefRequestBeefInnerClassesCowsGt2,
-    PostBeefRequestBeefInnerCowsCalving,
-    PostBeefRequestBeefInnerElectricitySourceEnum,
-    PostBeefRequestBeefInnerFertiliser,
-    PostBeefRequestBeefInnerMineralSupplementation,
-    PostBeefRequestStateEnum
+    PostBeefRequestHerdsInner,
+    PostBeefRequestHerdsInnerChemicalsInner,
+    PostBeefRequestHerdsInnerPasture,
+    PurchasedMineralSupplementType,
+    StateOrRegion,
 } from './models';
 
 function createValidBeefInput(): PostBeefRequest {
     /**
-     * Create a valid beef input using the generated model classes
-     * This structure matches PostBeefRequest model requirements
+     * Create a valid beef input for a single beef herd, built up from the generated models.
+     * Each part is typed with its model, so the compiler checks it as it is built. Fields with
+     * a fixed set of values use the generated enums (e.g. StateOrRegion). Fields that only select
+     * a oneOf variant (e.g. period: 'seasonal') are string literals, which are also type checked.
+     * Most numeric inputs are wrapped as { value: number }.
      */
-    
-    // Create seasonal data for cows greater than 2 years old
-    const springSeason: PostBeefRequestBeefInnerClassesBullsGt1Autumn = {
-        head: 50,  // number of animals
-        liveweight: 450,  // average kg/head
-        liveweightGain: 0.5  // kg/day
-        // crudeProtein and dryMatterDigestibility are optional
+
+    // Cows over 3 years old, with head counts and calving rates for each season
+    const cowsGt3Years: BeefClassWithCalvesSeasonalInput = {
+        spring: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.2 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.2 },
+        },
+        summer: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.1 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.2 },
+        },
+        autumn: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.5 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.1 },
+        },
+        winter: {
+            head: { value: 50 },
+            proportionCowsThisSeasonInCalf: { value: 0.2 },
+            proportionCowsPreviousSeasonInCalf: { value: 0.5 },
+        },
     };
-    
-    const summerSeason: PostBeefRequestBeefInnerClassesBullsGt1Autumn = {
-        head: 50,
-        liveweight: 440,
-        liveweightGain: 0.3
+
+    const classes: BeefClassesWithSeasonalInput = {
+        period: 'seasonal',
+        cowsGt3Years,
     };
-    
-    const autumnSeason: PostBeefRequestBeefInnerClassesBullsGt1Autumn = {
-        head: 50,
-        liveweight: 460,
-        liveweightGain: 0.4
+
+    const dieselCar: CarsAndLightCommercialVehicles = {
+        vehicleType: 'Cars and light commercial vehicles',
+        fuelType: CarsLightCommercialFuelType.DieselOil,
+        amountKilolitres: { value: 1 },
     };
-    
-    const winterSeason: PostBeefRequestBeefInnerClassesBullsGt1Autumn = {
-        head: 50,
-        liveweight: 450,
-        liveweightGain: 0.4
+    const fuel: FuelInput = {
+        transport: [dieselCar],
+        stationary: [],
     };
-    
-    // Create cows greater than 2 years old class
-    const cowsGt2: PostBeefRequestBeefInnerClassesCowsGt2 = {
-        spring: springSeason,
-        summer: summerSeason,
-        autumn: autumnSeason,
-        winter: winterSeason,
-        headSold: 25,  // required: number sold
-        saleWeight: 500  // required: weight at sale in kg/head
-        // headPurchased, purchasedWeight, source, and purchases are optional
+
+    const limestone: LimestoneOrDolomiteApplication = {
+        type: LimeAmeliorant.Limestone,
+        massAppliedKg: { value: 10000 },
+        limestoneFraction: { value: 0.8 },
     };
-    
-    // Create classes object
-    const classes: PostBeefRequestBeefInnerClasses = {
-        cowsGt2: cowsGt2
+
+    const pasture: PostBeefRequestHerdsInnerPasture = {
+        type: PastureType.PerennialPasture,
+        areaManaged: { value: 500 },
+        fractionOfAnnualCropBurnt: { value: 0 },
+        residues: { calculationMethod: '1' },
     };
-    
-    // Create fertiliser data
-    const fertiliser: PostBeefRequestBeefInnerFertiliser = {
-        singleSuperphosphate: 5.0,
-        pastureDryland: 10.0,
-        pastureIrrigated: 2.0,
-        cropsDryland: 8.0,
-        cropsIrrigated: 1.0
-        // otherDryland, otherIrrigated, otherType, and otherFertilisers are optional
+
+    const lickBlock: Method11 = {
+        type: PurchasedMineralSupplementType.LickBlockDrySeasonMix,
+        amount: { value: 2 },
     };
-    
-    // Create mineral supplementation data
-    const mineralSupplementation: PostBeefRequestBeefInnerMineralSupplementation = {
-        mineralBlock: 2.0,
-        mineralBlockUrea: 0.3,
-        weanerBlock: 1.0,
-        weanerBlockUrea: 0.2,
-        drySeasonMix: 1.5,
-        drySeasonMixUrea: 0.25
+
+    const herbicide: PostBeefRequestHerdsInnerChemicalsInner = {
+        type: AgrochemicalType.HerbicideParaquatDiquatGlyphosate,
+        amountKg: { value: 50 },
     };
-    
-    // Create cows calving data
-    const cowsCalving: PostBeefRequestBeefInnerCowsCalving = {
-        spring: 0.2,
-        summer: 0.1,
-        autumn: 0.5,
-        winter: 0.2
+
+    const fertiliser: BasicProductionSystemScope1Method1 = {
+        productionSystem: BasicCropProductionSystem.NonIrrigatedPasture,
+        inorganic: {
+            calculationMethodScope1: '1',
+            applications: [
+                {
+                    fertiliserType: InorganicFertiliserType.Urea,
+                    massAppliedKg: { value: 2000 },
+                    calculationMethodScope3: '1',
+                },
+            ],
+        },
+        organic: { applications: [] },
     };
-    
-    // Create beef enterprise
-    const beefEnterprise: PostBeefRequestBeefInner = {
-        id: "beef_cattle_001",
-        classes: classes,
-        limestone: 10.0,
-        limestoneFraction: 0.8,  // Fraction between 0 and 1
-        fertiliser: fertiliser,
-        diesel: 1000,
-        petrol: 200,
-        lpg: 100,
-        mineralSupplementation: mineralSupplementation,
-        electricitySource: PostBeefRequestBeefInnerElectricitySourceEnum.StateGrid,  // Must be 'State Grid' or 'Renewable'
-        electricityRenewable: 0.2,  // Fraction between 0 and 1
-        electricityUse: 5000,  // kWh
-        grainFeed: 10.0,  // tonnes
-        hayFeed: 5.0,
-        cottonseedFeed: 2.0,
-        herbicide: 50.0,  // kg
-        herbicideOther: 20.0,
-        cowsCalving: cowsCalving
+
+    const herd: PostBeefRequestHerdsInner = {
+        id: 'beef_cattle_001',
+        electricityAllocation: { value: 1 },
+        region: StateOrRegion.QldModerateHigh,
+        classes,
+        breed: BeefBreed.NorthernBrahmanCrossBreed,
+        grazingSystem: GrazingProductionSystemWithRainfall.NonIrrigatedPasture,
+        climateZone: ClimateZoneOrZoneType.TropicalDry,
+        isInLeachingZone: false,
+        excludedFromNaturalWater: false,
+        liveweightSoldKg: { value: 12500 },
+        fuel,
+        lime: { applications: [limestone] },
+        pasture,
+        purchasedLivestock: [],
+        purchasedFeed: [],
+        purchasedMineralSupplements: [lickBlock],
+        chemicals: [herbicide],
+        services: { fuel: { transport: [], stationary: [] } },
+        fertiliser,
     };
-    
-    // Create the main request
-    const beefRequest: PostBeefRequest = {
-        state: PostBeefRequestStateEnum.Qld,  // Queensland (must be valid enum)
-        northOfTropicOfCapricorn: true,
-        rainfallAbove600: true,
-        beef: [beefEnterprise],
-        burning: [],  // List of burning activities (optional)
-        vegetation: []  // List of vegetation activities (optional)
+
+    const electricity: LocationBased = {
+        method: 'location',
+        electricityPurchasedKWh: { value: 5000 },
+        region: ElectricityRegion.Qld,
     };
-    
-    return beefRequest;
+
+    return {
+        isFebruaryInLeapYear: false,
+        electricity,
+        herds: [herd],
+    };
 }
 
 async function testBeefApi(): Promise<void> {
@@ -136,7 +160,7 @@ async function testBeefApi(): Promise<void> {
      * Test the beef API endpoint with valid input
      */
     
-    const basePath = "https://emissionscalculator-mtls.staging.aiaapi.com/calculator/3.0.0";
+    const basePath = "https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta";
     const certFile = "cert.pem";
     const keyFile = "key.pem";
     
@@ -214,7 +238,7 @@ async function testBeefApi(): Promise<void> {
     });
     
     // Create API instance with configuration
-    const apiInstance = new GAFApi(configuration);
+    const apiInstance = new EmissionsCalculatorsApi(configuration);
     
     // Create a valid beef input
     const beefInput = createValidBeefInput();
@@ -227,7 +251,7 @@ async function testBeefApi(): Promise<void> {
     try {
         console.log("Calling beef API...");
         const apiResponse = await apiInstance.postBeef({ postBeefRequest: beefInput });
-        console.log("The response of GAFApi->postBeef:\n");
+        console.log("The response of EmissionsCalculatorsApi->postBeef:\n");
         console.log(JSON.stringify(apiResponse, null, 2));
     } catch (error: any) {
         // Check if it's a ResponseError by checking for the response property
@@ -239,11 +263,11 @@ async function testBeefApi(): Promise<void> {
             } catch (e) {
                 bodyText = 'Could not read response body';
             }
-            console.error(`Exception when calling GAFApi->postBeef: ${error.message || error}`);
+            console.error(`Exception when calling EmissionsCalculatorsApi->postBeef: ${error.message || error}`);
             console.error(`Status code: ${response.status}`);
             console.error(`Response body: ${bodyText}`);
         } else {
-            console.error(`Exception when calling GAFApi->postBeef: ${error}`);
+            console.error(`Exception when calling EmissionsCalculatorsApi->postBeef: ${error}`);
         }
         console.log("This is expected if you don't have proper authentication configured");
     }

@@ -65,12 +65,12 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
         'carbon_mass_in_debris_current_year' => '\OpenAPI\Client\Model\LandClearingForestToCroplandCarbonMassInDebrisCurrentYear',
         'carbon_mass_in_debris_previous_year' => '\OpenAPI\Client\Model\LandClearingForestToCroplandCarbonMassInDebrisPreviousYear',
         'is_in_leaching_zone' => 'bool',
-        'region' => 'string',
+        'region' => '\OpenAPI\Client\Model\IBRA7Region',
         'mass_ch4_from_biomass_burning_per_hectare' => '\OpenAPI\Client\Model\LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare',
         'mass_n2_o_from_biomass_burning_per_hectare' => '\OpenAPI\Client\Model\LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectare',
         'area_burnt' => '\OpenAPI\Client\Model\LandClearingForestToCroplandAreaBurnt',
         'type' => 'string',
-        'crop_production_system' => 'string'
+        'crop_production_system' => '\OpenAPI\Client\Model\CropOnlyProductionSystem'
     ];
 
     /**
@@ -275,191 +275,7 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
         return self::$openAPIModelName;
     }
 
-    public const REGION_ARNHEM_COAST = 'Arnhem Coast';
-    public const REGION_ARNHEM_PLATEAU = 'Arnhem Plateau';
-    public const REGION_AUSTRALIAN_ALPS = 'Australian Alps';
-    public const REGION_AVON_WHEATBELT = 'Avon Wheatbelt';
-    public const REGION_BRIGALOW_BELT_NORTH = 'Brigalow Belt North';
-    public const REGION_BRIGALOW_BELT_SOUTH = 'Brigalow Belt South';
-    public const REGION_BEN_LOMOND = 'Ben Lomond';
-    public const REGION_BROKEN_HILL_COMPLEX = 'Broken Hill Complex';
-    public const REGION_BURT_PLAIN = 'Burt Plain';
-    public const REGION_CARNARVON = 'Carnarvon';
-    public const REGION_CENTRAL_ARNHEM = 'Central Arnhem';
-    public const REGION_CENTRAL_KIMBERLEY = 'Central Kimberley';
-    public const REGION_CENTRAL_RANGES = 'Central Ranges';
-    public const REGION_CHANNEL_COUNTRY = 'Channel Country';
-    public const REGION_CENTRAL_MACKAY_COAST = 'Central Mackay Coast';
-    public const REGION_COOLGARDIE = 'Coolgardie';
-    public const REGION_COBAR_PENEPLAIN = 'Cobar Peneplain';
-    public const REGION_CAPE_YORK_PENINSULA = 'Cape York Peninsula';
-    public const REGION_DALY_BASIN = 'Daly Basin';
-    public const REGION_DARWIN_COASTAL = 'Darwin Coastal';
-    public const REGION_DAMPIERLAND = 'Dampierland';
-    public const REGION_DESERT_UPLANDS = 'Desert Uplands';
-    public const REGION_DAVENPORT_MURCHISON_RANGES = 'Davenport Murchison Ranges';
-    public const REGION_DARLING_RIVERINE_PLAINS = 'Darling Riverine Plains';
-    public const REGION_EINASLEIGH_UPLANDS = 'Einasleigh Uplands';
-    public const REGION_ESPERANCE_PLAINS = 'Esperance Plains';
-    public const REGION_EYRE_YORKE_BLOCK = 'Eyre Yorke Block';
-    public const REGION_FINKE = 'Finke';
-    public const REGION_FLINDERS_LOFTY_BLOCK = 'Flinders Lofty Block';
-    public const REGION_FURNEAUX = 'Furneaux';
-    public const REGION_GASCOYNE = 'Gascoyne';
-    public const REGION_GAWLER = 'Gawler';
-    public const REGION_GERALDTON_SANDPLAINS = 'Geraldton Sandplains';
-    public const REGION_GULF_FALL_AND_UPLANDS = 'Gulf Fall and Uplands';
-    public const REGION_GIBSON_DESERT = 'Gibson Desert';
-    public const REGION_GREAT_SANDY_DESERT = 'Great Sandy Desert';
-    public const REGION_GULF_COASTAL = 'Gulf Coastal';
-    public const REGION_GULF_PLAINS = 'Gulf Plains';
-    public const REGION_GREAT_VICTORIA_DESERT = 'Great Victoria Desert';
-    public const REGION_HAMPTON = 'Hampton';
-    public const REGION_JARRAH_FOREST = 'Jarrah Forest';
-    public const REGION_KANMANTOO = 'Kanmantoo';
-    public const REGION_KING = 'King';
-    public const REGION_LITTLE_SANDY_DESERT = 'Little Sandy Desert';
-    public const REGION_MAC_DONNELL_RANGES = 'MacDonnell Ranges';
-    public const REGION_MALLEE = 'Mallee';
-    public const REGION_MURRAY_DARLING_DEPRESSION = 'Murray Darling Depression';
-    public const REGION_MITCHELL_GRASS_DOWNS = 'Mitchell Grass Downs';
-    public const REGION_MOUNT_ISA_INLIER = 'Mount Isa Inlier';
-    public const REGION_MULGA_LANDS = 'Mulga Lands';
-    public const REGION_MURCHISON = 'Murchison';
-    public const REGION_NANDEWAR = 'Nandewar';
-    public const REGION_NARACOORTE_COASTAL_PLAIN = 'Naracoorte Coastal Plain';
-    public const REGION_NEW_ENGLAND_TABLELANDS = 'New England Tablelands';
-    public const REGION_NSW_NORTH_COAST = 'NSW North Coast';
-    public const REGION_NORTHERN_KIMBERLEY = 'Northern Kimberley';
-    public const REGION_NSW_SOUTH_WESTERN_SLOPES = 'NSW South Western Slopes';
-    public const REGION_NULLARBOR = 'Nullarbor';
-    public const REGION_ORD_VICTORIA_PLAIN = 'Ord Victoria Plain';
-    public const REGION_PINE_CREEK = 'Pine Creek';
-    public const REGION_PILBARA = 'Pilbara';
-    public const REGION_RIVERINA = 'Riverina';
-    public const REGION_SOUTH_EAST_COASTAL_PLAIN = 'South East Coastal Plain';
-    public const REGION_SOUTH_EAST_CORNER = 'South East Corner';
-    public const REGION_SOUTH_EASTERN_HIGHLANDS = 'South Eastern Highlands';
-    public const REGION_SOUTH_EASTERN_QUEENSLAND = 'South Eastern Queensland';
-    public const REGION_SIMPSON_STRZELECKI_DUNEFIELDS = 'Simpson Strzelecki Dunefields';
-    public const REGION_STONY_PLAINS = 'Stony Plains';
-    public const REGION_STURT_PLATEAU = 'Sturt Plateau';
-    public const REGION_SOUTHERN_VOLCANIC_PLAIN = 'Southern Volcanic Plain';
-    public const REGION_SWAN_COASTAL_PLAIN = 'Swan Coastal Plain';
-    public const REGION_SYDNEY_BASIN = 'Sydney Basin';
-    public const REGION_TANAMI = 'Tanami';
-    public const REGION_TASMANIAN_CENTRAL_HIGHLANDS = 'Tasmanian Central Highlands';
-    public const REGION_TIWI_COBOURG = 'Tiwi Cobourg';
-    public const REGION_TASMANIAN_NORTHERN_MIDLANDS = 'Tasmanian Northern Midlands';
-    public const REGION_TASMANIAN_NORTHERN_SLOPES = 'Tasmanian Northern Slopes';
-    public const REGION_TASMANIAN_SOUTH_EAST = 'Tasmanian South East';
-    public const REGION_TASMANIAN_SOUTHERN_RANGES = 'Tasmanian Southern Ranges';
-    public const REGION_TASMANIAN_WEST = 'Tasmanian West';
-    public const REGION_VICTORIA_BONAPARTE = 'Victoria Bonaparte';
-    public const REGION_VICTORIAN_MIDLANDS = 'Victorian Midlands';
-    public const REGION_WARREN = 'Warren';
-    public const REGION_WET_TROPICS = 'Wet Tropics';
-    public const REGION_YALGOO = 'Yalgoo';
     public const TYPE_LAND_CLEARING_FOREST_TO_CROPLAND = 'landClearingForestToCropland';
-    public const CROP_PRODUCTION_SYSTEM_IRRIGATED_CROP = 'Irrigated crop';
-    public const CROP_PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__LOW_RAINFALL = 'Non-irrigated crop (low rainfall)';
-    public const CROP_PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL = 'Non-irrigated crop (high rainfall)';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getRegionAllowableValues()
-    {
-        return [
-            self::REGION_ARNHEM_COAST,
-            self::REGION_ARNHEM_PLATEAU,
-            self::REGION_AUSTRALIAN_ALPS,
-            self::REGION_AVON_WHEATBELT,
-            self::REGION_BRIGALOW_BELT_NORTH,
-            self::REGION_BRIGALOW_BELT_SOUTH,
-            self::REGION_BEN_LOMOND,
-            self::REGION_BROKEN_HILL_COMPLEX,
-            self::REGION_BURT_PLAIN,
-            self::REGION_CARNARVON,
-            self::REGION_CENTRAL_ARNHEM,
-            self::REGION_CENTRAL_KIMBERLEY,
-            self::REGION_CENTRAL_RANGES,
-            self::REGION_CHANNEL_COUNTRY,
-            self::REGION_CENTRAL_MACKAY_COAST,
-            self::REGION_COOLGARDIE,
-            self::REGION_COBAR_PENEPLAIN,
-            self::REGION_CAPE_YORK_PENINSULA,
-            self::REGION_DALY_BASIN,
-            self::REGION_DARWIN_COASTAL,
-            self::REGION_DAMPIERLAND,
-            self::REGION_DESERT_UPLANDS,
-            self::REGION_DAVENPORT_MURCHISON_RANGES,
-            self::REGION_DARLING_RIVERINE_PLAINS,
-            self::REGION_EINASLEIGH_UPLANDS,
-            self::REGION_ESPERANCE_PLAINS,
-            self::REGION_EYRE_YORKE_BLOCK,
-            self::REGION_FINKE,
-            self::REGION_FLINDERS_LOFTY_BLOCK,
-            self::REGION_FURNEAUX,
-            self::REGION_GASCOYNE,
-            self::REGION_GAWLER,
-            self::REGION_GERALDTON_SANDPLAINS,
-            self::REGION_GULF_FALL_AND_UPLANDS,
-            self::REGION_GIBSON_DESERT,
-            self::REGION_GREAT_SANDY_DESERT,
-            self::REGION_GULF_COASTAL,
-            self::REGION_GULF_PLAINS,
-            self::REGION_GREAT_VICTORIA_DESERT,
-            self::REGION_HAMPTON,
-            self::REGION_JARRAH_FOREST,
-            self::REGION_KANMANTOO,
-            self::REGION_KING,
-            self::REGION_LITTLE_SANDY_DESERT,
-            self::REGION_MAC_DONNELL_RANGES,
-            self::REGION_MALLEE,
-            self::REGION_MURRAY_DARLING_DEPRESSION,
-            self::REGION_MITCHELL_GRASS_DOWNS,
-            self::REGION_MOUNT_ISA_INLIER,
-            self::REGION_MULGA_LANDS,
-            self::REGION_MURCHISON,
-            self::REGION_NANDEWAR,
-            self::REGION_NARACOORTE_COASTAL_PLAIN,
-            self::REGION_NEW_ENGLAND_TABLELANDS,
-            self::REGION_NSW_NORTH_COAST,
-            self::REGION_NORTHERN_KIMBERLEY,
-            self::REGION_NSW_SOUTH_WESTERN_SLOPES,
-            self::REGION_NULLARBOR,
-            self::REGION_ORD_VICTORIA_PLAIN,
-            self::REGION_PINE_CREEK,
-            self::REGION_PILBARA,
-            self::REGION_RIVERINA,
-            self::REGION_SOUTH_EAST_COASTAL_PLAIN,
-            self::REGION_SOUTH_EAST_CORNER,
-            self::REGION_SOUTH_EASTERN_HIGHLANDS,
-            self::REGION_SOUTH_EASTERN_QUEENSLAND,
-            self::REGION_SIMPSON_STRZELECKI_DUNEFIELDS,
-            self::REGION_STONY_PLAINS,
-            self::REGION_STURT_PLATEAU,
-            self::REGION_SOUTHERN_VOLCANIC_PLAIN,
-            self::REGION_SWAN_COASTAL_PLAIN,
-            self::REGION_SYDNEY_BASIN,
-            self::REGION_TANAMI,
-            self::REGION_TASMANIAN_CENTRAL_HIGHLANDS,
-            self::REGION_TIWI_COBOURG,
-            self::REGION_TASMANIAN_NORTHERN_MIDLANDS,
-            self::REGION_TASMANIAN_NORTHERN_SLOPES,
-            self::REGION_TASMANIAN_SOUTH_EAST,
-            self::REGION_TASMANIAN_SOUTHERN_RANGES,
-            self::REGION_TASMANIAN_WEST,
-            self::REGION_VICTORIA_BONAPARTE,
-            self::REGION_VICTORIAN_MIDLANDS,
-            self::REGION_WARREN,
-            self::REGION_WET_TROPICS,
-            self::REGION_YALGOO,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -470,20 +286,6 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
     {
         return [
             self::TYPE_LAND_CLEARING_FOREST_TO_CROPLAND,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getCropProductionSystemAllowableValues()
-    {
-        return [
-            self::CROP_PRODUCTION_SYSTEM_IRRIGATED_CROP,
-            self::CROP_PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__LOW_RAINFALL,
-            self::CROP_PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL,
         ];
     }
 
@@ -561,15 +363,6 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
         if ($this->container['region'] === null) {
             $invalidProperties[] = "'region' can't be null";
         }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!is_null($this->container['region']) && !in_array($this->container['region'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'region', must be one of '%s'",
-                $this->container['region'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['mass_ch4_from_biomass_burning_per_hectare'] === null) {
             $invalidProperties[] = "'mass_ch4_from_biomass_burning_per_hectare' can't be null";
         }
@@ -594,15 +387,6 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
         if ($this->container['crop_production_system'] === null) {
             $invalidProperties[] = "'crop_production_system' can't be null";
         }
-        $allowedValues = self::getCropProductionSystemAllowableValues();
-        if (!is_null($this->container['crop_production_system']) && !in_array($this->container['crop_production_system'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'crop_production_system', must be one of '%s'",
-                $this->container['crop_production_system'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -780,9 +564,9 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets region
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\IBRA7Region
      */
-    public function getRegion(): string
+    public function getRegion(): \OpenAPI\Client\Model\IBRA7Region
     {
         return $this->container['region'];
     }
@@ -790,24 +574,14 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets region
      *
-     * @param string $region IBRA7 region of the activity area
+     * @param \OpenAPI\Client\Model\IBRA7Region $region IBRA7 region of the activity area
      *
      * @return $this
      */
-    public function setRegion(string $region): static
+    public function setRegion(\OpenAPI\Client\Model\IBRA7Region $region): static
     {
         if (is_null($region)) {
             throw new InvalidArgumentException('non-nullable region cannot be null');
-        }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!in_array($region, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'region', must be one of '%s'",
-                    $region,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['region'] = $region;
 
@@ -935,9 +709,9 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets crop_production_system
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\CropOnlyProductionSystem
      */
-    public function getCropProductionSystem(): string
+    public function getCropProductionSystem(): \OpenAPI\Client\Model\CropOnlyProductionSystem
     {
         return $this->container['crop_production_system'];
     }
@@ -945,24 +719,14 @@ class LandClearingForestToCropland implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets crop_production_system
      *
-     * @param string $crop_production_system Crop production
+     * @param \OpenAPI\Client\Model\CropOnlyProductionSystem $crop_production_system Crop production
      *
      * @return $this
      */
-    public function setCropProductionSystem(string $crop_production_system): static
+    public function setCropProductionSystem(\OpenAPI\Client\Model\CropOnlyProductionSystem $crop_production_system): static
     {
         if (is_null($crop_production_system)) {
             throw new InvalidArgumentException('non-nullable crop_production_system cannot be null');
-        }
-        $allowedValues = self::getCropProductionSystemAllowableValues();
-        if (!in_array($crop_production_system, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'crop_production_system', must be one of '%s'",
-                    $crop_production_system,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['crop_production_system'] = $crop_production_system;
 

@@ -60,7 +60,7 @@ class SolidFuels implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'fuel_class' => 'string',
-        'fuel_type' => 'string',
+        'fuel_type' => '\OpenAPI\Client\Model\FuelStationarySolidType',
         'amount_tonnes' => '\OpenAPI\Client\Model\SolidFuelsAmountTonnes'
     ];
 
@@ -222,26 +222,6 @@ class SolidFuels implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     public const FUEL_CLASS_SOLID_FUELS = 'Solid fuels';
-    public const FUEL_TYPE_BITUMINOUS_COAL = 'Bituminous coal';
-    public const FUEL_TYPE_SUB_BITUMINOUS_COAL = 'Sub-bituminous coal';
-    public const FUEL_TYPE_ANTHRACITE = 'Anthracite';
-    public const FUEL_TYPE_BROWN_COAL__LIGNITE = 'Brown coal (lignite)';
-    public const FUEL_TYPE_COKING_COAL = 'Coking coal';
-    public const FUEL_TYPE_COAL_BRIQUETTES = 'Coal briquettes';
-    public const FUEL_TYPE_COAL_COKE = 'Coal coke';
-    public const FUEL_TYPE_COAL_TAR = 'Coal tar';
-    public const FUEL_TYPE_OTHER_SOLID_FOSSIL_FUELS = 'Other solid fossil fuels';
-    public const FUEL_TYPE_INDUSTRIAL_MATERIALS_DERIVED_FROM_FOSSIL_FUELS = 'Industrial materials derived from fossil fuels';
-    public const FUEL_TYPE_PASSENGER_CAR_TYRES = 'Passenger car tyres';
-    public const FUEL_TYPE_TRUCK_AND_OFF_ROAD_TYRES = 'Truck and off-road tyres';
-    public const FUEL_TYPE_NON_BIOMASS_MUNICIPAL_MATERIALS = 'Non-biomass municipal materials';
-    public const FUEL_TYPE_DRY_WOOD = 'Dry wood';
-    public const FUEL_TYPE_GREEN_AND_AIR_DRIED_WOOD = 'Green and air dried wood';
-    public const FUEL_TYPE_SULPHITE_LYES = 'Sulphite lyes';
-    public const FUEL_TYPE_BAGASSE = 'Bagasse';
-    public const FUEL_TYPE_BIOMASS__MUNICIPAL_AND_INDUSTRIAL_MATERIALS = 'Biomass,  municipal and industrial materials';
-    public const FUEL_TYPE_CHARCOAL = 'Charcoal';
-    public const FUEL_TYPE_OTHER_PRIMARY_SOLID_BIOMASS_FUELS = 'Other primary solid biomass fuels';
 
     /**
      * Gets allowable values of the enum
@@ -252,37 +232,6 @@ class SolidFuels implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::FUEL_CLASS_SOLID_FUELS,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_BITUMINOUS_COAL,
-            self::FUEL_TYPE_SUB_BITUMINOUS_COAL,
-            self::FUEL_TYPE_ANTHRACITE,
-            self::FUEL_TYPE_BROWN_COAL__LIGNITE,
-            self::FUEL_TYPE_COKING_COAL,
-            self::FUEL_TYPE_COAL_BRIQUETTES,
-            self::FUEL_TYPE_COAL_COKE,
-            self::FUEL_TYPE_COAL_TAR,
-            self::FUEL_TYPE_OTHER_SOLID_FOSSIL_FUELS,
-            self::FUEL_TYPE_INDUSTRIAL_MATERIALS_DERIVED_FROM_FOSSIL_FUELS,
-            self::FUEL_TYPE_PASSENGER_CAR_TYRES,
-            self::FUEL_TYPE_TRUCK_AND_OFF_ROAD_TYRES,
-            self::FUEL_TYPE_NON_BIOMASS_MUNICIPAL_MATERIALS,
-            self::FUEL_TYPE_DRY_WOOD,
-            self::FUEL_TYPE_GREEN_AND_AIR_DRIED_WOOD,
-            self::FUEL_TYPE_SULPHITE_LYES,
-            self::FUEL_TYPE_BAGASSE,
-            self::FUEL_TYPE_BIOMASS__MUNICIPAL_AND_INDUSTRIAL_MATERIALS,
-            self::FUEL_TYPE_CHARCOAL,
-            self::FUEL_TYPE_OTHER_PRIMARY_SOLID_BIOMASS_FUELS,
         ];
     }
 
@@ -345,15 +294,6 @@ class SolidFuels implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount_tonnes'] === null) {
             $invalidProperties[] = "'amount_tonnes' can't be null";
         }
@@ -409,9 +349,9 @@ class SolidFuels implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\FuelStationarySolidType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\FuelStationarySolidType
     {
         return $this->container['fuel_type'];
     }
@@ -419,24 +359,14 @@ class SolidFuels implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of solid fuel used in stationary equipment
+     * @param \OpenAPI\Client\Model\FuelStationarySolidType $fuel_type Type of solid fuel used in stationary equipment
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\FuelStationarySolidType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

@@ -60,7 +60,7 @@ class WithoutOriginRegion implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static array $openAPITypes = [
         'fraction_of_fertiliser' => '\OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser',
-        'component_type' => 'string'
+        'component_type' => '\OpenAPI\Client\Model\InorganicFertiliserComponentTypeNonRegional'
     ];
 
     /**
@@ -215,49 +215,6 @@ class WithoutOriginRegion implements ModelInterface, ArrayAccess, JsonSerializab
         return self::$openAPIModelName;
     }
 
-    public const COMPONENT_TYPE_MONOAMMONIUM_PHOSPHATE = 'Monoammonium phosphate';
-    public const COMPONENT_TYPE_DIAMMONIUM_PHOSPHATE = 'Diammonium Phosphate';
-    public const COMPONENT_TYPE_UREA_AMMONIUM_NITRATE = 'Urea-Ammonium Nitrate';
-    public const COMPONENT_TYPE_AMMONIUM_NITRATE = 'Ammonium Nitrate';
-    public const COMPONENT_TYPE_CALCIUM_AMMONIUM_NITRATE = 'Calcium Ammonium Nitrate';
-    public const COMPONENT_TYPE_SULPHATE_OF_AMMONIA = 'Sulphate of Ammonia';
-    public const COMPONENT_TYPE_NITROGEN___GENERIC = 'Nitrogen - Generic';
-    public const COMPONENT_TYPE_NITROGEN___NITRATE = 'Nitrogen - Nitrate';
-    public const COMPONENT_TYPE_NITROGEN___AMMONIA = 'Nitrogen - Ammonia';
-    public const COMPONENT_TYPE_MURIATE_OF_POTASH = 'Muriate of Potash';
-    public const COMPONENT_TYPE_SINGLE_SUPERPHOSPHATE = 'Single superphosphate';
-    public const COMPONENT_TYPE_DOUBLE_SUPERPHOSPHATE = 'Double Superphosphate';
-    public const COMPONENT_TYPE_PHOSPHORUS___GENERIC = 'Phosphorus - Generic';
-    public const COMPONENT_TYPE_POTASSIUM___GENERIC = 'Potassium - Generic';
-    public const COMPONENT_TYPE_SULFUR___GENERIC = 'Sulfur - Generic';
-    public const COMPONENT_TYPE_ZINC___GENERIC = 'Zinc - Generic';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getComponentTypeAllowableValues()
-    {
-        return [
-            self::COMPONENT_TYPE_MONOAMMONIUM_PHOSPHATE,
-            self::COMPONENT_TYPE_DIAMMONIUM_PHOSPHATE,
-            self::COMPONENT_TYPE_UREA_AMMONIUM_NITRATE,
-            self::COMPONENT_TYPE_AMMONIUM_NITRATE,
-            self::COMPONENT_TYPE_CALCIUM_AMMONIUM_NITRATE,
-            self::COMPONENT_TYPE_SULPHATE_OF_AMMONIA,
-            self::COMPONENT_TYPE_NITROGEN___GENERIC,
-            self::COMPONENT_TYPE_NITROGEN___NITRATE,
-            self::COMPONENT_TYPE_NITROGEN___AMMONIA,
-            self::COMPONENT_TYPE_MURIATE_OF_POTASH,
-            self::COMPONENT_TYPE_SINGLE_SUPERPHOSPHATE,
-            self::COMPONENT_TYPE_DOUBLE_SUPERPHOSPHATE,
-            self::COMPONENT_TYPE_PHOSPHORUS___GENERIC,
-            self::COMPONENT_TYPE_POTASSIUM___GENERIC,
-            self::COMPONENT_TYPE_SULFUR___GENERIC,
-            self::COMPONENT_TYPE_ZINC___GENERIC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -308,15 +265,6 @@ class WithoutOriginRegion implements ModelInterface, ArrayAccess, JsonSerializab
         if ($this->container['component_type'] === null) {
             $invalidProperties[] = "'component_type' can't be null";
         }
-        $allowedValues = self::getComponentTypeAllowableValues();
-        if (!is_null($this->container['component_type']) && !in_array($this->container['component_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'component_type', must be one of '%s'",
-                $this->container['component_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -359,9 +307,9 @@ class WithoutOriginRegion implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets component_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\InorganicFertiliserComponentTypeNonRegional
      */
-    public function getComponentType(): string
+    public function getComponentType(): \OpenAPI\Client\Model\InorganicFertiliserComponentTypeNonRegional
     {
         return $this->container['component_type'];
     }
@@ -369,24 +317,14 @@ class WithoutOriginRegion implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets component_type
      *
-     * @param string $component_type Type of inorganic fertiliser component
+     * @param \OpenAPI\Client\Model\InorganicFertiliserComponentTypeNonRegional $component_type Type of inorganic fertiliser component
      *
      * @return $this
      */
-    public function setComponentType(string $component_type): static
+    public function setComponentType(\OpenAPI\Client\Model\InorganicFertiliserComponentTypeNonRegional $component_type): static
     {
         if (is_null($component_type)) {
             throw new InvalidArgumentException('non-nullable component_type cannot be null');
-        }
-        $allowedValues = self::getComponentTypeAllowableValues();
-        if (!in_array($component_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'component_type', must be one of '%s'",
-                    $component_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['component_type'] = $component_type;
 

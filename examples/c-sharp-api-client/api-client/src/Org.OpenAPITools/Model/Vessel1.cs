@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="vehicleType">vehicleType</param>
         /// <param name="fuelType">Type of fuel used by this vessel</param>
         [JsonConstructor]
-        public Vessel1(CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, FuelTypeEnum fuelType)
+        public Vessel1(CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, VesselFuelType fuelType)
         {
             AmountKilolitres = amountKilolitres;
             VehicleType = vehicleType;
@@ -110,89 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of fuel used by this vessel
         /// </summary>
         /// <value>Type of fuel used by this vessel</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum Petrol for value: Petrol
-            /// </summary>
-            Petrol = 1,
-
-            /// <summary>
-            /// Enum Diesel for value: Diesel
-            /// </summary>
-            Diesel = 2,
-
-            /// <summary>
-            /// Enum FuelOil for value: Fuel Oil
-            /// </summary>
-            FuelOil = 3
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Petrol"))
-                return FuelTypeEnum.Petrol;
-
-            if (value.Equals("Diesel"))
-                return FuelTypeEnum.Diesel;
-
-            if (value.Equals("Fuel Oil"))
-                return FuelTypeEnum.FuelOil;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Petrol"))
-                return FuelTypeEnum.Petrol;
-
-            if (value.Equals("Diesel"))
-                return FuelTypeEnum.Diesel;
-
-            if (value.Equals("Fuel Oil"))
-                return FuelTypeEnum.FuelOil;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.Petrol)
-                return "Petrol";
-
-            if (value == FuelTypeEnum.Diesel)
-                return "Diesel";
-
-            if (value == FuelTypeEnum.FuelOil)
-                return "Fuel Oil";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of fuel used by this vessel
-        /// </summary>
-        /// <value>Type of fuel used by this vessel</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public VesselFuelType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKilolitres
@@ -260,7 +179,7 @@ namespace Org.OpenAPITools.Model
 
             Option<CarsAndLightCommercialVehicles1AmountKilolitres?> amountKilolitres = default;
             Option<Vessel1.VehicleTypeEnum?> vehicleType = default;
-            Option<Vessel1.FuelTypeEnum?> fuelType = default;
+            Option<VesselFuelType?> fuelType = default;
 
             while (utf8JsonReader.Read())
             {
@@ -291,14 +210,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                Vessel1.FuelTypeEnum? fuelTypeValue = Vessel1.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<Vessel1.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<VesselFuelType?>(JsonSerializer.Deserialize<VesselFuelType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -353,7 +265,7 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, vessel1.AmountKilolitres, jsonSerializerOptions);
             var vehicleTypeRawValue = Vessel1.VehicleTypeEnumToJsonValue(vessel1.VehicleType);
             writer.WriteString("vehicleType", vehicleTypeRawValue);
-            var fuelTypeRawValue = Vessel1.FuelTypeEnumToJsonValue(vessel1.FuelType);
+            var fuelTypeRawValue = VesselFuelTypeValueConverter.ToJsonValue(vessel1.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
         }
     }

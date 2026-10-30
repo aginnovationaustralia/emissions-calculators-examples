@@ -41,7 +41,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="class">The class of the purchased livestock</param>
         /// <param name="season">Season of the livestock purchase</param>
         [JsonConstructor]
-        public Method1EmissionFactorMethod1Liveweight(TypeEnum type, Method1EmissionFactorMethod1LiveweightHeadPurchased headPurchased, CategoryEnum category, RegionEnum region, ClassEnum @class, SeasonEnum season)
+        public Method1EmissionFactorMethod1Liveweight(TypeEnum type, Method1EmissionFactorMethod1LiveweightHeadPurchased headPurchased, BeefPurchaseCategory category, ExtendedRegion region, BeefClass @class, Season season)
         {
             Type = type;
             HeadPurchased = headPurchased;
@@ -116,605 +116,29 @@ namespace Org.OpenAPITools.Model
         /// The category of the purchased animals
         /// </summary>
         /// <value>The category of the purchased animals</value>
-        public enum CategoryEnum
-        {
-            /// <summary>
-            /// Enum BeefPrime for value: beefPrime
-            /// </summary>
-            BeefPrime = 1,
-
-            /// <summary>
-            /// Enum BeefWeaned for value: beefWeaned
-            /// </summary>
-            BeefWeaned = 2
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CategoryEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static CategoryEnum CategoryEnumFromString(string value)
-        {
-            if (value.Equals("beefPrime"))
-                return CategoryEnum.BeefPrime;
-
-            if (value.Equals("beefWeaned"))
-                return CategoryEnum.BeefWeaned;
-
-            throw new NotImplementedException($"Could not convert value to type CategoryEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CategoryEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static CategoryEnum? CategoryEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("beefPrime"))
-                return CategoryEnum.BeefPrime;
-
-            if (value.Equals("beefWeaned"))
-                return CategoryEnum.BeefWeaned;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="CategoryEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string CategoryEnumToJsonValue(CategoryEnum value)
-        {
-            if (value == CategoryEnum.BeefPrime)
-                return "beefPrime";
-
-            if (value == CategoryEnum.BeefWeaned)
-                return "beefWeaned";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The category of the purchased animals
-        /// </summary>
-        /// <value>The category of the purchased animals</value>
         [JsonPropertyName("category")]
-        public CategoryEnum Category { get; set; }
-
-        /// <summary>
-        ///  The origin of the purchased livestock
-        /// </summary>
-        /// <value> The origin of the purchased livestock</value>
-        public enum RegionEnum
-        {
-            /// <summary>
-            /// Enum ACTNSW for value: ACT/NSW
-            /// </summary>
-            ACTNSW = 1,
-
-            /// <summary>
-            /// Enum SA for value: SA
-            /// </summary>
-            SA = 2,
-
-            /// <summary>
-            /// Enum TAS for value: TAS
-            /// </summary>
-            TAS = 3,
-
-            /// <summary>
-            /// Enum VIC for value: VIC
-            /// </summary>
-            VIC = 4,
-
-            /// <summary>
-            /// Enum WASouthWest for value: WA - South West
-            /// </summary>
-            WASouthWest = 5,
-
-            /// <summary>
-            /// Enum WAPilbara for value: WA - Pilbara
-            /// </summary>
-            WAPilbara = 6,
-
-            /// <summary>
-            /// Enum WAKimberley for value: WA - Kimberley
-            /// </summary>
-            WAKimberley = 7,
-
-            /// <summary>
-            /// Enum NTAliceSprings for value: NT - Alice Springs
-            /// </summary>
-            NTAliceSprings = 8,
-
-            /// <summary>
-            /// Enum NTBarkly for value: NT - Barkly
-            /// </summary>
-            NTBarkly = 9,
-
-            /// <summary>
-            /// Enum NTNorthern for value: NT - Northern
-            /// </summary>
-            NTNorthern = 10,
-
-            /// <summary>
-            /// Enum QLDHigh for value: QLD - High
-            /// </summary>
-            QLDHigh = 11,
-
-            /// <summary>
-            /// Enum QLDModerateHigh for value: QLD - Moderate/High
-            /// </summary>
-            QLDModerateHigh = 12,
-
-            /// <summary>
-            /// Enum QLDModerateLow for value: QLD - Moderate/Low
-            /// </summary>
-            QLDModerateLow = 13,
-
-            /// <summary>
-            /// Enum QLDLow for value: QLD - Low
-            /// </summary>
-            QLDLow = 14
-        }
-
-        /// <summary>
-        /// Returns a <see cref="RegionEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static RegionEnum RegionEnumFromString(string value)
-        {
-            if (value.Equals("ACT/NSW"))
-                return RegionEnum.ACTNSW;
-
-            if (value.Equals("SA"))
-                return RegionEnum.SA;
-
-            if (value.Equals("TAS"))
-                return RegionEnum.TAS;
-
-            if (value.Equals("VIC"))
-                return RegionEnum.VIC;
-
-            if (value.Equals("WA - South West"))
-                return RegionEnum.WASouthWest;
-
-            if (value.Equals("WA - Pilbara"))
-                return RegionEnum.WAPilbara;
-
-            if (value.Equals("WA - Kimberley"))
-                return RegionEnum.WAKimberley;
-
-            if (value.Equals("NT - Alice Springs"))
-                return RegionEnum.NTAliceSprings;
-
-            if (value.Equals("NT - Barkly"))
-                return RegionEnum.NTBarkly;
-
-            if (value.Equals("NT - Northern"))
-                return RegionEnum.NTNorthern;
-
-            if (value.Equals("QLD - High"))
-                return RegionEnum.QLDHigh;
-
-            if (value.Equals("QLD - Moderate/High"))
-                return RegionEnum.QLDModerateHigh;
-
-            if (value.Equals("QLD - Moderate/Low"))
-                return RegionEnum.QLDModerateLow;
-
-            if (value.Equals("QLD - Low"))
-                return RegionEnum.QLDLow;
-
-            throw new NotImplementedException($"Could not convert value to type RegionEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="RegionEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static RegionEnum? RegionEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("ACT/NSW"))
-                return RegionEnum.ACTNSW;
-
-            if (value.Equals("SA"))
-                return RegionEnum.SA;
-
-            if (value.Equals("TAS"))
-                return RegionEnum.TAS;
-
-            if (value.Equals("VIC"))
-                return RegionEnum.VIC;
-
-            if (value.Equals("WA - South West"))
-                return RegionEnum.WASouthWest;
-
-            if (value.Equals("WA - Pilbara"))
-                return RegionEnum.WAPilbara;
-
-            if (value.Equals("WA - Kimberley"))
-                return RegionEnum.WAKimberley;
-
-            if (value.Equals("NT - Alice Springs"))
-                return RegionEnum.NTAliceSprings;
-
-            if (value.Equals("NT - Barkly"))
-                return RegionEnum.NTBarkly;
-
-            if (value.Equals("NT - Northern"))
-                return RegionEnum.NTNorthern;
-
-            if (value.Equals("QLD - High"))
-                return RegionEnum.QLDHigh;
-
-            if (value.Equals("QLD - Moderate/High"))
-                return RegionEnum.QLDModerateHigh;
-
-            if (value.Equals("QLD - Moderate/Low"))
-                return RegionEnum.QLDModerateLow;
-
-            if (value.Equals("QLD - Low"))
-                return RegionEnum.QLDLow;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="RegionEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string RegionEnumToJsonValue(RegionEnum value)
-        {
-            if (value == RegionEnum.ACTNSW)
-                return "ACT/NSW";
-
-            if (value == RegionEnum.SA)
-                return "SA";
-
-            if (value == RegionEnum.TAS)
-                return "TAS";
-
-            if (value == RegionEnum.VIC)
-                return "VIC";
-
-            if (value == RegionEnum.WASouthWest)
-                return "WA - South West";
-
-            if (value == RegionEnum.WAPilbara)
-                return "WA - Pilbara";
-
-            if (value == RegionEnum.WAKimberley)
-                return "WA - Kimberley";
-
-            if (value == RegionEnum.NTAliceSprings)
-                return "NT - Alice Springs";
-
-            if (value == RegionEnum.NTBarkly)
-                return "NT - Barkly";
-
-            if (value == RegionEnum.NTNorthern)
-                return "NT - Northern";
-
-            if (value == RegionEnum.QLDHigh)
-                return "QLD - High";
-
-            if (value == RegionEnum.QLDModerateHigh)
-                return "QLD - Moderate/High";
-
-            if (value == RegionEnum.QLDModerateLow)
-                return "QLD - Moderate/Low";
-
-            if (value == RegionEnum.QLDLow)
-                return "QLD - Low";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public BeefPurchaseCategory Category { get; set; }
 
         /// <summary>
         ///  The origin of the purchased livestock
         /// </summary>
         /// <value> The origin of the purchased livestock</value>
         [JsonPropertyName("region")]
-        public RegionEnum Region { get; set; }
-
-        /// <summary>
-        /// The class of the purchased livestock
-        /// </summary>
-        /// <value>The class of the purchased livestock</value>
-        public enum ClassEnum
-        {
-            /// <summary>
-            /// Enum BullsLt1 for value: bullsLt1
-            /// </summary>
-            BullsLt1 = 1,
-
-            /// <summary>
-            /// Enum BullsGt1 for value: bullsGt1
-            /// </summary>
-            BullsGt1 = 2,
-
-            /// <summary>
-            /// Enum CowsLt1 for value: cowsLt1
-            /// </summary>
-            CowsLt1 = 3,
-
-            /// <summary>
-            /// Enum Cows1To2Years for value: cows1To2Years
-            /// </summary>
-            Cows1To2Years = 4,
-
-            /// <summary>
-            /// Enum Cows2To3Years for value: cows2To3Years
-            /// </summary>
-            Cows2To3Years = 5,
-
-            /// <summary>
-            /// Enum CowsGt3Years for value: cowsGt3Years
-            /// </summary>
-            CowsGt3Years = 6,
-
-            /// <summary>
-            /// Enum SteersLt1 for value: steersLt1
-            /// </summary>
-            SteersLt1 = 7,
-
-            /// <summary>
-            /// Enum Steers1To2Years for value: steers1To2Years
-            /// </summary>
-            Steers1To2Years = 8,
-
-            /// <summary>
-            /// Enum Steers2To3Years for value: steers2To3Years
-            /// </summary>
-            Steers2To3Years = 9,
-
-            /// <summary>
-            /// Enum SteersGt3Years for value: steersGt3Years
-            /// </summary>
-            SteersGt3Years = 10
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ClassEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ClassEnum ClassEnumFromString(string value)
-        {
-            if (value.Equals("bullsLt1"))
-                return ClassEnum.BullsLt1;
-
-            if (value.Equals("bullsGt1"))
-                return ClassEnum.BullsGt1;
-
-            if (value.Equals("cowsLt1"))
-                return ClassEnum.CowsLt1;
-
-            if (value.Equals("cows1To2Years"))
-                return ClassEnum.Cows1To2Years;
-
-            if (value.Equals("cows2To3Years"))
-                return ClassEnum.Cows2To3Years;
-
-            if (value.Equals("cowsGt3Years"))
-                return ClassEnum.CowsGt3Years;
-
-            if (value.Equals("steersLt1"))
-                return ClassEnum.SteersLt1;
-
-            if (value.Equals("steers1To2Years"))
-                return ClassEnum.Steers1To2Years;
-
-            if (value.Equals("steers2To3Years"))
-                return ClassEnum.Steers2To3Years;
-
-            if (value.Equals("steersGt3Years"))
-                return ClassEnum.SteersGt3Years;
-
-            throw new NotImplementedException($"Could not convert value to type ClassEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ClassEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ClassEnum? ClassEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("bullsLt1"))
-                return ClassEnum.BullsLt1;
-
-            if (value.Equals("bullsGt1"))
-                return ClassEnum.BullsGt1;
-
-            if (value.Equals("cowsLt1"))
-                return ClassEnum.CowsLt1;
-
-            if (value.Equals("cows1To2Years"))
-                return ClassEnum.Cows1To2Years;
-
-            if (value.Equals("cows2To3Years"))
-                return ClassEnum.Cows2To3Years;
-
-            if (value.Equals("cowsGt3Years"))
-                return ClassEnum.CowsGt3Years;
-
-            if (value.Equals("steersLt1"))
-                return ClassEnum.SteersLt1;
-
-            if (value.Equals("steers1To2Years"))
-                return ClassEnum.Steers1To2Years;
-
-            if (value.Equals("steers2To3Years"))
-                return ClassEnum.Steers2To3Years;
-
-            if (value.Equals("steersGt3Years"))
-                return ClassEnum.SteersGt3Years;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ClassEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ClassEnumToJsonValue(ClassEnum value)
-        {
-            if (value == ClassEnum.BullsLt1)
-                return "bullsLt1";
-
-            if (value == ClassEnum.BullsGt1)
-                return "bullsGt1";
-
-            if (value == ClassEnum.CowsLt1)
-                return "cowsLt1";
-
-            if (value == ClassEnum.Cows1To2Years)
-                return "cows1To2Years";
-
-            if (value == ClassEnum.Cows2To3Years)
-                return "cows2To3Years";
-
-            if (value == ClassEnum.CowsGt3Years)
-                return "cowsGt3Years";
-
-            if (value == ClassEnum.SteersLt1)
-                return "steersLt1";
-
-            if (value == ClassEnum.Steers1To2Years)
-                return "steers1To2Years";
-
-            if (value == ClassEnum.Steers2To3Years)
-                return "steers2To3Years";
-
-            if (value == ClassEnum.SteersGt3Years)
-                return "steersGt3Years";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public ExtendedRegion Region { get; set; }
 
         /// <summary>
         /// The class of the purchased livestock
         /// </summary>
         /// <value>The class of the purchased livestock</value>
         [JsonPropertyName("class")]
-        public ClassEnum Class { get; set; }
-
-        /// <summary>
-        /// Season of the livestock purchase
-        /// </summary>
-        /// <value>Season of the livestock purchase</value>
-        public enum SeasonEnum
-        {
-            /// <summary>
-            /// Enum Spring for value: spring
-            /// </summary>
-            Spring = 1,
-
-            /// <summary>
-            /// Enum Summer for value: summer
-            /// </summary>
-            Summer = 2,
-
-            /// <summary>
-            /// Enum Autumn for value: autumn
-            /// </summary>
-            Autumn = 3,
-
-            /// <summary>
-            /// Enum Winter for value: winter
-            /// </summary>
-            Winter = 4
-        }
-
-        /// <summary>
-        /// Returns a <see cref="SeasonEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static SeasonEnum SeasonEnumFromString(string value)
-        {
-            if (value.Equals("spring"))
-                return SeasonEnum.Spring;
-
-            if (value.Equals("summer"))
-                return SeasonEnum.Summer;
-
-            if (value.Equals("autumn"))
-                return SeasonEnum.Autumn;
-
-            if (value.Equals("winter"))
-                return SeasonEnum.Winter;
-
-            throw new NotImplementedException($"Could not convert value to type SeasonEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="SeasonEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static SeasonEnum? SeasonEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("spring"))
-                return SeasonEnum.Spring;
-
-            if (value.Equals("summer"))
-                return SeasonEnum.Summer;
-
-            if (value.Equals("autumn"))
-                return SeasonEnum.Autumn;
-
-            if (value.Equals("winter"))
-                return SeasonEnum.Winter;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="SeasonEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string SeasonEnumToJsonValue(SeasonEnum value)
-        {
-            if (value == SeasonEnum.Spring)
-                return "spring";
-
-            if (value == SeasonEnum.Summer)
-                return "summer";
-
-            if (value == SeasonEnum.Autumn)
-                return "autumn";
-
-            if (value == SeasonEnum.Winter)
-                return "winter";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public BeefClass Class { get; set; }
 
         /// <summary>
         /// Season of the livestock purchase
         /// </summary>
         /// <value>Season of the livestock purchase</value>
         [JsonPropertyName("season")]
-        public SeasonEnum Season { get; set; }
+        public Season Season { get; set; }
 
         /// <summary>
         /// Gets or Sets HeadPurchased
@@ -792,10 +216,10 @@ namespace Org.OpenAPITools.Model
 
             Option<Method1EmissionFactorMethod1Liveweight.TypeEnum?> type = default;
             Option<Method1EmissionFactorMethod1LiveweightHeadPurchased?> headPurchased = default;
-            Option<Method1EmissionFactorMethod1Liveweight.CategoryEnum?> category = default;
-            Option<Method1EmissionFactorMethod1Liveweight.RegionEnum?> region = default;
-            Option<Method1EmissionFactorMethod1Liveweight.ClassEnum?> varClass = default;
-            Option<Method1EmissionFactorMethod1Liveweight.SeasonEnum?> season = default;
+            Option<BeefPurchaseCategory?> category = default;
+            Option<ExtendedRegion?> region = default;
+            Option<BeefClass?> varClass = default;
+            Option<Season?> season = default;
 
             while (utf8JsonReader.Read())
             {
@@ -826,44 +250,16 @@ namespace Org.OpenAPITools.Model
                             headPurchased = new Option<Method1EmissionFactorMethod1LiveweightHeadPurchased?>(JsonSerializer.Deserialize<Method1EmissionFactorMethod1LiveweightHeadPurchased>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "category":
-                            string? categoryRawValue = utf8JsonReader.GetString();
-                            if (categoryRawValue != null)
-                            {
-                                Method1EmissionFactorMethod1Liveweight.CategoryEnum? categoryValue = Method1EmissionFactorMethod1Liveweight.CategoryEnumFromStringOrDefault(categoryRawValue);
-                                if (categoryValue == null)
-                                    throw new JsonException();
-                                category = new Option<Method1EmissionFactorMethod1Liveweight.CategoryEnum?>(categoryValue);
-                            }
+                            category = new Option<BeefPurchaseCategory?>(JsonSerializer.Deserialize<BeefPurchaseCategory?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "region":
-                            string? regionRawValue = utf8JsonReader.GetString();
-                            if (regionRawValue != null)
-                            {
-                                Method1EmissionFactorMethod1Liveweight.RegionEnum? regionValue = Method1EmissionFactorMethod1Liveweight.RegionEnumFromStringOrDefault(regionRawValue);
-                                if (regionValue == null)
-                                    throw new JsonException();
-                                region = new Option<Method1EmissionFactorMethod1Liveweight.RegionEnum?>(regionValue);
-                            }
+                            region = new Option<ExtendedRegion?>(JsonSerializer.Deserialize<ExtendedRegion?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "class":
-                            string? varClassRawValue = utf8JsonReader.GetString();
-                            if (varClassRawValue != null)
-                            {
-                                Method1EmissionFactorMethod1Liveweight.ClassEnum? varClassValue = Method1EmissionFactorMethod1Liveweight.ClassEnumFromStringOrDefault(varClassRawValue);
-                                if (varClassValue == null)
-                                    throw new JsonException();
-                                varClass = new Option<Method1EmissionFactorMethod1Liveweight.ClassEnum?>(varClassValue);
-                            }
+                            varClass = new Option<BeefClass?>(JsonSerializer.Deserialize<BeefClass?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "season":
-                            string? seasonRawValue = utf8JsonReader.GetString();
-                            if (seasonRawValue != null)
-                            {
-                                Method1EmissionFactorMethod1Liveweight.SeasonEnum? seasonValue = Method1EmissionFactorMethod1Liveweight.SeasonEnumFromStringOrDefault(seasonRawValue);
-                                if (seasonValue == null)
-                                    throw new JsonException();
-                                season = new Option<Method1EmissionFactorMethod1Liveweight.SeasonEnum?>(seasonValue);
-                            }
+                            season = new Option<Season?>(JsonSerializer.Deserialize<Season?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -936,13 +332,16 @@ namespace Org.OpenAPITools.Model
             writer.WriteString("type", typeRawValue);
             writer.WritePropertyName("headPurchased");
             JsonSerializer.Serialize(writer, method1EmissionFactorMethod1Liveweight.HeadPurchased, jsonSerializerOptions);
-            var categoryRawValue = Method1EmissionFactorMethod1Liveweight.CategoryEnumToJsonValue(method1EmissionFactorMethod1Liveweight.Category);
+            var categoryRawValue = BeefPurchaseCategoryValueConverter.ToJsonValue(method1EmissionFactorMethod1Liveweight.Category);
             writer.WriteString("category", categoryRawValue);
-            var regionRawValue = Method1EmissionFactorMethod1Liveweight.RegionEnumToJsonValue(method1EmissionFactorMethod1Liveweight.Region);
+
+            var regionRawValue = ExtendedRegionValueConverter.ToJsonValue(method1EmissionFactorMethod1Liveweight.Region);
             writer.WriteString("region", regionRawValue);
-            var varClassRawValue = Method1EmissionFactorMethod1Liveweight.ClassEnumToJsonValue(method1EmissionFactorMethod1Liveweight.Class);
+
+            var varClassRawValue = BeefClassValueConverter.ToJsonValue(method1EmissionFactorMethod1Liveweight.Class);
             writer.WriteString("class", varClassRawValue);
-            var seasonRawValue = Method1EmissionFactorMethod1Liveweight.SeasonEnumToJsonValue(method1EmissionFactorMethod1Liveweight.Season);
+
+            var seasonRawValue = SeasonValueConverter.ToJsonValue(method1EmissionFactorMethod1Liveweight.Season);
             writer.WriteString("season", seasonRawValue);
         }
     }

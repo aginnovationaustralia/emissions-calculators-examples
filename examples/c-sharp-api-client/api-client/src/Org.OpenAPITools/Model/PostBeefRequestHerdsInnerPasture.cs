@@ -39,7 +39,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fractionOfAnnualCropBurnt">fractionOfAnnualCropBurnt</param>
         /// <param name="residues">residues</param>
         [JsonConstructor]
-        public PostBeefRequestHerdsInnerPasture(TypeEnum type, PostBeefRequestHerdsInnerPastureAreaManaged areaManaged, PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt fractionOfAnnualCropBurnt, PostBeefRequestHerdsInnerPastureResidues residues)
+        public PostBeefRequestHerdsInnerPasture(PastureType type, PostBeefRequestHerdsInnerPastureAreaManaged areaManaged, PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt fractionOfAnnualCropBurnt, PostBeefRequestHerdsInnerPastureResidues residues)
         {
             Type = type;
             AreaManaged = areaManaged;
@@ -54,117 +54,8 @@ namespace Org.OpenAPITools.Model
         /// Type of pasture managed in this activity
         /// </summary>
         /// <value>Type of pasture managed in this activity</value>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum AnnualGrass for value: Annual grass
-            /// </summary>
-            AnnualGrass = 1,
-
-            /// <summary>
-            /// Enum GrassCloverMixture for value: Grass clover mixture
-            /// </summary>
-            GrassCloverMixture = 2,
-
-            /// <summary>
-            /// Enum Lucerne for value: Lucerne
-            /// </summary>
-            Lucerne = 3,
-
-            /// <summary>
-            /// Enum OtherLegume for value: Other legume
-            /// </summary>
-            OtherLegume = 4,
-
-            /// <summary>
-            /// Enum PerennialPasture for value: Perennial pasture
-            /// </summary>
-            PerennialPasture = 5
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Annual grass"))
-                return TypeEnum.AnnualGrass;
-
-            if (value.Equals("Grass clover mixture"))
-                return TypeEnum.GrassCloverMixture;
-
-            if (value.Equals("Lucerne"))
-                return TypeEnum.Lucerne;
-
-            if (value.Equals("Other legume"))
-                return TypeEnum.OtherLegume;
-
-            if (value.Equals("Perennial pasture"))
-                return TypeEnum.PerennialPasture;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Annual grass"))
-                return TypeEnum.AnnualGrass;
-
-            if (value.Equals("Grass clover mixture"))
-                return TypeEnum.GrassCloverMixture;
-
-            if (value.Equals("Lucerne"))
-                return TypeEnum.Lucerne;
-
-            if (value.Equals("Other legume"))
-                return TypeEnum.OtherLegume;
-
-            if (value.Equals("Perennial pasture"))
-                return TypeEnum.PerennialPasture;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.AnnualGrass)
-                return "Annual grass";
-
-            if (value == TypeEnum.GrassCloverMixture)
-                return "Grass clover mixture";
-
-            if (value == TypeEnum.Lucerne)
-                return "Lucerne";
-
-            if (value == TypeEnum.OtherLegume)
-                return "Other legume";
-
-            if (value == TypeEnum.PerennialPasture)
-                return "Perennial pasture";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of pasture managed in this activity
-        /// </summary>
-        /// <value>Type of pasture managed in this activity</value>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public PastureType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets AreaManaged
@@ -250,7 +141,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<PostBeefRequestHerdsInnerPasture.TypeEnum?> type = default;
+            Option<PastureType?> type = default;
             Option<PostBeefRequestHerdsInnerPastureAreaManaged?> areaManaged = default;
             Option<PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt?> fractionOfAnnualCropBurnt = default;
             Option<PostBeefRequestHerdsInnerPastureResidues?> residues = default;
@@ -271,14 +162,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                PostBeefRequestHerdsInnerPasture.TypeEnum? typeValue = PostBeefRequestHerdsInnerPasture.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<PostBeefRequestHerdsInnerPasture.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<PastureType?>(JsonSerializer.Deserialize<PastureType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "areaManaged":
                             areaManaged = new Option<PostBeefRequestHerdsInnerPastureAreaManaged?>(JsonSerializer.Deserialize<PostBeefRequestHerdsInnerPastureAreaManaged>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -344,8 +228,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, PostBeefRequestHerdsInnerPasture postBeefRequestHerdsInnerPasture, JsonSerializerOptions jsonSerializerOptions)
         {
-            var typeRawValue = PostBeefRequestHerdsInnerPasture.TypeEnumToJsonValue(postBeefRequestHerdsInnerPasture.Type);
+            var typeRawValue = PastureTypeValueConverter.ToJsonValue(postBeefRequestHerdsInnerPasture.Type);
             writer.WriteString("type", typeRawValue);
+
             writer.WritePropertyName("areaManaged");
             JsonSerializer.Serialize(writer, postBeefRequestHerdsInnerPasture.AreaManaged, jsonSerializerOptions);
             writer.WritePropertyName("fractionOfAnnualCropBurnt");

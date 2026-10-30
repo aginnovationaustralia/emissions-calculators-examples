@@ -59,7 +59,7 @@ class PostBeefRequestHerdsInnerChemicalsInner implements ModelInterface, ArrayAc
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'type' => 'string',
+        'type' => '\OpenAPI\Client\Model\AgrochemicalType',
         'amount_kg' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerChemicalsInnerAmountKg',
         'custom_emissions_factor' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor'
     ];
@@ -221,49 +221,6 @@ class PostBeefRequestHerdsInnerChemicalsInner implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
-    public const TYPE_HERBICIDE__PARAQUAT_DIQUAT_GLYPHOSATE = 'Herbicide (paraquat, diquat, glyphosate)';
-    public const TYPE_OTHER_HERBICIDE = 'Other herbicide';
-    public const TYPE_INSECTICIDE = 'Insecticide';
-    public const TYPE_FUNGICIDE = 'Fungicide';
-    public const TYPE_PLANT_GROWTH_REGULATOR = 'Plant growth regulator';
-    public const TYPE__24_D = '2,4-D';
-    public const TYPE_ATRAZINE = 'Atrazine';
-    public const TYPE_DIURON = 'Diuron';
-    public const TYPE_MANCOZEB = 'Mancozeb';
-    public const TYPE_MCPA = 'MCPA';
-    public const TYPE_METOLACHLOR = 'Metolachlor';
-    public const TYPE_METSULFURON_METHYL = 'Metsulfuron-methyl';
-    public const TYPE_PESTICIDES__GENERIC = 'Pesticides (generic)';
-    public const TYPE_TRI_ALLATE = 'Tri-allate';
-    public const TYPE_TRIBENURON_METHYL = 'Tribenuron methyl';
-    public const TYPE_TRIFLURALIN = 'Trifluralin';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_HERBICIDE__PARAQUAT_DIQUAT_GLYPHOSATE,
-            self::TYPE_OTHER_HERBICIDE,
-            self::TYPE_INSECTICIDE,
-            self::TYPE_FUNGICIDE,
-            self::TYPE_PLANT_GROWTH_REGULATOR,
-            self::TYPE__24_D,
-            self::TYPE_ATRAZINE,
-            self::TYPE_DIURON,
-            self::TYPE_MANCOZEB,
-            self::TYPE_MCPA,
-            self::TYPE_METOLACHLOR,
-            self::TYPE_METSULFURON_METHYL,
-            self::TYPE_PESTICIDES__GENERIC,
-            self::TYPE_TRI_ALLATE,
-            self::TYPE_TRIBENURON_METHYL,
-            self::TYPE_TRIFLURALIN,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -312,15 +269,6 @@ class PostBeefRequestHerdsInnerChemicalsInner implements ModelInterface, ArrayAc
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['amount_kg'] === null) {
             $invalidProperties[] = "'amount_kg' can't be null";
         }
@@ -339,9 +287,9 @@ class PostBeefRequestHerdsInnerChemicalsInner implements ModelInterface, ArrayAc
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\AgrochemicalType
      */
-    public function getType(): string
+    public function getType(): \OpenAPI\Client\Model\AgrochemicalType
     {
         return $this->container['type'];
     }
@@ -349,24 +297,14 @@ class PostBeefRequestHerdsInnerChemicalsInner implements ModelInterface, ArrayAc
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param \OpenAPI\Client\Model\AgrochemicalType $type type
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(\OpenAPI\Client\Model\AgrochemicalType $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

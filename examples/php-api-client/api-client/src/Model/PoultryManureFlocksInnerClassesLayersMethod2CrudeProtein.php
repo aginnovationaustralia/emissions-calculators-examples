@@ -263,8 +263,12 @@ class PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein implements ModelI
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
-        if (!is_null($this->container['value']) && ($this->container['value'] <= 0)) {
-            $invalidProperties[] = "invalid value for 'value', must be bigger than 0.";
+        if (!is_null($this->container['value']) && ($this->container['value'] > 1)) {
+            $invalidProperties[] = "invalid value for 'value', must be smaller than or equal to 1.";
+        }
+
+        if (!is_null($this->container['value']) && ($this->container['value'] < 0)) {
+            $invalidProperties[] = "invalid value for 'value', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -301,8 +305,11 @@ class PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein implements ModelI
         if (is_null($value)) {
             throw new InvalidArgumentException('non-nullable value cannot be null');
         }
-        if (($value <= 0)) {
-            throw new InvalidArgumentException('invalid value for $value when calling PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein., must be bigger than 0.');
+        if (($value > 1)) {
+            throw new InvalidArgumentException('invalid value for $value when calling PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein., must be smaller than or equal to 1.');
+        }
+        if (($value < 0)) {
+            throw new InvalidArgumentException('invalid value for $value when calling PoultryManureFlocksInnerClassesLayersMethod2CrudeProtein., must be bigger than or equal to 0.');
         }
 
         $this->container['value'] = $value;

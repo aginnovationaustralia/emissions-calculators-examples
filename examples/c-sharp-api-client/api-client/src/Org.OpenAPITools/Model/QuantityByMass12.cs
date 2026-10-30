@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fuelType">Type of liquid fuel used in stationary equipment</param>
         /// <param name="amountTonnes">amountTonnes</param>
         [JsonConstructor]
-        public QuantityByMass12(FuelClassEnum fuelClass, FuelTypeEnum fuelType, SolidFuels1AmountTonnes amountTonnes)
+        public QuantityByMass12(FuelClassEnum fuelClass, FuelStationaryMassBasedLiquidType fuelType, SolidFuels1AmountTonnes amountTonnes)
         {
             FuelClass = fuelClass;
             FuelType = fuelType;
@@ -110,117 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of liquid fuel used in stationary equipment
         /// </summary>
         /// <value>Type of liquid fuel used in stationary equipment</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum CrudeOilAndCondensates for value: Crude oil and condensates
-            /// </summary>
-            CrudeOilAndCondensates = 1,
-
-            /// <summary>
-            /// Enum OtherNaturalGasLiquids for value: Other natural gas liquids
-            /// </summary>
-            OtherNaturalGasLiquids = 2,
-
-            /// <summary>
-            /// Enum PetroleumCoke for value: Petroleum coke
-            /// </summary>
-            PetroleumCoke = 3,
-
-            /// <summary>
-            /// Enum RefineryGasAndLiquids for value: Refinery gas and liquids
-            /// </summary>
-            RefineryGasAndLiquids = 4,
-
-            /// <summary>
-            /// Enum RefineryCoke for value: Refinery coke
-            /// </summary>
-            RefineryCoke = 5
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Crude oil and condensates"))
-                return FuelTypeEnum.CrudeOilAndCondensates;
-
-            if (value.Equals("Other natural gas liquids"))
-                return FuelTypeEnum.OtherNaturalGasLiquids;
-
-            if (value.Equals("Petroleum coke"))
-                return FuelTypeEnum.PetroleumCoke;
-
-            if (value.Equals("Refinery gas and liquids"))
-                return FuelTypeEnum.RefineryGasAndLiquids;
-
-            if (value.Equals("Refinery coke"))
-                return FuelTypeEnum.RefineryCoke;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Crude oil and condensates"))
-                return FuelTypeEnum.CrudeOilAndCondensates;
-
-            if (value.Equals("Other natural gas liquids"))
-                return FuelTypeEnum.OtherNaturalGasLiquids;
-
-            if (value.Equals("Petroleum coke"))
-                return FuelTypeEnum.PetroleumCoke;
-
-            if (value.Equals("Refinery gas and liquids"))
-                return FuelTypeEnum.RefineryGasAndLiquids;
-
-            if (value.Equals("Refinery coke"))
-                return FuelTypeEnum.RefineryCoke;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.CrudeOilAndCondensates)
-                return "Crude oil and condensates";
-
-            if (value == FuelTypeEnum.OtherNaturalGasLiquids)
-                return "Other natural gas liquids";
-
-            if (value == FuelTypeEnum.PetroleumCoke)
-                return "Petroleum coke";
-
-            if (value == FuelTypeEnum.RefineryGasAndLiquids)
-                return "Refinery gas and liquids";
-
-            if (value == FuelTypeEnum.RefineryCoke)
-                return "Refinery coke";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of liquid fuel used in stationary equipment
-        /// </summary>
-        /// <value>Type of liquid fuel used in stationary equipment</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public FuelStationaryMassBasedLiquidType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountTonnes
@@ -287,7 +178,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<QuantityByMass12.FuelClassEnum?> fuelClass = default;
-            Option<QuantityByMass12.FuelTypeEnum?> fuelType = default;
+            Option<FuelStationaryMassBasedLiquidType?> fuelType = default;
             Option<SolidFuels1AmountTonnes?> amountTonnes = default;
 
             while (utf8JsonReader.Read())
@@ -316,14 +207,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                QuantityByMass12.FuelTypeEnum? fuelTypeValue = QuantityByMass12.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<QuantityByMass12.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<FuelStationaryMassBasedLiquidType?>(JsonSerializer.Deserialize<FuelStationaryMassBasedLiquidType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "amountTonnes":
                             amountTonnes = new Option<SolidFuels1AmountTonnes?>(JsonSerializer.Deserialize<SolidFuels1AmountTonnes>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -379,8 +263,9 @@ namespace Org.OpenAPITools.Model
         {
             var fuelClassRawValue = QuantityByMass12.FuelClassEnumToJsonValue(quantityByMass12.FuelClass);
             writer.WriteString("fuelClass", fuelClassRawValue);
-            var fuelTypeRawValue = QuantityByMass12.FuelTypeEnumToJsonValue(quantityByMass12.FuelType);
+            var fuelTypeRawValue = FuelStationaryMassBasedLiquidTypeValueConverter.ToJsonValue(quantityByMass12.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
+
             writer.WritePropertyName("amountTonnes");
             JsonSerializer.Serialize(writer, quantityByMass12.AmountTonnes, jsonSerializerOptions);
         }

@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fuelType">Type of solid fuel used in stationary equipment</param>
         /// <param name="amountTonnes">amountTonnes</param>
         [JsonConstructor]
-        public SolidFuels(FuelClassEnum fuelClass, FuelTypeEnum fuelType, SolidFuelsAmountTonnes amountTonnes)
+        public SolidFuels(FuelClassEnum fuelClass, FuelStationarySolidType fuelType, SolidFuelsAmountTonnes amountTonnes)
         {
             FuelClass = fuelClass;
             FuelType = fuelType;
@@ -110,327 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of solid fuel used in stationary equipment
         /// </summary>
         /// <value>Type of solid fuel used in stationary equipment</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum BituminousCoal for value: Bituminous coal
-            /// </summary>
-            BituminousCoal = 1,
-
-            /// <summary>
-            /// Enum SubBituminousCoal for value: Sub-bituminous coal
-            /// </summary>
-            SubBituminousCoal = 2,
-
-            /// <summary>
-            /// Enum Anthracite for value: Anthracite
-            /// </summary>
-            Anthracite = 3,
-
-            /// <summary>
-            /// Enum BrownCoallignite for value: Brown coal (lignite)
-            /// </summary>
-            BrownCoallignite = 4,
-
-            /// <summary>
-            /// Enum CokingCoal for value: Coking coal
-            /// </summary>
-            CokingCoal = 5,
-
-            /// <summary>
-            /// Enum CoalBriquettes for value: Coal briquettes
-            /// </summary>
-            CoalBriquettes = 6,
-
-            /// <summary>
-            /// Enum CoalCoke for value: Coal coke
-            /// </summary>
-            CoalCoke = 7,
-
-            /// <summary>
-            /// Enum CoalTar for value: Coal tar
-            /// </summary>
-            CoalTar = 8,
-
-            /// <summary>
-            /// Enum OtherSolidFossilFuels for value: Other solid fossil fuels
-            /// </summary>
-            OtherSolidFossilFuels = 9,
-
-            /// <summary>
-            /// Enum IndustrialMaterialsDerivedFromFossilFuels for value: Industrial materials derived from fossil fuels
-            /// </summary>
-            IndustrialMaterialsDerivedFromFossilFuels = 10,
-
-            /// <summary>
-            /// Enum PassengerCarTyres for value: Passenger car tyres
-            /// </summary>
-            PassengerCarTyres = 11,
-
-            /// <summary>
-            /// Enum TruckAndOffRoadTyres for value: Truck and off-road tyres
-            /// </summary>
-            TruckAndOffRoadTyres = 12,
-
-            /// <summary>
-            /// Enum NonBiomassMunicipalMaterials for value: Non-biomass municipal materials
-            /// </summary>
-            NonBiomassMunicipalMaterials = 13,
-
-            /// <summary>
-            /// Enum DryWood for value: Dry wood
-            /// </summary>
-            DryWood = 14,
-
-            /// <summary>
-            /// Enum GreenAndAirDriedWood for value: Green and air dried wood
-            /// </summary>
-            GreenAndAirDriedWood = 15,
-
-            /// <summary>
-            /// Enum SulphiteLyes for value: Sulphite lyes
-            /// </summary>
-            SulphiteLyes = 16,
-
-            /// <summary>
-            /// Enum Bagasse for value: Bagasse
-            /// </summary>
-            Bagasse = 17,
-
-            /// <summary>
-            /// Enum BiomassMunicipalAndIndustrialMaterials for value: Biomass,  municipal and industrial materials
-            /// </summary>
-            BiomassMunicipalAndIndustrialMaterials = 18,
-
-            /// <summary>
-            /// Enum Charcoal for value: Charcoal
-            /// </summary>
-            Charcoal = 19,
-
-            /// <summary>
-            /// Enum OtherPrimarySolidBiomassFuels for value: Other primary solid biomass fuels
-            /// </summary>
-            OtherPrimarySolidBiomassFuels = 20
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Bituminous coal"))
-                return FuelTypeEnum.BituminousCoal;
-
-            if (value.Equals("Sub-bituminous coal"))
-                return FuelTypeEnum.SubBituminousCoal;
-
-            if (value.Equals("Anthracite"))
-                return FuelTypeEnum.Anthracite;
-
-            if (value.Equals("Brown coal (lignite)"))
-                return FuelTypeEnum.BrownCoallignite;
-
-            if (value.Equals("Coking coal"))
-                return FuelTypeEnum.CokingCoal;
-
-            if (value.Equals("Coal briquettes"))
-                return FuelTypeEnum.CoalBriquettes;
-
-            if (value.Equals("Coal coke"))
-                return FuelTypeEnum.CoalCoke;
-
-            if (value.Equals("Coal tar"))
-                return FuelTypeEnum.CoalTar;
-
-            if (value.Equals("Other solid fossil fuels"))
-                return FuelTypeEnum.OtherSolidFossilFuels;
-
-            if (value.Equals("Industrial materials derived from fossil fuels"))
-                return FuelTypeEnum.IndustrialMaterialsDerivedFromFossilFuels;
-
-            if (value.Equals("Passenger car tyres"))
-                return FuelTypeEnum.PassengerCarTyres;
-
-            if (value.Equals("Truck and off-road tyres"))
-                return FuelTypeEnum.TruckAndOffRoadTyres;
-
-            if (value.Equals("Non-biomass municipal materials"))
-                return FuelTypeEnum.NonBiomassMunicipalMaterials;
-
-            if (value.Equals("Dry wood"))
-                return FuelTypeEnum.DryWood;
-
-            if (value.Equals("Green and air dried wood"))
-                return FuelTypeEnum.GreenAndAirDriedWood;
-
-            if (value.Equals("Sulphite lyes"))
-                return FuelTypeEnum.SulphiteLyes;
-
-            if (value.Equals("Bagasse"))
-                return FuelTypeEnum.Bagasse;
-
-            if (value.Equals("Biomass,  municipal and industrial materials"))
-                return FuelTypeEnum.BiomassMunicipalAndIndustrialMaterials;
-
-            if (value.Equals("Charcoal"))
-                return FuelTypeEnum.Charcoal;
-
-            if (value.Equals("Other primary solid biomass fuels"))
-                return FuelTypeEnum.OtherPrimarySolidBiomassFuels;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Bituminous coal"))
-                return FuelTypeEnum.BituminousCoal;
-
-            if (value.Equals("Sub-bituminous coal"))
-                return FuelTypeEnum.SubBituminousCoal;
-
-            if (value.Equals("Anthracite"))
-                return FuelTypeEnum.Anthracite;
-
-            if (value.Equals("Brown coal (lignite)"))
-                return FuelTypeEnum.BrownCoallignite;
-
-            if (value.Equals("Coking coal"))
-                return FuelTypeEnum.CokingCoal;
-
-            if (value.Equals("Coal briquettes"))
-                return FuelTypeEnum.CoalBriquettes;
-
-            if (value.Equals("Coal coke"))
-                return FuelTypeEnum.CoalCoke;
-
-            if (value.Equals("Coal tar"))
-                return FuelTypeEnum.CoalTar;
-
-            if (value.Equals("Other solid fossil fuels"))
-                return FuelTypeEnum.OtherSolidFossilFuels;
-
-            if (value.Equals("Industrial materials derived from fossil fuels"))
-                return FuelTypeEnum.IndustrialMaterialsDerivedFromFossilFuels;
-
-            if (value.Equals("Passenger car tyres"))
-                return FuelTypeEnum.PassengerCarTyres;
-
-            if (value.Equals("Truck and off-road tyres"))
-                return FuelTypeEnum.TruckAndOffRoadTyres;
-
-            if (value.Equals("Non-biomass municipal materials"))
-                return FuelTypeEnum.NonBiomassMunicipalMaterials;
-
-            if (value.Equals("Dry wood"))
-                return FuelTypeEnum.DryWood;
-
-            if (value.Equals("Green and air dried wood"))
-                return FuelTypeEnum.GreenAndAirDriedWood;
-
-            if (value.Equals("Sulphite lyes"))
-                return FuelTypeEnum.SulphiteLyes;
-
-            if (value.Equals("Bagasse"))
-                return FuelTypeEnum.Bagasse;
-
-            if (value.Equals("Biomass,  municipal and industrial materials"))
-                return FuelTypeEnum.BiomassMunicipalAndIndustrialMaterials;
-
-            if (value.Equals("Charcoal"))
-                return FuelTypeEnum.Charcoal;
-
-            if (value.Equals("Other primary solid biomass fuels"))
-                return FuelTypeEnum.OtherPrimarySolidBiomassFuels;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.BituminousCoal)
-                return "Bituminous coal";
-
-            if (value == FuelTypeEnum.SubBituminousCoal)
-                return "Sub-bituminous coal";
-
-            if (value == FuelTypeEnum.Anthracite)
-                return "Anthracite";
-
-            if (value == FuelTypeEnum.BrownCoallignite)
-                return "Brown coal (lignite)";
-
-            if (value == FuelTypeEnum.CokingCoal)
-                return "Coking coal";
-
-            if (value == FuelTypeEnum.CoalBriquettes)
-                return "Coal briquettes";
-
-            if (value == FuelTypeEnum.CoalCoke)
-                return "Coal coke";
-
-            if (value == FuelTypeEnum.CoalTar)
-                return "Coal tar";
-
-            if (value == FuelTypeEnum.OtherSolidFossilFuels)
-                return "Other solid fossil fuels";
-
-            if (value == FuelTypeEnum.IndustrialMaterialsDerivedFromFossilFuels)
-                return "Industrial materials derived from fossil fuels";
-
-            if (value == FuelTypeEnum.PassengerCarTyres)
-                return "Passenger car tyres";
-
-            if (value == FuelTypeEnum.TruckAndOffRoadTyres)
-                return "Truck and off-road tyres";
-
-            if (value == FuelTypeEnum.NonBiomassMunicipalMaterials)
-                return "Non-biomass municipal materials";
-
-            if (value == FuelTypeEnum.DryWood)
-                return "Dry wood";
-
-            if (value == FuelTypeEnum.GreenAndAirDriedWood)
-                return "Green and air dried wood";
-
-            if (value == FuelTypeEnum.SulphiteLyes)
-                return "Sulphite lyes";
-
-            if (value == FuelTypeEnum.Bagasse)
-                return "Bagasse";
-
-            if (value == FuelTypeEnum.BiomassMunicipalAndIndustrialMaterials)
-                return "Biomass,  municipal and industrial materials";
-
-            if (value == FuelTypeEnum.Charcoal)
-                return "Charcoal";
-
-            if (value == FuelTypeEnum.OtherPrimarySolidBiomassFuels)
-                return "Other primary solid biomass fuels";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of solid fuel used in stationary equipment
-        /// </summary>
-        /// <value>Type of solid fuel used in stationary equipment</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public FuelStationarySolidType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountTonnes
@@ -497,7 +178,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<SolidFuels.FuelClassEnum?> fuelClass = default;
-            Option<SolidFuels.FuelTypeEnum?> fuelType = default;
+            Option<FuelStationarySolidType?> fuelType = default;
             Option<SolidFuelsAmountTonnes?> amountTonnes = default;
 
             while (utf8JsonReader.Read())
@@ -526,14 +207,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                SolidFuels.FuelTypeEnum? fuelTypeValue = SolidFuels.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<SolidFuels.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<FuelStationarySolidType?>(JsonSerializer.Deserialize<FuelStationarySolidType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "amountTonnes":
                             amountTonnes = new Option<SolidFuelsAmountTonnes?>(JsonSerializer.Deserialize<SolidFuelsAmountTonnes>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -589,8 +263,9 @@ namespace Org.OpenAPITools.Model
         {
             var fuelClassRawValue = SolidFuels.FuelClassEnumToJsonValue(solidFuels.FuelClass);
             writer.WriteString("fuelClass", fuelClassRawValue);
-            var fuelTypeRawValue = SolidFuels.FuelTypeEnumToJsonValue(solidFuels.FuelType);
+            var fuelTypeRawValue = FuelStationarySolidTypeValueConverter.ToJsonValue(solidFuels.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
+
             writer.WritePropertyName("amountTonnes");
             JsonSerializer.Serialize(writer, solidFuels.AmountTonnes, jsonSerializerOptions);
         }

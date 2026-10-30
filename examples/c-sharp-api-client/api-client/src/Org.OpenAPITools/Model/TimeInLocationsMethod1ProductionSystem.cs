@@ -42,7 +42,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fractionAppliedToSoils">fractionAppliedToSoils</param>
         /// <param name="system">Production system used to manage this dairy herd</param>
         [JsonConstructor]
-        public TimeInLocationsMethod1ProductionSystem(TimeInLocationsMethod1ProductionSystemClasses classes, TimeInLocationsMethod1ProductionSystemMilkProduction milkProduction, BreedEnum breed, TimeInLocationsMethod1ProductionSystemManureAllocations manureAllocations, bool isInLeachingZone, PigsManureHerdsInnerFractionAppliedToSoils fractionAppliedToSoils, SystemEnum @system)
+        public TimeInLocationsMethod1ProductionSystem(TimeInLocationsMethod1ProductionSystemClasses classes, TimeInLocationsMethod1ProductionSystemMilkProduction milkProduction, DairyCattleBreed breed, TimeInLocationsMethod1ProductionSystemManureAllocations manureAllocations, bool isInLeachingZone, PigsManureHerdsInnerFractionAppliedToSoils fractionAppliedToSoils, DairySystem @system)
         {
             Classes = classes;
             MilkProduction = milkProduction;
@@ -60,289 +60,15 @@ namespace Org.OpenAPITools.Model
         /// Breed of cattle for this dairy herd
         /// </summary>
         /// <value>Breed of cattle for this dairy herd</value>
-        public enum BreedEnum
-        {
-            /// <summary>
-            /// Enum MediumFriesian for value: Medium Friesian
-            /// </summary>
-            MediumFriesian = 1,
-
-            /// <summary>
-            /// Enum LargeFriesian for value: Large Friesian
-            /// </summary>
-            LargeFriesian = 2,
-
-            /// <summary>
-            /// Enum HolsteinFriesian for value: Holstein-Friesian
-            /// </summary>
-            HolsteinFriesian = 3,
-
-            /// <summary>
-            /// Enum FriesianCrossbred for value: Friesian crossbred
-            /// </summary>
-            FriesianCrossbred = 4,
-
-            /// <summary>
-            /// Enum Jersey for value: Jersey
-            /// </summary>
-            Jersey = 5,
-
-            /// <summary>
-            /// Enum JerseyCrossbred for value: Jersey crossbred
-            /// </summary>
-            JerseyCrossbred = 6,
-
-            /// <summary>
-            /// Enum Ayrshire for value: Ayrshire
-            /// </summary>
-            Ayrshire = 7,
-
-            /// <summary>
-            /// Enum Guernsey for value: Guernsey
-            /// </summary>
-            Guernsey = 8,
-
-            /// <summary>
-            /// Enum BrownSwiss for value: Brown Swiss
-            /// </summary>
-            BrownSwiss = 9,
-
-            /// <summary>
-            /// Enum IllawarraAussieRed for value: Illawarra/Aussie Red
-            /// </summary>
-            IllawarraAussieRed = 10
-        }
-
-        /// <summary>
-        /// Returns a <see cref="BreedEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static BreedEnum BreedEnumFromString(string value)
-        {
-            if (value.Equals("Medium Friesian"))
-                return BreedEnum.MediumFriesian;
-
-            if (value.Equals("Large Friesian"))
-                return BreedEnum.LargeFriesian;
-
-            if (value.Equals("Holstein-Friesian"))
-                return BreedEnum.HolsteinFriesian;
-
-            if (value.Equals("Friesian crossbred"))
-                return BreedEnum.FriesianCrossbred;
-
-            if (value.Equals("Jersey"))
-                return BreedEnum.Jersey;
-
-            if (value.Equals("Jersey crossbred"))
-                return BreedEnum.JerseyCrossbred;
-
-            if (value.Equals("Ayrshire"))
-                return BreedEnum.Ayrshire;
-
-            if (value.Equals("Guernsey"))
-                return BreedEnum.Guernsey;
-
-            if (value.Equals("Brown Swiss"))
-                return BreedEnum.BrownSwiss;
-
-            if (value.Equals("Illawarra/Aussie Red"))
-                return BreedEnum.IllawarraAussieRed;
-
-            throw new NotImplementedException($"Could not convert value to type BreedEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="BreedEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static BreedEnum? BreedEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Medium Friesian"))
-                return BreedEnum.MediumFriesian;
-
-            if (value.Equals("Large Friesian"))
-                return BreedEnum.LargeFriesian;
-
-            if (value.Equals("Holstein-Friesian"))
-                return BreedEnum.HolsteinFriesian;
-
-            if (value.Equals("Friesian crossbred"))
-                return BreedEnum.FriesianCrossbred;
-
-            if (value.Equals("Jersey"))
-                return BreedEnum.Jersey;
-
-            if (value.Equals("Jersey crossbred"))
-                return BreedEnum.JerseyCrossbred;
-
-            if (value.Equals("Ayrshire"))
-                return BreedEnum.Ayrshire;
-
-            if (value.Equals("Guernsey"))
-                return BreedEnum.Guernsey;
-
-            if (value.Equals("Brown Swiss"))
-                return BreedEnum.BrownSwiss;
-
-            if (value.Equals("Illawarra/Aussie Red"))
-                return BreedEnum.IllawarraAussieRed;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="BreedEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string BreedEnumToJsonValue(BreedEnum value)
-        {
-            if (value == BreedEnum.MediumFriesian)
-                return "Medium Friesian";
-
-            if (value == BreedEnum.LargeFriesian)
-                return "Large Friesian";
-
-            if (value == BreedEnum.HolsteinFriesian)
-                return "Holstein-Friesian";
-
-            if (value == BreedEnum.FriesianCrossbred)
-                return "Friesian crossbred";
-
-            if (value == BreedEnum.Jersey)
-                return "Jersey";
-
-            if (value == BreedEnum.JerseyCrossbred)
-                return "Jersey crossbred";
-
-            if (value == BreedEnum.Ayrshire)
-                return "Ayrshire";
-
-            if (value == BreedEnum.Guernsey)
-                return "Guernsey";
-
-            if (value == BreedEnum.BrownSwiss)
-                return "Brown Swiss";
-
-            if (value == BreedEnum.IllawarraAussieRed)
-                return "Illawarra/Aussie Red";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Breed of cattle for this dairy herd
-        /// </summary>
-        /// <value>Breed of cattle for this dairy herd</value>
         [JsonPropertyName("breed")]
-        public BreedEnum Breed { get; set; }
-
-        /// <summary>
-        /// Production system used to manage this dairy herd
-        /// </summary>
-        /// <value>Production system used to manage this dairy herd</value>
-        public enum SystemEnum
-        {
-            /// <summary>
-            /// Enum GrazedOnly for value: Grazed only
-            /// </summary>
-            GrazedOnly = 1,
-
-            /// <summary>
-            /// Enum LimitedFeedpad for value: Limited feedpad
-            /// </summary>
-            LimitedFeedpad = 2,
-
-            /// <summary>
-            /// Enum LimitedGrazing for value: Limited grazing
-            /// </summary>
-            LimitedGrazing = 3,
-
-            /// <summary>
-            /// Enum ZeroGrazing for value: Zero grazing
-            /// </summary>
-            ZeroGrazing = 4
-        }
-
-        /// <summary>
-        /// Returns a <see cref="SystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static SystemEnum SystemEnumFromString(string value)
-        {
-            if (value.Equals("Grazed only"))
-                return SystemEnum.GrazedOnly;
-
-            if (value.Equals("Limited feedpad"))
-                return SystemEnum.LimitedFeedpad;
-
-            if (value.Equals("Limited grazing"))
-                return SystemEnum.LimitedGrazing;
-
-            if (value.Equals("Zero grazing"))
-                return SystemEnum.ZeroGrazing;
-
-            throw new NotImplementedException($"Could not convert value to type SystemEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="SystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static SystemEnum? SystemEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Grazed only"))
-                return SystemEnum.GrazedOnly;
-
-            if (value.Equals("Limited feedpad"))
-                return SystemEnum.LimitedFeedpad;
-
-            if (value.Equals("Limited grazing"))
-                return SystemEnum.LimitedGrazing;
-
-            if (value.Equals("Zero grazing"))
-                return SystemEnum.ZeroGrazing;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="SystemEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string SystemEnumToJsonValue(SystemEnum value)
-        {
-            if (value == SystemEnum.GrazedOnly)
-                return "Grazed only";
-
-            if (value == SystemEnum.LimitedFeedpad)
-                return "Limited feedpad";
-
-            if (value == SystemEnum.LimitedGrazing)
-                return "Limited grazing";
-
-            if (value == SystemEnum.ZeroGrazing)
-                return "Zero grazing";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public DairyCattleBreed Breed { get; set; }
 
         /// <summary>
         /// Production system used to manage this dairy herd
         /// </summary>
         /// <value>Production system used to manage this dairy herd</value>
         [JsonPropertyName("system")]
-        public SystemEnum System { get; set; }
+        public DairySystem System { get; set; }
 
         /// <summary>
         /// Gets or Sets Classes
@@ -439,11 +165,11 @@ namespace Org.OpenAPITools.Model
 
             Option<TimeInLocationsMethod1ProductionSystemClasses?> classes = default;
             Option<TimeInLocationsMethod1ProductionSystemMilkProduction?> milkProduction = default;
-            Option<TimeInLocationsMethod1ProductionSystem.BreedEnum?> breed = default;
+            Option<DairyCattleBreed?> breed = default;
             Option<TimeInLocationsMethod1ProductionSystemManureAllocations?> manureAllocations = default;
             Option<bool?> isInLeachingZone = default;
             Option<PigsManureHerdsInnerFractionAppliedToSoils?> fractionAppliedToSoils = default;
-            Option<TimeInLocationsMethod1ProductionSystem.SystemEnum?> varSystem = default;
+            Option<DairySystem?> varSystem = default;
 
             while (utf8JsonReader.Read())
             {
@@ -467,14 +193,7 @@ namespace Org.OpenAPITools.Model
                             milkProduction = new Option<TimeInLocationsMethod1ProductionSystemMilkProduction?>(JsonSerializer.Deserialize<TimeInLocationsMethod1ProductionSystemMilkProduction>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "breed":
-                            string? breedRawValue = utf8JsonReader.GetString();
-                            if (breedRawValue != null)
-                            {
-                                TimeInLocationsMethod1ProductionSystem.BreedEnum? breedValue = TimeInLocationsMethod1ProductionSystem.BreedEnumFromStringOrDefault(breedRawValue);
-                                if (breedValue == null)
-                                    throw new JsonException();
-                                breed = new Option<TimeInLocationsMethod1ProductionSystem.BreedEnum?>(breedValue);
-                            }
+                            breed = new Option<DairyCattleBreed?>(JsonSerializer.Deserialize<DairyCattleBreed?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "manureAllocations":
                             manureAllocations = new Option<TimeInLocationsMethod1ProductionSystemManureAllocations?>(JsonSerializer.Deserialize<TimeInLocationsMethod1ProductionSystemManureAllocations>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -486,14 +205,7 @@ namespace Org.OpenAPITools.Model
                             fractionAppliedToSoils = new Option<PigsManureHerdsInnerFractionAppliedToSoils?>(JsonSerializer.Deserialize<PigsManureHerdsInnerFractionAppliedToSoils>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "system":
-                            string? varSystemRawValue = utf8JsonReader.GetString();
-                            if (varSystemRawValue != null)
-                            {
-                                TimeInLocationsMethod1ProductionSystem.SystemEnum? varSystemValue = TimeInLocationsMethod1ProductionSystem.SystemEnumFromStringOrDefault(varSystemRawValue);
-                                if (varSystemValue == null)
-                                    throw new JsonException();
-                                varSystem = new Option<TimeInLocationsMethod1ProductionSystem.SystemEnum?>(varSystemValue);
-                            }
+                            varSystem = new Option<DairySystem?>(JsonSerializer.Deserialize<DairySystem?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -572,15 +284,16 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, timeInLocationsMethod1ProductionSystem.Classes, jsonSerializerOptions);
             writer.WritePropertyName("milkProduction");
             JsonSerializer.Serialize(writer, timeInLocationsMethod1ProductionSystem.MilkProduction, jsonSerializerOptions);
-            var breedRawValue = TimeInLocationsMethod1ProductionSystem.BreedEnumToJsonValue(timeInLocationsMethod1ProductionSystem.Breed);
+            var breedRawValue = DairyCattleBreedValueConverter.ToJsonValue(timeInLocationsMethod1ProductionSystem.Breed);
             writer.WriteString("breed", breedRawValue);
+
             writer.WritePropertyName("manureAllocations");
             JsonSerializer.Serialize(writer, timeInLocationsMethod1ProductionSystem.ManureAllocations, jsonSerializerOptions);
             writer.WriteBoolean("isInLeachingZone", timeInLocationsMethod1ProductionSystem.IsInLeachingZone);
 
             writer.WritePropertyName("fractionAppliedToSoils");
             JsonSerializer.Serialize(writer, timeInLocationsMethod1ProductionSystem.FractionAppliedToSoils, jsonSerializerOptions);
-            var varSystemRawValue = TimeInLocationsMethod1ProductionSystem.SystemEnumToJsonValue(timeInLocationsMethod1ProductionSystem.System);
+            var varSystemRawValue = DairySystemValueConverter.ToJsonValue(timeInLocationsMethod1ProductionSystem.System);
             writer.WriteString("system", varSystemRawValue);
         }
     }

@@ -63,7 +63,7 @@ class MarketBased implements ModelInterface, ArrayAccess, JsonSerializable
         'electricity_purchased_kwh' => '\OpenAPI\Client\Model\MarketBasedElectricityPurchasedKWh',
         'recs_surrendered' => '\OpenAPI\Client\Model\MarketBasedRecsSurrendered',
         'recs_onsite' => '\OpenAPI\Client\Model\MarketBasedRecsOnsite',
-        'region' => 'string'
+        'region' => '\OpenAPI\Client\Model\ElectricityRegion'
     ];
 
     /**
@@ -234,16 +234,6 @@ class MarketBased implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     public const METHOD_MARKET = 'market';
-    public const REGION_NSW = 'NSW';
-    public const REGION_VIC = 'VIC';
-    public const REGION_QLD = 'QLD';
-    public const REGION_SA = 'SA';
-    public const REGION_WA_NW = 'WA_NW';
-    public const REGION_WA_SW = 'WA_SW';
-    public const REGION_TAS = 'TAS';
-    public const REGION_NT = 'NT';
-    public const REGION_ACT = 'ACT';
-    public const REGION_NATIONAL = 'National';
 
     /**
      * Gets allowable values of the enum
@@ -254,27 +244,6 @@ class MarketBased implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::METHOD_MARKET,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getRegionAllowableValues()
-    {
-        return [
-            self::REGION_NSW,
-            self::REGION_VIC,
-            self::REGION_QLD,
-            self::REGION_SA,
-            self::REGION_WA_NW,
-            self::REGION_WA_SW,
-            self::REGION_TAS,
-            self::REGION_NT,
-            self::REGION_ACT,
-            self::REGION_NATIONAL,
         ];
     }
 
@@ -348,15 +317,6 @@ class MarketBased implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['region'] === null) {
             $invalidProperties[] = "'region' can't be null";
         }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!is_null($this->container['region']) && !in_array($this->container['region'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'region', must be one of '%s'",
-                $this->container['region'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -490,9 +450,9 @@ class MarketBased implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets region
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\ElectricityRegion
      */
-    public function getRegion(): string
+    public function getRegion(): \OpenAPI\Client\Model\ElectricityRegion
     {
         return $this->container['region'];
     }
@@ -500,24 +460,14 @@ class MarketBased implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets region
      *
-     * @param string $region The state, territory or electricity grid the electricity is purchased in
+     * @param \OpenAPI\Client\Model\ElectricityRegion $region The state, territory or electricity grid the electricity is purchased in
      *
      * @return $this
      */
-    public function setRegion(string $region): static
+    public function setRegion(\OpenAPI\Client\Model\ElectricityRegion $region): static
     {
         if (is_null($region)) {
             throw new InvalidArgumentException('non-nullable region cannot be null');
-        }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!in_array($region, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'region', must be one of '%s'",
-                    $region,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['region'] = $region;
 

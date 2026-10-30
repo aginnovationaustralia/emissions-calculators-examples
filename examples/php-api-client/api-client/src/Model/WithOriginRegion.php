@@ -60,8 +60,8 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'fraction_of_fertiliser' => '\OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser',
-        'component_type' => 'string',
-        'component_origin' => 'string'
+        'component_type' => '\OpenAPI\Client\Model\InorganicFertiliserComponentTypeRegional',
+        'component_origin' => '\OpenAPI\Client\Model\InorganicFertiliserComponentOrigin'
     ];
 
     /**
@@ -221,40 +221,6 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const COMPONENT_TYPE_AMMONIA = 'Ammonia';
-    public const COMPONENT_TYPE_UREA = 'Urea';
-    public const COMPONENT_ORIGIN_UNSPECIFIED = 'Unspecified';
-    public const COMPONENT_ORIGIN_CHINA = 'China';
-    public const COMPONENT_ORIGIN_YEMEN = 'Yemen';
-    public const COMPONENT_ORIGIN_CANADA = 'Canada';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getComponentTypeAllowableValues()
-    {
-        return [
-            self::COMPONENT_TYPE_AMMONIA,
-            self::COMPONENT_TYPE_UREA,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getComponentOriginAllowableValues()
-    {
-        return [
-            self::COMPONENT_ORIGIN_UNSPECIFIED,
-            self::COMPONENT_ORIGIN_CHINA,
-            self::COMPONENT_ORIGIN_YEMEN,
-            self::COMPONENT_ORIGIN_CANADA,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -306,27 +272,9 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['component_type'] === null) {
             $invalidProperties[] = "'component_type' can't be null";
         }
-        $allowedValues = self::getComponentTypeAllowableValues();
-        if (!is_null($this->container['component_type']) && !in_array($this->container['component_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'component_type', must be one of '%s'",
-                $this->container['component_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['component_origin'] === null) {
             $invalidProperties[] = "'component_origin' can't be null";
         }
-        $allowedValues = self::getComponentOriginAllowableValues();
-        if (!is_null($this->container['component_origin']) && !in_array($this->container['component_origin'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'component_origin', must be one of '%s'",
-                $this->container['component_origin'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -369,9 +317,9 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets component_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\InorganicFertiliserComponentTypeRegional
      */
-    public function getComponentType(): string
+    public function getComponentType(): \OpenAPI\Client\Model\InorganicFertiliserComponentTypeRegional
     {
         return $this->container['component_type'];
     }
@@ -379,24 +327,14 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets component_type
      *
-     * @param string $component_type Type of inorganic fertiliser component
+     * @param \OpenAPI\Client\Model\InorganicFertiliserComponentTypeRegional $component_type Type of inorganic fertiliser component
      *
      * @return $this
      */
-    public function setComponentType(string $component_type): static
+    public function setComponentType(\OpenAPI\Client\Model\InorganicFertiliserComponentTypeRegional $component_type): static
     {
         if (is_null($component_type)) {
             throw new InvalidArgumentException('non-nullable component_type cannot be null');
-        }
-        $allowedValues = self::getComponentTypeAllowableValues();
-        if (!in_array($component_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'component_type', must be one of '%s'",
-                    $component_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['component_type'] = $component_type;
 
@@ -406,9 +344,9 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets component_origin
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\InorganicFertiliserComponentOrigin
      */
-    public function getComponentOrigin(): string
+    public function getComponentOrigin(): \OpenAPI\Client\Model\InorganicFertiliserComponentOrigin
     {
         return $this->container['component_origin'];
     }
@@ -416,24 +354,14 @@ class WithOriginRegion implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets component_origin
      *
-     * @param string $component_origin Origin of inorganic fertiliser component
+     * @param \OpenAPI\Client\Model\InorganicFertiliserComponentOrigin $component_origin Origin of inorganic fertiliser component
      *
      * @return $this
      */
-    public function setComponentOrigin(string $component_origin): static
+    public function setComponentOrigin(\OpenAPI\Client\Model\InorganicFertiliserComponentOrigin $component_origin): static
     {
         if (is_null($component_origin)) {
             throw new InvalidArgumentException('non-nullable component_origin cannot be null');
-        }
-        $allowedValues = self::getComponentOriginAllowableValues();
-        if (!in_array($component_origin, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'component_origin', must be one of '%s'",
-                    $component_origin,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['component_origin'] = $component_origin;
 

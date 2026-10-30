@@ -86,6 +86,12 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Value (decimal) maximum
+            if (this.Value > (decimal)1)
+            {
+                yield return new ValidationResult("Invalid value for Value, must be a value less than or equal to 1.", new [] { "Value" });
+            }
+
             // Value (decimal) minimum
             if (this.Value < (decimal)0)
             {

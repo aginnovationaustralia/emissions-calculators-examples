@@ -59,7 +59,7 @@ class UnknownComponentCustomEmissionFactor implements ModelInterface, ArrayAcces
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'fraction_of_fertiliser' => '\OpenAPI\Client\Model\UnknownComponentCustomEmissionFactorFractionOfFertiliser',
+        'fraction_of_fertiliser' => '\OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser',
         'emission_factor' => '\OpenAPI\Client\Model\UnknownComponentCustomEmissionFactorEmissionFactor'
     ];
 
@@ -280,9 +280,9 @@ class UnknownComponentCustomEmissionFactor implements ModelInterface, ArrayAcces
     /**
      * Gets fraction_of_fertiliser
      *
-     * @return \OpenAPI\Client\Model\UnknownComponentCustomEmissionFactorFractionOfFertiliser
+     * @return \OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser
      */
-    public function getFractionOfFertiliser(): \OpenAPI\Client\Model\UnknownComponentCustomEmissionFactorFractionOfFertiliser
+    public function getFractionOfFertiliser(): \OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser
     {
         return $this->container['fraction_of_fertiliser'];
     }
@@ -290,11 +290,11 @@ class UnknownComponentCustomEmissionFactor implements ModelInterface, ArrayAcces
     /**
      * Sets fraction_of_fertiliser
      *
-     * @param \OpenAPI\Client\Model\UnknownComponentCustomEmissionFactorFractionOfFertiliser $fraction_of_fertiliser fraction_of_fertiliser
+     * @param \OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser $fraction_of_fertiliser fraction_of_fertiliser
      *
      * @return $this
      */
-    public function setFractionOfFertiliser(\OpenAPI\Client\Model\UnknownComponentCustomEmissionFactorFractionOfFertiliser $fraction_of_fertiliser): static
+    public function setFractionOfFertiliser(\OpenAPI\Client\Model\WithOriginRegionFractionOfFertiliser $fraction_of_fertiliser): static
     {
         if (is_null($fraction_of_fertiliser)) {
             throw new InvalidArgumentException('non-nullable fraction_of_fertiliser cannot be null');

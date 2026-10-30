@@ -37,7 +37,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="amount">amount</param>
         /// <param name="type">The type of feed purchased.</param>
         [JsonConstructor]
-        public AquacultureFeed(RegionlessFeedTypeAmount amount, TypeEnum type)
+        public AquacultureFeed(RegionlessFeedTypeAmount amount, PurchasedFeedAquacultureType type)
         {
             Amount = amount;
             Type = type;
@@ -50,117 +50,8 @@ namespace Org.OpenAPITools.Model
         /// The type of feed purchased.
         /// </summary>
         /// <value>The type of feed purchased.</value>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum WholeSardines for value: Whole Sardines
-            /// </summary>
-            WholeSardines = 1,
-
-            /// <summary>
-            /// Enum LowAnimalProteinFormulatedFeed for value: Low Animal Protein Formulated Feed
-            /// </summary>
-            LowAnimalProteinFormulatedFeed = 2,
-
-            /// <summary>
-            /// Enum Squid for value: Squid
-            /// </summary>
-            Squid = 3,
-
-            /// <summary>
-            /// Enum WholeFish for value: Whole Fish
-            /// </summary>
-            WholeFish = 4,
-
-            /// <summary>
-            /// Enum CustomBait for value: Custom Bait
-            /// </summary>
-            CustomBait = 5
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Whole Sardines"))
-                return TypeEnum.WholeSardines;
-
-            if (value.Equals("Low Animal Protein Formulated Feed"))
-                return TypeEnum.LowAnimalProteinFormulatedFeed;
-
-            if (value.Equals("Squid"))
-                return TypeEnum.Squid;
-
-            if (value.Equals("Whole Fish"))
-                return TypeEnum.WholeFish;
-
-            if (value.Equals("Custom Bait"))
-                return TypeEnum.CustomBait;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Whole Sardines"))
-                return TypeEnum.WholeSardines;
-
-            if (value.Equals("Low Animal Protein Formulated Feed"))
-                return TypeEnum.LowAnimalProteinFormulatedFeed;
-
-            if (value.Equals("Squid"))
-                return TypeEnum.Squid;
-
-            if (value.Equals("Whole Fish"))
-                return TypeEnum.WholeFish;
-
-            if (value.Equals("Custom Bait"))
-                return TypeEnum.CustomBait;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.WholeSardines)
-                return "Whole Sardines";
-
-            if (value == TypeEnum.LowAnimalProteinFormulatedFeed)
-                return "Low Animal Protein Formulated Feed";
-
-            if (value == TypeEnum.Squid)
-                return "Squid";
-
-            if (value == TypeEnum.WholeFish)
-                return "Whole Fish";
-
-            if (value == TypeEnum.CustomBait)
-                return "Custom Bait";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The type of feed purchased.
-        /// </summary>
-        /// <value>The type of feed purchased.</value>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public PurchasedFeedAquacultureType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -226,7 +117,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<RegionlessFeedTypeAmount?> amount = default;
-            Option<AquacultureFeed.TypeEnum?> type = default;
+            Option<PurchasedFeedAquacultureType?> type = default;
 
             while (utf8JsonReader.Read())
             {
@@ -247,14 +138,7 @@ namespace Org.OpenAPITools.Model
                             amount = new Option<RegionlessFeedTypeAmount?>(JsonSerializer.Deserialize<RegionlessFeedTypeAmount>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                AquacultureFeed.TypeEnum? typeValue = AquacultureFeed.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<AquacultureFeed.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<PurchasedFeedAquacultureType?>(JsonSerializer.Deserialize<PurchasedFeedAquacultureType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -301,7 +185,7 @@ namespace Org.OpenAPITools.Model
         {
             writer.WritePropertyName("amount");
             JsonSerializer.Serialize(writer, aquacultureFeed.Amount, jsonSerializerOptions);
-            var typeRawValue = AquacultureFeed.TypeEnumToJsonValue(aquacultureFeed.Type);
+            var typeRawValue = PurchasedFeedAquacultureTypeValueConverter.ToJsonValue(aquacultureFeed.Type);
             writer.WriteString("type", typeRawValue);
         }
     }

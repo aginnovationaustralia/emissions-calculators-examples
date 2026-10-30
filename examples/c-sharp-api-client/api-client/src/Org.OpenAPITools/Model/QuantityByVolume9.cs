@@ -37,7 +37,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="wasteType">Type of solid waste treated at this facility (Composting)</param>
         /// <param name="volumeWasteCubicMetres">volumeWasteCubicMetres</param>
         [JsonConstructor]
-        public QuantityByVolume9(WasteTypeEnum wasteType, QuantityByVolume9VolumeWasteCubicMetres volumeWasteCubicMetres)
+        public QuantityByVolume9(SolidWasteOrganicType wasteType, QuantityByVolume9VolumeWasteCubicMetres volumeWasteCubicMetres)
         {
             WasteType = wasteType;
             VolumeWasteCubicMetres = volumeWasteCubicMetres;
@@ -50,117 +50,8 @@ namespace Org.OpenAPITools.Model
         /// Type of solid waste treated at this facility (Composting)
         /// </summary>
         /// <value>Type of solid waste treated at this facility (Composting)</value>
-        public enum WasteTypeEnum
-        {
-            /// <summary>
-            /// Enum FoodWaste for value: Food waste
-            /// </summary>
-            FoodWaste = 1,
-
-            /// <summary>
-            /// Enum GreenWaste for value: Green waste
-            /// </summary>
-            GreenWaste = 2,
-
-            /// <summary>
-            /// Enum WoodProductsatTimeOfHarvest for value: Wood products (at time of harvest)
-            /// </summary>
-            WoodProductsatTimeOfHarvest = 3,
-
-            /// <summary>
-            /// Enum WoodProductsatEndOfLife for value: Wood products (at end of life)
-            /// </summary>
-            WoodProductsatEndOfLife = 4,
-
-            /// <summary>
-            /// Enum Sludge for value: Sludge
-            /// </summary>
-            Sludge = 5
-        }
-
-        /// <summary>
-        /// Returns a <see cref="WasteTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static WasteTypeEnum WasteTypeEnumFromString(string value)
-        {
-            if (value.Equals("Food waste"))
-                return WasteTypeEnum.FoodWaste;
-
-            if (value.Equals("Green waste"))
-                return WasteTypeEnum.GreenWaste;
-
-            if (value.Equals("Wood products (at time of harvest)"))
-                return WasteTypeEnum.WoodProductsatTimeOfHarvest;
-
-            if (value.Equals("Wood products (at end of life)"))
-                return WasteTypeEnum.WoodProductsatEndOfLife;
-
-            if (value.Equals("Sludge"))
-                return WasteTypeEnum.Sludge;
-
-            throw new NotImplementedException($"Could not convert value to type WasteTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="WasteTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static WasteTypeEnum? WasteTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Food waste"))
-                return WasteTypeEnum.FoodWaste;
-
-            if (value.Equals("Green waste"))
-                return WasteTypeEnum.GreenWaste;
-
-            if (value.Equals("Wood products (at time of harvest)"))
-                return WasteTypeEnum.WoodProductsatTimeOfHarvest;
-
-            if (value.Equals("Wood products (at end of life)"))
-                return WasteTypeEnum.WoodProductsatEndOfLife;
-
-            if (value.Equals("Sludge"))
-                return WasteTypeEnum.Sludge;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="WasteTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string WasteTypeEnumToJsonValue(WasteTypeEnum value)
-        {
-            if (value == WasteTypeEnum.FoodWaste)
-                return "Food waste";
-
-            if (value == WasteTypeEnum.GreenWaste)
-                return "Green waste";
-
-            if (value == WasteTypeEnum.WoodProductsatTimeOfHarvest)
-                return "Wood products (at time of harvest)";
-
-            if (value == WasteTypeEnum.WoodProductsatEndOfLife)
-                return "Wood products (at end of life)";
-
-            if (value == WasteTypeEnum.Sludge)
-                return "Sludge";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of solid waste treated at this facility (Composting)
-        /// </summary>
-        /// <value>Type of solid waste treated at this facility (Composting)</value>
         [JsonPropertyName("wasteType")]
-        public WasteTypeEnum WasteType { get; set; }
+        public SolidWasteOrganicType WasteType { get; set; }
 
         /// <summary>
         /// Gets or Sets VolumeWasteCubicMetres
@@ -225,7 +116,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<QuantityByVolume9.WasteTypeEnum?> wasteType = default;
+            Option<SolidWasteOrganicType?> wasteType = default;
             Option<QuantityByVolume9VolumeWasteCubicMetres?> volumeWasteCubicMetres = default;
 
             while (utf8JsonReader.Read())
@@ -244,14 +135,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "wasteType":
-                            string? wasteTypeRawValue = utf8JsonReader.GetString();
-                            if (wasteTypeRawValue != null)
-                            {
-                                QuantityByVolume9.WasteTypeEnum? wasteTypeValue = QuantityByVolume9.WasteTypeEnumFromStringOrDefault(wasteTypeRawValue);
-                                if (wasteTypeValue == null)
-                                    throw new JsonException();
-                                wasteType = new Option<QuantityByVolume9.WasteTypeEnum?>(wasteTypeValue);
-                            }
+                            wasteType = new Option<SolidWasteOrganicType?>(JsonSerializer.Deserialize<SolidWasteOrganicType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "volumeWasteCubicMetres":
                             volumeWasteCubicMetres = new Option<QuantityByVolume9VolumeWasteCubicMetres?>(JsonSerializer.Deserialize<QuantityByVolume9VolumeWasteCubicMetres>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -299,8 +183,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, QuantityByVolume9 quantityByVolume9, JsonSerializerOptions jsonSerializerOptions)
         {
-            var wasteTypeRawValue = QuantityByVolume9.WasteTypeEnumToJsonValue(quantityByVolume9.WasteType);
+            var wasteTypeRawValue = SolidWasteOrganicTypeValueConverter.ToJsonValue(quantityByVolume9.WasteType);
             writer.WriteString("wasteType", wasteTypeRawValue);
+
             writer.WritePropertyName("volumeWasteCubicMetres");
             JsonSerializer.Serialize(writer, quantityByVolume9.VolumeWasteCubicMetres, jsonSerializerOptions);
         }

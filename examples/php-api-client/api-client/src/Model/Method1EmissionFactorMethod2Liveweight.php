@@ -61,7 +61,7 @@ class Method1EmissionFactorMethod2Liveweight implements ModelInterface, ArrayAcc
     protected static array $openAPITypes = [
         'type' => 'string',
         'head_purchased' => '\OpenAPI\Client\Model\Method1EmissionFactorMethod2LiveweightHeadPurchased',
-        'category' => 'string',
+        'category' => '\OpenAPI\Client\Model\BeefPurchaseCategory',
         'liveweight_method2' => '\OpenAPI\Client\Model\Method1EmissionFactorMethod2LiveweightLiveweightMethod2'
     ];
 
@@ -228,8 +228,6 @@ class Method1EmissionFactorMethod2Liveweight implements ModelInterface, ArrayAcc
     }
 
     public const TYPE_BEEF = 'Beef';
-    public const CATEGORY_BEEF_PRIME = 'beefPrime';
-    public const CATEGORY_BEEF_WEANED = 'beefWeaned';
 
     /**
      * Gets allowable values of the enum
@@ -240,19 +238,6 @@ class Method1EmissionFactorMethod2Liveweight implements ModelInterface, ArrayAcc
     {
         return [
             self::TYPE_BEEF,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getCategoryAllowableValues()
-    {
-        return [
-            self::CATEGORY_BEEF_PRIME,
-            self::CATEGORY_BEEF_WEANED,
         ];
     }
 
@@ -319,15 +304,6 @@ class Method1EmissionFactorMethod2Liveweight implements ModelInterface, ArrayAcc
         if ($this->container['category'] === null) {
             $invalidProperties[] = "'category' can't be null";
         }
-        $allowedValues = self::getCategoryAllowableValues();
-        if (!is_null($this->container['category']) && !in_array($this->container['category'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'category', must be one of '%s'",
-                $this->container['category'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['liveweight_method2'] === null) {
             $invalidProperties[] = "'liveweight_method2' can't be null";
         }
@@ -410,9 +386,9 @@ class Method1EmissionFactorMethod2Liveweight implements ModelInterface, ArrayAcc
     /**
      * Gets category
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\BeefPurchaseCategory
      */
-    public function getCategory(): string
+    public function getCategory(): \OpenAPI\Client\Model\BeefPurchaseCategory
     {
         return $this->container['category'];
     }
@@ -420,24 +396,14 @@ class Method1EmissionFactorMethod2Liveweight implements ModelInterface, ArrayAcc
     /**
      * Sets category
      *
-     * @param string $category The category of the purchased animals
+     * @param \OpenAPI\Client\Model\BeefPurchaseCategory $category The category of the purchased animals
      *
      * @return $this
      */
-    public function setCategory(string $category): static
+    public function setCategory(\OpenAPI\Client\Model\BeefPurchaseCategory $category): static
     {
         if (is_null($category)) {
             throw new InvalidArgumentException('non-nullable category cannot be null');
-        }
-        $allowedValues = self::getCategoryAllowableValues();
-        if (!in_array($category, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'category', must be one of '%s'",
-                    $category,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['category'] = $category;
 

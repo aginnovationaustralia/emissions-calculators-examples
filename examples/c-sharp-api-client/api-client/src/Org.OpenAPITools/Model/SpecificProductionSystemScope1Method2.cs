@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="inorganic">inorganic</param>
         /// <param name="organic">organic</param>
         [JsonConstructor]
-        public SpecificProductionSystemScope1Method2(ProductionSystemEnum productionSystem, SpecificProductionSystemScope1Method2Inorganic inorganic, OrganicFertilisersInput organic)
+        public SpecificProductionSystemScope1Method2(InorganicFertiliserProductionSystem productionSystem, SpecificProductionSystemScope1Method2Inorganic inorganic, OrganicFertilisersInput organic)
         {
             ProductionSystem = productionSystem;
             Inorganic = inorganic;
@@ -52,89 +52,8 @@ namespace Org.OpenAPITools.Model
         /// Production system for specific crop types
         /// </summary>
         /// <value>Production system for specific crop types</value>
-        public enum ProductionSystemEnum
-        {
-            /// <summary>
-            /// Enum IrrigatedCropmaize for value: Irrigated crop (maize)
-            /// </summary>
-            IrrigatedCropmaize = 1,
-
-            /// <summary>
-            /// Enum NonIrrigatedCrophighRainfall for value: Non-irrigated crop (high rainfall)
-            /// </summary>
-            NonIrrigatedCrophighRainfall = 2,
-
-            /// <summary>
-            /// Enum Cotton for value: Cotton
-            /// </summary>
-            Cotton = 3
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ProductionSystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ProductionSystemEnum ProductionSystemEnumFromString(string value)
-        {
-            if (value.Equals("Irrigated crop (maize)"))
-                return ProductionSystemEnum.IrrigatedCropmaize;
-
-            if (value.Equals("Non-irrigated crop (high rainfall)"))
-                return ProductionSystemEnum.NonIrrigatedCrophighRainfall;
-
-            if (value.Equals("Cotton"))
-                return ProductionSystemEnum.Cotton;
-
-            throw new NotImplementedException($"Could not convert value to type ProductionSystemEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ProductionSystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ProductionSystemEnum? ProductionSystemEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Irrigated crop (maize)"))
-                return ProductionSystemEnum.IrrigatedCropmaize;
-
-            if (value.Equals("Non-irrigated crop (high rainfall)"))
-                return ProductionSystemEnum.NonIrrigatedCrophighRainfall;
-
-            if (value.Equals("Cotton"))
-                return ProductionSystemEnum.Cotton;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ProductionSystemEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ProductionSystemEnumToJsonValue(ProductionSystemEnum value)
-        {
-            if (value == ProductionSystemEnum.IrrigatedCropmaize)
-                return "Irrigated crop (maize)";
-
-            if (value == ProductionSystemEnum.NonIrrigatedCrophighRainfall)
-                return "Non-irrigated crop (high rainfall)";
-
-            if (value == ProductionSystemEnum.Cotton)
-                return "Cotton";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Production system for specific crop types
-        /// </summary>
-        /// <value>Production system for specific crop types</value>
         [JsonPropertyName("productionSystem")]
-        public ProductionSystemEnum ProductionSystem { get; set; }
+        public InorganicFertiliserProductionSystem ProductionSystem { get; set; }
 
         /// <summary>
         /// Gets or Sets Inorganic
@@ -206,7 +125,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<SpecificProductionSystemScope1Method2.ProductionSystemEnum?> productionSystem = default;
+            Option<InorganicFertiliserProductionSystem?> productionSystem = default;
             Option<SpecificProductionSystemScope1Method2Inorganic?> inorganic = default;
             Option<OrganicFertilisersInput?> organic = default;
 
@@ -226,14 +145,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "productionSystem":
-                            string? productionSystemRawValue = utf8JsonReader.GetString();
-                            if (productionSystemRawValue != null)
-                            {
-                                SpecificProductionSystemScope1Method2.ProductionSystemEnum? productionSystemValue = SpecificProductionSystemScope1Method2.ProductionSystemEnumFromStringOrDefault(productionSystemRawValue);
-                                if (productionSystemValue == null)
-                                    throw new JsonException();
-                                productionSystem = new Option<SpecificProductionSystemScope1Method2.ProductionSystemEnum?>(productionSystemValue);
-                            }
+                            productionSystem = new Option<InorganicFertiliserProductionSystem?>(JsonSerializer.Deserialize<InorganicFertiliserProductionSystem?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "inorganic":
                             inorganic = new Option<SpecificProductionSystemScope1Method2Inorganic?>(JsonSerializer.Deserialize<SpecificProductionSystemScope1Method2Inorganic>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -290,8 +202,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, SpecificProductionSystemScope1Method2 specificProductionSystemScope1Method2, JsonSerializerOptions jsonSerializerOptions)
         {
-            var productionSystemRawValue = SpecificProductionSystemScope1Method2.ProductionSystemEnumToJsonValue(specificProductionSystemScope1Method2.ProductionSystem);
+            var productionSystemRawValue = InorganicFertiliserProductionSystemValueConverter.ToJsonValue(specificProductionSystemScope1Method2.ProductionSystem);
             writer.WriteString("productionSystem", productionSystemRawValue);
+
             writer.WritePropertyName("inorganic");
             JsonSerializer.Serialize(writer, specificProductionSystemScope1Method2.Inorganic, jsonSerializerOptions);
             writer.WritePropertyName("organic");

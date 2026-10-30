@@ -61,7 +61,7 @@ class LightDutyVehicles implements ModelInterface, ArrayAccess, JsonSerializable
     protected static array $openAPITypes = [
         'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres',
         'vehicle_type' => 'string',
-        'fuel_type' => 'string'
+        'fuel_type' => '\OpenAPI\Client\Model\LightDutyFuelType'
     ];
 
     /**
@@ -222,8 +222,6 @@ class LightDutyVehicles implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     public const VEHICLE_TYPE_LIGHT_DUTY_VEHICLES = 'Light duty vehicles';
-    public const FUEL_TYPE_COMPRESSED_NATURAL_GAS = 'Compressed natural gas';
-    public const FUEL_TYPE_LIQUEFIED_NATURAL_GAS = 'Liquefied natural gas';
 
     /**
      * Gets allowable values of the enum
@@ -234,19 +232,6 @@ class LightDutyVehicles implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::VEHICLE_TYPE_LIGHT_DUTY_VEHICLES,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_COMPRESSED_NATURAL_GAS,
-            self::FUEL_TYPE_LIQUEFIED_NATURAL_GAS,
         ];
     }
 
@@ -312,15 +297,6 @@ class LightDutyVehicles implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -400,9 +376,9 @@ class LightDutyVehicles implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\LightDutyFuelType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\LightDutyFuelType
     {
         return $this->container['fuel_type'];
     }
@@ -410,24 +386,14 @@ class LightDutyVehicles implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of fuel used by light duty vehicles
+     * @param \OpenAPI\Client\Model\LightDutyFuelType $fuel_type Type of fuel used by light duty vehicles
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\LightDutyFuelType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

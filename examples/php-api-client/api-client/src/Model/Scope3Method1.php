@@ -60,7 +60,7 @@ class Scope3Method1 implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'mass_applied_kg' => '\OpenAPI\Client\Model\Scope3Method1MassAppliedKg',
-        'fertiliser_type' => 'string',
+        'fertiliser_type' => '\OpenAPI\Client\Model\InorganicFertiliserType',
         'components' => '\OpenAPI\Client\Model\Scope3Method1ComponentsInner[]',
         'calculation_method_scope3' => 'string'
     ];
@@ -227,36 +227,7 @@ class Scope3Method1 implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const FERTILISER_TYPE_MONOAMMONIUM_PHOSPHATE__MAP = 'Monoammonium Phosphate (MAP)';
-    public const FERTILISER_TYPE_DIAMMONIUM_PHOSPHATE__DAP = 'Diammonium Phosphate (DAP)';
-    public const FERTILISER_TYPE_UREA = 'Urea';
-    public const FERTILISER_TYPE_SULPHATE_OF_AMMONIA__SOA = 'Sulphate of Ammonia (SOA)';
-    public const FERTILISER_TYPE_UREA_AMMONIUM_NITRATE__UAN = 'Urea-Ammonium Nitrate (UAN)';
-    public const FERTILISER_TYPE_AMMONIUM_NITRATE__AN = 'Ammonium Nitrate (AN)';
-    public const FERTILISER_TYPE_CALCIUM_AMMONIUM_NITRATE__CAN = 'Calcium Ammonium Nitrate (CAN)';
-    public const FERTILISER_TYPE_CALCIUM_NITRATE = 'Calcium Nitrate';
-    public const FERTILISER_TYPE_SINGLE_SUPER_PHOSPHATE = 'Single Super Phosphate';
     public const CALCULATION_METHOD_SCOPE3__1 = '1';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFertiliserTypeAllowableValues()
-    {
-        return [
-            self::FERTILISER_TYPE_MONOAMMONIUM_PHOSPHATE__MAP,
-            self::FERTILISER_TYPE_DIAMMONIUM_PHOSPHATE__DAP,
-            self::FERTILISER_TYPE_UREA,
-            self::FERTILISER_TYPE_SULPHATE_OF_AMMONIA__SOA,
-            self::FERTILISER_TYPE_UREA_AMMONIUM_NITRATE__UAN,
-            self::FERTILISER_TYPE_AMMONIUM_NITRATE__AN,
-            self::FERTILISER_TYPE_CALCIUM_AMMONIUM_NITRATE__CAN,
-            self::FERTILISER_TYPE_CALCIUM_NITRATE,
-            self::FERTILISER_TYPE_SINGLE_SUPER_PHOSPHATE,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -321,15 +292,6 @@ class Scope3Method1 implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['fertiliser_type'] === null) {
             $invalidProperties[] = "'fertiliser_type' can't be null";
         }
-        $allowedValues = self::getFertiliserTypeAllowableValues();
-        if (!is_null($this->container['fertiliser_type']) && !in_array($this->container['fertiliser_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fertiliser_type', must be one of '%s'",
-                $this->container['fertiliser_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['calculation_method_scope3'] === null) {
             $invalidProperties[] = "'calculation_method_scope3' can't be null";
         }
@@ -384,9 +346,9 @@ class Scope3Method1 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fertiliser_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\InorganicFertiliserType
      */
-    public function getFertiliserType(): string
+    public function getFertiliserType(): \OpenAPI\Client\Model\InorganicFertiliserType
     {
         return $this->container['fertiliser_type'];
     }
@@ -394,24 +356,14 @@ class Scope3Method1 implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fertiliser_type
      *
-     * @param string $fertiliser_type Type of inorganic fertiliser applied
+     * @param \OpenAPI\Client\Model\InorganicFertiliserType $fertiliser_type Type of inorganic fertiliser applied
      *
      * @return $this
      */
-    public function setFertiliserType(string $fertiliser_type): static
+    public function setFertiliserType(\OpenAPI\Client\Model\InorganicFertiliserType $fertiliser_type): static
     {
         if (is_null($fertiliser_type)) {
             throw new InvalidArgumentException('non-nullable fertiliser_type cannot be null');
-        }
-        $allowedValues = self::getFertiliserTypeAllowableValues();
-        if (!in_array($fertiliser_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fertiliser_type', must be one of '%s'",
-                    $fertiliser_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fertiliser_type'] = $fertiliser_type;
 

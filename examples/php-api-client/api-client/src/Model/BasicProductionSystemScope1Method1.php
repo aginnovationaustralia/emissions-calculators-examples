@@ -59,7 +59,7 @@ class BasicProductionSystemScope1Method1 implements ModelInterface, ArrayAccess,
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'production_system' => 'string',
+        'production_system' => '\OpenAPI\Client\Model\BasicCropProductionSystem',
         'inorganic' => '\OpenAPI\Client\Model\BasicProductionSystemScope1Method1Inorganic',
         'organic' => '\OpenAPI\Client\Model\OrganicFertilisersInput'
     ];
@@ -221,41 +221,6 @@ class BasicProductionSystemScope1Method1 implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
-    public const PRODUCTION_SYSTEM_RICE__CONTINUOUS_FLOODING = 'Rice (continuous flooding)';
-    public const PRODUCTION_SYSTEM_RICE__SINGLE_AND_MULTIPLE_DRAINAGE_OR_ALTERNATE_WETTING_AND_DRYING = 'Rice (single and multiple drainage, or alternate wetting and drying)';
-    public const PRODUCTION_SYSTEM_IRRIGATED_CROP = 'Irrigated crop';
-    public const PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__LOW_RAINFALL = 'Non-irrigated crop (low rainfall)';
-    public const PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL = 'Non-irrigated crop (high rainfall)';
-    public const PRODUCTION_SYSTEM_IRRIGATED_PASTURE = 'Irrigated pasture';
-    public const PRODUCTION_SYSTEM_NON_IRRIGATED_PASTURE = 'Non-irrigated pasture';
-    public const PRODUCTION_SYSTEM_SUGAR = 'Sugar';
-    public const PRODUCTION_SYSTEM_COTTON = 'Cotton';
-    public const PRODUCTION_SYSTEM_HORTICULTURAL_CROPS = 'Horticultural crops';
-    public const PRODUCTION_SYSTEM_AQUACULTURE = 'Aquaculture';
-    public const PRODUCTION_SYSTEM_FORESTRY = 'Forestry';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getProductionSystemAllowableValues()
-    {
-        return [
-            self::PRODUCTION_SYSTEM_RICE__CONTINUOUS_FLOODING,
-            self::PRODUCTION_SYSTEM_RICE__SINGLE_AND_MULTIPLE_DRAINAGE_OR_ALTERNATE_WETTING_AND_DRYING,
-            self::PRODUCTION_SYSTEM_IRRIGATED_CROP,
-            self::PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__LOW_RAINFALL,
-            self::PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL,
-            self::PRODUCTION_SYSTEM_IRRIGATED_PASTURE,
-            self::PRODUCTION_SYSTEM_NON_IRRIGATED_PASTURE,
-            self::PRODUCTION_SYSTEM_SUGAR,
-            self::PRODUCTION_SYSTEM_COTTON,
-            self::PRODUCTION_SYSTEM_HORTICULTURAL_CROPS,
-            self::PRODUCTION_SYSTEM_AQUACULTURE,
-            self::PRODUCTION_SYSTEM_FORESTRY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -304,15 +269,6 @@ class BasicProductionSystemScope1Method1 implements ModelInterface, ArrayAccess,
         if ($this->container['production_system'] === null) {
             $invalidProperties[] = "'production_system' can't be null";
         }
-        $allowedValues = self::getProductionSystemAllowableValues();
-        if (!is_null($this->container['production_system']) && !in_array($this->container['production_system'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'production_system', must be one of '%s'",
-                $this->container['production_system'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['inorganic'] === null) {
             $invalidProperties[] = "'inorganic' can't be null";
         }
@@ -334,9 +290,9 @@ class BasicProductionSystemScope1Method1 implements ModelInterface, ArrayAccess,
     /**
      * Gets production_system
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\BasicCropProductionSystem
      */
-    public function getProductionSystem(): string
+    public function getProductionSystem(): \OpenAPI\Client\Model\BasicCropProductionSystem
     {
         return $this->container['production_system'];
     }
@@ -344,24 +300,14 @@ class BasicProductionSystemScope1Method1 implements ModelInterface, ArrayAccess,
     /**
      * Sets production_system
      *
-     * @param string $production_system Production system of the crop
+     * @param \OpenAPI\Client\Model\BasicCropProductionSystem $production_system Production system of the crop
      *
      * @return $this
      */
-    public function setProductionSystem(string $production_system): static
+    public function setProductionSystem(\OpenAPI\Client\Model\BasicCropProductionSystem $production_system): static
     {
         if (is_null($production_system)) {
             throw new InvalidArgumentException('non-nullable production_system cannot be null');
-        }
-        $allowedValues = self::getProductionSystemAllowableValues();
-        if (!in_array($production_system, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'production_system', must be one of '%s'",
-                    $production_system,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['production_system'] = $production_system;
 
