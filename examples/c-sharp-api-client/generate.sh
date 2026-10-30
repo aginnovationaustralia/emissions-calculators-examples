@@ -59,7 +59,8 @@ openapi-generator-cli generate \
   --library=generichost \
   --additional-properties targetFramework=net9.0
   
-cp resources/* $API_CLIENT_DIR/
+# Copy files only: an IDE may leave bin/ and obj/ build output in resources
+find resources -maxdepth 1 -type f -exec cp {} $API_CLIENT_DIR/ \;
 
 cd $API_CLIENT_DIR
 ./setup_local.sh

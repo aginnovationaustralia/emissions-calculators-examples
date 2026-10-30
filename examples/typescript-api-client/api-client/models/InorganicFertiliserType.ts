@@ -27,6 +27,7 @@ export const InorganicFertiliserType = {
     CalciumAmmoniumNitrateCan: 'Calcium Ammonium Nitrate (CAN)',
     CalciumNitrate: 'Calcium Nitrate',
     SingleSuperPhosphate: 'Single Super Phosphate',
+    AmmoniumSulfate: 'Ammonium Sulfate',
 } as const;
 export type InorganicFertiliserType = typeof InorganicFertiliserType[keyof typeof InorganicFertiliserType];
 

@@ -57,7 +57,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="otherPurchasedGoodsAndServices">Data for any additional purchased goods or services that were used within the reporting period for this enterprise that can&#39;t be captured by other inputs.</param>
         /// <param name="waste">waste</param>
         [JsonConstructor]
-        public PostBeefRequestHerdsInner(PostBeefRequestHerdsInnerElectricityAllocation electricityAllocation, RegionEnum region, BeefClassesInput classes, BreedEnum breed, GrazingSystemEnum grazingSystem, ClimateZoneEnum climateZone, bool isInLeachingZone, bool excludedFromNaturalWater, PostBeefRequestHerdsInnerLiveweightSoldKg liveweightSoldKg, FuelInput fuel, PostBeefRequestHerdsInnerLime lime, PostBeefRequestHerdsInnerPasture pasture, List<Beef> purchasedLivestock, List<PurchasedFeedListInputInner> purchasedFeed, List<PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner> purchasedMineralSupplements, List<PostBeefRequestHerdsInnerChemicalsInner> chemicals, PostBeefRequestHerdsInnerServices services, FertiliserInput fertiliser, Option<string?> id = default, Option<Method2MeanAnnualTemperatureEnum?> method2MeanAnnualTemperature = default, Option<List<PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner>?> otherPurchasedGoodsAndServices = default, Option<PostBeefRequestHerdsInnerWaste?> waste = default)
+        public PostBeefRequestHerdsInner(PostBeefRequestHerdsInnerElectricityAllocation electricityAllocation, StateOrRegion region, BeefClassesInput classes, BeefBreed breed, GrazingProductionSystemWithRainfall grazingSystem, ClimateZoneOrZoneType climateZone, bool isInLeachingZone, bool excludedFromNaturalWater, PostBeefRequestHerdsInnerLiveweightSoldKg liveweightSoldKg, FuelInput fuel, PostBeefRequestHerdsInnerLime lime, PostBeefRequestHerdsInnerPasture pasture, List<Beef> purchasedLivestock, List<PurchasedFeedListInputInner> purchasedFeed, List<PostBeefRequestHerdsInnerPurchasedMineralSupplementsInner> purchasedMineralSupplements, List<PostBeefRequestHerdsInnerChemicalsInner> chemicals, PostBeefRequestHerdsInnerServices services, FertiliserInput fertiliser, Option<string?> id = default, Option<MeanAnnualTemperature?> method2MeanAnnualTemperature = default, Option<List<PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner>?> otherPurchasedGoodsAndServices = default, Option<PostBeefRequestHerdsInnerWaste?> waste = default)
         {
             ElectricityAllocation = electricityAllocation;
             Region = region;
@@ -90,980 +90,43 @@ namespace Org.OpenAPITools.Model
         /// The state or region the herd is located in
         /// </summary>
         /// <value>The state or region the herd is located in</value>
-        public enum RegionEnum
-        {
-            /// <summary>
-            /// Enum ACT for value: ACT
-            /// </summary>
-            ACT = 1,
-
-            /// <summary>
-            /// Enum NSW for value: NSW
-            /// </summary>
-            NSW = 2,
-
-            /// <summary>
-            /// Enum SA for value: SA
-            /// </summary>
-            SA = 3,
-
-            /// <summary>
-            /// Enum TAS for value: TAS
-            /// </summary>
-            TAS = 4,
-
-            /// <summary>
-            /// Enum VIC for value: VIC
-            /// </summary>
-            VIC = 5,
-
-            /// <summary>
-            /// Enum WASouthWest for value: WA - South West
-            /// </summary>
-            WASouthWest = 6,
-
-            /// <summary>
-            /// Enum WAPilbara for value: WA - Pilbara
-            /// </summary>
-            WAPilbara = 7,
-
-            /// <summary>
-            /// Enum WAKimberley for value: WA - Kimberley
-            /// </summary>
-            WAKimberley = 8,
-
-            /// <summary>
-            /// Enum NTAliceSprings for value: NT - Alice Springs
-            /// </summary>
-            NTAliceSprings = 9,
-
-            /// <summary>
-            /// Enum NTBarkly for value: NT - Barkly
-            /// </summary>
-            NTBarkly = 10,
-
-            /// <summary>
-            /// Enum NTNorthern for value: NT - Northern
-            /// </summary>
-            NTNorthern = 11,
-
-            /// <summary>
-            /// Enum QLDHigh for value: QLD - High
-            /// </summary>
-            QLDHigh = 12,
-
-            /// <summary>
-            /// Enum QLDModerateHigh for value: QLD - Moderate/High
-            /// </summary>
-            QLDModerateHigh = 13,
-
-            /// <summary>
-            /// Enum QLDModerateLow for value: QLD - Moderate/Low
-            /// </summary>
-            QLDModerateLow = 14,
-
-            /// <summary>
-            /// Enum QLDLow for value: QLD - Low
-            /// </summary>
-            QLDLow = 15
-        }
-
-        /// <summary>
-        /// Returns a <see cref="RegionEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static RegionEnum RegionEnumFromString(string value)
-        {
-            if (value.Equals("ACT"))
-                return RegionEnum.ACT;
-
-            if (value.Equals("NSW"))
-                return RegionEnum.NSW;
-
-            if (value.Equals("SA"))
-                return RegionEnum.SA;
-
-            if (value.Equals("TAS"))
-                return RegionEnum.TAS;
-
-            if (value.Equals("VIC"))
-                return RegionEnum.VIC;
-
-            if (value.Equals("WA - South West"))
-                return RegionEnum.WASouthWest;
-
-            if (value.Equals("WA - Pilbara"))
-                return RegionEnum.WAPilbara;
-
-            if (value.Equals("WA - Kimberley"))
-                return RegionEnum.WAKimberley;
-
-            if (value.Equals("NT - Alice Springs"))
-                return RegionEnum.NTAliceSprings;
-
-            if (value.Equals("NT - Barkly"))
-                return RegionEnum.NTBarkly;
-
-            if (value.Equals("NT - Northern"))
-                return RegionEnum.NTNorthern;
-
-            if (value.Equals("QLD - High"))
-                return RegionEnum.QLDHigh;
-
-            if (value.Equals("QLD - Moderate/High"))
-                return RegionEnum.QLDModerateHigh;
-
-            if (value.Equals("QLD - Moderate/Low"))
-                return RegionEnum.QLDModerateLow;
-
-            if (value.Equals("QLD - Low"))
-                return RegionEnum.QLDLow;
-
-            throw new NotImplementedException($"Could not convert value to type RegionEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="RegionEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static RegionEnum? RegionEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("ACT"))
-                return RegionEnum.ACT;
-
-            if (value.Equals("NSW"))
-                return RegionEnum.NSW;
-
-            if (value.Equals("SA"))
-                return RegionEnum.SA;
-
-            if (value.Equals("TAS"))
-                return RegionEnum.TAS;
-
-            if (value.Equals("VIC"))
-                return RegionEnum.VIC;
-
-            if (value.Equals("WA - South West"))
-                return RegionEnum.WASouthWest;
-
-            if (value.Equals("WA - Pilbara"))
-                return RegionEnum.WAPilbara;
-
-            if (value.Equals("WA - Kimberley"))
-                return RegionEnum.WAKimberley;
-
-            if (value.Equals("NT - Alice Springs"))
-                return RegionEnum.NTAliceSprings;
-
-            if (value.Equals("NT - Barkly"))
-                return RegionEnum.NTBarkly;
-
-            if (value.Equals("NT - Northern"))
-                return RegionEnum.NTNorthern;
-
-            if (value.Equals("QLD - High"))
-                return RegionEnum.QLDHigh;
-
-            if (value.Equals("QLD - Moderate/High"))
-                return RegionEnum.QLDModerateHigh;
-
-            if (value.Equals("QLD - Moderate/Low"))
-                return RegionEnum.QLDModerateLow;
-
-            if (value.Equals("QLD - Low"))
-                return RegionEnum.QLDLow;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="RegionEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string RegionEnumToJsonValue(RegionEnum value)
-        {
-            if (value == RegionEnum.ACT)
-                return "ACT";
-
-            if (value == RegionEnum.NSW)
-                return "NSW";
-
-            if (value == RegionEnum.SA)
-                return "SA";
-
-            if (value == RegionEnum.TAS)
-                return "TAS";
-
-            if (value == RegionEnum.VIC)
-                return "VIC";
-
-            if (value == RegionEnum.WASouthWest)
-                return "WA - South West";
-
-            if (value == RegionEnum.WAPilbara)
-                return "WA - Pilbara";
-
-            if (value == RegionEnum.WAKimberley)
-                return "WA - Kimberley";
-
-            if (value == RegionEnum.NTAliceSprings)
-                return "NT - Alice Springs";
-
-            if (value == RegionEnum.NTBarkly)
-                return "NT - Barkly";
-
-            if (value == RegionEnum.NTNorthern)
-                return "NT - Northern";
-
-            if (value == RegionEnum.QLDHigh)
-                return "QLD - High";
-
-            if (value == RegionEnum.QLDModerateHigh)
-                return "QLD - Moderate/High";
-
-            if (value == RegionEnum.QLDModerateLow)
-                return "QLD - Moderate/Low";
-
-            if (value == RegionEnum.QLDLow)
-                return "QLD - Low";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The state or region the herd is located in
-        /// </summary>
-        /// <value>The state or region the herd is located in</value>
         [JsonPropertyName("region")]
-        public RegionEnum Region { get; set; }
-
-        /// <summary>
-        /// The basic breed type of the herd
-        /// </summary>
-        /// <value>The basic breed type of the herd</value>
-        public enum BreedEnum
-        {
-            /// <summary>
-            /// Enum HerefordOrShorthorn for value: Hereford or Shorthorn
-            /// </summary>
-            HerefordOrShorthorn = 1,
-
-            /// <summary>
-            /// Enum NorthernBrahmanCrossBreed for value: Northern Brahman cross breed
-            /// </summary>
-            NorthernBrahmanCrossBreed = 2
-        }
-
-        /// <summary>
-        /// Returns a <see cref="BreedEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static BreedEnum BreedEnumFromString(string value)
-        {
-            if (value.Equals("Hereford or Shorthorn"))
-                return BreedEnum.HerefordOrShorthorn;
-
-            if (value.Equals("Northern Brahman cross breed"))
-                return BreedEnum.NorthernBrahmanCrossBreed;
-
-            throw new NotImplementedException($"Could not convert value to type BreedEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="BreedEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static BreedEnum? BreedEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Hereford or Shorthorn"))
-                return BreedEnum.HerefordOrShorthorn;
-
-            if (value.Equals("Northern Brahman cross breed"))
-                return BreedEnum.NorthernBrahmanCrossBreed;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="BreedEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string BreedEnumToJsonValue(BreedEnum value)
-        {
-            if (value == BreedEnum.HerefordOrShorthorn)
-                return "Hereford or Shorthorn";
-
-            if (value == BreedEnum.NorthernBrahmanCrossBreed)
-                return "Northern Brahman cross breed";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public StateOrRegion Region { get; set; }
 
         /// <summary>
         /// The basic breed type of the herd
         /// </summary>
         /// <value>The basic breed type of the herd</value>
         [JsonPropertyName("breed")]
-        public BreedEnum Breed { get; set; }
-
-        /// <summary>
-        /// The production system which most accurately describes the land used for grazing and feed.
-        /// </summary>
-        /// <value>The production system which most accurately describes the land used for grazing and feed.</value>
-        public enum GrazingSystemEnum
-        {
-            /// <summary>
-            /// Enum NonIrrigatedPasture for value: Non-irrigated pasture
-            /// </summary>
-            NonIrrigatedPasture = 1,
-
-            /// <summary>
-            /// Enum IrrigatedPasture for value: Irrigated pasture
-            /// </summary>
-            IrrigatedPasture = 2,
-
-            /// <summary>
-            /// Enum IrrigatedCrop for value: Irrigated crop
-            /// </summary>
-            IrrigatedCrop = 3,
-
-            /// <summary>
-            /// Enum NonIrrigatedCroplowRainfall for value: Non-irrigated crop (low rainfall)
-            /// </summary>
-            NonIrrigatedCroplowRainfall = 4,
-
-            /// <summary>
-            /// Enum NonIrrigatedCrophighRainfall for value: Non-irrigated crop (high rainfall)
-            /// </summary>
-            NonIrrigatedCrophighRainfall = 5
-        }
-
-        /// <summary>
-        /// Returns a <see cref="GrazingSystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static GrazingSystemEnum GrazingSystemEnumFromString(string value)
-        {
-            if (value.Equals("Non-irrigated pasture"))
-                return GrazingSystemEnum.NonIrrigatedPasture;
-
-            if (value.Equals("Irrigated pasture"))
-                return GrazingSystemEnum.IrrigatedPasture;
-
-            if (value.Equals("Irrigated crop"))
-                return GrazingSystemEnum.IrrigatedCrop;
-
-            if (value.Equals("Non-irrigated crop (low rainfall)"))
-                return GrazingSystemEnum.NonIrrigatedCroplowRainfall;
-
-            if (value.Equals("Non-irrigated crop (high rainfall)"))
-                return GrazingSystemEnum.NonIrrigatedCrophighRainfall;
-
-            throw new NotImplementedException($"Could not convert value to type GrazingSystemEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="GrazingSystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static GrazingSystemEnum? GrazingSystemEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Non-irrigated pasture"))
-                return GrazingSystemEnum.NonIrrigatedPasture;
-
-            if (value.Equals("Irrigated pasture"))
-                return GrazingSystemEnum.IrrigatedPasture;
-
-            if (value.Equals("Irrigated crop"))
-                return GrazingSystemEnum.IrrigatedCrop;
-
-            if (value.Equals("Non-irrigated crop (low rainfall)"))
-                return GrazingSystemEnum.NonIrrigatedCroplowRainfall;
-
-            if (value.Equals("Non-irrigated crop (high rainfall)"))
-                return GrazingSystemEnum.NonIrrigatedCrophighRainfall;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="GrazingSystemEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string GrazingSystemEnumToJsonValue(GrazingSystemEnum value)
-        {
-            if (value == GrazingSystemEnum.NonIrrigatedPasture)
-                return "Non-irrigated pasture";
-
-            if (value == GrazingSystemEnum.IrrigatedPasture)
-                return "Irrigated pasture";
-
-            if (value == GrazingSystemEnum.IrrigatedCrop)
-                return "Irrigated crop";
-
-            if (value == GrazingSystemEnum.NonIrrigatedCroplowRainfall)
-                return "Non-irrigated crop (low rainfall)";
-
-            if (value == GrazingSystemEnum.NonIrrigatedCrophighRainfall)
-                return "Non-irrigated crop (high rainfall)";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public BeefBreed Breed { get; set; }
 
         /// <summary>
         /// The production system which most accurately describes the land used for grazing and feed.
         /// </summary>
         /// <value>The production system which most accurately describes the land used for grazing and feed.</value>
         [JsonPropertyName("grazingSystem")]
-        public GrazingSystemEnum GrazingSystem { get; set; }
-
-        /// <summary>
-        /// The climate zone the activity is located in (like \&quot;Tropical dry\&quot;) or the basic zone type (\&quot;dry\&quot; or \&quot;wet\&quot;). See Chapter 1 section 1.8.2 for more details.
-        /// </summary>
-        /// <value>The climate zone the activity is located in (like \&quot;Tropical dry\&quot;) or the basic zone type (\&quot;dry\&quot; or \&quot;wet\&quot;). See Chapter 1 section 1.8.2 for more details.</value>
-        public enum ClimateZoneEnum
-        {
-            /// <summary>
-            /// Enum TropicalMontane for value: Tropical montane
-            /// </summary>
-            TropicalMontane = 1,
-
-            /// <summary>
-            /// Enum TropicalWet for value: Tropical wet
-            /// </summary>
-            TropicalWet = 2,
-
-            /// <summary>
-            /// Enum TropicalMoist for value: Tropical moist
-            /// </summary>
-            TropicalMoist = 3,
-
-            /// <summary>
-            /// Enum WarmTemperateMoist for value: Warm temperate moist
-            /// </summary>
-            WarmTemperateMoist = 4,
-
-            /// <summary>
-            /// Enum CoolTemperateMoist for value: Cool temperate moist
-            /// </summary>
-            CoolTemperateMoist = 5,
-
-            /// <summary>
-            /// Enum BorealMoist for value: Boreal moist
-            /// </summary>
-            BorealMoist = 6,
-
-            /// <summary>
-            /// Enum TropicalDry for value: Tropical dry
-            /// </summary>
-            TropicalDry = 7,
-
-            /// <summary>
-            /// Enum WarmTemperateDry for value: Warm temperate dry
-            /// </summary>
-            WarmTemperateDry = 8,
-
-            /// <summary>
-            /// Enum CoolTemperateDry for value: Cool temperate dry
-            /// </summary>
-            CoolTemperateDry = 9,
-
-            /// <summary>
-            /// Enum BorealDry for value: Boreal dry
-            /// </summary>
-            BorealDry = 10,
-
-            /// <summary>
-            /// Enum Dry for value: dry
-            /// </summary>
-            Dry = 11,
-
-            /// <summary>
-            /// Enum Wet for value: wet
-            /// </summary>
-            Wet = 12
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ClimateZoneEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ClimateZoneEnum ClimateZoneEnumFromString(string value)
-        {
-            if (value.Equals("Tropical montane"))
-                return ClimateZoneEnum.TropicalMontane;
-
-            if (value.Equals("Tropical wet"))
-                return ClimateZoneEnum.TropicalWet;
-
-            if (value.Equals("Tropical moist"))
-                return ClimateZoneEnum.TropicalMoist;
-
-            if (value.Equals("Warm temperate moist"))
-                return ClimateZoneEnum.WarmTemperateMoist;
-
-            if (value.Equals("Cool temperate moist"))
-                return ClimateZoneEnum.CoolTemperateMoist;
-
-            if (value.Equals("Boreal moist"))
-                return ClimateZoneEnum.BorealMoist;
-
-            if (value.Equals("Tropical dry"))
-                return ClimateZoneEnum.TropicalDry;
-
-            if (value.Equals("Warm temperate dry"))
-                return ClimateZoneEnum.WarmTemperateDry;
-
-            if (value.Equals("Cool temperate dry"))
-                return ClimateZoneEnum.CoolTemperateDry;
-
-            if (value.Equals("Boreal dry"))
-                return ClimateZoneEnum.BorealDry;
-
-            if (value.Equals("dry"))
-                return ClimateZoneEnum.Dry;
-
-            if (value.Equals("wet"))
-                return ClimateZoneEnum.Wet;
-
-            throw new NotImplementedException($"Could not convert value to type ClimateZoneEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ClimateZoneEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ClimateZoneEnum? ClimateZoneEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Tropical montane"))
-                return ClimateZoneEnum.TropicalMontane;
-
-            if (value.Equals("Tropical wet"))
-                return ClimateZoneEnum.TropicalWet;
-
-            if (value.Equals("Tropical moist"))
-                return ClimateZoneEnum.TropicalMoist;
-
-            if (value.Equals("Warm temperate moist"))
-                return ClimateZoneEnum.WarmTemperateMoist;
-
-            if (value.Equals("Cool temperate moist"))
-                return ClimateZoneEnum.CoolTemperateMoist;
-
-            if (value.Equals("Boreal moist"))
-                return ClimateZoneEnum.BorealMoist;
-
-            if (value.Equals("Tropical dry"))
-                return ClimateZoneEnum.TropicalDry;
-
-            if (value.Equals("Warm temperate dry"))
-                return ClimateZoneEnum.WarmTemperateDry;
-
-            if (value.Equals("Cool temperate dry"))
-                return ClimateZoneEnum.CoolTemperateDry;
-
-            if (value.Equals("Boreal dry"))
-                return ClimateZoneEnum.BorealDry;
-
-            if (value.Equals("dry"))
-                return ClimateZoneEnum.Dry;
-
-            if (value.Equals("wet"))
-                return ClimateZoneEnum.Wet;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ClimateZoneEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ClimateZoneEnumToJsonValue(ClimateZoneEnum value)
-        {
-            if (value == ClimateZoneEnum.TropicalMontane)
-                return "Tropical montane";
-
-            if (value == ClimateZoneEnum.TropicalWet)
-                return "Tropical wet";
-
-            if (value == ClimateZoneEnum.TropicalMoist)
-                return "Tropical moist";
-
-            if (value == ClimateZoneEnum.WarmTemperateMoist)
-                return "Warm temperate moist";
-
-            if (value == ClimateZoneEnum.CoolTemperateMoist)
-                return "Cool temperate moist";
-
-            if (value == ClimateZoneEnum.BorealMoist)
-                return "Boreal moist";
-
-            if (value == ClimateZoneEnum.TropicalDry)
-                return "Tropical dry";
-
-            if (value == ClimateZoneEnum.WarmTemperateDry)
-                return "Warm temperate dry";
-
-            if (value == ClimateZoneEnum.CoolTemperateDry)
-                return "Cool temperate dry";
-
-            if (value == ClimateZoneEnum.BorealDry)
-                return "Boreal dry";
-
-            if (value == ClimateZoneEnum.Dry)
-                return "dry";
-
-            if (value == ClimateZoneEnum.Wet)
-                return "wet";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public GrazingProductionSystemWithRainfall GrazingSystem { get; set; }
 
         /// <summary>
         /// The climate zone the activity is located in (like \&quot;Tropical dry\&quot;) or the basic zone type (\&quot;dry\&quot; or \&quot;wet\&quot;). See Chapter 1 section 1.8.2 for more details.
         /// </summary>
         /// <value>The climate zone the activity is located in (like \&quot;Tropical dry\&quot;) or the basic zone type (\&quot;dry\&quot; or \&quot;wet\&quot;). See Chapter 1 section 1.8.2 for more details.</value>
         [JsonPropertyName("climateZone")]
-        public ClimateZoneEnum ClimateZone { get; set; }
-
-        /// <summary>
-        /// What is the mean annual temperature of the herd&#39;s location? See chapter 1.8.2 for more information on temperature zones.
-        /// </summary>
-        /// <value>What is the mean annual temperature of the herd&#39;s location? See chapter 1.8.2 for more information on temperature zones.</value>
-        public enum Method2MeanAnnualTemperatureEnum
-        {
-            /// <summary>
-            /// Enum _11 for value: 11
-            /// </summary>
-            _11 = 1,
-
-            /// <summary>
-            /// Enum _12 for value: 12
-            /// </summary>
-            _12 = 2,
-
-            /// <summary>
-            /// Enum _13 for value: 13
-            /// </summary>
-            _13 = 3,
-
-            /// <summary>
-            /// Enum _14 for value: 14
-            /// </summary>
-            _14 = 4,
-
-            /// <summary>
-            /// Enum _15 for value: 15
-            /// </summary>
-            _15 = 5,
-
-            /// <summary>
-            /// Enum _16 for value: 16
-            /// </summary>
-            _16 = 6,
-
-            /// <summary>
-            /// Enum _17 for value: 17
-            /// </summary>
-            _17 = 7,
-
-            /// <summary>
-            /// Enum _18 for value: 18
-            /// </summary>
-            _18 = 8,
-
-            /// <summary>
-            /// Enum _19 for value: 19
-            /// </summary>
-            _19 = 9,
-
-            /// <summary>
-            /// Enum _20 for value: 20
-            /// </summary>
-            _20 = 10,
-
-            /// <summary>
-            /// Enum _21 for value: 21
-            /// </summary>
-            _21 = 11,
-
-            /// <summary>
-            /// Enum _22 for value: 22
-            /// </summary>
-            _22 = 12,
-
-            /// <summary>
-            /// Enum _23 for value: 23
-            /// </summary>
-            _23 = 13,
-
-            /// <summary>
-            /// Enum _24 for value: 24
-            /// </summary>
-            _24 = 14,
-
-            /// <summary>
-            /// Enum _25 for value: 25
-            /// </summary>
-            _25 = 15,
-
-            /// <summary>
-            /// Enum _26 for value: 26
-            /// </summary>
-            _26 = 16,
-
-            /// <summary>
-            /// Enum _27 for value: 27
-            /// </summary>
-            _27 = 17,
-
-            /// <summary>
-            /// Enum _10OrBelow for value: 10 or below
-            /// </summary>
-            _10OrBelow = 18,
-
-            /// <summary>
-            /// Enum _28OrAbove for value: 28 or above
-            /// </summary>
-            _28OrAbove = 19
-        }
-
-        /// <summary>
-        /// Returns a <see cref="Method2MeanAnnualTemperatureEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static Method2MeanAnnualTemperatureEnum Method2MeanAnnualTemperatureEnumFromString(string value)
-        {
-            if (value.Equals("11"))
-                return Method2MeanAnnualTemperatureEnum._11;
-
-            if (value.Equals("12"))
-                return Method2MeanAnnualTemperatureEnum._12;
-
-            if (value.Equals("13"))
-                return Method2MeanAnnualTemperatureEnum._13;
-
-            if (value.Equals("14"))
-                return Method2MeanAnnualTemperatureEnum._14;
-
-            if (value.Equals("15"))
-                return Method2MeanAnnualTemperatureEnum._15;
-
-            if (value.Equals("16"))
-                return Method2MeanAnnualTemperatureEnum._16;
-
-            if (value.Equals("17"))
-                return Method2MeanAnnualTemperatureEnum._17;
-
-            if (value.Equals("18"))
-                return Method2MeanAnnualTemperatureEnum._18;
-
-            if (value.Equals("19"))
-                return Method2MeanAnnualTemperatureEnum._19;
-
-            if (value.Equals("20"))
-                return Method2MeanAnnualTemperatureEnum._20;
-
-            if (value.Equals("21"))
-                return Method2MeanAnnualTemperatureEnum._21;
-
-            if (value.Equals("22"))
-                return Method2MeanAnnualTemperatureEnum._22;
-
-            if (value.Equals("23"))
-                return Method2MeanAnnualTemperatureEnum._23;
-
-            if (value.Equals("24"))
-                return Method2MeanAnnualTemperatureEnum._24;
-
-            if (value.Equals("25"))
-                return Method2MeanAnnualTemperatureEnum._25;
-
-            if (value.Equals("26"))
-                return Method2MeanAnnualTemperatureEnum._26;
-
-            if (value.Equals("27"))
-                return Method2MeanAnnualTemperatureEnum._27;
-
-            if (value.Equals("10 or below"))
-                return Method2MeanAnnualTemperatureEnum._10OrBelow;
-
-            if (value.Equals("28 or above"))
-                return Method2MeanAnnualTemperatureEnum._28OrAbove;
-
-            throw new NotImplementedException($"Could not convert value to type Method2MeanAnnualTemperatureEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="Method2MeanAnnualTemperatureEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static Method2MeanAnnualTemperatureEnum? Method2MeanAnnualTemperatureEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("11"))
-                return Method2MeanAnnualTemperatureEnum._11;
-
-            if (value.Equals("12"))
-                return Method2MeanAnnualTemperatureEnum._12;
-
-            if (value.Equals("13"))
-                return Method2MeanAnnualTemperatureEnum._13;
-
-            if (value.Equals("14"))
-                return Method2MeanAnnualTemperatureEnum._14;
-
-            if (value.Equals("15"))
-                return Method2MeanAnnualTemperatureEnum._15;
-
-            if (value.Equals("16"))
-                return Method2MeanAnnualTemperatureEnum._16;
-
-            if (value.Equals("17"))
-                return Method2MeanAnnualTemperatureEnum._17;
-
-            if (value.Equals("18"))
-                return Method2MeanAnnualTemperatureEnum._18;
-
-            if (value.Equals("19"))
-                return Method2MeanAnnualTemperatureEnum._19;
-
-            if (value.Equals("20"))
-                return Method2MeanAnnualTemperatureEnum._20;
-
-            if (value.Equals("21"))
-                return Method2MeanAnnualTemperatureEnum._21;
-
-            if (value.Equals("22"))
-                return Method2MeanAnnualTemperatureEnum._22;
-
-            if (value.Equals("23"))
-                return Method2MeanAnnualTemperatureEnum._23;
-
-            if (value.Equals("24"))
-                return Method2MeanAnnualTemperatureEnum._24;
-
-            if (value.Equals("25"))
-                return Method2MeanAnnualTemperatureEnum._25;
-
-            if (value.Equals("26"))
-                return Method2MeanAnnualTemperatureEnum._26;
-
-            if (value.Equals("27"))
-                return Method2MeanAnnualTemperatureEnum._27;
-
-            if (value.Equals("10 or below"))
-                return Method2MeanAnnualTemperatureEnum._10OrBelow;
-
-            if (value.Equals("28 or above"))
-                return Method2MeanAnnualTemperatureEnum._28OrAbove;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="Method2MeanAnnualTemperatureEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string Method2MeanAnnualTemperatureEnumToJsonValue(Method2MeanAnnualTemperatureEnum? value)
-        {
-            if (value == Method2MeanAnnualTemperatureEnum._11)
-                return "11";
-
-            if (value == Method2MeanAnnualTemperatureEnum._12)
-                return "12";
-
-            if (value == Method2MeanAnnualTemperatureEnum._13)
-                return "13";
-
-            if (value == Method2MeanAnnualTemperatureEnum._14)
-                return "14";
-
-            if (value == Method2MeanAnnualTemperatureEnum._15)
-                return "15";
-
-            if (value == Method2MeanAnnualTemperatureEnum._16)
-                return "16";
-
-            if (value == Method2MeanAnnualTemperatureEnum._17)
-                return "17";
-
-            if (value == Method2MeanAnnualTemperatureEnum._18)
-                return "18";
-
-            if (value == Method2MeanAnnualTemperatureEnum._19)
-                return "19";
-
-            if (value == Method2MeanAnnualTemperatureEnum._20)
-                return "20";
-
-            if (value == Method2MeanAnnualTemperatureEnum._21)
-                return "21";
-
-            if (value == Method2MeanAnnualTemperatureEnum._22)
-                return "22";
-
-            if (value == Method2MeanAnnualTemperatureEnum._23)
-                return "23";
-
-            if (value == Method2MeanAnnualTemperatureEnum._24)
-                return "24";
-
-            if (value == Method2MeanAnnualTemperatureEnum._25)
-                return "25";
-
-            if (value == Method2MeanAnnualTemperatureEnum._26)
-                return "26";
-
-            if (value == Method2MeanAnnualTemperatureEnum._27)
-                return "27";
-
-            if (value == Method2MeanAnnualTemperatureEnum._10OrBelow)
-                return "10 or below";
-
-            if (value == Method2MeanAnnualTemperatureEnum._28OrAbove)
-                return "28 or above";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public ClimateZoneOrZoneType ClimateZone { get; set; }
 
         /// <summary>
         /// Used to track the state of Method2MeanAnnualTemperature
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<Method2MeanAnnualTemperatureEnum?> Method2MeanAnnualTemperatureOption { get; private set; }
+        public Option<MeanAnnualTemperature?> Method2MeanAnnualTemperatureOption { get; private set; }
 
         /// <summary>
         /// What is the mean annual temperature of the herd&#39;s location? See chapter 1.8.2 for more information on temperature zones.
         /// </summary>
         /// <value>What is the mean annual temperature of the herd&#39;s location? See chapter 1.8.2 for more information on temperature zones.</value>
         [JsonPropertyName("method2MeanAnnualTemperature")]
-        public Method2MeanAnnualTemperatureEnum? Method2MeanAnnualTemperature { get { return this.Method2MeanAnnualTemperatureOption.Value; } set { this.Method2MeanAnnualTemperatureOption = new(value); } }
+        public MeanAnnualTemperature? Method2MeanAnnualTemperature { get { return this.Method2MeanAnnualTemperatureOption.Value; } set { this.Method2MeanAnnualTemperatureOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets ElectricityAllocation
@@ -1277,11 +340,11 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<PostBeefRequestHerdsInnerElectricityAllocation?> electricityAllocation = default;
-            Option<PostBeefRequestHerdsInner.RegionEnum?> region = default;
+            Option<StateOrRegion?> region = default;
             Option<BeefClassesInput?> classes = default;
-            Option<PostBeefRequestHerdsInner.BreedEnum?> breed = default;
-            Option<PostBeefRequestHerdsInner.GrazingSystemEnum?> grazingSystem = default;
-            Option<PostBeefRequestHerdsInner.ClimateZoneEnum?> climateZone = default;
+            Option<BeefBreed?> breed = default;
+            Option<GrazingProductionSystemWithRainfall?> grazingSystem = default;
+            Option<ClimateZoneOrZoneType?> climateZone = default;
             Option<bool?> isInLeachingZone = default;
             Option<bool?> excludedFromNaturalWater = default;
             Option<PostBeefRequestHerdsInnerLiveweightSoldKg?> liveweightSoldKg = default;
@@ -1295,7 +358,7 @@ namespace Org.OpenAPITools.Model
             Option<PostBeefRequestHerdsInnerServices?> services = default;
             Option<FertiliserInput?> fertiliser = default;
             Option<string?> id = default;
-            Option<PostBeefRequestHerdsInner.Method2MeanAnnualTemperatureEnum?> method2MeanAnnualTemperature = default;
+            Option<MeanAnnualTemperature?> method2MeanAnnualTemperature = default;
             Option<List<PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner>?> otherPurchasedGoodsAndServices = default;
             Option<PostBeefRequestHerdsInnerWaste?> waste = default;
 
@@ -1318,47 +381,19 @@ namespace Org.OpenAPITools.Model
                             electricityAllocation = new Option<PostBeefRequestHerdsInnerElectricityAllocation?>(JsonSerializer.Deserialize<PostBeefRequestHerdsInnerElectricityAllocation>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "region":
-                            string? regionRawValue = utf8JsonReader.GetString();
-                            if (regionRawValue != null)
-                            {
-                                PostBeefRequestHerdsInner.RegionEnum? regionValue = PostBeefRequestHerdsInner.RegionEnumFromStringOrDefault(regionRawValue);
-                                if (regionValue == null)
-                                    throw new JsonException();
-                                region = new Option<PostBeefRequestHerdsInner.RegionEnum?>(regionValue);
-                            }
+                            region = new Option<StateOrRegion?>(JsonSerializer.Deserialize<StateOrRegion?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "classes":
                             classes = new Option<BeefClassesInput?>(JsonSerializer.Deserialize<BeefClassesInput>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "breed":
-                            string? breedRawValue = utf8JsonReader.GetString();
-                            if (breedRawValue != null)
-                            {
-                                PostBeefRequestHerdsInner.BreedEnum? breedValue = PostBeefRequestHerdsInner.BreedEnumFromStringOrDefault(breedRawValue);
-                                if (breedValue == null)
-                                    throw new JsonException();
-                                breed = new Option<PostBeefRequestHerdsInner.BreedEnum?>(breedValue);
-                            }
+                            breed = new Option<BeefBreed?>(JsonSerializer.Deserialize<BeefBreed?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "grazingSystem":
-                            string? grazingSystemRawValue = utf8JsonReader.GetString();
-                            if (grazingSystemRawValue != null)
-                            {
-                                PostBeefRequestHerdsInner.GrazingSystemEnum? grazingSystemValue = PostBeefRequestHerdsInner.GrazingSystemEnumFromStringOrDefault(grazingSystemRawValue);
-                                if (grazingSystemValue == null)
-                                    throw new JsonException();
-                                grazingSystem = new Option<PostBeefRequestHerdsInner.GrazingSystemEnum?>(grazingSystemValue);
-                            }
+                            grazingSystem = new Option<GrazingProductionSystemWithRainfall?>(JsonSerializer.Deserialize<GrazingProductionSystemWithRainfall?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "climateZone":
-                            string? climateZoneRawValue = utf8JsonReader.GetString();
-                            if (climateZoneRawValue != null)
-                            {
-                                PostBeefRequestHerdsInner.ClimateZoneEnum? climateZoneValue = PostBeefRequestHerdsInner.ClimateZoneEnumFromStringOrDefault(climateZoneRawValue);
-                                if (climateZoneValue == null)
-                                    throw new JsonException();
-                                climateZone = new Option<PostBeefRequestHerdsInner.ClimateZoneEnum?>(climateZoneValue);
-                            }
+                            climateZone = new Option<ClimateZoneOrZoneType?>(JsonSerializer.Deserialize<ClimateZoneOrZoneType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "isInLeachingZone":
                             isInLeachingZone = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -1400,14 +435,7 @@ namespace Org.OpenAPITools.Model
                             id = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "method2MeanAnnualTemperature":
-                            string? method2MeanAnnualTemperatureRawValue = utf8JsonReader.GetString();
-                            if (method2MeanAnnualTemperatureRawValue != null)
-                            {
-                                PostBeefRequestHerdsInner.Method2MeanAnnualTemperatureEnum? method2MeanAnnualTemperatureValue = PostBeefRequestHerdsInner.Method2MeanAnnualTemperatureEnumFromStringOrDefault(method2MeanAnnualTemperatureRawValue);
-                                if (method2MeanAnnualTemperatureValue == null)
-                                    throw new JsonException();
-                                method2MeanAnnualTemperature = new Option<PostBeefRequestHerdsInner.Method2MeanAnnualTemperatureEnum?>(method2MeanAnnualTemperatureValue);
-                            }
+                            method2MeanAnnualTemperature = new Option<MeanAnnualTemperature?>(JsonSerializer.Deserialize<MeanAnnualTemperature?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "otherPurchasedGoodsAndServices":
                             otherPurchasedGoodsAndServices = new Option<List<PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner>?>(JsonSerializer.Deserialize<List<PostBeefRequestHerdsInnerOtherPurchasedGoodsAndServicesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -1580,16 +608,20 @@ namespace Org.OpenAPITools.Model
 
             writer.WritePropertyName("electricityAllocation");
             JsonSerializer.Serialize(writer, postBeefRequestHerdsInner.ElectricityAllocation, jsonSerializerOptions);
-            var regionRawValue = PostBeefRequestHerdsInner.RegionEnumToJsonValue(postBeefRequestHerdsInner.Region);
+            var regionRawValue = StateOrRegionValueConverter.ToJsonValue(postBeefRequestHerdsInner.Region);
             writer.WriteString("region", regionRawValue);
+
             writer.WritePropertyName("classes");
             JsonSerializer.Serialize(writer, postBeefRequestHerdsInner.Classes, jsonSerializerOptions);
-            var breedRawValue = PostBeefRequestHerdsInner.BreedEnumToJsonValue(postBeefRequestHerdsInner.Breed);
+            var breedRawValue = BeefBreedValueConverter.ToJsonValue(postBeefRequestHerdsInner.Breed);
             writer.WriteString("breed", breedRawValue);
-            var grazingSystemRawValue = PostBeefRequestHerdsInner.GrazingSystemEnumToJsonValue(postBeefRequestHerdsInner.GrazingSystem);
+
+            var grazingSystemRawValue = GrazingProductionSystemWithRainfallValueConverter.ToJsonValue(postBeefRequestHerdsInner.GrazingSystem);
             writer.WriteString("grazingSystem", grazingSystemRawValue);
-            var climateZoneRawValue = PostBeefRequestHerdsInner.ClimateZoneEnumToJsonValue(postBeefRequestHerdsInner.ClimateZone);
+
+            var climateZoneRawValue = ClimateZoneOrZoneTypeValueConverter.ToJsonValue(postBeefRequestHerdsInner.ClimateZone);
             writer.WriteString("climateZone", climateZoneRawValue);
+
             writer.WriteBoolean("isInLeachingZone", postBeefRequestHerdsInner.IsInLeachingZone);
 
             writer.WriteBoolean("excludedFromNaturalWater", postBeefRequestHerdsInner.ExcludedFromNaturalWater);
@@ -1619,8 +651,8 @@ namespace Org.OpenAPITools.Model
 
             if (postBeefRequestHerdsInner.Method2MeanAnnualTemperatureOption.IsSet)
             {
-            var method2MeanAnnualTemperatureRawValue = PostBeefRequestHerdsInner.Method2MeanAnnualTemperatureEnumToJsonValue(postBeefRequestHerdsInner.Method2MeanAnnualTemperatureOption.Value!.Value);
-            writer.WriteString("method2MeanAnnualTemperature", method2MeanAnnualTemperatureRawValue);
+                var method2MeanAnnualTemperatureRawValue = MeanAnnualTemperatureValueConverter.ToJsonValue(postBeefRequestHerdsInner.Method2MeanAnnualTemperature!.Value);
+                writer.WriteString("method2MeanAnnualTemperature", method2MeanAnnualTemperatureRawValue);
             }
             if (postBeefRequestHerdsInner.OtherPurchasedGoodsAndServicesOption.IsSet)
             {

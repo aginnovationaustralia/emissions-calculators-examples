@@ -39,7 +39,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="organicFertiliserType">Type of organic fertiliser</param>
         /// <param name="customNitrogenFraction">customNitrogenFraction</param>
         [JsonConstructor]
-        public UntracedManure(OriginEnum origin, UntracedManureMassAppliedKg massAppliedKg, OrganicFertiliserTypeEnum organicFertiliserType, Option<UntracedManureCustomNitrogenFraction?> customNitrogenFraction = default)
+        public UntracedManure(OriginEnum origin, UntracedManureMassAppliedKg massAppliedKg, OrganicFertiliserType organicFertiliserType, Option<UntracedManureCustomNitrogenFraction?> customNitrogenFraction = default)
         {
             Origin = origin;
             MassAppliedKg = massAppliedKg;
@@ -112,131 +112,8 @@ namespace Org.OpenAPITools.Model
         /// Type of organic fertiliser
         /// </summary>
         /// <value>Type of organic fertiliser</value>
-        public enum OrganicFertiliserTypeEnum
-        {
-            /// <summary>
-            /// Enum DairyCattle for value: Dairy cattle
-            /// </summary>
-            DairyCattle = 1,
-
-            /// <summary>
-            /// Enum BeefCattle for value: Beef cattle
-            /// </summary>
-            BeefCattle = 2,
-
-            /// <summary>
-            /// Enum Poultry for value: Poultry
-            /// </summary>
-            Poultry = 3,
-
-            /// <summary>
-            /// Enum Pigs for value: Pigs
-            /// </summary>
-            Pigs = 4,
-
-            /// <summary>
-            /// Enum Sheep for value: Sheep
-            /// </summary>
-            Sheep = 5,
-
-            /// <summary>
-            /// Enum HorsesMules for value: Horses/Mules
-            /// </summary>
-            HorsesMules = 6
-        }
-
-        /// <summary>
-        /// Returns a <see cref="OrganicFertiliserTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static OrganicFertiliserTypeEnum OrganicFertiliserTypeEnumFromString(string value)
-        {
-            if (value.Equals("Dairy cattle"))
-                return OrganicFertiliserTypeEnum.DairyCattle;
-
-            if (value.Equals("Beef cattle"))
-                return OrganicFertiliserTypeEnum.BeefCattle;
-
-            if (value.Equals("Poultry"))
-                return OrganicFertiliserTypeEnum.Poultry;
-
-            if (value.Equals("Pigs"))
-                return OrganicFertiliserTypeEnum.Pigs;
-
-            if (value.Equals("Sheep"))
-                return OrganicFertiliserTypeEnum.Sheep;
-
-            if (value.Equals("Horses/Mules"))
-                return OrganicFertiliserTypeEnum.HorsesMules;
-
-            throw new NotImplementedException($"Could not convert value to type OrganicFertiliserTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="OrganicFertiliserTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static OrganicFertiliserTypeEnum? OrganicFertiliserTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Dairy cattle"))
-                return OrganicFertiliserTypeEnum.DairyCattle;
-
-            if (value.Equals("Beef cattle"))
-                return OrganicFertiliserTypeEnum.BeefCattle;
-
-            if (value.Equals("Poultry"))
-                return OrganicFertiliserTypeEnum.Poultry;
-
-            if (value.Equals("Pigs"))
-                return OrganicFertiliserTypeEnum.Pigs;
-
-            if (value.Equals("Sheep"))
-                return OrganicFertiliserTypeEnum.Sheep;
-
-            if (value.Equals("Horses/Mules"))
-                return OrganicFertiliserTypeEnum.HorsesMules;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="OrganicFertiliserTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string OrganicFertiliserTypeEnumToJsonValue(OrganicFertiliserTypeEnum value)
-        {
-            if (value == OrganicFertiliserTypeEnum.DairyCattle)
-                return "Dairy cattle";
-
-            if (value == OrganicFertiliserTypeEnum.BeefCattle)
-                return "Beef cattle";
-
-            if (value == OrganicFertiliserTypeEnum.Poultry)
-                return "Poultry";
-
-            if (value == OrganicFertiliserTypeEnum.Pigs)
-                return "Pigs";
-
-            if (value == OrganicFertiliserTypeEnum.Sheep)
-                return "Sheep";
-
-            if (value == OrganicFertiliserTypeEnum.HorsesMules)
-                return "Horses/Mules";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of organic fertiliser
-        /// </summary>
-        /// <value>Type of organic fertiliser</value>
         [JsonPropertyName("organicFertiliserType")]
-        public OrganicFertiliserTypeEnum OrganicFertiliserType { get; set; }
+        public OrganicFertiliserType OrganicFertiliserType { get; set; }
 
         /// <summary>
         /// Gets or Sets MassAppliedKg
@@ -318,7 +195,7 @@ namespace Org.OpenAPITools.Model
 
             Option<UntracedManure.OriginEnum?> origin = default;
             Option<UntracedManureMassAppliedKg?> massAppliedKg = default;
-            Option<UntracedManure.OrganicFertiliserTypeEnum?> organicFertiliserType = default;
+            Option<OrganicFertiliserType?> organicFertiliserType = default;
             Option<UntracedManureCustomNitrogenFraction?> customNitrogenFraction = default;
 
             while (utf8JsonReader.Read())
@@ -350,14 +227,7 @@ namespace Org.OpenAPITools.Model
                             massAppliedKg = new Option<UntracedManureMassAppliedKg?>(JsonSerializer.Deserialize<UntracedManureMassAppliedKg>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "organicFertiliserType":
-                            string? organicFertiliserTypeRawValue = utf8JsonReader.GetString();
-                            if (organicFertiliserTypeRawValue != null)
-                            {
-                                UntracedManure.OrganicFertiliserTypeEnum? organicFertiliserTypeValue = UntracedManure.OrganicFertiliserTypeEnumFromStringOrDefault(organicFertiliserTypeRawValue);
-                                if (organicFertiliserTypeValue == null)
-                                    throw new JsonException();
-                                organicFertiliserType = new Option<UntracedManure.OrganicFertiliserTypeEnum?>(organicFertiliserTypeValue);
-                            }
+                            organicFertiliserType = new Option<OrganicFertiliserType?>(JsonSerializer.Deserialize<OrganicFertiliserType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "customNitrogenFraction":
                             customNitrogenFraction = new Option<UntracedManureCustomNitrogenFraction?>(JsonSerializer.Deserialize<UntracedManureCustomNitrogenFraction>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -421,8 +291,9 @@ namespace Org.OpenAPITools.Model
             writer.WriteString("origin", originRawValue);
             writer.WritePropertyName("massAppliedKg");
             JsonSerializer.Serialize(writer, untracedManure.MassAppliedKg, jsonSerializerOptions);
-            var organicFertiliserTypeRawValue = UntracedManure.OrganicFertiliserTypeEnumToJsonValue(untracedManure.OrganicFertiliserType);
+            var organicFertiliserTypeRawValue = OrganicFertiliserTypeValueConverter.ToJsonValue(untracedManure.OrganicFertiliserType);
             writer.WriteString("organicFertiliserType", organicFertiliserTypeRawValue);
+
             if (untracedManure.CustomNitrogenFractionOption.IsSet)
             {
                 writer.WritePropertyName("customNitrogenFraction");

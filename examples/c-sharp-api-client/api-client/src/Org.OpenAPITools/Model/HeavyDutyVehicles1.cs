@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="vehicleType">vehicleType</param>
         /// <param name="fuelType">Type of fuel used by heavy duty vehicles</param>
         [JsonConstructor]
-        public HeavyDutyVehicles1(CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, FuelTypeEnum fuelType)
+        public HeavyDutyVehicles1(CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres, VehicleTypeEnum vehicleType, HeavyDutyFuelType fuelType)
         {
             AmountKilolitres = amountKilolitres;
             VehicleType = vehicleType;
@@ -110,159 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of fuel used by heavy duty vehicles
         /// </summary>
         /// <value>Type of fuel used by heavy duty vehicles</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum CompressedNaturalGas for value: Compressed natural gas
-            /// </summary>
-            CompressedNaturalGas = 1,
-
-            /// <summary>
-            /// Enum LiquefiedNaturalGas for value: Liquefied natural gas
-            /// </summary>
-            LiquefiedNaturalGas = 2,
-
-            /// <summary>
-            /// Enum DieselOilEuroIvOrHigher for value: Diesel oil - Euro iv or higher
-            /// </summary>
-            DieselOilEuroIvOrHigher = 3,
-
-            /// <summary>
-            /// Enum DieselOilEuroIii for value: Diesel oil - Euro iii
-            /// </summary>
-            DieselOilEuroIii = 4,
-
-            /// <summary>
-            /// Enum DieselOilEuroI for value: Diesel oil - Euro i
-            /// </summary>
-            DieselOilEuroI = 5,
-
-            /// <summary>
-            /// Enum RenewableDieselEuroIvOrHigher for value: Renewable diesel - Euro iv or higher
-            /// </summary>
-            RenewableDieselEuroIvOrHigher = 6,
-
-            /// <summary>
-            /// Enum RenewableDieselEuroIii for value: Renewable diesel - Euro iii
-            /// </summary>
-            RenewableDieselEuroIii = 7,
-
-            /// <summary>
-            /// Enum RenewableDieselEuroI for value: Renewable diesel - Euro i
-            /// </summary>
-            RenewableDieselEuroI = 8
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Compressed natural gas"))
-                return FuelTypeEnum.CompressedNaturalGas;
-
-            if (value.Equals("Liquefied natural gas"))
-                return FuelTypeEnum.LiquefiedNaturalGas;
-
-            if (value.Equals("Diesel oil - Euro iv or higher"))
-                return FuelTypeEnum.DieselOilEuroIvOrHigher;
-
-            if (value.Equals("Diesel oil - Euro iii"))
-                return FuelTypeEnum.DieselOilEuroIii;
-
-            if (value.Equals("Diesel oil - Euro i"))
-                return FuelTypeEnum.DieselOilEuroI;
-
-            if (value.Equals("Renewable diesel - Euro iv or higher"))
-                return FuelTypeEnum.RenewableDieselEuroIvOrHigher;
-
-            if (value.Equals("Renewable diesel - Euro iii"))
-                return FuelTypeEnum.RenewableDieselEuroIii;
-
-            if (value.Equals("Renewable diesel - Euro i"))
-                return FuelTypeEnum.RenewableDieselEuroI;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Compressed natural gas"))
-                return FuelTypeEnum.CompressedNaturalGas;
-
-            if (value.Equals("Liquefied natural gas"))
-                return FuelTypeEnum.LiquefiedNaturalGas;
-
-            if (value.Equals("Diesel oil - Euro iv or higher"))
-                return FuelTypeEnum.DieselOilEuroIvOrHigher;
-
-            if (value.Equals("Diesel oil - Euro iii"))
-                return FuelTypeEnum.DieselOilEuroIii;
-
-            if (value.Equals("Diesel oil - Euro i"))
-                return FuelTypeEnum.DieselOilEuroI;
-
-            if (value.Equals("Renewable diesel - Euro iv or higher"))
-                return FuelTypeEnum.RenewableDieselEuroIvOrHigher;
-
-            if (value.Equals("Renewable diesel - Euro iii"))
-                return FuelTypeEnum.RenewableDieselEuroIii;
-
-            if (value.Equals("Renewable diesel - Euro i"))
-                return FuelTypeEnum.RenewableDieselEuroI;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.CompressedNaturalGas)
-                return "Compressed natural gas";
-
-            if (value == FuelTypeEnum.LiquefiedNaturalGas)
-                return "Liquefied natural gas";
-
-            if (value == FuelTypeEnum.DieselOilEuroIvOrHigher)
-                return "Diesel oil - Euro iv or higher";
-
-            if (value == FuelTypeEnum.DieselOilEuroIii)
-                return "Diesel oil - Euro iii";
-
-            if (value == FuelTypeEnum.DieselOilEuroI)
-                return "Diesel oil - Euro i";
-
-            if (value == FuelTypeEnum.RenewableDieselEuroIvOrHigher)
-                return "Renewable diesel - Euro iv or higher";
-
-            if (value == FuelTypeEnum.RenewableDieselEuroIii)
-                return "Renewable diesel - Euro iii";
-
-            if (value == FuelTypeEnum.RenewableDieselEuroI)
-                return "Renewable diesel - Euro i";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of fuel used by heavy duty vehicles
-        /// </summary>
-        /// <value>Type of fuel used by heavy duty vehicles</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public HeavyDutyFuelType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKilolitres
@@ -330,7 +179,7 @@ namespace Org.OpenAPITools.Model
 
             Option<CarsAndLightCommercialVehicles1AmountKilolitres?> amountKilolitres = default;
             Option<HeavyDutyVehicles1.VehicleTypeEnum?> vehicleType = default;
-            Option<HeavyDutyVehicles1.FuelTypeEnum?> fuelType = default;
+            Option<HeavyDutyFuelType?> fuelType = default;
 
             while (utf8JsonReader.Read())
             {
@@ -361,14 +210,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                HeavyDutyVehicles1.FuelTypeEnum? fuelTypeValue = HeavyDutyVehicles1.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<HeavyDutyVehicles1.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<HeavyDutyFuelType?>(JsonSerializer.Deserialize<HeavyDutyFuelType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -423,7 +265,7 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, heavyDutyVehicles1.AmountKilolitres, jsonSerializerOptions);
             var vehicleTypeRawValue = HeavyDutyVehicles1.VehicleTypeEnumToJsonValue(heavyDutyVehicles1.VehicleType);
             writer.WriteString("vehicleType", vehicleTypeRawValue);
-            var fuelTypeRawValue = HeavyDutyVehicles1.FuelTypeEnumToJsonValue(heavyDutyVehicles1.FuelType);
+            var fuelTypeRawValue = HeavyDutyFuelTypeValueConverter.ToJsonValue(heavyDutyVehicles1.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
         }
     }

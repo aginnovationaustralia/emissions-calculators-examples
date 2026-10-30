@@ -36,7 +36,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="method1ByFeedType"></param>
         /// <param name="type">The type of feed purchased.</param>
-        public PurchasedFeedListInputInner(Method1ByFeedType method1ByFeedType, TypeEnum type)
+        public PurchasedFeedListInputInner(Method1ByFeedType method1ByFeedType, PurchasedFeedAquacultureType type)
         {
             Method1ByFeedType = method1ByFeedType;
             Type = type;
@@ -48,7 +48,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="method2CustomEmissionsFactor"></param>
         /// <param name="type">The type of feed purchased.</param>
-        public PurchasedFeedListInputInner(Method2CustomEmissionsFactor method2CustomEmissionsFactor, TypeEnum type)
+        public PurchasedFeedListInputInner(Method2CustomEmissionsFactor method2CustomEmissionsFactor, PurchasedFeedAquacultureType type)
         {
             Method2CustomEmissionsFactor = method2CustomEmissionsFactor;
             Type = type;
@@ -61,117 +61,8 @@ namespace Org.OpenAPITools.Model
         /// The type of feed purchased.
         /// </summary>
         /// <value>The type of feed purchased.</value>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum WholeSardines for value: Whole Sardines
-            /// </summary>
-            WholeSardines = 1,
-
-            /// <summary>
-            /// Enum LowAnimalProteinFormulatedFeed for value: Low Animal Protein Formulated Feed
-            /// </summary>
-            LowAnimalProteinFormulatedFeed = 2,
-
-            /// <summary>
-            /// Enum Squid for value: Squid
-            /// </summary>
-            Squid = 3,
-
-            /// <summary>
-            /// Enum WholeFish for value: Whole Fish
-            /// </summary>
-            WholeFish = 4,
-
-            /// <summary>
-            /// Enum CustomBait for value: Custom Bait
-            /// </summary>
-            CustomBait = 5
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Whole Sardines"))
-                return TypeEnum.WholeSardines;
-
-            if (value.Equals("Low Animal Protein Formulated Feed"))
-                return TypeEnum.LowAnimalProteinFormulatedFeed;
-
-            if (value.Equals("Squid"))
-                return TypeEnum.Squid;
-
-            if (value.Equals("Whole Fish"))
-                return TypeEnum.WholeFish;
-
-            if (value.Equals("Custom Bait"))
-                return TypeEnum.CustomBait;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Whole Sardines"))
-                return TypeEnum.WholeSardines;
-
-            if (value.Equals("Low Animal Protein Formulated Feed"))
-                return TypeEnum.LowAnimalProteinFormulatedFeed;
-
-            if (value.Equals("Squid"))
-                return TypeEnum.Squid;
-
-            if (value.Equals("Whole Fish"))
-                return TypeEnum.WholeFish;
-
-            if (value.Equals("Custom Bait"))
-                return TypeEnum.CustomBait;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.WholeSardines)
-                return "Whole Sardines";
-
-            if (value == TypeEnum.LowAnimalProteinFormulatedFeed)
-                return "Low Animal Protein Formulated Feed";
-
-            if (value == TypeEnum.Squid)
-                return "Squid";
-
-            if (value == TypeEnum.WholeFish)
-                return "Whole Fish";
-
-            if (value == TypeEnum.CustomBait)
-                return "Custom Bait";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The type of feed purchased.
-        /// </summary>
-        /// <value>The type of feed purchased.</value>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public PurchasedFeedAquacultureType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Method1ByFeedType
@@ -239,7 +130,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<PurchasedFeedListInputInner.TypeEnum?> type = default;
+            Option<PurchasedFeedAquacultureType?> type = default;
 
             Method1ByFeedType? method1ByFeedType = default;
             Method2CustomEmissionsFactor? method2CustomEmissionsFactor = default;
@@ -279,14 +170,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                PurchasedFeedListInputInner.TypeEnum? typeValue = PurchasedFeedListInputInner.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<PurchasedFeedListInputInner.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<PurchasedFeedAquacultureType?>(JsonSerializer.Deserialize<PurchasedFeedAquacultureType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -343,7 +227,7 @@ namespace Org.OpenAPITools.Model
                 method2CustomEmissionsFactorJsonConverter.WriteProperties(writer, purchasedFeedListInputInner.Method2CustomEmissionsFactor, jsonSerializerOptions);
             }
 
-            var typeRawValue = PurchasedFeedListInputInner.TypeEnumToJsonValue(purchasedFeedListInputInner.Type);
+            var typeRawValue = PurchasedFeedAquacultureTypeValueConverter.ToJsonValue(purchasedFeedListInputInner.Type);
             writer.WriteString("type", typeRawValue);
         }
     }

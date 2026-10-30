@@ -59,7 +59,7 @@ class SpecificProductionSystemScope1Method2 implements ModelInterface, ArrayAcce
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'production_system' => 'string',
+        'production_system' => '\OpenAPI\Client\Model\InorganicFertiliserProductionSystem',
         'inorganic' => '\OpenAPI\Client\Model\SpecificProductionSystemScope1Method2Inorganic',
         'organic' => '\OpenAPI\Client\Model\OrganicFertilisersInput'
     ];
@@ -221,23 +221,6 @@ class SpecificProductionSystemScope1Method2 implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
-    public const PRODUCTION_SYSTEM_IRRIGATED_CROP__MAIZE = 'Irrigated crop (maize)';
-    public const PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL = 'Non-irrigated crop (high rainfall)';
-    public const PRODUCTION_SYSTEM_COTTON = 'Cotton';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getProductionSystemAllowableValues()
-    {
-        return [
-            self::PRODUCTION_SYSTEM_IRRIGATED_CROP__MAIZE,
-            self::PRODUCTION_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL,
-            self::PRODUCTION_SYSTEM_COTTON,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -286,15 +269,6 @@ class SpecificProductionSystemScope1Method2 implements ModelInterface, ArrayAcce
         if ($this->container['production_system'] === null) {
             $invalidProperties[] = "'production_system' can't be null";
         }
-        $allowedValues = self::getProductionSystemAllowableValues();
-        if (!is_null($this->container['production_system']) && !in_array($this->container['production_system'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'production_system', must be one of '%s'",
-                $this->container['production_system'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['inorganic'] === null) {
             $invalidProperties[] = "'inorganic' can't be null";
         }
@@ -316,9 +290,9 @@ class SpecificProductionSystemScope1Method2 implements ModelInterface, ArrayAcce
     /**
      * Gets production_system
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\InorganicFertiliserProductionSystem
      */
-    public function getProductionSystem(): string
+    public function getProductionSystem(): \OpenAPI\Client\Model\InorganicFertiliserProductionSystem
     {
         return $this->container['production_system'];
     }
@@ -326,24 +300,14 @@ class SpecificProductionSystemScope1Method2 implements ModelInterface, ArrayAcce
     /**
      * Sets production_system
      *
-     * @param string $production_system Production system for specific crop types
+     * @param \OpenAPI\Client\Model\InorganicFertiliserProductionSystem $production_system Production system for specific crop types
      *
      * @return $this
      */
-    public function setProductionSystem(string $production_system): static
+    public function setProductionSystem(\OpenAPI\Client\Model\InorganicFertiliserProductionSystem $production_system): static
     {
         if (is_null($production_system)) {
             throw new InvalidArgumentException('non-nullable production_system cannot be null');
-        }
-        $allowedValues = self::getProductionSystemAllowableValues();
-        if (!in_array($production_system, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'production_system', must be one of '%s'",
-                    $production_system,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['production_system'] = $production_system;
 

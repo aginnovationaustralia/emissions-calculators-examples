@@ -62,7 +62,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, JsonSerializabl
         'method2_actual_stem_density' => '\OpenAPI\Client\Model\Method13Method2ActualStemDensity',
         'method2_biomass_at_maturity' => '\OpenAPI\Client\Model\Method13Method2BiomassAtMaturity',
         'plantings' => '\OpenAPI\Client\Model\Method13PlantingsInner[]',
-        'crop_type' => 'string',
+        'crop_type' => '\OpenAPI\Client\Model\PerennialWoodyCropFull',
         'calculation_method' => 'string',
         'clearings' => '\OpenAPI\Client\Model\Method2StemDensityClearingsInner[]'
     ];
@@ -239,34 +239,7 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    public const CROP_TYPE_ORANGES = 'Oranges';
-    public const CROP_TYPE_MACADAMIAS = 'Macadamias';
-    public const CROP_TYPE_ALMONDS = 'Almonds';
-    public const CROP_TYPE_APPLES = 'Apples';
-    public const CROP_TYPE_PEACHES = 'Peaches';
-    public const CROP_TYPE_OLIVES = 'Olives';
-    public const CROP_TYPE_AVOCADOS = 'Avocados';
-    public const CROP_TYPE_MANGOES = 'Mangoes';
     public const CALCULATION_METHOD__2__STEM_DENSITY = '2 (stem density)';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getCropTypeAllowableValues()
-    {
-        return [
-            self::CROP_TYPE_ORANGES,
-            self::CROP_TYPE_MACADAMIAS,
-            self::CROP_TYPE_ALMONDS,
-            self::CROP_TYPE_APPLES,
-            self::CROP_TYPE_PEACHES,
-            self::CROP_TYPE_OLIVES,
-            self::CROP_TYPE_AVOCADOS,
-            self::CROP_TYPE_MANGOES,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -336,15 +309,6 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, JsonSerializabl
         if ($this->container['crop_type'] === null) {
             $invalidProperties[] = "'crop_type' can't be null";
         }
-        $allowedValues = self::getCropTypeAllowableValues();
-        if (!is_null($this->container['crop_type']) && !in_array($this->container['crop_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'crop_type', must be one of '%s'",
-                $this->container['crop_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['calculation_method'] === null) {
             $invalidProperties[] = "'calculation_method' can't be null";
         }
@@ -456,9 +420,9 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets crop_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\PerennialWoodyCropFull
      */
-    public function getCropType(): string
+    public function getCropType(): \OpenAPI\Client\Model\PerennialWoodyCropFull
     {
         return $this->container['crop_type'];
     }
@@ -466,24 +430,14 @@ class Method2StemDensity implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets crop_type
      *
-     * @param string $crop_type Type of perennial woody crop planted
+     * @param \OpenAPI\Client\Model\PerennialWoodyCropFull $crop_type Type of perennial woody crop planted
      *
      * @return $this
      */
-    public function setCropType(string $crop_type): static
+    public function setCropType(\OpenAPI\Client\Model\PerennialWoodyCropFull $crop_type): static
     {
         if (is_null($crop_type)) {
             throw new InvalidArgumentException('non-nullable crop_type cannot be null');
-        }
-        $allowedValues = self::getCropTypeAllowableValues();
-        if (!in_array($crop_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'crop_type', must be one of '%s'",
-                    $crop_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['crop_type'] = $crop_type;
 

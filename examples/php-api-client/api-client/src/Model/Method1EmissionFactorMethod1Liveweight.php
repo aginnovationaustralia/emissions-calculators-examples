@@ -61,10 +61,10 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     protected static array $openAPITypes = [
         'type' => 'string',
         'head_purchased' => '\OpenAPI\Client\Model\Method1EmissionFactorMethod1LiveweightHeadPurchased',
-        'category' => 'string',
-        'region' => 'string',
-        'class' => 'string',
-        'season' => 'string'
+        'category' => '\OpenAPI\Client\Model\BeefPurchaseCategory',
+        'region' => '\OpenAPI\Client\Model\ExtendedRegion',
+        'class' => '\OpenAPI\Client\Model\BeefClass',
+        'season' => '\OpenAPI\Client\Model\Season'
     ];
 
     /**
@@ -240,36 +240,6 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     }
 
     public const TYPE_BEEF = 'Beef';
-    public const CATEGORY_BEEF_PRIME = 'beefPrime';
-    public const CATEGORY_BEEF_WEANED = 'beefWeaned';
-    public const REGION_ACT_NSW = 'ACT/NSW';
-    public const REGION_SA = 'SA';
-    public const REGION_TAS = 'TAS';
-    public const REGION_VIC = 'VIC';
-    public const REGION_WA___SOUTH_WEST = 'WA - South West';
-    public const REGION_WA___PILBARA = 'WA - Pilbara';
-    public const REGION_WA___KIMBERLEY = 'WA - Kimberley';
-    public const REGION_NT___ALICE_SPRINGS = 'NT - Alice Springs';
-    public const REGION_NT___BARKLY = 'NT - Barkly';
-    public const REGION_NT___NORTHERN = 'NT - Northern';
-    public const REGION_QLD___HIGH = 'QLD - High';
-    public const REGION_QLD___MODERATE_HIGH = 'QLD - Moderate/High';
-    public const REGION_QLD___MODERATE_LOW = 'QLD - Moderate/Low';
-    public const REGION_QLD___LOW = 'QLD - Low';
-    public const MODEL_CLASS_BULLS_LT1 = 'bullsLt1';
-    public const MODEL_CLASS_BULLS_GT1 = 'bullsGt1';
-    public const MODEL_CLASS_COWS_LT1 = 'cowsLt1';
-    public const MODEL_CLASS_COWS1_TO2_YEARS = 'cows1To2Years';
-    public const MODEL_CLASS_COWS2_TO3_YEARS = 'cows2To3Years';
-    public const MODEL_CLASS_COWS_GT3_YEARS = 'cowsGt3Years';
-    public const MODEL_CLASS_STEERS_LT1 = 'steersLt1';
-    public const MODEL_CLASS_STEERS1_TO2_YEARS = 'steers1To2Years';
-    public const MODEL_CLASS_STEERS2_TO3_YEARS = 'steers2To3Years';
-    public const MODEL_CLASS_STEERS_GT3_YEARS = 'steersGt3Years';
-    public const SEASON_SPRING = 'spring';
-    public const SEASON_SUMMER = 'summer';
-    public const SEASON_AUTUMN = 'autumn';
-    public const SEASON_WINTER = 'winter';
 
     /**
      * Gets allowable values of the enum
@@ -280,80 +250,6 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     {
         return [
             self::TYPE_BEEF,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getCategoryAllowableValues()
-    {
-        return [
-            self::CATEGORY_BEEF_PRIME,
-            self::CATEGORY_BEEF_WEANED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getRegionAllowableValues()
-    {
-        return [
-            self::REGION_ACT_NSW,
-            self::REGION_SA,
-            self::REGION_TAS,
-            self::REGION_VIC,
-            self::REGION_WA___SOUTH_WEST,
-            self::REGION_WA___PILBARA,
-            self::REGION_WA___KIMBERLEY,
-            self::REGION_NT___ALICE_SPRINGS,
-            self::REGION_NT___BARKLY,
-            self::REGION_NT___NORTHERN,
-            self::REGION_QLD___HIGH,
-            self::REGION_QLD___MODERATE_HIGH,
-            self::REGION_QLD___MODERATE_LOW,
-            self::REGION_QLD___LOW,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getClassAllowableValues()
-    {
-        return [
-            self::MODEL_CLASS_BULLS_LT1,
-            self::MODEL_CLASS_BULLS_GT1,
-            self::MODEL_CLASS_COWS_LT1,
-            self::MODEL_CLASS_COWS1_TO2_YEARS,
-            self::MODEL_CLASS_COWS2_TO3_YEARS,
-            self::MODEL_CLASS_COWS_GT3_YEARS,
-            self::MODEL_CLASS_STEERS_LT1,
-            self::MODEL_CLASS_STEERS1_TO2_YEARS,
-            self::MODEL_CLASS_STEERS2_TO3_YEARS,
-            self::MODEL_CLASS_STEERS_GT3_YEARS,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getSeasonAllowableValues()
-    {
-        return [
-            self::SEASON_SPRING,
-            self::SEASON_SUMMER,
-            self::SEASON_AUTUMN,
-            self::SEASON_WINTER,
         ];
     }
 
@@ -422,51 +318,15 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
         if ($this->container['category'] === null) {
             $invalidProperties[] = "'category' can't be null";
         }
-        $allowedValues = self::getCategoryAllowableValues();
-        if (!is_null($this->container['category']) && !in_array($this->container['category'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'category', must be one of '%s'",
-                $this->container['category'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['region'] === null) {
             $invalidProperties[] = "'region' can't be null";
         }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!is_null($this->container['region']) && !in_array($this->container['region'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'region', must be one of '%s'",
-                $this->container['region'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['class'] === null) {
             $invalidProperties[] = "'class' can't be null";
         }
-        $allowedValues = self::getClassAllowableValues();
-        if (!is_null($this->container['class']) && !in_array($this->container['class'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'class', must be one of '%s'",
-                $this->container['class'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['season'] === null) {
             $invalidProperties[] = "'season' can't be null";
         }
-        $allowedValues = self::getSeasonAllowableValues();
-        if (!is_null($this->container['season']) && !in_array($this->container['season'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'season', must be one of '%s'",
-                $this->container['season'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -546,9 +406,9 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Gets category
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\BeefPurchaseCategory
      */
-    public function getCategory(): string
+    public function getCategory(): \OpenAPI\Client\Model\BeefPurchaseCategory
     {
         return $this->container['category'];
     }
@@ -556,24 +416,14 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Sets category
      *
-     * @param string $category The category of the purchased animals
+     * @param \OpenAPI\Client\Model\BeefPurchaseCategory $category The category of the purchased animals
      *
      * @return $this
      */
-    public function setCategory(string $category): static
+    public function setCategory(\OpenAPI\Client\Model\BeefPurchaseCategory $category): static
     {
         if (is_null($category)) {
             throw new InvalidArgumentException('non-nullable category cannot be null');
-        }
-        $allowedValues = self::getCategoryAllowableValues();
-        if (!in_array($category, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'category', must be one of '%s'",
-                    $category,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['category'] = $category;
 
@@ -583,9 +433,9 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Gets region
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\ExtendedRegion
      */
-    public function getRegion(): string
+    public function getRegion(): \OpenAPI\Client\Model\ExtendedRegion
     {
         return $this->container['region'];
     }
@@ -593,24 +443,14 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Sets region
      *
-     * @param string $region The origin of the purchased livestock
+     * @param \OpenAPI\Client\Model\ExtendedRegion $region The origin of the purchased livestock
      *
      * @return $this
      */
-    public function setRegion(string $region): static
+    public function setRegion(\OpenAPI\Client\Model\ExtendedRegion $region): static
     {
         if (is_null($region)) {
             throw new InvalidArgumentException('non-nullable region cannot be null');
-        }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!in_array($region, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'region', must be one of '%s'",
-                    $region,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['region'] = $region;
 
@@ -620,9 +460,9 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Gets class
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\BeefClass
      */
-    public function getClass(): string
+    public function getClass(): \OpenAPI\Client\Model\BeefClass
     {
         return $this->container['class'];
     }
@@ -630,24 +470,14 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Sets class
      *
-     * @param string $class The class of the purchased livestock
+     * @param \OpenAPI\Client\Model\BeefClass $class The class of the purchased livestock
      *
      * @return $this
      */
-    public function setClass(string $class): static
+    public function setClass(\OpenAPI\Client\Model\BeefClass $class): static
     {
         if (is_null($class)) {
             throw new InvalidArgumentException('non-nullable class cannot be null');
-        }
-        $allowedValues = self::getClassAllowableValues();
-        if (!in_array($class, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'class', must be one of '%s'",
-                    $class,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['class'] = $class;
 
@@ -657,9 +487,9 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Gets season
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Season
      */
-    public function getSeason(): string
+    public function getSeason(): \OpenAPI\Client\Model\Season
     {
         return $this->container['season'];
     }
@@ -667,24 +497,14 @@ class Method1EmissionFactorMethod1Liveweight implements ModelInterface, ArrayAcc
     /**
      * Sets season
      *
-     * @param string $season Season of the livestock purchase
+     * @param \OpenAPI\Client\Model\Season $season Season of the livestock purchase
      *
      * @return $this
      */
-    public function setSeason(string $season): static
+    public function setSeason(\OpenAPI\Client\Model\Season $season): static
     {
         if (is_null($season)) {
             throw new InvalidArgumentException('non-nullable season cannot be null');
-        }
-        $allowedValues = self::getSeasonAllowableValues();
-        if (!in_array($season, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'season', must be one of '%s'",
-                    $season,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['season'] = $season;
 

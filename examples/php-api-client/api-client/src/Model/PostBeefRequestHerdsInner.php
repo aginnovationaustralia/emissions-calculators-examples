@@ -61,12 +61,12 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     protected static array $openAPITypes = [
         'id' => 'string',
         'electricity_allocation' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerElectricityAllocation',
-        'region' => 'string',
+        'region' => '\OpenAPI\Client\Model\StateOrRegion',
         'classes' => '\OpenAPI\Client\Model\BeefClassesInput',
-        'breed' => 'string',
-        'grazing_system' => 'string',
-        'method2_mean_annual_temperature' => 'string',
-        'climate_zone' => 'string',
+        'breed' => '\OpenAPI\Client\Model\BeefBreed',
+        'grazing_system' => '\OpenAPI\Client\Model\GrazingProductionSystemWithRainfall',
+        'method2_mean_annual_temperature' => '\OpenAPI\Client\Model\MeanAnnualTemperature',
+        'climate_zone' => '\OpenAPI\Client\Model\ClimateZoneOrZoneType',
         'is_in_leaching_zone' => 'bool',
         'excluded_from_natural_water' => 'bool',
         'liveweight_sold_kg' => '\OpenAPI\Client\Model\PostBeefRequestHerdsInnerLiveweightSoldKg',
@@ -335,167 +335,6 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
         return self::$openAPIModelName;
     }
 
-    public const REGION_ACT = 'ACT';
-    public const REGION_NSW = 'NSW';
-    public const REGION_SA = 'SA';
-    public const REGION_TAS = 'TAS';
-    public const REGION_VIC = 'VIC';
-    public const REGION_WA___SOUTH_WEST = 'WA - South West';
-    public const REGION_WA___PILBARA = 'WA - Pilbara';
-    public const REGION_WA___KIMBERLEY = 'WA - Kimberley';
-    public const REGION_NT___ALICE_SPRINGS = 'NT - Alice Springs';
-    public const REGION_NT___BARKLY = 'NT - Barkly';
-    public const REGION_NT___NORTHERN = 'NT - Northern';
-    public const REGION_QLD___HIGH = 'QLD - High';
-    public const REGION_QLD___MODERATE_HIGH = 'QLD - Moderate/High';
-    public const REGION_QLD___MODERATE_LOW = 'QLD - Moderate/Low';
-    public const REGION_QLD___LOW = 'QLD - Low';
-    public const BREED_HEREFORD_OR_SHORTHORN = 'Hereford or Shorthorn';
-    public const BREED_NORTHERN_BRAHMAN_CROSS_BREED = 'Northern Brahman cross breed';
-    public const GRAZING_SYSTEM_NON_IRRIGATED_PASTURE = 'Non-irrigated pasture';
-    public const GRAZING_SYSTEM_IRRIGATED_PASTURE = 'Irrigated pasture';
-    public const GRAZING_SYSTEM_IRRIGATED_CROP = 'Irrigated crop';
-    public const GRAZING_SYSTEM_NON_IRRIGATED_CROP__LOW_RAINFALL = 'Non-irrigated crop (low rainfall)';
-    public const GRAZING_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL = 'Non-irrigated crop (high rainfall)';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__11 = '11';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__12 = '12';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__13 = '13';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__14 = '14';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__15 = '15';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__16 = '16';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__17 = '17';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__18 = '18';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__19 = '19';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__20 = '20';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__21 = '21';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__22 = '22';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__23 = '23';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__24 = '24';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__25 = '25';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__26 = '26';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__27 = '27';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__10_OR_BELOW = '10 or below';
-    public const METHOD2_MEAN_ANNUAL_TEMPERATURE__28_OR_ABOVE = '28 or above';
-    public const CLIMATE_ZONE_TROPICAL_MONTANE = 'Tropical montane';
-    public const CLIMATE_ZONE_TROPICAL_WET = 'Tropical wet';
-    public const CLIMATE_ZONE_TROPICAL_MOIST = 'Tropical moist';
-    public const CLIMATE_ZONE_WARM_TEMPERATE_MOIST = 'Warm temperate moist';
-    public const CLIMATE_ZONE_COOL_TEMPERATE_MOIST = 'Cool temperate moist';
-    public const CLIMATE_ZONE_BOREAL_MOIST = 'Boreal moist';
-    public const CLIMATE_ZONE_TROPICAL_DRY = 'Tropical dry';
-    public const CLIMATE_ZONE_WARM_TEMPERATE_DRY = 'Warm temperate dry';
-    public const CLIMATE_ZONE_COOL_TEMPERATE_DRY = 'Cool temperate dry';
-    public const CLIMATE_ZONE_BOREAL_DRY = 'Boreal dry';
-    public const CLIMATE_ZONE_DRY = 'dry';
-    public const CLIMATE_ZONE_WET = 'wet';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getRegionAllowableValues()
-    {
-        return [
-            self::REGION_ACT,
-            self::REGION_NSW,
-            self::REGION_SA,
-            self::REGION_TAS,
-            self::REGION_VIC,
-            self::REGION_WA___SOUTH_WEST,
-            self::REGION_WA___PILBARA,
-            self::REGION_WA___KIMBERLEY,
-            self::REGION_NT___ALICE_SPRINGS,
-            self::REGION_NT___BARKLY,
-            self::REGION_NT___NORTHERN,
-            self::REGION_QLD___HIGH,
-            self::REGION_QLD___MODERATE_HIGH,
-            self::REGION_QLD___MODERATE_LOW,
-            self::REGION_QLD___LOW,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getBreedAllowableValues()
-    {
-        return [
-            self::BREED_HEREFORD_OR_SHORTHORN,
-            self::BREED_NORTHERN_BRAHMAN_CROSS_BREED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getGrazingSystemAllowableValues()
-    {
-        return [
-            self::GRAZING_SYSTEM_NON_IRRIGATED_PASTURE,
-            self::GRAZING_SYSTEM_IRRIGATED_PASTURE,
-            self::GRAZING_SYSTEM_IRRIGATED_CROP,
-            self::GRAZING_SYSTEM_NON_IRRIGATED_CROP__LOW_RAINFALL,
-            self::GRAZING_SYSTEM_NON_IRRIGATED_CROP__HIGH_RAINFALL,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getMethod2MeanAnnualTemperatureAllowableValues()
-    {
-        return [
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__11,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__12,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__13,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__14,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__15,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__16,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__17,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__18,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__19,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__20,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__21,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__22,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__23,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__24,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__25,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__26,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__27,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__10_OR_BELOW,
-            self::METHOD2_MEAN_ANNUAL_TEMPERATURE__28_OR_ABOVE,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getClimateZoneAllowableValues()
-    {
-        return [
-            self::CLIMATE_ZONE_TROPICAL_MONTANE,
-            self::CLIMATE_ZONE_TROPICAL_WET,
-            self::CLIMATE_ZONE_TROPICAL_MOIST,
-            self::CLIMATE_ZONE_WARM_TEMPERATE_MOIST,
-            self::CLIMATE_ZONE_COOL_TEMPERATE_MOIST,
-            self::CLIMATE_ZONE_BOREAL_MOIST,
-            self::CLIMATE_ZONE_TROPICAL_DRY,
-            self::CLIMATE_ZONE_WARM_TEMPERATE_DRY,
-            self::CLIMATE_ZONE_COOL_TEMPERATE_DRY,
-            self::CLIMATE_ZONE_BOREAL_DRY,
-            self::CLIMATE_ZONE_DRY,
-            self::CLIMATE_ZONE_WET,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -566,63 +405,18 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
         if ($this->container['region'] === null) {
             $invalidProperties[] = "'region' can't be null";
         }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!is_null($this->container['region']) && !in_array($this->container['region'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'region', must be one of '%s'",
-                $this->container['region'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['classes'] === null) {
             $invalidProperties[] = "'classes' can't be null";
         }
         if ($this->container['breed'] === null) {
             $invalidProperties[] = "'breed' can't be null";
         }
-        $allowedValues = self::getBreedAllowableValues();
-        if (!is_null($this->container['breed']) && !in_array($this->container['breed'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'breed', must be one of '%s'",
-                $this->container['breed'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['grazing_system'] === null) {
             $invalidProperties[] = "'grazing_system' can't be null";
         }
-        $allowedValues = self::getGrazingSystemAllowableValues();
-        if (!is_null($this->container['grazing_system']) && !in_array($this->container['grazing_system'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'grazing_system', must be one of '%s'",
-                $this->container['grazing_system'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = self::getMethod2MeanAnnualTemperatureAllowableValues();
-        if (!is_null($this->container['method2_mean_annual_temperature']) && !in_array($this->container['method2_mean_annual_temperature'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'method2_mean_annual_temperature', must be one of '%s'",
-                $this->container['method2_mean_annual_temperature'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['climate_zone'] === null) {
             $invalidProperties[] = "'climate_zone' can't be null";
         }
-        $allowedValues = self::getClimateZoneAllowableValues();
-        if (!is_null($this->container['climate_zone']) && !in_array($this->container['climate_zone'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'climate_zone', must be one of '%s'",
-                $this->container['climate_zone'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['is_in_leaching_zone'] === null) {
             $invalidProperties[] = "'is_in_leaching_zone' can't be null";
         }
@@ -728,9 +522,9 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets region
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\StateOrRegion
      */
-    public function getRegion(): string
+    public function getRegion(): \OpenAPI\Client\Model\StateOrRegion
     {
         return $this->container['region'];
     }
@@ -738,24 +532,14 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets region
      *
-     * @param string $region The state or region the herd is located in
+     * @param \OpenAPI\Client\Model\StateOrRegion $region The state or region the herd is located in
      *
      * @return $this
      */
-    public function setRegion(string $region): static
+    public function setRegion(\OpenAPI\Client\Model\StateOrRegion $region): static
     {
         if (is_null($region)) {
             throw new InvalidArgumentException('non-nullable region cannot be null');
-        }
-        $allowedValues = self::getRegionAllowableValues();
-        if (!in_array($region, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'region', must be one of '%s'",
-                    $region,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['region'] = $region;
 
@@ -792,9 +576,9 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets breed
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\BeefBreed
      */
-    public function getBreed(): string
+    public function getBreed(): \OpenAPI\Client\Model\BeefBreed
     {
         return $this->container['breed'];
     }
@@ -802,24 +586,14 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets breed
      *
-     * @param string $breed The basic breed type of the herd
+     * @param \OpenAPI\Client\Model\BeefBreed $breed The basic breed type of the herd
      *
      * @return $this
      */
-    public function setBreed(string $breed): static
+    public function setBreed(\OpenAPI\Client\Model\BeefBreed $breed): static
     {
         if (is_null($breed)) {
             throw new InvalidArgumentException('non-nullable breed cannot be null');
-        }
-        $allowedValues = self::getBreedAllowableValues();
-        if (!in_array($breed, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'breed', must be one of '%s'",
-                    $breed,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['breed'] = $breed;
 
@@ -829,9 +603,9 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets grazing_system
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\GrazingProductionSystemWithRainfall
      */
-    public function getGrazingSystem(): string
+    public function getGrazingSystem(): \OpenAPI\Client\Model\GrazingProductionSystemWithRainfall
     {
         return $this->container['grazing_system'];
     }
@@ -839,24 +613,14 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets grazing_system
      *
-     * @param string $grazing_system The production system which most accurately describes the land used for grazing and feed.
+     * @param \OpenAPI\Client\Model\GrazingProductionSystemWithRainfall $grazing_system The production system which most accurately describes the land used for grazing and feed.
      *
      * @return $this
      */
-    public function setGrazingSystem(string $grazing_system): static
+    public function setGrazingSystem(\OpenAPI\Client\Model\GrazingProductionSystemWithRainfall $grazing_system): static
     {
         if (is_null($grazing_system)) {
             throw new InvalidArgumentException('non-nullable grazing_system cannot be null');
-        }
-        $allowedValues = self::getGrazingSystemAllowableValues();
-        if (!in_array($grazing_system, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'grazing_system', must be one of '%s'",
-                    $grazing_system,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['grazing_system'] = $grazing_system;
 
@@ -866,9 +630,9 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets method2_mean_annual_temperature
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\MeanAnnualTemperature|null
      */
-    public function getMethod2MeanAnnualTemperature(): ?string
+    public function getMethod2MeanAnnualTemperature(): ?\OpenAPI\Client\Model\MeanAnnualTemperature
     {
         return $this->container['method2_mean_annual_temperature'];
     }
@@ -876,24 +640,14 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets method2_mean_annual_temperature
      *
-     * @param string|null $method2_mean_annual_temperature What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.
+     * @param \OpenAPI\Client\Model\MeanAnnualTemperature|null $method2_mean_annual_temperature What is the mean annual temperature of the herd's location? See chapter 1.8.2 for more information on temperature zones.
      *
      * @return $this
      */
-    public function setMethod2MeanAnnualTemperature(?string $method2_mean_annual_temperature): static
+    public function setMethod2MeanAnnualTemperature(?\OpenAPI\Client\Model\MeanAnnualTemperature $method2_mean_annual_temperature): static
     {
         if (is_null($method2_mean_annual_temperature)) {
             throw new InvalidArgumentException('non-nullable method2_mean_annual_temperature cannot be null');
-        }
-        $allowedValues = self::getMethod2MeanAnnualTemperatureAllowableValues();
-        if (!in_array($method2_mean_annual_temperature, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'method2_mean_annual_temperature', must be one of '%s'",
-                    $method2_mean_annual_temperature,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['method2_mean_annual_temperature'] = $method2_mean_annual_temperature;
 
@@ -903,9 +657,9 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets climate_zone
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\ClimateZoneOrZoneType
      */
-    public function getClimateZone(): string
+    public function getClimateZone(): \OpenAPI\Client\Model\ClimateZoneOrZoneType
     {
         return $this->container['climate_zone'];
     }
@@ -913,24 +667,14 @@ class PostBeefRequestHerdsInner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets climate_zone
      *
-     * @param string $climate_zone The climate zone the activity is located in (like \"Tropical dry\") or the basic zone type (\"dry\" or \"wet\"). See Chapter 1 section 1.8.2 for more details.
+     * @param \OpenAPI\Client\Model\ClimateZoneOrZoneType $climate_zone The climate zone the activity is located in (like \"Tropical dry\") or the basic zone type (\"dry\" or \"wet\"). See Chapter 1 section 1.8.2 for more details.
      *
      * @return $this
      */
-    public function setClimateZone(string $climate_zone): static
+    public function setClimateZone(\OpenAPI\Client\Model\ClimateZoneOrZoneType $climate_zone): static
     {
         if (is_null($climate_zone)) {
             throw new InvalidArgumentException('non-nullable climate_zone cannot be null');
-        }
-        $allowedValues = self::getClimateZoneAllowableValues();
-        if (!in_array($climate_zone, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'climate_zone', must be one of '%s'",
-                    $climate_zone,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['climate_zone'] = $climate_zone;
 

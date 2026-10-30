@@ -39,7 +39,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="category">The category of the purchased animals</param>
         /// <param name="liveweightMethod2">liveweightMethod2</param>
         [JsonConstructor]
-        public Method1EmissionFactorMethod2Liveweight(TypeEnum type, Method1EmissionFactorMethod2LiveweightHeadPurchased headPurchased, CategoryEnum category, Method1EmissionFactorMethod2LiveweightLiveweightMethod2 liveweightMethod2)
+        public Method1EmissionFactorMethod2Liveweight(TypeEnum type, Method1EmissionFactorMethod2LiveweightHeadPurchased headPurchased, BeefPurchaseCategory category, Method1EmissionFactorMethod2LiveweightLiveweightMethod2 liveweightMethod2)
         {
             Type = type;
             HeadPurchased = headPurchased;
@@ -112,75 +112,8 @@ namespace Org.OpenAPITools.Model
         /// The category of the purchased animals
         /// </summary>
         /// <value>The category of the purchased animals</value>
-        public enum CategoryEnum
-        {
-            /// <summary>
-            /// Enum BeefPrime for value: beefPrime
-            /// </summary>
-            BeefPrime = 1,
-
-            /// <summary>
-            /// Enum BeefWeaned for value: beefWeaned
-            /// </summary>
-            BeefWeaned = 2
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CategoryEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static CategoryEnum CategoryEnumFromString(string value)
-        {
-            if (value.Equals("beefPrime"))
-                return CategoryEnum.BeefPrime;
-
-            if (value.Equals("beefWeaned"))
-                return CategoryEnum.BeefWeaned;
-
-            throw new NotImplementedException($"Could not convert value to type CategoryEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CategoryEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static CategoryEnum? CategoryEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("beefPrime"))
-                return CategoryEnum.BeefPrime;
-
-            if (value.Equals("beefWeaned"))
-                return CategoryEnum.BeefWeaned;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="CategoryEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string CategoryEnumToJsonValue(CategoryEnum value)
-        {
-            if (value == CategoryEnum.BeefPrime)
-                return "beefPrime";
-
-            if (value == CategoryEnum.BeefWeaned)
-                return "beefWeaned";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The category of the purchased animals
-        /// </summary>
-        /// <value>The category of the purchased animals</value>
         [JsonPropertyName("category")]
-        public CategoryEnum Category { get; set; }
+        public BeefPurchaseCategory Category { get; set; }
 
         /// <summary>
         /// Gets or Sets HeadPurchased
@@ -262,7 +195,7 @@ namespace Org.OpenAPITools.Model
 
             Option<Method1EmissionFactorMethod2Liveweight.TypeEnum?> type = default;
             Option<Method1EmissionFactorMethod2LiveweightHeadPurchased?> headPurchased = default;
-            Option<Method1EmissionFactorMethod2Liveweight.CategoryEnum?> category = default;
+            Option<BeefPurchaseCategory?> category = default;
             Option<Method1EmissionFactorMethod2LiveweightLiveweightMethod2?> liveweightMethod2 = default;
 
             while (utf8JsonReader.Read())
@@ -294,14 +227,7 @@ namespace Org.OpenAPITools.Model
                             headPurchased = new Option<Method1EmissionFactorMethod2LiveweightHeadPurchased?>(JsonSerializer.Deserialize<Method1EmissionFactorMethod2LiveweightHeadPurchased>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "category":
-                            string? categoryRawValue = utf8JsonReader.GetString();
-                            if (categoryRawValue != null)
-                            {
-                                Method1EmissionFactorMethod2Liveweight.CategoryEnum? categoryValue = Method1EmissionFactorMethod2Liveweight.CategoryEnumFromStringOrDefault(categoryRawValue);
-                                if (categoryValue == null)
-                                    throw new JsonException();
-                                category = new Option<Method1EmissionFactorMethod2Liveweight.CategoryEnum?>(categoryValue);
-                            }
+                            category = new Option<BeefPurchaseCategory?>(JsonSerializer.Deserialize<BeefPurchaseCategory?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "liveweightMethod2":
                             liveweightMethod2 = new Option<Method1EmissionFactorMethod2LiveweightLiveweightMethod2?>(JsonSerializer.Deserialize<Method1EmissionFactorMethod2LiveweightLiveweightMethod2>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -365,8 +291,9 @@ namespace Org.OpenAPITools.Model
             writer.WriteString("type", typeRawValue);
             writer.WritePropertyName("headPurchased");
             JsonSerializer.Serialize(writer, method1EmissionFactorMethod2Liveweight.HeadPurchased, jsonSerializerOptions);
-            var categoryRawValue = Method1EmissionFactorMethod2Liveweight.CategoryEnumToJsonValue(method1EmissionFactorMethod2Liveweight.Category);
+            var categoryRawValue = BeefPurchaseCategoryValueConverter.ToJsonValue(method1EmissionFactorMethod2Liveweight.Category);
             writer.WriteString("category", categoryRawValue);
+
             writer.WritePropertyName("liveweightMethod2");
             JsonSerializer.Serialize(writer, method1EmissionFactorMethod2Liveweight.LiveweightMethod2, jsonSerializerOptions);
         }

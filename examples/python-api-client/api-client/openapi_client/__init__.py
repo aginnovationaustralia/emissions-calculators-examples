@@ -628,20 +628,15 @@ __all__ = [
     "Scope2OutputElectricity",
     "Scope2OutputTotal",
     "Scope3Method1",
-    "Scope3Method11",
-    "Scope3Method11AreaAppliedHectares",
     "Scope3Method1CalculationMethodScope3",
     "Scope3Method1ComponentsInner",
     "Scope3Method1MassAppliedKg",
     "Scope3Method2",
-    "Scope3Method21",
     "Scope3Method2KnownFertiliserType",
-    "Scope3Method2KnownFertiliserType1",
     "Scope3Method2KnownFertiliserTypeCalculationMethodScope3",
     "Scope3Method2KnownFertiliserTypeCustomNitrogenFraction",
     "Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor",
     "Scope3Method2OtherFertiliserType",
-    "Scope3Method2OtherFertiliserType1",
     "Scope3Method2OtherFertiliserTypeCustomUreaFraction",
     "Scope3Method2OtherFertiliserTypeFertiliserType",
     "Season",
@@ -659,7 +654,7 @@ __all__ = [
     "SolidWasteScope3LandfillType",
     "SpecificProductionSystemScope1Method2",
     "SpecificProductionSystemScope1Method2Inorganic",
-    "SpecificProductionSystemScope1Method2InorganicApplicationsInner",
+    "SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares",
     "SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1",
     "StateOrRegion",
     "TimeInLocationsMethod1ProductionSystem",
@@ -1320,20 +1315,15 @@ from openapi_client.models.scope2_output import Scope2Output as Scope2Output
 from openapi_client.models.scope2_output_electricity import Scope2OutputElectricity as Scope2OutputElectricity
 from openapi_client.models.scope2_output_total import Scope2OutputTotal as Scope2OutputTotal
 from openapi_client.models.scope3_method1 import Scope3Method1 as Scope3Method1
-from openapi_client.models.scope3_method11 import Scope3Method11 as Scope3Method11
-from openapi_client.models.scope3_method11_area_applied_hectares import Scope3Method11AreaAppliedHectares as Scope3Method11AreaAppliedHectares
 from openapi_client.models.scope3_method1_calculation_method_scope3 import Scope3Method1CalculationMethodScope3 as Scope3Method1CalculationMethodScope3
 from openapi_client.models.scope3_method1_components_inner import Scope3Method1ComponentsInner as Scope3Method1ComponentsInner
 from openapi_client.models.scope3_method1_mass_applied_kg import Scope3Method1MassAppliedKg as Scope3Method1MassAppliedKg
 from openapi_client.models.scope3_method2 import Scope3Method2 as Scope3Method2
-from openapi_client.models.scope3_method21 import Scope3Method21 as Scope3Method21
 from openapi_client.models.scope3_method2_known_fertiliser_type import Scope3Method2KnownFertiliserType as Scope3Method2KnownFertiliserType
-from openapi_client.models.scope3_method2_known_fertiliser_type1 import Scope3Method2KnownFertiliserType1 as Scope3Method2KnownFertiliserType1
 from openapi_client.models.scope3_method2_known_fertiliser_type_calculation_method_scope3 import Scope3Method2KnownFertiliserTypeCalculationMethodScope3 as Scope3Method2KnownFertiliserTypeCalculationMethodScope3
 from openapi_client.models.scope3_method2_known_fertiliser_type_custom_nitrogen_fraction import Scope3Method2KnownFertiliserTypeCustomNitrogenFraction as Scope3Method2KnownFertiliserTypeCustomNitrogenFraction
 from openapi_client.models.scope3_method2_known_fertiliser_type_custom_scope3_emission_factor import Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor as Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor
 from openapi_client.models.scope3_method2_other_fertiliser_type import Scope3Method2OtherFertiliserType as Scope3Method2OtherFertiliserType
-from openapi_client.models.scope3_method2_other_fertiliser_type1 import Scope3Method2OtherFertiliserType1 as Scope3Method2OtherFertiliserType1
 from openapi_client.models.scope3_method2_other_fertiliser_type_custom_urea_fraction import Scope3Method2OtherFertiliserTypeCustomUreaFraction as Scope3Method2OtherFertiliserTypeCustomUreaFraction
 from openapi_client.models.scope3_method2_other_fertiliser_type_fertiliser_type import Scope3Method2OtherFertiliserTypeFertiliserType as Scope3Method2OtherFertiliserTypeFertiliserType
 from openapi_client.models.season import Season as Season
@@ -1351,7 +1341,7 @@ from openapi_client.models.solid_waste_scope3_incineration_type import SolidWast
 from openapi_client.models.solid_waste_scope3_landfill_type import SolidWasteScope3LandfillType as SolidWasteScope3LandfillType
 from openapi_client.models.specific_production_system_scope1_method2 import SpecificProductionSystemScope1Method2 as SpecificProductionSystemScope1Method2
 from openapi_client.models.specific_production_system_scope1_method2_inorganic import SpecificProductionSystemScope1Method2Inorganic as SpecificProductionSystemScope1Method2Inorganic
-from openapi_client.models.specific_production_system_scope1_method2_inorganic_applications_inner import SpecificProductionSystemScope1Method2InorganicApplicationsInner as SpecificProductionSystemScope1Method2InorganicApplicationsInner
+from openapi_client.models.specific_production_system_scope1_method2_inorganic_area_applied_hectares import SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares as SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares
 from openapi_client.models.specific_production_system_scope1_method2_inorganic_calculation_method_scope1 import SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1 as SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1
 from openapi_client.models.state_or_region import StateOrRegion as StateOrRegion
 from openapi_client.models.time_in_locations_method1_production_system import TimeInLocationsMethod1ProductionSystem as TimeInLocationsMethod1ProductionSystem

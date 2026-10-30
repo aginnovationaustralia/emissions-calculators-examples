@@ -61,11 +61,11 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
     protected static array $openAPITypes = [
         'classes' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemClasses',
         'milk_production' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemMilkProduction',
-        'breed' => 'string',
+        'breed' => '\OpenAPI\Client\Model\DairyCattleBreed',
         'manure_allocations' => '\OpenAPI\Client\Model\TimeInLocationsMethod1ProductionSystemManureAllocations',
         'is_in_leaching_zone' => 'bool',
         'fraction_applied_to_soils' => '\OpenAPI\Client\Model\PigsManureHerdsInnerFractionAppliedToSoils',
-        'system' => 'string'
+        'system' => '\OpenAPI\Client\Model\DairySystem'
     ];
 
     /**
@@ -245,56 +245,6 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
-    public const BREED_MEDIUM_FRIESIAN = 'Medium Friesian';
-    public const BREED_LARGE_FRIESIAN = 'Large Friesian';
-    public const BREED_HOLSTEIN_FRIESIAN = 'Holstein-Friesian';
-    public const BREED_FRIESIAN_CROSSBRED = 'Friesian crossbred';
-    public const BREED_JERSEY = 'Jersey';
-    public const BREED_JERSEY_CROSSBRED = 'Jersey crossbred';
-    public const BREED_AYRSHIRE = 'Ayrshire';
-    public const BREED_GUERNSEY = 'Guernsey';
-    public const BREED_BROWN_SWISS = 'Brown Swiss';
-    public const BREED_ILLAWARRA_AUSSIE_RED = 'Illawarra/Aussie Red';
-    public const SYSTEM_GRAZED_ONLY = 'Grazed only';
-    public const SYSTEM_LIMITED_FEEDPAD = 'Limited feedpad';
-    public const SYSTEM_LIMITED_GRAZING = 'Limited grazing';
-    public const SYSTEM_ZERO_GRAZING = 'Zero grazing';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getBreedAllowableValues()
-    {
-        return [
-            self::BREED_MEDIUM_FRIESIAN,
-            self::BREED_LARGE_FRIESIAN,
-            self::BREED_HOLSTEIN_FRIESIAN,
-            self::BREED_FRIESIAN_CROSSBRED,
-            self::BREED_JERSEY,
-            self::BREED_JERSEY_CROSSBRED,
-            self::BREED_AYRSHIRE,
-            self::BREED_GUERNSEY,
-            self::BREED_BROWN_SWISS,
-            self::BREED_ILLAWARRA_AUSSIE_RED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getSystemAllowableValues()
-    {
-        return [
-            self::SYSTEM_GRAZED_ONLY,
-            self::SYSTEM_LIMITED_FEEDPAD,
-            self::SYSTEM_LIMITED_GRAZING,
-            self::SYSTEM_ZERO_GRAZING,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -353,15 +303,6 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         if ($this->container['breed'] === null) {
             $invalidProperties[] = "'breed' can't be null";
         }
-        $allowedValues = self::getBreedAllowableValues();
-        if (!is_null($this->container['breed']) && !in_array($this->container['breed'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'breed', must be one of '%s'",
-                $this->container['breed'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['manure_allocations'] === null) {
             $invalidProperties[] = "'manure_allocations' can't be null";
         }
@@ -374,15 +315,6 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
         if ($this->container['system'] === null) {
             $invalidProperties[] = "'system' can't be null";
         }
-        $allowedValues = self::getSystemAllowableValues();
-        if (!is_null($this->container['system']) && !in_array($this->container['system'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'system', must be one of '%s'",
-                $this->container['system'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -452,9 +384,9 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
     /**
      * Gets breed
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DairyCattleBreed
      */
-    public function getBreed(): string
+    public function getBreed(): \OpenAPI\Client\Model\DairyCattleBreed
     {
         return $this->container['breed'];
     }
@@ -462,24 +394,14 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
     /**
      * Sets breed
      *
-     * @param string $breed Breed of cattle for this dairy herd
+     * @param \OpenAPI\Client\Model\DairyCattleBreed $breed Breed of cattle for this dairy herd
      *
      * @return $this
      */
-    public function setBreed(string $breed): static
+    public function setBreed(\OpenAPI\Client\Model\DairyCattleBreed $breed): static
     {
         if (is_null($breed)) {
             throw new InvalidArgumentException('non-nullable breed cannot be null');
-        }
-        $allowedValues = self::getBreedAllowableValues();
-        if (!in_array($breed, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'breed', must be one of '%s'",
-                    $breed,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['breed'] = $breed;
 
@@ -570,9 +492,9 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
     /**
      * Gets system
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\DairySystem
      */
-    public function getSystem(): string
+    public function getSystem(): \OpenAPI\Client\Model\DairySystem
     {
         return $this->container['system'];
     }
@@ -580,24 +502,14 @@ class TimeInLocationsMethod1ProductionSystem implements ModelInterface, ArrayAcc
     /**
      * Sets system
      *
-     * @param string $system Production system used to manage this dairy herd
+     * @param \OpenAPI\Client\Model\DairySystem $system Production system used to manage this dairy herd
      *
      * @return $this
      */
-    public function setSystem(string $system): static
+    public function setSystem(\OpenAPI\Client\Model\DairySystem $system): static
     {
         if (is_null($system)) {
             throw new InvalidArgumentException('non-nullable system cannot be null');
-        }
-        $allowedValues = self::getSystemAllowableValues();
-        if (!in_array($system, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'system', must be one of '%s'",
-                    $system,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['system'] = $system;
 

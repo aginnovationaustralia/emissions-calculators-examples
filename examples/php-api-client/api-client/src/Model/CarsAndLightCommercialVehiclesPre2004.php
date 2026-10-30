@@ -61,7 +61,7 @@ class CarsAndLightCommercialVehiclesPre2004 implements ModelInterface, ArrayAcce
     protected static array $openAPITypes = [
         'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres',
         'vehicle_type' => 'string',
-        'fuel_type' => 'string'
+        'fuel_type' => '\OpenAPI\Client\Model\CarsLightCommercialPre2004FuelType'
     ];
 
     /**
@@ -222,11 +222,6 @@ class CarsAndLightCommercialVehiclesPre2004 implements ModelInterface, ArrayAcce
     }
 
     public const VEHICLE_TYPE_CARS_AND_LIGHT_COMMERCIAL_VEHICLES__PRE_2004 = 'Cars and light commercial vehicles (pre 2004)';
-    public const FUEL_TYPE_GASOLINE = 'Gasoline';
-    public const FUEL_TYPE_DIESEL_OIL = 'Diesel oil';
-    public const FUEL_TYPE_LIQUEFIED_PETROLEUM_GAS__LPG = 'Liquefied petroleum gas (LPG)';
-    public const FUEL_TYPE_ETHANOL = 'Ethanol';
-    public const FUEL_TYPE_RENEWABLE_DIESEL = 'Renewable diesel';
 
     /**
      * Gets allowable values of the enum
@@ -237,22 +232,6 @@ class CarsAndLightCommercialVehiclesPre2004 implements ModelInterface, ArrayAcce
     {
         return [
             self::VEHICLE_TYPE_CARS_AND_LIGHT_COMMERCIAL_VEHICLES__PRE_2004,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_GASOLINE,
-            self::FUEL_TYPE_DIESEL_OIL,
-            self::FUEL_TYPE_LIQUEFIED_PETROLEUM_GAS__LPG,
-            self::FUEL_TYPE_ETHANOL,
-            self::FUEL_TYPE_RENEWABLE_DIESEL,
         ];
     }
 
@@ -318,15 +297,6 @@ class CarsAndLightCommercialVehiclesPre2004 implements ModelInterface, ArrayAcce
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -406,9 +376,9 @@ class CarsAndLightCommercialVehiclesPre2004 implements ModelInterface, ArrayAcce
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\CarsLightCommercialPre2004FuelType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\CarsLightCommercialPre2004FuelType
     {
         return $this->container['fuel_type'];
     }
@@ -416,24 +386,14 @@ class CarsAndLightCommercialVehiclesPre2004 implements ModelInterface, ArrayAcce
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of fuel used by cars and light commercial vehicles manufactured before 2004
+     * @param \OpenAPI\Client\Model\CarsLightCommercialPre2004FuelType $fuel_type Type of fuel used by cars and light commercial vehicles manufactured before 2004
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\CarsLightCommercialPre2004FuelType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

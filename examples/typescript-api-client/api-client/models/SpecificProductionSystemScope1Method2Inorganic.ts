@@ -13,13 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SpecificProductionSystemScope1Method2InorganicApplicationsInner } from './SpecificProductionSystemScope1Method2InorganicApplicationsInner';
+import type { SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares } from './SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares';
 import {
-    SpecificProductionSystemScope1Method2InorganicApplicationsInnerFromJSON,
-    SpecificProductionSystemScope1Method2InorganicApplicationsInnerFromJSONTyped,
-    SpecificProductionSystemScope1Method2InorganicApplicationsInnerToJSON,
-    SpecificProductionSystemScope1Method2InorganicApplicationsInnerToJSONTyped,
-} from './SpecificProductionSystemScope1Method2InorganicApplicationsInner';
+    SpecificProductionSystemScope1Method2InorganicAreaAppliedHectaresFromJSON,
+    SpecificProductionSystemScope1Method2InorganicAreaAppliedHectaresFromJSONTyped,
+    SpecificProductionSystemScope1Method2InorganicAreaAppliedHectaresToJSON,
+    SpecificProductionSystemScope1Method2InorganicAreaAppliedHectaresToJSONTyped,
+} from './SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares';
+import type { BasicProductionSystemScope1Method1InorganicApplicationsInner } from './BasicProductionSystemScope1Method1InorganicApplicationsInner';
+import {
+    BasicProductionSystemScope1Method1InorganicApplicationsInnerFromJSON,
+    BasicProductionSystemScope1Method1InorganicApplicationsInnerFromJSONTyped,
+    BasicProductionSystemScope1Method1InorganicApplicationsInnerToJSON,
+    BasicProductionSystemScope1Method1InorganicApplicationsInnerToJSONTyped,
+} from './BasicProductionSystemScope1Method1InorganicApplicationsInner';
 
 /**
  * 
@@ -30,11 +37,15 @@ export interface SpecificProductionSystemScope1Method2Inorganic {
     /**
      * Inorganic fertiliser applications
      */
-    applications: Array<SpecificProductionSystemScope1Method2InorganicApplicationsInner>;
+    applications: Array<BasicProductionSystemScope1Method1InorganicApplicationsInner>;
     /**
      * Method of calculating fertiliser emissions
      */
     calculationMethodScope1: SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1Enum;
+    /**
+     * 
+     */
+    areaAppliedHectares: SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares;
 }
 
 
@@ -55,6 +66,7 @@ export function instanceOfSpecificProductionSystemScope1Method2Inorganic(value: 
     if (!('calculationMethodScope1' in value) || value['calculationMethodScope1'] === undefined) return false;
     if (value['calculationMethodScope1'] !== '2') return false;
     
+    if (!('areaAppliedHectares' in value) || value['areaAppliedHectares'] === undefined) return false;
     return true;
 }
 
@@ -68,8 +80,9 @@ export function SpecificProductionSystemScope1Method2InorganicFromJSONTyped(json
     }
     return {
         
-        'applications': ((json['applications'] as Array<any>).map(SpecificProductionSystemScope1Method2InorganicApplicationsInnerFromJSON)),
+        'applications': ((json['applications'] as Array<any>).map(BasicProductionSystemScope1Method1InorganicApplicationsInnerFromJSON)),
         'calculationMethodScope1': json['calculationMethodScope1'],
+        'areaAppliedHectares': SpecificProductionSystemScope1Method2InorganicAreaAppliedHectaresFromJSON(json['areaAppliedHectares']),
     };
 }
 
@@ -84,8 +97,9 @@ export function SpecificProductionSystemScope1Method2InorganicToJSONTyped(value?
 
     return {
         
-        'applications': ((value['applications'] as Array<any>).map(SpecificProductionSystemScope1Method2InorganicApplicationsInnerToJSON)),
+        'applications': ((value['applications'] as Array<any>).map(BasicProductionSystemScope1Method1InorganicApplicationsInnerToJSON)),
         'calculationMethodScope1': value['calculationMethodScope1'],
+        'areaAppliedHectares': SpecificProductionSystemScope1Method2InorganicAreaAppliedHectaresToJSON(value['areaAppliedHectares']),
     };
 }
 

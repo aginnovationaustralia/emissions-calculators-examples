@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="inorganic">inorganic</param>
         /// <param name="organic">organic</param>
         [JsonConstructor]
-        public BasicProductionSystemScope1Method1(ProductionSystemEnum productionSystem, BasicProductionSystemScope1Method1Inorganic inorganic, OrganicFertilisersInput organic)
+        public BasicProductionSystemScope1Method1(BasicCropProductionSystem productionSystem, BasicProductionSystemScope1Method1Inorganic inorganic, OrganicFertilisersInput organic)
         {
             ProductionSystem = productionSystem;
             Inorganic = inorganic;
@@ -52,215 +52,8 @@ namespace Org.OpenAPITools.Model
         /// Production system of the crop
         /// </summary>
         /// <value>Production system of the crop</value>
-        public enum ProductionSystemEnum
-        {
-            /// <summary>
-            /// Enum RicecontinuousFlooding for value: Rice (continuous flooding)
-            /// </summary>
-            RicecontinuousFlooding = 1,
-
-            /// <summary>
-            /// Enum RicesingleAndMultipleDrainageOrAlternateWettingAndDrying for value: Rice (single and multiple drainage, or alternate wetting and drying)
-            /// </summary>
-            RicesingleAndMultipleDrainageOrAlternateWettingAndDrying = 2,
-
-            /// <summary>
-            /// Enum IrrigatedCrop for value: Irrigated crop
-            /// </summary>
-            IrrigatedCrop = 3,
-
-            /// <summary>
-            /// Enum NonIrrigatedCroplowRainfall for value: Non-irrigated crop (low rainfall)
-            /// </summary>
-            NonIrrigatedCroplowRainfall = 4,
-
-            /// <summary>
-            /// Enum NonIrrigatedCrophighRainfall for value: Non-irrigated crop (high rainfall)
-            /// </summary>
-            NonIrrigatedCrophighRainfall = 5,
-
-            /// <summary>
-            /// Enum IrrigatedPasture for value: Irrigated pasture
-            /// </summary>
-            IrrigatedPasture = 6,
-
-            /// <summary>
-            /// Enum NonIrrigatedPasture for value: Non-irrigated pasture
-            /// </summary>
-            NonIrrigatedPasture = 7,
-
-            /// <summary>
-            /// Enum Sugar for value: Sugar
-            /// </summary>
-            Sugar = 8,
-
-            /// <summary>
-            /// Enum Cotton for value: Cotton
-            /// </summary>
-            Cotton = 9,
-
-            /// <summary>
-            /// Enum HorticulturalCrops for value: Horticultural crops
-            /// </summary>
-            HorticulturalCrops = 10,
-
-            /// <summary>
-            /// Enum Aquaculture for value: Aquaculture
-            /// </summary>
-            Aquaculture = 11,
-
-            /// <summary>
-            /// Enum Forestry for value: Forestry
-            /// </summary>
-            Forestry = 12
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ProductionSystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ProductionSystemEnum ProductionSystemEnumFromString(string value)
-        {
-            if (value.Equals("Rice (continuous flooding)"))
-                return ProductionSystemEnum.RicecontinuousFlooding;
-
-            if (value.Equals("Rice (single and multiple drainage, or alternate wetting and drying)"))
-                return ProductionSystemEnum.RicesingleAndMultipleDrainageOrAlternateWettingAndDrying;
-
-            if (value.Equals("Irrigated crop"))
-                return ProductionSystemEnum.IrrigatedCrop;
-
-            if (value.Equals("Non-irrigated crop (low rainfall)"))
-                return ProductionSystemEnum.NonIrrigatedCroplowRainfall;
-
-            if (value.Equals("Non-irrigated crop (high rainfall)"))
-                return ProductionSystemEnum.NonIrrigatedCrophighRainfall;
-
-            if (value.Equals("Irrigated pasture"))
-                return ProductionSystemEnum.IrrigatedPasture;
-
-            if (value.Equals("Non-irrigated pasture"))
-                return ProductionSystemEnum.NonIrrigatedPasture;
-
-            if (value.Equals("Sugar"))
-                return ProductionSystemEnum.Sugar;
-
-            if (value.Equals("Cotton"))
-                return ProductionSystemEnum.Cotton;
-
-            if (value.Equals("Horticultural crops"))
-                return ProductionSystemEnum.HorticulturalCrops;
-
-            if (value.Equals("Aquaculture"))
-                return ProductionSystemEnum.Aquaculture;
-
-            if (value.Equals("Forestry"))
-                return ProductionSystemEnum.Forestry;
-
-            throw new NotImplementedException($"Could not convert value to type ProductionSystemEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ProductionSystemEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ProductionSystemEnum? ProductionSystemEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Rice (continuous flooding)"))
-                return ProductionSystemEnum.RicecontinuousFlooding;
-
-            if (value.Equals("Rice (single and multiple drainage, or alternate wetting and drying)"))
-                return ProductionSystemEnum.RicesingleAndMultipleDrainageOrAlternateWettingAndDrying;
-
-            if (value.Equals("Irrigated crop"))
-                return ProductionSystemEnum.IrrigatedCrop;
-
-            if (value.Equals("Non-irrigated crop (low rainfall)"))
-                return ProductionSystemEnum.NonIrrigatedCroplowRainfall;
-
-            if (value.Equals("Non-irrigated crop (high rainfall)"))
-                return ProductionSystemEnum.NonIrrigatedCrophighRainfall;
-
-            if (value.Equals("Irrigated pasture"))
-                return ProductionSystemEnum.IrrigatedPasture;
-
-            if (value.Equals("Non-irrigated pasture"))
-                return ProductionSystemEnum.NonIrrigatedPasture;
-
-            if (value.Equals("Sugar"))
-                return ProductionSystemEnum.Sugar;
-
-            if (value.Equals("Cotton"))
-                return ProductionSystemEnum.Cotton;
-
-            if (value.Equals("Horticultural crops"))
-                return ProductionSystemEnum.HorticulturalCrops;
-
-            if (value.Equals("Aquaculture"))
-                return ProductionSystemEnum.Aquaculture;
-
-            if (value.Equals("Forestry"))
-                return ProductionSystemEnum.Forestry;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ProductionSystemEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ProductionSystemEnumToJsonValue(ProductionSystemEnum value)
-        {
-            if (value == ProductionSystemEnum.RicecontinuousFlooding)
-                return "Rice (continuous flooding)";
-
-            if (value == ProductionSystemEnum.RicesingleAndMultipleDrainageOrAlternateWettingAndDrying)
-                return "Rice (single and multiple drainage, or alternate wetting and drying)";
-
-            if (value == ProductionSystemEnum.IrrigatedCrop)
-                return "Irrigated crop";
-
-            if (value == ProductionSystemEnum.NonIrrigatedCroplowRainfall)
-                return "Non-irrigated crop (low rainfall)";
-
-            if (value == ProductionSystemEnum.NonIrrigatedCrophighRainfall)
-                return "Non-irrigated crop (high rainfall)";
-
-            if (value == ProductionSystemEnum.IrrigatedPasture)
-                return "Irrigated pasture";
-
-            if (value == ProductionSystemEnum.NonIrrigatedPasture)
-                return "Non-irrigated pasture";
-
-            if (value == ProductionSystemEnum.Sugar)
-                return "Sugar";
-
-            if (value == ProductionSystemEnum.Cotton)
-                return "Cotton";
-
-            if (value == ProductionSystemEnum.HorticulturalCrops)
-                return "Horticultural crops";
-
-            if (value == ProductionSystemEnum.Aquaculture)
-                return "Aquaculture";
-
-            if (value == ProductionSystemEnum.Forestry)
-                return "Forestry";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Production system of the crop
-        /// </summary>
-        /// <value>Production system of the crop</value>
         [JsonPropertyName("productionSystem")]
-        public ProductionSystemEnum ProductionSystem { get; set; }
+        public BasicCropProductionSystem ProductionSystem { get; set; }
 
         /// <summary>
         /// Gets or Sets Inorganic
@@ -332,7 +125,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<BasicProductionSystemScope1Method1.ProductionSystemEnum?> productionSystem = default;
+            Option<BasicCropProductionSystem?> productionSystem = default;
             Option<BasicProductionSystemScope1Method1Inorganic?> inorganic = default;
             Option<OrganicFertilisersInput?> organic = default;
 
@@ -352,14 +145,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "productionSystem":
-                            string? productionSystemRawValue = utf8JsonReader.GetString();
-                            if (productionSystemRawValue != null)
-                            {
-                                BasicProductionSystemScope1Method1.ProductionSystemEnum? productionSystemValue = BasicProductionSystemScope1Method1.ProductionSystemEnumFromStringOrDefault(productionSystemRawValue);
-                                if (productionSystemValue == null)
-                                    throw new JsonException();
-                                productionSystem = new Option<BasicProductionSystemScope1Method1.ProductionSystemEnum?>(productionSystemValue);
-                            }
+                            productionSystem = new Option<BasicCropProductionSystem?>(JsonSerializer.Deserialize<BasicCropProductionSystem?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "inorganic":
                             inorganic = new Option<BasicProductionSystemScope1Method1Inorganic?>(JsonSerializer.Deserialize<BasicProductionSystemScope1Method1Inorganic>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -416,8 +202,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, BasicProductionSystemScope1Method1 basicProductionSystemScope1Method1, JsonSerializerOptions jsonSerializerOptions)
         {
-            var productionSystemRawValue = BasicProductionSystemScope1Method1.ProductionSystemEnumToJsonValue(basicProductionSystemScope1Method1.ProductionSystem);
+            var productionSystemRawValue = BasicCropProductionSystemValueConverter.ToJsonValue(basicProductionSystemScope1Method1.ProductionSystem);
             writer.WriteString("productionSystem", productionSystemRawValue);
+
             writer.WritePropertyName("inorganic");
             JsonSerializer.Serialize(writer, basicProductionSystemScope1Method1.Inorganic, jsonSerializerOptions);
             writer.WritePropertyName("organic");

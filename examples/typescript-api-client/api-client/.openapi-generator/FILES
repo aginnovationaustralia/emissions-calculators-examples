@@ -546,18 +546,13 @@ models/Scope2Output.ts
 models/Scope2OutputElectricity.ts
 models/Scope2OutputTotal.ts
 models/Scope3Method1.ts
-models/Scope3Method11.ts
-models/Scope3Method11AreaAppliedHectares.ts
 models/Scope3Method1ComponentsInner.ts
 models/Scope3Method1MassAppliedKg.ts
 models/Scope3Method2.ts
-models/Scope3Method21.ts
 models/Scope3Method2KnownFertiliserType.ts
-models/Scope3Method2KnownFertiliserType1.ts
 models/Scope3Method2KnownFertiliserTypeCustomNitrogenFraction.ts
 models/Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor.ts
 models/Scope3Method2OtherFertiliserType.ts
-models/Scope3Method2OtherFertiliserType1.ts
 models/Scope3Method2OtherFertiliserTypeCustomUreaFraction.ts
 models/Season.ts
 models/ServicesFuelInput.ts
@@ -573,7 +568,7 @@ models/SolidWasteScope3IncinerationType.ts
 models/SolidWasteScope3LandfillType.ts
 models/SpecificProductionSystemScope1Method2.ts
 models/SpecificProductionSystemScope1Method2Inorganic.ts
-models/SpecificProductionSystemScope1Method2InorganicApplicationsInner.ts
+models/SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares.ts
 models/StateOrRegion.ts
 models/TimeInLocationsMethod1ProductionSystem.ts
 models/TimeInLocationsMethod1ProductionSystemClasses.ts

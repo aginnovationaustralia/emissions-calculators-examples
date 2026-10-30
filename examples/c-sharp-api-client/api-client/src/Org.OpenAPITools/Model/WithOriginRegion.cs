@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="componentType">Type of inorganic fertiliser component</param>
         /// <param name="componentOrigin">Origin of inorganic fertiliser component</param>
         [JsonConstructor]
-        public WithOriginRegion(WithOriginRegionFractionOfFertiliser fractionOfFertiliser, ComponentTypeEnum componentType, ComponentOriginEnum componentOrigin)
+        public WithOriginRegion(WithOriginRegionFractionOfFertiliser fractionOfFertiliser, InorganicFertiliserComponentTypeRegional componentType, InorganicFertiliserComponentOrigin componentOrigin)
         {
             FractionOfFertiliser = fractionOfFertiliser;
             ComponentType = componentType;
@@ -52,177 +52,15 @@ namespace Org.OpenAPITools.Model
         /// Type of inorganic fertiliser component
         /// </summary>
         /// <value>Type of inorganic fertiliser component</value>
-        public enum ComponentTypeEnum
-        {
-            /// <summary>
-            /// Enum Ammonia for value: Ammonia
-            /// </summary>
-            Ammonia = 1,
-
-            /// <summary>
-            /// Enum Urea for value: Urea
-            /// </summary>
-            Urea = 2
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ComponentTypeEnum ComponentTypeEnumFromString(string value)
-        {
-            if (value.Equals("Ammonia"))
-                return ComponentTypeEnum.Ammonia;
-
-            if (value.Equals("Urea"))
-                return ComponentTypeEnum.Urea;
-
-            throw new NotImplementedException($"Could not convert value to type ComponentTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ComponentTypeEnum? ComponentTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Ammonia"))
-                return ComponentTypeEnum.Ammonia;
-
-            if (value.Equals("Urea"))
-                return ComponentTypeEnum.Urea;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ComponentTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ComponentTypeEnumToJsonValue(ComponentTypeEnum value)
-        {
-            if (value == ComponentTypeEnum.Ammonia)
-                return "Ammonia";
-
-            if (value == ComponentTypeEnum.Urea)
-                return "Urea";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of inorganic fertiliser component
-        /// </summary>
-        /// <value>Type of inorganic fertiliser component</value>
         [JsonPropertyName("componentType")]
-        public ComponentTypeEnum ComponentType { get; set; }
-
-        /// <summary>
-        /// Origin of inorganic fertiliser component
-        /// </summary>
-        /// <value>Origin of inorganic fertiliser component</value>
-        public enum ComponentOriginEnum
-        {
-            /// <summary>
-            /// Enum Unspecified for value: Unspecified
-            /// </summary>
-            Unspecified = 1,
-
-            /// <summary>
-            /// Enum China for value: China
-            /// </summary>
-            China = 2,
-
-            /// <summary>
-            /// Enum Yemen for value: Yemen
-            /// </summary>
-            Yemen = 3,
-
-            /// <summary>
-            /// Enum Canada for value: Canada
-            /// </summary>
-            Canada = 4
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentOriginEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ComponentOriginEnum ComponentOriginEnumFromString(string value)
-        {
-            if (value.Equals("Unspecified"))
-                return ComponentOriginEnum.Unspecified;
-
-            if (value.Equals("China"))
-                return ComponentOriginEnum.China;
-
-            if (value.Equals("Yemen"))
-                return ComponentOriginEnum.Yemen;
-
-            if (value.Equals("Canada"))
-                return ComponentOriginEnum.Canada;
-
-            throw new NotImplementedException($"Could not convert value to type ComponentOriginEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentOriginEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ComponentOriginEnum? ComponentOriginEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Unspecified"))
-                return ComponentOriginEnum.Unspecified;
-
-            if (value.Equals("China"))
-                return ComponentOriginEnum.China;
-
-            if (value.Equals("Yemen"))
-                return ComponentOriginEnum.Yemen;
-
-            if (value.Equals("Canada"))
-                return ComponentOriginEnum.Canada;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ComponentOriginEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ComponentOriginEnumToJsonValue(ComponentOriginEnum value)
-        {
-            if (value == ComponentOriginEnum.Unspecified)
-                return "Unspecified";
-
-            if (value == ComponentOriginEnum.China)
-                return "China";
-
-            if (value == ComponentOriginEnum.Yemen)
-                return "Yemen";
-
-            if (value == ComponentOriginEnum.Canada)
-                return "Canada";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public InorganicFertiliserComponentTypeRegional ComponentType { get; set; }
 
         /// <summary>
         /// Origin of inorganic fertiliser component
         /// </summary>
         /// <value>Origin of inorganic fertiliser component</value>
         [JsonPropertyName("componentOrigin")]
-        public ComponentOriginEnum ComponentOrigin { get; set; }
+        public InorganicFertiliserComponentOrigin ComponentOrigin { get; set; }
 
         /// <summary>
         /// Gets or Sets FractionOfFertiliser
@@ -289,8 +127,8 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<WithOriginRegionFractionOfFertiliser?> fractionOfFertiliser = default;
-            Option<WithOriginRegion.ComponentTypeEnum?> componentType = default;
-            Option<WithOriginRegion.ComponentOriginEnum?> componentOrigin = default;
+            Option<InorganicFertiliserComponentTypeRegional?> componentType = default;
+            Option<InorganicFertiliserComponentOrigin?> componentOrigin = default;
 
             while (utf8JsonReader.Read())
             {
@@ -311,24 +149,10 @@ namespace Org.OpenAPITools.Model
                             fractionOfFertiliser = new Option<WithOriginRegionFractionOfFertiliser?>(JsonSerializer.Deserialize<WithOriginRegionFractionOfFertiliser>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "componentType":
-                            string? componentTypeRawValue = utf8JsonReader.GetString();
-                            if (componentTypeRawValue != null)
-                            {
-                                WithOriginRegion.ComponentTypeEnum? componentTypeValue = WithOriginRegion.ComponentTypeEnumFromStringOrDefault(componentTypeRawValue);
-                                if (componentTypeValue == null)
-                                    throw new JsonException();
-                                componentType = new Option<WithOriginRegion.ComponentTypeEnum?>(componentTypeValue);
-                            }
+                            componentType = new Option<InorganicFertiliserComponentTypeRegional?>(JsonSerializer.Deserialize<InorganicFertiliserComponentTypeRegional?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "componentOrigin":
-                            string? componentOriginRawValue = utf8JsonReader.GetString();
-                            if (componentOriginRawValue != null)
-                            {
-                                WithOriginRegion.ComponentOriginEnum? componentOriginValue = WithOriginRegion.ComponentOriginEnumFromStringOrDefault(componentOriginRawValue);
-                                if (componentOriginValue == null)
-                                    throw new JsonException();
-                                componentOrigin = new Option<WithOriginRegion.ComponentOriginEnum?>(componentOriginValue);
-                            }
+                            componentOrigin = new Option<InorganicFertiliserComponentOrigin?>(JsonSerializer.Deserialize<InorganicFertiliserComponentOrigin?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -381,9 +205,10 @@ namespace Org.OpenAPITools.Model
         {
             writer.WritePropertyName("fractionOfFertiliser");
             JsonSerializer.Serialize(writer, withOriginRegion.FractionOfFertiliser, jsonSerializerOptions);
-            var componentTypeRawValue = WithOriginRegion.ComponentTypeEnumToJsonValue(withOriginRegion.ComponentType);
+            var componentTypeRawValue = InorganicFertiliserComponentTypeRegionalValueConverter.ToJsonValue(withOriginRegion.ComponentType);
             writer.WriteString("componentType", componentTypeRawValue);
-            var componentOriginRawValue = WithOriginRegion.ComponentOriginEnumToJsonValue(withOriginRegion.ComponentOrigin);
+
+            var componentOriginRawValue = InorganicFertiliserComponentOriginValueConverter.ToJsonValue(withOriginRegion.ComponentOrigin);
             writer.WriteString("componentOrigin", componentOriginRawValue);
         }
     }

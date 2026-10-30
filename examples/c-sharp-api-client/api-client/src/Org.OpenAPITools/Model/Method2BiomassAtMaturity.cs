@@ -41,7 +41,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="calculationMethod">calculationMethod</param>
         /// <param name="method2ActualStemDensity">method2ActualStemDensity</param>
         [JsonConstructor]
-        public Method2BiomassAtMaturity(Method13Method2BiomassAtMaturity varMethod2BiomassAtMaturity, List<Method13PlantingsInner> plantings, CropTypeEnum cropType, List<Method13ClearingsInner> clearings, CalculationMethodEnum calculationMethod, Option<Method13Method2ActualStemDensity?> method2ActualStemDensity = default)
+        public Method2BiomassAtMaturity(Method13Method2BiomassAtMaturity varMethod2BiomassAtMaturity, List<Method13PlantingsInner> plantings, PerennialWoodyCropFull cropType, List<Method13ClearingsInner> clearings, CalculationMethodEnum calculationMethod, Option<Method13Method2ActualStemDensity?> method2ActualStemDensity = default)
         {
             VarMethod2BiomassAtMaturity = varMethod2BiomassAtMaturity;
             Plantings = plantings;
@@ -58,159 +58,8 @@ namespace Org.OpenAPITools.Model
         /// Type of perennial woody crop planted
         /// </summary>
         /// <value>Type of perennial woody crop planted</value>
-        public enum CropTypeEnum
-        {
-            /// <summary>
-            /// Enum Oranges for value: Oranges
-            /// </summary>
-            Oranges = 1,
-
-            /// <summary>
-            /// Enum Macadamias for value: Macadamias
-            /// </summary>
-            Macadamias = 2,
-
-            /// <summary>
-            /// Enum Almonds for value: Almonds
-            /// </summary>
-            Almonds = 3,
-
-            /// <summary>
-            /// Enum Apples for value: Apples
-            /// </summary>
-            Apples = 4,
-
-            /// <summary>
-            /// Enum Peaches for value: Peaches
-            /// </summary>
-            Peaches = 5,
-
-            /// <summary>
-            /// Enum Olives for value: Olives
-            /// </summary>
-            Olives = 6,
-
-            /// <summary>
-            /// Enum Avocados for value: Avocados
-            /// </summary>
-            Avocados = 7,
-
-            /// <summary>
-            /// Enum Mangoes for value: Mangoes
-            /// </summary>
-            Mangoes = 8
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CropTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static CropTypeEnum CropTypeEnumFromString(string value)
-        {
-            if (value.Equals("Oranges"))
-                return CropTypeEnum.Oranges;
-
-            if (value.Equals("Macadamias"))
-                return CropTypeEnum.Macadamias;
-
-            if (value.Equals("Almonds"))
-                return CropTypeEnum.Almonds;
-
-            if (value.Equals("Apples"))
-                return CropTypeEnum.Apples;
-
-            if (value.Equals("Peaches"))
-                return CropTypeEnum.Peaches;
-
-            if (value.Equals("Olives"))
-                return CropTypeEnum.Olives;
-
-            if (value.Equals("Avocados"))
-                return CropTypeEnum.Avocados;
-
-            if (value.Equals("Mangoes"))
-                return CropTypeEnum.Mangoes;
-
-            throw new NotImplementedException($"Could not convert value to type CropTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="CropTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static CropTypeEnum? CropTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Oranges"))
-                return CropTypeEnum.Oranges;
-
-            if (value.Equals("Macadamias"))
-                return CropTypeEnum.Macadamias;
-
-            if (value.Equals("Almonds"))
-                return CropTypeEnum.Almonds;
-
-            if (value.Equals("Apples"))
-                return CropTypeEnum.Apples;
-
-            if (value.Equals("Peaches"))
-                return CropTypeEnum.Peaches;
-
-            if (value.Equals("Olives"))
-                return CropTypeEnum.Olives;
-
-            if (value.Equals("Avocados"))
-                return CropTypeEnum.Avocados;
-
-            if (value.Equals("Mangoes"))
-                return CropTypeEnum.Mangoes;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="CropTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string CropTypeEnumToJsonValue(CropTypeEnum value)
-        {
-            if (value == CropTypeEnum.Oranges)
-                return "Oranges";
-
-            if (value == CropTypeEnum.Macadamias)
-                return "Macadamias";
-
-            if (value == CropTypeEnum.Almonds)
-                return "Almonds";
-
-            if (value == CropTypeEnum.Apples)
-                return "Apples";
-
-            if (value == CropTypeEnum.Peaches)
-                return "Peaches";
-
-            if (value == CropTypeEnum.Olives)
-                return "Olives";
-
-            if (value == CropTypeEnum.Avocados)
-                return "Avocados";
-
-            if (value == CropTypeEnum.Mangoes)
-                return "Mangoes";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of perennial woody crop planted
-        /// </summary>
-        /// <value>Type of perennial woody crop planted</value>
         [JsonPropertyName("cropType")]
-        public CropTypeEnum CropType { get; set; }
+        public PerennialWoodyCropFull CropType { get; set; }
 
         /// <summary>
         /// Defines CalculationMethod
@@ -364,7 +213,7 @@ namespace Org.OpenAPITools.Model
 
             Option<Method13Method2BiomassAtMaturity?> varMethod2BiomassAtMaturity = default;
             Option<List<Method13PlantingsInner>?> plantings = default;
-            Option<Method2BiomassAtMaturity.CropTypeEnum?> cropType = default;
+            Option<PerennialWoodyCropFull?> cropType = default;
             Option<List<Method13ClearingsInner>?> clearings = default;
             Option<Method2BiomassAtMaturity.CalculationMethodEnum?> calculationMethod = default;
             Option<Method13Method2ActualStemDensity?> method2ActualStemDensity = default;
@@ -391,14 +240,7 @@ namespace Org.OpenAPITools.Model
                             plantings = new Option<List<Method13PlantingsInner>?>(JsonSerializer.Deserialize<List<Method13PlantingsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "cropType":
-                            string? cropTypeRawValue = utf8JsonReader.GetString();
-                            if (cropTypeRawValue != null)
-                            {
-                                Method2BiomassAtMaturity.CropTypeEnum? cropTypeValue = Method2BiomassAtMaturity.CropTypeEnumFromStringOrDefault(cropTypeRawValue);
-                                if (cropTypeValue == null)
-                                    throw new JsonException();
-                                cropType = new Option<Method2BiomassAtMaturity.CropTypeEnum?>(cropTypeValue);
-                            }
+                            cropType = new Option<PerennialWoodyCropFull?>(JsonSerializer.Deserialize<PerennialWoodyCropFull?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "clearings":
                             clearings = new Option<List<Method13ClearingsInner>?>(JsonSerializer.Deserialize<List<Method13ClearingsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -487,8 +329,9 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, method2BiomassAtMaturity.VarMethod2BiomassAtMaturity, jsonSerializerOptions);
             writer.WritePropertyName("plantings");
             JsonSerializer.Serialize(writer, method2BiomassAtMaturity.Plantings, jsonSerializerOptions);
-            var cropTypeRawValue = Method2BiomassAtMaturity.CropTypeEnumToJsonValue(method2BiomassAtMaturity.CropType);
+            var cropTypeRawValue = PerennialWoodyCropFullValueConverter.ToJsonValue(method2BiomassAtMaturity.CropType);
             writer.WriteString("cropType", cropTypeRawValue);
+
             writer.WritePropertyName("clearings");
             JsonSerializer.Serialize(writer, method2BiomassAtMaturity.Clearings, jsonSerializerOptions);
             var calculationMethodRawValue = Method2BiomassAtMaturity.CalculationMethodEnumToJsonValue(method2BiomassAtMaturity.CalculationMethod);

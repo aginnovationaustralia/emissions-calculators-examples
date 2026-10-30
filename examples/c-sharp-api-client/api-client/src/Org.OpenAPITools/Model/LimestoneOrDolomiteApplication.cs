@@ -39,7 +39,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="type">Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3</param>
         /// <param name="customScope3EmissionsFactor">customScope3EmissionsFactor</param>
         [JsonConstructor]
-        public LimestoneOrDolomiteApplication(LimestoneOrDolomiteApplicationMassAppliedKg massAppliedKg, LimestoneOrDolomiteApplicationLimestoneFraction limestoneFraction, TypeEnum type, Option<LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor?> customScope3EmissionsFactor = default)
+        public LimestoneOrDolomiteApplication(LimestoneOrDolomiteApplicationMassAppliedKg massAppliedKg, LimestoneOrDolomiteApplicationLimestoneFraction limestoneFraction, LimeAmeliorant type, Option<LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor?> customScope3EmissionsFactor = default)
         {
             MassAppliedKg = massAppliedKg;
             LimestoneFraction = limestoneFraction;
@@ -54,75 +54,8 @@ namespace Org.OpenAPITools.Model
         /// Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3
         /// </summary>
         /// <value>Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3</value>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum Limestone for value: Limestone
-            /// </summary>
-            Limestone = 1,
-
-            /// <summary>
-            /// Enum Dolomite for value: Dolomite
-            /// </summary>
-            Dolomite = 2
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Limestone"))
-                return TypeEnum.Limestone;
-
-            if (value.Equals("Dolomite"))
-                return TypeEnum.Dolomite;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Limestone"))
-                return TypeEnum.Limestone;
-
-            if (value.Equals("Dolomite"))
-                return TypeEnum.Dolomite;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.Limestone)
-                return "Limestone";
-
-            if (value == TypeEnum.Dolomite)
-                return "Dolomite";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3
-        /// </summary>
-        /// <value>Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3</value>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public LimeAmeliorant Type { get; set; }
 
         /// <summary>
         /// Gets or Sets MassAppliedKg
@@ -217,7 +150,7 @@ namespace Org.OpenAPITools.Model
 
             Option<LimestoneOrDolomiteApplicationMassAppliedKg?> massAppliedKg = default;
             Option<LimestoneOrDolomiteApplicationLimestoneFraction?> limestoneFraction = default;
-            Option<LimestoneOrDolomiteApplication.TypeEnum?> type = default;
+            Option<LimeAmeliorant?> type = default;
             Option<LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor?> customScope3EmissionsFactor = default;
 
             while (utf8JsonReader.Read())
@@ -242,14 +175,7 @@ namespace Org.OpenAPITools.Model
                             limestoneFraction = new Option<LimestoneOrDolomiteApplicationLimestoneFraction?>(JsonSerializer.Deserialize<LimestoneOrDolomiteApplicationLimestoneFraction>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                LimestoneOrDolomiteApplication.TypeEnum? typeValue = LimestoneOrDolomiteApplication.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<LimestoneOrDolomiteApplication.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<LimeAmeliorant?>(JsonSerializer.Deserialize<LimeAmeliorant?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "customScope3EmissionsFactor":
                             customScope3EmissionsFactor = new Option<LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor?>(JsonSerializer.Deserialize<LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -313,8 +239,9 @@ namespace Org.OpenAPITools.Model
             JsonSerializer.Serialize(writer, limestoneOrDolomiteApplication.MassAppliedKg, jsonSerializerOptions);
             writer.WritePropertyName("limestoneFraction");
             JsonSerializer.Serialize(writer, limestoneOrDolomiteApplication.LimestoneFraction, jsonSerializerOptions);
-            var typeRawValue = LimestoneOrDolomiteApplication.TypeEnumToJsonValue(limestoneOrDolomiteApplication.Type);
+            var typeRawValue = LimeAmeliorantValueConverter.ToJsonValue(limestoneOrDolomiteApplication.Type);
             writer.WriteString("type", typeRawValue);
+
             if (limestoneOrDolomiteApplication.CustomScope3EmissionsFactorOption.IsSet)
             {
                 writer.WritePropertyName("customScope3EmissionsFactor");

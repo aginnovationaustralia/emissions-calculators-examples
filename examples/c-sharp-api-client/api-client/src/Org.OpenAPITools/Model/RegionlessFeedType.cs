@@ -37,7 +37,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="amount">amount</param>
         /// <param name="type">The type of feed purchased.</param>
         [JsonConstructor]
-        public RegionlessFeedType(RegionlessFeedTypeAmount amount, TypeEnum type)
+        public RegionlessFeedType(RegionlessFeedTypeAmount amount, PurchasedFeedLivestockRegionlessType type)
         {
             Amount = amount;
             Type = type;
@@ -50,103 +50,8 @@ namespace Org.OpenAPITools.Model
         /// The type of feed purchased.
         /// </summary>
         /// <value>The type of feed purchased.</value>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum Bentonite for value: Bentonite
-            /// </summary>
-            Bentonite = 1,
-
-            /// <summary>
-            /// Enum MeatMeal for value: Meat Meal
-            /// </summary>
-            MeatMeal = 2,
-
-            /// <summary>
-            /// Enum BloodMeal for value: Blood Meal
-            /// </summary>
-            BloodMeal = 3,
-
-            /// <summary>
-            /// Enum Millrun for value: Millrun
-            /// </summary>
-            Millrun = 4
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Bentonite"))
-                return TypeEnum.Bentonite;
-
-            if (value.Equals("Meat Meal"))
-                return TypeEnum.MeatMeal;
-
-            if (value.Equals("Blood Meal"))
-                return TypeEnum.BloodMeal;
-
-            if (value.Equals("Millrun"))
-                return TypeEnum.Millrun;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Bentonite"))
-                return TypeEnum.Bentonite;
-
-            if (value.Equals("Meat Meal"))
-                return TypeEnum.MeatMeal;
-
-            if (value.Equals("Blood Meal"))
-                return TypeEnum.BloodMeal;
-
-            if (value.Equals("Millrun"))
-                return TypeEnum.Millrun;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.Bentonite)
-                return "Bentonite";
-
-            if (value == TypeEnum.MeatMeal)
-                return "Meat Meal";
-
-            if (value == TypeEnum.BloodMeal)
-                return "Blood Meal";
-
-            if (value == TypeEnum.Millrun)
-                return "Millrun";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The type of feed purchased.
-        /// </summary>
-        /// <value>The type of feed purchased.</value>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public PurchasedFeedLivestockRegionlessType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -212,7 +117,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<RegionlessFeedTypeAmount?> amount = default;
-            Option<RegionlessFeedType.TypeEnum?> type = default;
+            Option<PurchasedFeedLivestockRegionlessType?> type = default;
 
             while (utf8JsonReader.Read())
             {
@@ -233,14 +138,7 @@ namespace Org.OpenAPITools.Model
                             amount = new Option<RegionlessFeedTypeAmount?>(JsonSerializer.Deserialize<RegionlessFeedTypeAmount>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                RegionlessFeedType.TypeEnum? typeValue = RegionlessFeedType.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<RegionlessFeedType.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<PurchasedFeedLivestockRegionlessType?>(JsonSerializer.Deserialize<PurchasedFeedLivestockRegionlessType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -287,7 +185,7 @@ namespace Org.OpenAPITools.Model
         {
             writer.WritePropertyName("amount");
             JsonSerializer.Serialize(writer, regionlessFeedType.Amount, jsonSerializerOptions);
-            var typeRawValue = RegionlessFeedType.TypeEnumToJsonValue(regionlessFeedType.Type);
+            var typeRawValue = PurchasedFeedLivestockRegionlessTypeValueConverter.ToJsonValue(regionlessFeedType.Type);
             writer.WriteString("type", typeRawValue);
         }
     }

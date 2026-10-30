@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="electricityPurchasedKWh">electricityPurchasedKWh</param>
         /// <param name="region">The state, territory or electricity grid the electricity is purchased in</param>
         [JsonConstructor]
-        public LocationBased(MethodEnum method, LocationBasedElectricityPurchasedKWh electricityPurchasedKWh, RegionEnum region)
+        public LocationBased(MethodEnum method, LocationBasedElectricityPurchasedKWh electricityPurchasedKWh, ElectricityRegion region)
         {
             Method = method;
             ElectricityPurchasedKWh = electricityPurchasedKWh;
@@ -110,187 +110,8 @@ namespace Org.OpenAPITools.Model
         /// The state, territory or electricity grid the electricity is purchased in
         /// </summary>
         /// <value>The state, territory or electricity grid the electricity is purchased in</value>
-        public enum RegionEnum
-        {
-            /// <summary>
-            /// Enum NSW for value: NSW
-            /// </summary>
-            NSW = 1,
-
-            /// <summary>
-            /// Enum VIC for value: VIC
-            /// </summary>
-            VIC = 2,
-
-            /// <summary>
-            /// Enum QLD for value: QLD
-            /// </summary>
-            QLD = 3,
-
-            /// <summary>
-            /// Enum SA for value: SA
-            /// </summary>
-            SA = 4,
-
-            /// <summary>
-            /// Enum WANW for value: WA_NW
-            /// </summary>
-            WANW = 5,
-
-            /// <summary>
-            /// Enum WASW for value: WA_SW
-            /// </summary>
-            WASW = 6,
-
-            /// <summary>
-            /// Enum TAS for value: TAS
-            /// </summary>
-            TAS = 7,
-
-            /// <summary>
-            /// Enum NT for value: NT
-            /// </summary>
-            NT = 8,
-
-            /// <summary>
-            /// Enum ACT for value: ACT
-            /// </summary>
-            ACT = 9,
-
-            /// <summary>
-            /// Enum National for value: National
-            /// </summary>
-            National = 10
-        }
-
-        /// <summary>
-        /// Returns a <see cref="RegionEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static RegionEnum RegionEnumFromString(string value)
-        {
-            if (value.Equals("NSW"))
-                return RegionEnum.NSW;
-
-            if (value.Equals("VIC"))
-                return RegionEnum.VIC;
-
-            if (value.Equals("QLD"))
-                return RegionEnum.QLD;
-
-            if (value.Equals("SA"))
-                return RegionEnum.SA;
-
-            if (value.Equals("WA_NW"))
-                return RegionEnum.WANW;
-
-            if (value.Equals("WA_SW"))
-                return RegionEnum.WASW;
-
-            if (value.Equals("TAS"))
-                return RegionEnum.TAS;
-
-            if (value.Equals("NT"))
-                return RegionEnum.NT;
-
-            if (value.Equals("ACT"))
-                return RegionEnum.ACT;
-
-            if (value.Equals("National"))
-                return RegionEnum.National;
-
-            throw new NotImplementedException($"Could not convert value to type RegionEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="RegionEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static RegionEnum? RegionEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("NSW"))
-                return RegionEnum.NSW;
-
-            if (value.Equals("VIC"))
-                return RegionEnum.VIC;
-
-            if (value.Equals("QLD"))
-                return RegionEnum.QLD;
-
-            if (value.Equals("SA"))
-                return RegionEnum.SA;
-
-            if (value.Equals("WA_NW"))
-                return RegionEnum.WANW;
-
-            if (value.Equals("WA_SW"))
-                return RegionEnum.WASW;
-
-            if (value.Equals("TAS"))
-                return RegionEnum.TAS;
-
-            if (value.Equals("NT"))
-                return RegionEnum.NT;
-
-            if (value.Equals("ACT"))
-                return RegionEnum.ACT;
-
-            if (value.Equals("National"))
-                return RegionEnum.National;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="RegionEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string RegionEnumToJsonValue(RegionEnum value)
-        {
-            if (value == RegionEnum.NSW)
-                return "NSW";
-
-            if (value == RegionEnum.VIC)
-                return "VIC";
-
-            if (value == RegionEnum.QLD)
-                return "QLD";
-
-            if (value == RegionEnum.SA)
-                return "SA";
-
-            if (value == RegionEnum.WANW)
-                return "WA_NW";
-
-            if (value == RegionEnum.WASW)
-                return "WA_SW";
-
-            if (value == RegionEnum.TAS)
-                return "TAS";
-
-            if (value == RegionEnum.NT)
-                return "NT";
-
-            if (value == RegionEnum.ACT)
-                return "ACT";
-
-            if (value == RegionEnum.National)
-                return "National";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// The state, territory or electricity grid the electricity is purchased in
-        /// </summary>
-        /// <value>The state, territory or electricity grid the electricity is purchased in</value>
         [JsonPropertyName("region")]
-        public RegionEnum Region { get; set; }
+        public ElectricityRegion Region { get; set; }
 
         /// <summary>
         /// Gets or Sets ElectricityPurchasedKWh
@@ -365,7 +186,7 @@ namespace Org.OpenAPITools.Model
 
             Option<LocationBased.MethodEnum?> method = default;
             Option<LocationBasedElectricityPurchasedKWh?> electricityPurchasedKWh = default;
-            Option<LocationBased.RegionEnum?> region = default;
+            Option<ElectricityRegion?> region = default;
 
             while (utf8JsonReader.Read())
             {
@@ -396,14 +217,7 @@ namespace Org.OpenAPITools.Model
                             electricityPurchasedKWh = new Option<LocationBasedElectricityPurchasedKWh?>(JsonSerializer.Deserialize<LocationBasedElectricityPurchasedKWh>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "region":
-                            string? regionRawValue = utf8JsonReader.GetString();
-                            if (regionRawValue != null)
-                            {
-                                LocationBased.RegionEnum? regionValue = LocationBased.RegionEnumFromStringOrDefault(regionRawValue);
-                                if (regionValue == null)
-                                    throw new JsonException();
-                                region = new Option<LocationBased.RegionEnum?>(regionValue);
-                            }
+                            region = new Option<ElectricityRegion?>(JsonSerializer.Deserialize<ElectricityRegion?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -458,7 +272,7 @@ namespace Org.OpenAPITools.Model
             writer.WriteString("method", methodRawValue);
             writer.WritePropertyName("electricityPurchasedKWh");
             JsonSerializer.Serialize(writer, locationBased.ElectricityPurchasedKWh, jsonSerializerOptions);
-            var regionRawValue = LocationBased.RegionEnumToJsonValue(locationBased.Region);
+            var regionRawValue = ElectricityRegionValueConverter.ToJsonValue(locationBased.Region);
             writer.WriteString("region", regionRawValue);
         }
     }

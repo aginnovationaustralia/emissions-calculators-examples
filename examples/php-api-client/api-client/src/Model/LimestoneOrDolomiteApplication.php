@@ -62,7 +62,7 @@ class LimestoneOrDolomiteApplication implements ModelInterface, ArrayAccess, Jso
         'mass_applied_kg' => '\OpenAPI\Client\Model\LimestoneOrDolomiteApplicationMassAppliedKg',
         'custom_scope3_emissions_factor' => '\OpenAPI\Client\Model\LimestoneOrDolomiteApplicationCustomScope3EmissionsFactor',
         'limestone_fraction' => '\OpenAPI\Client\Model\LimestoneOrDolomiteApplicationLimestoneFraction',
-        'type' => 'string'
+        'type' => '\OpenAPI\Client\Model\LimeAmeliorant'
     ];
 
     /**
@@ -227,21 +227,6 @@ class LimestoneOrDolomiteApplication implements ModelInterface, ArrayAccess, Jso
         return self::$openAPIModelName;
     }
 
-    public const TYPE_LIMESTONE = 'Limestone';
-    public const TYPE_DOLOMITE = 'Dolomite';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_LIMESTONE,
-            self::TYPE_DOLOMITE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -297,15 +282,6 @@ class LimestoneOrDolomiteApplication implements ModelInterface, ArrayAccess, Jso
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -402,9 +378,9 @@ class LimestoneOrDolomiteApplication implements ModelInterface, ArrayAccess, Jso
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\LimeAmeliorant
      */
-    public function getType(): string
+    public function getType(): \OpenAPI\Client\Model\LimeAmeliorant
     {
         return $this->container['type'];
     }
@@ -412,24 +388,14 @@ class LimestoneOrDolomiteApplication implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets type
      *
-     * @param string $type Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3
+     * @param \OpenAPI\Client\Model\LimeAmeliorant $type Type of soil ameliorant. Note that gypsum applications are not counted in scope 1 emissions, only scope 3
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(\OpenAPI\Client\Model\LimeAmeliorant $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

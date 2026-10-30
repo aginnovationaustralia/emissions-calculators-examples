@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-export const BASE_PATH = "https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0.2".replace(/\/+$/, "");
+export const BASE_PATH = "https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta".replace(/\/+$/, "");
 
 export interface ConfigurationParameters {
     basePath?: string; // override base path

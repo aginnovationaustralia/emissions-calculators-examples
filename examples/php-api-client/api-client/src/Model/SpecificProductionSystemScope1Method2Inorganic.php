@@ -59,8 +59,9 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'applications' => '\OpenAPI\Client\Model\SpecificProductionSystemScope1Method2InorganicApplicationsInner[]',
-        'calculation_method_scope1' => 'string'
+        'applications' => '\OpenAPI\Client\Model\BasicProductionSystemScope1Method1InorganicApplicationsInner[]',
+        'calculation_method_scope1' => 'string',
+        'area_applied_hectares' => '\OpenAPI\Client\Model\SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares'
     ];
 
     /**
@@ -70,7 +71,8 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
      */
     protected static array $openAPIFormats = [
         'applications' => null,
-        'calculation_method_scope1' => null
+        'calculation_method_scope1' => null,
+        'area_applied_hectares' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
      */
     protected static array $openAPINullables = [
         'applications' => false,
-        'calculation_method_scope1' => false
+        'calculation_method_scope1' => false,
+        'area_applied_hectares' => false
     ];
 
     /**
@@ -160,7 +163,8 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
      */
     protected static array $attributeMap = [
         'applications' => 'applications',
-        'calculation_method_scope1' => 'calculationMethodScope1'
+        'calculation_method_scope1' => 'calculationMethodScope1',
+        'area_applied_hectares' => 'areaAppliedHectares'
     ];
 
     /**
@@ -170,7 +174,8 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
      */
     protected static array $setters = [
         'applications' => 'setApplications',
-        'calculation_method_scope1' => 'setCalculationMethodScope1'
+        'calculation_method_scope1' => 'setCalculationMethodScope1',
+        'area_applied_hectares' => 'setAreaAppliedHectares'
     ];
 
     /**
@@ -180,7 +185,8 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
      */
     protected static array $getters = [
         'applications' => 'getApplications',
-        'calculation_method_scope1' => 'getCalculationMethodScope1'
+        'calculation_method_scope1' => 'getCalculationMethodScope1',
+        'area_applied_hectares' => 'getAreaAppliedHectares'
     ];
 
     /**
@@ -245,6 +251,7 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
     {
         $this->setIfExists('applications', $data ?? [], null);
         $this->setIfExists('calculation_method_scope1', $data ?? [], null);
+        $this->setIfExists('area_applied_hectares', $data ?? [], null);
     }
 
     /**
@@ -287,6 +294,9 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
             );
         }
 
+        if ($this->container['area_applied_hectares'] === null) {
+            $invalidProperties[] = "'area_applied_hectares' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -302,7 +312,7 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
     /**
      * Gets applications
      *
-     * @return (\OpenAPI\Client\Model\Scope3Method11|\OpenAPI\Client\Model\Scope3Method2KnownFertiliserType1|\OpenAPI\Client\Model\Scope3Method2OtherFertiliserType1)[]
+     * @return (\OpenAPI\Client\Model\Scope3Method1|\OpenAPI\Client\Model\Scope3Method2KnownFertiliserType|\OpenAPI\Client\Model\Scope3Method2OtherFertiliserType)[]
      */
     public function getApplications(): array
     {
@@ -312,7 +322,7 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
     /**
      * Sets applications
      *
-     * @param (\OpenAPI\Client\Model\Scope3Method11|\OpenAPI\Client\Model\Scope3Method2KnownFertiliserType1|\OpenAPI\Client\Model\Scope3Method2OtherFertiliserType1)[] $applications Inorganic fertiliser applications
+     * @param (\OpenAPI\Client\Model\Scope3Method1|\OpenAPI\Client\Model\Scope3Method2KnownFertiliserType|\OpenAPI\Client\Model\Scope3Method2OtherFertiliserType)[] $applications Inorganic fertiliser applications
      *
      * @return $this
      */
@@ -359,6 +369,33 @@ class SpecificProductionSystemScope1Method2Inorganic implements ModelInterface, 
             );
         }
         $this->container['calculation_method_scope1'] = $calculation_method_scope1;
+
+        return $this;
+    }
+
+    /**
+     * Gets area_applied_hectares
+     *
+     * @return \OpenAPI\Client\Model\SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares
+     */
+    public function getAreaAppliedHectares(): \OpenAPI\Client\Model\SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares
+    {
+        return $this->container['area_applied_hectares'];
+    }
+
+    /**
+     * Sets area_applied_hectares
+     *
+     * @param \OpenAPI\Client\Model\SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares $area_applied_hectares area_applied_hectares
+     *
+     * @return $this
+     */
+    public function setAreaAppliedHectares(\OpenAPI\Client\Model\SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares $area_applied_hectares): static
+    {
+        if (is_null($area_applied_hectares)) {
+            throw new InvalidArgumentException('non-nullable area_applied_hectares cannot be null');
+        }
+        $this->container['area_applied_hectares'] = $area_applied_hectares;
 
         return $this;
     }

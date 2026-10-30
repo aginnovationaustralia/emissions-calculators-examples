@@ -37,7 +37,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="knownComponent"></param>
         /// <param name="componentType">Type of inorganic fertiliser component</param>
         /// <param name="componentOrigin">Origin of inorganic fertiliser component</param>
-        public Scope3Method1ComponentsInner(KnownComponent knownComponent, ComponentTypeEnum componentType, ComponentOriginEnum componentOrigin)
+        public Scope3Method1ComponentsInner(KnownComponent knownComponent, InorganicFertiliserComponentTypeNonRegional componentType, InorganicFertiliserComponentOrigin componentOrigin)
         {
             KnownComponent = knownComponent;
             ComponentType = componentType;
@@ -51,7 +51,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="unknownComponentCustomEmissionFactor"></param>
         /// <param name="componentType">Type of inorganic fertiliser component</param>
         /// <param name="componentOrigin">Origin of inorganic fertiliser component</param>
-        public Scope3Method1ComponentsInner(UnknownComponentCustomEmissionFactor unknownComponentCustomEmissionFactor, ComponentTypeEnum componentType, ComponentOriginEnum componentOrigin)
+        public Scope3Method1ComponentsInner(UnknownComponentCustomEmissionFactor unknownComponentCustomEmissionFactor, InorganicFertiliserComponentTypeNonRegional componentType, InorganicFertiliserComponentOrigin componentOrigin)
         {
             UnknownComponentCustomEmissionFactor = unknownComponentCustomEmissionFactor;
             ComponentType = componentType;
@@ -65,373 +65,15 @@ namespace Org.OpenAPITools.Model
         /// Type of inorganic fertiliser component
         /// </summary>
         /// <value>Type of inorganic fertiliser component</value>
-        public enum ComponentTypeEnum
-        {
-            /// <summary>
-            /// Enum MonoammoniumPhosphate for value: Monoammonium phosphate
-            /// </summary>
-            MonoammoniumPhosphate = 1,
-
-            /// <summary>
-            /// Enum DiammoniumPhosphate for value: Diammonium Phosphate
-            /// </summary>
-            DiammoniumPhosphate = 2,
-
-            /// <summary>
-            /// Enum UreaAmmoniumNitrate for value: Urea-Ammonium Nitrate
-            /// </summary>
-            UreaAmmoniumNitrate = 3,
-
-            /// <summary>
-            /// Enum AmmoniumNitrate for value: Ammonium Nitrate
-            /// </summary>
-            AmmoniumNitrate = 4,
-
-            /// <summary>
-            /// Enum CalciumAmmoniumNitrate for value: Calcium Ammonium Nitrate
-            /// </summary>
-            CalciumAmmoniumNitrate = 5,
-
-            /// <summary>
-            /// Enum SulphateOfAmmonia for value: Sulphate of Ammonia
-            /// </summary>
-            SulphateOfAmmonia = 6,
-
-            /// <summary>
-            /// Enum NitrogenGeneric for value: Nitrogen - Generic
-            /// </summary>
-            NitrogenGeneric = 7,
-
-            /// <summary>
-            /// Enum NitrogenNitrate for value: Nitrogen - Nitrate
-            /// </summary>
-            NitrogenNitrate = 8,
-
-            /// <summary>
-            /// Enum NitrogenAmmonia for value: Nitrogen - Ammonia
-            /// </summary>
-            NitrogenAmmonia = 9,
-
-            /// <summary>
-            /// Enum MuriateOfPotash for value: Muriate of Potash
-            /// </summary>
-            MuriateOfPotash = 10,
-
-            /// <summary>
-            /// Enum SingleSuperphosphate for value: Single superphosphate
-            /// </summary>
-            SingleSuperphosphate = 11,
-
-            /// <summary>
-            /// Enum DoubleSuperphosphate for value: Double Superphosphate
-            /// </summary>
-            DoubleSuperphosphate = 12,
-
-            /// <summary>
-            /// Enum PhosphorusGeneric for value: Phosphorus - Generic
-            /// </summary>
-            PhosphorusGeneric = 13,
-
-            /// <summary>
-            /// Enum PotassiumGeneric for value: Potassium - Generic
-            /// </summary>
-            PotassiumGeneric = 14,
-
-            /// <summary>
-            /// Enum SulfurGeneric for value: Sulfur - Generic
-            /// </summary>
-            SulfurGeneric = 15,
-
-            /// <summary>
-            /// Enum ZincGeneric for value: Zinc - Generic
-            /// </summary>
-            ZincGeneric = 16
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ComponentTypeEnum ComponentTypeEnumFromString(string value)
-        {
-            if (value.Equals("Monoammonium phosphate"))
-                return ComponentTypeEnum.MonoammoniumPhosphate;
-
-            if (value.Equals("Diammonium Phosphate"))
-                return ComponentTypeEnum.DiammoniumPhosphate;
-
-            if (value.Equals("Urea-Ammonium Nitrate"))
-                return ComponentTypeEnum.UreaAmmoniumNitrate;
-
-            if (value.Equals("Ammonium Nitrate"))
-                return ComponentTypeEnum.AmmoniumNitrate;
-
-            if (value.Equals("Calcium Ammonium Nitrate"))
-                return ComponentTypeEnum.CalciumAmmoniumNitrate;
-
-            if (value.Equals("Sulphate of Ammonia"))
-                return ComponentTypeEnum.SulphateOfAmmonia;
-
-            if (value.Equals("Nitrogen - Generic"))
-                return ComponentTypeEnum.NitrogenGeneric;
-
-            if (value.Equals("Nitrogen - Nitrate"))
-                return ComponentTypeEnum.NitrogenNitrate;
-
-            if (value.Equals("Nitrogen - Ammonia"))
-                return ComponentTypeEnum.NitrogenAmmonia;
-
-            if (value.Equals("Muriate of Potash"))
-                return ComponentTypeEnum.MuriateOfPotash;
-
-            if (value.Equals("Single superphosphate"))
-                return ComponentTypeEnum.SingleSuperphosphate;
-
-            if (value.Equals("Double Superphosphate"))
-                return ComponentTypeEnum.DoubleSuperphosphate;
-
-            if (value.Equals("Phosphorus - Generic"))
-                return ComponentTypeEnum.PhosphorusGeneric;
-
-            if (value.Equals("Potassium - Generic"))
-                return ComponentTypeEnum.PotassiumGeneric;
-
-            if (value.Equals("Sulfur - Generic"))
-                return ComponentTypeEnum.SulfurGeneric;
-
-            if (value.Equals("Zinc - Generic"))
-                return ComponentTypeEnum.ZincGeneric;
-
-            throw new NotImplementedException($"Could not convert value to type ComponentTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ComponentTypeEnum? ComponentTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Monoammonium phosphate"))
-                return ComponentTypeEnum.MonoammoniumPhosphate;
-
-            if (value.Equals("Diammonium Phosphate"))
-                return ComponentTypeEnum.DiammoniumPhosphate;
-
-            if (value.Equals("Urea-Ammonium Nitrate"))
-                return ComponentTypeEnum.UreaAmmoniumNitrate;
-
-            if (value.Equals("Ammonium Nitrate"))
-                return ComponentTypeEnum.AmmoniumNitrate;
-
-            if (value.Equals("Calcium Ammonium Nitrate"))
-                return ComponentTypeEnum.CalciumAmmoniumNitrate;
-
-            if (value.Equals("Sulphate of Ammonia"))
-                return ComponentTypeEnum.SulphateOfAmmonia;
-
-            if (value.Equals("Nitrogen - Generic"))
-                return ComponentTypeEnum.NitrogenGeneric;
-
-            if (value.Equals("Nitrogen - Nitrate"))
-                return ComponentTypeEnum.NitrogenNitrate;
-
-            if (value.Equals("Nitrogen - Ammonia"))
-                return ComponentTypeEnum.NitrogenAmmonia;
-
-            if (value.Equals("Muriate of Potash"))
-                return ComponentTypeEnum.MuriateOfPotash;
-
-            if (value.Equals("Single superphosphate"))
-                return ComponentTypeEnum.SingleSuperphosphate;
-
-            if (value.Equals("Double Superphosphate"))
-                return ComponentTypeEnum.DoubleSuperphosphate;
-
-            if (value.Equals("Phosphorus - Generic"))
-                return ComponentTypeEnum.PhosphorusGeneric;
-
-            if (value.Equals("Potassium - Generic"))
-                return ComponentTypeEnum.PotassiumGeneric;
-
-            if (value.Equals("Sulfur - Generic"))
-                return ComponentTypeEnum.SulfurGeneric;
-
-            if (value.Equals("Zinc - Generic"))
-                return ComponentTypeEnum.ZincGeneric;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ComponentTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ComponentTypeEnumToJsonValue(ComponentTypeEnum value)
-        {
-            if (value == ComponentTypeEnum.MonoammoniumPhosphate)
-                return "Monoammonium phosphate";
-
-            if (value == ComponentTypeEnum.DiammoniumPhosphate)
-                return "Diammonium Phosphate";
-
-            if (value == ComponentTypeEnum.UreaAmmoniumNitrate)
-                return "Urea-Ammonium Nitrate";
-
-            if (value == ComponentTypeEnum.AmmoniumNitrate)
-                return "Ammonium Nitrate";
-
-            if (value == ComponentTypeEnum.CalciumAmmoniumNitrate)
-                return "Calcium Ammonium Nitrate";
-
-            if (value == ComponentTypeEnum.SulphateOfAmmonia)
-                return "Sulphate of Ammonia";
-
-            if (value == ComponentTypeEnum.NitrogenGeneric)
-                return "Nitrogen - Generic";
-
-            if (value == ComponentTypeEnum.NitrogenNitrate)
-                return "Nitrogen - Nitrate";
-
-            if (value == ComponentTypeEnum.NitrogenAmmonia)
-                return "Nitrogen - Ammonia";
-
-            if (value == ComponentTypeEnum.MuriateOfPotash)
-                return "Muriate of Potash";
-
-            if (value == ComponentTypeEnum.SingleSuperphosphate)
-                return "Single superphosphate";
-
-            if (value == ComponentTypeEnum.DoubleSuperphosphate)
-                return "Double Superphosphate";
-
-            if (value == ComponentTypeEnum.PhosphorusGeneric)
-                return "Phosphorus - Generic";
-
-            if (value == ComponentTypeEnum.PotassiumGeneric)
-                return "Potassium - Generic";
-
-            if (value == ComponentTypeEnum.SulfurGeneric)
-                return "Sulfur - Generic";
-
-            if (value == ComponentTypeEnum.ZincGeneric)
-                return "Zinc - Generic";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of inorganic fertiliser component
-        /// </summary>
-        /// <value>Type of inorganic fertiliser component</value>
         [JsonPropertyName("componentType")]
-        public ComponentTypeEnum ComponentType { get; set; }
-
-        /// <summary>
-        /// Origin of inorganic fertiliser component
-        /// </summary>
-        /// <value>Origin of inorganic fertiliser component</value>
-        public enum ComponentOriginEnum
-        {
-            /// <summary>
-            /// Enum Unspecified for value: Unspecified
-            /// </summary>
-            Unspecified = 1,
-
-            /// <summary>
-            /// Enum China for value: China
-            /// </summary>
-            China = 2,
-
-            /// <summary>
-            /// Enum Yemen for value: Yemen
-            /// </summary>
-            Yemen = 3,
-
-            /// <summary>
-            /// Enum Canada for value: Canada
-            /// </summary>
-            Canada = 4
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentOriginEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static ComponentOriginEnum ComponentOriginEnumFromString(string value)
-        {
-            if (value.Equals("Unspecified"))
-                return ComponentOriginEnum.Unspecified;
-
-            if (value.Equals("China"))
-                return ComponentOriginEnum.China;
-
-            if (value.Equals("Yemen"))
-                return ComponentOriginEnum.Yemen;
-
-            if (value.Equals("Canada"))
-                return ComponentOriginEnum.Canada;
-
-            throw new NotImplementedException($"Could not convert value to type ComponentOriginEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="ComponentOriginEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static ComponentOriginEnum? ComponentOriginEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Unspecified"))
-                return ComponentOriginEnum.Unspecified;
-
-            if (value.Equals("China"))
-                return ComponentOriginEnum.China;
-
-            if (value.Equals("Yemen"))
-                return ComponentOriginEnum.Yemen;
-
-            if (value.Equals("Canada"))
-                return ComponentOriginEnum.Canada;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="ComponentOriginEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string ComponentOriginEnumToJsonValue(ComponentOriginEnum value)
-        {
-            if (value == ComponentOriginEnum.Unspecified)
-                return "Unspecified";
-
-            if (value == ComponentOriginEnum.China)
-                return "China";
-
-            if (value == ComponentOriginEnum.Yemen)
-                return "Yemen";
-
-            if (value == ComponentOriginEnum.Canada)
-                return "Canada";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
+        public InorganicFertiliserComponentTypeNonRegional ComponentType { get; set; }
 
         /// <summary>
         /// Origin of inorganic fertiliser component
         /// </summary>
         /// <value>Origin of inorganic fertiliser component</value>
         [JsonPropertyName("componentOrigin")]
-        public ComponentOriginEnum ComponentOrigin { get; set; }
+        public InorganicFertiliserComponentOrigin ComponentOrigin { get; set; }
 
         /// <summary>
         /// Gets or Sets KnownComponent
@@ -500,8 +142,8 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<Scope3Method1ComponentsInner.ComponentTypeEnum?> componentType = default;
-            Option<Scope3Method1ComponentsInner.ComponentOriginEnum?> componentOrigin = default;
+            Option<InorganicFertiliserComponentTypeNonRegional?> componentType = default;
+            Option<InorganicFertiliserComponentOrigin?> componentOrigin = default;
 
             KnownComponent? knownComponent = default;
             UnknownComponentCustomEmissionFactor? unknownComponentCustomEmissionFactor = default;
@@ -541,24 +183,10 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "componentType":
-                            string? componentTypeRawValue = utf8JsonReader.GetString();
-                            if (componentTypeRawValue != null)
-                            {
-                                Scope3Method1ComponentsInner.ComponentTypeEnum? componentTypeValue = Scope3Method1ComponentsInner.ComponentTypeEnumFromStringOrDefault(componentTypeRawValue);
-                                if (componentTypeValue == null)
-                                    throw new JsonException();
-                                componentType = new Option<Scope3Method1ComponentsInner.ComponentTypeEnum?>(componentTypeValue);
-                            }
+                            componentType = new Option<InorganicFertiliserComponentTypeNonRegional?>(JsonSerializer.Deserialize<InorganicFertiliserComponentTypeNonRegional?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "componentOrigin":
-                            string? componentOriginRawValue = utf8JsonReader.GetString();
-                            if (componentOriginRawValue != null)
-                            {
-                                Scope3Method1ComponentsInner.ComponentOriginEnum? componentOriginValue = Scope3Method1ComponentsInner.ComponentOriginEnumFromStringOrDefault(componentOriginRawValue);
-                                if (componentOriginValue == null)
-                                    throw new JsonException();
-                                componentOrigin = new Option<Scope3Method1ComponentsInner.ComponentOriginEnum?>(componentOriginValue);
-                            }
+                            componentOrigin = new Option<InorganicFertiliserComponentOrigin?>(JsonSerializer.Deserialize<InorganicFertiliserComponentOrigin?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -621,9 +249,10 @@ namespace Org.OpenAPITools.Model
                 unknownComponentCustomEmissionFactorJsonConverter.WriteProperties(writer, scope3Method1ComponentsInner.UnknownComponentCustomEmissionFactor, jsonSerializerOptions);
             }
 
-            var componentTypeRawValue = Scope3Method1ComponentsInner.ComponentTypeEnumToJsonValue(scope3Method1ComponentsInner.ComponentType);
+            var componentTypeRawValue = InorganicFertiliserComponentTypeNonRegionalValueConverter.ToJsonValue(scope3Method1ComponentsInner.ComponentType);
             writer.WriteString("componentType", componentTypeRawValue);
-            var componentOriginRawValue = Scope3Method1ComponentsInner.ComponentOriginEnumToJsonValue(scope3Method1ComponentsInner.ComponentOrigin);
+
+            var componentOriginRawValue = InorganicFertiliserComponentOriginValueConverter.ToJsonValue(scope3Method1ComponentsInner.ComponentOrigin);
             writer.WriteString("componentOrigin", componentOriginRawValue);
         }
     }

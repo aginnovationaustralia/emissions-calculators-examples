@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="amountKg">amountKg</param>
         /// <param name="customEmissionsFactor">customEmissionsFactor</param>
         [JsonConstructor]
-        public PostBeefRequestHerdsInnerChemicalsInner(TypeEnum type, PostBeefRequestHerdsInnerChemicalsInnerAmountKg amountKg, Option<PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor?> customEmissionsFactor = default)
+        public PostBeefRequestHerdsInnerChemicalsInner(AgrochemicalType type, PostBeefRequestHerdsInnerChemicalsInnerAmountKg amountKg, Option<PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor?> customEmissionsFactor = default)
         {
             Type = type;
             AmountKg = amountKg;
@@ -49,272 +49,10 @@ namespace Org.OpenAPITools.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Defines Type
-        /// </summary>
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum HerbicideparaquatDiquatGlyphosate for value: Herbicide (paraquat, diquat, glyphosate)
-            /// </summary>
-            HerbicideparaquatDiquatGlyphosate = 1,
-
-            /// <summary>
-            /// Enum OtherHerbicide for value: Other herbicide
-            /// </summary>
-            OtherHerbicide = 2,
-
-            /// <summary>
-            /// Enum Insecticide for value: Insecticide
-            /// </summary>
-            Insecticide = 3,
-
-            /// <summary>
-            /// Enum Fungicide for value: Fungicide
-            /// </summary>
-            Fungicide = 4,
-
-            /// <summary>
-            /// Enum PlantGrowthRegulator for value: Plant growth regulator
-            /// </summary>
-            PlantGrowthRegulator = 5,
-
-            /// <summary>
-            /// Enum _24D for value: 2,4-D
-            /// </summary>
-            _24D = 6,
-
-            /// <summary>
-            /// Enum Atrazine for value: Atrazine
-            /// </summary>
-            Atrazine = 7,
-
-            /// <summary>
-            /// Enum Diuron for value: Diuron
-            /// </summary>
-            Diuron = 8,
-
-            /// <summary>
-            /// Enum Mancozeb for value: Mancozeb
-            /// </summary>
-            Mancozeb = 9,
-
-            /// <summary>
-            /// Enum MCPA for value: MCPA
-            /// </summary>
-            MCPA = 10,
-
-            /// <summary>
-            /// Enum Metolachlor for value: Metolachlor
-            /// </summary>
-            Metolachlor = 11,
-
-            /// <summary>
-            /// Enum MetsulfuronMethyl for value: Metsulfuron-methyl
-            /// </summary>
-            MetsulfuronMethyl = 12,
-
-            /// <summary>
-            /// Enum Pesticidesgeneric for value: Pesticides (generic)
-            /// </summary>
-            Pesticidesgeneric = 13,
-
-            /// <summary>
-            /// Enum TriAllate for value: Tri-allate
-            /// </summary>
-            TriAllate = 14,
-
-            /// <summary>
-            /// Enum TribenuronMethyl for value: Tribenuron methyl
-            /// </summary>
-            TribenuronMethyl = 15,
-
-            /// <summary>
-            /// Enum Trifluralin for value: Trifluralin
-            /// </summary>
-            Trifluralin = 16
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static TypeEnum TypeEnumFromString(string value)
-        {
-            if (value.Equals("Herbicide (paraquat, diquat, glyphosate)"))
-                return TypeEnum.HerbicideparaquatDiquatGlyphosate;
-
-            if (value.Equals("Other herbicide"))
-                return TypeEnum.OtherHerbicide;
-
-            if (value.Equals("Insecticide"))
-                return TypeEnum.Insecticide;
-
-            if (value.Equals("Fungicide"))
-                return TypeEnum.Fungicide;
-
-            if (value.Equals("Plant growth regulator"))
-                return TypeEnum.PlantGrowthRegulator;
-
-            if (value.Equals("2,4-D"))
-                return TypeEnum._24D;
-
-            if (value.Equals("Atrazine"))
-                return TypeEnum.Atrazine;
-
-            if (value.Equals("Diuron"))
-                return TypeEnum.Diuron;
-
-            if (value.Equals("Mancozeb"))
-                return TypeEnum.Mancozeb;
-
-            if (value.Equals("MCPA"))
-                return TypeEnum.MCPA;
-
-            if (value.Equals("Metolachlor"))
-                return TypeEnum.Metolachlor;
-
-            if (value.Equals("Metsulfuron-methyl"))
-                return TypeEnum.MetsulfuronMethyl;
-
-            if (value.Equals("Pesticides (generic)"))
-                return TypeEnum.Pesticidesgeneric;
-
-            if (value.Equals("Tri-allate"))
-                return TypeEnum.TriAllate;
-
-            if (value.Equals("Tribenuron methyl"))
-                return TypeEnum.TribenuronMethyl;
-
-            if (value.Equals("Trifluralin"))
-                return TypeEnum.Trifluralin;
-
-            throw new NotImplementedException($"Could not convert value to type TypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="TypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static TypeEnum? TypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Herbicide (paraquat, diquat, glyphosate)"))
-                return TypeEnum.HerbicideparaquatDiquatGlyphosate;
-
-            if (value.Equals("Other herbicide"))
-                return TypeEnum.OtherHerbicide;
-
-            if (value.Equals("Insecticide"))
-                return TypeEnum.Insecticide;
-
-            if (value.Equals("Fungicide"))
-                return TypeEnum.Fungicide;
-
-            if (value.Equals("Plant growth regulator"))
-                return TypeEnum.PlantGrowthRegulator;
-
-            if (value.Equals("2,4-D"))
-                return TypeEnum._24D;
-
-            if (value.Equals("Atrazine"))
-                return TypeEnum.Atrazine;
-
-            if (value.Equals("Diuron"))
-                return TypeEnum.Diuron;
-
-            if (value.Equals("Mancozeb"))
-                return TypeEnum.Mancozeb;
-
-            if (value.Equals("MCPA"))
-                return TypeEnum.MCPA;
-
-            if (value.Equals("Metolachlor"))
-                return TypeEnum.Metolachlor;
-
-            if (value.Equals("Metsulfuron-methyl"))
-                return TypeEnum.MetsulfuronMethyl;
-
-            if (value.Equals("Pesticides (generic)"))
-                return TypeEnum.Pesticidesgeneric;
-
-            if (value.Equals("Tri-allate"))
-                return TypeEnum.TriAllate;
-
-            if (value.Equals("Tribenuron methyl"))
-                return TypeEnum.TribenuronMethyl;
-
-            if (value.Equals("Trifluralin"))
-                return TypeEnum.Trifluralin;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="TypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string TypeEnumToJsonValue(TypeEnum value)
-        {
-            if (value == TypeEnum.HerbicideparaquatDiquatGlyphosate)
-                return "Herbicide (paraquat, diquat, glyphosate)";
-
-            if (value == TypeEnum.OtherHerbicide)
-                return "Other herbicide";
-
-            if (value == TypeEnum.Insecticide)
-                return "Insecticide";
-
-            if (value == TypeEnum.Fungicide)
-                return "Fungicide";
-
-            if (value == TypeEnum.PlantGrowthRegulator)
-                return "Plant growth regulator";
-
-            if (value == TypeEnum._24D)
-                return "2,4-D";
-
-            if (value == TypeEnum.Atrazine)
-                return "Atrazine";
-
-            if (value == TypeEnum.Diuron)
-                return "Diuron";
-
-            if (value == TypeEnum.Mancozeb)
-                return "Mancozeb";
-
-            if (value == TypeEnum.MCPA)
-                return "MCPA";
-
-            if (value == TypeEnum.Metolachlor)
-                return "Metolachlor";
-
-            if (value == TypeEnum.MetsulfuronMethyl)
-                return "Metsulfuron-methyl";
-
-            if (value == TypeEnum.Pesticidesgeneric)
-                return "Pesticides (generic)";
-
-            if (value == TypeEnum.TriAllate)
-                return "Tri-allate";
-
-            if (value == TypeEnum.TribenuronMethyl)
-                return "Tribenuron methyl";
-
-            if (value == TypeEnum.Trifluralin)
-                return "Trifluralin";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [JsonPropertyName("type")]
-        public TypeEnum Type { get; set; }
+        public AgrochemicalType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKg
@@ -400,7 +138,7 @@ namespace Org.OpenAPITools.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<PostBeefRequestHerdsInnerChemicalsInner.TypeEnum?> type = default;
+            Option<AgrochemicalType?> type = default;
             Option<PostBeefRequestHerdsInnerChemicalsInnerAmountKg?> amountKg = default;
             Option<PostBeefRequestHerdsInnerChemicalsInnerCustomEmissionsFactor?> customEmissionsFactor = default;
 
@@ -420,14 +158,7 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "type":
-                            string? typeRawValue = utf8JsonReader.GetString();
-                            if (typeRawValue != null)
-                            {
-                                PostBeefRequestHerdsInnerChemicalsInner.TypeEnum? typeValue = PostBeefRequestHerdsInnerChemicalsInner.TypeEnumFromStringOrDefault(typeRawValue);
-                                if (typeValue == null)
-                                    throw new JsonException();
-                                type = new Option<PostBeefRequestHerdsInnerChemicalsInner.TypeEnum?>(typeValue);
-                            }
+                            type = new Option<AgrochemicalType?>(JsonSerializer.Deserialize<AgrochemicalType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "amountKg":
                             amountKg = new Option<PostBeefRequestHerdsInnerChemicalsInnerAmountKg?>(JsonSerializer.Deserialize<PostBeefRequestHerdsInnerChemicalsInnerAmountKg>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -484,8 +215,9 @@ namespace Org.OpenAPITools.Model
             if (postBeefRequestHerdsInnerChemicalsInner.CustomEmissionsFactorOption.IsSet && postBeefRequestHerdsInnerChemicalsInner.CustomEmissionsFactor == null)
                 throw new JsonException("Cannot write null property PostBeefRequestHerdsInnerChemicalsInner.CustomEmissionsFactor to non-nullable JSON property 'customEmissionsFactor'.");
 
-            var typeRawValue = PostBeefRequestHerdsInnerChemicalsInner.TypeEnumToJsonValue(postBeefRequestHerdsInnerChemicalsInner.Type);
+            var typeRawValue = AgrochemicalTypeValueConverter.ToJsonValue(postBeefRequestHerdsInnerChemicalsInner.Type);
             writer.WriteString("type", typeRawValue);
+
             writer.WritePropertyName("amountKg");
             JsonSerializer.Serialize(writer, postBeefRequestHerdsInnerChemicalsInner.AmountKg, jsonSerializerOptions);
             if (postBeefRequestHerdsInnerChemicalsInner.CustomEmissionsFactorOption.IsSet)

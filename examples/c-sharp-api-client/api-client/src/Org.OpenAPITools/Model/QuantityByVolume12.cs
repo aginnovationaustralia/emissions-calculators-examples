@@ -38,7 +38,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="fuelType">Type of liquid fuel used in stationary equipment</param>
         /// <param name="amountKilolitres">amountKilolitres</param>
         [JsonConstructor]
-        public QuantityByVolume12(FuelClassEnum fuelClass, FuelTypeEnum fuelType, CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres)
+        public QuantityByVolume12(FuelClassEnum fuelClass, FuelStationaryVolumeBasedLiquidType fuelType, CarsAndLightCommercialVehicles1AmountKilolitres amountKilolitres)
         {
             FuelClass = fuelClass;
             FuelType = fuelType;
@@ -110,243 +110,8 @@ namespace Org.OpenAPITools.Model
         /// Type of liquid fuel used in stationary equipment
         /// </summary>
         /// <value>Type of liquid fuel used in stationary equipment</value>
-        public enum FuelTypeEnum
-        {
-            /// <summary>
-            /// Enum PetroleumBasedOilsOtherThanFuels for value: Petroleum based oils other than fuels
-            /// </summary>
-            PetroleumBasedOilsOtherThanFuels = 1,
-
-            /// <summary>
-            /// Enum PetroleumBasedGreases for value: Petroleum based greases
-            /// </summary>
-            PetroleumBasedGreases = 2,
-
-            /// <summary>
-            /// Enum AutomotiveGasolinePetrol for value: Automotive gasoline/petrol
-            /// </summary>
-            AutomotiveGasolinePetrol = 3,
-
-            /// <summary>
-            /// Enum AviationGasoline for value: Aviation gasoline
-            /// </summary>
-            AviationGasoline = 4,
-
-            /// <summary>
-            /// Enum Kerosene for value: Kerosene
-            /// </summary>
-            Kerosene = 5,
-
-            /// <summary>
-            /// Enum AviationTurbineFuelKerosene for value: Aviation turbine fuel/kerosene
-            /// </summary>
-            AviationTurbineFuelKerosene = 6,
-
-            /// <summary>
-            /// Enum HeatingOil for value: Heating oil
-            /// </summary>
-            HeatingOil = 7,
-
-            /// <summary>
-            /// Enum DieselOil for value: Diesel oil
-            /// </summary>
-            DieselOil = 8,
-
-            /// <summary>
-            /// Enum FuelOil for value: Fuel oil
-            /// </summary>
-            FuelOil = 9,
-
-            /// <summary>
-            /// Enum LiquefiedAromaticHydrocarbons for value: Liquefied aromatic hydrocarbons
-            /// </summary>
-            LiquefiedAromaticHydrocarbons = 10,
-
-            /// <summary>
-            /// Enum SolventsMineralTurpentineOrWhiteSpirits for value: Solvents: mineral turpentine or white spirits
-            /// </summary>
-            SolventsMineralTurpentineOrWhiteSpirits = 11,
-
-            /// <summary>
-            /// Enum LiquefiedPetroleumGas for value: Liquefied petroleum gas
-            /// </summary>
-            LiquefiedPetroleumGas = 12,
-
-            /// <summary>
-            /// Enum Naphtha for value: Naphtha
-            /// </summary>
-            Naphtha = 13,
-
-            /// <summary>
-            /// Enum OtherPetroleumProducts for value: Other petroleum products
-            /// </summary>
-            OtherPetroleumProducts = 14
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static FuelTypeEnum FuelTypeEnumFromString(string value)
-        {
-            if (value.Equals("Petroleum based oils other than fuels"))
-                return FuelTypeEnum.PetroleumBasedOilsOtherThanFuels;
-
-            if (value.Equals("Petroleum based greases"))
-                return FuelTypeEnum.PetroleumBasedGreases;
-
-            if (value.Equals("Automotive gasoline/petrol"))
-                return FuelTypeEnum.AutomotiveGasolinePetrol;
-
-            if (value.Equals("Aviation gasoline"))
-                return FuelTypeEnum.AviationGasoline;
-
-            if (value.Equals("Kerosene"))
-                return FuelTypeEnum.Kerosene;
-
-            if (value.Equals("Aviation turbine fuel/kerosene"))
-                return FuelTypeEnum.AviationTurbineFuelKerosene;
-
-            if (value.Equals("Heating oil"))
-                return FuelTypeEnum.HeatingOil;
-
-            if (value.Equals("Diesel oil"))
-                return FuelTypeEnum.DieselOil;
-
-            if (value.Equals("Fuel oil"))
-                return FuelTypeEnum.FuelOil;
-
-            if (value.Equals("Liquefied aromatic hydrocarbons"))
-                return FuelTypeEnum.LiquefiedAromaticHydrocarbons;
-
-            if (value.Equals("Solvents: mineral turpentine or white spirits"))
-                return FuelTypeEnum.SolventsMineralTurpentineOrWhiteSpirits;
-
-            if (value.Equals("Liquefied petroleum gas"))
-                return FuelTypeEnum.LiquefiedPetroleumGas;
-
-            if (value.Equals("Naphtha"))
-                return FuelTypeEnum.Naphtha;
-
-            if (value.Equals("Other petroleum products"))
-                return FuelTypeEnum.OtherPetroleumProducts;
-
-            throw new NotImplementedException($"Could not convert value to type FuelTypeEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="FuelTypeEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static FuelTypeEnum? FuelTypeEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("Petroleum based oils other than fuels"))
-                return FuelTypeEnum.PetroleumBasedOilsOtherThanFuels;
-
-            if (value.Equals("Petroleum based greases"))
-                return FuelTypeEnum.PetroleumBasedGreases;
-
-            if (value.Equals("Automotive gasoline/petrol"))
-                return FuelTypeEnum.AutomotiveGasolinePetrol;
-
-            if (value.Equals("Aviation gasoline"))
-                return FuelTypeEnum.AviationGasoline;
-
-            if (value.Equals("Kerosene"))
-                return FuelTypeEnum.Kerosene;
-
-            if (value.Equals("Aviation turbine fuel/kerosene"))
-                return FuelTypeEnum.AviationTurbineFuelKerosene;
-
-            if (value.Equals("Heating oil"))
-                return FuelTypeEnum.HeatingOil;
-
-            if (value.Equals("Diesel oil"))
-                return FuelTypeEnum.DieselOil;
-
-            if (value.Equals("Fuel oil"))
-                return FuelTypeEnum.FuelOil;
-
-            if (value.Equals("Liquefied aromatic hydrocarbons"))
-                return FuelTypeEnum.LiquefiedAromaticHydrocarbons;
-
-            if (value.Equals("Solvents: mineral turpentine or white spirits"))
-                return FuelTypeEnum.SolventsMineralTurpentineOrWhiteSpirits;
-
-            if (value.Equals("Liquefied petroleum gas"))
-                return FuelTypeEnum.LiquefiedPetroleumGas;
-
-            if (value.Equals("Naphtha"))
-                return FuelTypeEnum.Naphtha;
-
-            if (value.Equals("Other petroleum products"))
-                return FuelTypeEnum.OtherPetroleumProducts;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="FuelTypeEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string FuelTypeEnumToJsonValue(FuelTypeEnum value)
-        {
-            if (value == FuelTypeEnum.PetroleumBasedOilsOtherThanFuels)
-                return "Petroleum based oils other than fuels";
-
-            if (value == FuelTypeEnum.PetroleumBasedGreases)
-                return "Petroleum based greases";
-
-            if (value == FuelTypeEnum.AutomotiveGasolinePetrol)
-                return "Automotive gasoline/petrol";
-
-            if (value == FuelTypeEnum.AviationGasoline)
-                return "Aviation gasoline";
-
-            if (value == FuelTypeEnum.Kerosene)
-                return "Kerosene";
-
-            if (value == FuelTypeEnum.AviationTurbineFuelKerosene)
-                return "Aviation turbine fuel/kerosene";
-
-            if (value == FuelTypeEnum.HeatingOil)
-                return "Heating oil";
-
-            if (value == FuelTypeEnum.DieselOil)
-                return "Diesel oil";
-
-            if (value == FuelTypeEnum.FuelOil)
-                return "Fuel oil";
-
-            if (value == FuelTypeEnum.LiquefiedAromaticHydrocarbons)
-                return "Liquefied aromatic hydrocarbons";
-
-            if (value == FuelTypeEnum.SolventsMineralTurpentineOrWhiteSpirits)
-                return "Solvents: mineral turpentine or white spirits";
-
-            if (value == FuelTypeEnum.LiquefiedPetroleumGas)
-                return "Liquefied petroleum gas";
-
-            if (value == FuelTypeEnum.Naphtha)
-                return "Naphtha";
-
-            if (value == FuelTypeEnum.OtherPetroleumProducts)
-                return "Other petroleum products";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Type of liquid fuel used in stationary equipment
-        /// </summary>
-        /// <value>Type of liquid fuel used in stationary equipment</value>
         [JsonPropertyName("fuelType")]
-        public FuelTypeEnum FuelType { get; set; }
+        public FuelStationaryVolumeBasedLiquidType FuelType { get; set; }
 
         /// <summary>
         /// Gets or Sets AmountKilolitres
@@ -413,7 +178,7 @@ namespace Org.OpenAPITools.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<QuantityByVolume12.FuelClassEnum?> fuelClass = default;
-            Option<QuantityByVolume12.FuelTypeEnum?> fuelType = default;
+            Option<FuelStationaryVolumeBasedLiquidType?> fuelType = default;
             Option<CarsAndLightCommercialVehicles1AmountKilolitres?> amountKilolitres = default;
 
             while (utf8JsonReader.Read())
@@ -442,14 +207,7 @@ namespace Org.OpenAPITools.Model
                             }
                             break;
                         case "fuelType":
-                            string? fuelTypeRawValue = utf8JsonReader.GetString();
-                            if (fuelTypeRawValue != null)
-                            {
-                                QuantityByVolume12.FuelTypeEnum? fuelTypeValue = QuantityByVolume12.FuelTypeEnumFromStringOrDefault(fuelTypeRawValue);
-                                if (fuelTypeValue == null)
-                                    throw new JsonException();
-                                fuelType = new Option<QuantityByVolume12.FuelTypeEnum?>(fuelTypeValue);
-                            }
+                            fuelType = new Option<FuelStationaryVolumeBasedLiquidType?>(JsonSerializer.Deserialize<FuelStationaryVolumeBasedLiquidType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "amountKilolitres":
                             amountKilolitres = new Option<CarsAndLightCommercialVehicles1AmountKilolitres?>(JsonSerializer.Deserialize<CarsAndLightCommercialVehicles1AmountKilolitres>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -505,8 +263,9 @@ namespace Org.OpenAPITools.Model
         {
             var fuelClassRawValue = QuantityByVolume12.FuelClassEnumToJsonValue(quantityByVolume12.FuelClass);
             writer.WriteString("fuelClass", fuelClassRawValue);
-            var fuelTypeRawValue = QuantityByVolume12.FuelTypeEnumToJsonValue(quantityByVolume12.FuelType);
+            var fuelTypeRawValue = FuelStationaryVolumeBasedLiquidTypeValueConverter.ToJsonValue(quantityByVolume12.FuelType);
             writer.WriteString("fuelType", fuelTypeRawValue);
+
             writer.WritePropertyName("amountKilolitres");
             JsonSerializer.Serialize(writer, quantityByVolume12.AmountKilolitres, jsonSerializerOptions);
         }

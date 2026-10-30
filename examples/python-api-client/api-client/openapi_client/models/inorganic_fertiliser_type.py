@@ -36,6 +36,7 @@ class InorganicFertiliserType(str, Enum):
     CALCIUM_AMMONIUM_NITRATE_LEFT_PARENTHESIS_CAN_RIGHT_PARENTHESIS = 'Calcium Ammonium Nitrate (CAN)'
     CALCIUM_NITRATE = 'Calcium Nitrate'
     SINGLE_SUPER_PHOSPHATE = 'Single Super Phosphate'
+    AMMONIUM_SULFATE = 'Ammonium Sulfate'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -61,7 +61,7 @@ class OffRoadAgricultureAndForestryEquipment implements ModelInterface, ArrayAcc
     protected static array $openAPITypes = [
         'amount_kilolitres' => '\OpenAPI\Client\Model\CarsAndLightCommercialVehiclesAmountKilolitres',
         'vehicle_type' => 'string',
-        'fuel_type' => 'string'
+        'fuel_type' => '\OpenAPI\Client\Model\OffRoadAgricultureAndForestryEquipmentFuelType'
     ];
 
     /**
@@ -222,7 +222,6 @@ class OffRoadAgricultureAndForestryEquipment implements ModelInterface, ArrayAcc
     }
 
     public const VEHICLE_TYPE_OFF_ROAD_AGRICULTURE_AND_FORESTRY_EQUIPMENT = 'Off-road Agriculture and forestry equipment';
-    public const FUEL_TYPE_DIESEL = 'Diesel';
 
     /**
      * Gets allowable values of the enum
@@ -233,18 +232,6 @@ class OffRoadAgricultureAndForestryEquipment implements ModelInterface, ArrayAcc
     {
         return [
             self::VEHICLE_TYPE_OFF_ROAD_AGRICULTURE_AND_FORESTRY_EQUIPMENT,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFuelTypeAllowableValues()
-    {
-        return [
-            self::FUEL_TYPE_DIESEL,
         ];
     }
 
@@ -310,15 +297,6 @@ class OffRoadAgricultureAndForestryEquipment implements ModelInterface, ArrayAcc
         if ($this->container['fuel_type'] === null) {
             $invalidProperties[] = "'fuel_type' can't be null";
         }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!is_null($this->container['fuel_type']) && !in_array($this->container['fuel_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'fuel_type', must be one of '%s'",
-                $this->container['fuel_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -398,9 +376,9 @@ class OffRoadAgricultureAndForestryEquipment implements ModelInterface, ArrayAcc
     /**
      * Gets fuel_type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\OffRoadAgricultureAndForestryEquipmentFuelType
      */
-    public function getFuelType(): string
+    public function getFuelType(): \OpenAPI\Client\Model\OffRoadAgricultureAndForestryEquipmentFuelType
     {
         return $this->container['fuel_type'];
     }
@@ -408,24 +386,14 @@ class OffRoadAgricultureAndForestryEquipment implements ModelInterface, ArrayAcc
     /**
      * Sets fuel_type
      *
-     * @param string $fuel_type Type of fuel used by off-road agriculture and forestry equipment
+     * @param \OpenAPI\Client\Model\OffRoadAgricultureAndForestryEquipmentFuelType $fuel_type Type of fuel used by off-road agriculture and forestry equipment
      *
      * @return $this
      */
-    public function setFuelType(string $fuel_type): static
+    public function setFuelType(\OpenAPI\Client\Model\OffRoadAgricultureAndForestryEquipmentFuelType $fuel_type): static
     {
         if (is_null($fuel_type)) {
             throw new InvalidArgumentException('non-nullable fuel_type cannot be null');
-        }
-        $allowedValues = self::getFuelTypeAllowableValues();
-        if (!in_array($fuel_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'fuel_type', must be one of '%s'",
-                    $fuel_type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['fuel_type'] = $fuel_type;
 

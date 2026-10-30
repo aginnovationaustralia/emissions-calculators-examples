@@ -60,7 +60,7 @@ class AquacultureFeed implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPITypes = [
         'amount' => '\OpenAPI\Client\Model\RegionlessFeedTypeAmount',
-        'type' => 'string'
+        'type' => '\OpenAPI\Client\Model\PurchasedFeedAquacultureType'
     ];
 
     /**
@@ -215,27 +215,6 @@ class AquacultureFeed implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const TYPE_WHOLE_SARDINES = 'Whole Sardines';
-    public const TYPE_LOW_ANIMAL_PROTEIN_FORMULATED_FEED = 'Low Animal Protein Formulated Feed';
-    public const TYPE_SQUID = 'Squid';
-    public const TYPE_WHOLE_FISH = 'Whole Fish';
-    public const TYPE_CUSTOM_BAIT = 'Custom Bait';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_WHOLE_SARDINES,
-            self::TYPE_LOW_ANIMAL_PROTEIN_FORMULATED_FEED,
-            self::TYPE_SQUID,
-            self::TYPE_WHOLE_FISH,
-            self::TYPE_CUSTOM_BAIT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -286,15 +265,6 @@ class AquacultureFeed implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -337,9 +307,9 @@ class AquacultureFeed implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\PurchasedFeedAquacultureType
      */
-    public function getType(): string
+    public function getType(): \OpenAPI\Client\Model\PurchasedFeedAquacultureType
     {
         return $this->container['type'];
     }
@@ -347,24 +317,14 @@ class AquacultureFeed implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type The type of feed purchased.
+     * @param \OpenAPI\Client\Model\PurchasedFeedAquacultureType $type The type of feed purchased.
      *
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(\OpenAPI\Client\Model\PurchasedFeedAquacultureType $type): static
     {
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = self::getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['type'] = $type;
 

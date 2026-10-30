@@ -37,7 +37,7 @@ use OpenAPI\Client\ObjectSerializer;
 /**
  * WithOriginRegionFractionOfFertiliser Class Doc Comment
  *
- * @description Fraction of inorganic fertiliser that is applied (number)
+ * @description Fraction of this component of the inorganic fertiliser that is being applied, by weight (0-1)
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -263,8 +263,8 @@ class WithOriginRegionFractionOfFertiliser implements ModelInterface, ArrayAcces
         if ($this->container['value'] === null) {
             $invalidProperties[] = "'value' can't be null";
         }
-        if (!is_null($this->container['value']) && ($this->container['value'] > 100)) {
-            $invalidProperties[] = "invalid value for 'value', must be smaller than or equal to 100.";
+        if (!is_null($this->container['value']) && ($this->container['value'] > 1)) {
+            $invalidProperties[] = "invalid value for 'value', must be smaller than or equal to 1.";
         }
 
         if (!is_null($this->container['value']) && ($this->container['value'] < 0)) {
@@ -305,8 +305,8 @@ class WithOriginRegionFractionOfFertiliser implements ModelInterface, ArrayAcces
         if (is_null($value)) {
             throw new InvalidArgumentException('non-nullable value cannot be null');
         }
-        if (($value > 100)) {
-            throw new InvalidArgumentException('invalid value for $value when calling WithOriginRegionFractionOfFertiliser., must be smaller than or equal to 100.');
+        if (($value > 1)) {
+            throw new InvalidArgumentException('invalid value for $value when calling WithOriginRegionFractionOfFertiliser., must be smaller than or equal to 1.');
         }
         if (($value < 0)) {
             throw new InvalidArgumentException('invalid value for $value when calling WithOriginRegionFractionOfFertiliser., must be bigger than or equal to 0.');

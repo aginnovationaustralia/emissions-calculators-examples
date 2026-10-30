@@ -20,7 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.specific_production_system_scope1_method2_inorganic_applications_inner import SpecificProductionSystemScope1Method2InorganicApplicationsInner
+from openapi_client.models.basic_production_system_scope1_method1_inorganic_applications_inner import BasicProductionSystemScope1Method1InorganicApplicationsInner
+from openapi_client.models.specific_production_system_scope1_method2_inorganic_area_applied_hectares import SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares
 from openapi_client.models.specific_production_system_scope1_method2_inorganic_calculation_method_scope1 import SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,9 +31,10 @@ class SpecificProductionSystemScope1Method2Inorganic(BaseModel):
     """
     SpecificProductionSystemScope1Method2Inorganic
     """ # noqa: E501
-    applications: List[SpecificProductionSystemScope1Method2InorganicApplicationsInner] = Field(description="Inorganic fertiliser applications")
+    applications: List[BasicProductionSystemScope1Method1InorganicApplicationsInner] = Field(description="Inorganic fertiliser applications")
     calculation_method_scope1: SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1 = Field(alias="calculationMethodScope1")
-    __properties: ClassVar[List[str]] = ["applications", "calculationMethodScope1"]
+    area_applied_hectares: SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares = Field(alias="areaAppliedHectares")
+    __properties: ClassVar[List[str]] = ["applications", "calculationMethodScope1", "areaAppliedHectares"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -79,6 +81,9 @@ class SpecificProductionSystemScope1Method2Inorganic(BaseModel):
             for _item_applications in self.applications:
                 _items.append(_item_applications.to_dict() if _item_applications is not None else None)
             _dict['applications'] = _items
+        # override the default output from pydantic by calling `to_dict()` of area_applied_hectares
+        if self.area_applied_hectares:
+            _dict['areaAppliedHectares'] = self.area_applied_hectares.to_dict()
         return _dict
 
     @classmethod
@@ -91,8 +96,9 @@ class SpecificProductionSystemScope1Method2Inorganic(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "applications": [SpecificProductionSystemScope1Method2InorganicApplicationsInner.from_dict(_item) for _item in obj["applications"]] if obj.get("applications") is not None else None,
-            "calculationMethodScope1": obj.get("calculationMethodScope1")
+            "applications": [BasicProductionSystemScope1Method1InorganicApplicationsInner.from_dict(_item) for _item in obj["applications"]] if obj.get("applications") is not None else None,
+            "calculationMethodScope1": obj.get("calculationMethodScope1"),
+            "areaAppliedHectares": SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares.from_dict(obj["areaAppliedHectares"]) if obj.get("areaAppliedHectares") is not None else None
         })
         return _obj
 
