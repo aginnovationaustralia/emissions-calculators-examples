@@ -24,6 +24,21 @@ const walk = (o) => {
   if (Array.isArray(o)) return o.forEach(walk);
   if (o && typeof o === "object") {
     if (Array.isArray(o.oneOf) && o.oneOf.some(isEmptyObject)) o.oneOf = o.oneOf.filter((s) => !isEmptyObject(s));
+    // String constants supply their own constructor defaults in the Python client.
+    // Preserve the literal in an extension for the custom model template.
+    if (o.type === "string" && typeof o.const === "string") {
+      if (Object.hasOwn(o, "default") && o.default !== o.const) {
+        throw new Error("Default must equal string const");
+      }
+      if (Array.isArray(o.enum) && !o.enum.includes(o.const)) {
+        throw new Error("Constant must belong to enum");
+      }
+      // JSON quoting also produces a valid Python string literal.
+      o["x-python-string-const-literal"] = JSON.stringify(o.const);
+      if (typeof o.description === "string") {
+        o["x-python-string-const-description"] = JSON.stringify(o.description);
+      }
+    }
     Object.values(o).forEach(walk);
   }
 };
@@ -44,6 +59,7 @@ openapi-generator-cli generate \
   -i $SPEC_FILE \
   -g python \
   -o $API_CLIENT_DIR \
+  -t templates \
   --global-property apiTests=false,apiDocs=false,modelTests=false,modelDocs=false \
   --inline-schema-options RESOLVE_INLINE_ENUMS=true
   
