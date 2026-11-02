@@ -142,7 +142,7 @@ def create_valid_beef_input():
             type=PastureType.PERENNIAL_PASTURE,
             area_managed=PostBeefRequestHerdsInnerPastureAreaManaged(value=500),
             fraction_of_annual_crop_burnt=PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt(value=0),
-            residues=PostBeefRequestHerdsInnerPastureResidues(Method1(calculation_method="1")),
+            residues=PostBeefRequestHerdsInnerPastureResidues(Method1()),
         ),
         purchased_livestock=[],
         purchased_feed=[],
@@ -164,12 +164,10 @@ def create_valid_beef_input():
         fertiliser=FertiliserInput(BasicProductionSystemScope1Method1(
             production_system=BasicCropProductionSystem.NON_MINUS_IRRIGATED_PASTURE,
             inorganic=BasicProductionSystemScope1Method1Inorganic(
-                calculation_method_scope1="1",
                 applications=[
                     BasicProductionSystemScope1Method1InorganicApplicationsInner(Scope3Method1(
                         fertiliser_type=InorganicFertiliserType.UREA,
                         mass_applied_kg=Scope3Method1MassAppliedKg(value=2000),
-                        calculation_method_scope3="1",
                     ))
                 ],
             ),
@@ -177,7 +175,7 @@ def create_valid_beef_input():
         )),
     )
 
-    return PostBeefRequest(
+    req = PostBeefRequest(
         is_february_in_leap_year=False,
         electricity=PostBeefRequestElectricity(LocationBased(
             method="location",
@@ -186,6 +184,14 @@ def create_valid_beef_input():
         )),
         herds=[herd],
     )
+
+    # Confirm the request can be converted to/from a dict and JSON.
+    req_dict = req.to_dict()
+    req = PostBeefRequest.from_dict(req_dict)
+    req_json = req.to_json()
+    req = PostBeefRequest.from_json(req_json)
+    return req
+
 
 def test_beef_api():
     """Test the beef API endpoint with valid input"""
