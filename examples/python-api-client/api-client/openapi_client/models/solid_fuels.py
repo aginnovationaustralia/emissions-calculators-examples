@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.fuel_stationary_solid_type import FuelStationarySolidType
 from openapi_client.models.solid_fuels_amount_tonnes import SolidFuelsAmountTonnes
 from openapi_client.models.solid_fuels_fuel_class import SolidFuelsFuelClass
@@ -31,7 +31,7 @@ class SolidFuels(BaseModel):
     """
     SolidFuels
     """ # noqa: E501
-    fuel_class: SolidFuelsFuelClass = Field(alias="fuelClass")
+    fuel_class: Optional[SolidFuelsFuelClass] = Field(default=SolidFuelsFuelClass.SOLID_FUELS, alias="fuelClass")
     fuel_type: FuelStationarySolidType = Field(description="Type of solid fuel used in stationary equipment", alias="fuelType")
     amount_tonnes: SolidFuelsAmountTonnes = Field(alias="amountTonnes")
     __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountTonnes"]
@@ -90,7 +90,7 @@ class SolidFuels(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fuelClass": obj.get("fuelClass"),
+            "fuelClass": obj.get("fuelClass") if obj.get("fuelClass") is not None else SolidFuelsFuelClass.SOLID_FUELS,
             "fuelType": obj.get("fuelType"),
             "amountTonnes": SolidFuelsAmountTonnes.from_dict(obj["amountTonnes"]) if obj.get("amountTonnes") is not None else None
         })

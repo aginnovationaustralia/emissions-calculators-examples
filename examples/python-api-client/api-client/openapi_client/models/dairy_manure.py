@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.dairy_manure_herds_inner import DairyManureHerdsInner
 from openapi_client.models.dairy_manure_type import DairyManureType
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class DairyManure(BaseModel):
     """
     DairyManure
     """ # noqa: E501
-    type: DairyManureType
+    type: Optional[DairyManureType] = DairyManureType.DAIRY
     herds: List[DairyManureHerdsInner]
     __properties: ClassVar[List[str]] = ["type", "herds"]
 
@@ -91,7 +91,7 @@ class DairyManure(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
+            "type": obj.get("type") if obj.get("type") is not None else DairyManureType.DAIRY,
             "herds": [DairyManureHerdsInner.from_dict(_item) for _item in obj["herds"]] if obj.get("herds") is not None else None
         })
         return _obj

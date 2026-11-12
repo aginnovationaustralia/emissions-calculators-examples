@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.purchased_from_qld_region import PurchasedFromQLDRegion
 from openapi_client.models.purchased_from_qld_type import PurchasedFromQLDType
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
@@ -33,7 +33,7 @@ class PurchasedFromQLD(BaseModel):
     """ # noqa: E501
     amount: RegionlessFeedTypeAmount
     type: PurchasedFromQLDType
-    region: PurchasedFromQLDRegion
+    region: Optional[PurchasedFromQLDRegion] = PurchasedFromQLDRegion.QLD
     __properties: ClassVar[List[str]] = ["amount", "type", "region"]
 
     model_config = ConfigDict(
@@ -92,7 +92,7 @@ class PurchasedFromQLD(BaseModel):
         _obj = cls.model_validate({
             "amount": RegionlessFeedTypeAmount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
             "type": obj.get("type"),
-            "region": obj.get("region")
+            "region": obj.get("region") if obj.get("region") is not None else PurchasedFromQLDRegion.QLD
         })
         return _obj
 

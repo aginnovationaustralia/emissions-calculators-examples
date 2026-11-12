@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.land_clearing_forest_to_cropland_activity_area_hectares import LandClearingForestToCroplandActivityAreaHectares
 from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_debris_current_year import LandClearingForestToCroplandCarbonMassInDebrisCurrentYear
 from openapi_client.models.land_clearing_forest_to_cropland_carbon_mass_in_debris_previous_year import LandClearingForestToCroplandCarbonMassInDebrisPreviousYear
@@ -39,7 +39,7 @@ class RevegetationByPlanting(BaseModel):
     carbon_mass_in_trees_previous_year: LandClearingForestToCroplandCarbonMassInTreesPreviousYear = Field(alias="carbonMassInTreesPreviousYear")
     carbon_mass_in_debris_current_year: LandClearingForestToCroplandCarbonMassInDebrisCurrentYear = Field(alias="carbonMassInDebrisCurrentYear")
     carbon_mass_in_debris_previous_year: LandClearingForestToCroplandCarbonMassInDebrisPreviousYear = Field(alias="carbonMassInDebrisPreviousYear")
-    type: RevegetationByPlantingType
+    type: Optional[RevegetationByPlantingType] = RevegetationByPlantingType.REVEGETATIONBYPLANTING
     __properties: ClassVar[List[str]] = ["activityAreaHectares", "carbonMassInTreesCurrentYear", "carbonMassInTreesPreviousYear", "carbonMassInDebrisCurrentYear", "carbonMassInDebrisPreviousYear", "type"]
 
     model_config = ConfigDict(
@@ -113,7 +113,7 @@ class RevegetationByPlanting(BaseModel):
             "carbonMassInTreesPreviousYear": LandClearingForestToCroplandCarbonMassInTreesPreviousYear.from_dict(obj["carbonMassInTreesPreviousYear"]) if obj.get("carbonMassInTreesPreviousYear") is not None else None,
             "carbonMassInDebrisCurrentYear": LandClearingForestToCroplandCarbonMassInDebrisCurrentYear.from_dict(obj["carbonMassInDebrisCurrentYear"]) if obj.get("carbonMassInDebrisCurrentYear") is not None else None,
             "carbonMassInDebrisPreviousYear": LandClearingForestToCroplandCarbonMassInDebrisPreviousYear.from_dict(obj["carbonMassInDebrisPreviousYear"]) if obj.get("carbonMassInDebrisPreviousYear") is not None else None,
-            "type": obj.get("type")
+            "type": obj.get("type") if obj.get("type") is not None else RevegetationByPlantingType.REVEGETATIONBYPLANTING
         })
         return _obj
 

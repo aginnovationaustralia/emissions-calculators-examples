@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.beef_class import BeefClass
 from openapi_client.models.beef_purchase_category import BeefPurchaseCategory
 from openapi_client.models.extended_region import ExtendedRegion
@@ -34,7 +34,7 @@ class Method1EmissionFactorMethod1Liveweight(BaseModel):
     """
     Method1EmissionFactorMethod1Liveweight
     """ # noqa: E501
-    type: Method1EmissionFactorMethod1LiveweightType
+    type: Optional[Method1EmissionFactorMethod1LiveweightType] = Method1EmissionFactorMethod1LiveweightType.BEEF
     head_purchased: Method1EmissionFactorMethod1LiveweightHeadPurchased = Field(alias="headPurchased")
     category: BeefPurchaseCategory = Field(description="The category of the purchased animals")
     region: ExtendedRegion = Field(description=" The origin of the purchased livestock")
@@ -104,7 +104,7 @@ class Method1EmissionFactorMethod1Liveweight(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
+            "type": obj.get("type") if obj.get("type") is not None else Method1EmissionFactorMethod1LiveweightType.BEEF,
             "headPurchased": Method1EmissionFactorMethod1LiveweightHeadPurchased.from_dict(obj["headPurchased"]) if obj.get("headPurchased") is not None else None,
             "category": obj.get("category"),
             "region": obj.get("region"),

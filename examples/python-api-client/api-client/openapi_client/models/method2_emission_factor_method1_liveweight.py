@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.beef_class import BeefClass
 from openapi_client.models.extended_region import ExtendedRegion
 from openapi_client.models.method1_emission_factor_method1_liveweight_type import Method1EmissionFactorMethod1LiveweightType
@@ -34,7 +34,7 @@ class Method2EmissionFactorMethod1Liveweight(BaseModel):
     """
     Method2EmissionFactorMethod1Liveweight
     """ # noqa: E501
-    type: Method1EmissionFactorMethod1LiveweightType
+    type: Optional[Method1EmissionFactorMethod1LiveweightType] = Method1EmissionFactorMethod1LiveweightType.BEEF
     head_purchased: Method1EmissionFactorMethod2LiveweightHeadPurchased = Field(alias="headPurchased")
     emission_factor_method2: Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2 = Field(alias="emissionFactorMethod2")
     region: ExtendedRegion = Field(description=" The origin of the purchased livestock")
@@ -107,7 +107,7 @@ class Method2EmissionFactorMethod1Liveweight(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
+            "type": obj.get("type") if obj.get("type") is not None else Method1EmissionFactorMethod1LiveweightType.BEEF,
             "headPurchased": Method1EmissionFactorMethod2LiveweightHeadPurchased.from_dict(obj["headPurchased"]) if obj.get("headPurchased") is not None else None,
             "emissionFactorMethod2": Method2EmissionFactorMethod1LiveweightEmissionFactorMethod2.from_dict(obj["emissionFactorMethod2"]) if obj.get("emissionFactorMethod2") is not None else None,
             "region": obj.get("region"),
