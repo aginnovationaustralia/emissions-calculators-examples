@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.from_farm_records_carbon_mass_per_hectare_from_records import FromFarmRecordsCarbonMassPerHectareFromRecords
 from openapi_client.models.method2_calculation_method import Method2CalculationMethod
 from typing import Optional, Set
@@ -31,7 +31,7 @@ class FromFarmRecords(BaseModel):
     FromFarmRecords
     """ # noqa: E501
     carbon_mass_per_hectare_from_records: FromFarmRecordsCarbonMassPerHectareFromRecords = Field(alias="carbonMassPerHectareFromRecords")
-    calculation_method: Method2CalculationMethod = Field(alias="calculationMethod")
+    calculation_method: Optional[Method2CalculationMethod] = Field(default=Method2CalculationMethod.ENUM_2, alias="calculationMethod")
     __properties: ClassVar[List[str]] = ["carbonMassPerHectareFromRecords", "calculationMethod"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class FromFarmRecords(BaseModel):
 
         _obj = cls.model_validate({
             "carbonMassPerHectareFromRecords": FromFarmRecordsCarbonMassPerHectareFromRecords.from_dict(obj["carbonMassPerHectareFromRecords"]) if obj.get("carbonMassPerHectareFromRecords") is not None else None,
-            "calculationMethod": obj.get("calculationMethod")
+            "calculationMethod": obj.get("calculationMethod") if obj.get("calculationMethod") is not None else Method2CalculationMethod.ENUM_2
         })
         return _obj
 

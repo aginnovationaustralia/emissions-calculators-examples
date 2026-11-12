@@ -33,7 +33,7 @@ class GypsumApplication(BaseModel):
     """ # noqa: E501
     mass_applied_kg: GypsumApplicationMassAppliedKg = Field(alias="massAppliedKg")
     custom_scope3_emissions_factor: Optional[GypsumApplicationCustomScope3EmissionsFactor] = Field(default=None, alias="customScope3EmissionsFactor")
-    type: GypsumApplicationType
+    type: Optional[GypsumApplicationType] = GypsumApplicationType.GYPSUM
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["massAppliedKg", "customScope3EmissionsFactor", "type"]
 
@@ -103,7 +103,7 @@ class GypsumApplication(BaseModel):
         _obj = cls.model_validate({
             "massAppliedKg": GypsumApplicationMassAppliedKg.from_dict(obj["massAppliedKg"]) if obj.get("massAppliedKg") is not None else None,
             "customScope3EmissionsFactor": GypsumApplicationCustomScope3EmissionsFactor.from_dict(obj["customScope3EmissionsFactor"]) if obj.get("customScope3EmissionsFactor") is not None else None,
-            "type": obj.get("type")
+            "type": obj.get("type") if obj.get("type") is not None else GypsumApplicationType.GYPSUM
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.farm_forestry_carbon_mass_of_wood_products import FarmForestryCarbonMassOfWoodProducts
 from openapi_client.models.farm_forestry_type import FarmForestryType
 from openapi_client.models.land_clearing_forest_to_cropland_activity_area_hectares import LandClearingForestToCroplandActivityAreaHectares
@@ -41,7 +41,7 @@ class FarmForestry(BaseModel):
     carbon_mass_in_debris_current_year: LandClearingForestToCroplandCarbonMassInDebrisCurrentYear = Field(alias="carbonMassInDebrisCurrentYear")
     carbon_mass_in_debris_previous_year: LandClearingForestToCroplandCarbonMassInDebrisPreviousYear = Field(alias="carbonMassInDebrisPreviousYear")
     carbon_mass_of_wood_products: FarmForestryCarbonMassOfWoodProducts = Field(alias="carbonMassOfWoodProducts")
-    type: FarmForestryType
+    type: Optional[FarmForestryType] = FarmForestryType.FARMFORESTRY
     __properties: ClassVar[List[str]] = ["activityAreaHectares", "carbonMassInTreesCurrentYear", "carbonMassInTreesPreviousYear", "carbonMassInDebrisCurrentYear", "carbonMassInDebrisPreviousYear", "carbonMassOfWoodProducts", "type"]
 
     model_config = ConfigDict(
@@ -119,7 +119,7 @@ class FarmForestry(BaseModel):
             "carbonMassInDebrisCurrentYear": LandClearingForestToCroplandCarbonMassInDebrisCurrentYear.from_dict(obj["carbonMassInDebrisCurrentYear"]) if obj.get("carbonMassInDebrisCurrentYear") is not None else None,
             "carbonMassInDebrisPreviousYear": LandClearingForestToCroplandCarbonMassInDebrisPreviousYear.from_dict(obj["carbonMassInDebrisPreviousYear"]) if obj.get("carbonMassInDebrisPreviousYear") is not None else None,
             "carbonMassOfWoodProducts": FarmForestryCarbonMassOfWoodProducts.from_dict(obj["carbonMassOfWoodProducts"]) if obj.get("carbonMassOfWoodProducts") is not None else None,
-            "type": obj.get("type")
+            "type": obj.get("type") if obj.get("type") is not None else FarmForestryType.FARMFORESTRY
         })
         return _obj
 

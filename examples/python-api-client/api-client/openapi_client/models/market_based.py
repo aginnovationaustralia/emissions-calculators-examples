@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.electricity_region import ElectricityRegion
 from openapi_client.models.market_based_electricity_purchased_kwh import MarketBasedElectricityPurchasedKWh
 from openapi_client.models.market_based_method import MarketBasedMethod
@@ -33,7 +33,7 @@ class MarketBased(BaseModel):
     """
     MarketBased
     """ # noqa: E501
-    method: MarketBasedMethod
+    method: Optional[MarketBasedMethod] = MarketBasedMethod.MARKET
     electricity_purchased_kwh: MarketBasedElectricityPurchasedKWh = Field(alias="electricityPurchasedKWh")
     recs_surrendered: MarketBasedRecsSurrendered = Field(alias="recsSurrendered")
     recs_onsite: MarketBasedRecsOnsite = Field(alias="recsOnsite")
@@ -108,7 +108,7 @@ class MarketBased(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "method": obj.get("method"),
+            "method": obj.get("method") if obj.get("method") is not None else MarketBasedMethod.MARKET,
             "electricityPurchasedKWh": MarketBasedElectricityPurchasedKWh.from_dict(obj["electricityPurchasedKWh"]) if obj.get("electricityPurchasedKWh") is not None else None,
             "recsSurrendered": MarketBasedRecsSurrendered.from_dict(obj["recsSurrendered"]) if obj.get("recsSurrendered") is not None else None,
             "recsOnsite": MarketBasedRecsOnsite.from_dict(obj["recsOnsite"]) if obj.get("recsOnsite") is not None else None,

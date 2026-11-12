@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.gaseous_fuels_natural_gas_amount_kilolitres import GaseousFuelsNaturalGasAmountKilolitres
 from openapi_client.models.gaseous_fuels_natural_gas_fuel_class import GaseousFuelsNaturalGasFuelClass
 from openapi_client.models.gaseous_fuels_natural_gas_fuel_type import GaseousFuelsNaturalGasFuelType
@@ -31,8 +31,8 @@ class GaseousFuelsNaturalGas(BaseModel):
     """
     GaseousFuelsNaturalGas
     """ # noqa: E501
-    fuel_class: GaseousFuelsNaturalGasFuelClass = Field(alias="fuelClass")
-    fuel_type: GaseousFuelsNaturalGasFuelType = Field(alias="fuelType")
+    fuel_class: Optional[GaseousFuelsNaturalGasFuelClass] = Field(default=GaseousFuelsNaturalGasFuelClass.GASEOUS_FUELS, alias="fuelClass")
+    fuel_type: Optional[GaseousFuelsNaturalGasFuelType] = Field(default=GaseousFuelsNaturalGasFuelType.NATURAL_GAS, alias="fuelType")
     amount_kilolitres: GaseousFuelsNaturalGasAmountKilolitres = Field(alias="amountKilolitres")
     __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountKilolitres"]
 
@@ -90,8 +90,8 @@ class GaseousFuelsNaturalGas(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fuelClass": obj.get("fuelClass"),
-            "fuelType": obj.get("fuelType"),
+            "fuelClass": obj.get("fuelClass") if obj.get("fuelClass") is not None else GaseousFuelsNaturalGasFuelClass.GASEOUS_FUELS,
+            "fuelType": obj.get("fuelType") if obj.get("fuelType") is not None else GaseousFuelsNaturalGasFuelType.NATURAL_GAS,
             "amountKilolitres": GaseousFuelsNaturalGasAmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None
         })
         return _obj

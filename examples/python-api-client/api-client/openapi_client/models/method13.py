@@ -39,7 +39,7 @@ class Method13(BaseModel):
     plantings: List[Method13PlantingsInner]
     crop_type: Method13CropType = Field(alias="cropType")
     clearings: List[Method13ClearingsInner]
-    calculation_method: Method1CalculationMethod = Field(alias="calculationMethod")
+    calculation_method: Optional[Method1CalculationMethod] = Field(default=Method1CalculationMethod.ENUM_1, alias="calculationMethod")
     __properties: ClassVar[List[str]] = ["method2ActualStemDensity", "method2BiomassAtMaturity", "plantings", "cropType", "clearings", "calculationMethod"]
 
     model_config = ConfigDict(
@@ -119,7 +119,7 @@ class Method13(BaseModel):
             "plantings": [Method13PlantingsInner.from_dict(_item) for _item in obj["plantings"]] if obj.get("plantings") is not None else None,
             "cropType": Method13CropType.from_dict(obj["cropType"]) if obj.get("cropType") is not None else None,
             "clearings": [Method13ClearingsInner.from_dict(_item) for _item in obj["clearings"]] if obj.get("clearings") is not None else None,
-            "calculationMethod": obj.get("calculationMethod")
+            "calculationMethod": obj.get("calculationMethod") if obj.get("calculationMethod") is not None else Method1CalculationMethod.ENUM_1
         })
         return _obj
 

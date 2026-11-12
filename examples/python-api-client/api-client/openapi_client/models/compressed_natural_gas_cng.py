@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres
 from openapi_client.models.compressed_natural_gas_cng_fuel_type import CompressedNaturalGasCNGFuelType
 from openapi_client.models.compressed_natural_gas_cng_vehicle_type import CompressedNaturalGasCNGVehicleType
@@ -32,7 +32,7 @@ class CompressedNaturalGasCNG(BaseModel):
     CompressedNaturalGasCNG
     """ # noqa: E501
     vehicle_type: CompressedNaturalGasCNGVehicleType = Field(alias="vehicleType")
-    fuel_type: CompressedNaturalGasCNGFuelType = Field(alias="fuelType")
+    fuel_type: Optional[CompressedNaturalGasCNGFuelType] = Field(default=CompressedNaturalGasCNGFuelType.COMPRESSED_NATURAL_GAS, alias="fuelType")
     amount_cubic_metres: CarsAndLightCommercialVehiclesAmountKilolitres = Field(alias="amountCubicMetres")
     __properties: ClassVar[List[str]] = ["vehicleType", "fuelType", "amountCubicMetres"]
 
@@ -91,7 +91,7 @@ class CompressedNaturalGasCNG(BaseModel):
 
         _obj = cls.model_validate({
             "vehicleType": obj.get("vehicleType"),
-            "fuelType": obj.get("fuelType"),
+            "fuelType": obj.get("fuelType") if obj.get("fuelType") is not None else CompressedNaturalGasCNGFuelType.COMPRESSED_NATURAL_GAS,
             "amountCubicMetres": CarsAndLightCommercialVehiclesAmountKilolitres.from_dict(obj["amountCubicMetres"]) if obj.get("amountCubicMetres") is not None else None
         })
         return _obj

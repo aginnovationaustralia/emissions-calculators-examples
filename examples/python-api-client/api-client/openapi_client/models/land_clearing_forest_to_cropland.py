@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.crop_only_production_system import CropOnlyProductionSystem
 from openapi_client.models.ibra7_region import IBRA7Region
 from openapi_client.models.land_clearing_forest_to_cropland_activity_area_hectares import LandClearingForestToCroplandActivityAreaHectares
@@ -49,7 +49,7 @@ class LandClearingForestToCropland(BaseModel):
     mass_ch4_from_biomass_burning_per_hectare: LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare = Field(alias="massCH4FromBiomassBurningPerHectare")
     mass_n2_o_from_biomass_burning_per_hectare: LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectare = Field(alias="massN2OFromBiomassBurningPerHectare")
     area_burnt: LandClearingForestToCroplandAreaBurnt = Field(alias="areaBurnt")
-    type: LandClearingForestToCroplandType
+    type: Optional[LandClearingForestToCroplandType] = LandClearingForestToCroplandType.LANDCLEARINGFORESTTOCROPLAND
     crop_production_system: CropOnlyProductionSystem = Field(description="Crop production", alias="cropProductionSystem")
     __properties: ClassVar[List[str]] = ["activityAreaHectares", "carbonMassInTreesCurrentYear", "carbonMassInTreesPreviousYear", "carbonMassInDebrisCurrentYear", "carbonMassInDebrisPreviousYear", "isInLeachingZone", "region", "massCH4FromBiomassBurningPerHectare", "massN2OFromBiomassBurningPerHectare", "areaBurnt", "type", "cropProductionSystem"]
 
@@ -138,7 +138,7 @@ class LandClearingForestToCropland(BaseModel):
             "massCH4FromBiomassBurningPerHectare": LandClearingForestToCroplandMassCH4FromBiomassBurningPerHectare.from_dict(obj["massCH4FromBiomassBurningPerHectare"]) if obj.get("massCH4FromBiomassBurningPerHectare") is not None else None,
             "massN2OFromBiomassBurningPerHectare": LandClearingForestToCroplandMassN2OFromBiomassBurningPerHectare.from_dict(obj["massN2OFromBiomassBurningPerHectare"]) if obj.get("massN2OFromBiomassBurningPerHectare") is not None else None,
             "areaBurnt": LandClearingForestToCroplandAreaBurnt.from_dict(obj["areaBurnt"]) if obj.get("areaBurnt") is not None else None,
-            "type": obj.get("type"),
+            "type": obj.get("type") if obj.get("type") is not None else LandClearingForestToCroplandType.LANDCLEARINGFORESTTOCROPLAND,
             "cropProductionSystem": obj.get("cropProductionSystem")
         })
         return _obj

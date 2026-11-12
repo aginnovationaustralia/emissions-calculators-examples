@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres
 from openapi_client.models.off_road_agriculture_and_forestry_equipment_fuel_type import OffRoadAgricultureAndForestryEquipmentFuelType
 from openapi_client.models.off_road_agriculture_and_forestry_equipment_vehicle_type import OffRoadAgricultureAndForestryEquipmentVehicleType
@@ -32,7 +32,7 @@ class OffRoadAgricultureAndForestryEquipment(BaseModel):
     OffRoadAgricultureAndForestryEquipment
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehiclesAmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: OffRoadAgricultureAndForestryEquipmentVehicleType = Field(alias="vehicleType")
+    vehicle_type: Optional[OffRoadAgricultureAndForestryEquipmentVehicleType] = Field(default=OffRoadAgricultureAndForestryEquipmentVehicleType.OFF_MINUS_ROAD_AGRICULTURE_AND_FORESTRY_EQUIPMENT, alias="vehicleType")
     fuel_type: OffRoadAgricultureAndForestryEquipmentFuelType = Field(description="Type of fuel used by off-road agriculture and forestry equipment", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
 
@@ -91,7 +91,7 @@ class OffRoadAgricultureAndForestryEquipment(BaseModel):
 
         _obj = cls.model_validate({
             "amountKilolitres": CarsAndLightCommercialVehiclesAmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None,
-            "vehicleType": obj.get("vehicleType"),
+            "vehicleType": obj.get("vehicleType") if obj.get("vehicleType") is not None else OffRoadAgricultureAndForestryEquipmentVehicleType.OFF_MINUS_ROAD_AGRICULTURE_AND_FORESTRY_EQUIPMENT,
             "fuelType": obj.get("fuelType")
         })
         return _obj

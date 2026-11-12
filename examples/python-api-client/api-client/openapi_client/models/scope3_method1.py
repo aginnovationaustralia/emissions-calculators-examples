@@ -35,7 +35,7 @@ class Scope3Method1(BaseModel):
     mass_applied_kg: Scope3Method1MassAppliedKg = Field(alias="massAppliedKg")
     fertiliser_type: InorganicFertiliserType = Field(description="Type of inorganic fertiliser applied", alias="fertiliserType")
     components: Optional[List[Scope3Method1ComponentsInner]] = Field(default=None, description="Components of the inorganic fertiliser applied.     NOTE: 5.1.2.1 FNinorganic,f data source allows you to supply a custom nitrogen fraction for the fertiliser. This is currently    implemented via the components field. This means you must supply all components if you want this scenario. If you only supply    a custom nitrogen fraction, scope 3 emissions will be under calculated. Do not supply a partial list of components.")
-    calculation_method_scope3: Scope3Method1CalculationMethodScope3 = Field(alias="calculationMethodScope3")
+    calculation_method_scope3: Optional[Scope3Method1CalculationMethodScope3] = Field(default=Scope3Method1CalculationMethodScope3.ENUM_1, alias="calculationMethodScope3")
     __properties: ClassVar[List[str]] = ["massAppliedKg", "fertiliserType", "components", "calculationMethodScope3"]
 
     model_config = ConfigDict(
@@ -101,7 +101,7 @@ class Scope3Method1(BaseModel):
             "massAppliedKg": Scope3Method1MassAppliedKg.from_dict(obj["massAppliedKg"]) if obj.get("massAppliedKg") is not None else None,
             "fertiliserType": obj.get("fertiliserType"),
             "components": [Scope3Method1ComponentsInner.from_dict(_item) for _item in obj["components"]] if obj.get("components") is not None else None,
-            "calculationMethodScope3": obj.get("calculationMethodScope3")
+            "calculationMethodScope3": obj.get("calculationMethodScope3") if obj.get("calculationMethodScope3") is not None else Scope3Method1CalculationMethodScope3.ENUM_1
         })
         return _obj
 

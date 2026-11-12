@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.livestock_manures_input import LivestockManuresInput
 from openapi_client.models.traced_manure_origin import TracedManureOrigin
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class TracedManure(BaseModel):
     """
     TracedManure
     """ # noqa: E501
-    origin: TracedManureOrigin
+    origin: Optional[TracedManureOrigin] = TracedManureOrigin.TRACED
     details: LivestockManuresInput
     __properties: ClassVar[List[str]] = ["origin", "details"]
 
@@ -88,7 +88,7 @@ class TracedManure(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "origin": obj.get("origin"),
+            "origin": obj.get("origin") if obj.get("origin") is not None else TracedManureOrigin.TRACED,
             "details": LivestockManuresInput.from_dict(obj["details"]) if obj.get("details") is not None else None
         })
         return _obj

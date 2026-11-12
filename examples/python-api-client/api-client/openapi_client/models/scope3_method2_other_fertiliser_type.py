@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.scope3_method1_mass_applied_kg import Scope3Method1MassAppliedKg
 from openapi_client.models.scope3_method2_known_fertiliser_type_calculation_method_scope3 import Scope3Method2KnownFertiliserTypeCalculationMethodScope3
 from openapi_client.models.scope3_method2_known_fertiliser_type_custom_nitrogen_fraction import Scope3Method2KnownFertiliserTypeCustomNitrogenFraction
@@ -36,8 +36,8 @@ class Scope3Method2OtherFertiliserType(BaseModel):
     """ # noqa: E501
     mass_applied_kg: Scope3Method1MassAppliedKg = Field(alias="massAppliedKg")
     custom_scope3_emission_factor: Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor = Field(alias="customScope3EmissionFactor")
-    calculation_method_scope3: Scope3Method2KnownFertiliserTypeCalculationMethodScope3 = Field(alias="calculationMethodScope3")
-    fertiliser_type: Scope3Method2OtherFertiliserTypeFertiliserType = Field(alias="fertiliserType")
+    calculation_method_scope3: Optional[Scope3Method2KnownFertiliserTypeCalculationMethodScope3] = Field(default=Scope3Method2KnownFertiliserTypeCalculationMethodScope3.ENUM_2, alias="calculationMethodScope3")
+    fertiliser_type: Optional[Scope3Method2OtherFertiliserTypeFertiliserType] = Field(default=Scope3Method2OtherFertiliserTypeFertiliserType.OTHER_FERTILISERS, alias="fertiliserType")
     custom_nitrogen_fraction: Scope3Method2KnownFertiliserTypeCustomNitrogenFraction = Field(alias="customNitrogenFraction")
     custom_urea_fraction: Scope3Method2OtherFertiliserTypeCustomUreaFraction = Field(alias="customUreaFraction")
     __properties: ClassVar[List[str]] = ["massAppliedKg", "customScope3EmissionFactor", "calculationMethodScope3", "fertiliserType", "customNitrogenFraction", "customUreaFraction"]
@@ -107,8 +107,8 @@ class Scope3Method2OtherFertiliserType(BaseModel):
         _obj = cls.model_validate({
             "massAppliedKg": Scope3Method1MassAppliedKg.from_dict(obj["massAppliedKg"]) if obj.get("massAppliedKg") is not None else None,
             "customScope3EmissionFactor": Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor.from_dict(obj["customScope3EmissionFactor"]) if obj.get("customScope3EmissionFactor") is not None else None,
-            "calculationMethodScope3": obj.get("calculationMethodScope3"),
-            "fertiliserType": obj.get("fertiliserType"),
+            "calculationMethodScope3": obj.get("calculationMethodScope3") if obj.get("calculationMethodScope3") is not None else Scope3Method2KnownFertiliserTypeCalculationMethodScope3.ENUM_2,
+            "fertiliserType": obj.get("fertiliserType") if obj.get("fertiliserType") is not None else Scope3Method2OtherFertiliserTypeFertiliserType.OTHER_FERTILISERS,
             "customNitrogenFraction": Scope3Method2KnownFertiliserTypeCustomNitrogenFraction.from_dict(obj["customNitrogenFraction"]) if obj.get("customNitrogenFraction") is not None else None,
             "customUreaFraction": Scope3Method2OtherFertiliserTypeCustomUreaFraction.from_dict(obj["customUreaFraction"]) if obj.get("customUreaFraction") is not None else None
         })

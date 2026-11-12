@@ -35,7 +35,7 @@ class Scope3Method2KnownFertiliserType(BaseModel):
     """ # noqa: E501
     mass_applied_kg: Scope3Method1MassAppliedKg = Field(alias="massAppliedKg")
     custom_scope3_emission_factor: Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor = Field(alias="customScope3EmissionFactor")
-    calculation_method_scope3: Scope3Method2KnownFertiliserTypeCalculationMethodScope3 = Field(alias="calculationMethodScope3")
+    calculation_method_scope3: Optional[Scope3Method2KnownFertiliserTypeCalculationMethodScope3] = Field(default=Scope3Method2KnownFertiliserTypeCalculationMethodScope3.ENUM_2, alias="calculationMethodScope3")
     fertiliser_type: InorganicFertiliserType = Field(description="Type of inorganic fertiliser applied", alias="fertiliserType")
     custom_nitrogen_fraction: Optional[Scope3Method2KnownFertiliserTypeCustomNitrogenFraction] = Field(default=None, alias="customNitrogenFraction")
     __properties: ClassVar[List[str]] = ["massAppliedKg", "customScope3EmissionFactor", "calculationMethodScope3", "fertiliserType", "customNitrogenFraction"]
@@ -102,7 +102,7 @@ class Scope3Method2KnownFertiliserType(BaseModel):
         _obj = cls.model_validate({
             "massAppliedKg": Scope3Method1MassAppliedKg.from_dict(obj["massAppliedKg"]) if obj.get("massAppliedKg") is not None else None,
             "customScope3EmissionFactor": Scope3Method2KnownFertiliserTypeCustomScope3EmissionFactor.from_dict(obj["customScope3EmissionFactor"]) if obj.get("customScope3EmissionFactor") is not None else None,
-            "calculationMethodScope3": obj.get("calculationMethodScope3"),
+            "calculationMethodScope3": obj.get("calculationMethodScope3") if obj.get("calculationMethodScope3") is not None else Scope3Method2KnownFertiliserTypeCalculationMethodScope3.ENUM_2,
             "fertiliserType": obj.get("fertiliserType"),
             "customNitrogenFraction": Scope3Method2KnownFertiliserTypeCustomNitrogenFraction.from_dict(obj["customNitrogenFraction"]) if obj.get("customNitrogenFraction") is not None else None
         })

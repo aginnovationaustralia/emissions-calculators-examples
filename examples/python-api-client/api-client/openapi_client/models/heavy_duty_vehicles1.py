@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres
 from openapi_client.models.heavy_duty_fuel_type import HeavyDutyFuelType
 from openapi_client.models.heavy_duty_vehicles_vehicle_type import HeavyDutyVehiclesVehicleType
@@ -32,7 +32,7 @@ class HeavyDutyVehicles1(BaseModel):
     HeavyDutyVehicles1
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehicles1AmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: HeavyDutyVehiclesVehicleType = Field(alias="vehicleType")
+    vehicle_type: Optional[HeavyDutyVehiclesVehicleType] = Field(default=HeavyDutyVehiclesVehicleType.HEAVY_DUTY_VEHICLES, alias="vehicleType")
     fuel_type: HeavyDutyFuelType = Field(description="Type of fuel used by heavy duty vehicles", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
 
@@ -91,7 +91,7 @@ class HeavyDutyVehicles1(BaseModel):
 
         _obj = cls.model_validate({
             "amountKilolitres": CarsAndLightCommercialVehicles1AmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None,
-            "vehicleType": obj.get("vehicleType"),
+            "vehicleType": obj.get("vehicleType") if obj.get("vehicleType") is not None else HeavyDutyVehiclesVehicleType.HEAVY_DUTY_VEHICLES,
             "fuelType": obj.get("fuelType")
         })
         return _obj
