@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method1_calculation_method import Method1CalculationMethod
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class Method1(BaseModel):
     """
     Method1
     """ # noqa: E501
-    calculation_method: Method1CalculationMethod = Field(alias="calculationMethod")
+    calculation_method: Optional[Method1CalculationMethod] = Field(default=Method1CalculationMethod.ENUM_1, alias="calculationMethod")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["calculationMethod"]
 
@@ -91,7 +91,7 @@ class Method1(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "calculationMethod": obj.get("calculationMethod")
+            "calculationMethod": obj.get("calculationMethod") if obj.get("calculationMethod") is not None else Method1CalculationMethod.ENUM_1
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

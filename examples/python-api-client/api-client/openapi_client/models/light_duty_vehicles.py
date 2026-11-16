@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres
 from openapi_client.models.light_duty_fuel_type import LightDutyFuelType
 from openapi_client.models.light_duty_vehicles_vehicle_type import LightDutyVehiclesVehicleType
@@ -32,7 +32,7 @@ class LightDutyVehicles(BaseModel):
     LightDutyVehicles
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehiclesAmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: LightDutyVehiclesVehicleType = Field(alias="vehicleType")
+    vehicle_type: Optional[LightDutyVehiclesVehicleType] = Field(default=LightDutyVehiclesVehicleType.LIGHT_DUTY_VEHICLES, alias="vehicleType")
     fuel_type: LightDutyFuelType = Field(description="Type of fuel used by light duty vehicles", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
 
@@ -91,7 +91,7 @@ class LightDutyVehicles(BaseModel):
 
         _obj = cls.model_validate({
             "amountKilolitres": CarsAndLightCommercialVehiclesAmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None,
-            "vehicleType": obj.get("vehicleType"),
+            "vehicleType": obj.get("vehicleType") if obj.get("vehicleType") is not None else LightDutyVehiclesVehicleType.LIGHT_DUTY_VEHICLES,
             "fuelType": obj.get("fuelType")
         })
         return _obj

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres
 from openapi_client.models.cars_and_light_commercial_vehicles_pre2004_vehicle_type import CarsAndLightCommercialVehiclesPre2004VehicleType
 from openapi_client.models.cars_light_commercial_pre2004_fuel_type import CarsLightCommercialPre2004FuelType
@@ -32,7 +32,7 @@ class CarsAndLightCommercialVehiclesPre20041(BaseModel):
     CarsAndLightCommercialVehiclesPre20041
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehicles1AmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: CarsAndLightCommercialVehiclesPre2004VehicleType = Field(alias="vehicleType")
+    vehicle_type: Optional[CarsAndLightCommercialVehiclesPre2004VehicleType] = Field(default=CarsAndLightCommercialVehiclesPre2004VehicleType.CARS_AND_LIGHT_COMMERCIAL_VEHICLES_LEFT_PARENTHESIS_PRE_2004_RIGHT_PARENTHESIS, alias="vehicleType")
     fuel_type: CarsLightCommercialPre2004FuelType = Field(description="Type of fuel used by cars and light commercial vehicles manufactured before 2004", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
 
@@ -91,7 +91,7 @@ class CarsAndLightCommercialVehiclesPre20041(BaseModel):
 
         _obj = cls.model_validate({
             "amountKilolitres": CarsAndLightCommercialVehicles1AmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None,
-            "vehicleType": obj.get("vehicleType"),
+            "vehicleType": obj.get("vehicleType") if obj.get("vehicleType") is not None else CarsAndLightCommercialVehiclesPre2004VehicleType.CARS_AND_LIGHT_COMMERCIAL_VEHICLES_LEFT_PARENTHESIS_PRE_2004_RIGHT_PARENTHESIS,
             "fuelType": obj.get("fuelType")
         })
         return _obj

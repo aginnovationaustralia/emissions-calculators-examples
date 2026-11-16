@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.basic_production_system_scope1_method1_inorganic_applications_inner import BasicProductionSystemScope1Method1InorganicApplicationsInner
 from openapi_client.models.specific_production_system_scope1_method2_inorganic_area_applied_hectares import SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares
 from openapi_client.models.specific_production_system_scope1_method2_inorganic_calculation_method_scope1 import SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1
@@ -32,7 +32,7 @@ class SpecificProductionSystemScope1Method2Inorganic(BaseModel):
     SpecificProductionSystemScope1Method2Inorganic
     """ # noqa: E501
     applications: List[BasicProductionSystemScope1Method1InorganicApplicationsInner] = Field(description="Inorganic fertiliser applications")
-    calculation_method_scope1: SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1 = Field(alias="calculationMethodScope1")
+    calculation_method_scope1: Optional[SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1] = Field(default=SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1.ENUM_2, alias="calculationMethodScope1")
     area_applied_hectares: SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares = Field(alias="areaAppliedHectares")
     __properties: ClassVar[List[str]] = ["applications", "calculationMethodScope1", "areaAppliedHectares"]
 
@@ -97,7 +97,7 @@ class SpecificProductionSystemScope1Method2Inorganic(BaseModel):
 
         _obj = cls.model_validate({
             "applications": [BasicProductionSystemScope1Method1InorganicApplicationsInner.from_dict(_item) for _item in obj["applications"]] if obj.get("applications") is not None else None,
-            "calculationMethodScope1": obj.get("calculationMethodScope1"),
+            "calculationMethodScope1": obj.get("calculationMethodScope1") if obj.get("calculationMethodScope1") is not None else SpecificProductionSystemScope1Method2InorganicCalculationMethodScope1.ENUM_2,
             "areaAppliedHectares": SpecificProductionSystemScope1Method2InorganicAreaAppliedHectares.from_dict(obj["areaAppliedHectares"]) if obj.get("areaAppliedHectares") is not None else None
         })
         return _obj

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.aviation_fuel_type import AviationFuelType
 from openapi_client.models.aviation_vehicle_type import AviationVehicleType
 from openapi_client.models.cars_and_light_commercial_vehicles_amount_kilolitres import CarsAndLightCommercialVehiclesAmountKilolitres
@@ -32,7 +32,7 @@ class Aviation(BaseModel):
     Aviation
     """ # noqa: E501
     amount_kilolitres: CarsAndLightCommercialVehiclesAmountKilolitres = Field(alias="amountKilolitres")
-    vehicle_type: AviationVehicleType = Field(alias="vehicleType")
+    vehicle_type: Optional[AviationVehicleType] = Field(default=AviationVehicleType.AVIATION, alias="vehicleType")
     fuel_type: AviationFuelType = Field(description="Type of fuel used by aircraft", alias="fuelType")
     __properties: ClassVar[List[str]] = ["amountKilolitres", "vehicleType", "fuelType"]
 
@@ -91,7 +91,7 @@ class Aviation(BaseModel):
 
         _obj = cls.model_validate({
             "amountKilolitres": CarsAndLightCommercialVehiclesAmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None,
-            "vehicleType": obj.get("vehicleType"),
+            "vehicleType": obj.get("vehicleType") if obj.get("vehicleType") is not None else AviationVehicleType.AVIATION,
             "fuelType": obj.get("fuelType")
         })
         return _obj

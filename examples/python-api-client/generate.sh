@@ -12,7 +12,7 @@ SPEC_FILE=$(mktemp -d)/openapi.json
 if [[ -f "$SPEC_NAME" ]]; then
   cp "$SPEC_NAME" $SPEC_FILE
 else
-  curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
+  curl -sSf https://docs.aiaplatform.com.au/api/gaf-calculators/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
 fi
 node -e '
 const fs = require("fs");
@@ -28,6 +28,24 @@ const walk = (o) => {
   }
 };
 walk(spec);
+// A property with only one allowed value (a `const`, or a single-value enum, e.g.
+// Method1.calculationMethod) carries no information, so give it that value as a default and make it
+// optional. The generator then assigns it automatically instead of requiring it as a constructor
+// argument. The generator ignores defaults on required properties, hence removing it from `required`.
+const defaultSingleValueEnums = (o) => {
+  if (Array.isArray(o)) return o.forEach(defaultSingleValueEnums);
+  if (o && typeof o === "object") {
+    for (const [name, prop] of Object.entries(o.properties ?? {})) {
+      const values = prop && "const" in prop ? [prop.const] : prop?.enum;
+      if (Array.isArray(values) && values.length === 1) {
+        prop.default = values[0];
+        if (Array.isArray(o.required)) o.required = o.required.filter((r) => r !== name);
+      }
+    }
+    Object.values(o).forEach(defaultSingleValueEnums);
+  }
+};
+defaultSingleValueEnums(spec);
 // TEMPORARY: the API omits `gas` from some outputs (e.g. scope3.services, scope3.fuel) although
 // the spec marks it required, which fails response parsing. Remove once the API or spec is fixed.
 for (const name of ["OutputMethod1", "OutputMethod2"]) {

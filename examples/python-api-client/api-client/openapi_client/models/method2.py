@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method2_average_yield_per_hectare import Method2AverageYieldPerHectare
 from openapi_client.models.method2_calculation_method import Method2CalculationMethod
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class Method2(BaseModel):
     """
     Method2
     """ # noqa: E501
-    calculation_method: Method2CalculationMethod = Field(alias="calculationMethod")
+    calculation_method: Optional[Method2CalculationMethod] = Field(default=Method2CalculationMethod.ENUM_2, alias="calculationMethod")
     average_yield_per_hectare: Method2AverageYieldPerHectare = Field(alias="averageYieldPerHectare")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["calculationMethod", "averageYieldPerHectare"]
@@ -96,7 +96,7 @@ class Method2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "calculationMethod": obj.get("calculationMethod"),
+            "calculationMethod": obj.get("calculationMethod") if obj.get("calculationMethod") is not None else Method2CalculationMethod.ENUM_2,
             "averageYieldPerHectare": Method2AverageYieldPerHectare.from_dict(obj["averageYieldPerHectare"]) if obj.get("averageYieldPerHectare") is not None else None
         })
         # store additional fields in additional_properties

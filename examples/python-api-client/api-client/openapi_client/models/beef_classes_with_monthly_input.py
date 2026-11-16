@@ -32,7 +32,7 @@ class BeefClassesWithMonthlyInput(BaseModel):
     """
     BeefClassesWithMonthlyInput
     """ # noqa: E501
-    period: BeefClassesWithMonthlyInputPeriod
+    period: Optional[BeefClassesWithMonthlyInputPeriod] = BeefClassesWithMonthlyInputPeriod.MONTHLY
     bulls_lt1: Optional[BeefClassesWithMonthlyInputBullsLt1] = Field(default=None, alias="bullsLt1")
     bulls_gt1: Optional[BeefClassMonthlyInput] = Field(default=None, alias="bullsGt1")
     cows_lt1: Optional[BeefClassesWithMonthlyInputBullsLt1] = Field(default=None, alias="cowsLt1")
@@ -126,7 +126,7 @@ class BeefClassesWithMonthlyInput(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "period": obj.get("period"),
+            "period": obj.get("period") if obj.get("period") is not None else BeefClassesWithMonthlyInputPeriod.MONTHLY,
             "bullsLt1": BeefClassesWithMonthlyInputBullsLt1.from_dict(obj["bullsLt1"]) if obj.get("bullsLt1") is not None else None,
             "bullsGt1": BeefClassMonthlyInput.from_dict(obj["bullsGt1"]) if obj.get("bullsGt1") is not None else None,
             "cowsLt1": BeefClassesWithMonthlyInputBullsLt1.from_dict(obj["cowsLt1"]) if obj.get("cowsLt1") is not None else None,

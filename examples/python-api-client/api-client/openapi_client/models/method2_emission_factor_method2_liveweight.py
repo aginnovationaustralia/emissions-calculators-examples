@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.method1_emission_factor_method1_liveweight_type import Method1EmissionFactorMethod1LiveweightType
 from openapi_client.models.method1_emission_factor_method2_liveweight_head_purchased import Method1EmissionFactorMethod2LiveweightHeadPurchased
 from openapi_client.models.method2_emission_factor_method2_liveweight_emission_factor_method2 import Method2EmissionFactorMethod2LiveweightEmissionFactorMethod2
@@ -32,7 +32,7 @@ class Method2EmissionFactorMethod2Liveweight(BaseModel):
     """
     Method2EmissionFactorMethod2Liveweight
     """ # noqa: E501
-    type: Method1EmissionFactorMethod1LiveweightType
+    type: Optional[Method1EmissionFactorMethod1LiveweightType] = Method1EmissionFactorMethod1LiveweightType.BEEF
     head_purchased: Method1EmissionFactorMethod2LiveweightHeadPurchased = Field(alias="headPurchased")
     emission_factor_method2: Method2EmissionFactorMethod2LiveweightEmissionFactorMethod2 = Field(alias="emissionFactorMethod2")
     liveweight_method2: Method2EmissionFactorMethod2LiveweightLiveweightMethod2 = Field(alias="liveweightMethod2")
@@ -106,7 +106,7 @@ class Method2EmissionFactorMethod2Liveweight(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
+            "type": obj.get("type") if obj.get("type") is not None else Method1EmissionFactorMethod1LiveweightType.BEEF,
             "headPurchased": Method1EmissionFactorMethod2LiveweightHeadPurchased.from_dict(obj["headPurchased"]) if obj.get("headPurchased") is not None else None,
             "emissionFactorMethod2": Method2EmissionFactorMethod2LiveweightEmissionFactorMethod2.from_dict(obj["emissionFactorMethod2"]) if obj.get("emissionFactorMethod2") is not None else None,
             "liveweightMethod2": Method2EmissionFactorMethod2LiveweightLiveweightMethod2.from_dict(obj["liveweightMethod2"]) if obj.get("liveweightMethod2") is not None else None

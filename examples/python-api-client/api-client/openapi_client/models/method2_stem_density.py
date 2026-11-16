@@ -38,7 +38,7 @@ class Method2StemDensity(BaseModel):
     method2_biomass_at_maturity: Optional[Method13Method2BiomassAtMaturity] = Field(default=None, alias="method2BiomassAtMaturity")
     plantings: List[Method13PlantingsInner]
     crop_type: PerennialWoodyCropFull = Field(description="Type of perennial woody crop planted", alias="cropType")
-    calculation_method: Method2StemDensityCalculationMethod = Field(alias="calculationMethod")
+    calculation_method: Optional[Method2StemDensityCalculationMethod] = Field(default=Method2StemDensityCalculationMethod.ENUM_2_LEFT_PARENTHESIS_STEM_DENSITY_RIGHT_PARENTHESIS, alias="calculationMethod")
     clearings: List[Method2StemDensityClearingsInner]
     __properties: ClassVar[List[str]] = ["method2ActualStemDensity", "method2BiomassAtMaturity", "plantings", "cropType", "calculationMethod", "clearings"]
 
@@ -115,7 +115,7 @@ class Method2StemDensity(BaseModel):
             "method2BiomassAtMaturity": Method13Method2BiomassAtMaturity.from_dict(obj["method2BiomassAtMaturity"]) if obj.get("method2BiomassAtMaturity") is not None else None,
             "plantings": [Method13PlantingsInner.from_dict(_item) for _item in obj["plantings"]] if obj.get("plantings") is not None else None,
             "cropType": obj.get("cropType"),
-            "calculationMethod": obj.get("calculationMethod"),
+            "calculationMethod": obj.get("calculationMethod") if obj.get("calculationMethod") is not None else Method2StemDensityCalculationMethod.ENUM_2_LEFT_PARENTHESIS_STEM_DENSITY_RIGHT_PARENTHESIS,
             "clearings": [Method2StemDensityClearingsInner.from_dict(_item) for _item in obj["clearings"]] if obj.get("clearings") is not None else None
         })
         return _obj

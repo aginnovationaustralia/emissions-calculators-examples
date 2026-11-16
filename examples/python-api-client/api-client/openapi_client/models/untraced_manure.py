@@ -32,7 +32,7 @@ class UntracedManure(BaseModel):
     """
     UntracedManure
     """ # noqa: E501
-    origin: UntracedManureOrigin
+    origin: Optional[UntracedManureOrigin] = UntracedManureOrigin.UNTRACED
     mass_applied_kg: UntracedManureMassAppliedKg = Field(alias="massAppliedKg")
     organic_fertiliser_type: OrganicFertiliserType = Field(description="Type of organic fertiliser", alias="organicFertiliserType")
     custom_nitrogen_fraction: Optional[UntracedManureCustomNitrogenFraction] = Field(default=None, alias="customNitrogenFraction")
@@ -95,7 +95,7 @@ class UntracedManure(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "origin": obj.get("origin"),
+            "origin": obj.get("origin") if obj.get("origin") is not None else UntracedManureOrigin.UNTRACED,
             "massAppliedKg": UntracedManureMassAppliedKg.from_dict(obj["massAppliedKg"]) if obj.get("massAppliedKg") is not None else None,
             "organicFertiliserType": obj.get("organicFertiliserType"),
             "customNitrogenFraction": UntracedManureCustomNitrogenFraction.from_dict(obj["customNitrogenFraction"]) if obj.get("customNitrogenFraction") is not None else None

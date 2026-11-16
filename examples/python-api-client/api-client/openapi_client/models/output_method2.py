@@ -38,7 +38,7 @@ class OutputMethod2(BaseModel):
     references: List[StrictStr] = Field(description="References to the equations used to calculate this result")
     constants: List[OutputConstant] = Field(description="Constants used in this calculation")
     inputs: List[OutputInput] = Field(description="Inputs used in this calculation")
-    method: OutputMethod2Method
+    method: Optional[OutputMethod2Method] = OutputMethod2Method.ENUM_2
     amount_gas_kg_method1: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of the gas emitted using method 1, in kg of that gas, when a method 1 value can be calculated", alias="amountGasKgMethod1")
     amount_gas_kg_method2: Union[StrictFloat, StrictInt] = Field(description="Amount of the gas emitted using method 2, in kg of that gas", alias="amountGasKgMethod2")
     __properties: ClassVar[List[str]] = ["amountGasKg", "gas", "amountTonnesCO2e", "references", "constants", "inputs", "method", "amountGasKgMethod1", "amountGasKgMethod2"]
@@ -112,7 +112,7 @@ class OutputMethod2(BaseModel):
             "references": obj.get("references"),
             "constants": [OutputConstant.from_dict(_item) for _item in obj["constants"]] if obj.get("constants") is not None else None,
             "inputs": [OutputInput.from_dict(_item) for _item in obj["inputs"]] if obj.get("inputs") is not None else None,
-            "method": obj.get("method"),
+            "method": obj.get("method") if obj.get("method") is not None else OutputMethod2Method.ENUM_2,
             "amountGasKgMethod1": obj.get("amountGasKgMethod1"),
             "amountGasKgMethod2": obj.get("amountGasKgMethod2")
         })

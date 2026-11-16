@@ -35,7 +35,7 @@ class Method12(BaseModel):
     """
     Method12
     """ # noqa: E501
-    method: Method1CalculationMethod
+    method: Optional[Method1CalculationMethod] = Method1CalculationMethod.ENUM_1
     unmanaged_burial: Optional[Method12UnmanagedBurial] = Field(default=None, alias="unmanagedBurial")
     unmanaged_deep: Optional[Method12UnmanagedDeep] = Field(default=None, alias="unmanagedDeep")
     unmanaged_shallow: Optional[Method12UnmanagedShallow] = Field(default=None, alias="unmanagedShallow")
@@ -121,7 +121,7 @@ class Method12(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "method": obj.get("method"),
+            "method": obj.get("method") if obj.get("method") is not None else Method1CalculationMethod.ENUM_1,
             "unmanagedBurial": Method12UnmanagedBurial.from_dict(obj["unmanagedBurial"]) if obj.get("unmanagedBurial") is not None else None,
             "unmanagedDeep": Method12UnmanagedDeep.from_dict(obj["unmanagedDeep"]) if obj.get("unmanagedDeep") is not None else None,
             "unmanagedShallow": Method12UnmanagedShallow.from_dict(obj["unmanagedShallow"]) if obj.get("unmanagedShallow") is not None else None,

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.electricity_region import ElectricityRegion
 from openapi_client.models.location_based_electricity_purchased_kwh import LocationBasedElectricityPurchasedKWh
 from openapi_client.models.location_based_method import LocationBasedMethod
@@ -31,7 +31,7 @@ class LocationBased(BaseModel):
     """
     LocationBased
     """ # noqa: E501
-    method: LocationBasedMethod
+    method: Optional[LocationBasedMethod] = LocationBasedMethod.LOCATION
     electricity_purchased_kwh: LocationBasedElectricityPurchasedKWh = Field(alias="electricityPurchasedKWh")
     region: ElectricityRegion = Field(description="The state, territory or electricity grid the electricity is purchased in")
     additional_properties: Dict[str, Any] = {}
@@ -98,7 +98,7 @@ class LocationBased(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "method": obj.get("method"),
+            "method": obj.get("method") if obj.get("method") is not None else LocationBasedMethod.LOCATION,
             "electricityPurchasedKWh": LocationBasedElectricityPurchasedKWh.from_dict(obj["electricityPurchasedKWh"]) if obj.get("electricityPurchasedKWh") is not None else None,
             "region": obj.get("region")
         })

@@ -35,7 +35,7 @@ class Method22(BaseModel):
     """
     Method22
     """ # noqa: E501
-    method: Method2CalculationMethod
+    method: Optional[Method2CalculationMethod] = Method2CalculationMethod.ENUM_2
     unmanaged_burial: Optional[List[Method22UnmanagedBurialInner]] = Field(default=None, alias="unmanagedBurial")
     unmanaged_deep: Optional[List[Method22UnmanagedDeepInner]] = Field(default=None, alias="unmanagedDeep")
     unmanaged_shallow: Optional[List[Method22UnmanagedShallowInner]] = Field(default=None, alias="unmanagedShallow")
@@ -139,7 +139,7 @@ class Method22(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "method": obj.get("method"),
+            "method": obj.get("method") if obj.get("method") is not None else Method2CalculationMethod.ENUM_2,
             "unmanagedBurial": [Method22UnmanagedBurialInner.from_dict(_item) for _item in obj["unmanagedBurial"]] if obj.get("unmanagedBurial") is not None else None,
             "unmanagedDeep": [Method22UnmanagedDeepInner.from_dict(_item) for _item in obj["unmanagedDeep"]] if obj.get("unmanagedDeep") is not None else None,
             "unmanagedShallow": [Method22UnmanagedShallowInner.from_dict(_item) for _item in obj["unmanagedShallow"]] if obj.get("unmanagedShallow") is not None else None,

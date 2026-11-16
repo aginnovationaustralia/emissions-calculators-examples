@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.cars_and_light_commercial_vehicles1_amount_kilolitres import CarsAndLightCommercialVehicles1AmountKilolitres
 from openapi_client.models.fuel_stationary_volume_based_liquid_type import FuelStationaryVolumeBasedLiquidType
 from openapi_client.models.quantity_by_volume11_fuel_class import QuantityByVolume11FuelClass
@@ -31,7 +31,7 @@ class QuantityByVolume12(BaseModel):
     """
     QuantityByVolume12
     """ # noqa: E501
-    fuel_class: QuantityByVolume11FuelClass = Field(alias="fuelClass")
+    fuel_class: Optional[QuantityByVolume11FuelClass] = Field(default=QuantityByVolume11FuelClass.LIQUID_FUELS, alias="fuelClass")
     fuel_type: FuelStationaryVolumeBasedLiquidType = Field(description="Type of liquid fuel used in stationary equipment", alias="fuelType")
     amount_kilolitres: CarsAndLightCommercialVehicles1AmountKilolitres = Field(alias="amountKilolitres")
     __properties: ClassVar[List[str]] = ["fuelClass", "fuelType", "amountKilolitres"]
@@ -90,7 +90,7 @@ class QuantityByVolume12(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fuelClass": obj.get("fuelClass"),
+            "fuelClass": obj.get("fuelClass") if obj.get("fuelClass") is not None else QuantityByVolume11FuelClass.LIQUID_FUELS,
             "fuelType": obj.get("fuelType"),
             "amountKilolitres": CarsAndLightCommercialVehicles1AmountKilolitres.from_dict(obj["amountKilolitres"]) if obj.get("amountKilolitres") is not None else None
         })

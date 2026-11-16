@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.purchased_from_brazil_region import PurchasedFromBrazilRegion
 from openapi_client.models.purchased_from_brazil_type import PurchasedFromBrazilType
 from openapi_client.models.regionless_feed_type_amount import RegionlessFeedTypeAmount
@@ -32,8 +32,8 @@ class PurchasedFromBrazil(BaseModel):
     PurchasedFromBrazil
     """ # noqa: E501
     amount: RegionlessFeedTypeAmount
-    type: PurchasedFromBrazilType
-    region: PurchasedFromBrazilRegion
+    type: Optional[PurchasedFromBrazilType] = PurchasedFromBrazilType.SOYBEAN_MEAL
+    region: Optional[PurchasedFromBrazilRegion] = PurchasedFromBrazilRegion.BRAZIL
     __properties: ClassVar[List[str]] = ["amount", "type", "region"]
 
     model_config = ConfigDict(
@@ -91,8 +91,8 @@ class PurchasedFromBrazil(BaseModel):
 
         _obj = cls.model_validate({
             "amount": RegionlessFeedTypeAmount.from_dict(obj["amount"]) if obj.get("amount") is not None else None,
-            "type": obj.get("type"),
-            "region": obj.get("region")
+            "type": obj.get("type") if obj.get("type") is not None else PurchasedFromBrazilType.SOYBEAN_MEAL,
+            "region": obj.get("region") if obj.get("region") is not None else PurchasedFromBrazilRegion.BRAZIL
         })
         return _obj
 

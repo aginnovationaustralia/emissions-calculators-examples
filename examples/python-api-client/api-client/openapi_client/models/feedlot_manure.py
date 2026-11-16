@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.feedlot_manure_groups_inner import FeedlotManureGroupsInner
 from openapi_client.models.feedlot_manure_type import FeedlotManureType
 from openapi_client.models.pigs_manure_herds_inner_fraction_applied_to_soils import PigsManureHerdsInnerFractionAppliedToSoils
@@ -33,7 +33,7 @@ class FeedlotManure(BaseModel):
     """ # noqa: E501
     groups: List[FeedlotManureGroupsInner]
     fraction_applied_to_soils: PigsManureHerdsInnerFractionAppliedToSoils = Field(alias="fractionAppliedToSoils")
-    type: FeedlotManureType
+    type: Optional[FeedlotManureType] = FeedlotManureType.FEEDLOT
     __properties: ClassVar[List[str]] = ["groups", "fractionAppliedToSoils", "type"]
 
     model_config = ConfigDict(
@@ -98,7 +98,7 @@ class FeedlotManure(BaseModel):
         _obj = cls.model_validate({
             "groups": [FeedlotManureGroupsInner.from_dict(_item) for _item in obj["groups"]] if obj.get("groups") is not None else None,
             "fractionAppliedToSoils": PigsManureHerdsInnerFractionAppliedToSoils.from_dict(obj["fractionAppliedToSoils"]) if obj.get("fractionAppliedToSoils") is not None else None,
-            "type": obj.get("type")
+            "type": obj.get("type") if obj.get("type") is not None else FeedlotManureType.FEEDLOT
         })
         return _obj
 

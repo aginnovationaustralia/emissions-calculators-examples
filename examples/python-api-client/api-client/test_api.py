@@ -80,8 +80,8 @@ def create_valid_beef_input():
     # Sample data for a single beef herd. Each oneOf in the schema has a wrapper model (e.g.
     # BeefClassesInput) that takes the chosen variant (e.g. BeefClassesWithSeasonalInput).
     # Fields with a fixed set of values use the generated enum classes (e.g. StateOrRegion).
-    # Fields that only select a oneOf variant (e.g. period="seasonal", method="location") are
-    # passed as strings, which the models check against the allowed value.
+    # Fields that only select a oneOf variant (e.g. period, method) have a single allowed value, so
+    # the models fill them in automatically and they are not passed here.
     # Most numeric inputs are wrapped in a model with a `value` field.
     cows_gt3_years = BeefClassWithCalvesSeasonalInput(
         spring=BeefClassWithCalvesSeasonalInputSpring(
@@ -111,7 +111,7 @@ def create_valid_beef_input():
         electricity_allocation=PostBeefRequestHerdsInnerElectricityAllocation(value=1),
         region=StateOrRegion.QLD_MINUS__MODERATE_SLASH_HIGH,
         classes=BeefClassesInput(
-            BeefClassesWithSeasonalInput(period="seasonal", cows_gt3_years=cows_gt3_years)
+            BeefClassesWithSeasonalInput(cows_gt3_years=cows_gt3_years)
         ),
         breed=BeefBreed.NORTHERN_BRAHMAN_CROSS_BREED,
         grazing_system=GrazingProductionSystemWithRainfall.NON_MINUS_IRRIGATED_PASTURE,
@@ -122,7 +122,6 @@ def create_valid_beef_input():
         fuel=FuelInput(
             transport=[
                 FuelInputTransportInner(LitresBasedFuel(CarsAndLightCommercialVehicles(
-                    vehicle_type="Cars and light commercial vehicles",
                     fuel_type=CarsLightCommercialFuelType.DIESEL_OIL,
                     amount_kilolitres=CarsAndLightCommercialVehiclesAmountKilolitres(value=1),
                 )))
@@ -142,7 +141,7 @@ def create_valid_beef_input():
             type=PastureType.PERENNIAL_PASTURE,
             area_managed=PostBeefRequestHerdsInnerPastureAreaManaged(value=500),
             fraction_of_annual_crop_burnt=PostBeefRequestHerdsInnerPastureFractionOfAnnualCropBurnt(value=0),
-            residues=PostBeefRequestHerdsInnerPastureResidues(Method1(calculation_method="1")),
+            residues=PostBeefRequestHerdsInnerPastureResidues(Method1()),
         ),
         purchased_livestock=[],
         purchased_feed=[],
@@ -164,12 +163,10 @@ def create_valid_beef_input():
         fertiliser=FertiliserInput(BasicProductionSystemScope1Method1(
             production_system=BasicCropProductionSystem.NON_MINUS_IRRIGATED_PASTURE,
             inorganic=BasicProductionSystemScope1Method1Inorganic(
-                calculation_method_scope1="1",
                 applications=[
                     BasicProductionSystemScope1Method1InorganicApplicationsInner(Scope3Method1(
                         fertiliser_type=InorganicFertiliserType.UREA,
                         mass_applied_kg=Scope3Method1MassAppliedKg(value=2000),
-                        calculation_method_scope3="1",
                     ))
                 ],
             ),
@@ -180,7 +177,6 @@ def create_valid_beef_input():
     return PostBeefRequest(
         is_february_in_leap_year=False,
         electricity=PostBeefRequestElectricity(LocationBased(
-            method="location",
             electricity_purchased_kwh=LocationBasedElectricityPurchasedKWh(value=5000),
             region=ElectricityRegion.QLD,
         )),
