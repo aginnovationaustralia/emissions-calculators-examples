@@ -1,6 +1,6 @@
 # Example C# API client for the AIA Carbon Calculators API
 
-This example shows how to call the REST API available at https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta using a simple C# script.
+This example shows how to call the REST API available at https://emissionscalculator-mtls.production.aiaapi.com/veerg/1.1-beta using a simple C# script.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ run_test.sh
 
 The C# API client has been generated using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) tool. The generation can be reproduced by running [generate.sh](./generate.sh). If you supply your mTLS certificate files correctly (you can place them in the resources folder and they will be copied in) the generation script should be able to execute the sample test successfully.
 
-The generation script takes the API version and the spec name as arguments, e.g. `./generate.sh 4.0.2 beef` (the defaults). The spec is downloaded from `https://docs.aiaplatform.com.au/api/<version>/<name>.json`, so `openapi` generates a client for every endpoint.
+The generation script takes the API version and the spec name as arguments, e.g. `./generate.sh 1.1.0 beef` (the defaults). The spec is downloaded from `https://docs.aiaplatform.com.au/api/veerg/<version>/<name>.json`, so `openapi` generates a client for every endpoint.
 
 Some constructs in the API's OpenAPI spec are not handled correctly by the C# generator, so [generate.sh](./generate.sh) works around them:
 

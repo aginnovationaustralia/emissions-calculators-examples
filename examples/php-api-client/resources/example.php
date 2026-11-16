@@ -17,7 +17,7 @@ try {
     "isFebruaryInLeapYear": false,
     "electricity": {
         "method": "location",
-        "electricityPurchasedKWh": {
+        "electricityPurchasedKilowattHours": {
             "value": 5000
         },
         "region": "QLD"
@@ -36,10 +36,10 @@ try {
                         "head": {
                             "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                             "value": 0.2
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                             "value": 0.2
                         }
                     },
@@ -47,10 +47,10 @@ try {
                         "head": {
                             "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                             "value": 0.1
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                             "value": 0.2
                         }
                     },
@@ -58,10 +58,10 @@ try {
                         "head": {
                             "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                             "value": 0.5
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                             "value": 0.1
                         }
                     },
@@ -69,10 +69,10 @@ try {
                         "head": {
                             "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                             "value": 0.2
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                             "value": 0.5
                         }
                     }
@@ -83,7 +83,7 @@ try {
             "climateZone": "Tropical dry",
             "isInLeachingZone": false,
             "excludedFromNaturalWater": false,
-            "liveweightSoldKg": {
+            "liveweightSoldKilograms": {
                 "value": 12500
             },
             "fuel": {
@@ -102,7 +102,7 @@ try {
                 "applications": [
                     {
                         "type": "Limestone",
-                        "massAppliedKg": {
+                        "massAppliedKilograms": {
                             "value": 10000
                         },
                         "limestoneFraction": {
@@ -113,7 +113,7 @@ try {
             },
             "pasture": {
                 "type": "Perennial pasture",
-                "areaManaged": {
+                "areaManagedHectares": {
                     "value": 500
                 },
                 "fractionOfAnnualCropBurnt": {
@@ -128,7 +128,7 @@ try {
             "purchasedMineralSupplements": [
                 {
                     "type": "Lick block, dry season mix",
-                    "amount": {
+                    "amountTonnes": {
                         "value": 2
                     }
                 }
@@ -136,7 +136,7 @@ try {
             "chemicals": [
                 {
                     "type": "Herbicide (paraquat, diquat, glyphosate)",
-                    "amountKg": {
+                    "amountKilograms": {
                         "value": 50
                     }
                 }
@@ -154,7 +154,10 @@ try {
                     "applications": [
                         {
                             "fertiliserType": "Urea",
-                            "massAppliedKg": {
+                            "massAppliedKilograms": {
+                                "value": 2000
+                            },
+                            "massPurchasedKilograms": {
                                 "value": 2000
                             },
                             "calculationMethodScope3": "1"
@@ -177,7 +180,7 @@ JSON;
 
     // Configure API
     $config = Configuration::getDefaultConfiguration();
-    $config->setHost('https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta');
+    $config->setHost('https://emissionscalculator-mtls.production.aiaapi.com/veerg/1.1-beta');
 
     // Initialize API, authenticating via mTLS with the client certificate and key
     $client = new Client([

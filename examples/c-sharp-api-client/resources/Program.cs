@@ -72,7 +72,7 @@ namespace TestApi
               "isFebruaryInLeapYear": false,
               "electricity": {
                 "method": "location",
-                "electricityPurchasedKWh": {
+                "electricityPurchasedKilowattHours": {
                   "value": 5000
                 },
                 "region": "QLD"
@@ -91,10 +91,10 @@ namespace TestApi
                         "head": {
                           "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                           "value": 0.2
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                           "value": 0.2
                         }
                       },
@@ -102,10 +102,10 @@ namespace TestApi
                         "head": {
                           "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                           "value": 0.1
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                           "value": 0.2
                         }
                       },
@@ -113,10 +113,10 @@ namespace TestApi
                         "head": {
                           "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                           "value": 0.5
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                           "value": 0.1
                         }
                       },
@@ -124,10 +124,10 @@ namespace TestApi
                         "head": {
                           "value": 50
                         },
-                        "proportionCowsThisSeasonInCalf": {
+                        "fractionCowsThisSeasonInCalf": {
                           "value": 0.2
                         },
-                        "proportionCowsPreviousSeasonInCalf": {
+                        "fractionCowsPreviousSeasonInCalf": {
                           "value": 0.5
                         }
                       }
@@ -138,7 +138,7 @@ namespace TestApi
                   "climateZone": "Tropical dry",
                   "isInLeachingZone": false,
                   "excludedFromNaturalWater": false,
-                  "liveweightSoldKg": {
+                  "liveweightSoldKilograms": {
                     "value": 12500
                   },
                   "fuel": {
@@ -157,7 +157,7 @@ namespace TestApi
                     "applications": [
                       {
                         "type": "Limestone",
-                        "massAppliedKg": {
+                        "massAppliedKilograms": {
                           "value": 10000
                         },
                         "limestoneFraction": {
@@ -168,7 +168,7 @@ namespace TestApi
                   },
                   "pasture": {
                     "type": "Perennial pasture",
-                    "areaManaged": {
+                    "areaManagedHectares": {
                       "value": 500
                     },
                     "fractionOfAnnualCropBurnt": {
@@ -183,7 +183,7 @@ namespace TestApi
                   "purchasedMineralSupplements": [
                     {
                       "type": "Lick block, dry season mix",
-                      "amount": {
+                      "amountTonnes": {
                         "value": 2
                       }
                     }
@@ -191,7 +191,7 @@ namespace TestApi
                   "chemicals": [
                     {
                       "type": "Herbicide (paraquat, diquat, glyphosate)",
-                      "amountKg": {
+                      "amountKilograms": {
                         "value": 50
                       }
                     }
@@ -209,7 +209,10 @@ namespace TestApi
                       "applications": [
                         {
                           "fertiliserType": "Urea",
-                          "massAppliedKg": {
+                          "massAppliedKilograms": {
+                            "value": 2000
+                          },
+                          "massPurchasedKilograms": {
                             "value": 2000
                           },
                           "calculationMethodScope3": "1"
@@ -252,7 +255,7 @@ namespace TestApi
                     client =>
                     {
                         // Set base address
-                        client.BaseAddress = new Uri("https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta");
+                        client.BaseAddress = new Uri("https://emissionscalculator-mtls.production.aiaapi.com/veerg/1.1-beta");
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         client.DefaultRequestHeaders.Add("User-Agent", "EAP Integration Tester 1.0");
                     },

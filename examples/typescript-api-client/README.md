@@ -1,6 +1,6 @@
 # Example TypeScript API client for the AIA Carbon Calculators API
 
-This example shows how to call the REST API available at https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta using a simple TypeScript script.
+This example shows how to call the REST API available at https://emissionscalculator-mtls.production.aiaapi.com/veerg/1.1-beta using a simple TypeScript script.
 
 ## Prerequisites
 
@@ -26,6 +26,6 @@ run_test.sh
 
 The TypeScript API client has been generated using the [openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli) tool. The generation can be reproduced by running [generate.sh](./generate.sh). If you supply your mTLS certificate files correctly (you can place them in the resources folder and they will be copied in) the generation script should be able to execute the sample test successfully.
 
-The generation script takes the API version and the spec name as arguments, e.g. `./generate.sh 4.0.2 beef` (the defaults). The spec is downloaded from `https://docs.aiaplatform.com.au/api/<version>/<name>.json`, so `openapi` generates a client for every endpoint. The spec name can also be a path to a local spec file, e.g. `./generate.sh 4.0.2 ../path/to/openapi-beef-4.0.2.json`.
+The generation script takes the API version and the spec name as arguments, e.g. `./generate.sh 1.1.0 beef` (the defaults). The spec is downloaded from `https://docs.aiaplatform.com.au/api/veerg/<version>/<name>.json`, so `openapi` generates a client for every endpoint. The spec name can also be a path to a local spec file, e.g. `./generate.sh 1.1.0 ../path/to/openapi-beef-1.1.0.json`.
 
 A customised [modelOneOf.mustache](./templates/modelOneOf.mustache) template adds the `instanceOf` check that the generator omits for `oneOf` models, which is needed to serialise nested `oneOf` values.

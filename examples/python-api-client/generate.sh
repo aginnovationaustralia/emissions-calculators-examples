@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 API_CLIENT_DIR=api-client
-API_VERSION=${1:-4.0.2}
+API_VERSION=${1:-1.1.0}
 SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
@@ -12,7 +12,7 @@ SPEC_FILE=$(mktemp -d)/openapi.json
 if [[ -f "$SPEC_NAME" ]]; then
   cp "$SPEC_NAME" $SPEC_FILE
 else
-  curl -sSf https://docs.aiaplatform.com.au/api/gaf-calculators/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
+  curl -sSf https://docs.aiaplatform.com.au/api/veerg/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
 fi
 node -e '
 const fs = require("fs");

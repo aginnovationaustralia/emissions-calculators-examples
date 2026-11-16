@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 API_CLIENT_DIR=api-client
-API_VERSION=${1:-4.0.2}
+API_VERSION=${1:-1.1.0}
 SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
@@ -9,7 +9,7 @@ rm -rf $API_CLIENT_DIR
 if [[ -f "$SPEC_NAME" ]]; then
   SPEC_INPUT=$SPEC_NAME
 else
-  SPEC_INPUT=https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json
+  SPEC_INPUT=https://docs.aiaplatform.com.au/api/veerg/$API_VERSION/$SPEC_NAME.json
 fi
 
 npm -g install @openapitools/openapi-generator-cli

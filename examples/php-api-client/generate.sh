@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 API_CLIENT_DIR=api-client
-API_VERSION=${1:-4.0.2}
+API_VERSION=${1:-1.1.0}
 SPEC_NAME=${2:-beef}
 rm -rf $API_CLIENT_DIR
 
 # Download the spec and drop "Empty object" oneOf branches: the generator maps them to `object`,
 # and a PHP union type such as `object|SomeModel` is a compile error.
 SPEC_FILE=$(mktemp -d)/openapi.json
-curl -sSf https://docs.aiaplatform.com.au/api/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
+curl -sSf https://docs.aiaplatform.com.au/api/veerg/$API_VERSION/$SPEC_NAME.json -o $SPEC_FILE
 node -e '
 const fs = require("fs");
 const file = process.argv[1];
