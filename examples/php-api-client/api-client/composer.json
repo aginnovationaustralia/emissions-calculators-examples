@@ -1,5 +1,5 @@
 {
-    "description": "Emissions Calculators for various farming activities",
+    "description": "Emissions Calculators for various farming activities, implementing the VEERG guidance and methodology",
     "keywords": [
         "openapitools",
         "openapi-generator",

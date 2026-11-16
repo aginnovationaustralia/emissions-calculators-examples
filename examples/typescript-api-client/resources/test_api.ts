@@ -47,23 +47,23 @@ function createValidBeefInput(): PostBeefRequest {
     const cowsGt3Years: BeefClassWithCalvesSeasonalInput = {
         spring: {
             head: { value: 50 },
-            proportionCowsThisSeasonInCalf: { value: 0.2 },
-            proportionCowsPreviousSeasonInCalf: { value: 0.2 },
+            fractionCowsThisSeasonInCalf: { value: 0.2 },
+            fractionCowsPreviousSeasonInCalf: { value: 0.2 },
         },
         summer: {
             head: { value: 50 },
-            proportionCowsThisSeasonInCalf: { value: 0.1 },
-            proportionCowsPreviousSeasonInCalf: { value: 0.2 },
+            fractionCowsThisSeasonInCalf: { value: 0.1 },
+            fractionCowsPreviousSeasonInCalf: { value: 0.2 },
         },
         autumn: {
             head: { value: 50 },
-            proportionCowsThisSeasonInCalf: { value: 0.5 },
-            proportionCowsPreviousSeasonInCalf: { value: 0.1 },
+            fractionCowsThisSeasonInCalf: { value: 0.5 },
+            fractionCowsPreviousSeasonInCalf: { value: 0.1 },
         },
         winter: {
             head: { value: 50 },
-            proportionCowsThisSeasonInCalf: { value: 0.2 },
-            proportionCowsPreviousSeasonInCalf: { value: 0.5 },
+            fractionCowsThisSeasonInCalf: { value: 0.2 },
+            fractionCowsPreviousSeasonInCalf: { value: 0.5 },
         },
     };
 
@@ -84,25 +84,25 @@ function createValidBeefInput(): PostBeefRequest {
 
     const limestone: LimestoneOrDolomiteApplication = {
         type: LimeAmeliorant.Limestone,
-        massAppliedKg: { value: 10000 },
+        massAppliedKilograms: { value: 10000 },
         limestoneFraction: { value: 0.8 },
     };
 
     const pasture: PostBeefRequestHerdsInnerPasture = {
         type: PastureType.PerennialPasture,
-        areaManaged: { value: 500 },
+        areaManagedHectares: { value: 500 },
         fractionOfAnnualCropBurnt: { value: 0 },
         residues: { calculationMethod: '1' },
     };
 
     const lickBlock: Method11 = {
         type: PurchasedMineralSupplementType.LickBlockDrySeasonMix,
-        amount: { value: 2 },
+        amountTonnes: { value: 2 },
     };
 
     const herbicide: PostBeefRequestHerdsInnerChemicalsInner = {
         type: AgrochemicalType.HerbicideParaquatDiquatGlyphosate,
-        amountKg: { value: 50 },
+        amountKilograms: { value: 50 },
     };
 
     const fertiliser: BasicProductionSystemScope1Method1 = {
@@ -112,7 +112,8 @@ function createValidBeefInput(): PostBeefRequest {
             applications: [
                 {
                     fertiliserType: InorganicFertiliserType.Urea,
-                    massAppliedKg: { value: 2000 },
+                    massAppliedKilograms: { value: 2000 },
+                    massPurchasedKilograms: { value: 2000 },
                     calculationMethodScope3: '1',
                 },
             ],
@@ -130,7 +131,7 @@ function createValidBeefInput(): PostBeefRequest {
         climateZone: ClimateZoneOrZoneType.TropicalDry,
         isInLeachingZone: false,
         excludedFromNaturalWater: false,
-        liveweightSoldKg: { value: 12500 },
+        liveweightSoldKilograms: { value: 12500 },
         fuel,
         lime: { applications: [limestone] },
         pasture,
@@ -144,7 +145,7 @@ function createValidBeefInput(): PostBeefRequest {
 
     const electricity: LocationBased = {
         method: 'location',
-        electricityPurchasedKWh: { value: 5000 },
+        electricityPurchasedKilowattHours: { value: 5000 },
         region: ElectricityRegion.Qld,
     };
 
@@ -160,7 +161,7 @@ async function testBeefApi(): Promise<void> {
      * Test the beef API endpoint with valid input
      */
     
-    const basePath = "https://emissionscalculator-mtls.production.aiaapi.com/calculator/4.0-beta";
+    const basePath = "https://emissionscalculator-mtls.production.aiaapi.com/veerg/1.1-beta";
     const certFile = "cert.pem";
     const keyFile = "key.pem";
     
